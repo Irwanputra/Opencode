@@ -25,6 +25,7 @@ class MainActivity : Activity() {
     private lateinit var root: LinearLayout
     private lateinit var connectBtn: ConnectButtonView
     private lateinit var connectHint: TextView
+    private lateinit var pingLine: TextView
     private lateinit var statusPill: LinearLayout
     private lateinit var statusDot: View
     private lateinit var statusText: TextView
@@ -216,6 +217,33 @@ class MainActivity : Activity() {
             gravity = Gravity.CENTER
         }
         hero.addView(connectHint, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(8) })
+
+        pingLine = TextView(this).apply {
+            text = "Ping: —"
+            textSize = 11.5f
+            setTextColor(withAlpha(MUTED, 220))
+            gravity = Gravity.CENTER
+            setPadding(dp(10), dp(5), dp(10), dp(5))
+            background = rounded(withAlpha(TEAL, 12), 99, withAlpha(TEAL, 40))
+            setOnClickListener {
+                if (TunnelService.running) {
+                    startService(
+                        Intent(this@MainActivity, TunnelService::class.java)
+                            .setAction(TunnelService.ACTION_PING)
+                    )
+                } else {
+                    Toast.makeText(this@MainActivity, "Hubungkan dulu untuk ping", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+        }
+        hero.addView(
+            pingLine,
+            LinearLayout.LayoutParams(-2, -2).apply {
+                topMargin = dp(8)
+                gravity = Gravity.CENTER_HORIZONTAL
+            }
+        )
         root.addView(hero, lp(18))
 
         val summaryCard = card()
@@ -287,10 +315,20 @@ class MainActivity : Activity() {
             text = "Bersihkan"
             textSize = 11.5f
             setTextColor(CYAN)
-            setPadding(dp(10), dp(4), dp(4), dp(4))
+            setPadding(dp(10), dp(4), dp(10), dp(4))
             setOnClickListener {
                 TunnelLog.clear()
                 renderLog()
+            }
+        }, LinearLayout.LayoutParams(-2, -2))
+        logHeader.addView(TextView(this).apply {
+            text = "⤢"
+            textSize = 14f
+            setTextColor(CYAN)
+            setPadding(dp(6), dp(2), dp(4), dp(4))
+            contentDescription = "Buka log penuh"
+            setOnClickListener {
+                startActivity(Intent(this@MainActivity, LogActivity::class.java))
             }
         }, LinearLayout.LayoutParams(-2, -2))
         logCard.addView(logHeader)
@@ -357,11 +395,11 @@ class MainActivity : Activity() {
     }
 
     private fun renderLog() {
-        val lines = TunnelLog.snapshot()
-        logText.text = if (lines.isEmpty()) {
+        val entries = TunnelLog.all()
+        logText.text = if (entries.isEmpty()) {
             "Menunggu aktivitas..."
         } else {
-            lines.joinToString("\n")
+            renderLogSpanned(entries)
         }
         logScroll.post { logScroll.fullScroll(View.FOCUS_DOWN) }
     }
@@ -448,6 +486,16 @@ class MainActivity : Activity() {
             ConnectButtonView.State.CONNECTED -> "Putuskan tunnel"
             else -> "Hubungkan tunnel"
         }
+
+        val ms = TunnelService.pingMs
+        pingLine.text = when {
+            !TunnelService.running -> "Ping: —"
+            ms >= 0 -> "Ping: $ms ms  •  ketuk untuk ping ulang"
+            else -> "Ping: menunggu…  •  ketuk untuk ping"
+        }
+        pingLine.setTextColor(
+            if (TunnelService.running && ms >= 0) TEAL else withAlpha(MUTED, 220)
+        )
     }
 
     override fun onResume() {

@@ -45,9 +45,23 @@ class TunnelService : VpnService() {
         @Volatile var status = "Terputus"
         @Volatile var onStatus: (() -> Unit)? = null
 
+        /** Hasil ping terakhir (ms); -1 = belum/timeout. */
+        @Volatile var pingMs: Int = -1
+        @Volatile var pingAt: Long = 0L
+
         const val ACTION_START = "start"
         const val ACTION_STOP = "stop"
+        const val ACTION_PING = "ping"
         const val EXTRA_PROFILE = "profileId"
+
+        /** "host:port" → Pair(host, port); default 443 bila port tidak valid. */
+        internal fun parsePingTarget(target: String): Pair<String, Int> {
+            val t = target.trim().ifBlank { "1.1.1.1:443" }
+            val host = t.substringBeforeLast(':', t).trim().ifBlank { "1.1.1.1" }
+            val port = t.substringAfterLast(':', "443").trim().toIntOrNull()
+                ?.takeIf { it in 1..65535 } ?: 443
+            return host to port
+        }
     }
 
     private val busy = AtomicBoolean(false)
@@ -55,6 +69,8 @@ class TunnelService : VpnService() {
     @Volatile private var server: ServerSocket? = null
     @Volatile private var profile: Profile? = null
     @Volatile private var tunFd: ParcelFileDescriptor? = null
+    private val pingStop = AtomicBoolean(false)
+    @Volatile private var pingThread: Thread? = null
     private val pool = Executors.newCachedThreadPool()
     private val main = Handler(Looper.getMainLooper())
 
@@ -102,6 +118,12 @@ class TunnelService : VpnService() {
             return START_NOT_STICKY
         }
 
+        if (i?.action == ACTION_PING) {
+            foreground()
+            if (running) pool.execute { doPing(manual = true) }
+            return START_NOT_STICKY
+        }
+
         if (!running) {
             TunnelLog.add(
                 "INFO",
@@ -110,6 +132,8 @@ class TunnelService : VpnService() {
             )
             val profileId = i?.getLongExtra(EXTRA_PROFILE, 0L) ?: 0L
             profile = ProfileStore(this).get(profileId)
+            pingMs = -1
+            pingAt = 0L
             running = true
             foreground()
             set("Menunggu jaringan…")
@@ -129,6 +153,7 @@ class TunnelService : VpnService() {
 
     override fun onDestroy() {
         running = false
+        stopPing()
         try {
             getSystemService(ConnectivityManager::class.java).unregisterNetworkCallback(cb)
         } catch (_: Exception) {
@@ -174,6 +199,7 @@ class TunnelService : VpnService() {
     }
 
     private fun shut() {
+        stopPing()
         try { server?.close() } catch (_: Exception) {}
         try { session?.disconnect() } catch (_: Exception) {}
         server = null
@@ -189,6 +215,10 @@ class TunnelService : VpnService() {
             try {
                 shut()
                 set("Menghubungkan…")
+                if (!policiesOk(p)) {
+                    busy.set(false)
+                    return@Thread
+                }
                 s = dial(p)
                 val port = p.socksPort.coerceIn(1024, 65535)
                 srv = ServerSocket(port, 64, InetAddress.getByName("127.0.0.1"))
@@ -200,6 +230,7 @@ class TunnelService : VpnService() {
                 val mode = if (p.vpn) "VPN" else "SOCKS5 127.0.0.1:$port"
                 set("Terhubung • $mode")
                 if (p.vpn) main.post { startVpn(p) }
+                startPing(p)
 
                 while (true) {
                     val c = srv.accept()
@@ -210,18 +241,134 @@ class TunnelService : VpnService() {
                 try { s?.disconnect() } catch (_: Exception) {}
                 if (running && srv?.isClosed != true) {
                     set("Gagal: ${e.message ?: e.javaClass.simpleName}")
-                    scheduleRetry()
+                    if (p.autoReconnect) scheduleRetry() else set("Terputus")
                 }
             }
         }.start()
     }
 
+    /**
+     * Kebijakan bergaya HTTP Custom: hanya data seluler & blokir root.
+     * Mengembalikan false bila koneksi harus dibatalkan.
+     */
+    private fun policiesOk(p: Profile): Boolean {
+        if (p.onlyMobileData) {
+            val cm = getSystemService(ConnectivityManager::class.java)
+            val caps = cm.getNetworkCapabilities(cm.activeNetwork)
+            val onWifi = caps?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true ||
+                caps?.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) == true
+            if (onWifi) {
+                TunnelLog.add("WARN", "Hanya data seluler aktif — Wi-Fi terdeteksi, koneksi ditolak")
+                set("Gagal: Hanya data seluler (Wi-Fi aktif)")
+                running = false
+                stopSelf()
+                return false
+            }
+        }
+        if (p.blockRoot && isRooted()) {
+            TunnelLog.add("WARN", "Blokir root aktif — akses root terdeteksi, koneksi ditolak")
+            set("Gagal: Perangkat ter-root (Blokir root aktif)")
+            running = false
+            stopSelf()
+            return false
+        }
+        return true
+    }
+
+    private fun isRooted(): Boolean {
+        val paths = arrayOf(
+            "/system/bin/su", "/system/xbin/su", "/sbin/su", "/su/bin/su",
+            "/system/app/Superuser.apk", "/system/xbin/daemonsu"
+        )
+        if (paths.any { File(it).exists() }) return true
+        return try {
+            val proc = Runtime.getRuntime().exec(arrayOf("which", "su"))
+            val found = proc.inputStream.bufferedReader().readText().trim().isNotEmpty()
+            proc.destroy()
+            found
+        } catch (_: Exception) {
+            false
+        }
+    }
+
     private fun scheduleRetry() {
         TunnelLog.add("STATUS", "Mencoba ulang dalam 5 detik...")
-        main.removeCallbacksAndMessages(null)
         main.postDelayed({
             if (running) connect()
         }, 5_000)
+    }
+
+    // ---------------------------------------------------------------- ping
+
+    private fun startPing(p: Profile) {
+        if (!p.autoPing) return
+        stopPing()
+        pingStop.set(false)
+        val intervalMs = p.pingInterval.coerceIn(5, 300) * 1000L
+        TunnelLog.add("PING", "Auto ping aktif tiap ${p.pingInterval.coerceIn(5, 300)} dtk → ${p.pingTarget}")
+        pingThread = Thread {
+            // Ping pertama langsung agar angkanya cepat muncul.
+            if (!pingStop.get() && running) doPing(manual = false)
+            while (!pingStop.get() && running) {
+                try {
+                    Thread.sleep(intervalMs)
+                } catch (_: InterruptedException) {
+                    break
+                }
+                if (pingStop.get() || !running) break
+                doPing(manual = false)
+            }
+        }.apply {
+            isDaemon = true
+            name = "wanz-ping"
+            start()
+        }
+    }
+
+    private fun stopPing() {
+        pingStop.set(true)
+        pingThread?.interrupt()
+        pingThread = null
+    }
+
+    private fun doPing(manual: Boolean) {
+        val p = profile ?: return
+        if (!running) return
+        val s = session ?: return
+        val (host, port) = parsePingTarget(p.pingTarget.ifBlank { "1.1.1.1:443" })
+        val ms = channelPing(s, host, port)
+        if (!running) return
+        if (ms >= 0) {
+            pingMs = ms
+            pingAt = System.currentTimeMillis()
+            TunnelLog.add("PING", "$ms ms" + if (manual) " (manual)" else "")
+        } else {
+            pingMs = -1
+            pingAt = System.currentTimeMillis()
+            TunnelLog.add("PING", "timeout" + if (manual) " (manual)" else "")
+        }
+        onStatus?.invoke()
+    }
+
+    /**
+     * Ukur RTT end-to-end lewat kanal SSH: buka direct-tcpip ke target lalu
+     * tutup lagi. Ini mengukur jalur server SSH sebenarnya (bukan ICMP lokal)
+     * tanpa mengotori log dengan entri SOCKS.
+     */
+    private fun channelPing(s: Session, host: String, port: Int): Int {
+        var ch: ChannelDirectTCPIP? = null
+        return try {
+            val start = System.nanoTime()
+            ch = s.openChannel("direct-tcpip") as ChannelDirectTCPIP
+            ch.setHost(host)
+            ch.setPort(port)
+            ch.connect(8_000)
+            ((System.nanoTime() - start) / 1_000_000L).toInt()
+        } catch (_: Exception) {
+            -1
+        } finally {
+            try { ch?.disconnect() } catch (_: Exception) {}
+        }
     }
 
     private fun dial(p: Profile): Session {
@@ -322,7 +469,8 @@ class TunnelService : VpnService() {
             builder.addAddress("fc00::1", 128)
             builder.addRoute("0.0.0.0", 0)
             builder.addRoute("::", 0)
-            builder.addDnsServer("198.18.0.2")
+            val dns = if (p.mappedDns) "198.18.0.2" else p.dnsServer.ifBlank { "1.1.1.1" }
+            builder.addDnsServer(dns)
             try {
                 builder.addDisallowedApplication(packageName)
             } catch (_: Exception) {
@@ -337,6 +485,18 @@ class TunnelService : VpnService() {
             tunFd = fd
 
             val conf = File(cacheDir, "hev-socks5-tunnel.conf")
+            val mapDns = if (p.mappedDns) {
+                """
+                  mapdns:
+                    address: 198.18.0.2
+                    port: 53
+                    network: 240.0.0.0
+                    netmask: 240.0.0.0
+                    cache-size: 10000
+                """.trimIndent()
+            } else {
+                ""
+            }
             conf.writeText(
                 """
                 tunnel:
@@ -346,12 +506,7 @@ class TunnelService : VpnService() {
                   port: ${p.socksPort.coerceIn(1024, 65535)}
                   address: '127.0.0.1'
                   udp: 'off'
-                mapdns:
-                  address: 198.18.0.2
-                  port: 53
-                  network: 240.0.0.0
-                  netmask: 240.0.0.0
-                  cache-size: 10000
+                $mapDns
                 misc:
                   task-stack-size: 86016
                   connect-timeout: 10000

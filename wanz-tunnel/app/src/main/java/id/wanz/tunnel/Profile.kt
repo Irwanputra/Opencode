@@ -9,6 +9,13 @@ import org.json.JSONObject
  *
  * transport: ssh | tls | ws | wss
  * vpn: false = hanya SOCKS5 lokal, true = tunnel semua aplikasi lewat VpnService
+ *
+ * Opsi tambahan (gaya HTTP Custom):
+ * - autoPing / pingInterval / pingTarget : ping berkala saat terhubung
+ * - autoReconnect                        : sambung ulang otomatis saat putus
+ * - onlyMobileData                       : tolak koneksi saat memakai Wi-Fi
+ * - blockRoot                            : tolak koneksi bila perangkat ter-root
+ * - mappedDns / dnsServer                : DNS lewat tunnel atau DNS kustom
  */
 data class Profile(
     var id: Long = 0,
@@ -25,7 +32,15 @@ data class Profile(
     var sni: String = "",
     var wsPath: String = "/",
     var wsHost: String = "",
-    var strictTls: Boolean = true
+    var strictTls: Boolean = true,
+    var autoPing: Boolean = true,
+    var pingInterval: Int = 10,
+    var pingTarget: String = "1.1.1.1:443",
+    var autoReconnect: Boolean = true,
+    var onlyMobileData: Boolean = false,
+    var blockRoot: Boolean = false,
+    var mappedDns: Boolean = true,
+    var dnsServer: String = "1.1.1.1"
 )
 
 class ProfileStore(context: Context) {
@@ -97,6 +112,14 @@ class ProfileStore(context: Context) {
         put("wsPath", p.wsPath)
         put("wsHost", p.wsHost)
         put("strictTls", p.strictTls)
+        put("autoPing", p.autoPing)
+        put("pingInterval", p.pingInterval)
+        put("pingTarget", p.pingTarget)
+        put("autoReconnect", p.autoReconnect)
+        put("onlyMobileData", p.onlyMobileData)
+        put("blockRoot", p.blockRoot)
+        put("mappedDns", p.mappedDns)
+        put("dnsServer", p.dnsServer)
     }
 
     private fun fromJson(o: JSONObject) = Profile(
@@ -114,7 +137,15 @@ class ProfileStore(context: Context) {
         sni = o.optString("sni", ""),
         wsPath = o.optString("wsPath", "/"),
         wsHost = o.optString("wsHost", ""),
-        strictTls = o.optBoolean("strictTls", true)
+        strictTls = o.optBoolean("strictTls", true),
+        autoPing = o.optBoolean("autoPing", true),
+        pingInterval = o.optInt("pingInterval", 10),
+        pingTarget = o.optString("pingTarget", "1.1.1.1:443"),
+        autoReconnect = o.optBoolean("autoReconnect", true),
+        onlyMobileData = o.optBoolean("onlyMobileData", false),
+        blockRoot = o.optBoolean("blockRoot", false),
+        mappedDns = o.optBoolean("mappedDns", true),
+        dnsServer = o.optString("dnsServer", "1.1.1.1")
     )
 
     companion object {

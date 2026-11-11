@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.4
+# Wanz Tunnel 2.5
 
 Aplikasi Android untuk SSH tunnel dengan SOCKS5 lokal, mode VPN system-wide,
 payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan bergaya modern
@@ -13,8 +13,13 @@ koneksi langsung, sedangkan seluruh konfigurasi berada di menu Pengaturan.
 - Mode **Proxy** hanya membuka SOCKS5 lokal
 - UI modern: halaman utama bersih (tombol koneksi melingkar, ringkasan profil
   aktif, panel log langsung) dan halaman Pengaturan terpisah untuk semua opsi
-- Log koneksi langsung di halaman utama: timestamp, status, SSH, transport,
-  payload, TLS, WS, dan SOCKS; bisa dibersihkan
+- Log koneksi gaya HTTP Custom: setiap baris `jam  [LEVEL]  pesan` dengan
+  level **INFO/WARN/ERROR/PING**, warna per level, auto-scroll, layar log
+  penuh (⤢) serta tombol Salin / Bersihkan
+- Ping bawaan: hasil ping tampil di halaman utama dan di log; ketuk baris
+  ping untuk ping manual
+- Auto ping: interval 5/10/15/30/60 detik dengan target bisa diatur
+  (default `1.1.1.1:443`), diukur lewat jalur SSH (SOCKS5), bukan ICMP lokal
 - Transport:
   - SSH langsung
   - TLS / SNI (mis. stunnel)
@@ -31,8 +36,9 @@ koneksi langsung, sedangkan seluruh konfigurasi berada di menu Pengaturan.
   jadi memilih transport WS/WSS tidak lagi menyebabkan `301`
 - Proxy perantara opsional
 - Multi-profil: tambah, ganti, hapus, simpan otomatis
-- DNS mode VPN memakai mapped-DNS: domain tetap di-resolve di sisi server SSH
-- Auto-reconnect saat jaringan berubah / koneksi terputus
+- DNS mode VPN: mapped-DNS (lewat tunnel) atau DNS kustom
+- Auto-reconnect saat jaringan berubah / koneksi terputus (bisa dimatikan)
+- Opsi gaya HTTP Custom: hanya data seluler, blokir root
 - SSH keepalive 120 detik
 - Host key TOFU; kunci yang berubah ditolak, tombol reset tersedia
 - Foreground service + notifikasi
@@ -175,6 +181,11 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   autentikasi berhasil, serta `curl` lewat SOCKS5 menghasilkan **HTTP 200**
   dan **HTTPS 204** dengan IP keluar berbeda dari IP host (trafik benar-benar
   melewati server SSH).
+- v2.5: log berlevel ala HTTP Custom (`[INFO]`/`[WARN]`/`[ERROR]`/`[PING]`,
+  berwarna, layar log penuh), auto ping dengan interval & target yang bisa
+  diatur, serta pengaturan bertingkat (Profil, Koneksi, Payload & Proxy,
+  Jaringan, Ping, Lainnya, Log, Impor Config). Kebijakan "hanya data seluler"
+  dan "blokir root" benar-benar menolak koneksi. Unit test 9/9 lolos.
 
 ## Komponen pihak ketiga
 
