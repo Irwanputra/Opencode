@@ -389,7 +389,7 @@ class MainActivity : Activity() {
         summaryDetail.text = buildString {
             append("$host:${p.port}\n")
             append("Transport: $transport\n")
-            append("Proxy SOCKS5: 127.0.0.1:${p.socksPort}")
+            append(if (p.vpn) "Mode: VPN" else "Mode: SOCKS5")
             if (p.user.isNotBlank()) append("\nUser: ${p.user}")
         }
     }

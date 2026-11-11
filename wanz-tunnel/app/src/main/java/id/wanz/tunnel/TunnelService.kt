@@ -179,11 +179,11 @@ class TunnelService : VpnService() {
             Intent(this, TunnelService::class.java).setAction(ACTION_STOP),
             PendingIntent.FLAG_IMMUTABLE
         )
-        val mode = if (profile?.vpn == true) "VPN + SOCKS5" else "SOCKS5"
+        val mode = if (profile?.vpn == true) "Tunnel aktif • VPN" else "Tunnel aktif"
         val n = Notification.Builder(this, "w")
             .setSmallIcon(android.R.drawable.ic_lock_lock)
             .setContentTitle("Wanz Tunnel")
-            .setContentText("Tunnel aktif • $mode")
+            .setContentText(mode)
             .setContentIntent(open)
             .addAction(
                 Notification.Action.Builder(
@@ -225,10 +225,10 @@ class TunnelService : VpnService() {
                 session = s
                 server = srv
                 busy.set(false)
-                TunnelLog.add("SOCKS", "SOCKS5 siap di 127.0.0.1:$port")
+                TunnelLog.add("SOCKS", "Proxy lokal SOCKS5 siap (port $port)")
 
-                val mode = if (p.vpn) "VPN" else "SOCKS5 127.0.0.1:$port"
-                set("Terhubung • $mode")
+                val mode = if (p.vpn) "VPN" else ""
+                set(if (mode.isEmpty()) "Terhubung" else "Terhubung • $mode")
                 if (p.vpn) main.post { startVpn(p) }
                 startPing(p)
 
@@ -457,7 +457,7 @@ class TunnelService : VpnService() {
     private fun startVpn(p: Profile) {
         if (!running) return
         if (tunFd != null) {
-            set("Terhubung • VPN + SOCKS5 127.0.0.1:${p.socksPort}")
+            set("Terhubung • VPN")
             return
         }
         try {
@@ -519,7 +519,7 @@ class TunnelService : VpnService() {
                 throw IOException("tun2socks gagal dijalankan")
             }
             Log.d(TAG, "tun2socks aktif, SOCKS ${p.socksPort}")
-            set("Terhubung • VPN + SOCKS5 127.0.0.1:${p.socksPort}")
+            set("Terhubung • VPN")
         } catch (t: Throwable) {
             Log.e(TAG, "Gagal VPN", t)
             stopVpn()
