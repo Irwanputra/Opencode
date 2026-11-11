@@ -103,6 +103,11 @@ class TunnelService : VpnService() {
         }
 
         if (!running) {
+            TunnelLog.add(
+                "INFO",
+                "Perangkat: ${Build.MANUFACTURER} ${Build.MODEL} • Android ${Build.VERSION.RELEASE} " +
+                    "(API ${Build.VERSION.SDK_INT}) • ABI ${Build.SUPPORTED_ABIS.joinToString(",")}"
+            )
             val profileId = i?.getLongExtra(EXTRA_PROFILE, 0L) ?: 0L
             profile = ProfileStore(this).get(profileId)
             running = true

@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.2
+# Wanz Tunnel 2.4
 
 Aplikasi Android untuk SSH tunnel dengan SOCKS5 lokal, mode VPN system-wide,
 payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan bergaya modern
@@ -21,10 +21,12 @@ koneksi langsung, sedangkan seluruh konfigurasi berada di menu Pengaturan.
   - WebSocket (WS)
   - WebSocket + TLS (WSS)
 - Payload HTTP kustom dengan placeholder:
-  `[host_port]`, `[host]`, `[port]`, `[crlf]`, `[cr]`, `[lf]`
-- Payload HTTP Custom: `[split]` dan `[delay_split]`
-  (potongan dikirim terpisah, lalu preamble HTTP 301/101 dilewati sampai
-  banner SSH ditemukan pada mode `SSH langsung`)
+  `[host_port]`, `[host]`, `[port]`, `[crlf]`, `[crlr]`, `[cr]`, `[lf]`
+- Payload HTTP Custom: `[split]`, `[delay]`, `[delay_split]`, `[split_delay]`
+  (sesuai perilaku HTTP Custom: `[split]` dikirim back-to-back tanpa jeda;
+  `[delay]`/`[delay_split]`/`[split_delay]` memberi jeda 1 detik antar
+  potongan; preamble HTTP 301/101 dilewati sampai banner SSH ditemukan pada
+  mode `SSH langsung`)
 - Deteksi otomatis: payload ber-`[split]` selalu diproses sebagai `SSH langsung`,
   jadi memilih transport WS/WSS tidak lagi menyebabkan `301`
 - Proxy perantara opsional
@@ -156,6 +158,23 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 - Perbaikan v2.2: transport dipilih `WebSocket` tapi payload ber-`[split]`
   sekarang otomatis memakai `SSH langsung` → status `Terhubung` dan SOCKS5
   meneruskan HTTP 200 (sebelumnya gagal `301 Moved Permanently`).
+- Perbaikan v2.3: pemecahan dan jeda payload kini **persis** HTTP Custom
+  (hasil reverse engineering `C1935.run()`): `[split]` polos tanpa jeda,
+  `[delay]`/`[delay_split]`/`[split_delay]` jeda 1 detik antar potongan,
+  dan placeholder `[crlr]` (`\n\r`) ditambahkan. Dukungan `[split_delay]`
+  yang sebelumnya diabaikan kini diproses.
+- Perbaikan v2.4: **fallback otomatis**. Bila transport `WS`/`WSS` ditolak
+  server/proxy (mis. `301 Moved Permanently`, `400`, atau handshake gagal),
+  app otomatis menyambung ulang sekali sebagai **SSH langsung** memakai
+  payload yang sama. Ini menutup kasus perangkat nyata di mana handshake WS
+  bawaan ditolak padahal payload SSH-over-HTTP tetap valid. Diuji lewat unit
+  test `wsRejectionFallsBackToRawSsh` (301 → banner SSH).
+- Verifikasi v2.4 di emulator Android 14 (x86_64) dengan config pengguna
+  asli: status `Terhubung • SOCKS5 127.0.0.1:1080`, log menunjukkan
+  `[split]` 2 bagian tanpa jeda, banner `SSH-2.0-dropbear_2019.78`,
+  autentikasi berhasil, serta `curl` lewat SOCKS5 menghasilkan **HTTP 200**
+  dan **HTTPS 204** dengan IP keluar berbeda dari IP host (trafik benar-benar
+  melewati server SSH).
 
 ## Komponen pihak ketiga
 

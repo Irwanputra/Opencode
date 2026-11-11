@@ -272,6 +272,18 @@ class MainActivity : Activity() {
             LinearLayout.LayoutParams(0, -2, 1f)
         )
         logHeader.addView(TextView(this).apply {
+            text = "Salin"
+            textSize = 11.5f
+            setTextColor(CYAN)
+            setPadding(dp(4), dp(4), dp(10), dp(4))
+            setOnClickListener {
+                val txt = TunnelLog.snapshot().joinToString("\n")
+                val cm = getSystemService(CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                cm.setPrimaryClip(android.content.ClipData.newPlainText("WanzTunnel", txt))
+                Toast.makeText(this@MainActivity, "Log disalin", Toast.LENGTH_SHORT).show()
+            }
+        }, LinearLayout.LayoutParams(-2, -2))
+        logHeader.addView(TextView(this).apply {
             text = "Bersihkan"
             textSize = 11.5f
             setTextColor(CYAN)

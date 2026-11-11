@@ -149,18 +149,109 @@ class TransportSocketFactoryTest {
     }
 
     @Test
-    fun splitPayloadKeepsChunkOrderAndDelays() {
+    fun splitPayloadPlainSplitHasNoDelay() {
         val cfg = Profile(id = 1, name = "test", host = "127.0.0.1", port = 22)
         val chunks = TransportSocketFactory(cfg).splitPayload(
-            "first[split]second[delay_split]third"
+            "A[split]B[split]C"
         )
         assertEquals(3, chunks.size)
-        assertEquals("first", chunks[0].text)
+        assertEquals("A", chunks[0].text)
+        assertEquals("B", chunks[1].text)
+        assertEquals("C", chunks[2].text)
+        // HTTP Custom [split] polos: back-to-back, tanpa jeda.
+        chunks.forEach { assertEquals(0L, it.delayBeforeMs) }
+    }
+
+    @Test
+    fun splitPayloadDelayMarkersSleep1000msBeforeLast() {
+        val cfg = Profile(id = 1, name = "test", host = "127.0.0.1", port = 22)
+        // Semua varian jeda: [delay], [delay_split], [split_delay]
+        val variants = listOf("[delay]", "[delay_split]", "[split_delay]")
+        for (marker in variants) {
+            val chunks = TransportSocketFactory(cfg).splitPayload("A$marker B$marker C")
+            assertTrue("marker=$marker chunks=${chunks.size}", chunks.size == 3)
+            assertEquals("A", chunks[0].text)
+            assertEquals(" B", chunks[1].text)
+            assertEquals(" C", chunks[2].text)
+            // 1 detik SEBELUM potongan ke-2 dst (setara "tidur setelah tiap
+            // potongan kecuali terakhir" di HTTP Custom, 0x3e8).
+            assertEquals(0L, chunks[0].delayBeforeMs)
+            assertEquals(1_000L, chunks[1].delayBeforeMs)
+            assertEquals(1_000L, chunks[2].delayBeforeMs)
+
+            // Dua potongan: jeda sebelum potongan kedua.
+            val two = TransportSocketFactory(cfg).splitPayload("A$marker B")
+            assertTrue(two.size == 2)
+            assertEquals(0L, two[0].delayBeforeMs)
+            assertEquals(1_000L, two[1].delayBeforeMs)
+        }
+    }
+
+    @Test
+    fun splitPayloadNoMarkerSendsWholePayload() {
+        val cfg = Profile(id = 1, name = "test", host = "127.0.0.1", port = 22)
+        val chunks = TransportSocketFactory(cfg).splitPayload("GET / HTTP/1.1[crlf]Host: x")
+        assertEquals(1, chunks.size)
+        assertEquals("GET / HTTP/1.1[crlf]Host: x", chunks[0].text)
         assertEquals(0L, chunks[0].delayBeforeMs)
-        assertEquals("second", chunks[1].text)
-        assertEquals(100L, chunks[1].delayBeforeMs)
-        assertEquals("third", chunks[2].text)
-        assertEquals(1_000L, chunks[2].delayBeforeMs)
+    }
+
+    /**
+     * Server menolak handshake WS bawaan (301), lalu koneksi kedua melayani
+     * payload mentah + banner SSH. App harus otomatis jatuh ke mode SSH
+     * langsung dan mengembalikan stream yang dimulai dengan banner.
+     */
+    @Test
+    fun wsRejectionFallsBackToRawSsh() {
+        val server = ServerSocket(0, 2, InetAddress.getByName("127.0.0.1"))
+        val port = server.localPort
+
+        Thread {
+            try {
+                // Koneksi 1: tolak seperti Cloudflare/LB (301).
+                server.accept().use { s ->
+                    readHeader(s.getInputStream())
+                    s.getOutputStream().write(
+                        ("HTTP/1.1 301 Moved Permanently\r\n" +
+                            "Location: https://example.com/\r\n\r\n")
+                            .toByteArray(Charsets.ISO_8859_1)
+                    )
+                    s.getOutputStream().flush()
+                }
+                // Koneksi 2: baca payload mentah, balas banner SSH.
+                server.accept().use { s ->
+                    val input = s.getInputStream()
+                    val buf = ByteArray(256)
+                    val n = input.read(buf)
+                    s.getOutputStream().write("SSH-2.0-testserver\r\n".toByteArray(Charsets.ISO_8859_1))
+                    s.getOutputStream().flush()
+                    Thread.sleep(300)
+                    if (n < 0) error("no payload")
+                }
+            } catch (_: Exception) {
+            }
+        }.apply { isDaemon = true }.start()
+
+        val cfg = Profile(
+            id = 1,
+            name = "test",
+            host = "127.0.0.1",
+            port = port,
+            transport = "ws",
+            payload = "GET / HTTP/1.1[crlf]Host: x[crlf][crlf]",
+            strictTls = false
+        )
+        val factory = TransportSocketFactory(cfg)
+        val socket = factory.createSocket("127.0.0.1", port)
+        try {
+            val input = factory.getInputStream(socket)
+            val banner = ByteArray("SSH-2.0-testserver\r\n".length)
+            readFully(input, banner)
+            assertTrue(String(banner, Charsets.ISO_8859_1).startsWith("SSH-2.0-"))
+        } finally {
+            socket.close()
+            server.close()
+        }
     }
 
     private fun readHeader(input: InputStream): String {

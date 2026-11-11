@@ -45,6 +45,45 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         val targetHost = cfg.host.ifBlank { host }.trim()
         val targetPort = cfg.port.takeIf { it in 1..65535 } ?: port
 
+        val requested = cfg.transport.lowercase()
+        // Payload gaya HTTP Custom ([split]/[delay]/[delay_split]/[split_delay])
+        // sudah melakukan upgrade HTTP/WebSocket sendiri. Kalau transport
+        // dipilih WS/WSS, handshake tambahan dari app justru ditolak server
+        // (301). Deteksi ini dan pakai mode SSH langsung (raw) supaya konsisten.
+        val splitPayload = SPLIT_MARKER.containsMatchIn(cfg.payload)
+        val transport = if (splitPayload && (requested == "ws" || requested == "wss")) {
+            TunnelLog.add(
+                "TRANSPORT",
+                "Payload [split] terdeteksi → handshake WS bawaan dilewati (payload Anda sudah melakukan upgrade)"
+            )
+            "ssh"
+        } else {
+            requested
+        }
+
+        return try {
+            connectRaw(host, port, transport)
+        } catch (e: Exception) {
+            // Jaring pengaman untuk perangkat nyata: server/proxy kadang
+            // menolak handshake WS bawaan (301/400) padahal koneksi SSH
+            // mentah lewat payload tetap bisa. Coba ulang sekali sebagai
+            // SSH langsung sebelum menyerah.
+            if ((requested == "ws" || requested == "wss") && transport != "ssh") {
+                TunnelLog.add(
+                    "TRANSPORT",
+                    "Transport WS gagal (${e.message ?: e.javaClass.simpleName}) → coba ulang sebagai SSH langsung"
+                )
+                connectRaw(host, port, "ssh")
+            } else {
+                throw e
+            }
+        }
+    }
+
+    private fun connectRaw(host: String, port: Int, transport: String): Socket {
+        val targetHost = cfg.host.ifBlank { host }.trim()
+        val targetPort = cfg.port.takeIf { it in 1..65535 } ?: port
+
         val proxyHost = cfg.proxy.substringBefore(":").trim()
         val proxyPort = cfg.proxy.substringAfter(":", "").trim().toIntOrNull() ?: 8080
         val viaProxy = proxyHost.isNotEmpty()
@@ -58,23 +97,6 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
             base.connect(InetSocketAddress(endpointHost, endpointPort), CONNECT_TIMEOUT_MS)
             base.tcpNoDelay = true
             TunnelLog.add("TRANSPORT", "Tersambung ke $endpointHost:$endpointPort")
-
-            // Payload gaya HTTP Custom (mengandung [split]) sudah melakukan
-            // upgrade HTTP/WebSocket sendiri. Kalau transport dipilih WS/WSS,
-            // handshake tambahan dari app justru ditolak server (301). Deteksi
-            // ini dan pakai mode SSH langsung (raw) supaya konsisten.
-            val requested = cfg.transport.lowercase()
-            val splitPayload = cfg.payload.contains("[split]", true) ||
-                cfg.payload.contains("[delay_split]", true)
-            val transport = if (splitPayload && (requested == "ws" || requested == "wss")) {
-                TunnelLog.add(
-                    "TRANSPORT",
-                    "Payload [split] terdeteksi → handshake WS bawaan dilewati (payload Anda sudah melakukan upgrade)"
-                )
-                "ssh"
-            } else {
-                requested
-            }
 
             val rawSsh = transport == "ssh"
             if (viaProxy || cfg.payload.isNotBlank()) {
@@ -132,6 +154,7 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
             .replace("[host]", host)
             .replace("[port]", "$port")
             .replace("[crlf]", "\r\n")
+            .replace("[crlr]", "\n\r")
             .replace("[cr]", "\r")
             .replace("[lf]", "\n")
             .replace("\\r", "\r")
@@ -174,20 +197,40 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
 
     internal data class PayloadChunk(val text: String, val delayBeforeMs: Long)
 
+    /**
+     * Meniru HTTPS Custom persis: payload dipecah berdasarkan penanda
+     * [split] / [delay] / [delay_split] / [split_delay].
+     *
+     * - [split]       : potongan dikirim langsung tanpa jeda (back-to-back).
+     * - [delay]       : jeda 1 detik setelah tiap potongan kecuali terakhir.
+     * - [delay_split] : sama, jeda 1 detik.
+     * - [split_delay] : sama, jeda 1 detik.
+     *
+     * Referensi: C1935.run() di HTTP Custom (smali) — semua Thread.sleep
+     * memakai 0x3e8 = 1000 ms, dan [split] polos TIDAK tidur.
+     */
     internal fun splitPayload(payload: String): List<PayloadChunk> {
-        val marker = Regex("\\[(delay_)?split\\]", RegexOption.IGNORE_CASE)
+        val marker = SPLIT_MARKER
         if (!marker.containsMatchIn(payload)) return listOf(PayloadChunk(payload, 0L))
 
         val chunks = ArrayList<PayloadChunk>()
         var start = 0
-        var delay = 0L
         marker.findAll(payload).forEach { match ->
-            chunks.add(PayloadChunk(payload.substring(start, match.range.first), delay))
-            delay = if (match.groupValues[1].isNotEmpty()) DELAY_SPLIT_MS else SPLIT_MS
+            chunks.add(PayloadChunk(payload.substring(start, match.range.first), 0L))
             start = match.range.last + 1
         }
-        chunks.add(PayloadChunk(payload.substring(start), delay))
-        return chunks
+        chunks.add(PayloadChunk(payload.substring(start), 0L))
+
+        // Tanpa penanda jeda → kirim langsung (seperti [split] HTTP Custom).
+        val delayMarker = Regex("\\[(?:delay|delay_split|split_delay)\\]", RegexOption.IGNORE_CASE)
+        if (!delayMarker.containsMatchIn(payload)) return chunks
+
+        // HTTP Custom: tulis potongan → flush → tidur 1 dtk (kecuali terakhir).
+        // Artinya jeda terjadi SEBELUM potongan ke-2 dst. Oleskan jeda ke
+        // semua potongan kecuali pertama; sender tidur hanya jika index > 0.
+        return chunks.mapIndexed { index, chunk ->
+            if (index > 0) chunk.copy(delayBeforeMs = DELAY_SPLIT_MS) else chunk
+        }
     }
 
     private fun readUntilSshBanner(sock: Socket): InputStream {
@@ -332,10 +375,15 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         private const val HANDSHAKE_TIMEOUT_MS = 15_000
         private const val SSH_BANNER_TIMEOUT_MS = 20_000
         private const val MAX_PREAMBLE_BYTES = 1024 * 1024
-        private const val SPLIT_MS = 100L
         private const val DELAY_SPLIT_MS = 1_000L
         private const val WS_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
         private val SSH_PREFIX = "SSH-".toByteArray(Charsets.ISO_8859_1)
+
+        /** Penanda split HTTP Custom: [split], [delay], [delay_split], [split_delay]. */
+        internal val SPLIT_MARKER = Regex(
+            "\\[(?:split|delay|delay_split|split_delay)\\]",
+            RegexOption.IGNORE_CASE
+        )
 
         private val trustAll = object : X509TrustManager {
             override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
