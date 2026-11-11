@@ -1,0 +1,10 @@
+-keep class com.jcraft.jsch.** { *; }
+-keep class hev.htproxy.** { *; }
+-dontwarn com.jcraft.jsch.**
+-dontwarn org.ietf.jgss.**
+-dontwarn com.sun.jna.**
+-dontwarn org.slf4j.**
+-dontwarn org.apache.logging.**
+-dontwarn org.bouncycastle.**
+-dontwarn javax.security.**
+-dontwarn java.lang.management.**

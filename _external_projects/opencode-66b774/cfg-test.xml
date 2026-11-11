@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="profiles">[{"id":1,"name":"Test SSH","host":"10.0.2.2","port":2222,"user":"runner","pass":"testpass123","proxy":"","payload":"","socksPort":1085,"vpn":false,"transport":"ssh","sni":"","wsPath":"/","wsHost":"","strictTls":true}]</string>
+    <long name="activeProfile" value="1" />
+</map>

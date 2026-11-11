@@ -1,0 +1,9 @@
+-keep class com.jcraft.jsch.** { *; }
+-dontwarn com.jcraft.jsch.**
+-dontwarn org.ietf.jgss.**
+-dontwarn com.sun.jna.**
+-dontwarn org.slf4j.**
+-dontwarn org.apache.logging.**
+-dontwarn org.bouncycastle.**
+-dontwarn javax.security.**
+-dontwarn java.lang.management.**

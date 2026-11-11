@@ -1,0 +1,9 @@
+WebSocket server settings:
+  - Listen on 0.0.0.0:8088
+  - No SSL/TLS support (no cert file)
+  - proxying from 0.0.0.0:8088 to 127.0.0.1:2222
+127.0.0.1 - - [11/Nov/2026 08:57:40] 127.0.0.1: Plain non-SSL (ws://) WebSocket connection
+127.0.0.1 - - [11/Nov/2026 08:57:40] connecting to: 127.0.0.1:2222
+127.0.0.1 - - [11/Nov/2026 08:59:21] 127.0.0.1: Plain non-SSL (ws://) WebSocket connection
+127.0.0.1 - - [11/Nov/2026 08:59:21] connecting to: 127.0.0.1:2222
+In exit

@@ -1,0 +1,17 @@
+2026.11.11 08:56:18 LOG5[ui]: stunnel 5.72 on x86_64-pc-linux-gnu platform
+2026.11.11 08:56:18 LOG5[ui]: Compiled/running with OpenSSL 3.0.13 30 Jan 2024
+2026.11.11 08:56:18 LOG5[ui]: Threading:PTHREAD Sockets:POLL,IPv6,SYSTEMD TLS:ENGINE,OCSP,PSK,SNI Auth:LIBWRAP
+2026.11.11 08:56:18 LOG5[ui]: Reading configuration from file /tmp/opencode/stunnel.conf
+2026.11.11 08:56:18 LOG5[ui]: UTF-8 byte order mark not detected
+2026.11.11 08:56:18 LOG5[ui]: FIPS mode disabled
+2026.11.11 08:56:18 LOG5[ui]: Configuration successful
+2026.11.11 08:56:18 LOG5[ui]: Binding service [ssh-tls] to :::2223: Address already in use (98)
+2026.11.11 08:56:20 LOG5[0]: Service [ssh-tls] accepted connection from 127.0.0.1:34620
+2026.11.11 08:56:20 LOG5[0]: s_connect: connected 127.0.0.1:2222
+2026.11.11 08:56:20 LOG5[0]: Service [ssh-tls] connected remote server from 127.0.0.1:35086
+2026.11.11 08:56:23 LOG5[0]: Connection closed: 43 byte(s) sent to TLS, 0 byte(s) sent to socket
+2026.11.11 08:57:16 LOG5[1]: Service [ssh-tls] accepted connection from 127.0.0.1:43554
+2026.11.11 08:57:17 LOG5[1]: s_connect: connected 127.0.0.1:2222
+2026.11.11 08:57:17 LOG5[1]: Service [ssh-tls] connected remote server from 127.0.0.1:37056
+2026.11.11 08:57:36 LOG5[1]: Connection closed: 8631 byte(s) sent to TLS, 2733 byte(s) sent to socket
+2026.11.11 09:13:44 LOG5[ui]: Terminated

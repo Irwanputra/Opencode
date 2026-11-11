@@ -1,0 +1,553 @@
+{
+  "sha": "df7b2a0342079b2abf3a7030f41e9b77a23def14",
+  "url": "https://api.github.com/repos/heiher/sockstun/git/trees/df7b2a0342079b2abf3a7030f41e9b77a23def14",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b55d83956e7cfa0b3582218c3bf21d70caf1dd31",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/b55d83956e7cfa0b3582218c3bf21d70caf1dd31"
+    },
+    {
+      "path": ".github/badges",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a737520868c90981d81c41b5ab904bc9de03b44c",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/a737520868c90981d81c41b5ab904bc9de03b44c"
+    },
+    {
+      "path": ".github/badges/get-it-on.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "326d25476dea62db86752291368cc2b9da095e68",
+      "size": 15613,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/326d25476dea62db86752291368cc2b9da095e68"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "819cbf1f25fbcda1030f3e049636b2410422cfa0",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/819cbf1f25fbcda1030f3e049636b2410422cfa0"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b20ae12d4f6115caaa63d54c0ef89590cac2dc00",
+      "size": 3664,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/b20ae12d4f6115caaa63d54c0ef89590cac2dc00"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "907519ab184b051ed73a974d2fc35c92e49ed84a",
+      "size": 43,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/907519ab184b051ed73a974d2fc35c92e49ed84a"
+    },
+    {
+      "path": ".gitmodules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1dce2824e112c7ab98e1d2488f4e130648eaf21",
+      "size": 143,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/e1dce2824e112c7ab98e1d2488f4e130648eaf21"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c5357ca2f69c7b189196aa27248deaf03d5e2e5",
+      "size": 1047,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/5c5357ca2f69c7b189196aa27248deaf03d5e2e5"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3d030fda40f54eba6d888ec60bc03718e185841",
+      "size": 2189,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/e3d030fda40f54eba6d888ec60bc03718e185841"
+    },
+    {
+      "path": "README_RU.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35e874ed32e0bc1802cb19a7b8ae67bed409fb81",
+      "size": 2735,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/35e874ed32e0bc1802cb19a7b8ae67bed409fb81"
+    },
+    {
+      "path": "app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "50cc0f33b644e5f88adde641fe3d0399380a3971",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/50cc0f33b644e5f88adde641fe3d0399380a3971"
+    },
+    {
+      "path": "app/build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08a94bdf1a1279f8913a529308684b95a6363e32",
+      "size": 1995,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/08a94bdf1a1279f8913a529308684b95a6363e32"
+    },
+    {
+      "path": "app/src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "88ad4d825bf698583d7cc1372a2986430becbb7f",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/88ad4d825bf698583d7cc1372a2986430becbb7f"
+    },
+    {
+      "path": "app/src/main",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "28556e3c1bd681e0eba2d0503ea04f1c23d220f0",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/28556e3c1bd681e0eba2d0503ea04f1c23d220f0"
+    },
+    {
+      "path": "app/src/main/AndroidManifest.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "555da543c4ab224c399f86de6d6ba186eeb31430",
+      "size": 2535,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/555da543c4ab224c399f86de6d6ba186eeb31430"
+    },
+    {
+      "path": "app/src/main/java",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0297ae7acba3fe21397391f40c75597c083eb30a",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/0297ae7acba3fe21397391f40c75597c083eb30a"
+    },
+    {
+      "path": "app/src/main/java/hev",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5a35a4f9ea0c84daed829041e16d8a15c7f09227",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/5a35a4f9ea0c84daed829041e16d8a15c7f09227"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "049f057d42835b2e53906162dd4248471a62d085",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/049f057d42835b2e53906162dd4248471a62d085"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun/AppListActivity.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a806a904fb94014559e64f5e234958cdefe7f6d3",
+      "size": 6436,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/a806a904fb94014559e64f5e234958cdefe7f6d3"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun/MainActivity.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e141b92165b2ff487e2aa35e7a1432d92ba0b76",
+      "size": 11765,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/8e141b92165b2ff487e2aa35e7a1432d92ba0b76"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun/Preferences.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bdb7d072bbacd2cf567d676b190564f7885bf1e8",
+      "size": 11710,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/bdb7d072bbacd2cf567d676b190564f7885bf1e8"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun/QSTileService.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb14c622987b2c4381ed2c2be105e3e87a2f3620",
+      "size": 2596,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/cb14c622987b2c4381ed2c2be105e3e87a2f3620"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun/ServiceReceiver.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "99e8678a748a4c88e3a658abe5ab31b493bb2ce1",
+      "size": 1213,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/99e8678a748a4c88e3a658abe5ab31b493bb2ce1"
+    },
+    {
+      "path": "app/src/main/java/hev/sockstun/TProxyService.java",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86d150496ddedc7eb362abeba5e68f286a601dda",
+      "size": 6573,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/86d150496ddedc7eb362abeba5e68f286a601dda"
+    },
+    {
+      "path": "app/src/main/jni",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3dd31a862a07ed59aa6fb4df9f041d2748fd058b",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/3dd31a862a07ed59aa6fb4df9f041d2748fd058b"
+    },
+    {
+      "path": "app/src/main/jni/Android.mk",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "548efc9ef9f0e8933c44ec3fc1c9df795ba0afdd",
+      "size": 640,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/548efc9ef9f0e8933c44ec3fc1c9df795ba0afdd"
+    },
+    {
+      "path": "app/src/main/jni/Application.mk",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "505d0f4408e7faee97b87367d71bb7fb07c46195",
+      "size": 787,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/505d0f4408e7faee97b87367d71bb7fb07c46195"
+    },
+    {
+      "path": "app/src/main/jni/hev-socks5-tunnel",
+      "mode": "160000",
+      "type": "commit",
+      "sha": "1711a443d72d89679c0a2044f36085358a101bc4"
+    },
+    {
+      "path": "app/src/main/res",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "05ec4088e54278f33078034e2b227ce147fa2e0a",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/05ec4088e54278f33078034e2b227ce147fa2e0a"
+    },
+    {
+      "path": "app/src/main/res/drawable",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d94be47266aaee46a4a423055f11b593f230b17a",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/d94be47266aaee46a4a423055f11b593f230b17a"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_tile.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d9dde8a5ae70b93033221ed88ea03d6690da75d",
+      "size": 475,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/4d9dde8a5ae70b93033221ed88ea03d6690da75d"
+    },
+    {
+      "path": "app/src/main/res/layout",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0ddead39baa736097a385e36edddf3cb878ea09b",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/0ddead39baa736097a385e36edddf3cb878ea09b"
+    },
+    {
+      "path": "app/src/main/res/layout/appitem.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0f8664d7cd3d0957e1aa4e46dfd821908fbba008",
+      "size": 1231,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/0f8664d7cd3d0957e1aa4e46dfd821908fbba008"
+    },
+    {
+      "path": "app/src/main/res/layout/applist.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27a4dd77153d8c119920838a910ee3fefe264142",
+      "size": 994,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/27a4dd77153d8c119920838a910ee3fefe264142"
+    },
+    {
+      "path": "app/src/main/res/layout/main.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4f10438fc26186ea35b5bdbc1b525f785b27642e",
+      "size": 7721,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/4f10438fc26186ea35b5bdbc1b525f785b27642e"
+    },
+    {
+      "path": "app/src/main/res/mipmap-hdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d58c3b5bc4cd50271aa4acd3b51941c8ec99c9be",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/d58c3b5bc4cd50271aa4acd3b51941c8ec99c9be"
+    },
+    {
+      "path": "app/src/main/res/mipmap-hdpi/sockstun.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b901054a0328795d882f205795e3d40ae1413943",
+      "size": 17559,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/b901054a0328795d882f205795e3d40ae1413943"
+    },
+    {
+      "path": "app/src/main/res/mipmap-mdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "88ec01efa9b9343d292d07e150c22d6d1459ec0e",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/88ec01efa9b9343d292d07e150c22d6d1459ec0e"
+    },
+    {
+      "path": "app/src/main/res/mipmap-mdpi/sockstun.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1da8c5e0fa131cdcb892168f5d3c23bed4a98707",
+      "size": 10805,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/1da8c5e0fa131cdcb892168f5d3c23bed4a98707"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xhdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b3fc233a397f1f550f4775185540ec4b485de8ca",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/b3fc233a397f1f550f4775185540ec4b485de8ca"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xhdpi/sockstun.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6827d93696ce0fc161ba891430f1c0cde7e1147f",
+      "size": 26094,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/6827d93696ce0fc161ba891430f1c0cde7e1147f"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxhdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2b73dcd9e73fdb6b981a884ab5936188214c73dd",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/2b73dcd9e73fdb6b981a884ab5936188214c73dd"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxhdpi/sockstun.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "db92d53b35fca7d834b6cc964f8986834aa65e2b",
+      "size": 47196,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/db92d53b35fca7d834b6cc964f8986834aa65e2b"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxxhdpi",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d30e378d0038a4b7ba8963a6b6f7d3add6a97c98",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/d30e378d0038a4b7ba8963a6b6f7d3add6a97c98"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxxhdpi/sockstun.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "464143f67a58c97a70e1674bc33a7ec00ad91b3b",
+      "size": 74070,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/464143f67a58c97a70e1674bc33a7ec00ad91b3b"
+    },
+    {
+      "path": "app/src/main/res/values-ru-rRU",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c7fadcc1a2b10c7d02dcfb208831037f6cb81196",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/c7fadcc1a2b10c7d02dcfb208831037f6cb81196"
+    },
+    {
+      "path": "app/src/main/res/values-ru-rRU/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e26ac0bbab6c09bfec304d3751ed5bef3ba1bc1",
+      "size": 1578,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/5e26ac0bbab6c09bfec304d3751ed5bef3ba1bc1"
+    },
+    {
+      "path": "app/src/main/res/values",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c9a3f17081128694cf20083dcb9f6e0e71578b84",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/c9a3f17081128694cf20083dcb9f6e0e71578b84"
+    },
+    {
+      "path": "app/src/main/res/values/strings.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d338fe8a345fed9260fafa66b5887b6d4020eacd",
+      "size": 1344,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/d338fe8a345fed9260fafa66b5887b6d4020eacd"
+    },
+    {
+      "path": "app/src/main/res/values/themes.xml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c282ac21acffc3848a1443d121e283f5fbc03705",
+      "size": 130,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/c282ac21acffc3848a1443d121e283f5fbc03705"
+    },
+    {
+      "path": "build.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9a247d3071e838ac5493a4206bcc8ce7312bcef9",
+      "size": 1593,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/9a247d3071e838ac5493a4206bcc8ce7312bcef9"
+    },
+    {
+      "path": "debug.keystore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d985f1e97b15284f335d86b59a8bdd0a58035c05",
+      "size": 2103,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/d985f1e97b15284f335d86b59a8bdd0a58035c05"
+    },
+    {
+      "path": "fastlane",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e3df460ea24e3444ba9492a507c92573f6ddc9c2",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/e3df460ea24e3444ba9492a507c92573f6ddc9c2"
+    },
+    {
+      "path": "fastlane/metadata",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6ea6768664225f26091853d1fa33fe62e6c24cbc",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/6ea6768664225f26091853d1fa33fe62e6c24cbc"
+    },
+    {
+      "path": "fastlane/metadata/android",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8ec4dd86bdc7ba63ba68294b672e004d31e2a5f9",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/8ec4dd86bdc7ba63ba68294b672e004d31e2a5f9"
+    },
+    {
+      "path": "fastlane/metadata/android/en-US",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2f97356da9996457ebe82b97f3921486bd31d385",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/2f97356da9996457ebe82b97f3921486bd31d385"
+    },
+    {
+      "path": "fastlane/metadata/android/en-US/full_description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c5b8df45c8ebf464675fe9a23d91247545208f1",
+      "size": 397,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/6c5b8df45c8ebf464675fe9a23d91247545208f1"
+    },
+    {
+      "path": "fastlane/metadata/android/en-US/images",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a907d169abcc4deb257bbb286531b5e9441ede8a",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/a907d169abcc4deb257bbb286531b5e9441ede8a"
+    },
+    {
+      "path": "fastlane/metadata/android/en-US/images/icon.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38235478edfbaa705820992f719f510d85de6301",
+      "size": 453258,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/38235478edfbaa705820992f719f510d85de6301"
+    },
+    {
+      "path": "fastlane/metadata/android/en-US/short_description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "acf4d0de9809daaa76c949d85c97eff9c3dd2914",
+      "size": 59,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/acf4d0de9809daaa76c949d85c97eff9c3dd2914"
+    },
+    {
+      "path": "fastlane/metadata/android/ru-RU",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7b1c3d9c299b2ddd64b5e252f0a90d7e04bae6e5",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/7b1c3d9c299b2ddd64b5e252f0a90d7e04bae6e5"
+    },
+    {
+      "path": "fastlane/metadata/android/ru-RU/full_description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "436db504d46d9b2a3e7c5a400c6f65b8ef48a6d5",
+      "size": 746,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/436db504d46d9b2a3e7c5a400c6f65b8ef48a6d5"
+    },
+    {
+      "path": "fastlane/metadata/android/ru-RU/short_description.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5a7458fbd1ba3943824eb6d5412122ee8bafdab0",
+      "size": 80,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/5a7458fbd1ba3943824eb6d5412122ee8bafdab0"
+    },
+    {
+      "path": "gradle.properties",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dbb7bf70d15c9c47ae831e64298c1bbc8b5edce9",
+      "size": 53,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/dbb7bf70d15c9c47ae831e64298c1bbc8b5edce9"
+    },
+    {
+      "path": "gradle",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ea231a5e422d05287164cf37bdbcd41b52714360",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/ea231a5e422d05287164cf37bdbcd41b52714360"
+    },
+    {
+      "path": "gradle/wrapper",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d0ad2313dd5675a901a53de997ec4d90b96c82e5",
+      "url": "https://api.github.com/repos/heiher/sockstun/git/trees/d0ad2313dd5675a901a53de997ec4d90b96c82e5"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e6441136f3d4ba8a0da8d277868979cfbc8ad796",
+      "size": 43453,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/e6441136f3d4ba8a0da8d277868979cfbc8ad796"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58899002c650d6cc5910db485050b82c25517479",
+      "size": 287,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/58899002c650d6cc5910db485050b82c25517479"
+    },
+    {
+      "path": "gradlew",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "83f2acfdc319a24e8766cca78f32474ad7a22dd6",
+      "size": 5960,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/83f2acfdc319a24e8766cca78f32474ad7a22dd6"
+    },
+    {
+      "path": "gradlew.bat",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24467a141f791695fc1009c78d913b2c849d1412",
+      "size": 2942,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/24467a141f791695fc1009c78d913b2c849d1412"
+    },
+    {
+      "path": "settings.gradle",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7b4def49cb53d9aa04228dd3edb14c9e635e003",
+      "size": 15,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/e7b4def49cb53d9aa04228dd3edb14c9e635e003"
+    },
+    {
+      "path": "store.properties",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e9bdad8d758911b91f75e6efc7ce37aa41de9804",
+      "size": 92,
+      "url": "https://api.github.com/repos/heiher/sockstun/git/blobs/e9bdad8d758911b91f75e6efc7ce37aa41de9804"
+    }
+  ],
+  "truncated": false
+}
