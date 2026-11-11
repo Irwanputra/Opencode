@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.6
+# Wanz Tunnel 2.6.1
 
 Aplikasi Android untuk SSH tunnel dengan SOCKS5 lokal, mode VPN system-wide,
 payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan bergaya modern
@@ -190,6 +190,11 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   `Terhubung` (mode SOCKS5) atau `Terhubung • VPN`; notifikasi menjadi
   `Tunnel aktif` / `Tunnel aktif • VPN`, dan ringkasan profil menampilkan
   `Mode: SOCKS5` / `Mode: VPN`.
+- Perbaikan v2.6.1: **VPN tersambung tetapi tidak bisa internetan**. Blok
+  `mapdns` pada konfigurasi tun2socks disisipkan lewat interpolasi string lalu
+  di-`trimIndent()`, sehingga indentasi YAML rusak dan pemetaan DNS gagal.
+  Konfigurasi kini disusun baris-per-baris (`VpnConfig`) dan dikunci dengan
+  unit test indentasi. Mode SOCKS5 tidak terpengaruh.
 
 ## Komponen pihak ketiga
 

@@ -485,33 +485,8 @@ class TunnelService : VpnService() {
             tunFd = fd
 
             val conf = File(cacheDir, "hev-socks5-tunnel.conf")
-            val mapDns = if (p.mappedDns) {
-                """
-                  mapdns:
-                    address: 198.18.0.2
-                    port: 53
-                    network: 240.0.0.0
-                    netmask: 240.0.0.0
-                    cache-size: 10000
-                """.trimIndent()
-            } else {
-                ""
-            }
             conf.writeText(
-                """
-                tunnel:
-                  mtu: 8500
-                  icmp: 'reply'
-                socks5:
-                  port: ${p.socksPort.coerceIn(1024, 65535)}
-                  address: '127.0.0.1'
-                  udp: 'off'
-                $mapDns
-                misc:
-                  task-stack-size: 86016
-                  connect-timeout: 10000
-                  log-level: warn
-                """.trimIndent(),
+                VpnConfig.hevConfig(p.socksPort, p.mappedDns),
                 Charsets.UTF_8
             )
 
