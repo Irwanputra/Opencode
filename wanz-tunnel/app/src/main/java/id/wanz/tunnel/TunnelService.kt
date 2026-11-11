@@ -24,6 +24,7 @@ import java.io.DataInputStream
 import java.io.File
 import java.io.IOException
 import java.net.InetAddress
+import java.net.InetSocketAddress
 import java.net.ServerSocket
 import java.net.Socket
 import java.util.concurrent.Executors
@@ -69,6 +70,8 @@ class TunnelService : VpnService() {
     @Volatile private var server: ServerSocket? = null
     @Volatile private var profile: Profile? = null
     @Volatile private var tunFd: ParcelFileDescriptor? = null
+    /** Jaringan di bawah VPN (Wi-Fi/seluler); dipakai untuk resolve endpoint SSH. */
+    @Volatile private var underlyingNetwork: Network? = null
     private val pingStop = AtomicBoolean(false)
     @Volatile private var pingThread: Thread? = null
     private val pool = Executors.newCachedThreadPool()
@@ -76,10 +79,13 @@ class TunnelService : VpnService() {
 
     private val cb = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(n: Network) {
-            if (running && !isVpnNetwork(n)) connect()
+            if (isVpnNetwork(n)) return
+            underlyingNetwork = n
+            if (running) connect()
         }
 
         override fun onLost(n: Network) {
+            if (n == underlyingNetwork) underlyingNetwork = null
             if (!running || isVpnNetwork(n)) return
             if (profile?.vpn == true && tunFd != null) return
             set("Menunggu jaringan…")
@@ -386,10 +392,63 @@ class TunnelService : VpnService() {
         s.setConfig("PreferredAuthentications", "password,keyboard-interactive")
         s.setServerAliveInterval(120_000)
         s.setServerAliveCountMax(3)
-        s.setSocketFactory(TransportSocketFactory(p))
+        // Penting untuk mode VPN: socket SSH harus di-protect supaya tidak
+        // masuk kembali ke TUN (loop VPN → SOCKS → SSH → VPN). Resolusi nama
+        // endpoint juga dilakukan lewat jaringan dasar, bukan DNS VPN.
+        s.setSocketFactory(
+            TransportSocketFactory(
+                p,
+                protect = { socket -> protectFromVpn(socket) },
+                bind = { socket -> bindOffVpn(socket) },
+                resolve = { host -> resolveOnUnderlying(host) }
+            )
+        )
         s.connect(20_000)
         TunnelLog.add("SSH", "Autentikasi SSH berhasil")
         return s
+    }
+
+    private fun protectFromVpn(socket: Socket): Boolean = try {
+        protect(socket)
+    } catch (_: Exception) {
+        false
+    }
+
+    /** Jaringan fisik (Wi-Fi/seluler) di bawah VPN. */
+    private fun physicalNetwork(): Network? {
+        val cm = getSystemService(ConnectivityManager::class.java)
+        fun usable(n: Network): Boolean {
+            val caps = cm.getNetworkCapabilities(n) ?: return false
+            return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                !caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)
+        }
+        underlyingNetwork?.let { if (usable(it)) return it }
+        return cm.allNetworks.firstOrNull { usable(it) }
+    }
+
+    private fun bindOffVpn(socket: Socket): Boolean {
+        val n = physicalNetwork() ?: return false
+        return try {
+            n.bindSocket(socket)
+            true
+        } catch (_: Exception) {
+            false
+        }
+    }
+
+    private fun resolveOnUnderlying(host: String): Array<InetAddress> {
+        val n = physicalNetwork()
+        if (n != null) {
+            try {
+                return n.getAllByName(host)
+            } catch (e: Exception) {
+                TunnelLog.add(
+                    "WARN",
+                    "Resolve via jaringan dasar gagal (${e.message ?: e.javaClass.simpleName}) — memakai resolver sistem"
+                )
+            }
+        }
+        return InetAddress.getAllByName(host)
     }
 
     /**
@@ -463,18 +522,20 @@ class TunnelService : VpnService() {
         try {
             val builder = Builder()
             builder.setSession("Wanz Tunnel")
-            builder.setMtu(8500)
+            // HTTP Custom memakai MTU 1500 (0x5dc), bukan 8500.
+            builder.setMtu(VpnConfig.MTU)
             builder.setBlocking(false)
-            builder.addAddress("198.18.0.1", 32)
-            builder.addAddress("fc00::1", 128)
+            // IPv4-only, sama seperti HTTP Custom. Tanpa alamat/route IPv6:
+            // route ::/0 di perangkat nyata sering membuat trafik memilih
+            // jalur IPv6 yang tidak bisa diteruskan SOCKS/SSH.
+            builder.addAddress(VpnConfig.VPN_ADDRESS, 32)
             builder.addRoute("0.0.0.0", 0)
-            builder.addRoute("::", 0)
-            val dns = if (p.mappedDns) "198.18.0.2" else p.dnsServer.ifBlank { "1.1.1.1" }
-            builder.addDnsServer(dns)
-            try {
-                builder.addDisallowedApplication(packageName)
-            } catch (_: Exception) {
-            }
+            // SSH hanya meneruskan TCP, jadi DNS tidak boleh dikirim sebagai
+            // UDP biasa. Selalu pakai mapped-DNS, apa pun pilihan di Settings.
+            builder.addDnsServer(VpnConfig.MAPPED_DNS)
+            // Sengaja TIDAK addDisallowedApplication: socket SSH di-protect
+            // satu per satu (lihat dial()), sehingga app ini bisa ikut menguji
+            // jalur VPN secara nyata lewat verifyVpn().
             builder.setConfigureIntent(
                 PendingIntent.getActivity(
                     this, 2, Intent(this, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE
@@ -486,8 +547,12 @@ class TunnelService : VpnService() {
 
             val conf = File(cacheDir, "hev-socks5-tunnel.conf")
             conf.writeText(
-                VpnConfig.hevConfig(p.socksPort, p.mappedDns),
+                VpnConfig.hevConfig(p.socksPort, mappedDns = true),
                 Charsets.UTF_8
+            )
+            TunnelLog.add(
+                "VPN",
+                "TUN siap: MTU ${VpnConfig.MTU}, IPv4-only, DNS ${VpnConfig.MAPPED_DNS} (mapped)"
             )
 
             if (!TProxyService.TProxyStartService(conf.absolutePath, fd.fd)) {
@@ -495,11 +560,74 @@ class TunnelService : VpnService() {
             }
             Log.d(TAG, "tun2socks aktif, SOCKS ${p.socksPort}")
             set("Terhubung • VPN")
+            verifyVpn(p)
         } catch (t: Throwable) {
             Log.e(TAG, "Gagal VPN", t)
             stopVpn()
             set("Gagal VPN: ${t.message ?: t.javaClass.simpleName}")
             stopSelf()
+        }
+    }
+
+    /**
+     * Uji internet sungguhan dari dalam app. Karena app tidak di-disallow dari
+     * VPN (socket SSH sudah di-protect), socket uji di sini benar-benar masuk
+     * ke TUN → hev-socks5-tunnel → SOCKS5 → SSH. Hasilnya masuk log, jadi
+     * kalau perangkat masih gagal kita tahu apakah DNS atau TCP yang bermasalah.
+     */
+    private fun verifyVpn(p: Profile) {
+        pool.execute {
+            // Beri waktu Android memasang rute VPN.
+            try { Thread.sleep(1_500) } catch (_: InterruptedException) { return@execute }
+            if (!running || tunFd == null) return@execute
+
+            var dnsOk = false
+            try {
+                val addrs = InetAddress.getAllByName("example.org")
+                dnsOk = addrs.isNotEmpty()
+                TunnelLog.add(
+                    "VPN",
+                    "Uji DNS: example.org → " + addrs.joinToString(", ") { it.hostAddress ?: "?" }
+                )
+            } catch (e: Exception) {
+                TunnelLog.add(
+                    "WARN",
+                    "Uji DNS lewat VPN gagal: ${e.message ?: e.javaClass.simpleName}"
+                )
+            }
+
+            val (host, port) = parsePingTarget(p.pingTarget.ifBlank { "1.1.1.1:443" })
+            var tcpOk = false
+            // Beberapa perangkat butuh waktu lebih untuk mengaktifkan tun.
+            repeat(3) { attempt ->
+                if (tcpOk || !running || tunFd == null) return@repeat
+                try {
+                    Socket().use { s ->
+                        s.connect(InetSocketAddress(host, port), 7_000)
+                        tcpOk = true
+                    }
+                } catch (e: Exception) {
+                    if (attempt == 2) {
+                        TunnelLog.add(
+                            "WARN",
+                            "Uji TCP lewat VPN gagal ($host:$port): ${e.message ?: e.javaClass.simpleName}"
+                        )
+                    } else {
+                        try { Thread.sleep(2_000) } catch (_: InterruptedException) { return@execute }
+                    }
+                }
+            }
+
+            if (!running || tunFd == null) return@execute
+            if (tcpOk && dnsOk) {
+                TunnelLog.add(
+                    "VPN",
+                    "Internet OK — trafik aplikasi benar-benar lewat tunnel (TCP $host:$port + DNS)"
+                )
+                set("Terhubung • VPN • internet OK")
+            } else {
+                set("Terhubung • VPN • internet gagal")
+            }
         }
     }
 

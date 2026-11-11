@@ -77,7 +77,16 @@ def mwrite(addr,b):
     mu.mem_write(addr, b)
 def rd32(a): return struct.unpack("<I", mread(a,4))[0]
 def cstr(a, maxn=512):
-    b=mread(a,maxn); e=b.find(b"\0"); return b if e<0 else b[:e]
+    out = bytearray()
+    for i in range(maxn):
+        try:
+            b = mread(a + i, 1)
+        except Exception:
+            break
+        if b == b"\0":
+            break
+        out += b
+    return bytes(out)
 
 # shared arrays (handle -> (data_ptr, length))
 arrays = {}
@@ -102,7 +111,7 @@ def on_libhook(uc, address, size, user):
     elif name == "memcmp":
         x=mread(a0,a2); y=mread(a1,a2); ret=(x>y)-(x<y)
     elif name == "strlen":
-        ret=len(cstr(a0, 1<<20))
+        ret=len(cstr(a0, 256))
     elif name == "strcmp":
         x=cstr(a0); y=cstr(a1); ret=(x>y)-(x<y)
     elif name in ("strcpy","strcat"):
@@ -165,7 +174,7 @@ def on_jni(uc, address, size, user):
     ret = 0
     if kind == 'vm':
         # JNIInvokeInterface: [0x18]=GetEnv(vm, void** penv, jint ver)
-        if i == 6:  # 0x18/4
+        if i in (4, 6):  # AttachCurrentThread / GetEnv
             penv = args[1]
             mu.mem_write(penv, struct.pack("<I", ENV))
             ret = 0  # JNI_OK
@@ -174,32 +183,32 @@ def on_jni(uc, address, size, user):
         return
     # env functions
     print(f"   [jni] env[{i}] args={[hex(x) for x in args[:5]]}")
-    if i == 171:   # GetArrayLength(env, array)
+    if i == 167:   # GetArrayLength(env, array)
         h = args[1]; ret = arrays.get(h,(0,0))[1]
-    elif i == 176: # NewByteArray(env, len)
+    elif i == 172: # NewByteArray(env, len)
         n = args[1]; p = umalloc(n if n>0 else 1); h = ARRAYS + (len(arrays)+1)*0x100
         arrays[h] = (p, n); ret = h
-    elif i == 184: # GetByteArrayElements(env, array, isCopy) -> ptr
+    elif i == 180: # GetByteArrayElements(env, array, isCopy) -> ptr
         h = args[1]; p, n = arrays.get(h, (0,0))
         if p == 0:
             p = umalloc(max(n,1) or 1)
         ret = p
-    elif i == 192: # ReleaseByteArrayElements
+    elif i == 188: # ReleaseByteArrayElements
         ret = 0
-    elif i == 200: # SetByteArrayRegion(env, array, start, len, buf)  (args: env,arr,start,len,buf)
+    elif i == 204: # SetByteArrayRegion(env, array, start, len, buf)  (args: env,arr,start,len,buf)
         h = args[1]; start = args[2]; ln = args[3]; buf = args[4]
         p, n = arrays.get(h, (0,0))
         if p:
             mwrite(p+start, mread(buf, ln))
         ret = 0
-    elif i == 206: # GetByteArrayRegion
+    elif i == 196: # GetByteArrayRegion
         h=args[1]; start=args[2]; ln=args[3]; buf=args[4]
         p,n=arrays.get(h,(0,0))
         if p: mwrite(buf, mread(p+start,ln))
         ret=0
-    elif i == 113: # GetStaticMethodID -> non-null
+    elif i == 109: # GetStaticMethodID -> non-null
         ret = 0x1234
-    elif i == 114: # CallStaticObjectMethod -> non-null object
+    elif i == 110: # CallStaticObjectMethod -> non-null object
         ret = 0x1234
     elif i == 6:   # FindClass -> dummy class
         ret = 0x1234
@@ -219,8 +228,17 @@ def fix_env_global(uc, address, size, user):
     uc.mem_write(r4, struct.pack("<I", ENV))
     # also directly set r0 to the env table so the next ldr works
     uc.reg_write(UC_ARM_REG_R0, ENV)
-mu.hook_add(UC_HOOK_CODE, fix_env_global, begin=0x2805c, end=0x2805c)
-mu.hook_add(UC_HOOK_CODE, fix_env_global, begin=0x2806c, end=0x2806c)
+# hooks disabled: speculative GOT patching corrupted data
+
+def force_env(uc, address, size, user):
+    uc.reg_write(UC_ARM_REG_R0, ENV)
+
+def dbgregs(uc, address, size, user):
+    r4=uc.reg_read(UC_ARM_REG_R4); r0=uc.reg_read(UC_ARM_REG_R0)
+    print(f"   [reg] at {hex(address)} r4={hex(r4)} r0={hex(r0)} mem_r4={mread(r4,4).hex() if r4 not in (0,) else 'n/a'}")
+for addr in (0x2805c,0x2805e,0x28060,0x28652,0x28654,0x28656):
+    mu.hook_add(UC_HOOK_CODE, dbgregs, begin=addr, end=addr)
+
 
 def run(addr, timeout=0, maxc=0):
     if addr & 1:
@@ -255,6 +273,12 @@ if init_sec:
     for i in range(0,len(raw),4):
         a = struct.unpack_from("<I",raw,i)[0]
         if a: run(a)
+
+# panggil JNI_OnLoad supaya lib menyimpan JavaVM/env & cache metode Java
+mu.reg_write(UC_ARM_REG_R0, VM)
+mu.reg_write(UC_ARM_REG_R1, 0)
+run(0x2a25d)
+print("   [dbg] after JNI_OnLoad, bss[0x9eb78]=", hex(rd32(0x9eb78)))
 
 import os
 EASY = int(os.environ.get("EASY_ADDR","0x27fbd"),16)

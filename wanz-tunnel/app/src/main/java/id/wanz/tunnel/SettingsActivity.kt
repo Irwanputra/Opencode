@@ -227,6 +227,7 @@ class SettingsActivity : Activity() {
             styleSegment(modeVpn, vpn)
         }
         updateModeHint()
+        updateDnsHint()
     }
 
     private fun updateModeHint() {
@@ -240,7 +241,21 @@ class SettingsActivity : Activity() {
     }
 
     private fun updateDnsHint() {
-        if (!::dnsHint.isInitialized) return
+        if (!::dnsHint.isInitialized || !::mappedDnsSwitch.isInitialized) return
+        // Mode VPN: mapped-DNS wajib. SSH hanya meneruskan TCP, sehingga DNS
+        // UDP biasa (termasuk "DNS kustom") tidak akan pernah sampai.
+        if (vpnMode) {
+            if (!mappedDnsSwitch.isChecked) mappedDnsSwitch.isChecked = true
+            mappedDnsSwitch.isEnabled = false
+            fields["dnsServer"]?.isEnabled = false
+            fields["dnsServer"]?.alpha = 0.45f
+            dnsHint.text =
+                "Mode VPN selalu memakai mapped-DNS 198.18.0.2. Nama domain diselesaikan " +
+                    "di sisi server, tanpa kebocoran DNS. DNS kustom belum didukung karena " +
+                    "SSH hanya meneruskan TCP."
+            return
+        }
+        mappedDnsSwitch.isEnabled = true
         val mapped = mappedDnsSwitch.isChecked
         fields["dnsServer"]?.isEnabled = !mapped
         fields["dnsServer"]?.alpha = if (mapped) 0.45f else 1f
@@ -719,7 +734,8 @@ class SettingsActivity : Activity() {
         p.autoReconnect = autoReconnectSwitch.isChecked
         p.onlyMobileData = onlyMobileSwitch.isChecked
         p.blockRoot = blockRootSwitch.isChecked
-        p.mappedDns = mappedDnsSwitch.isChecked
+        // mapped-DNS wajib untuk mode VPN (SSH hanya TCP).
+        p.mappedDns = if (vpnMode) true else mappedDnsSwitch.isChecked
         p.dnsServer = text("dnsServer").ifBlank { "1.1.1.1" }
         store.save(profiles, p.id)
         refreshProfileNames()

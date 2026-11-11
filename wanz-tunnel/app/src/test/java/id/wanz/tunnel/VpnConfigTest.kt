@@ -57,4 +57,19 @@ class VpnConfigTest {
         assertTrue(VpnConfig.hevConfig(80, true).contains("  port: 1024"))
         assertTrue(VpnConfig.hevConfig(70000, true).contains("  port: 65535"))
     }
+
+    @Test
+    fun mtuDefaultsTo1500LikeHttpCustom() {
+        // HTTP Custom (Tun2SocksService / C1944) memakai setMtu(0x5dc) = 1500.
+        val cfg = VpnConfig.hevConfig(socksPort = 1080, mappedDns = true)
+        assertTrue("MTU harus 1500 seperti HTTP Custom", cfg.contains("  mtu: 1500"))
+        assertFalse("MTU lama 8500 tidak boleh dipakai lagi", cfg.contains("mtu: 8500"))
+        assertEquals(1500, VpnConfig.MTU)
+    }
+
+    @Test
+    fun mtuIsClampedToSaneRange() {
+        assertTrue(VpnConfig.hevConfig(1080, true, mtu = 100).contains("  mtu: 576"))
+        assertTrue(VpnConfig.hevConfig(1080, true, mtu = 99999).contains("  mtu: 8500"))
+    }
 }

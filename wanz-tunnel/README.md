@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.6.1
+# Wanz Tunnel 2.6.2
 
 Aplikasi Android untuk SSH tunnel dengan SOCKS5 lokal, mode VPN system-wide,
 payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan bergaya modern
@@ -195,6 +195,23 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   di-`trimIndent()`, sehingga indentasi YAML rusak dan pemetaan DNS gagal.
   Konfigurasi kini disusun baris-per-baris (`VpnConfig`) dan dikunci dengan
   unit test indentasi. Mode SOCKS5 tidak terpengaruh.
+- v2.6.2: **penyamaan perilaku VPN dengan HTTP Custom (hasil reverse
+  engineering `Tun2SocksService`/`C1944`)**:
+  - MTU 1500 (0x5dc) menggantikan 8500; IPv4-only, tanpa alamat/route IPv6
+    (route `::/0` di perangkat nyata kerap membuat trafik memilih jalur IPv6
+    yang tidak bisa diteruskan SSH).
+  - Socket SSH kini di-`protect()` dan di-`bind()` ke jaringan fisik, sehingga
+    tidak masuk kembali ke TUN (loop VPN → SOCKS → SSH → VPN).
+  - Mode VPN selalu memakai mapped-DNS — SSH hanya meneruskan TCP, jadi DNS
+    UDP/kustom tidak akan pernah sampai; pengaturan "DNS kustom" otomatis
+    dinonaktifkan saat mode VPN.
+  - **Self-test internet otomatis** dari dalam app setelah VPN aktif: menguji
+    DNS (example.org) dan TCP (target ping) melalui jalur VPN sungguhan.
+    Jika gagal, status jadi `Terhubung • VPN • internet gagal` dan log
+    menunjukkan apakah DNS atau TCP yang bermasalah — tidak ada lagi status
+    "terhubung" yang bohong.
+  - Verifikasi emulator: `Terhubung • VPN • internet OK`, DNS
+    `example.org → 240.0.0.0`, Chrome memuat example.com, ping ~284 ms.
 
 ## Komponen pihak ketiga
 

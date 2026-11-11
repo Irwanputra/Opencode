@@ -8,6 +8,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.io.SequenceInputStream
+import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.security.MessageDigest
@@ -35,7 +36,26 @@ import javax.net.ssl.X509TrustManager
  * Custom; untuk SSH langsung, preamble HTTP (301/101) dilewati sampai banner
  * SSH ditemukan.
  */
-class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
+class TransportSocketFactory(
+    private val cfg: Profile,
+    /**
+     * Dipanggil tepat setelah socket dibuat (sebelum connect). Saat VPN aktif,
+     * TunnelService memakai ini untuk `VpnService.protect()` agar koneksi SSH
+     * tidak ikut masuk ke TUN (kalau ikut, terjadi loop: VPN → SOCKS → SSH → VPN).
+     */
+    private val protect: ((Socket) -> Boolean)? = null,
+    /**
+     * Dipanggil sebelum connect untuk mengikat socket ke jaringan fisik
+     * (Wi-Fi/seluler). Ini pengaman kedua kalau protect() tidak tersedia,
+     * misalnya saat masih ada sesi VPN lama yang belum turun.
+     */
+    private val bind: ((Socket) -> Boolean)? = null,
+    /**
+     * Resolver DNS untuk endpoint SSH/proxy. Saat VPN aktif, resolusi harus
+     * memakai jaringan di bawah VPN, bukan DNS yang sudah dialihkan ke TUN.
+     */
+    private val resolve: ((String) -> Array<InetAddress>)? = null
+) : SocketFactory {
     private data class Streams(val input: InputStream, val output: OutputStream)
 
     private val socketStreams = Collections.synchronizedMap(IdentityHashMap<Socket, Streams>())
@@ -80,6 +100,16 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         }
     }
 
+    private fun resolveEndpoint(host: String): InetAddress {
+        val list = try {
+            resolve?.invoke(host)?.takeIf { it.isNotEmpty() } ?: InetAddress.getAllByName(host)
+        } catch (e: Exception) {
+            throw IOException("Gagal resolve $host: ${e.message ?: e.javaClass.simpleName}", e)
+        }
+        // Utamakan IPv4: VPN kita IPv4-only (sama seperti HTTP Custom).
+        return list.firstOrNull { it is java.net.Inet4Address } ?: list.first()
+    }
+
     private fun connectRaw(host: String, port: Int, transport: String): Socket {
         val targetHost = cfg.host.ifBlank { host }.trim()
         val targetPort = cfg.port.takeIf { it in 1..65535 } ?: port
@@ -94,7 +124,13 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         val mode = if (viaProxy) "proxy/edge" else "server"
         TunnelLog.add("TRANSPORT", "Membuka $mode $endpointHost:$endpointPort")
         try {
-            base.connect(InetSocketAddress(endpointHost, endpointPort), CONNECT_TIMEOUT_MS)
+            // Socket SSH tidak boleh masuk ke TUN. Saat VPN aktif, protect()
+            // wajib dipanggil sebelum connect(); bind ke jaringan fisik
+            // menjadi cadangan bila protect() tidak tersedia.
+            protect?.invoke(base)
+            bind?.invoke(base)
+            val address = resolveEndpoint(endpointHost)
+            base.connect(InetSocketAddress(address, endpointPort), CONNECT_TIMEOUT_MS)
             base.tcpNoDelay = true
             TunnelLog.add("TRANSPORT", "Tersambung ke $endpointHost:$endpointPort")
 
