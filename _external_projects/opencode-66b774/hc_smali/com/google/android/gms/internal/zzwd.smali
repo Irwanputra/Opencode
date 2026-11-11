@@ -1,0 +1,50 @@
+.class public final Lcom/google/android/gms/internal/zzwd;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field private synthetic zzcfx:Lcom/google/android/gms/internal/zzvx;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/zzvx;)V
+    .registers 2
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/zzwd;->zzcfx:Lcom/google/android/gms/internal/zzvx;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 3
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/zzwd;->zzcfx:Lcom/google/android/gms/internal/zzvx;
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/zzvx;->zza(Lcom/google/android/gms/internal/zzvx;)Lcom/google/android/gms/internal/zzvd;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/zzvd;->onAdLeftApplication()V
+    :try_end_9
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_9} :catch_a
+
+    return-void
+
+    :catch_a
+    move-exception v0
+
+    const-string v1, "Could not call onAdLeftApplication."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/zzakb;->zzc(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method

@@ -1,0 +1,147 @@
+.class public abstract Lcom/google/android/gms/internal/zzlh;
+.super Lcom/google/android/gms/internal/zzev;
+.source ""
+
+# interfaces
+.implements Lcom/google/android/gms/internal/zzlg;
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 2
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/zzev;-><init>()V
+
+    const-string v0, "com.google.android.gms.ads.internal.client.IMobileAdsSettingManager"
+
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    .registers 6
+
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/google/android/gms/internal/zzev;->zza(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+
+    move-result p4
+
+    const/4 v0, 0x1
+
+    if-eqz p4, :cond_8
+
+    return v0
+
+    :cond_8
+    packed-switch p1, :pswitch_data_62
+
+    const/4 p1, 0x0
+
+    return p1
+
+    :pswitch_d
+    invoke-interface {p0}, Lcom/google/android/gms/internal/zzlg;->zzdo()Z
+
+    move-result p1
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-static {p3, p1}, Lcom/google/android/gms/internal/zzew;->zza(Landroid/os/Parcel;Z)V
+
+    goto :goto_61
+
+    :pswitch_18
+    invoke-interface {p0}, Lcom/google/android/gms/internal/zzlg;->zzdn()F
+
+    move-result p1
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    invoke-virtual {p3, p1}, Landroid/os/Parcel;->writeFloat(F)V
+
+    goto :goto_61
+
+    :pswitch_23
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object p2
+
+    invoke-static {p2}, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/づざかべべ/げつ〴ぬぐ$げつ〴ぬぐ;->〺つふすそ(Landroid/os/IBinder;)Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/づざかべべ/げつ〴ぬぐ;
+
+    move-result-object p2
+
+    invoke-interface {p0, p1, p2}, Lcom/google/android/gms/internal/zzlg;->zza(Ljava/lang/String;Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/づざかべべ/げつ〴ぬぐ;)V
+
+    goto :goto_5e
+
+    :pswitch_33
+    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/づざかべべ/げつ〴ぬぐ$げつ〴ぬぐ;->〺つふすそ(Landroid/os/IBinder;)Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/づざかべべ/げつ〴ぬぐ;
+
+    move-result-object p1
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-interface {p0, p1, p2}, Lcom/google/android/gms/internal/zzlg;->zzb(Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/づざかべべ/げつ〴ぬぐ;Ljava/lang/String;)V
+
+    goto :goto_5e
+
+    :pswitch_43
+    invoke-static {p2}, Lcom/google/android/gms/internal/zzew;->zza(Landroid/os/Parcel;)Z
+
+    move-result p1
+
+    invoke-interface {p0, p1}, Lcom/google/android/gms/internal/zzlg;->setAppMuted(Z)V
+
+    goto :goto_5e
+
+    :pswitch_4b
+    invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-interface {p0, p1}, Lcom/google/android/gms/internal/zzlg;->zzu(Ljava/lang/String;)V
+
+    goto :goto_5e
+
+    :pswitch_53
+    invoke-virtual {p2}, Landroid/os/Parcel;->readFloat()F
+
+    move-result p1
+
+    invoke-interface {p0, p1}, Lcom/google/android/gms/internal/zzlg;->setAppVolume(F)V
+
+    goto :goto_5e
+
+    :pswitch_5b
+    invoke-interface {p0}, Lcom/google/android/gms/internal/zzlg;->initialize()V
+
+    :goto_5e
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    :goto_61
+    return v0
+
+    :pswitch_data_62
+    .packed-switch 0x1
+        :pswitch_5b
+        :pswitch_53
+        :pswitch_4b
+        :pswitch_43
+        :pswitch_33
+        :pswitch_23
+        :pswitch_18
+        :pswitch_d
+    .end packed-switch
+.end method

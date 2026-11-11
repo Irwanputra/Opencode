@@ -1,0 +1,49 @@
+.class public final Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ながふずは;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/view/View$OnTouchListener;
+
+
+# instance fields
+.field public synthetic 〺つふすそ:Lcom/google/android/gms/ads/internal/zzw;
+
+.field public synthetic くし〴〺ぅ:Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ぇとしたべど;
+
+
+# direct methods
+.method public constructor <init>(Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ぇとしたべど;Lcom/google/android/gms/ads/internal/zzw;)V
+    .registers 3
+
+    iput-object p1, p0, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ながふずは;->くし〴〺ぅ:Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ぇとしたべど;
+
+    iput-object p2, p0, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ながふずは;->〺つふすそ:Lcom/google/android/gms/ads/internal/zzw;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .registers 3
+
+    iget-object p1, p0, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ながふずは;->〺つふすそ:Lcom/google/android/gms/ads/internal/zzw;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/ads/internal/zzw;->recordClick()V
+
+    iget-object p1, p0, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ながふずは;->くし〴〺ぅ:Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ぇとしたべど;
+
+    iget-object p1, p1, Lなぎぱいぢぎ/なぎぱいぢぎ/〺つふすそ/げつ〴ぬぐ/くし〴〺ぅ/びぐびあび/ぇとしたべど;->くし〴〺ぅ:Lcom/google/android/gms/internal/zzafb;
+
+    if-eqz p1, :cond_e
+
+    invoke-interface {p1}, Lcom/google/android/gms/internal/zzafb;->zzom()V
+
+    :cond_e
+    const/4 p1, 0x0
+
+    return p1
+.end method

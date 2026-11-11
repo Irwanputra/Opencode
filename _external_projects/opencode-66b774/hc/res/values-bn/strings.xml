@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="v">হোমে নেভিগেট করুন</string>
+    <string name="w">উপরে নেভিগেট করুন</string>
+    <string name="x">আরও বিকল্প</string>
+    <string name="y">হয়ে গেছে</string>
+    <string name="z">সবগুলি দেখুন</string>
+    <string name="a0">একটি অ্যাপ বেছে নিন</string>
+    <string name="a1">বন্ধ আছে</string>
+    <string name="a2">চালু করুন</string>
+    <string name="a3">Alt+</string>
+    <string name="a4">Ctrl+</string>
+    <string name="a5">মুছুন</string>
+    <string name="a6">enter</string>
+    <string name="a7">Function+</string>
+    <string name="a8">Meta+</string>
+    <string name="a9">Shift+</string>
+    <string name="a_">space</string>
+    <string name="aa">Sym+</string>
+    <string name="ab">Menu+</string>
+    <string name="ac">সার্চ করুন…</string>
+    <string name="ad">কোয়েরি মুছে ফেলুন</string>
+    <string name="ae">সার্চ কোয়েরি</string>
+    <string name="af">সার্চ করুন</string>
+    <string name="ag">কোয়েরি জমা দিন</string>
+    <string name="ah">ভয়েস সার্চ করুন</string>
+    <string name="ai">শেয়ার করুন</string>
+    <string name="aj">%s-এর সাথে শেয়ার করুন</string>
+    <string name="ak">সঙ্কুচিত করুন</string>
+    <string name="dr">Google Play পরিষেবাগুলির সাথে %1$s এর সমস্যা হচ্ছে৷ অনুগ্রহ করে আবার চেষ্টা করুন৷</string>
+    <string name="rj">ছবি সেভ করুন</string>
+    <string name="rk">বিজ্ঞাপনকে ছবির গ্যালারিতে ছবি সংরক্ষণ করার অনুমতি দেবেন?</string>
+    <string name="rl">গ্রহণ করুন</string>
+    <string name="rm">প্রত্যাখ্যান করুন</string>
+    <string name="rn">ক্যালেন্ডার ইভেন্ট তৈরি করুন</string>
+    <string name="ro">বিজ্ঞাপনকে একটি ক্যালেন্ডার ইভেন্ট তৈরি করার অনুমতি দেবেন?</string>
+    <string name="rp">পরীক্ষামূলক বিজ্ঞাপন</string>
+    <string name="s0">সার্চ করুন</string>
+    <string name="uo">৯৯৯+</string>
+</resources>

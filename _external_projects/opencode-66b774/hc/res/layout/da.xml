@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:padding="20.0dip" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RadioGroup android:orientation="horizontal" android:id="@id/mk" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RadioButton android:id="@id/ml" android:layout_width="0.0dip" android:layout_height="wrap_content" android:checked="true" android:text="MERGER" android:layout_weight="1.0" />
+                <RadioButton android:id="@id/mm" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="SPLIT" android:layout_weight="1.0" />
+            </RadioGroup>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <CheckBox android:id="@id/n2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Rotation" android:layout_weight="1.0" />
+                <CheckBox android:id="@id/oo" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Split Delay" android:layout_weight="1.0" />
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/hw" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/co" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Host (ex. www.domain.com)" android:inputType="textUri" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/r6" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textAppearance="?android:textAppearanceSmall" android:textSize="12.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="7.0dip" android:text="Request method" android:layout_weight="1.0" />
+                <TextView android:textAppearance="?android:textAppearanceSmall" android:textSize="12.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="7.0dip" android:text="Injection Method" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/jr" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <Spinner android:entries="@array/a" android:id="@id/og" android:layout_width="0.0dip" android:layout_height="wrap_content" android:popupBackground="@color/de" android:layout_weight="1.0" />
+                <Spinner android:entries="@array/f" android:id="@id/oj" android:layout_width="0.0dip" android:layout_height="wrap_content" android:popupBackground="@color/de" android:layout_weight="1.0" />
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/js" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/jq" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="ex. GET;HEAD;POST;" android:maxLines="1" android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:id="@id/er" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/eq" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Optional (ex. domain.com)" android:maxLines="1" android:inputType="textUri" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/eo" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <CheckBox android:id="@id/in" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Keep Alive" android:layout_weight="1.0" />
+                <CheckBox android:id="@id/lq" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Online Host" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/ep" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <CheckBox android:id="@id/mx" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Reverse Proxy" android:layout_weight="1.0" />
+                <CheckBox android:id="@id/hb" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Forward Host" android:layout_weight="1.0" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:id="@id/rk" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginTop="10.0dip" android:text="Payload" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/m5" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <CheckBox android:layout_gravity="start" android:id="@id/dd" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Real Request" android:layout_weight="1.0" />
+                <CheckBox android:layout_gravity="end" android:id="@id/dc" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Dual Request" android:layout_weight="1.0" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginTop="10.0dip" android:text="User Agent" />
+            <Spinner android:entries="@array/v" android:id="@id/oh" android:layout_width="fill_parent" android:layout_height="wrap_content" android:popupBackground="@color/de" />
+            <TextView android:textSize="12.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:text="Sum EOL (End Of Line)" />
+            <EditText android:id="@id/gh" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Default 2 (\\r\\n\\r\\n)" android:inputType="number" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/mt" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="0.7">
+                    <EditText android:id="@id/mi" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Remote Proxy" android:maxLines="1" android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <Button android:id="@id/cm" android:background="@drawable/co" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="GENERATE PAYLOAD" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

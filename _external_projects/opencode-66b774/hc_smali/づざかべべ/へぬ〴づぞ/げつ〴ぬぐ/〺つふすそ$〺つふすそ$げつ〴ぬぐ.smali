@@ -1,0 +1,48 @@
+.class public final Lづざかべべ/へぬ〴づぞ/げつ〴ぬぐ/〺つふすそ$〺つふすそ$げつ〴ぬぐ;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Lづざかべべ/のぷのちつ/ぉざぅち〻;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lづざかべべ/へぬ〴づぞ/げつ〴ぬぐ/〺つふすそ$〺つふすそ;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = null
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public げつ〴ぬぐ(Ljava/lang/Class;)Lづざかべべ/のぷのちつ/ぇぬぎばつ;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "L\u3065\u3056\u304b\u3079\u3079/\u306e\u3077\u306e\u3061\u3064/\u3047\u306c\u304e\u3070\u3064;",
+            ">(",
+            "Ljava/lang/Class<",
+            "TT;>;)TT;"
+        }
+    .end annotation
+
+    new-instance p1, Lづざかべべ/へぬ〴づぞ/げつ〴ぬぐ/〺つふすそ$〺つふすそ;
+
+    invoke-direct {p1}, Lづざかべべ/へぬ〴づぞ/げつ〴ぬぐ/〺つふすそ$〺つふすそ;-><init>()V
+
+    return-object p1
+.end method

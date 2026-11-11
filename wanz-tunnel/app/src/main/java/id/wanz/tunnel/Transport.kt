@@ -52,11 +52,31 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         val endpointPort = if (viaProxy) proxyPort else targetPort
 
         val base = Socket()
+        val mode = if (viaProxy) "proxy/edge" else "server"
+        TunnelLog.add("TRANSPORT", "Membuka $mode $endpointHost:$endpointPort")
         try {
             base.connect(InetSocketAddress(endpointHost, endpointPort), CONNECT_TIMEOUT_MS)
             base.tcpNoDelay = true
+            TunnelLog.add("TRANSPORT", "Tersambung ke $endpointHost:$endpointPort")
 
-            val rawSsh = cfg.transport.equals("ssh", true)
+            // Payload gaya HTTP Custom (mengandung [split]) sudah melakukan
+            // upgrade HTTP/WebSocket sendiri. Kalau transport dipilih WS/WSS,
+            // handshake tambahan dari app justru ditolak server (301). Deteksi
+            // ini dan pakai mode SSH langsung (raw) supaya konsisten.
+            val requested = cfg.transport.lowercase()
+            val splitPayload = cfg.payload.contains("[split]", true) ||
+                cfg.payload.contains("[delay_split]", true)
+            val transport = if (splitPayload && (requested == "ws" || requested == "wss")) {
+                TunnelLog.add(
+                    "TRANSPORT",
+                    "Payload [split] terdeteksi → handshake WS bawaan dilewati (payload Anda sudah melakukan upgrade)"
+                )
+                "ssh"
+            } else {
+                requested
+            }
+
+            val rawSsh = transport == "ssh"
             if (viaProxy || cfg.payload.isNotBlank()) {
                 val payloadInput = sendPayload(base, targetHost, targetPort, viaProxy, rawSsh)
                 if (payloadInput != null) {
@@ -64,10 +84,10 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
                 }
             }
 
-            return when (cfg.transport.lowercase()) {
+            return when (transport) {
                 "tls" -> tls(base, targetHost, targetPort)
                 "ws", "wss" -> {
-                    val sock = if (cfg.transport.equals("wss", true)) tls(base, targetHost, targetPort) else base
+                    val sock = if (transport == "wss") tls(base, targetHost, targetPort) else base
                     val streams = webSocket(sock, targetHost, targetPort)
                     socketStreams[sock] = streams
                     sock
@@ -75,6 +95,7 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
                 else -> base
             }
         } catch (e: Exception) {
+            TunnelLog.add("TRANSPORT", "Gagal membuka $endpointHost:$endpointPort: ${e.message ?: e.javaClass.simpleName}")
             try { base.close() } catch (_: Exception) {}
             throw e
         }
@@ -118,27 +139,35 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
 
         val chunks = splitPayload(request)
         val output = sock.getOutputStream()
+        TunnelLog.add("PAYLOAD", "Mengirim payload dalam ${chunks.size} bagian")
         chunks.forEachIndexed { index, chunk ->
             if (index > 0 && chunk.delayBeforeMs > 0) Thread.sleep(chunk.delayBeforeMs)
             if (chunk.text.isEmpty()) return@forEachIndexed
             output.write(chunk.text.toByteArray(Charsets.ISO_8859_1))
             output.flush()
+            TunnelLog.add(
+                "PAYLOAD",
+                "Bagian ${index + 1}/${chunks.size} terkirim (${chunk.text.length} char, jeda ${chunk.delayBeforeMs}ms)"
+            )
         }
 
-        if (chunks.size > 1) {
-            // Payload HTTP Custom: server bisa mengirim beberapa respons HTTP
-            // sebelum banner SSH. Hanya mode SSH langsung yang bisa melewati
-            // preamble seperti ini; TLS/WS memakai handshake-nya sendiri.
-            return if (rawSsh) readUntilSshBanner(sock) else null
+        if (rawSsh) {
+            // Mode SSH mentah (termasuk payload HTTP Custom): server bisa
+            // mengirim beberapa respons HTTP (301/200/101) sebelum banner SSH.
+            // Lewati semuanya sampai banner ditemukan, lalu teruskan sisa
+            // stream ke JSch.
+            TunnelLog.add("PAYLOAD", "Menunggu banner SSH dari server...")
+            return readUntilSshBanner(sock)
         }
 
         sock.soTimeout = HANDSHAKE_TIMEOUT_MS
         val head = readHeader(sock.getInputStream(), 8192)
         sock.soTimeout = 0
-        val code = head.lineSequence().firstOrNull()
-            ?.split(' ')?.getOrNull(1)?.toIntOrNull() ?: 0
+        val statusLine = head.lineSequence().firstOrNull().orEmpty()
+        val code = statusLine.split(' ').getOrNull(1)?.toIntOrNull() ?: 0
+        TunnelLog.add("PAYLOAD", "Respons HTTP: $statusLine")
         if (code !in 200..299 && code != 101) {
-            throw IOException("Proxy menolak: ${head.lineSequence().firstOrNull()}")
+            throw IOException("Proxy menolak: $statusLine")
         }
         return null
     }
@@ -174,10 +203,14 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
                 val data = buffer.toByteArray()
                 val index = findSshBanner(data)
                 if (index >= 0) {
+                    val banner = String(data, index, minOf(data.size - index, 96), Charsets.ISO_8859_1)
+                        .lineSequence().firstOrNull()?.trim().orEmpty()
+                    TunnelLog.add("SSH", "Banner diterima: $banner")
                     val prefix = data.copyOfRange(index, data.size)
                     return SequenceInputStream(ByteArrayInputStream(prefix), input)
                 }
                 if (data.size > MAX_PREAMBLE_BYTES) {
+                    TunnelLog.add("SSH", "Preamble HTTP terlalu panjang (${data.size} byte)")
                     throw IOException("Respons HTTP sebelum SSH terlalu panjang")
                 }
             }
@@ -210,6 +243,7 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         }
 
         val serverName = cfg.sni.ifBlank { host }
+        TunnelLog.add("TLS", "Handshake TLS dengan SNI $serverName${if (cfg.strictTls) " (verifikasi ketat)" else ""}")
         val factory = context.socketFactory
         // Peer host = SNI supaya verifikasi sertifikat (jika strict) memakai nama SNI.
         val ssl = factory.createSocket(base, serverName, port, true) as SSLSocket
@@ -222,6 +256,7 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         if (cfg.strictTls) params.endpointIdentificationAlgorithm = "HTTPS"
         ssl.sslParameters = params
         ssl.startHandshake()
+        TunnelLog.add("TLS", "Handshake TLS selesai (${ssl.session.protocol})")
         return ssl
     }
 
@@ -246,6 +281,7 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         }
 
         sock.soTimeout = HANDSHAKE_TIMEOUT_MS
+        TunnelLog.add("WS", "Handshake WebSocket GET $path (Host: $wsHost)")
         sock.getOutputStream().apply {
             write(request.toByteArray(Charsets.ISO_8859_1))
             flush()
@@ -256,8 +292,14 @@ class TransportSocketFactory(private val cfg: Profile) : SocketFactory {
         val lines = head.split("\r\n")
         val code = lines.firstOrNull()?.split(' ')?.getOrNull(1)?.toIntOrNull() ?: 0
         if (code != 101) {
-            throw IOException("WebSocket ditolak: ${lines.firstOrNull()}")
+            val line = lines.firstOrNull()
+            val tip = if (cfg.payload.isNotBlank()) {
+                " • payload kustom terdeteksi: coba transport 'SSH langsung'"
+            } else ""
+            TunnelLog.add("WS", "WebSocket ditolak: $line$tip")
+            throw IOException("WebSocket ditolak: $line")
         }
+        TunnelLog.add("WS", "WebSocket tersambung (101 Switching Protocols)")
 
         val accept = lines.firstOrNull { it.startsWith("Sec-WebSocket-Accept:", true) }
             ?.substringAfter(':')?.trim()

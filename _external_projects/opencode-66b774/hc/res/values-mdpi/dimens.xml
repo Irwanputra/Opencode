@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bz">270.0dip</dimen>
+    <dimen name="c0">30.0dip</dimen>
+    <dimen name="c1">14.0dip</dimen>
+    <dimen name="c2">270.0dip</dimen>
+    <dimen name="c4">16.0dip</dimen>
+    <dimen name="c5">16.0sp</dimen>
+    <dimen name="eo">10.0sp</dimen>
+    <dimen name="ep">16.0sp</dimen>
+    <dimen name="eq">50.0dip</dimen>
+    <dimen name="er">45.0dip</dimen>
+    <dimen name="jo">340.0dip</dimen>
+    <dimen name="jp">300.0dip</dimen>
+    <dimen name="jq">100.0dip</dimen>
+    <dimen name="jr">50.0dip</dimen>
+    <dimen name="js">24.0dip</dimen>
+    <dimen name="jt">24.0dip</dimen>
+    <dimen name="kb">64.0dip</dimen>
+    <dimen name="kc">22.0dip</dimen>
+</resources>

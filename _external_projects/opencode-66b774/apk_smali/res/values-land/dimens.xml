@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="c">48.0dip</dimen>
+    <dimen name="bb">12.0dip</dimen>
+    <dimen name="bd">14.0dip</dimen>
+    <dimen name="c3">189.0dip</dimen>
+    <dimen name="dk">24.0sp</dimen>
+    <dimen name="es">24.0dip</dimen>
+    <dimen name="ev">24.0dip</dimen>
+    <dimen name="g4">20.0dip</dimen>
+    <dimen name="g6">4.0dip</dimen>
+    <dimen name="g_">96.0dip</dimen>
+    <dimen name="gc">0.0dip</dimen>
+    <dimen name="gd">0.0dip</dimen>
+    <dimen name="ge">104.0dip</dimen>
+    <dimen name="gm">68.0dip</dimen>
+    <dimen name="go">28.0dip</dimen>
+    <dimen name="gp">64.0dip</dimen>
+    <dimen name="gq">32.0dip</dimen>
+    <dimen name="gr">24.0dip</dimen>
+    <dimen name="gs">32.0dip</dimen>
+    <dimen name="jo">281.0dip</dimen>
+    <dimen name="jp">500.0dip</dimen>
+    <dimen name="jr">100.0dip</dimen>
+    <dimen name="js">30.0dip</dimen>
+    <dimen name="jt">30.0dip</dimen>
+    <dimen name="kf">210.0dip</dimen>
+    <dimen name="kg">300.0dip</dimen>
+    <dimen name="kh">200.0dip</dimen>
+    <dimen name="ki">250.0dip</dimen>
+</resources>

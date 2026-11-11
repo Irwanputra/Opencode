@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="@dimen/bf" android:paddingTop="@dimen/bg" android:paddingRight="@dimen/bf" android:paddingBottom="@dimen/bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_alignParentTop="true" app:mw="lw" app:n2="lw" app:nk="lw" app:no="lw">
+        <LinearLayout android:orientation="vertical" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:text="Protocol:" />
+            <Spinner android:textAppearance="?android:textAppearanceSmall" android:id="@id/mh" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="true" />
+            <TextView android:textSize="14.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:text="Regions:" />
+            <Spinner android:textAppearance="?android:textAppearanceSmall" android:id="@id/ms" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawSelectorOnTop="true" />
+            <TextView android:textSize="14.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:text="Authorizations:" />
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" app:s0="false">
+                <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="start|center|top" android:id="@id/c6" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="JSON Format [...]" android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView android:textSize="14.0sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:text="TargetServerEntry:" />
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" app:s0="false">
+                <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="start|center|top" android:id="@id/o0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="$cat server-entry.dat (ex. 3132372...)" android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button android:id="@id/n6" android:background="@drawable/co" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="SAVE" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

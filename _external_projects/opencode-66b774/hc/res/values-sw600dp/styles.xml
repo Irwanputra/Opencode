@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="pa" parent="@style/ek">
+        <item name="v3">d5</item>
+        <item name="ve">h8</item>
+    </style>
+</resources>

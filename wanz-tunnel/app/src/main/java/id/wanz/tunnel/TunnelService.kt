@@ -88,6 +88,7 @@ class TunnelService : VpnService() {
 
     private fun set(s: String) {
         status = s
+        TunnelLog.add("STATUS", s)
         onStatus?.invoke()
     }
 
@@ -189,6 +190,7 @@ class TunnelService : VpnService() {
                 session = s
                 server = srv
                 busy.set(false)
+                TunnelLog.add("SOCKS", "SOCKS5 siap di 127.0.0.1:$port")
 
                 val mode = if (p.vpn) "VPN" else "SOCKS5 127.0.0.1:$port"
                 set("Terhubung • $mode")
@@ -210,6 +212,7 @@ class TunnelService : VpnService() {
     }
 
     private fun scheduleRetry() {
+        TunnelLog.add("STATUS", "Mencoba ulang dalam 5 detik...")
         main.removeCallbacksAndMessages(null)
         main.postDelayed({
             if (running) connect()
@@ -217,6 +220,10 @@ class TunnelService : VpnService() {
     }
 
     private fun dial(p: Profile): Session {
+        TunnelLog.add(
+            "SSH",
+            "Login ${p.user}@${p.host}:${p.port} • transport ${p.transport.uppercase()}"
+        )
         val js = JSch().apply {
             setKnownHosts(File(filesDir, "known_hosts").path)
         }
@@ -229,6 +236,7 @@ class TunnelService : VpnService() {
         s.setServerAliveCountMax(3)
         s.setSocketFactory(TransportSocketFactory(p))
         s.connect(20_000)
+        TunnelLog.add("SSH", "Autentikasi SSH berhasil")
         return s
     }
 
@@ -265,6 +273,7 @@ class TunnelService : VpnService() {
             }
             val port = d.readUnsignedShort()
             Log.d(TAG, "SOCKS CONNECT $host:$port")
+            TunnelLog.add("SOCKS", "CONNECT $host:$port")
 
             channel = s.openChannel("direct-tcpip") as ChannelDirectTCPIP
             channel.setHost(host)

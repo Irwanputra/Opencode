@@ -1,0 +1,21 @@
+name: Deploy to GitHub Pages
+on: [push]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v1
+      - run: npm install -g pnpm
+      - run: make
+      - uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: master
+          FOLDER: dist
+          CLEAN: true
+          REPOSITORY_NAME: hctools/hctools.github.io

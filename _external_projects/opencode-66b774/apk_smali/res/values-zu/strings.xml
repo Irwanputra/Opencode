@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="v">Zulazulela ekhaya</string>
+    <string name="w">Zulazulela phezulu</string>
+    <string name="x">Ezinye izinketho</string>
+    <string name="y">Kwenziwe</string>
+    <string name="z">Buka konke</string>
+    <string name="a0">Khetha insiza</string>
+    <string name="a1">VALA</string>
+    <string name="a2">VULA</string>
+    <string name="a3">Alt+</string>
+    <string name="a4">Ctrl+</string>
+    <string name="a5">delete</string>
+    <string name="a6">enter</string>
+    <string name="a7">Function+</string>
+    <string name="a8">Meta+</string>
+    <string name="a9">Shift+</string>
+    <string name="a_">space</string>
+    <string name="aa">Sym+</string>
+    <string name="ab">Imenyu+</string>
+    <string name="ac">Sesha…</string>
+    <string name="ad">Sula inkinga</string>
+    <string name="ae">Sesha umbuzo</string>
+    <string name="af">Sesha</string>
+    <string name="ag">Thumela umbuzo</string>
+    <string name="ah">Ukusesha ngezwi</string>
+    <string name="ai">Yabelana no</string>
+    <string name="aj">Yabelana ne-%s</string>
+    <string name="ak">Goqa</string>
+    <string name="dr">%1$s inenkinga ngamasevisi e-Google Play. Sicela uzame futhi.</string>
+    <string name="rj">Londoloza isithombe</string>
+    <string name="rk">Vumela isikhangiso ukugcina isithombe kwigalari yesithombe?</string>
+    <string name="rl">Yamukela</string>
+    <string name="rm">Yenqaba</string>
+    <string name="rn">Dala umcimbi wekhalenda</string>
+    <string name="ro">Vumela Isikhangiso ukudala umcimbi wekhalenda?</string>
+    <string name="rp">Hlola isikhangiso</string>
+    <string name="s0">Sesha</string>
+    <string name="uo">999+</string>
+</resources>

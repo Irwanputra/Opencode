@@ -1,0 +1,12 @@
+package com.google.android.gms.ads.mediation.customevent;
+
+import android.content.Context;
+import android.os.Bundle;
+import com.google.android.gms.ads.mediation.MediationAdRequest;
+
+/* loaded from: /tmp/opencode/hc_real.dex */
+public interface CustomEventInterstitial extends CustomEvent {
+    void requestInterstitialAd(Context context, CustomEventInterstitialListener customEventInterstitialListener, String str, MediationAdRequest mediationAdRequest, Bundle bundle);
+
+    void showInterstitial();
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="v">"Revenir à l'accueil"</string>
+    <string name="w">Revenir en arrière</string>
+    <string name="x">Autres options</string>
+    <string name="y">Terminé</string>
+    <string name="z">Tout afficher</string>
+    <string name="a0">Sélectionner une application</string>
+    <string name="a1">DÉSACTIVER</string>
+    <string name="a2">ACTIVER</string>
+    <string name="a3">Alt+</string>
+    <string name="a4">Ctrl+</string>
+    <string name="a5">supprimer</string>
+    <string name="a6">entrée</string>
+    <string name="a7">Fonction+</string>
+    <string name="a8">Méta+</string>
+    <string name="a9">Maj+</string>
+    <string name="a_">espace</string>
+    <string name="aa">Sym+</string>
+    <string name="ab">Menu+</string>
+    <string name="ac">Rechercher…</string>
+    <string name="ad">Effacer la requête</string>
+    <string name="ae">Requête de recherche</string>
+    <string name="af">Rechercher</string>
+    <string name="ag">Envoyer la requête</string>
+    <string name="ah">Recherche vocale</string>
+    <string name="ai">Partager avec</string>
+    <string name="aj">Partager avec %s</string>
+    <string name="ak">Réduire</string>
+    <string name="dr">"L'application %1$s éprouve un problème avec les services Google Play. Veuillez réessayer."</string>
+    <string name="rj">"Enregistrer l'image"</string>
+    <string name="rk">"Autoriser l'annonce à stocker l'image dans la galerie d'images?"</string>
+    <string name="rl">Accepter</string>
+    <string name="rm">Refuser</string>
+    <string name="rn">"Créer un événement dans l'agenda"</string>
+    <string name="ro">"Autoriser l'annonce à créer un événement dans l'agenda?"</string>
+    <string name="rp">Annonce test</string>
+    <string name="s0">Rechercher</string>
+    <string name="uo">999+</string>
+</resources>

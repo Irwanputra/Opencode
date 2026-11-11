@@ -1,0 +1,1783 @@
+/system/bin/linker
+Android
+r19c
+5345600
+__cxa_atexit
+LIBC
+libc.so
+raise
+__libc_init
+__aeabi_memcpy4
+__sF
+abort
+closelog
+fprintf
+openlog
+pthread_mutex_init
+snprintf
+strcmp
+syslog
+__aeabi_memclr4
+__errno
+__stack_chk_fail
+__stack_chk_guard
+clock_gettime
+close
+epoll_create
+epoll_ctl
+epoll_wait
+gettimeofday
+fflush
+perror
+pthread_mutex_lock
+pthread_mutex_unlock
+vsnprintf
+__aeabi_memcpy
+accept
+bind
+connect
+fcntl
+free
+getsockopt
+listen
+malloc
+read
+setsockopt
+dladdr
+libdl.so
+socket
+strcpy
+strlen
+unlink
+write
+pthread_sigmask
+signalfd
+sigaction
+__aeabi_memmove
+realloc
+__aeabi_memclr8
+ioctl
+open
+lrand48
+memcmp
+atoi
+strncmp
+calloc
+__aeabi_memclr
+chdir
+exit
+fclose
+feof
+fopen
+fork
+fread
+freeaddrinfo
+fwrite
+getaddrinfo
+prctl
+printf
+pthread_mutex_destroy
+puts
+select
+setsid
+sprintf
+strerror
+strncpy
+strtol
+umask
+__android_log_print
+recvmsg
+sendmsg
+__gnu_Unwind_Find_exidx
+_edata
+_end
+__bss_start
+liblog.so
+libm.so
+libstdc++.so
+F(FyD
+jI(FyD
+gI(FyD
+eI(FyD
+bI(FyD
+`I(FyD
+]I(FyD
+[I(FyD
+XI(FyD
+VI(FyD
+SI(FyD
+QI(FyD
+OI(FyD
+MI(FyD
+KI(FyD
+II(FyD
+GI(FyD
+EI(FyD
+@$0N
+!0JCF~DzD0F
+b*IxDyD
+h	h F
+'H(IxDyD
+F	J	LK
++|DcF
+&&`(F
+F$IxDyD
+1 !FRF
+XF)F
+!nuzD
+XF1F2F
+FiHQF\F
+GJzD
+!3FzD
+>JzD
+&IxD&JyD
+s"IxD"JyD
+`S`Kh
+0!F"F
+,H,IxDyD
+`Uh3h
+@FZF
+2FC	@F
+@FZF
+&kFyD
+!	JzD
+IkFyD
+&@F1F2F
+(`H`
+@F1F2F
+IBYE
+)F"F
+1F2F
+h)F"F
+(vEF
+)F"F
+0v5F4F
+C	XF
+#Pu`
+K|D{D
+F$IxDyD
+2 !FRF
+#H#IxDyD
+)F0`
+LJzD
+JJzD
+F(F#FzD
+&JzD/
+&JzD"
+@F#F
+ hAF
+ hAF
+#	IxD	JyD
+%F0FE
+!%FE
+  a0J
+&zD(F#Ffa
+ h)F
+1F"c
+ h1F
+I&FxD
+@{DF
+hAF3F
+HAF3FxD
+#FzD
+F@i@
+!k h!
+L0pG
+I&FxD
+8@{DF
+hAF3F
+HAF3FxD
+p#FzD
+F@i@
+!k h!
+F@i 
+!k hA
+F@i 
+!k hA
+	JzD
+h%F!`
+? a+
+!i#FzD@F
+ hAF
+ hAF
+ hAF
+&0F]
+F$IxDyD
+= !FRF
+F-HiF
+h0h!
+!#FzD
+	HxD
+#H$IxDyD
+&zD+F
+	H!F+FxD
+pGBm"
+h,N*L~D
+ahbi	
+1AbpG
+MxD{D
+aaAFF
+h-h3F
+HAF3FxD
+HAF3FxD
+f` `
+KJzD
+HFyD
+FAF0F
+!JzD
+ F2F
+"hck
+ak2F
+F$IxDyD
+9 !FRF
+#h[Y
+VJzD<
+SJzD-
+ `c F
+BJzD
+7JzD
+>JzD
+G&hpY
+ JzD
+!JzD
+ FBF
+hAp0F
+h)i0D
+akBF
+F1HxD
+ak F
+ak F
+ak F
+F/HxD
+! F*F
+FhF !
+aJhF
+!SFzD
+5hYIjF(F
+FPF !
+n#FzD(F
+ h)F
+F>H>IxDyD
+)F3F
+7H)F3FxD
+'JzD
+'JzD
+F$IxDyD
+N !FRF
+" hbf!
+hzD{D
+IyD	hQ
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+H	IxD	J	KyD
+hzD{D
+#H$I$JxD$KyD
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+DC`Q
+hzD{D
+hzD{D
+oFIB
+hzD{D
+hzD{D
+hzD{D
+B!D8
+hzD{D
+hzD{D
+!H!I"JxD"KyD
+hzD{D
+hzD{D
+	H	IxD	J
+hzD{D
+#6h 
+hzD{D
+hzD{D
+,F"F
+D6h-
+'H'I(JxD(KyD
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+0pG@h
+ yD@
+z}D(x
+0(p"HxD
+!HxD
+4F)x
+JxDzD
+B(F@
+4FxD
+G(x4F
+uHxD
+`kpcek
+BHCICJxDCKyD
+hzD{D0
+9H:I:JxD:KyD
+hzD{D&
+0H1IxD1J1KyD
+hzD{D
+'H(I(JxD(KyD
+hzD{D
+DHEIEJxDEKyD
+hzD{D
+CHDIDJxDDKyD
+hzD{D
+&H'I'JxD'KyD
+hzD{D
+%H&I&JxD&KyD
+hzD{D
+%H&I&JxD&KyD
+hzD{D
+$H%I%JxD%KyD
+hzD{D
+\HxD
+4/Jcc
+GH!FxD
+?H!FxD
+*HxD
+4/Jc
+"yD	h
+cyD	h
+hzD{D
+F!FxD
+:H!FxD
+3HxD
+4/Jc	
+ FJF#F
+ZF@Fo
+hzD{D
+akAc
+ `c F
+hzD{D
+hzD{D
+hzD{D
+1}.)
+F@xD
+	H	IxD	J
+hzD{D
+1})u
+)2h*`	
+phh`
+ HxD
+4/Jc
+IxDyD
+@(F]
+hzD{D
+hzD{D
+hzD{D
+H	I	JxD	KyD
+hzD{D
+IxDyD
+`pGx9
+%F(F]
+hzD{D
+k!F2F
+!F2F
+"DIxDyD
+F*F43
+0HAF
+)F0F
+n`+f
+ (F]
+#yDzD	h
+H	IxD	J	KyD
+hzD{D
+cpG 
+hzD{D
+hzD{D
+hzD{D
+-HxD
++HxD
+1}0h
+}(}Ik
+hhSh
+u0}3h
+phP`
+`hJh
+VHxD
+@	J O
+0 F*F
+hzD{D&
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+O,,a
+vFrE8
+0FvE'
+hzD{D
+hzD{D
+DFpE
+ rPD``J 
+F@		
+J !F
+"FphQD
+(DH`r
+hzD{D
+JF@h
+OHPIPJxDPKyD
+hzD{D
+FHGIGJxDGKyD
+hzD{D
+IHJIJJxDJKyD
+hzD{D
+'H(IxD(J(KyD
+hzD{D
+&H'I'JxD'KyD
+hzD{D
+%H&I&JxD&KyD
+hzD{Dx
+)H*I*JxD*KyD
+hzD{Dn
+8H9I9JxD9KyD
+hzD{Dd
+7H8I8JxD8KyD
+hzD{DZ
+*H+I+JxD+KyD
+hzD{DP
+hzD{DF
+hzD{D
+hzD{D
+ F!F2F
+30!F
+30!F
+hzD{D
+XFYF"F
+hzD{D
+hzD{D
+,J*K`
+zD``
+`BF!a
+PFIF
+(FIFBF
+(FBF
+H	IxD	J	KyD
+hzD{D
+RhAf
+hIhRh	
+F(F)F2F
+yD	h
+	 F)F2F
+	 F)F2F
+Fph3
+ FIFZF
+!HxD
+hzD{D
+hzD{D
+M	Bh
+ F!F
+yD	h
+XF!FBF
+XF!FBF
+"?IxD{D
+)FJF
+EF*IyD
+h)p `
+hzD{D
+hzD{D
+(F!F
+(FAF
+(F1F]
+(F1F
+(F!F
+(FAF]
+ i#}
+  va`
+H AcpG
+IyD	h
+@	pG
+hzD{D
+	MFU
+0hpE
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+pGpGpG
+hzD{D
+hzD{D
+hzD{D
+IxDyD
+<!%F
+hzD{D
+B%F?
+4 JE
+IyD	h	h
+(}.(
+)}.)
+HFAF
+F(FBF
+HF1F
+FIkIE
+FIkIE
+  `HF
+F@F2F
+FIkIE
+"~IxD
+4 yD
+OHOIPJxDPKyD
+hzD{D
+FHFIGJxDGKyD
+hzD{D
+IHIIJJxDJKyD
+hzD{D
+PHPIQJxDQKyD
+hzD{D
+-H-IxD-J.KyD
+hzD{D
+,H,I-JxD-KyD
+hzD{D
+7H7I8JxD8KyD
+hzD{D
+6H6I7JxD7KyD
+hzD{D
+9H9I:JxD:KyD
+hzD{D
+FHFIGJxDGKyD
+hzD{D
+3H3I4JxD4KyD
+hzD{D
+2H2I3JxD3KyD
+hzD{D
+1H1I2JxD2KyD
+hzD{D
+HxD@x
+H!FxD
+HxDAxA
+AppG
+N~Dt
+	IyDH
+N~D0x
+VF`n0
+l yD
+n0	h	hff
+qicm
+`mqi
+hcF*F
+`E(F?
+cF(Fx
+cmVF
+X0fm
+piQh
+(F.h
+5FVF
+ Ahpi
+hzD{D
+#VFZC
+'! F
+oIh	
+hbmHh
+X 1F
+D`ez
+ihVF
+qi@h
+(H)IxD)J)KyD
+hzD{D
+<H=I=JxD=KyD
+hzD{D
+!H"I"JxD"KyD
+hzD{D
+ H!I!JxD!KyD
+hzD{D
+H I JxD KyD
+hzD{D
+hzD{D
+hzD{D
+iAh@{	
+hzD{D
+J	KyD
+hzD{D
+h@F#
+(F.h
+%%`]
+`h)F
+`h)F
+FtIxDyD
+1FZF
+0F!F
+ FYF
+0r0FYF
+hzD{D
+H	IxD	J	KyD
+hzD{D
+FxD$!O
+#yD	h
+	H	IxD	J
+hzD{D
+HFAF
+#H#I$JxD$KyD
+hzD{D
+hzD{D
+hzD{D
+	H	I
+hzD{D
+(FAF
+(FAF
+HF !
+"ph `
+eHeIfJxDfKyD
+hzD{D
+-@D0
+(F1F
+&H'I'JxD'KyD
+hzD{D
+%H&IxD&JyD
+hzD%K{D
+"H#IxD#JyD
+hzD{D
+hzD{D
+HxDCh
+hzD{D
+A"PD
+]HAFxD
+GAHxD
+*H+I+JxD+KyD
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+hzD{D
+ F1F
+PFIF
+EHxD
+h6h>
+ FIF
+ FAF
+ FAF
+ FIF
+FTHxD
+.E!`h
+"?IyD
+E62D
+)HxD
+)H9ixD
+ F*F
+F!F*F
+hzD{D
+hzD{D
+FVHxD
+:!xD
+ FAF
+!SFE
+ FQFJFCF
+J	KyD
+hzD{D
+hzD{D
+F6 8!O
+P F"
+#yD	h
+H	IxD	J	KyD
+hzD{D
+Nheh
+DhJh
+!2F'
+ FAF
+ FAF
+ 0F*F
+@F)F
+FmHxD
+ F(!
+MHxD
+`Qb{D 
+hPa&H*FxD
+0@F!F
+hzD{D
+hzD{D
+	HxD@h
+FNHxD
+-M}DihIE
+F	hIE
+hzD{D
+hzD{D
+hzD{D
+0FD!
+"0`< 
+hzD{D
+-bD"
+QhhB
+0h``
+7H8I8JxD8KyD
+hzD{D
+hzD{D
+hzD{D
+"H#I#JxD#KyD
+hzD{D
+hzD{D
+hzD{D
+F~Dqh
+IxDyD
+H,!xD
+rhyD	h
+zJzD
+\IyD
+D0	h
+F, yD	h
+H,!xD
+H,!xD
+zD	h
+I,"yD	h
+zJ,!zD
+FkH,!xD
+YH,!
+yD	h
+yD	h
+@F1F
+I@F3FyD
+xD	h
+x@)7
+ 0qH
+FPH,"xD
+HF""
+(t$5	H,!xD
+yD	h
+BhrE
+hrE	
+,IyD	h
+)I,"
+(h `ihJh
+1HxD
+,HxD
+p M}D
+ HF:!#F
+I*Fp
+#yD	h
+hzD{D
+HhpE<
+$}D@
+"xDO
+ NEh`O
+ lr(r
+ XF:!3F
+IRFh
+#yD	h
+1FXF
+	HxD
+yD	h
+BhrE
+hrE	
+1hBi
+"yD	h
+,HxD
+@F0"
+H,!xD
+ 0`, 
+F|DP
+.``O
+ fv v
+)HxD
+ ~Dp`@
+ 0`O
+00tj
+(F:!CF
+AF(F2F
+hzD{D
+"yD	h
+yD	hQ
+Ei(F
+	H	IxD	J
+hzD{D
+#~D2h
+yD	h
+F<J~D
+hzD0x
+KhUh
+.IyD	h
+px,#'J
+IyD	h
+"yD	h
+AiQE
+hzD{D
+hzD{D
+hzD{D
+fHxD
+ F1Fk"
+HF)Fn"
+FzD	
+IxDyD
+(F!F
+L|D F
+HxD5
+HxD4
+HxD1
+HxD0
+HxD3
+HxD2
+)`0F
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+I0FyD
+)@ F
+MH!FxD
+4!xDD
+IxDyD
+IxDyD
+!xD#
+IxDyD
+ !xD
+&!xD
+dR(F
+(x[(
+y)F2FHF
+  !	
+}H}IxDyD1
+|JzD$
+#!xD
+wHxIxDyD
+qJzD
+oJzD
+mHxD
+^HxD
+iIha`
+q\:9
+VFPE"
+\H\IxDyD
+FHF1F
+BHxD
+>HxD
+0JzD
+(F1F
+#yD	h
+"xD5
+2xD6
+1a!F0
+H!F3FxD
+H!F3FxD
+H)F2FxD
+l"yD
+!h08
+rHxD
+gJzD
+FCHDJ
+#xDO
+(yD	h1
+#xDyD
+/H0I0JxDyD0KzD0L
+h|D.J
+ zD*
+LxD|D
+Dh0F
+  s&Fo
+nJzD
+kJzD
+^H_IxDyD
+JJzD
+KJzD8
+FHxD
+/JzD
+4HxD
+I0FyD
+!KFzD
+QF("0F
+!KFzD
+IL|D$h$h
+AJzD0
+ 1FO
+QF2F
+:HxD
+)JzD
+08XE
+xJzD=
+hHxD
+8XE.
+bJzD
+dH)F2FxD
+WJzD
+-hZF
+5hZF
+YHZIxDyD
+h	h@h
+HhWJWIXKzD
+IHxD
+;JzD
+/JzD4
+(F!F
+(yD	h
+0IyD
+(F!F
+(yD	h
+#IyD
+IxDyD
+oF	J
+IxDyD
+	JzD
+IyD	h
+F%HxD
+h(h$I
+ FyD
+!I FyD
+I FyD
+I FyD
+I FyD
+I FyD
+iF F
+)x[)
+Sx]+J
+JF F
+hpyD
+!xDD
+`J+F
+[IyD
+WHXIxDyD
+-hSHxD
+(p D
+%FIxDyD
+h	hBh
+hB`X
+PzD%PA
+!%P F
+;HxD
+7HxD
+ah(D
+,HxD
+PF*F
+(Fah
+0FAF
+F/HxD
+KK1)I F
+hh!F	
+@F!F
+ DyD
+ FyD
+$xDo
+)F2F
+(JzD
++JzD F
+"J F
+!!PC
+l"P!
+F XA
+7J F
+-J F
+(FAF
+IxDyD
+HFAF
+F!F	
+(p D
+!!P(h`
+)F X]
+""PC
+aQ"P F
+F5HC
+`P F
+#HxD
+HFAF
+QBXA
+` h 
+$p X
+#BXA
+)`0h D0`
+JzDPF
+xD)F
+h0h=
+H*F#FxD
+#xD$h"h
+F2H2L
+@F)F
+@F)F
+3dxD
+2dxD
+3IxA
+bxDyD
+h	h(F
+#	IxD	JyD
+h}D|DS
+ )F"F
+`pGpG
+ F)F
+`pGAi
+AIyDQ
+/JzD
+,JzDC
++JzD6
+)!1"
+'JzD
+h#FzD(F
+ h)F
+ hed
+#H#IxDyD
+` a8
+e9jDezj
+KxD%FyD{D
+#IAFE
+HAF+FxD
+HAF+FxD
+#FzD
+KxDyD{D
+pIF+F
+HIF+FxD
+p#FzD
+FVHxD
+j hA
+!JzD
+j hA
+FwHxD
+BJzD
+hh)(
+}l~D
+hhah
+`)F0o
+Gv0F
+j8kE
+0hPE
+FSFzD(F
+"nSF
+HFBF5`
+!h@F
+!h@F
+ n%h
+F)F0F
+YFJF(F
+FWHXI
+#XJxDyDzD
+GOHYF+FxD
+GLHYF+FxD
+:pYF*F
+`S`Kh
+AFJF D
+..`G
+)FLh
+`Khjh
+@F)F
+3B	@F]
+@F)F]
+@F)F
+ZF@F)FO
+0sNF
+@F)F
+0s5hE
+h#F0
+# s(F]
+F$IxDyD
+Z !FRF
+jJzDB
+hhCF
+IJzD
+?JzD
+;JzD
+I Dr
+F!F	
+12F#F
+hJj!F
+@ #!
+!1C "
+authpriv
+cron
+daemon
+local0
+local1
+local2
+local3
+local4
+local5
+local6
+local7
+mail
+news
+syslog
+user
+uucp
+%s:%d Assertion failed
+./badvpn/base/BLog.h
+%s: %s
+Reactor initializing
+epoll_create failed
+Reactor failed to initialize
+Reactor freeing
+./badvpn/system/BReactor_badvpn.c
+Entering event loop
+Dispatching timer
+no events detected?
+Dispatching file descriptor
+Exiting event loop, exit code %d
+epoll_ctl failed: %d
+Got already expired timers
+Calling epoll_wait
+epoll_wait interrupted
+epoll_wait
+epoll_wait returned %d file descriptors
+epoll_wait timed out
+already timed out while trying again
+./badvpn/system/BTime.h
+BSignal initializing
+BUnixSignal_Init failed
+Dispatching signal
+b_strdup failed
+build_unix_address failed
+socket failed
+address not supported
+badvpn_set_nonblocking failed
+unlink existing socket failed
+bind failed
+setsockopt(SO_REUSEADDR) failed
+listen failed
+BReactor_AddFileDescriptor failed
+unlink socket failed
+close failed
+connect failed
+accept failed
+setsockopt failed
+discarding connection
+getsockopt failed
+./badvpn/system/BConnection_unix.c
+connection failed
+fd error event
+send failed
+recv failed
+signalfd failed
+cannot set non-blocking
+pthread_sigmask block failed
+./badvpn/system/BUnixSignal.c
+read failed (%d)
+read returned out of int range signo (%u)
+read returned wrong signo (%d)
+dispatching signal %d
+sigaction failed
+BConnector_Init failed
+BConnection_Init failed
+connected
+invalid number of authentication methods
+received hello
+wrong version
+server didn't accept any authentication method
+no authentication
+password authentication
+invalid username/password length
+received reply header
+reply not successful
+reply has unknown address type
+received password reply
+password reply has unknown version
+password reply is negative
+received reply rest
+sent hello
+sent request
+send password
+size overflow
+BRealloc failed
+/dev/net/tun
+error opening device
+error configuring device
+error getting MTU
+./badvpn/tuntap/BTap.c
+written %d expected %d
+device fd reports error?
+%s: lwip assertion failure: %s
+memp_malloc_pool
+invalid pool desc
+memp_malloc
+memp_malloc: type < MEMP_MAX
+memp_free_pool
+memp_free
+memp_free: type < MEMP_MAX
+do_memp_malloc_pool
+memp_malloc: memp properly aligned
+do_memp_free_pool
+memp_free: mem properly aligned
+pbuf_alloc
+PBUF_POOL_BUFSIZE must be bigger than MEM_ALIGNMENT
+pbuf_alloc: erroneous type
+pbuf_alloc_reference
+invalid pbuf_type
+pbuf_realloc
+pbuf_realloc: p != NULL
+pbuf_realloc: q != NULL
+mem_trim returned q == NULL
+pbuf_remove_header
+p != NULL
+increment_magnitude <= p->len
+pbuf_free
+pbuf_free: p->ref > 0
+pc->custom_free_function != NULL
+invalid pbuf type
+pbuf_ref
+pbuf ref overflow
+pbuf_cat
+(h != NULL) && (t != NULL) (programmer violates API)
+p->tot_len == p->len (of last pbuf in chain)
+pbuf_dechain
+p->tot_len == p->len + q->tot_len
+p->tot_len == p->len
+pbuf_copy
+pbuf_copy: target not big enough to hold source
+offset_to <= p_to->len
+offset_from <= p_from->len
+p_to != NULL
+pbuf_copy() does not allow packet queues!
+pbuf_copy_partial
+pbuf_copy_partial: invalid buf
+pbuf_copy_partial: invalid dataptr
+pbuf_get_contiguous
+pbuf_get_contiguous: invalid buf
+pbuf_get_contiguous: invalid dataptr
+pbuf_take
+pbuf_take: invalid buf
+pbuf_take: invalid dataptr
+pbuf_take: buf not large enough
+pbuf_take: invalid pbuf
+did not copy all data
+pbuf_add_header_impl
+tcp_abandon
+don't call tcp_abort/tcp_abandon for listen-pcbs
+tcp_bind
+tcp_bind: can only bind in state CLOSED
+tcp_bind_to_netif
+tcp_bind_to_netif: can only bind in state CLOSED
+tcp_listen_with_backlog_and_err
+tcp_listen: pcb already connected
+tcp_update_rcv_ann_wnd
+new_rcv_ann_wnd <= 0xffff
+tcp_recved
+don't call tcp_recved for listen-pcbs
+tcp_recved: len wrapped rcv_wnd
+tcp_connect
+tcp_connect: can only connect from state CLOSED
+tcp_connect: cannot connect pcb bound to netif
+tcp_slowtmr
+tcp_slowtmr: active pcb->state != CLOSED
+tcp_slowtmr: active pcb->state != LISTEN
+tcp_slowtmr: active pcb->state != TIME-WAIT
+tcp_slowtimr: persist ticking with in-flight data
+tcp_slowtimr: persist ticking with empty send buffer
+tcp_slowtmr: middle tcp != tcp_active_pcbs
+tcp_slowtmr: first pcb == tcp_active_pcbs
+tcp_slowtmr: TIME-WAIT pcb->state == TIME-WAIT
+tcp_slowtmr: middle tcp != tcp_tw_pcbs
+tcp_slowtmr: first pcb == tcp_tw_pcbs
+tcp_recv
+invalid socket state for recv callback
+tcp_sent
+invalid socket state for sent callback
+tcp_err
+invalid socket state for err callback
+tcp_poll
+invalid socket state for poll
+tcp_pcb_remove
+unsent segments leaking
+unacked segments leaking
+ooseq segments leaking
+tcp_close_shutdown
+pcb->flags & TF_RXCLOSED
+pcb != NULL
+tcp_close_shutdown_fin
+tcp_kill_state
+invalid state
+CLOSED
+LISTEN
+SYN_SENT
+SYN_RCVD
+ESTABLISHED
+FIN_WAIT_1
+FIN_WAIT_2
+CLOSE_WAIT
+CLOSING
+LAST_ACK
+TIME_WAIT
+tcp_write
+tcp_write: arg == NULL (programmer violates API)
+mss_local is too small
+inconsistent oversize vs. space
+inconsistent oversize vs. len
+tcp_write: ROM pbufs cannot be oversized
+unsent_oversize mismatch (pcb->unsent is NULL)
+tcp_write: check that first pbuf can hold the complete seglen
+oversize == 0
+prev_seg != NULL
+tcp_write: cannot concatenate when pcb->unsent is empty
+tcp_write: extension of reference requires reference
+tcp_write: valid queue length
+tcp_enqueue_flags
+tcp_enqueue_flags: need either TCP_SYN or TCP_FIN in flags (programmer violates API)
+tcp_enqueue_flags: check that first pbuf can hold optlen
+seg->tcphdr not aligned
+tcp_enqueue_flags: invalid segment length
+tcp_enqueue_flags: invalid queue length
+tcp_output
+don't call tcp_output for listen-pcbs
+RST not expected here!
+tcp_rst
+check that first pbuf can hold struct tcp_hdr
+tcp_split_unsent_seg
+Can't split segment into length 0
+split <= mss
+tcp_write_checks
+tcp_write: pbufs on queue => at least one queue non-empty
+tcp_write: no pbufs on queue => both queues empty
+tcp_pbuf_prealloc
+need unchained pbuf
+tcp_create_segment
+p->tot_len >= optlen
+tcp_output_alloc_header
+netif_add
+No init function given
+too many netifs, max. supported number is 255
+netif_ip6_addr_set
+addr6 != NULL
+netif_ip6_addr_set_parts
+netif != NULL
+invalid index
+netif_ip6_addr_set_state
+mem_malloc
+malloc() must return aligned memory
+mem_free
+rmem != NULL
+rmem == MEM_ALIGN(rmem)
+tcp_input
+p->next != NULL
+p->len == 0
+p->tot_len == p->next->tot_len
+tcp_input: active pcb->state != CLOSED
+tcp_input: active pcb->state != TIME-WAIT
+tcp_input: active pcb->state != LISTEN
+tcp_input: pcb->next != pcb (before cache)
+tcp_input: pcb->next != pcb (after cache)
+tcp_input: TIME-WAIT pcb->state == TIME-WAIT
+pcb->refused_data == NULL
+tcp_process
+tcp_input: pcb->state != CLOSED
+pcb->snd_queuelen > 0
+no segment to free
+pcb->listener->accept != NULL
+tcp_receive
+tcp_receive: wrong state
+inseg.p != NULL
+insane offset!
+pbuf too short!
+tcp_receive: segment not trimmed correctly to rcv_wnd
+tcp_receive: segment not trimmed correctly to ooseq queue
+tcp_receive: tcplen > rcv_wnd
+tcp_receive: ooseq tcplen > rcv_wnd
+tcp_free_acked_segments
+pcb->snd_queuelen >= pbuf_clen(next->p)
+tcp_receive: valid queue length
+icmp_input
+icmp_input: moving r->payload to icmp header failed
+icmp_input: restoring original p->payload failed
+icmp_send_response
+check that first pbuf can hold icmp message
+ip4_reass
+ip_reass_pbufcount >= clen
+ip4_frag
+ip4_frag() does not support IP options
+ip4_frag(): pbuf too short
+ip_frag(): MF already set
+this needs a pbuf in one piece!
+p->len >= poff
+ip_reass_free_complete_datagram
+prev != ipr
+prev->next == ipr
+pbufs_freed + clen <= 0xffff
+ip_reass_pbufcount >= pbufs_freed
+ip_reass_chain_frag_into_datagram_and_validate
+check fragments don't overlap
+no previous fragment, this must be the first fragment!
+sanity check
+validate_datagram:next_pbuf!=NULL
+ip_reass_dequeue_datagram
+sanity check linked list
+ip_frag_free_pbuf_custom_ref
+ipfrag_free_pbuf_custom
+pcr != NULL
+ip4_output_if_src
+p->ref == 1
+check that first pbuf can hold struct ip_hdr
+ip4_output
+icmp6_send_response
+icmpv6 packet not a direct response
+icmp6_send_response_with_addrs_and_netif
+check that first pbuf can hold icmp 6message
+icmp6_send_response_with_addrs
+must provide both source and destination
+ip6_output_if_src
+check that first pbuf can hold struct ip6_hdr
+ip6_output
+ip6_reass
+IPv6 fragment header does not fit in first pbuf
+not a valid pbuf (ip6_input check missing?)
+ip6_reass_pbufcount >= clen
+ip6_reass: moving p->payload to ip6 header failed
+ip6_reass_free_complete_datagram
+ip6_reass_free: moving p->payload to ip6 header failed
+nd6_find_route
+selected router must have a neighbor entry
+nd6_send_ns
+target address is required
+nd6_send_na
+nd6_free_q
+q != NULL
+q->p != NULL
+r->p != NULL
+socket() failed: %s (socket sock = %d)
+/data/data/com.github.shadowsocks/sock_path
+bind() failed: %s (sock = %d)
+listen() failed: %s (sock = %d)
+select() failed: %s
+accept() failed: %s (sock = %d)
+ancil_recv_fd: %s (sock = %d)
+received fd = %d
+Failed to parse arguments
+Failed to initialize syslog logger
+initializing BadVPN tun2socks 1.999.130
+BNetwork_GlobalInit failed
+Failed to process arguments
+BReactor_Init failed
+BSignal_Init failed
+BTap_Init2 failed
+SinglePacketBuffer_Init failed
+device MTU is too large for UDP
+SocksUdpGwClient_Init failed
+BAlloc failed
+entering event loop
+Free TCP connections
+exiting
+tearing down
+/dev/null
+Invalid pid file
+CLOCK_MONOTONIC is not available. Timers will be confused by clock changes.
+Usage:
+    %s
+        [--help]
+        [--version]
+        [--logger <stdout/syslog>]
+        (logger=syslog?
+            [--syslog-facility <string>]
+            [--syslog-ident <string>]
+        )
+        [--loglevel <0-5/none/error/warning/notice/info/debug>]
+        [--channel-loglevel <channel-name> <0-5/none/error/warning/notice/info/debug>] ...
+        [--fake-proc]
+        [--tunfd <fd>]
+        [--tunmtu <mtu>]
+        [--dnsgw <dns_gateway_address>]
+        [--pid <pid_file>]
+        [--sock-path <sock_path>]
+        --netif-ipaddr <ipaddr>
+        --netif-netmask <ipnetmask>
+        --socks-server-addr <addr>
+        [--netif-ip6addr <addr>]
+        [--username <username>]
+        [--password <password>]
+        [--password-file <file>]
+        [--append-source-to-username]
+        [--enable-udprelay]
+        [--udprelay-max-connections <number>]
+Address format is a.b.c.d:port (IPv4) or [addr]:port (IPv6).
+--help
+--version
+--logger
+%s: requires an argument
+stdout
+%s: wrong argument
+--syslog-facility
+--syslog-ident
+--loglevel
+--channel-loglevel
+%s: requires two arguments
+%s: wrong channel argument
+%s: wrong loglevel argument
+--fake-proc
+--tunmtu
+--dnsgw
+--sock-path
+--pid
+--netif-ipaddr
+--netif-netmask
+--netif-ip6addr
+--socks-server-addr
+--username
+--password
+--password-file
+--append-source-to-username
+--enable-udprelay
+0.0.0.0:0
+--udprelay-max-connections
+unknown option: %s
+--netif-ipaddr is required
+--socks-server-addr is required
+username given but password not given
+--password and --password-file cannot both be given
+none
+error
+warning
+notice
+info
+debug
+netif ipaddr: BIPAddr_Resolve failed
+netif ipaddr: must be an IPv4 address
+netif ip6addr: incorrect
+socks server addr: BAddr_Parse2 failed
+failed to read password file
+udprelay server addr: BAddr_Parse2 failed
+dnsgw addr: BAddr_Parse2 failed
+dnsgw addr: must be an IPv4 address
+termination requested
+lwip init
+netif_add failed
+tcp_new_ip_type failed
+tcp_bind_to_netif failed
+tcp_listen failed
+netif func init
+device write: send packet
+netif func output: no space left
+listener accept: malloc failed
+listener accept: BSocksClient_Init failed
+accepted
+(none)
+proto=%u,ifindex=%d,htype=eth,ptype=%d,addr=%02x:%02x:%02x:%02x:%02x:%02x
+%u.%u.%u.%u
+%x:%x:%x:%x:%x:%x:%x:%x
+SOCKS error
+SOCKS up
+SOCKS closed
+waiting until buffered data is sent to client
+tcp_close failed (%d)
+waiting untill buffered data is sent to SOCKS
+removing after client went down
+tcp_write failed (%d)
+tcp_output failed (%d)
+can't queue data, but all data was confirmed !?!
+removing after SOCKS went down
+client error (%d)
+client closed
+no buffer for data !?!
+%05d (%s %s): 
+TCP timer
+device error
+device: received packet
+device read: packet too large
+device read: pbuf_alloc failed
+./badvpn/tun2socks/tun2socks.c
+device read: input failed
+UDP: from device %d bytes
+UDP/IPv6: from device %d bytes
+packet is too large, cannot send to udpgw
+UDP: from udprelay %d bytes
+UDP: packet is too large
+UDP/IPv6: from udprelay %d bytes
+got IPv6 packet from udprelay but IPv6 is disabled
+UDP/IPv6: packet is too large
+server
+client
+flooder
+tun2socks
+ncd_var
+ncd_list
+ncd_depend
+ncd_multidepend
+ncd_dynamic_depend
+ncd_concat
+ncd_if
+ncd_strcmp
+ncd_regex_match
+ncd_logical
+ncd_sleep
+ncd_print
+ncd_blocker
+ncd_run
+ncd_runonce
+ncd_daemon
+ncd_spawn
+ncd_imperative
+ncd_ref
+ncd_index
+ncd_alias
+ncd_process_manager
+ncd_ondemand
+ncd_foreach
+ncd_choose
+ncd_net_backend_waitdevice
+ncd_net_backend_waitlink
+ncd_net_backend_badvpn
+ncd_net_backend_wpa_supplicant
+ncd_net_backend_rfkill
+ncd_net_up
+ncd_net_dns
+ncd_net_iptables
+ncd_net_ipv4_addr
+ncd_net_ipv4_route
+ncd_net_ipv4_dhcp
+ncd_net_ipv4_arp_probe
+ncd_net_watch_interfaces
+ncd_sys_watch_input
+ncd_sys_watch_usb
+ncd_sys_evdev
+ncd_sys_watch_directory
+StreamPeerIO
+DatagramPeerIO
+BReactor
+BSignal
+FragmentProtoAssembler
+BPredicate
+ServerConnection
+Listener
+DataProto
+FrameDecider
+BSocksClient
+BDHCPClientCore
+BDHCPClient
+NCDIfConfig
+BUnixSignal
+BProcess
+PRStreamSink
+PRStreamSource
+PacketProtoDecoder
+DPRelay
+BThreadWork
+DPReceive
+BInputProcess
+NCDUdevMonitorParser
+NCDUdevMonitor
+NCDUdevCache
+NCDUdevManager
+BTime
+BEncryption
+SPProtoDecoder
+LineBuffer
+BTap
+lwip
+NCDConfigTokenizer
+NCDConfigParser
+NCDValParser
+nsskey
+addr
+PasswordListener
+NCDInterfaceMonitor
+NCDRfkillMonitor
+udpgw
+UdpGwClient
+SocksUdpGwClient
+BNetwork
+BConnection
+BSSLConnection
+BDatagram
+PeerChat
+BArpProbe
+NCDModuleIndex
+NCDModuleProcess
+NCDValGenerator
+ncd_from_string
+ncd_to_string
+ncd_value
+ncd_try
+ncd_sys_request_server
+NCDRequest
+ncd_net_ipv6_wait_dynamic_addr
+NCDRequestClient
+ncd_request
+ncd_sys_request_client
+ncd_exit
+ncd_getargs
+ncd_arithmetic
+ncd_parse
+ncd_valuemetic
+ncd_file
+ncd_netmask
+ncd_implode
+ncd_call2
+ncd_assert
+ncd_reboot
+ncd_explode
+NCDPlaceholderDb
+NCDVal
+ncd_net_ipv6_addr
+ncd_net_ipv6_route
+ncd_net_ipv4_addr_in_network
+ncd_net_ipv6_addr_in_network
+dostest_server
+dostest_attacker
+ncd_timer
+ncd_file_open
+ncd_backtrack
+ncd_socket
+ncd_depend_scope
+ncd_substr
+ncd_sys_start_process
+NCDBuildProgram
+ncd_log
+ncd_log_msg
+ncd_buffer
+ncd_getenv
+BThreadSignal
+BLockReactor
+ncd_load_module
+ncd_basic_functions
+ncd_objref
+%s(%s): %s
+ERROR
+WARNING
+NOTICE
+INFO
+DEBUG
+setsockopt(IP_PKTINFO) failed
+setsockopt(IPV6_RECVPKTINFO) failed
+send sent too little
+malloc failed
+set SO_REUSEADDR failed
+PacketBuffer_Init failed
+UDP error
+missing header
+unexpected frag
+missing ipv6 address
+missing ipv4 address
+receive packet from %s
+too much data
+out of UDP buffer
+com.github.shadowsocks
+BadVPN tun2socks 1.999.130
+Copyright (C) 2010 Ambroz Bizjak <ambrop7@gmail.com>
+Android (5058415 based on r339409) clang version 8.0.2 (https://android.googlesource.com/toolchain/clang 40173bab62ec746213857d083c0e8b0abb568790) (https://android.googlesource.com/toolchain/llvm 7a6618d69e7e8111e1d49dc9e7813767c5ca756a) (based on LLVM 8.0.2svn)
+gold 1.12
+aeabi
+ARM v7
+.shstrtab
+.interp
+.note.android.ident
+.note.gnu.build-id
+.dynsym
+.dynstr
+.hash
+.gnu.version
+.gnu.version_r
+.rel.dyn
+.rel.plt
+.text
+.ARM.exidx
+.ARM.extab
+.rodata
+.preinit_array
+.init_array
+.fini_array
+.data.rel.ro
+.dynamic
+.got
+.data
+.bss
+.comment
+.note.gnu.gold-version
+.ARM.attributes

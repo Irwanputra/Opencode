@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="bg">@drawable/es</item>
+    <item type="drawable" name="bh">@drawable/et</item>
+    <item type="drawable" name="bi">@drawable/eu</item>
+    <item type="drawable" name="ck">#3333b5e5</item>
+    <item type="drawable" name="cl">#0cffffff</item>
+</resources>

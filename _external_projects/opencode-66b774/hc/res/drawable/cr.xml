@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list android:opacity="opaque"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient android:startColor="@color/b_" android:endColor="@color/ba" android:angle="90.0" android:centerColor="@color/ba" />
+        </shape>
+    </item>
+    <item>
+        <bitmap android:gravity="center" android:src="@drawable/bw" android:tileMode="disabled" />
+    </item>
+    <item android:top="85.0dip">
+        <bitmap android:gravity="center" android:src="@drawable/be" android:tileMode="disabled" />
+    </item>
+</layer-list>

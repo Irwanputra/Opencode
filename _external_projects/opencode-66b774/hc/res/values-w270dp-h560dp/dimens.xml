@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="jq">230.0dip</dimen>
+    <dimen name="jr">100.0dip</dimen>
+    <dimen name="js">30.0dip</dimen>
+    <dimen name="jt">30.0dip</dimen>
+</resources>

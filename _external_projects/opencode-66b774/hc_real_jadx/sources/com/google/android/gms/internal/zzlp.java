@@ -1,0 +1,33 @@
+package com.google.android.gms.internal;
+
+import android.os.Parcel;
+
+/* loaded from: /tmp/opencode/hc_real.dex */
+public abstract class zzlp extends zzev implements zzlo {
+    public zzlp() {
+        attachInterface(this, "com.google.android.gms.ads.internal.client.IVideoLifecycleCallbacks");
+    }
+
+    @Override // android.os.Binder
+    public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        if (zza(i, parcel, parcel2, i2)) {
+            return true;
+        }
+        if (i == 1) {
+            onVideoStart();
+        } else if (i == 2) {
+            onVideoPlay();
+        } else if (i == 3) {
+            onVideoPause();
+        } else if (i == 4) {
+            onVideoEnd();
+        } else {
+            if (i != 5) {
+                return false;
+            }
+            onVideoMute(zzew.zza(parcel));
+        }
+        parcel2.writeNoException();
+        return true;
+    }
+}

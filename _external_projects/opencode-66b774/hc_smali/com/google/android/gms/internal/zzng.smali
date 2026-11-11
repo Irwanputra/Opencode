@@ -1,0 +1,61 @@
+.class public final Lcom/google/android/gms/internal/zzng;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ljava/util/concurrent/Callable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/concurrent/Callable<",
+        "TT;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field private synthetic zzbhj:Lcom/google/android/gms/internal/zzmx;
+
+.field private synthetic zzbhk:Lcom/google/android/gms/internal/zznf;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/zznf;Lcom/google/android/gms/internal/zzmx;)V
+    .registers 3
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/zzng;->zzbhk:Lcom/google/android/gms/internal/zznf;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/zzng;->zzbhj:Lcom/google/android/gms/internal/zzmx;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final call()Ljava/lang/Object;
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/zzng;->zzbhj:Lcom/google/android/gms/internal/zzmx;
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/zzng;->zzbhk:Lcom/google/android/gms/internal/zznf;
+
+    invoke-static {v1}, Lcom/google/android/gms/internal/zznf;->zza(Lcom/google/android/gms/internal/zznf;)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/zzmx;->zza(Landroid/content/SharedPreferences;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method

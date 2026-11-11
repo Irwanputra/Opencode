@@ -1,0 +1,296 @@
+td$^
+Android
+r17c
+4988734
+__cxa_finalize
+LIBC
+libc.so
+libsystem.so
+__cxa_atexit
+.datadiv_decode16851859561332844402
+JNI_OnLoad
+_Znaj
+LIBC_O
+libstdc++.so
+__aeabi_memclr
+__errno
+__stack_chk_fail
+__stack_chk_guard
+close
+exit
+fclose
+fdopen
+fgets
+fopen
+stat
+strcpy
+strlen
+strstr
+strtok
+x.20
+x.22
+x.24
+x.26
+x.28
+x.30
+x.32
+x.34
+x.36
+x.38
+x.40
+x.42
+x.44
+y.21
+y.23
+y.25
+y.27
+y.29
+y.31
+y.33
+y.35
+y.37
+y.39
+y.41
+y.43
+y.45
+__gnu_Unwind_Find_exidx
+abort
+memcpy
+__cxa_begin_cleanup
+__cxa_type_match
+__cxa_call_unexpected
+_edata
+_end
+__bss_start
+liblog.so
+libm.so
+libdl.so
+PC	h
+hyD	h
+%,C@
+]FHF
+I0FyD
+BxDOI
+hyD	h
+]FHF
+0I0FyD
+EFxD
+hyD	h
+hBB	h
+%,C@
+]FHF
+I0FyD
+IxDyD
+IxDyD
+2RxDyI
+hyD	h
+%,C@
+ZI0FyD
+~D1F
+FryD
+F	hxD	h
+FHF:
+I0FyD
+hyD	h
+	hPC
+%,C@
+I0FyD
+EFxDlI
+hyD	h
+hBB	h
+]FHF
+PI0FyD
+}D)F
+#	hJ
+hyD	h
+hBB	h
+%,C@
+fI0FyD
+rxD@I
+hyD	h
+]FHF
+!I0FyD
+!0`M
+IBByD
+CPCo
+	h	hB@
+)!FH
+yI@FyD
+Q(FXE
+RFdF
+N`RF
+hLIBByD
+CPC	ho
+aRFH
+`RFN
+8PRF
+IyD	hb
+LRxD
+PCri
+	hB@
+FRF^
+ RF+
+[0dF
+ndFRF
+c0RF
+CHCRIyD	hB@
+8R:I
+FRFK
+"H%FI
+yDPC
+ F,FRF
+IyD	hB@
+?bxD
+8S	h
+#PCo
+F(F!F
+0ZzD
+{DTC
+0U@F
+LaEU
+ paN
+RF1h
+CIB@
+IyD	hB@
+IyD	hB@
+haIB
+yDPCo
+	h	hB@
+rBxD
+FyDM
+O#xD
+3yDJ
+Dl	h
+;PC2h
+FAE$
+WXxDF
+KyDB
+DyD(h
+iyDHF
+G)hF
+kQCE
+iyDHF
+lYF8
+\cHF
+\cHFjJzD
+G)ho
+w%!F
+xCx'
+CBy'
+Ap+C'
+Az*C
+zBq}"
+xJx(
+"Yx"
+*CAp
+xZp$
+Xq= 
+r\##
+x*CJp#
+qJy#
+2CJq
+z^L)
+3C"x`x
+p#y!
+3C#q
+"pW"
+`p`y
+ r`z!
+r {!
+C s`{(
+s |!
+C"txDb|Cx
+xCp"
+pCy"
+#CCq
+#Ck$
+tA|"
+|~L"
+%xbx3C
+p#y 
+3C#qcy 
+3Ccq
+q#z 
+3C#r,
+&;C)
+czbp
+!sa{ 
+{9I 
+s"|yD
+*HJp
+pc"xD
+xBp&
+pBy&
+:CBq
+ {!zD
+yIp'yDHx
+0CNy
+xHp'
+yHq'
+7CgH
+7CxD
+Fx;C
+;CCp!
+;CGy
+y;CCq!
+sB{!
+/CKx
+7CNy
+yOq"
+q_'Nz
+Kpv#
+sH{"
+;C|D
+xJu&
++C!xbx
+9C{D
+apYx
+xYp"
+1C]z
+C\y7C
+:CZr
+zD7C
+qWy#
+7CWq
+/CVz
+sW{#
+7CWs
+tP|#!
+>ac~r>radx
+13890|2=19\
+U{wq
+p'xzgk'{mdn'eg}f|afng
+ZKOC
+K^\A
+O^EM[]ZAC
+YGJIKZ]
+}W]ZKC`OZGXK.mwIecmwoTvawajpJepmra
+GCC: (GNU) 4.9.x 20150123 (prerelease)
+clang version 6.0.0 (tags/RELEASE_600/final) (https://github.com/yazhiwang/ollvm-tll.git a38559e4c13359073102793c0a734bb1add3d5ff)
+gold 1.12
+aeabi
+ARM v7
+.shstrtab
+.note.android.ident
+.note.gnu.build-id
+.dynsym
+.dynstr
+.hash
+.gnu.version
+.gnu.version_d
+.gnu.version_r
+.rel.dyn
+.rel.plt
+.text
+.ARM.extab
+.ARM.exidx
+.rodata
+.fini_array
+.init_array
+.dynamic
+.got
+.data
+.bss
+.comment
+.note.gnu.gold-version
+.ARM.attributes

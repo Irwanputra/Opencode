@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@id/pn" android:orderInCategory="0" android:title="@string/v2" app:tl="l7">
+        <menu>
+            <item android:id="@id/po" android:orderInCategory="0" android:title="@string/v3" android:checkable="true" app:tl="l7" />
+            <item android:id="@id/pp" android:orderInCategory="1" android:title="@string/v4" android:checkable="true" app:tl="l7" />
+            <item android:id="@id/bb" android:orderInCategory="2" android:title="@string/ax" android:checkable="true" app:tl="l7" />
+            <item android:id="@id/bc" android:orderInCategory="3" android:title="@string/ay" android:checkable="true" app:tl="l7" />
+        </menu>
+    </item>
+    <item android:orderInCategory="1" android:title="Ping Utility" app:tl="l7">
+        <menu>
+            <item android:id="@id/ca" android:orderInCategory="0" android:title="@string/c3" android:checkable="true" app:tl="l7" />
+            <item android:id="@id/cb" android:orderInCategory="1" android:title="@string/c4" android:checkable="true" app:tl="l7" />
+        </menu>
+    </item>
+    <item android:icon="@drawable/bu" android:id="@id/d9" android:orderInCategory="2" android:title="@string/b2" app:tl="i7" />
+    <item android:icon="@drawable/bp" android:id="@id/ry" android:orderInCategory="3" android:title="@string/at" app:tl="i7" />
+    <item android:icon="@drawable/bc" android:id="@id/hj" android:orderInCategory="4" android:title="@string/b3" app:tl="i7" />
+    <item android:id="@id/ay" android:orderInCategory="20" android:title="@string/ap" app:tl="l7" />
+    <item android:id="@id/be" android:orderInCategory="98" android:title="@string/t2" app:tl="l7" />
+    <item android:id="@id/b4" android:orderInCategory="99" android:title="@string/ih" app:tl="l7" />
+    <item android:id="@id/b3" android:orderInCategory="100" android:title="@string/as" app:tl="l7" />
+</menu>

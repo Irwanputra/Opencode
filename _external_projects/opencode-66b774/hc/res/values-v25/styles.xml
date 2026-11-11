@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="fk" parent="@style/t7" />
+    <style name="fl" parent="@style/t8" />
+    <style name="t7" parent="@android:style/Theme.Material.NoActionBar" />
+    <style name="t8" parent="@android:style/Theme.Material.Light.NoActionBar" />
+</resources>

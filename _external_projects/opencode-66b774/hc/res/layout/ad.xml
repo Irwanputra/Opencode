@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:paddingLeft="@dimen/bf" android:paddingTop="@dimen/bg" android:paddingRight="@dimen/bf" android:paddingBottom="@dimen/bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:fab="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <team.dev.epro.apkcustom.widgets.jsonhighlight.CodeView android:textAppearance="?android:textAppearanceSmall" android:id="@id/configview" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="textMultiLine|textNoSuggestions">
+            <requestFocus />
+        </team.dev.epro.apkcustom.widgets.jsonhighlight.CodeView>
+    </ScrollView>
+    <com.github.clans.fab.FloatingActionMenu android:id="@id/gs" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" fab:pq="@android:color/transparent" fab:pt="@color/b6" fab:pu="@color/b9" fab:q6="g_" fab:qh="true" fab:qm="#ff444444">
+        <com.github.clans.fab.FloatingActionButton android:id="@id/gv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/f2" fab:j5="@color/b6" fab:j6="@color/b9" fab:j_="@string/t6" fab:jm="ju" />
+        <com.github.clans.fab.FloatingActionButton android:id="@id/gr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/f0" fab:j5="@color/b6" fab:j6="@color/b9" fab:j_="@string/h0" fab:jm="ju" />
+    </com.github.clans.fab.FloatingActionMenu>
+</androidx.constraintlayout.widget.ConstraintLayout>

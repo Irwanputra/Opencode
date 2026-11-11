@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/bm" android:paddingLeft="@dimen/bf" android:paddingTop="@dimen/bg" android:paddingRight="@dimen/bf" android:paddingBottom="@dimen/bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="18.0sp" android:textStyle="bold" android:id="@id/r3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mf" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <ImageView android:id="@id/e_" android:background="@drawable/ax" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" app:u5="@drawable/es" />
+    <View android:id="@id/b2" android:background="@android:color/darker_gray" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="5.0dip" android:layout_below="@id/r3" />
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_below="@id/b2">
+        <ScrollView android:id="@id/ji" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/j1" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/pz" android:layout_width="fill_parent" android:layout_height="wrap_content" app:s0="false">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="start|center|top" android:id="@id/q4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/mf" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/q0" android:layout_width="fill_parent" android:layout_height="wrap_content" app:s0="false">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/q6" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/qp" android:maxLines="1" android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                        <Button android:textColor="@android:color/white" android:id="@id/cp" android:background="@drawable/au" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ck" android:textAllCaps="false" />
+                    </LinearLayout>
+                    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="@color/bb" android:id="@id/la" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/n8" />
+                </LinearLayout>
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/j2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/py" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="start|center|top" android:id="@id/pv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Filename" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/dh" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Lock Payload &amp; Server" android:layout_weight="0.5" />
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/di" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Lock Payload" android:layout_weight="0.5" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/dj" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Unlock User &amp; Pass" android:layout_weight="0.5" />
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/dl" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Unlock Remote Proxy" android:layout_weight="0.5" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/de" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Mobile Data" android:layout_weight="0.5" />
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/dm" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Block Root" android:layout_weight="0.5" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/dg" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="HWID" android:layout_weight="0.5" />
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/dk" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Note" android:layout_weight="0.5" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/d2" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Password" android:layout_weight="0.5" />
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/d1" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Extra Sniffer" android:layout_weight="0.5" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/d3" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Psiphon Settings" android:layout_weight="0.5" />
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/d4" android:paddingTop="4.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Special Version" android:layout_weight="0.5" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <CheckBox android:textAppearance="?android:textAppearanceSmall" android:gravity="top" android:id="@id/df" android:paddingTop="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Expired" />
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/mc" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/mb" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Powered by Nick (Max 20 chars)" android:maxLines="1" android:maxLength="20" android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/lc" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/lb" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Note (ex. 2020 © ePro Dev. Team)" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/i4" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/i3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="HWID (hardware ID)" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/m1" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/m0" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Set password config" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                        <Button android:textColor="@android:color/white" android:id="@id/cv" android:background="@drawable/au" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="5.0dip" android:text="Save" android:layout_weight="1.0" android:textAllCaps="false" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/j3" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/q2" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="start|center|top" android:id="@id/q8" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Server Name Indication" android:inputType="textMultiLine" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                        <Button android:textColor="@android:color/white" android:id="@id/cr" android:background="@drawable/au" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="5.0dip" android:text="Apply" android:layout_weight="1.0" android:textAllCaps="false" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/iw" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/px" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:gravity="start|center|top" android:id="@id/ps" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="Default 7300" android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                        <Button android:textColor="@android:color/white" android:id="@id/cq" android:background="@drawable/au" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="5.0dip" android:text="Apply" android:layout_weight="1.0" android:textAllCaps="false" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/j0" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout android:id="@id/q1" android:layout_width="fill_parent" android:layout_height="wrap_content" app:s0="false">
+                        <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/q7" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/qp" android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="@color/bb" android:textColorLink="@color/b6" android:autoLink="web" android:linksClickable="true" android:id="@id/ld" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="Config Locked by Creator" />
+                    <Button android:textColor="@android:color/white" android:layout_gravity="right" android:id="@id/ct" android:background="@drawable/au" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginTop="10.0dip" android:text="Ok, I Know" android:textAllCaps="false" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

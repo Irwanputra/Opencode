@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="jt" parent="@style/jr" />
+    <style name="ju" parent="@style/jr" />
+    <style name="jv" parent="@style/k0" />
+    <style name="jw" parent="@style/k1" />
+    <style name="jx" parent="@style/k2" />
+    <style name="jy" parent="@style/k3" />
+    <style name="jz" parent="@style/kb" />
+    <style name="kn" parent="@style/kj" />
+    <style name="ko" parent="@style/kk" />
+    <style name="kp" parent="@style/kl" />
+    <style name="kq" parent="@style/kj" />
+    <style name="kr" parent="@style/kl" />
+    <style name="ks" parent="@style/l3" />
+    <style name="kt" parent="@style/l4" />
+    <style name="ku" parent="@style/l5" />
+    <style name="kv" parent="@style/l6" />
+    <style name="kw" parent="@style/l7" />
+    <style name="kx" parent="@style/l8" />
+    <style name="ky" parent="@style/l9" />
+    <style name="kz" parent="@style/l_" />
+    <style name="l0" parent="@style/la" />
+    <style name="l1" parent="@style/lt" />
+    <style name="l2" parent="@style/lu" />
+    <style name="lz" parent="@style/lx" />
+    <style name="mi" parent="@style/mf" />
+    <style name="pf" parent="@style/ph" />
+    <style name="pj" parent="@style/pk" />
+    <style name="ps" parent="@style/pq" />
+    <style name="pv" parent="@style/pt" />
+    <style name="rh" parent="@style/rf" />
+    <style name="rx" parent="@style/ry" />
+</resources>

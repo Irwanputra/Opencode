@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@id/d0" android:layout_width="fill_parent" android:layout_height="wrap_content" card_view:dl="2.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:background="@color/cv" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/ia" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:src="@drawable/flag_id" android:scaleType="center" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_marginStart="10.0dip" android:layout_alignParentStart="true" />
+        <TextView android:id="@id/pt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_toRightOf="@id/ia" android:layout_alignTop="@id/ia" android:layout_marginStart="5.0dip" android:layout_toEndOf="@id/ia" />
+        <TextView android:id="@id/pw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/pt" android:layout_alignLeft="@id/pt" android:layout_alignStart="@id/pt" />
+        <TextView android:id="@id/q5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/pw" android:layout_alignLeft="@id/pw" android:layout_alignStart="@id/pw" />
+        <TextView android:id="@id/qa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:layout_below="@id/q5" android:layout_alignLeft="@id/q5" android:layout_alignStart="@id/q5" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

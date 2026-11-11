@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="pa" parent="@style/ek">
+        <item name="v3">d5</item>
+        <item name="ve">h8</item>
+    </style>
+    <style name="qy" parent="@style/ox">
+        <item name="android:textAppearance">?w4</item>
+        <item name="android:textColor">?fb</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">@integer/o</item>
+    </style>
+</resources>

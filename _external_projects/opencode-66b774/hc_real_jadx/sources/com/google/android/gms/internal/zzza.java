@@ -1,0 +1,20 @@
+package com.google.android.gms.internal;
+
+import android.view.ViewTreeObserver;
+import java.lang.ref.WeakReference;
+
+/* loaded from: /tmp/opencode/hc_real.dex */
+public final class zzza implements ViewTreeObserver.OnScrollChangedListener {
+    private /* synthetic */ zzyt zzclk;
+    private /* synthetic */ WeakReference zzclm;
+
+    public zzza(zzyt zzytVar, WeakReference weakReference) {
+        this.zzclk = zzytVar;
+        this.zzclm = weakReference;
+    }
+
+    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+    public final void onScrollChanged() {
+        this.zzclk.zza((WeakReference<zzanh>) this.zzclm, true);
+    }
+}

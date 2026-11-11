@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@id/pn" android:orderInCategory="31" android:title="Plugin Settings" app:tl="l7">
+        <menu>
+            <item android:id="@id/ba" android:orderInCategory="0" android:title="Psiphon Settings" app:tl="l7" />
+            <item android:id="@id/bf" android:orderInCategory="1" android:title="V2ray Settings" app:tl="l7" />
+        </menu>
+    </item>
+</menu>

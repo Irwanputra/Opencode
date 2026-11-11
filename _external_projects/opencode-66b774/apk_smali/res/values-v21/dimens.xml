@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gl">0.0dip</dimen>
+    <dimen name="h8">1.0dip</dimen>
+    <item type="dimen" name="hu">0.48</item>
+    <item type="dimen" name="hv">0.48</item>
+    <item type="dimen" name="hw">0.16</item>
+    <item type="dimen" name="hx">0.48</item>
+    <item type="dimen" name="hz">0.24</item>
+    <item type="dimen" name="i0">0.24</item>
+    <item type="dimen" name="i1">0.08</item>
+    <item type="dimen" name="i2">0.24</item>
+    <dimen name="jb">0.0dip</dimen>
+    <dimen name="je">0.0dip</dimen>
+    <dimen name="jf">12.0dip</dimen>
+</resources>

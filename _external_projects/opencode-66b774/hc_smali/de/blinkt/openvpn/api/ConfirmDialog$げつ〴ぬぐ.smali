@@ -1,0 +1,63 @@
+.class public Lde/blinkt/openvpn/api/ConfirmDialog$げつ〴ぬぐ;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/content/ServiceConnection;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lde/blinkt/openvpn/api/ConfirmDialog;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic げつ〴ぬぐ:Lde/blinkt/openvpn/api/ConfirmDialog;
+
+
+# direct methods
+.method public constructor <init>(Lde/blinkt/openvpn/api/ConfirmDialog;)V
+    .registers 2
+
+    iput-object p1, p0, Lde/blinkt/openvpn/api/ConfirmDialog$げつ〴ぬぐ;->げつ〴ぬぐ:Lde/blinkt/openvpn/api/ConfirmDialog;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+    .registers 3
+
+    iget-object p1, p0, Lde/blinkt/openvpn/api/ConfirmDialog$げつ〴ぬぐ;->げつ〴ぬぐ:Lde/blinkt/openvpn/api/ConfirmDialog;
+
+    invoke-static {p2}, Lぁごぐすすぃ/げつ〴ぬぐ/げつ〴ぬぐ/ぁごぐすすぃ/なぎぱいぢぎ$げつ〴ぬぐ;->〺つふすそ(Landroid/os/IBinder;)Lぁごぐすすぃ/げつ〴ぬぐ/げつ〴ぬぐ/ぁごぐすすぃ/なぎぱいぢぎ;
+
+    move-result-object p2
+
+    .line 1
+    iput-object p2, p1, Lde/blinkt/openvpn/api/ConfirmDialog;->づざかべべ:Lぁごぐすすぃ/げつ〴ぬぐ/げつ〴ぬぐ/ぁごぐすすぃ/なぎぱいぢぎ;
+
+    return-void
+.end method
+
+.method public onServiceDisconnected(Landroid/content/ComponentName;)V
+    .registers 3
+
+    iget-object p1, p0, Lde/blinkt/openvpn/api/ConfirmDialog$げつ〴ぬぐ;->げつ〴ぬぐ:Lde/blinkt/openvpn/api/ConfirmDialog;
+
+    const/4 v0, 0x0
+
+    .line 1
+    iput-object v0, p1, Lde/blinkt/openvpn/api/ConfirmDialog;->づざかべべ:Lぁごぐすすぃ/げつ〴ぬぐ/げつ〴ぬぐ/ぁごぐすすぃ/なぎぱいぢぎ;
+
+    return-void
+.end method

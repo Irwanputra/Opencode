@@ -1,0 +1,10 @@
+package com.google.android.gms.internal;
+
+import org.json.JSONObject;
+
+/* loaded from: /tmp/opencode/hc_real.dex */
+public interface zzacf {
+    zztp<JSONObject, JSONObject> zznq();
+
+    zztp<JSONObject, JSONObject> zznr();
+}

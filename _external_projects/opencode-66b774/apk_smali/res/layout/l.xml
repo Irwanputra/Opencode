@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.view.menu.ListMenuItemView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minWidth="196.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/hk" android:background="@drawable/a0" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="4.0dip" android:layout_marginBottom="4.0dip" />
+    <LinearLayout android:id="@id/ef" android:duplicateParentState="true" android:layout_width="fill_parent" android:layout_height="?hz" style="@style/fy">
+        <TextView android:textAppearance="?w5" android:layout_gravity="center_vertical" android:id="@id/r3" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/g3" />
+        <Space android:layout_width="0.0dip" android:layout_height="1.0dip" android:layout_weight="1.0" />
+        <TextView android:textAppearance="?wd" android:layout_gravity="center_vertical" android:id="@id/o3" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/g0" />
+        <ImageView android:layout_gravity="center" android:id="@id/p6" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="center" style="@style/g1" />
+    </LinearLayout>
+</androidx.appcompat.view.menu.ListMenuItemView>

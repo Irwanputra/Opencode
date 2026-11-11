@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/bf" android:id="@id/ky" android:title="@string/md" />
+    <item android:title="@string/ml">
+        <menu>
+            <item android:icon="@drawable/bo" android:id="@id/l0" android:title="@string/mf" />
+            <item android:icon="@drawable/bs" android:id="@id/l2" android:title="@string/mi" />
+        </menu>
+    </item>
+    <item android:title="@string/ma">
+        <menu>
+            <item android:icon="@drawable/bq" android:id="@id/l1" android:title="@string/mg" />
+            <item android:icon="@drawable/bv" android:id="@id/l5" android:title="@string/mm" />
+        </menu>
+    </item>
+    <item android:title="@string/mj">
+        <menu>
+            <item android:icon="@drawable/bb" android:id="@id/kw" android:title="@string/mb" />
+            <item android:icon="@drawable/bt" android:id="@id/l3" android:title="@string/mk" />
+            <item android:icon="@drawable/bd" android:id="@id/kx" android:title="@string/mc" />
+            <item android:icon="@drawable/bn" android:id="@id/kz" android:title="@string/me" />
+        </menu>
+    </item>
+</menu>

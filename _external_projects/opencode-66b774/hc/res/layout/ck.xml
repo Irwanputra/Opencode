@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:theme="@style/lx" android:gravity="bottom" android:orientation="vertical" android:background="@drawable/cp" android:paddingLeft="@dimen/bf" android:paddingTop="@dimen/bg" android:paddingRight="@dimen/bf" android:paddingBottom="@dimen/bg" android:layout_width="fill_parent" android:layout_height="@dimen/j7"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/ib" android:paddingTop="@dimen/j8" android:layout_width="wrap_content" android:layout_height="wrap_content" app:u5="@mipmap/ic_launcher" />
+    <TextView android:textAppearance="@style/ha" android:id="@id/ru" android:paddingTop="@dimen/j8" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="HTTP Custom" />
+    <TextView android:id="@id/p5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2017 © ePro Dev. Team" />
+</LinearLayout>

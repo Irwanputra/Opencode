@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/bp" android:paddingLeft="@dimen/bf" android:paddingTop="@dimen/bg" android:paddingRight="@dimen/bf" android:paddingBottom="@dimen/bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/gk" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/wi" android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" custom:s0="true">
+                <EditText android:textAppearance="?android:textAppearanceSmall" android:id="@id/gj" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/o_" android:maxLines="1" android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button android:textColor="@android:color/white" android:id="@id/ce" android:background="@drawable/co" android:longClickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/au" />
+            <TextView android:id="@id/rl" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

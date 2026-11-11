@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="v">Eve gidiş yolunu göster</string>
+    <string name="w">Yukarı git</string>
+    <string name="x">Diğer seçenekler</string>
+    <string name="y">Bitti</string>
+    <string name="z">Tümünü göster</string>
+    <string name="a0">Bir uygulama seçin</string>
+    <string name="a1">KAPAT</string>
+    <string name="a2">AÇ</string>
+    <string name="a3">Alt+</string>
+    <string name="a4">Ctrl+</string>
+    <string name="a5">sil</string>
+    <string name="a6">enter</string>
+    <string name="a7">Function+</string>
+    <string name="a8">Meta+</string>
+    <string name="a9">Üst Karakter+</string>
+    <string name="a_">boşluk</string>
+    <string name="aa">Sym+</string>
+    <string name="ab">Menü+</string>
+    <string name="ac">Ara…</string>
+    <string name="ad">Sorguyu temizle</string>
+    <string name="ae">Arama sorgusu</string>
+    <string name="af">Ara</string>
+    <string name="ag">Sorguyu gönder</string>
+    <string name="ah">Sesli arama</string>
+    <string name="ai">Şununla paylaş:</string>
+    <string name="aj">%s ile paylaş</string>
+    <string name="ak">Daralt</string>
+    <string name="dr">%1$s, Google Play hizmetleriyle ilgili sorun yaşıyor. Lütfen tekrar deneyin.</string>
+    <string name="rj">Resmi kaydet</string>
+    <string name="rk">Reklamın, Resim galerisine resim kaydetmesine izin verilsin mi?</string>
+    <string name="rl">Kabul et</string>
+    <string name="rm">Reddet</string>
+    <string name="rn">Takvim etkinliği oluştur</string>
+    <string name="ro">Reklamın, takvim etkinliği oluşturmasına izin verilsin mi?</string>
+    <string name="rp">Test Reklamı</string>
+    <string name="s0">Ara</string>
+    <string name="uo">999+</string>
+</resources>

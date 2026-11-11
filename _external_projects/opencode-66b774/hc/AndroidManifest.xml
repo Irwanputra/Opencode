@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="23" android:compileSdkVersionCodename="6.0-2438415" package="xyz.easypro.httpcustom" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="true" android:fullBackupContent="@xml/a" android:icon="@mipmap/ic_launcher" android:label="@string/bi" android:largeHeap="true" android:launchMode="singleTask" android:name="xyz.easypro.ecrypt.ProtectedBaseApplication" android:requestLegacyExternalStorage="true" android:resizeableActivity="false" android:supportsRtl="false" android:theme="@style/j">
+        <activity android:label="Psiphon Settings" android:name="team.dev.epro.apkcustom.activities.PsiphonSettings" android:parentActivityName="team.dev.epro.apkcustom.MainActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="team.dev.epro.apkcustom.MainActivity"/>
+        </activity>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/i"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/bi" android:launchMode="singleTask" android:name="team.dev.epro.apkcustom.MainActivity" android:theme="@style/gy">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:autoRemoveFromRecents="true" android:excludeFromRecents="true" android:grantUriPermissions="true" android:label="@string/du" android:launchMode="singleTask" android:name="team.dev.epro.apkcustom.activities.ConfigImport" android:taskAffinity=".ConfigImport" android:theme="@style/gy">
+            <intent-filter android:priority="50">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="content"/>
+                <data android:mimeType="application/octet-stream"/>
+                <data android:mimeType="application/octetstream"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.hc"/>
+                <data android:pathPattern=".*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.hc"/>
+                <data android:pathPattern=".*\\.mr"/>
+                <data android:pathPattern=".*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.mr"/>
+                <data android:pathPattern=".*\\.zxc"/>
+                <data android:pathPattern=".*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.zxc"/>
+                <data android:pathPattern=".*\\.acm"/>
+                <data android:pathPattern=".*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.acm"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.acm"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="team.dev.epro.apkcustom.dialogs.TimeOut" android:theme="@style/i"/>
+        <activity android:name="team.dev.epro.apkcustom.dialogs.GroupSort" android:theme="@style/i"/>
+        <activity android:name="team.dev.epro.apkcustom.dialogs.Dns" android:theme="@style/i"/>
+        <activity android:name="team.dev.epro.apkcustom.dialogs.RequestBlock" android:theme="@style/i"/>
+        <activity android:name="team.dev.epro.apkcustom.widgets.FileChooser"/>
+        <activity android:launchMode="singleTask" android:name="team.dev.epro.apkcustom.dialogs.ServerMessage" android:theme="@style/i"/>
+        <activity android:label="@string/b2" android:name="team.dev.epro.apkcustom.activities.GeneratedConfig" android:parentActivityName="team.dev.epro.apkcustom.MainActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="team.dev.epro.apkcustom.MainActivity"/>
+        </activity>
+        <activity android:label="@string/b1" android:name="team.dev.epro.apkcustom.activities.V2raySettings" android:parentActivityName="team.dev.epro.apkcustom.MainActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="team.dev.epro.apkcustom.MainActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:name="team.dev.epro.apkcustom.sockets.SSHTunnelService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="team.dev.epro.apkcustom.sockets.Tun2SocksService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="team.dev.epro.apkcustom.sockets.socks.SocksVPNService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="team.dev.epro.apkcustom.sockets.psiphon.PsiphonVPNService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="team.dev.epro.apkcustom.sockets.v2ray.V2RayVpnService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:name="de.blinkt.openvpn.core.OpenVPNService" android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="de.blinkt.openvpn.core.OpenVPNStatusService"/>
+        <activity android:label="@string/tc" android:name="team.dev.epro.apkcustom.activities.SimpleMaker" android:parentActivityName="team.dev.epro.apkcustom.MainActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="team.dev.epro.apkcustom.MainActivity"/>
+        </activity>
+        <activity android:label="@string/ih" android:name="team.dev.epro.apkcustom.activities.SmartGuide" android:parentActivityName="team.dev.epro.apkcustom.MainActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="team.dev.epro.apkcustom.MainActivity"/>
+        </activity>
+        <activity android:autoRemoveFromRecents="true" android:excludeFromRecents="true" android:name="team.dev.epro.apkcustom.activities.DisconnectVPN" android:noHistory="true" android:taskAffinity=".DisconnectVPN" android:theme="@style/s4"/>
+        <activity android:autoRemoveFromRecents="true" android:excludeFromRecents="true" android:label="@string/x5" android:name="de.blinkt.openvpn.LaunchVPN" android:taskAffinity=".LaunchVPN" android:theme="@style/s4">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="team.dev.epro.apkcustom.sockets.ClosingService" android:stopWithTask="false"/>
+        <provider android:authorities="xyz.easypro.httpcustom.CrashReporterInitProvider" android:enabled="true" android:exported="false" android:grantUriPermissions="true" android:name="com.balsikandar.crashreporter.CrashReporterInitProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/b"/>
+        </provider>
+        <activity android:launchMode="singleTask" android:name="com.balsikandar.crashreporter.ui.CrashReporterActivity" android:taskAffinity="com.balsikandar.android.task" android:theme="@style/gx"/>
+        <activity android:name="com.balsikandar.crashreporter.ui.LogMessageActivity" android:parentActivityName="com.balsikandar.crashreporter.ui.CrashReporterActivity" android:theme="@style/f5"/>
+        <activity android:exported="false" android:label="" android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity" android:theme="@style/f9"/>
+        <meta-data android:name="eCrypt_app" android:value="team.dev.epro.apkcustom.App"/>
+    </application>
+</manifest>

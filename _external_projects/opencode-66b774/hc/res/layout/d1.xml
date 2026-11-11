@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/ll" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.codetroopers.betterpickers.widget.AutoScrollHorizontalScrollView android:id="@id/hv" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="2.0">
+            <com.codetroopers.betterpickers.numberpicker.NumberView android:gravity="top" android:layout_gravity="left" android:id="@id/lk" android:paddingLeft="@dimen/k3" android:paddingTop="@dimen/ei" android:paddingBottom="@dimen/ei" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false">
+                <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView android:ellipsize="none" android:id="@id/lh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/sa" />
+                <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView android:ellipsize="none" android:id="@id/f9" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nh" android:singleLine="true" style="@style/sd" />
+                <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView android:ellipsize="none" android:id="@id/f8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/sa" />
+                <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView android:ellipsize="none" android:gravity="top" android:id="@id/it" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" style="@style/s_" />
+                <com.codetroopers.betterpickers.widget.ZeroTopPaddingTextView android:ellipsize="none" android:gravity="top" android:id="@id/jv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nf" android:singleLine="true" style="@style/s_" />
+            </com.codetroopers.betterpickers.numberpicker.NumberView>
+        </com.codetroopers.betterpickers.widget.AutoScrollHorizontalScrollView>
+        <ImageButton android:gravity="center" android:layout_gravity="center" android:id="@id/fb" android:background="@drawable/by" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/b7" android:contentDescription="@string/ne" />
+    </LinearLayout>
+    <View android:id="@id/fr" android:background="@color/bm" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_below="@id/ll" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/fr">
+        <include android:id="@id/h6" layout="@layout/ds" />
+        <include android:id="@id/nr" layout="@layout/ds" />
+        <include android:id="@id/qq" layout="@layout/ds" />
+        <include android:id="@id/hc" layout="@layout/dt" />
+    </LinearLayout>
+    <com.codetroopers.betterpickers.numberpicker.NumberPickerErrorTextView android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_horizontal" android:id="@id/gi" android:background="#ffff4444" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/fr" />
+</RelativeLayout>

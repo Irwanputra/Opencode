@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="profiles">[{"id": 1, "name": "Server 1", "host": "indo5.vpnjz.com", "port": 80, "user": "Taekkk67-vpnjantit.com", "pass": "123", "proxy": "104.17.70.206:80", "payload": "GET / HTTP/1.1[crlf]Host: edu.ruangguru.com[crlf][crlf]PATCH / HTTP/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf][split]HTTP/ 69[crlf][crlf]", "socksPort": 1080, "vpn": true, "transport": "ssh", "sni": "", "wsPath": "/", "wsHost": "", "strictTls": true}]</string>
+    <long name="activeProfile" value="1" />
+</map>

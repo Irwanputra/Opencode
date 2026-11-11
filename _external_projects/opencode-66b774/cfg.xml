@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <string name="profiles">[{&quot;id&quot;:1,&quot;name&quot;:&quot;Test SSH&quot;,&quot;host&quot;:&quot;10.0.2.2&quot;,&quot;port&quot;:2222,&quot;user&quot;:&quot;runner&quot;,&quot;pass&quot;:&quot;testpass123&quot;,&quot;proxy&quot;:&quot;&quot;,&quot;payload&quot;:&quot;&quot;,&quot;socksPort&quot;:1080,&quot;vpn&quot;:false,&quot;transport&quot;:&quot;ssh&quot;,&quot;sni&quot;:&quot;&quot;,&quot;wsPath&quot;:&quot;/&quot;,&quot;wsHost&quot;:&quot;&quot;,&quot;strictTls&quot;:true}]</string>
+    <string name="profiles">[{"id":1,"name":"HTTP Custom Test","host":"127.0.0.1","port":22,"user":"wanzt","pass":"wanzt123","proxy":"10.0.2.2:2222","payload":"GET / HTTP/1.1[crlf]Host: edu.ruangguru.com[crlf][crlf]PATCH / HTTP/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf][split]HTTP/ 69[crlf][crlf]","socksPort":1080,"vpn":false,"transport":"ssh","sni":"","wsPath":"/","wsHost":"","strictTls":true}]</string>
     <long name="activeProfile" value="1" />
 </map>

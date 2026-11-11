@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bh">21.0sp</dimen>
+    <dimen name="bi">7.0dip</dimen>
+    <dimen name="dy">48.0dip</dimen>
+    <dimen name="dz">96.0dip</dimen>
+    <dimen name="jp">600.0dip</dimen>
+    <dimen name="k2">64.0sp</dimen>
+    <dimen name="ki">315.0dip</dimen>
+    <dimen name="kj">16.0sp</dimen>
+</resources>

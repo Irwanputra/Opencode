@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="j" parent="@style/jr">
+        <item name="android:windowBackground">@color/de</item>
+        <item name="android:editTextStyle">@style/t9</item>
+        <item name="f3">@color/b6</item>
+        <item name="ff">@color/b8</item>
+        <item name="fg">@color/b9</item>
+        <item name="i3">@style/t9</item>
+    </style>
+    <style name="ba" parent="@style/t_" />
+    <style name="bh" parent="@style/ta" />
+    <style name="ei" parent="@style/tb" />
+    <style name="p3" parent="@android:style/Widget">
+        <item name="android:background">?ff</item>
+        <item name="android:stateListAnimator">@animator/o</item>
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+    <style name="t9" parent="@android:style/Widget.EditText">
+        <item name="android:importantForAutofill">noExcludeDescendants</item>
+    </style>
+    <style name="t_" parent="@style/t5">
+        <item name="f9">?android:colorError</item>
+    </style>
+    <style name="ta" parent="@style/t6">
+        <item name="f9">?android:colorError</item>
+    </style>
+    <style name="tb" parent="@style/cz">
+        <item name="android:touchscreenBlocksFocus">true</item>
+        <item name="android:keyboardNavigationCluster">true</item>
+    </style>
+</resources>

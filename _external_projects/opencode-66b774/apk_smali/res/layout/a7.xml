@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/g2" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/af" />
+    <com.google.android.material.navigation.NavigationView android:layout_gravity="start" android:id="@id/l4" android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="fill_parent" app:ku="@layout/ck" app:po="@menu/a">
+        <include layout="@layout/ck" />
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

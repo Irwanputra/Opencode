@@ -1,0 +1,38 @@
+.class public final synthetic Lcom/google/android/gms/internal/zzakp;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Ljava/lang/Runnable;
+
+
+# instance fields
+.field private final zzbzb:Lcom/google/android/gms/internal/zzalf;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/internal/zzalf;)V
+    .registers 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/zzakp;->zzbzb:Lcom/google/android/gms/internal/zzalf;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final run()V
+    .registers 3
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/zzakp;->zzbzb:Lcom/google/android/gms/internal/zzalf;
+
+    new-instance v1, Ljava/util/concurrent/TimeoutException;
+
+    invoke-direct {v1}, Ljava/util/concurrent/TimeoutException;-><init>()V
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/zzalf;->setException(Ljava/lang/Throwable;)V
+
+    return-void
+.end method
