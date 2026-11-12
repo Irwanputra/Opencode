@@ -103,6 +103,20 @@ dipetakan ke Wanz Tunnel seperti ini:
 | Transport | **SSH langsung** |
 | User & password | **USERNAME** / **PASSWORD** |
 
+Bentuk payload yang benar-benar dikirim HTTP Custom (terbaca dari tab **LOG**
+aplikasi itu) biasanya **tidak** memakai `[split]` — satu baris panjang dengan
+`\r\n` ditulis harfiah:
+
+```
+GET / HTTP/1.1\r\nHost: edu.ruangguru.com\r\n\r\nPATCH / HTTP/1.1\r\nHost: id3-1forcr.zivpn.site\r\nUpgrade: websocket\r\n\r\n
+104.17.70.206:80
+id3-1forcr.zivpn.site
+nama-akun
+```
+
+Kedua bentuk diperlakukan sama: payload dikirim satu kali, request keduanya yang
+menaikkan koneksi ke websocket, app tidak menambah upgrade lagi.
+
 Catatan penting:
 
 - Bagian setelah `[split]` dikirim sebagai paket terpisah, persis seperti
@@ -304,13 +318,28 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
       maupun `\r\n` harfiah) otomatis diproses sebagai `SSH langsung`: payload
       dikirim utuh satu kali, preamble `301`/`101` dilewati, banner langsung
       dipakai. Log app menuliskan alasannya.
-    - Diuji ke server nyata: `id3-1forcr.zivpn.site` lewat edge `104.17.70.206:80`
-      membalas preamble Cloudflare lalu banner `SSH-2.0-dropbear_2019.78`;
-      `bansos.sunekvpn.cc.cd` pada edge yang sama kadang hanya membalas `301`
-      tanpa banner (server-nya memang tidak menjawab lewat IP itu).
+    - Diuji ke server nyata, dua jalur. Lewat socket mentah:
+      `id3-1forcr.zivpn.site` dan `bansos.sunekvpn.cc.cd` pada edge
+      `104.17.70.206:80` membalas preamble Cloudflare (`301`, ±1,8 KB) lalu
+      banner `SSH-2.0-dropbear_2019.78`. Koneksi langsung ke IP hasil DNS
+      `bansos.sunekvpn.cc.cd` (`169.40.151.7:80`) membalas 0 byte — karena itu
+      kolom **Proxy / edge** perlu diisi.
+    - Diuji end-to-end dengan pustaka SSH yang sama dipakai aplikasi
+      (`com.github.mwiede:jsch` 0.2.17), payload di atas, dan akun pemakai di
+      `bansos.sunekvpn.cc.cd:80`:
+      - `preamble 1842 byte dilewati` → banner diterima;
+      - login password **berhasil** dalam ±1,2 detik, tanpa menyetel algoritma
+        apa pun (JSch default menawar `ecdsa-sha2-nistp256`);
+      - kunci host baru diterima lewat `StrictHostKeyChecking=ask` lalu disimpan
+        ke `known_hosts`, sama seperti perilaku di HP;
+      - terowongan `direct-tcpip`: `GET http://example.com/` → `HTTP/1.1 200 OK`
+        (928 byte) dan `https://www.google.com/generate_204` → TLS 1.3
+        (`TLS_AES_256_GCM_SHA384`) → `HTTP/1.1 204 No Content`.
+      Jadi jalur payload → banner → KEX → login → trafik nyata terbukti jalan;
+      yang dulu menggagalkan koneksi murni karena upgrade WS ganda.
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
-      `upgradeDetectorIgnoresPlainFakeHttpPayload`.
+      `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
 - v2.9: **arah desain baru "Konsol"** (menggantikan "Panel"), dua palet, dan
   bacaan koneksi yang benar-benar hidup:
   - Kanvas grafit hangat `#131410` untuk gelap, kertas `#F1F1EC` untuk terang;
