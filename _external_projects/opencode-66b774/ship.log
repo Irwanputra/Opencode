@@ -1,0 +1,72 @@
+== gerbang desain
+
+0 galat, 0 peringatan · sudut: [0.0, 1.0, 2.0] · palet: ['dark', 'light']
+
+semua token di atas 4,5:1 pada 12 foto
+== build (log penuh: /tmp/opencode/gradle.log)
+> Task :app:minifyReleaseWithR8
+> Task :app:compileReleaseArtProfile
+> Task :app:shrinkReleaseRes
+> Task :app:optimizeReleaseResources UP-TO-DATE
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect UP-TO-DATE
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintAnalyzeDebugUnitTest
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease UP-TO-DATE
+> Task :app:lintVitalRelease
+> Task :app:assembleRelease
+
+BUILD SUCCESSFUL in 1m 20s
+85 actionable tasks: 23 executed, 62 up-to-date
+fd810ddb48c7492c607e95d080bfe2f387ab815bf45746879db8a8517689263c  /home/runner/work/Opencode/Opencode/WanzTunnel-2.9.1.apk
+2.0M
+package: name='id.wanz.tunnel' versionCode='15' versionName='2.9.1' platformBuildVersionName='14' platformBuildVersionCode='34' compileSdkVersion='34' compileSdkVersionCodename='14'
+sdkVersion:'29'
+== APK siap, lanjut verifikasi emulator
+== emulator
+  pakai emulator yang sudah hidup: emulator-5554
+BOOT=1
+== pasang APK
+-rw-r--r-- 1 runner runner 2013171 Nov 12 11:58 /home/runner/work/Opencode/Opencode/WanzTunnel-2.9.1.apk
+adb: failed to install /home/runner/work/Opencode/Opencode/WanzTunnel-2.9.1.apk: cmd: Failure calling service package: Broken pipe (32)
+
+== Pengaturan, mode gelap
+  -> 01_beranda_gelap.png
+  -> 02_pengaturan_gelap.png
+== gulir ke kolom Payload & Impor config
+  -> 03_gulir_gelap.png
+== fokus kolom isian (tebel 2dp, tanpa blok warna)
+  -> 04_fokus_tengah_gelap.png
+  -> 05_fokus_bawah_gelap.png
+== mode terang
+  -> 06_beranda_terang.png
+  -> 07_pengaturan_terang.png
+  -> 08_gulir_terang.png
+== perbesahan label micro (crop 2x, cek 'geter')
+  zoom -> 01_beranda_gelap_zoom.png (1728, 1040)
+  zoom -> 06_beranda_terang_zoom.png (1728, 1040)
+  zoom -> 02_pengaturan_gelap_zoom.png (1728, 1120)
+== selesai
+total 2584
+drwxr-xr-x 2 runner runner   4096 Nov 12 12:01 .
+drwxr-xr-x 5 runner runner   4096 Nov 12 11:54 ..
+-rw-r--r-- 1 runner runner  15197 Nov 12 11:59 01_beranda_gelap.png
+-rw-r--r-- 1 runner runner   9447 Nov 12 12:01 01_beranda_gelap_zoom.png
+-rw-r--r-- 1 runner runner  15197 Nov 12 11:59 02_pengaturan_gelap.png
+-rw-r--r-- 1 runner runner  10167 Nov 12 12:01 02_pengaturan_gelap_zoom.png
+-rw-r--r-- 1 runner runner  15197 Nov 12 11:59 03_gulir_gelap.png
+-rw-r--r-- 1 runner runner  15197 Nov 12 12:00 04_fokus_tengah_gelap.png
+-rw-r--r-- 1 runner runner  15197 Nov 12 12:00 05_fokus_bawah_gelap.png
+-rw-r--r-- 1 runner runner  15197 Nov 12 12:00 06_beranda_terang.png
+-rw-r--r-- 1 runner runner   9447 Nov 12 12:01 06_beranda_terang_zoom.png
+-rw-r--r-- 1 runner runner  23704 Nov 12 12:01 07_pengaturan_terang.png
+-rw-r--r-- 1 runner runner  23712 Nov 12 12:01 08_gulir_terang.png
+-rw-r--r-- 1 runner runner  61571 Nov 12 11:48 zoom_gelap.png
+-rw-r--r-- 1 runner runner  62100 Nov 12 11:48 zoom_terang.png
+CHAIN_EXIT=0

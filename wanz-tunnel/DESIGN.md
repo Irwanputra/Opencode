@@ -1,6 +1,6 @@
 # Wanz Tunnel — Arah Desain: Klon Fungsional HTTP Custom
 
-Dokumen ini mengunci arah visual v2.9.3. Arah "Konsol" (grafit + kuningan)
+Dokumen ini mengunci arah visual v2.9.4. Arah "Konsol" (grafit + kuningan)
 dibatalkan atas permintaan pemilik aplikasi: **tampilan harus sama seperti HTTP
 Custom**. Yang ditiru adalah susunan, warna, dan bentuk kontrolnya; isinya tetap
 fitur Wanz Tunnel yang benar-benar bekerja.
@@ -26,8 +26,9 @@ profil atau layanan.
   profil yang dibaca `TunnelService`; tidak ada toggle yang hanya mengubah warna.
 - Tidak ada teks hype atau label dekoratif `01 / 02 / 03`.
 - Tidak ada menu tiga titik di bilah atas dan tidak ada tombol tambah mengambang.
-  Menambah profil tetap lewat laci **Profil** → "Tambah profil baru" atau tombol
-  **+** di Pengaturan; keduanya sudah ada dan bekerja.
+  Menambah profil lewat laci **Profil** → "Tambah profil baru"; mengubah profil
+  aktif lewat laci **Profil** → "Ubah profil aktif". Tidak ada lagi entri
+  "Pengaturan" di laci karena pintasan itu hanya membuka layar yang sama.
 - Tidak ada huruf kapital semua sebagai gaya. Pengecualiannya hanya merek
   "WANZ TUNNEL" dan label aksi tombol (`HUBUNGKAN`, `PUTUSKAN`, `COBA LAGI`)
   yang memang kapital pada acuan.
@@ -122,9 +123,10 @@ terlihat seperti template dengan font lain.
    `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
    INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
 5. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
-   **Utilitas** (Profil, Payload, SNI/host TLS, Tema), **Koneksi** (Pengaturan,
-   Impor config, Ping sekarang), dan **Alat** (Log, Salin log, Bersihkan log,
-   Tentang). Laci bisa digulir pada layar pendek.
+   **Utilitas** (Profil, Payload, SNI/host TLS, Tema), **Koneksi** (Impor
+   config, Ping sekarang), dan **Alat** (Log, Salin log, Bersihkan log,
+   Tentang). Laci bisa digulir pada layar pendek. Layar rinci profil dibuka
+   dari **Profil → Ubah profil aktif**, bukan dari entri menu tersendiri.
 
 Delapan centang dan field yang diubahnya:
 
@@ -144,7 +146,7 @@ Delapan centang dan field yang diubahnya:
 - `SquareCheckView` (24dp, sudut 2dp): kotak garis tinta saat mati; bidang hijau
   dengan centang gelap saat hidup.
 - `InkToggle`: label Roboto di kiri + kotak centang 22dp di kanan, dipakai di
-  Pengaturan. Menggantikan `Switch` bawaan.
+  layar rinci profil. Menggantikan `Switch` bawaan.
 - `InkSelect`: bidang bergaris bawah + panah garis, nilai Roboto Mono, daftar
   pilihan lewat dialog.
 - `FieldUnderline`: garis bawah digambar dari bounds (1dp biasa, 2dp saat fokus),
@@ -158,8 +160,8 @@ Delapan centang dan field yang diubahnya:
 Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
 
 - **Ripple sentuh** di tab, baris profil, sel centang, tombol sambung, baris
-  laci, dan tombol Pengaturan. Kilau memakai tinta transparan, bukan warna
-  kedua.
+  laci, dan tombol di layar rinci profil. Kilau memakai tinta transparan,
+  bukan warna kedua.
 - **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate), memakai
   `LAYER_TYPE_HARDWARE` saat bergeser supaya tidak digambar ulang tiap frame;
   scrim meredup bersamaan.

@@ -1,0 +1,31 @@
+Wanz Tunnel 2.9.1: tipografi terukur, kolom multi-baris diperbaiki, payload HTTP Custom tanpa [split] dikenali
+
+Tiga perbaikan nyata, satu APK (versionCode 15, SHA-256
+0b7a6463fe9c01a51c6f91138f0932190bbd90123e491bc11de0485f7f316d47):
+
+1. Tipografi — huruf diambil dari Google Fonts lalu diukur, bukan ditebak:
+   - JetBrains Mono 400/500 untuk angka/label/log (x-height 0,550 em,
+     punya glyph panah kiri/kanan), Chivo 400/500 untuk teks prose
+     (lebar batang >=3px di 26px, 4px di 29/34px).
+   - Sumber "geter" dibereskan di akar: Face.px() membulatkan sp ke px utuh,
+     Face.tracking() menata ulang letterSpacing supaya langkah mono jatuh di
+     batas piksel, Face.linePx() menegakkan garis rambut. Semua situs ukuran
+     memakai TextView.inkSize(...).
+   - tools/design_gate.py menolak COMPLEX_UNIT_SP, textSize = dp(...), sp
+     mentah di luar Face.kt, dan TextView tanpa inkSize().
+   - Aset lama (IBM Plex Mono/Space Grotesk/Roboto) dilepas; OFL JetBrains
+     Mono dan Chivo ikut dikemas.
+2. Kolom multi-baris — kolom payload/tinggi tetap tidak lagi menelan blok
+   krem di baris keduanya (FieldUnderline.kt dipakai SettingsActivity).
+3. Transport — payload HTTP Custom ASLI (tanpa [split], \r\n harfiah, request
+   keduanya memuat "Upgrade: websocket") kini dikenali sehingga handshake WS
+   bawaan dilewati. Sebelum: upgrade kedua -> server balas 301 -> banner SSH
+   tak pernah datang -> "terhubung tapi tidak bisa internetan".
+   - Unit test baru: payloadWithUpgradeHeaderSkipsAppHandshake dan
+     upgradeDetectorIgnoresPlainFakeHttpPayload (16 test, 0 gagal).
+   - Diverifikasi ke server nyata dengan pustaka SSH yang sama
+     (com.github.mwiede:jsch 0.2.17) + payload dari log pemakai:
+     banner SSH-2.0-dropbear_2019.78, login sunek-coolmaxx@bansos.sunekvpn.cc.cd
+     OK, direct-tcpip ke example.com:80 membalas HTTP/1.1 200 OK dan
+     HTTPS www.google.com 204 No Content lewat terowongan.
+

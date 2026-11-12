@@ -1,0 +1,15 @@
+/home/runner
+/usr/local/lib/android/sdk/emulator/emulator
+12
+/usr/local/lib/android/sdk/emulator/emulator
+-avd
+wanz29
+-no-window
+-no-audio
+-no-boot-anim
+-accel
+off
+-gpu
+swiftshader_indirect
+-no-snapshot
+-no-metrics

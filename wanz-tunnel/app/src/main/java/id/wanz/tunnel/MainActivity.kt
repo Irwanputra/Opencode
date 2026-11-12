@@ -632,7 +632,6 @@ class MainActivity : InkActivity() {
         panel.addView(drawerRow(R.drawable.ic_brightness_6, "Tema") { themeDialog() })
 
         panel.addView(groupLabel("Koneksi"))
-        panel.addView(drawerRow(R.drawable.ic_settings, "Pengaturan") { openSettings() })
         panel.addView(drawerRow(R.drawable.ic_cloud_download, "Impor config") { importDialog() })
         panel.addView(drawerRow(R.drawable.ic_network_check, "Ping sekarang") { sendPing() })
 
@@ -1115,11 +1114,17 @@ class MainActivity : InkActivity() {
         saveCompactField(false)
         hideKeyboard()
         val names = profiles.map { it.name.ifBlank { "Server ${it.id}" } }.toMutableList()
+        names.add("Ubah profil aktif")
         names.add("Tambah profil baru")
+        val editAt = profiles.size
+        val addAt = profiles.size + 1
         themedBuilder("Profil")
             .setItems(names.toTypedArray()) { _, which ->
-                if (which == profiles.size) addProfile()
-                else switchProfile(profiles[which])
+                when (which) {
+                    editAt -> openSettings()
+                    addAt -> addProfile()
+                    else -> switchProfile(profiles[which])
+                }
             }
             .setNegativeButton("Batal", null)
             .show()

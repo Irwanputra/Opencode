@@ -5,8 +5,18 @@
     "project_id": "3c45a4f74df4542fa0b6ba0c03c922b76e650f0f"
   },
   {
-    "slug": "freya-6cfd0c",
-    "worktree": "/tmp/opencode/freya",
-    "project_id": "2bce9976be3035bc8850ccbb10a7b34fba754c6d"
+    "slug": "shots-484d80",
+    "worktree": "/tmp/opencode/shots",
+    "project_id": "c35b42ef138b7bb62aebe9b113e373bd8b5e3c5f"
+  },
+  {
+    "slug": "final-7edd00",
+    "worktree": "/tmp/opencode/final",
+    "project_id": "0b5cb57de1e955e54c2a1278c59df974f0a394e9"
+  },
+  {
+    "slug": "shots2-b6911e",
+    "worktree": "/tmp/opencode/shots2",
+    "project_id": "448d948fa5bb1e917c81709c1244dc074ee1f34c"
   }
 ]

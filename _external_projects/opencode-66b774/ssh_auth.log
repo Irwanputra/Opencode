@@ -1,0 +1,165 @@
+OpenSSH_9.6p1 Ubuntu-3ubuntu13.20, OpenSSL 3.0.13 30 Jan 2024
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Executing proxy command: exec python3 /tmp/opencode/payload_proxy.py
+debug1: identity file /home/runner/.ssh/id_rsa type -1
+debug1: identity file /home/runner/.ssh/id_rsa-cert type -1
+debug1: identity file /home/runner/.ssh/id_ecdsa type -1
+debug1: identity file /home/runner/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/runner/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/runner/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/runner/.ssh/id_ed25519 type -1
+debug1: identity file /home/runner/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/runner/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/runner/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/runner/.ssh/id_xmss type -1
+debug1: identity file /home/runner/.ssh/id_xmss-cert type -1
+debug1: identity file /home/runner/.ssh/id_dsa type -1
+debug1: identity file /home/runner/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.20
+proxy: preamble 2367 byte dilewati, banner SSH-2.0-dropbear_2019.78
+debug1: Remote protocol version 2.0, remote software version dropbear_2019.78
+debug1: compat_banner: no match: dropbear_2019.78
+debug1: Authenticating to bansos.sunekvpn.cc.cd:22 as 'sunek-coolmaxx'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: diffie-hellman-group14-sha1
+debug1: kex: host key algorithm: ssh-rsa
+debug1: kex: server->client cipher: aes128-ctr MAC: hmac-sha2-256 compression: none
+debug1: kex: client->server cipher: aes128-ctr MAC: hmac-sha2-256 compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-rsa SHA256:RLEARL+rDCIy6KhpDYHEA07PIKCgkNn2TIwmYruIfDA
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+Warning: Permanently added 'bansos.sunekvpn.cc.cd' (RSA) to the list of known hosts.
+debug1: rekey out after 4294967296 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 4294967296 blocks
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+<p style="text-align:center"><b><br>
+<br><font color='#FF8A00'><b>╔══════════ ✦ ══════════╗</b></font><br>
+<br><font color='#FF4FD8'><b>➤ Sᴜɴᴇᴋ VPN Pʀᴇᴍɪᴜᴍ ◀</b></font><br>
+<br><font color='#FF8A00'><b>╚══════════════════════╝</b></font><br>
+<br><font color='#00E5FF'>➤ Aᴋᴜɴ VPN</font><br>
+<br><font color='#FF5252'>➤ Nᴏ DDOS</font><br>
+<br><font color='#B2FF59'>➤ Nᴏ Tᴏʀʀᴇɴᴛ</font><br>
+<br><font color='#40C4FF'>➤ Nᴏ Hᴀᴄᴋɪɴɢ</font><br>
+<br><font color='#FF80AB'>➤ Nᴏ Pᴏʀɴ</font><br>
+<br><font color='#FFEA00'>➤ Mᴇʟᴀɴɢɢᴀʀ = Bᴀɴɴᴇᴅ!</font><br>
+<br><font color='#FF8A00'><b>╔══════════ ✦ ══════════╗</b></font><br>
+<br><font color='#FF4FD8'><b>📶 ID • SSH & V2RAY</b></font><br>
+<br><font color='#00E5FF'><b>➤ Bɪᴢɴᴇᴛ</b></font><br>
+<br><font color='#00E5FF'><b>➤ HᴇʀZᴀ </b></font><br>
+<br><font color='#00E5FF'><b>➤ Iᴋᴅ</b></font><br>
+<br><font color='#B2FF59'><b>🇮🇩 Sᴇʀᴠᴇʀ Iɴᴅᴏɴᴇsɪᴀ (ID)</b></font><br>
+<br><font color='#FFEA00'>├ 💵 8K • 30 Hᴀʀɪ • 2 Dᴇᴠɪᴄᴇ</font><br>
+<br><font color='#FF4FD8'><b>➤ Bᴜʏ Hᴜʙ ◀</b></font><br>
+<br><font color='#FFEA00'><b>➤ wa.me/6287711905367</b></font><br>
+<br><font color='#00E5FF'><b>➤ Gʀᴜᴘ Wʜᴀᴛsᴀᴘᴘ</b></font><br>
+<br><font color='#FFEA00'><b>➤ https://chat.whatsapp.com/IhmA7LhtmUbH0uMvJnkcPh?s=cl&p=a&mlu=4&ilr=4</b></font><br>
+<br><font color='#FFEA00'><b>➤ @Sᴜɴᴇᴋ 2026</b></font><br>
+<br><font color='#FF8A00'><b>╚══════════════════════╝</b></font><br>
+</p><br>
+debug1: Authentications that can continue: publickey,password
+debug1: Next authentication method: password
+Authenticated to bansos.sunekvpn.cc.cd (via proxy) using "password".
+debug1: Local connections to 127.0.0.1:17802 forwarded to remote address example.com:80
+debug1: Local forwarding listening on 127.0.0.1 port 17802.
+debug1: channel 0: new port-listener [port listener] (inactive timeout: 0)
+debug1: Entering interactive session.
+debug1: pledge: proc
+debug1: pledge: network
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53622 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53634 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53644 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53650 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47044 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47048 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47056 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47062 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47068 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47082 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 47098 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37132 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37142 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37144 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37152 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37154 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37160 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 37174 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48744 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48760 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48770 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48784 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48788 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48804 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 48808 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53752 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53766 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53776 to 127.0.0.1 port 17802, nchannels 2
+debug1: Connection to port 17802 forwarding to example.com port 80 requested.
+debug1: channel 1: new direct-tcpip [direct-tcpip] (inactive timeout: 0)
+debug1: channel 0: free: port listener, nchannels 2
+debug1: channel 1: free: direct-tcpip: listening port 17802 for example.com port 80, connect from 127.0.0.1 port 53778 to 127.0.0.1 port 17802, nchannels 1
+Transferred: sent 7416, received 17648 bytes, in 41.1 seconds
+Bytes per second: sent 180.4, received 429.4
+debug1: Exit status 0

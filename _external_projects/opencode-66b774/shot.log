@@ -1,0 +1,44 @@
+== kondisi emulator
+  mCurrentFocus=Window{6d08b83 u0 Application Not Responding: system}
+== APK lama (2.9)
+  install 1: Success
+  -> lama_beranda.png
+  -> lama_pengaturan.png
+  -> lama_pengaturan_scroll.png
+== APK baru (2.9.1)
+  install 1: Success
+  -> baru_beranda.png
+  -> baru_pengaturan.png
+  -> baru_pengaturan_scroll.png
+  -> baru_terang_beranda.png
+  -> baru_terang_pengaturan.png
+  -> baru_terang_pengaturan_scroll.png
+== susun lembar
+  -> banding_beranda.png (1322, 1456)
+  -> banding_pengaturan.png (1322, 1456)
+  -> zoom_lama.png (2592, 1584)
+  -> zoom_baru.png (2592, 1584)
+== selesai
+-rw-r--r-- 1 runner runner  15197 Nov 12 12:04 01_beranda_gelap.png
+-rw-r--r-- 1 runner runner   9447 Nov 12 12:08 01_beranda_gelap_zoom.png
+-rw-r--r-- 1 runner runner  15197 Nov 12 12:04 02_pengaturan_gelap.png
+-rw-r--r-- 1 runner runner  10167 Nov 12 12:08 02_pengaturan_gelap_zoom.png
+-rw-r--r-- 1 runner runner 830022 Nov 12 12:07 06_beranda_terang.png
+-rw-r--r-- 1 runner runner 424760 Nov 12 12:08 06_beranda_terang_zoom.png
+-rw-r--r-- 1 runner runner  40712 Nov 12 12:07 07_pengaturan_terang.png
+-rw-r--r-- 1 runner runner 140894 Nov 12 12:26 banding_beranda.png
+-rw-r--r-- 1 runner runner 302325 Nov 12 12:26 banding_pengaturan.png
+-rw-r--r-- 1 runner runner  51081 Nov 12 12:24 baru_beranda.png
+-rw-r--r-- 1 runner runner 119253 Nov 12 12:24 baru_pengaturan.png
+-rw-r--r-- 1 runner runner 153584 Nov 12 12:24 baru_pengaturan_scroll.png
+-rw-r--r-- 1 runner runner 115434 Nov 12 12:25 baru_terang_beranda.png
+-rw-r--r-- 1 runner runner 115600 Nov 12 12:26 baru_terang_pengaturan.png
+-rw-r--r-- 1 runner runner 105062 Nov 12 12:26 baru_terang_pengaturan_scroll.png
+-rw-r--r-- 1 runner runner  99129 Nov 12 12:22 lama_beranda.png
+-rw-r--r-- 1 runner runner  99147 Nov 12 12:22 lama_pengaturan.png
+-rw-r--r-- 1 runner runner 132394 Nov 12 12:22 lama_pengaturan_scroll.png
+-rw-r--r-- 1 runner runner  15485 Nov 12 12:26 zoom_baru.png
+-rw-r--r-- 1 runner runner  61571 Nov 12 11:48 zoom_gelap.png
+-rw-r--r-- 1 runner runner 274553 Nov 12 12:26 zoom_lama.png
+-rw-r--r-- 1 runner runner  62100 Nov 12 11:48 zoom_terang.png
+SHOT_EXIT=0

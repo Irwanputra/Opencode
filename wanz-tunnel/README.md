@@ -1,7 +1,7 @@
-# Wanz Tunnel 2.9.3
+# Wanz Tunnel 2.9.4
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
-TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.3 mengikuti **HTTP Custom**:
+TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.4 mengikuti **HTTP Custom**:
 kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
 dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
 kolom, tombol sambung bergaris, dan laci bergrup — tanpa menu tiga titik dan
@@ -17,8 +17,8 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   **SSH** dan **LOG**, isian `ip:port@user:pass`, delapan centang dua kolom,
   tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri bergrup
   Utilitas/Koneksi/Alat. Tidak ada menu tiga titik dan tidak ada tombol tambah
-  mengambang; profil baru dibuat lewat laci **Profil** atau tombol **+** di
-  Pengaturan. Konfigurasi rinci tetap di Pengaturan.
+  mengambang; profil baru dibuat lewat laci **Profil**, dan konfigurasi rinci
+  dibuka lewat **Profil → Ubah profil aktif**.
 - Delapan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
   WebSocket (mengubah `transport`), Verifikasi TLS, DNS lewat tunnel, Ping
   otomatis, Sambung ulang, dan Seluler saja.
@@ -62,7 +62,7 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 ## Cara pakai
 
 1. Isi satu baris `ip:port@user:pass` di beranda (port dan akun boleh menyusul),
-   atau isi field rinci di Pengaturan.
+   atau buka **Profil → Ubah profil aktif** untuk field rinci.
 2. Pilih transport:
    - `SSH langsung` untuk server SSH biasa.
    - `TLS / SNI` untuk SSH di balik TLS (stunnel) atau CDN.
@@ -73,7 +73,8 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 
 ### Impor config
 
-Di halaman **Pengaturan** ada kartu **IMPOR CONFIG**. Tempel bundle config
+Di layar rinci profil (**Profil → Ubah profil aktif**) ada kartu **IMPOR
+CONFIG**. Tempel bundle config
 gaya HTTP Custom lalu ketuk **Terapkan ke profil aktif**; Wanz Tunnel
 mengisi otomatis field yang dikenali:
 
@@ -164,12 +165,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.3.apk`** (1,9 MB, `versionCode 17`,
+Rilis siap pasang: **`WanzTunnel-2.9.4.apk`** (1,9 MB, `versionCode 18`,
 Android 10 ke atas), SHA-256
-`00ccfa12328418cb72fb3ca96adaf2dc146c4e616d1791cf0da92a5a5f3b1edb`.
-Rilis sebelumnya, `WanzTunnel-2.9.2.apk` (`versionCode 16`, SHA-256
-`a9b2c2b87e54ae47ed74ee780c2321a7c866005c3637be42a833d90802091f83`), masih
-memakai menu tiga titik dan tombol tambah mengambang.
+`__SHA__`.
+Rilis sebelumnya, `WanzTunnel-2.9.3.apk` (`versionCode 17`, SHA-256
+`00ccfa12328418cb72fb3ca96adaf2dc146c4e616d1791cf0da92a5a5f3b1edb`), masih
+memakai entri menu "Pengaturan" di laci.
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -184,14 +185,15 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
-- UI v2.9.3 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
+- UI v2.9.4 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
   Android 14: tema gelap `#1E1E1E` dan terang `#FFFFFF`, judul dua warna, tab
   SSH/LOG bergaris bawah, kisi 8 centang, tombol bergaris, laci bergrup,
   dialog Payload/SNI/Tema/Profil/Impor/Tentang, serta halaman Pengaturan.
   Dialog memakai panel 4dp dengan aksen hijau (bukan ungu bawaan Android).
 - Bilah atas kini hanya menu + judul + impor config; tidak ada titik tiga dan
   tidak ada tombol tambah mengambang. Profil baru dibuat lewat laci **Profil**
-  atau tombol **+** di Pengaturan, dan keduanya diuji tetap bekerja.
+  → "Tambah profil baru", dan profil lama diubah lewat **Profil → Ubah profil
+  aktif". Tidak ada lagi entri "Pengaturan" di laci.
 - Umpan balik sentuh baru terlihat di emulator: ripple pada tab, baris profil,
   sel centang, tombol sambung, baris laci, dan tombol Pengaturan; perpindahan
   tab silang-memudar; centang mengisi dalam 140ms; laci memakai layer keras
@@ -369,6 +371,12 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.4: **entri "Pengaturan" di laci dihapus** karena hanya pintasan ke
+  layar yang sama dengan alur profil. Layar rinci tetap ada dan dibuka lewat
+  laci **Profil** → "Ubah profil aktif" (atau otomatis setelah menambah profil
+  baru), jadi isian host/port/user/pass, proxy, SNI, path WebSocket, ping,
+  tema, impor config, dan hapus profil tetap terjangkau. Ikon `ic_settings`
+  dan ikon Material yang tidak terpakai ikut dibersihkan (tersisa 11 ikon).
 - v2.9.3: **menu tiga titik dan tombol tambah mengambang dihapus**, dan rasa
   animasi diperbaiki.
   - Keduanya hanya pintasan; menambah profil tetap bisa lewat laci **Profil** →
@@ -460,7 +468,7 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) 400/500 — alamat,
   angka, dan log; Apache License 2.0. (Roboto Mono sendiri berlisensi SIL OFL;
   berkas yang dibundel diambil dari paket Google Fonts dan lisensinya disertakan.)
-- [Material Icons](https://fonts.google.com/icons) — 23 ikon vektor; Apache
+- [Material Icons](https://fonts.google.com/icons) — 11 ikon vektor; Apache
   License 2.0.
   Font diambil dari Google Fonts lalu dipotong (fonttools) ke karakter yang
   dipakai aplikasi: Latin dasar plus `· — • … ← → × −`, total ± 100 KB untuk
