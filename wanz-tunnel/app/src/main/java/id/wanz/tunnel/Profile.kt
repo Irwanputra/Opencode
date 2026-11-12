@@ -26,6 +26,8 @@ data class Profile(
     var pass: String = "",
     var proxy: String = "",
     var payload: String = "",
+    /** Kotak "Pakai payload" di layar utama; teks payload tetap disimpan. */
+    var usePayload: Boolean = true,
     var socksPort: Int = 1080,
     // Mode tunggal: selalu VPN. Field disimpan hanya untuk kompatibilitas
     // config lama; nilai false dibaca ulang sebagai true.
@@ -107,6 +109,7 @@ class ProfileStore(context: Context) {
         put("pass", p.pass)
         put("proxy", p.proxy)
         put("payload", p.payload)
+        put("usePayload", p.usePayload)
         put("socksPort", p.socksPort)
         put("vpn", p.vpn)
         put("transport", p.transport)
@@ -133,6 +136,7 @@ class ProfileStore(context: Context) {
         pass = o.optString("pass", ""),
         proxy = o.optString("proxy", ""),
         payload = o.optString("payload", ""),
+        usePayload = o.optBoolean("usePayload", true),
         socksPort = o.optInt("socksPort", 1080),
         // Config lama bisa menyimpan vpn=false (mode SOCKS5). Mode itu sudah
         // dihapus; semua profil dipaksa VPN seperti HTTP Custom.

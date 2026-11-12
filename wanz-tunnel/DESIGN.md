@@ -1,175 +1,177 @@
-# Wanz Tunnel — Arah Desain "Konsol"
+# Wanz Tunnel — Arah Desain: Klon Fungsional HTTP Custom
 
-Dokumen ini mengunci satu arah visual. Tujuannya bukan "terlihat modern",
-tetapi **terlihat dibuat dengan sengaja** — sehingga tidak bisa langsung ditebak
-sebagai UI hasil generator.
-
-Arah "Konsol" adalah penyempurnaan arah "Panel" (v2.8). Bentuknya dipreteli dari
-dua aplikasi yang benar-benar dipakai orang, **bukan dari tampilannya**: DarkTunnel
-(kartu koneksi berisi baris label/nilai + tombol CONNECT melebar) dan HTTP Custom
-(bacaan RX/TX yang berjalan, daftar profil pendek, log mono). Yang diambil adalah
-cara keduanya dipakai; warnanya sengaja dibedakan.
+Dokumen ini mengunci arah visual v2.9.2. Arah "Konsol" (grafit + kuningan)
+dibatalkan atas permintaan pemilik aplikasi: **tampilan harus sama seperti HTTP
+Custom**. Yang ditiru adalah susunan, warna, dan bentuk kontrolnya; isinya tetap
+fitur Wanz Tunnel yang benar-benar bekerja.
 
 ## Ide
 
-Wanz Tunnel adalah alat jaringan. Tampilannya mengikuti **konsol instrumen**:
-kanvas grafit hangat atau kertas, tinta, garis rambut, angka monospace tabular,
-dan satu tombol aksi yang menempel di dasar layar. Warna tidak dipakai sebagai
-hiasan; warna adalah status koneksi dan satu tombol utama saja.
+HTTP Custom dipakai karena satu layar sudah memuat semua yang dibutuhkan orang
+saat menyambung: judul, dua tab, satu baris server, delapan opsi, satu tombol
+besar, dan log di tab sebelah. Wanz Tunnel memakai susunan yang sama supaya
+tangan yang sudah hafal acuan tidak perlu belajar ulang.
 
-Uji cepat: kalau logo diganti logo lain, aplikasi ini masih jelas "alat tunnel"
-karena susunannya mengikuti isi (status, ping, uptime, trafik, server, log),
-bukan susunan kartu generik.
+Uji cepat: ambil tangkapan layar, ganti teks "Wanz Tunnel" menjadi "HTTP
+Custom", dan hasilnya harus terbaca sebagai aplikasi yang sama. Yang tidak boleh
+sama adalah isi palsu: setiap centang, menu, dan tombol di sini tersambung ke
+profil atau layanan.
 
-## Yang dilarang (filter anti-slop)
+## Yang dilarang
 
-Mengacu pada `_design_tools/` (ruang lingkup: `ui-craft`, `anti-ai-slop-ui`,
-`web-interface-guidelines`, `anti-ai-slop`) dan `smoothui.dev/blog/ai-design-slop`:
-
-- Tidak ada gradien ungu/indigo, aurora, glow, atau orb. Aksen aplikasi ini
-  kuningan (`#C9A22F` / `#7E5B10`) — sengaja bukan ungu dan bukan biru, dua warna
-  yang dipakai DarkTunnel dan HTTP Custom.
-- Tidak ada glassmorphism, bayangan lembut, atau kartu kaca. Tidak ada elevasi.
-- Tidak ada emoji sebagai ikon. Ikon digambar sendiri dengan garis (`SlidersView`,
-  `Glyphs`).
-- Tidak ada hero di tengah dengan satu tombol besar.
-- Tidak ada deretan kartu berukuran sama.
-- Sudut tidak seragam: 1dp untuk bidang isian, 2dp untuk panel dan tombol,
-  0dp untuk garis dan rel status (`R_FIELD`, `R_PANEL`, `R_HAIR`).
-- Tidak ada teks hype ("super cepat", "aman total") atau label dekoratif
-  `01 / 02 / 03`.
-- Tidak ada terminal hijau-di-hitam dan tidak ada aksen asam.
-- Tidak ada animasi yang tidak membawa informasi.
-- Mode gelap bukan inversi mentah: tiap pasangan teks/bidang diukur dulu.
+- Tidak ada gradien, glow, elevasi, glassmorphism, atau orb.
+- Tidak ada emoji sebagai ikon. Semua ikon adalah **Material Icons** (Apache 2.0)
+  yang dibundel sebagai vector drawable `app/src/main/res/drawable/ic_*.xml`.
+- Tidak ada kontrol hiasan. Delapan centang di beranda semuanya mengubah field
+  profil yang dibaca `TunnelService`; tidak ada toggle yang hanya mengubah warna.
+- Tidak ada teks hype atau label dekoratif `01 / 02 / 03`.
+- Tidak ada huruf kapital semua sebagai gaya. Pengecualiannya hanya merek
+  "WANZ TUNNEL" dan label aksi tombol (`HUBUNGKAN`, `PUTUSKAN`, `COBA LAGI`)
+  yang memang kapital pada acuan.
+- Mode gelap bukan inversi mentah; kedua palet diukur terpisah.
 
 Aturan yang bisa diperiksa mesin dijaga `tools/design_gate.py --strict`
 (gradien, glow, emoji, variasi sudut, kontras kedua palet, tinggi sentuh, label
-aksesibilitas, huruf kapital, elipsis, easing memantul). Sisanya dinilai dari
-tangkapan layar.
+aksesibilitas, huruf kapital, elipsis, easing memantul, ukuran font pecahan).
+Sisanya dinilai dari tangkapan layar.
 
 ## Token
 
-Warna didefinisikan dua kali, terang dan gelap, dan dipasang sebagai token
-waktu-jalankan oleh `applyPalette()` sebelum view apa pun dibuat. Angka di kolom
-kanan adalah rasio kontras WCAG token terhadap permukaan tempatnya dipakai.
+Warna dipasang sebagai token waktu-jalankan oleh `applyPalette()` sebelum view
+dibuat. Rasio kontras diukur terhadap permukaan tempat token dipakai.
 
 | Peran | Terang | Gelap | Kontras (terang / gelap) |
 |---|---|---|---|
-| Latar (`BG`) | `#F1F1EC` | `#131410` | — |
-| Panel, log (`PANEL`) | `#E8E8E2` | `#1E1F19` | — |
-| Bidang isian (`FIELD`) | `#EAEAE4` | `#1A1B15` | INK 15,85 / 16,44 terhadap `BG` |
-| Tinta, isi tombol primer (`INK`) | `#15171A` | `#F2F2EA` | ON_INK 16,28 / 16,04 terhadap INK |
-| Teks sekunder (`MUTED`) | `#5F645F` | `#A9ADA4` | 5,33 / 8,10 terhadap `BG` |
-| Teks samar, mono (`FAINT`) | `#646862` | `#8B8F87` | 5,01 / 5,62 thd `BG`, 4,62 / 5,04 thd `PANEL` |
-| Garis rambut (`HAIR`) | `#C7C9C2` | `#32342C` | bukan teks: 1,8:1 cukup untuk 1dp |
-| Terhubung (`OK`) | `#146B46` | `#5BC08A` | 5,75 / 8,24 terhadap `BG` |
-| Menyambung, peringatan (`WARN`) | `#8A5300` | `#EFAE3C` | 5,59 / 8,22 terhadap `BG` |
-| Gagal (`ERR`) | `#A3261B` | `#EF7F68` | 6,50 / 6,96 terhadap `BG` |
-| Aksen kuningan (`ACCENT`) | `#7E5B10` | `#C9A22F` | 5,47 / 7,66 terhadap `BG`, ON_ACCENT 6,00 / 7,58 |
+| Latar (`BG`) | `#FFFFFF` | `#1E1E1E` | — |
+| Panel, laci, log (`PANEL`) | `#F5F5F5` | `#252525` | INK 15,80 / 15,33 terhadap `PANEL` |
+| Bidang isian (`FIELD`) | `#FFFFFF` | `#1E1E1E` | INK 17,22 / 16,67 |
+| Tinta (`INK`) | `#1B1B1B` | `#FFFFFF` | 17,22 / 16,67 terhadap `BG` |
+| Teks sekunder (`MUTED`) | `#5F5F5F` | `#BDBDBD` | 6,39 / 8,87 |
+| Teks samar (`FAINT`) | `#6B6B6B` | `#9E9E9E` | 5,33 / 6,22 thd `BG`; 4,89 / 5,72 thd `PANEL` |
+| Garis rambut (`HAIR`) | `#DDDDDD` | `#3C3C3C` | bukan teks; 1dp cukup |
+| Terhubung (`OK`) | `#2E7D32` | `#4CAF50` | 5,13 / 6,00 |
+| Peringatan (`WARN`) | `#8A5300` | `#FFD54F` | 6,33 / 11,81 |
+| Gagal (`ERR`) | `#B3261E` | `#FF6B81` | 6,54 / 6,09 |
+| Identitas (`ACCENT`) | `#2E7D32` | `#4CAF50` | 5,13 / 6,00 |
+| Di atas aksen (`ON_ACCENT`) | `#FFFFFF` | `#0D1B0E` | 5,13 / 6,40 |
 
-Beda `MUTED` dan `FAINT` bukan cuma terang: `MUTED` selalu proza (kalimat
-penjelas), `FAINT` selalu mono (placeholder, nilai kosong, cap waktu log).
+Hijau tunggal dipakai untuk judul "Wanz", garis tab aktif, kotak centang
+terpilih, tepi tombol utama, dan tombol tambah. Tidak ada warna kedua sebagai
+aksen.
 
-Ukuran: garis 1dp, sudut per peran seperti di atas, tinggi sentuh minimal 48dp,
-tombol aksi 58dp.
+Ukuran: garis 1dp (dibulatkan ke piksel utuh), tinggi sentuh minimal 48dp,
+tombol sambung 56dp, laci 86% lebar layar (maksimal 320dp).
 
 ## Tema
 
 Tiga pilihan di Pengaturan > Tampilan: **Ikuti sistem**, **Terang**, **Gelap**.
-Pilihan disimpan global di `shared_prefs/app_cfg.xml` (kunci `theme_mode`) dan
-diterapkan dengan membangun ulang halaman, bukan lewat resource `-night` saja:
-`InkActivity` memasang palet di `onCreate` dan `recreate()` di `onResume` kalau
-preferensi berubah saat halaman di belakang. Tanpa itu, halaman lama tetap
-memakai warna lama dan layar jadi campur aduk. Chrome jendela (status bar,
-navigation bar, splash tint) ditutup dari kode lewat `applyWindowChrome()` agar
-tidak mengikuti pengaturan HP secara diam-diam. Dialog pilihan (mis. dialog
-"Tema") dibangun dengan tema eksplisit dari palet aktif, bukan palet sistem.
+Pilihan disimpan global di `shared_prefs/app_cfg.xml` (`theme_mode`) dan
+diterapkan dengan membangun ulang halaman, bukan lewat resource `-night` saja.
+`InkActivity` memasang palet di `onCreate`, lalu `applyWindowChrome()` setelah
+`super.onCreate()` supaya ikon status bar dan navigation bar benar-benar ikut
+palet (memanggilnya sebelum `super` membuat `WindowInsetsController` belum ada,
+dan ikon gelap tertinggal di atas latar gelap). Dialog memakai tema eksplisit
+dari palet aktif, bukan palet sistem.
 
 ## Tipografi
 
-- Dua keluarga, keduanya dibundel dari Google Fonts dan dipotong ke karakter yang
-  dipakai aplikasi (total 206 KB): **JetBrains Mono** untuk angka, alamat, dan log;
-  **Chivo** untuk kalimat (`Face.mono`, `Face.prose`). Font bawaan HP (Roboto)
-  dibuang: di aplikasi jaringan, kalimat yang memakai font sistem membuat seluruh
-  layar terbaca seperti template.
-- Pemilihannya diukur, bukan selera. Tinggi x (seberapa besar huruf kecil) dan
-  tebal garis saat di-render pada densitas 2,75:
+Dua keluarga, keduanya dari Google Fonts, dibundel (Apache 2.0) dan dipotong ke
+karakter yang dipakai (total ± 100 KB):
 
-  | font | tinggi x / em | garis @26px | @29px | @34px |
-  |---|---|---|---|---|
-  | Roboto 400 (bawaan HP) | 0,528 | 2,67 | 2,67 | 3,00 |
-  | IBM Plex Mono 400 (sebelumnya) | 0,516 | 2,33 | 2,67 | 3,00 |
-  | **JetBrains Mono 400** | **0,550** | 2,00 | 3,00 | 3,00 |
-  | **Chivo 400** | 0,511 | **3,00** | **4,00** | **4,00** |
+- **Roboto 400/500** untuk seluruh teks antarmuka: judul, tab, label centang,
+  tombol, isi dialog, kalimat pengaturan.
+- **Roboto Mono 400/500** untuk data: alamat server, port, angka trafik, uptime,
+  ping, dan log.
 
-  Tinggi x terbesar dan angka tabular membuat JetBrains Mono paling terbaca di
-  deret bacaan; Chivo satu-satunya yang tetap di atas tiga piksel pada semua
-  ukuran kalimat, jadi teks penjelas tidak jadi benang.
-- Label micro 9,5sp mono dengan tracking +0,04: nama kolom, bukan kalimat. Setelah
-  langkah glyph dibulatkan, tracking efektifnya jadi +0,054 em pada 26px
-  (15,6px → 17px) — selisihnya sepersepuluh piksel huruf, tidak terlihat.
-- Angka 12,5–16sp mono; perubahan antar-sekatan tidak membuat layout meloncat.
-- Judul status 23sp medium; judul halaman 27sp tracking negatif tipis.
-- Tidak ada huruf kapital semua sebagai gaya; hanya merek "WANZ TUNNEL".
-- **Tulisan tidak boleh geter.** Dua penyebabnya dibereskan di `Face`:
-  ukuran sp yang menghasilkan piksel pecahan (9,5sp × densitas 2,75 = 26,125px)
-  dibulatkan ke piksel utuh oleh `Face.px` lewat `inkSize()`, dan
-  `Face.tracking()` memilih nilai `letterSpacing` sehingga langkah glyph mono
-  (0,6em — pada 26px berarti 15,6px) jatuh lagi di batas piksel. Semua kolom
-  bacaan rata kiri dengan lebar tetap, jadi angka yang berubah tiap detik tidak
-  menggeser tetangganya. Aturan ini dijaga `design_gate.py`: `COMPLEX_UNIT_SP`
-  atau `textSize = dp(...)` di luar `Face.kt` dianggap galat.
+Roboto dipilih justru karena sama dengan acuan; aplikasi ini tidak lagi mencoba
+terlihat seperti template dengan font lain.
+
+| font | tinggi x / em | tebal garis @26px | @29px | @34px |
+|---|---|---|---|---|
+| **Roboto 400** | 0,528 | 2,67 | 2,67 | 3,00 |
+| **Roboto Mono 400** | 0,528 | 2,67 | 2,67 | 3,00 |
+
+- Judul aplikasi 22sp medium: "Wanz" hijau, "Tunnel" tinta.
+- Label tab 15sp medium. Judul bagian 15sp medium hijau.
+- Isian server 14,5sp mono; label mikro 10,5sp mono; log 12sp mono.
+- Label kotak centang 14,5sp Roboto; tombol aksi 15sp medium.
+- **Tulisan tidak boleh geter.** Dua penyebabnya dibereskan di `Face`: ukuran sp
+  yang menghasilkan piksel pecahan dibulatkan oleh `Face.px()` lewat `inkSize()`,
+  dan `Face.tracking()` memilih `letterSpacing` sehingga langkah glyph mono jatuh
+  di batas piksel. `design_gate.py` menganggap `COMPLEX_UNIT_SP` atau
+  `textSize = dp(...)` di luar `Face.kt` sebagai galat.
 
 ## Susunan beranda
 
-1. Rel status 3dp di tepi atas: abu saat diam, hijau saat terhubung, merah saat
-   gagal, satu segmen berjalan saat menyambung.
-2. Kop: tanda kotak tinta + "WANZ TUNNEL", tombol geser di kanan.
-3. Status: satu baris kondisi (`Terputus`, `Menyambungkan`, `Terhubung`,
-   `Terhubung, tanpa internet`, `Gagal`) + penjelas satu kalimat, dan penghitung
-   profil `2/3` di kanan.
-4. Kartu koneksi: baris profil dengan pemindah `‹ ›` (multi-profil, tetap satu
-   sentuhan), lalu baris `target`, `akun`, `pembungkus` dipisah garis rambut.
-5. Deret bacaan tiga kolom dengan garis pembagi: **kunde**, **kirim**, **aktif**
-   — angka besar di atas, laju per detik dan puncak sesi di bawah.
-6. Rel ping: nilai terbaru + riwayat bilah (12 slot).
-7. Log lima baris terakhir, panel mono, tap untuk membuka log penuh.
-8. Bilah aksi menempel di dasar layar: CONNECT/PUTUS 58dp, tetap kelihatan saat
-   halaman digulir, lalu baris versi.
+1. **Bilah atas 56dp**: menu di kiri; judul "Wanz Tunnel"; impor config; menu lain.
+2. **Dua tab 48dp** (`SSH`, `LOG`) dengan garis bawah hijau 3dp pada tab aktif,
+   lalu garis rambut selebar layar.
+3. **Tab SSH**:
+   - baris profil aktif (ketuk untuk memilih profil) dan label pembungkus
+     `SSH · VPN` / `SSH + TLS · VPN` dan seterusnya;
+   - bidang `ip:port@user:pass` bergaris bawah, Roboto Mono, satu baris;
+   - kisi centang **dua kolom, empat baris**, tiap sel tinggi 48dp;
+   - tombol sambung bergaris tepi 1,5dp, tinggi 56dp, label berubah
+     `HUBUNGKAN` → `MENYAMBUNG…` → `PUTUSKAN` / `COBA LAGI`;
+   - baris status satu sampai dua baris;
+   - tiga bacaan sejajar: Unduh, Unggah, Aktif. Kolom Aktif juga memicu ping.
+4. **Tab LOG**: baris "Ikuti" + salin + bersihkan, lalu daftar log
+   `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
+   INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
+5. **Tombol bulat (+)** 56dp di kanan bawah: menambah profil baru lalu membuka
+   Pengaturan. Profil lama dipilih lewat baris profil atau laci "Profil".
+6. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
+   **Utilitas** (Profil, Payload, SNI/host TLS, Tema), **Koneksi** (Pengaturan,
+   Impor config, Ping sekarang), dan **Alat** (Log, Salin log, Bersihkan log,
+   Tentang). Laci bisa digulir pada layar pendek.
 
-Pengaturan dan Log memakai sistem yang sama: judul bagian bergaris rambut, field
-bergaris bawah saja (bukan kotak abu komponen default), daftar aksi tanpa kartu.
-`InkSelect` dan `InkToggle` menggambar dirinya sendiri dan menjamin tinggi sentuh
-48dp, karena `Spinner` bawaan masih terasa komponen sistem. Garis bawah field
-digambar dari bounds (`FieldUnderline`): 1dp biasa, 2dp saat fokus. Bukan
-`LayerDrawable` yang di-inset dari atas — pada field multi-baris (Payload, Impor
-config) celah inset itu melebar jadi blok tinta setinggi field, dan field fokus
-tampak seperti kertas di layar gelap.
+Delapan centang dan field yang diubahnya:
 
-Mode tunggal: **VPN**, seperti HTTP Custom. Tidak ada pilihan SOCKS5/VPN; SOCKS5
-hanya detail internal tun2socks.
+| Label | Field profil | Akibat nyata |
+|---|---|---|
+| Pakai payload | `usePayload` | `TunnelService` mengirim payload hanya bila dicentang |
+| SSL | `transport` | `tls` / `wss` |
+| WebSocket | `transport` | `ws` / `wss` |
+| Verifikasi TLS | `strictTls` | verifikasi sertifikat TLS |
+| DNS lewat tunnel | `mappedDns` | resolusi nama di sisi server |
+| Ping otomatis | `autoPing` | ping berkala saat terhubung |
+| Sambung ulang | `autoReconnect` | sambung ulang otomatis saat putus |
+| Seluler saja | `onlyMobileData` | menolak koneksi saat memakai Wi-Fi |
+
+## Komponen
+
+- `SquareCheckView` (24dp, sudut 2dp): kotak garis tinta saat mati; bidang hijau
+  dengan centang gelap saat hidup.
+- `InkToggle`: label Roboto di kiri + kotak centang 22dp di kanan, dipakai di
+  Pengaturan. Menggantikan `Switch` bawaan.
+- `InkSelect`: bidang bergaris bawah + panah garis, nilai Roboto Mono, daftar
+  pilihan lewat dialog.
+- `FieldUnderline`: garis bawah digambar dari bounds (1dp biasa, 2dp saat fokus),
+  bukan `LayerDrawable` yang di-inset; inset itu melebar jadi blok tinta pada
+  field multi-baris.
+- `HexLogoView`: heksagon putih dengan "W" tinta dan "T" hijau.
+- Semua kontrol sentuh berlabel `contentDescription` dan minimal 48dp.
 
 ## Gerak
 
 Hanya dua, keduanya membawa informasi:
 
-- Segmen rel status berjalan selama proses menyambung.
-- Garis kemajuan di tombol selama proses menyambung.
+- Laci masuk/keluar 180ms; scrim meredup bersamaan.
+- Tombol dan centang memakai umpan balik haptic, bukan animasi dekoratif.
 
-Keduanya menghormati `ANIMATOR_DURATION_SCALE` sistem. Tidak ada animasi masuk,
-parallax, atau denyut saat sudah terhubung.
+Keduanya menghormati `ANIMATOR_DURATION_SCALE` sistem lewat
+`Face.reducedMotion()`; bila animasi dimatikan, durasi menjadi nol.
 
 ## Status
 
 - `Terhubung` hanya muncul jika tunnel aktif **dan** self-test DNS + TCP berhasil.
-- Jika tunnel aktif tetapi internet gagal: `Terhubung, tanpa internet`, warna
-  kuning kuningan tua, disertai penjelasan.
+- Jika tunnel aktif tetapi internet gagal: "Tunnel aktif, tetapi uji internet
+  gagal", warna `WARN`.
 - Alamat proxy lokal tidak ditampilkan sebagai status saat terhubung.
+- Log memakai jam perangkat dan level yang diturunkan dari tag/pesan.
 
-## Latar foto (disiapkan, belum dipasang)
+## Latar foto (ditunda)
 
-Rencana latar foto Freya JKT48 beserta dua belas kandidat HD dan cara mengukur
-kontrasnya ada di `design/wallpaper/README.md`. Pemasangannya ditunda atas
-permintaan pemakai; aplikasi tetap bercanvas solid. Kalau nanti dipasang, panel
-tidak dibuat transparan begitu saja: alpha `0xDB` di atas scrim `BG` 70 persen,
-dengan angka yang sudah diukur per foto (`tools/wall_contrast.py`).
+Rencana latar foto Freya JKT48 beserta cara mengukur kontrasnya ada di
+`design/wallpaper/README.md`. Pemasangannya ditunda atas permintaan pemakai;
+aplikasi tetap bercanvas solid.

@@ -8,12 +8,12 @@ import android.view.HapticFeedbackConstants
 import android.view.View
 
 /**
- * Pemilih opsi "Konsol" — menggantikan `android.widget.Spinner`.
+ * Pemilih opsi — menggantikan `android.widget.Spinner`.
  *
  * Spinner bawaan masih terasa komponen default sistem (rubrik
  * `anti-ai-slop-ui`, *component defaultness*). Ini bidang bergaris bawah
  * saja, sama seperti kolom isian: tanpa kotak, tanpa isi abu-abu. Nilai
- * memakai JetBrains Mono, panah digambar dengan garis, dan daftar pilihan
+ * memakai Roboto Mono, panah digambar dengan garis, dan daftar pilihan
  * memakai dialog sistem supaya perilakunya tetap milik platform.
  */
 class InkSelect(context: Context) : View(context) {

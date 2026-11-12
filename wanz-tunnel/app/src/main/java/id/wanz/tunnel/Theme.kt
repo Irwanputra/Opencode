@@ -7,39 +7,35 @@ import android.os.Build
 import android.os.Bundle
 
 /**
- * Sistem visual "Konsol" (v2.9): grafit gelap dengan kertas sebagai varian.
+ * Sistem visual: mengikuti aplikasi acuan **HTTP Custom** yang dipakai
+ * pemilik aplikasi ini — bukan lagi arah "Konsol" yang abstrak.
  *
- * Arah diambil dari dua aplikasi yang benar-benar dipakai orang, bukan dari
- * template: kartu koneksi berisi baris label/nilai + tombol CONNECT melebar
- * seperti DarkTunnel, dan deret bacaan RX/TX + konsol log mono seperti HTTP
- * Custom. Bedanya sengaja: kanvas grafit hangat (bukan hitam pekat atau biru
- * laut), aksen kuningan (bukan ungu atau biru), tanpa ikon Material.
+ * Yang diambil dari acuan, bukan ditebak:
+ * - kanvas abu gelap netral (#1E1E1E) untuk seluruh layar, termasuk bilah atas
+ *   dan tab — tanpa kartu, tanpa gradien, tanpa bayangan;
+ * - hijau tunggal (#4CAF50) untuk identitas dan status hidup: judul, garis tab
+ *   aktif, kotak centang terpilih, tepi tombol utama, tombol tambah;
+ * - judul "Wanz Tunnel" dengan kata pertama hijau dan kata kedua putih;
+ * - dua tab selebar layar dengan garis bawah hijau setebal 3px;
+ * - isian bergaris bawah saja, tanpa kotak latar;
+ * - kisi centang dua kolom, tombol utama bergaris tepi, dan tombol bulat (+)
+ *   di kanan bawah;
+ * - log monospace berbaris `[jam:menit:detik] pesan` dengan garis pemisah tipis.
  *
- * Warna hanya dipakai untuk status koneksi dan satu tombol utama; sisanya
- * teks di atas permukaan. Semua datar, sudut kecil, garis rambut 1dp.
- *
- * Semua warna lewat [Palette] supaya mode gelap bukan hasil inversi mentah:
- * tiap pasangan teks/bidang diukur dulu. Nomor di bawah rasio kontras
- * WCAG-nya terhadap permukaan tempat token itu dipakai.
+ * Pasangan warna diukur ulang untuk dua palet (WCAG AA minimal 4,5:1 untuk
+ * teks). Mode terang bukan inversi: latar putih, teks hampir hitam, hijau
+ * digelapkan sampai lolos kontras.
  *
  * ```
  *                 TERANG                        GELAP
- *   INK/BG   15.85      INK/BG   16.44
- *   MUTED/BG  5.33      MUTED/BG  8.10
- *   FAINT/BG  5.01      FAINT/BG  5.62
- *   FAINT/PANEL 4.62    FAINT/PANEL 5.04
- *   OK/BG     5.75      OK/BG     8.24
- *   WARN/BG   5.59      WARN/BG   8.22
- *   ERR/BG    6.50      ERR/BG    6.96
- *   ON_INK/INK 16.28    ON_INK/INK 16.04
- *   AKSEN/BG   5.47      AKSEN/BG  7.66
- *   ON_AK/AKSEN 6.00     ON_AK/AKSEN 7.58
+ *   INK/BG   17.22      INK/BG   16.67
+ *   MUTED/BG  6.39      MUTED/BG  8.87
+ *   FAINT/BG  5.33      FAINT/BG  6.22
+ *   OK/BG     5.13      OK/BG     6.00
+ *   WARN/BG   6.33      WARN/BG  11.81
+ *   ERR/BG    6.54      ERR/BG    6.09
+ *   ACCENT/BG 5.13      ACCENT/BG 6.00
  * ```
- *
- * `HAIR` bukan teks: garis rambut 1dp, 1.8:1 terhadap BG sudah cukup untuk
- * memisahkan bidang tanpa jadi kotak. Perbedaan `MUTED` dan `FAINT` bukan
- * cuma terang: `MUTED` selalu proza, `FAINT` selalu mono (placeholder, nilai
- * kosong, cap waktu log).
  */
 internal class Palette(
     val bg: Int, val panel: Int, val field: Int,
@@ -48,33 +44,33 @@ internal class Palette(
     val accent: Int, val onAccent: Int,
 )
 
-private const val LIGHT_BG = 0xFFF1F1EC.toInt()
-private const val LIGHT_PANEL = 0xFFE8E8E2.toInt()
-private const val LIGHT_FIELD = 0xFFEAEAE4.toInt()
-private const val LIGHT_INK = 0xFF15171A.toInt()
-private const val LIGHT_MUTED = 0xFF5F645F.toInt()
-private const val LIGHT_FAINT = 0xFF646862.toInt()
-private const val LIGHT_HAIR = 0xFFC7C9C2.toInt()
-private const val LIGHT_OK = 0xFF146B46.toInt()
+private const val LIGHT_BG = 0xFFFFFFFF.toInt()
+private const val LIGHT_PANEL = 0xFFF5F5F5.toInt()
+private const val LIGHT_FIELD = 0xFFFFFFFF.toInt()
+private const val LIGHT_INK = 0xFF1B1B1B.toInt()
+private const val LIGHT_MUTED = 0xFF5F5F5F.toInt()
+private const val LIGHT_FAINT = 0xFF6B6B6B.toInt()
+private const val LIGHT_HAIR = 0xFFDDDDDD.toInt()
+private const val LIGHT_OK = 0xFF2E7D32.toInt()
 private const val LIGHT_WARN = 0xFF8A5300.toInt()
-private const val LIGHT_ERR = 0xFFA3261B.toInt()
-private const val LIGHT_ON_INK = 0xFFF4F4EF.toInt()
-private const val LIGHT_ACCENT = 0xFF7E5B10.toInt()
-private const val LIGHT_ON_ACCENT = 0xFFFFFBF2.toInt()
+private const val LIGHT_ERR = 0xFFB3261E.toInt()
+private const val LIGHT_ON_INK = 0xFFFFFFFF.toInt()
+private const val LIGHT_ACCENT = 0xFF2E7D32.toInt()
+private const val LIGHT_ON_ACCENT = 0xFFFFFFFF.toInt()
 
-private const val DARK_BG = 0xFF131410.toInt()
-private const val DARK_PANEL = 0xFF1E1F19.toInt()
-private const val DARK_FIELD = 0xFF1A1B15.toInt()
-private const val DARK_INK = 0xFFF2F2EA.toInt()
-private const val DARK_MUTED = 0xFFA9ADA4.toInt()
-private const val DARK_FAINT = 0xFF8B8F87.toInt()
-private const val DARK_HAIR = 0xFF32342C.toInt()
-private const val DARK_OK = 0xFF5BC08A.toInt()
-private const val DARK_WARN = 0xFFEFAE3C.toInt()
-private const val DARK_ERR = 0xFFEF7F68.toInt()
-private const val DARK_ON_INK = 0xFF16170F.toInt()
-private const val DARK_ACCENT = 0xFFC9A22F.toInt()
-private const val DARK_ON_ACCENT = 0xFF1A1405.toInt()
+private const val DARK_BG = 0xFF1E1E1E.toInt()
+private const val DARK_PANEL = 0xFF252525.toInt()
+private const val DARK_FIELD = 0xFF1E1E1E.toInt()
+private const val DARK_INK = 0xFFFFFFFF.toInt()
+private const val DARK_MUTED = 0xFFBDBDBD.toInt()
+private const val DARK_FAINT = 0xFF9E9E9E.toInt()
+private const val DARK_HAIR = 0xFF3C3C3C.toInt()
+private const val DARK_OK = 0xFF4CAF50.toInt()
+private const val DARK_WARN = 0xFFFFD54F.toInt()
+private const val DARK_ERR = 0xFFFF6B81.toInt()
+private const val DARK_ON_INK = 0xFF1E1E1E.toInt()
+private const val DARK_ACCENT = 0xFF4CAF50.toInt()
+private const val DARK_ON_ACCENT = 0xFF0D1B0E.toInt()
 
 private val LIGHT = Palette(
     bg = LIGHT_BG, panel = LIGHT_PANEL, field = LIGHT_FIELD,
@@ -91,11 +87,6 @@ private val DARK = Palette(
 )
 
 // ------------------------------------------------------------------ token aktif
-// Nama token menyebut PERAN, bukan warna: `BG` permukaan dasar, `INK` teks
-// utama sekaligus isi tombol primer, `ON_INK` teks di atas isi tombol itu.
-// Karena itu token ini `var`: diganti sekali oleh [applyPalette] sebelum UI
-// dibangun, bukan dibaca ulang sebagai konstanta waktu-kompilasi.
-
 internal var BG = LIGHT.bg
 internal var PANEL = LIGHT.panel
 internal var FIELD = LIGHT.field
@@ -104,20 +95,14 @@ internal var MUTED = LIGHT.muted
 internal var FAINT = LIGHT.faint
 internal var HAIR = LIGHT.hair
 
-/** Status koneksi — satu-satunya warna semantik. */
+/** Status koneksi: hijau, kuning, merah — sama seperti warna log acuan. */
 internal var OK = LIGHT.ok
 internal var WARN = LIGHT.warn
 internal var ERR = LIGHT.err
 
-/** Teks/isi yang menjepit warna [INK]: di terang kertas, di gelap tinta. */
 internal var ON_INK = LIGHT.onInk
 
-/**
- * Aksen identitas: kuningan tua di terang, kuningan di gelap. Bukan ungu dan
- * bukan biru — dua warna yang dipakai DarkTunnel dan HTTP Custom, dan yang
- * paling sering keluar dari generator. Hanya untuk tombol utama, chip aktif,
- * dan tautan; status tetap hijau/jingga/merah.
- */
+/** Identitas: hijau tunggal, dipakai judul, garis tab, centang, tepi tombol. */
 internal var ACCENT = LIGHT.accent
 internal var ON_ACCENT = LIGHT.onAccent
 
@@ -183,37 +168,33 @@ internal fun applyPalette(context: Context): Boolean {
 }
 
 /**
- * Activity dasar "Konsol".
- *
- * Dua hal dikerjakan di sini supaya tidak ditiru tiga kali:
+ * Activity dasar.
  *
  * 1. Palet dan chrome jendela dipasang sebelum subclass membuat view apa pun.
- * 2. Kalau preferensi tema berubah ketika halaman ini sedang di belakang
- *    (mis. pengguna memilih Gelap di pengaturan), halaman dibangun ulang saat
- *    kembali ke depan. Tanpa itu, halaman lama tetap memakai warna lama dan
- *    tampil campur aduk.
+ * 2. Kalau preferensi tema berubah ketika halaman ini sedang di belakang,
+ *    halaman dibangun ulang saat kembali ke depan.
  */
 abstract class InkActivity : Activity() {
     private var builtWithMode = -1
 
     override fun onCreate(b: Bundle?) {
         applyPalette(this)
+        super.onCreate(b)
+        // Setelah super.onCreate: WindowInsetsController baru tersedia, jadi
+        // ikon status bar/navigation bar benar-benar mengikuti palet.
         applyWindowChrome(this)
         builtWithMode = AppPrefs.themeMode(this)
-        super.onCreate(b)
     }
 
     override fun onResume() {
         super.onResume()
+        applyWindowChrome(this)
         if (AppPrefs.themeMode(this) != builtWithMode) recreate()
     }
 }
 
 /**
  * Samakan jendela, status bar, dan navigation bar dengan palet aktif.
- *
- * Saat mode gelap atau terang dipilih manual, resource `values-night` belum
- * tentu ikut (dia ikut setting sistem), jadi chrome ditutup dari kode.
  */
 internal fun applyWindowChrome(activity: Activity) {
     val window = activity.window
@@ -230,10 +211,6 @@ internal fun applyWindowChrome(activity: Activity) {
     }
 }
 
-/**
- * Ikon bar sistem ikut terang/gelap. API 30 memindahkan pengaturannya dari
- * bendera `systemUiVisibility` ke `WindowInsetsController`.
- */
 @android.annotation.TargetApi(Build.VERSION_CODES.R)
 private fun setLightBars(window: android.view.Window, light: Boolean) {
     val controller = window.insetsController ?: return
@@ -243,13 +220,10 @@ private fun setLightBars(window: android.view.Window, light: Boolean) {
 }
 
 /**
- * Sudut per peran — bukan satu angka untuk semua (Anti-Slop Test:
- * "uniform border-radius on everything").
- *
- * - [R_FIELD] 1dp: bidang masukan, supaya terasa seperti formulir cetak.
- * - [R_PANEL] 2dp: panel, bilah aksi, tombol.
- * - [R_HAIR] 0dp: garis dan rel status.
+ * Sudut: isian tidak bersudut (hanya garis bawah), kotak centang 2dp, tombol
+ * dan panel 4dp. Tiga peran, tiga alasan — bukan satu angka untuk semua.
  */
-internal const val R_FIELD = 1
-internal const val R_PANEL = 2
+internal const val R_FIELD = 0
+internal const val R_CHECK = 2
+internal const val R_PANEL = 4
 internal const val R_HAIR = 0

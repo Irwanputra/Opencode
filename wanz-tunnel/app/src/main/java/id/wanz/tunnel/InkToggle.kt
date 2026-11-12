@@ -3,16 +3,17 @@ package id.wanz.tunnel
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Path
 import android.view.HapticFeedbackConstants
 import android.view.View
 
 /**
- * Sakelar "Panel" — menggantikan `android.widget.Switch` yang masih terasa
- * komponen default sistem (rubrik `anti-ai-slop-ui`: *component defaultness*).
+ * Kotak centang berlabel untuk baris pengaturan, sebentuk dengan kisi centang
+ * di beranda: kotak 22dp bersudut 2dp di kanan, garis tinta saat mati, bidang
+ * hijau dengan centang gelap saat hidup.
  *
- * Bentuknya sesuai bahasa visual aplikasi: trek 38×18dp bersudut 2dp dengan
- * garis rambut, kotak geser 14dp. Hitam = aktif, garis rambut = tidak. Tidak
- * ada warna aksen, tidak ada animasi pegas.
+ * Menggantikan `android.widget.Switch`: acuan tidak memakai sakelar geser,
+ * dan kotak centang membuat status terbaca tanpa harus menggeser apa pun.
  */
 class InkToggle(context: Context) : View(context) {
 
@@ -37,19 +38,27 @@ class InkToggle(context: Context) : View(context) {
     private fun dp(v: Float) = v * density
 
     private val labelText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        typeface = Face.proseMedium(context)
+        typeface = Face.prose(context)
         color = INK
-        textSize = Face.px(context, 13.5f)
+        textSize = Face.px(context, 14f)
     }
-    private val shape = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+    private val stroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
-        strokeWidth = dp(1f)
-        color = HAIR
+        strokeWidth = Face.linePx(context, 1.6f)
+        color = INK
     }
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val check = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.STROKE
+        strokeWidth = Face.linePx(context, 2f)
+        strokeCap = Paint.Cap.ROUND
+        strokeJoin = Paint.Join.ROUND
+    }
+    private val boxPath = Path()
 
     init {
         isClickable = true
+        isFocusable = true
         minimumHeight = dp(48f).toInt()
     }
 
@@ -64,27 +73,25 @@ class InkToggle(context: Context) : View(context) {
         val base = midY - (labelText.ascent() + labelText.descent()) / 2f
         canvas.drawText(label, 0f, base, labelText)
 
-        val trackW = dp(38f)
-        val trackH = dp(18f)
-        val left = width - trackW
-        val top = midY - trackH / 2f
-        val r = dp(R_PANEL.toFloat())
+        val side = dp(22f)
+        val left = width - side
+        val top = midY - side / 2f
+        val radius = dp(R_CHECK.toFloat())
+        boxPath.reset()
+        boxPath.addRoundRect(left, top, left + side, top + side, radius, radius, Path.Direction.CW)
 
         if (isChecked) {
-            fill.color = INK
-            canvas.drawRoundRect(left, top, left + trackW, top + trackH, r, r, fill)
+            fill.color = ACCENT
+            canvas.drawPath(boxPath, fill)
+            check.color = ON_ACCENT
+            canvas.drawLine(left + side * 0.24f, top + side * 0.52f,
+                left + side * 0.44f, top + side * 0.72f, check)
+            canvas.drawLine(left + side * 0.44f, top + side * 0.72f,
+                left + side * 0.78f, top + side * 0.30f, check)
         } else {
-            fill.color = FIELD
-            canvas.drawRoundRect(left, top, left + trackW, top + trackH, r, r, fill)
-            shape.color = HAIR
-            canvas.drawRoundRect(left + 0.5f, top + 0.5f, left + trackW - 0.5f, top + trackH - 0.5f, r, r, shape)
+            stroke.color = INK
+            canvas.drawPath(boxPath, stroke)
         }
-
-        val knob = dp(14f)
-        val kx = if (isChecked) left + trackW - knob - dp(2f) else left + dp(2f)
-        val ky = top + (trackH - knob) / 2f
-        fill.color = if (isChecked) ON_INK else FAINT
-        canvas.drawRoundRect(kx, ky, kx + knob, ky + knob, dp(1f), dp(1f), fill)
     }
 
     override fun performClick(): Boolean {

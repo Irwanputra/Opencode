@@ -1,10 +1,11 @@
-# Wanz Tunnel 2.9.1
+# Wanz Tunnel 2.9.2
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
-TLS/SNI, WebSocket, dan multi-profil. Tampilan memakai arah **"Konsol"**:
-kanvas grafit hangat (gelap) atau kertas (terang), tinta, garis rambut, angka
-monospace tabular, aksen kuningan, dan warna yang hanya dipakai untuk
-menyatakan status koneksi.
+TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.2 mengikuti **HTTP Custom**:
+kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
+dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
+kolom, tombol sambung bergaris, tombol bulat (+), dan laci bergrup. Font UI
+Roboto, data dan log Roboto Mono.
 
 ## Fitur
 
@@ -12,18 +13,23 @@ menyatakan status koneksi.
 - **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
   internal oleh tun2socks (default 1080, bisa diubah di bagian Lainnya)
-- UI "Konsol": rel status di tepi atas, kartu koneksi dengan baris label/nilai,
-  deret bacaan **kunde / kirim / aktif** (jumlah, laju per detik, puncak sesi),
-  rel ping dengan riwayat, cuplikan log mono, dan satu tombol aksi 58dp yang
-  menempel di bawah layar. Semua konfigurasi di halaman Pengaturan.
-- Tema **Ikuti sistem / Terang / Gelap**: grafit hangat dengan aksen kuningan
-  untuk gelap, kertas dengan tinta tua untuk terang. Kedua palet diukur kontrasnya
-  (bukan inversi), dan halaman dibangun ulang begitu pilihan berubah.
-- Log koneksi gaya HTTP Custom: setiap baris `jam  [LEVEL]  pesan` dengan
-  level **INFO/WARN/ERROR/PING**, warna per level, auto-scroll, layar log
-  penuh serta tombol Salin / Bersihkan
-- Ping bawaan: hasil ping tampil di halaman utama dan di log; ketuk baris
-  ping untuk ping manual
+- UI mengikuti HTTP Custom: bilah atas dengan menu/impor/menu lain, tab
+  **SSH** dan **LOG**, isian `ip:port@user:pass`, delapan centang dua kolom,
+  tombol sambung bergaris, bacaan Unduh/Unggah/Aktif, dan tombol bulat (+)
+  untuk profil baru. Laci kiri bergrup Utilitas/Koneksi/Alat. Konfigurasi rinci
+  tetap di Pengaturan.
+- Delapan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
+  WebSocket (mengubah `transport`), Verifikasi TLS, DNS lewat tunnel, Ping
+  otomatis, Sambung ulang, dan Seluler saja.
+- Tema **Ikuti sistem / Terang / Gelap**: gelap `#1E1E1E` dengan hijau
+  `#4CAF50`, terang `#FFFFFF` dengan hijau `#2E7D32`. Kedua palet diukur
+  kontrasnya (bukan inversi), dan halaman dibangun ulang begitu pilihan berubah.
+- Log koneksi gaya HTTP Custom: ditampilkan `[jam:menit:detik]  pesan` dengan
+  garis pemisah tipis dan warna per level (**INFO** tinta, **PING** hijau,
+  **WARN** kuning, **ERROR** merah muda), auto-scroll, serta tombol Ikuti /
+  Salin / Bersihkan. Salinan memakai format `jam  [LEVEL]  pesan`.
+- Ping bawaan: hasil ping tampil di kolom Aktif dan di log; ketuk kolom Aktif
+  (atau menu Ping sekarang) untuk ping manual
 - Auto ping: interval 5/10/15/30/60 detik dengan target bisa diatur
   (default `1.1.1.1:443`), diukur lewat jalur SSH (SOCKS5), bukan ICMP lokal
 - Transport:
@@ -54,7 +60,8 @@ menyatakan status koneksi.
 
 ## Cara pakai
 
-1. Isi nama profil, host, port SSH, username, password.
+1. Isi satu baris `ip:port@user:pass` di beranda (port dan akun boleh menyusul),
+   atau isi field rinci di Pengaturan.
 2. Pilih transport:
    - `SSH langsung` untuk server SSH biasa.
    - `TLS / SNI` untuk SSH di balik TLS (stunnel) atau CDN.
@@ -156,12 +163,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.1.apk`** (2,0 MB, `versionCode 15`,
+Rilis siap pasang: **`WanzTunnel-2.9.2.apk`** (1,9 MB, `versionCode 16`,
 Android 10 ke atas), SHA-256
-`0b7a6463fe9c01a51c6f91138f0932190bbd90123e491bc11de0485f7f316d47`.
-Rilis sebelumnya, `WanzTunnel-2.9.apk` (`versionCode 14`, SHA-256
-`159639ddae709d88e50153118f95c751987c35204bbbbdad25807ffb40a14213`), punya cacat
-tampilan pada field multi-baris — perbaiki di 2.9.1.
+`a9b2c2b87e54ae47ed74ee780c2321a7c866005c3637be42a833d90802091f83`.
+Rilis sebelumnya, `WanzTunnel-2.9.1.apk` (`versionCode 15`, SHA-256
+`0b7a6463fe9c01a51c6f91138f0932190bbd90123e491bc11de0485f7f316d47`), masih
+memakai arah desain "Konsol".
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -176,6 +183,19 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- UI v2.9.2 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
+  Android 14: tema gelap `#1E1E1E` dan terang `#FFFFFF`, judul dua warna, tab
+  SSH/LOG bergaris bawah, kisi 8 centang, tombol bergaris, FAB, laci bergrup,
+  dialog Payload/SNI/Tema/Profil/Impor/Tentang, serta halaman Pengaturan.
+  Dialog memakai panel 4dp dengan aksen hijau (bukan ungu bawaan Android).
+- Log nyata dari percobaan koneksi ke `bansos.sunekvpn.cc.cd:80` tampil
+  `[jam:menit:detik] pesan` berwarna per level (INFO tinta, WARN kuning,
+  ERROR merah muda), dengan sambung-ulang otomatis tercatat setiap 5 detik.
+  Emulator tidak bisa menembus server tersebut (`connection is closed by
+  foreign host`); jalur login dan trafik nyata sudah terbukti sebelumnya di
+  luar emulator.
+- Mematikan centang "Pakai payload" benar-benar menghentikan pengiriman payload
+  tanpa menghapus teksnya; log tidak lagi menulis "Mengirim payload".
 - Mode proxy SOCKS5 dan port kustom: HTTP 200 lewat `curl`.
 - Mode VPN: seluruh trafik Chrome lewat tunnel, DNS mapped-DNS bekerja,
   port SOCKS kustom 1084 bekerja.
@@ -340,6 +360,38 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.2: **tampilan disamakan dengan HTTP Custom** atas permintaan pemakai.
+  - Palet baru: gelap `#1E1E1E`, panel `#252525`, tinta `#FFFFFF`, hijau
+    `#4CAF50`; terang `#FFFFFF` dengan hijau `#2E7D32`. Kontras kedua palet
+    diukur ulang (INK/BG 16,67 dan 17,22; ACCENT/BG 6,00 dan 5,13).
+  - Tipografi diganti ke **Roboto 400/500** (UI) dan **Roboto Mono 400/500**
+    (data/log), keduanya dari Google Fonts, dipotong fonttools, dibundel dengan
+    lisensi Apache 2.0. Arah "Konsol" (Chivo/JetBrains Mono, grafit + kuningan)
+    dibatalkan.
+  - Beranda baru: bilah atas 56dp (menu, judul "Wanz Tunnel", impor config, menu
+    lain), tab SSH/LOG dengan garis bawah hijau 3dp, isian `ip:port@user:pass`
+    yang mengurai balik ke host/port/user/pass, kisi centang 2 kolom, tombol
+    sambung bergaris 56dp, baris status, bacaan Unduh/Unggah/Aktif, dan FAB (+).
+  - Laci kiri bergrup (Utilitas/Koneksi/Alat) dengan logo heksagon WT dan versi;
+    bisa digulir di layar pendek. Dialog Payload, SNI/host TLS, Tema, Impor
+    config, Profil, dan Tentang semuanya berfungsi.
+  - Log ditampilkan `[jam:menit:detik] pesan` dengan garis pemisah tipis dan
+    warna per level; tab LOG punya tombol Ikuti, Salin, dan Bersihkan.
+  - `Profile.usePayload` ditambahkan; mematikan "Pakai payload" benar-benar
+    menghentikan pengiriman payload tanpa menghapus teksnya (diverifikasi di
+    emulator: log tidak lagi menulis "Mengirim payload").
+  - `LogActivity`, `ActionBarView`, `StatusRailView`, `PingBarsView`, dan
+    `Glyphs` dihapus; log kini satu tempat di tab LOG beranda. Tautan "Buka log
+    penuh" di Pengaturan membuka tab LOG lewat `extra "tab"`.
+  - Status bar/navigation bar diperbaiki: `applyWindowChrome()` dipanggil setelah
+    `super.onCreate()` supaya `WindowInsetsController` sudah tersedia; ikon
+    status bar tidak lagi hitam di atas latar gelap.
+  - Unit test bertambah untuk parser `ip:port@user:pass` (port/akun opsional,
+    IPv6, format balik): total **21 unit test, 0 gagal**.
+  - `design_gate.py` memberi pengecualian kapital untuk label aksi
+    HUBUNGKAN/PUTUSKAN/COBA LAGI; gerbang lulus 0 galat, 0 peringatan.
+  - Dialog memakai palet eksplisit (`WanzDialogLight` / `WanzDialogDark`):
+    sudut 4dp, garis rambut, aksen hijau — bukan ungu bawaan Android.
 - v2.9: **arah desain baru "Konsol"** (menggantikan "Panel"), dua palet, dan
   bacaan koneksi yang benar-benar hidup:
   - Kanvas grafit hangat `#131410` untuk gelap, kertas `#F1F1EC` untuk terang;
@@ -380,14 +432,16 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
 - [JSch (mwiede fork)](https://github.com/mwiede/jsch) — SSH, BSD-style license.
 - [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel) — tun2socks, MIT license.
-- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) — angka,
-  alamat, log, dan label kolom; SIL Open Font License 1.1.
-- [Chivo](https://fonts.google.com/specimen/Chivo) — kalimat dan judul; SIL Open
-  Font License 1.1.
-  Keduanya diambil dari Google Fonts lalu dipotong (fonttools) ke karakter yang
-  dipakai aplikasi: Latin dasar plus `· — • … ← → × − ‹ ›`, total 206 KB untuk
-  empat berkas. Dibundel di `app/src/main/res/font/`, salinan lisensi di
+- [Roboto](https://fonts.google.com/specimen/Roboto) 400/500 — seluruh teks
+  antarmuka; Apache License 2.0.
+- [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) 400/500 — alamat,
+  angka, dan log; Apache License 2.0. (Roboto Mono sendiri berlisensi SIL OFL;
+  berkas yang dibundel diambil dari paket Google Fonts dan lisensinya disertakan.)
+- [Material Icons](https://fonts.google.com/icons) — 25 ikon vektor; Apache
+  License 2.0.
+  Font diambil dari Google Fonts lalu dipotong (fonttools) ke karakter yang
+  dipakai aplikasi: Latin dasar plus `· — • … ← → × −`, total ± 100 KB untuk
+  empat berkas. Dibundel di `app/src/main/res/font/`; lisensi di
   `app/src/main/assets/legal/`.
-- IBM Plex Mono dipakai sampai v2.9; sejak v2.9.1 digantikan dua font di atas.
 - Foto latar (belum dipakai): sumber Pinterest, fotografer belum diketahui.
   Lihat `design/wallpaper/README.md` sebelum APK-nya diedarkan luas.

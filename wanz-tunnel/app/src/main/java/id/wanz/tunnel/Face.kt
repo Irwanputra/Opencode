@@ -9,48 +9,36 @@ import kotlin.math.ceil
 import kotlin.math.roundToInt
 
 /**
- * Tipografi "Konsol".
+ * Tipografi: **Roboto** untuk seluruh teks antarmuka, **Roboto Mono** untuk
+ * data dan log.
  *
- * Keputusan tipografi, bukan default sistem:
- *
- * - **Data dan label** (ping, uptime, host, port, log, nama kolom) →
- *   **JetBrains Mono** (Google Fonts, OFL). Aplikasi ini instrumen jaringan:
- *   angka, alamat, dan baris log harus tabular dan sejajar antarbaris supaya
- *   perubahan antar-sekscan bisa dibaca, bukan melompat-lompat.
- * - **Prosa** (kalimat penjelasan, catatan, label tombol) → **Chivo**
- *   (Google Fonts, OFL). Bukan Roboto: font bawaan HP membuat aplikasi terlihat
- *   seperti template.
- *
- * Semua font diunduh dari Google Fonts, lalu dipotong (fonttools) ke karakter
- * yang benar-benar dipakai aplikasi: Latin dasar plus `· — • … ← → × − ‹ ›`.
- * Total keempat berkas 206 KB, lebih kecil dari font sebelumnya (272 KB).
- *
- * Kenapa dua font itu, bukan yang lain — diukur, bukan selera:
+ * Ini pilihan yang sengaja mengikuti aplikasi acuan (HTTP Custom): teks UI
+ * yang dilihat orang di layar HP adalah Roboto, dan baris log-nya monospace.
+ * Keduanya dari Google Fonts, dibundel (Apache 2.0) supaya ponsel dengan font
+ * sistem pengganti (Samsung, Xiaomi, Infinix) tetap menampilkan bentuk yang
+ * sama.
  *
  * | font | tinggi x / em | tebal garis @26px | @29px | @34px |
  * |---|---|---|---|---|
- * | Roboto 400 (bawaan HP) | 0,528 | 2,67 | 2,67 | 3,00 |
- * | IBM Plex Mono 400 (sebelumnya) | 0,516 | 2,33 | 2,67 | 3,00 |
- * | JetBrains Mono 400 | 0,550 | 2,00 | 3,00 | 3,00 |
- * | **Chivo 400** | 0,511 | **3,00** | **4,00** | **4,00** |
+ * | **Roboto 400** | 0,528 | 2,67 | 2,67 | 3,00 |
+ * | **Roboto Mono 400** | 0,528 | 2,67 | 2,67 | 3,00 |
+ * | Chivo 400 (sebelumnya) | 0,511 | 3,00 | 4,00 | 4,00 |
+ * | JetBrains Mono 400 (sebelumnya) | 0,550 | 2,00 | 3,00 | 3,00 |
  *
- * (Tinggi x besar = huruf kecil tetap terbuka di ukuran 9,5–12,5sp; tebal garis
- * di atas 2px = FreeType tidak perlu memecah satu garis ke dua piksel.)
- * Label micro dan judul memakai kelas 500, dan pada kelas itu JetBrains Mono serta
- * Chivo sama-sama 3px pada 26px — angka dan kalimat sama tegasnya.
+ * Roboto memang lebih tipis daripada pilihan sebelumnya. Itu bukan regresi:
+ * begitu ukuran dibulatkan ke piksel utuh, garis 2,67px tetap jatuh di tiga
+ * baris piksel dengan bobot yang rata — tidak lagi "geter".
  *
- * Dua hal yang bikin tulisan kelihatan **geter** di layar HP, dan dibereskan di sini:
+ * Dua sumber getar dan penawarnya (tetap dipakai, tidak berubah):
  *
- * 1. Ukuran dalam sp yang menghasilkan piksel pecahan — 9,5sp pada densitas 2,75
- *    adalah 26,125px, sehingga garis dasar jatuh di setengah piksel dan FreeType
- *    menyebar tinta ke dua baris piksel. [px] membulatkan ke piksel utuh.
- * 2. Lebar langkah glyph yang pecahan. Glyph mono berlebar 0,6em, jadi pada
- *    26px langkahnya 15,6px; huruf kedua dan seterusnya makin jauh dari batas
- *    piksel. [tracking] memilih nilai `letterSpacing` yang membuat langkah itu
- *    bulat lagi (naik ke piksel utuh berikutnya, jadi hurufnya tidak mengecil).
+ * 1. Ukuran sp yang menghasilkan piksel pecahan — 9,5sp pada densitas 2,75
+ *    adalah 26,125px, garis dasar jatuh di setengah piksel. [px] membulatkan.
+ * 2. Langkah glyph mono yang pecahan — Roboto Mono berlebar 0,6em, jadi pada
+ *    26px langkahnya 15,6px. [tracking] memilih `letterSpacing` yang membuat
+ *    langkah itu bulat (16px), bukan mengecil.
  *
- * Skala (sp), cuma enam tingkat: 34 status · 27 judul layar · 21/19/18 nilai
- * bacaan · 17 judul baris · 13 proza · 11,5 label · 10,5 mikro.
+ * Skala (sp): 26 judul aplikasi · 21 judul tab/halaman · 18 isian · 16 label
+ * kotak centang · 15 tombol · 14 log · 13 catatan · 12 teks bantu · 11 mikro.
  */
 internal object Face {
     @Volatile private var monoCache: Typeface? = null
@@ -58,11 +46,11 @@ internal object Face {
     @Volatile private var proseCache: Typeface? = null
     @Volatile private var proseMediumCache: Typeface? = null
 
-    /** JetBrains Mono Regular untuk angka, alamat, dan log. */
+    /** Roboto Mono Regular untuk log, alamat, dan nilai. */
     fun mono(context: Context): Typeface {
         monoCache?.let { return it }
         val t = try {
-            context.resources.getFont(R.font.jetbrains_mono)
+            context.resources.getFont(R.font.roboto_mono)
         } catch (_: Exception) {
             Typeface.MONOSPACE
         }
@@ -70,11 +58,11 @@ internal object Face {
         return t
     }
 
-    /** JetBrains Mono Medium untuk label kolom dan nilai yang perlu ditebalkan. */
+    /** Roboto Mono Medium untuk label mikro dan angka yang perlu tegas. */
     fun monoMedium(context: Context): Typeface {
         monoMediumCache?.let { return it }
         val t = try {
-            context.resources.getFont(R.font.jetbrains_mono_medium)
+            context.resources.getFont(R.font.roboto_mono_medium)
         } catch (_: Exception) {
             Typeface.create(Typeface.MONOSPACE, Typeface.BOLD)
         }
@@ -82,11 +70,11 @@ internal object Face {
         return t
     }
 
-    /** Chivo Regular untuk kalimat. */
+    /** Roboto Regular: teks antarmuka, sama seperti aplikasi acuan. */
     fun prose(context: Context): Typeface {
         proseCache?.let { return it }
         val t = try {
-            context.resources.getFont(R.font.chivo)
+            context.resources.getFont(R.font.roboto)
         } catch (_: Exception) {
             Typeface.SANS_SERIF
         }
@@ -94,11 +82,11 @@ internal object Face {
         return t
     }
 
-    /** Chivo Medium untuk judul dan label tombol. */
+    /** Roboto Medium untuk judul, nama tab aktif, dan label tombol. */
     fun proseMedium(context: Context): Typeface {
         proseMediumCache?.let { return it }
         val t = try {
-            context.resources.getFont(R.font.chivo_medium)
+            context.resources.getFont(R.font.roboto_medium)
         } catch (_: Exception) {
             Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD)
         }
@@ -129,7 +117,7 @@ internal object Face {
     /**
      * Nilai `letterSpacing` yang membuat langkah glyph mono jatuh di batas
      * piksel. [advance] diukur tanpa tracking; [want] tracking yang diinginkan
-     * (relatif em) untuk label micro yang memang perlu airy.
+     * (relatif em) untuk label yang memang perlu airy.
      */
     fun tracking(advance: Float, sizePx: Float, want: Float = 0f): Float {
         if (sizePx <= 0f || advance <= 0f) return 0f
@@ -169,7 +157,7 @@ internal object Face {
  *
  * [mono] = true memaksa langkah glyph ikut dibulatkan; hanya untuk typeface
  * mono, karena pada font proposional memaksa lebar langkah akan merusak spasi.
- * [tracking] dipakai oleh label micro yang memang diberi jarak antarhuruf.
+ * [tracking] dipakai oleh label yang memang diberi jarak antarhuruf.
  */
 internal fun TextView.inkSize(sp: Float, mono: Boolean = false, tracking: Float = 0f) {
     val size = Face.px(context, sp)

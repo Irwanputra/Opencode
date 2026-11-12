@@ -95,9 +95,9 @@ class SettingsActivity : InkActivity() {
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         box.addView(TextView(this).apply {
             this.text = text
-            typeface = Face.monoMedium(this@SettingsActivity)
-            inkSize(11.5f, mono = true, tracking = 0.06f)
-            setTextColor(INK)
+            typeface = Face.proseMedium(this@SettingsActivity)
+            inkSize(15f)
+            setTextColor(ACCENT)
         })
         box.addView(
             rule(),
@@ -122,7 +122,7 @@ class SettingsActivity : InkActivity() {
         return StateListDrawable().apply {
             // Fokus duluan: StateListDrawable memakai state pertama yang cocok.
             addState(intArrayOf(android.R.attr.state_focused),
-                FieldUnderline(INK, hair * 2f))
+                FieldUnderline(ACCENT, hair * 2f))
             addState(intArrayOf(), FieldUnderline(HAIR, hair.toFloat()))
         }
     }
@@ -255,19 +255,18 @@ class SettingsActivity : InkActivity() {
             letterSpacing = -0.02f
         })
         brand.addView(TextView(this).apply {
-            text = "WANZ TUNNEL"
-            typeface = Face.monoMedium(this@SettingsActivity)
-            inkSize(10f, mono = true, tracking = 0.10f)
+            text = "Wanz Tunnel · v" + BuildConfig.VERSION_NAME
+            typeface = Face.prose(this@SettingsActivity)
+            inkSize(11.5f)
             setTextColor(MUTED)
         })
         header.addView(brand, LinearLayout.LayoutParams(0, -2, 1f))
         header.addView(TextView(this).apply {
             text = "← Kembali"
-            // Mono: Chivo tidak punya glyph panah, JetBrains Mono punya.
-            typeface = Face.mono(this@SettingsActivity)
-            inkSize(12.5f, mono = true)
+            typeface = Face.proseMedium(this@SettingsActivity)
+            inkSize(13.5f)
             gravity = Gravity.CENTER
-            setTextColor(INK)
+            setTextColor(ACCENT)
             setPadding(dp(8), dp(8), 0, dp(8))
             isClickable = true
             setOnClickListener { saveCurrent(); finish() }
@@ -316,8 +315,8 @@ class SettingsActivity : InkActivity() {
         }
         viewCard.addView(themeSelect, lp(10))
         viewCard.addView(
-            note("Gelap: grafit hangat dengan aksen kuningan. Terang: kertas dengan " +
-                "tinta tua. Ikuti sistem mengikuti pengaturan HP."),
+            note("Gelap: abu netral dengan aksen hijau. Terang: putih dengan hijau " +
+                "tua. Ikuti sistem mengikuti pengaturan HP."),
             lp(10)
         )
         root.addView(viewCard, lp(26))
@@ -503,7 +502,11 @@ class SettingsActivity : InkActivity() {
             setPadding(0, dp(12), 0, dp(12))
             isClickable = true
             setOnClickListener {
-                startActivity(Intent(this@SettingsActivity, LogActivity::class.java))
+                startActivity(
+                    Intent(this@SettingsActivity, MainActivity::class.java)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                        .putExtra("tab", "log")
+                )
             }
         })
         logCard.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))

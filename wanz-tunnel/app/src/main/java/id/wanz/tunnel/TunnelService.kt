@@ -434,7 +434,9 @@ class TunnelService : VpnService() {
         // endpoint juga dilakukan lewat jaringan dasar, bukan DNS VPN.
         s.setSocketFactory(
             TransportSocketFactory(
-                p,
+                // "Pakai payload" bisa dimatikan dari layar utama tanpa
+                // menghapus teks payload yang sudah ditulis.
+                p.copy(payload = if (p.usePayload) p.payload else ""),
                 protect = { socket -> protectFromVpn(socket) },
                 bind = { socket -> bindOffVpn(socket) },
                 resolve = { host -> resolveOnUnderlying(host) }

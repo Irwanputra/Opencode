@@ -7,15 +7,15 @@ import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 
 /**
- * Garis bawah bidang isian "Konsol".
+ * Garis bawah bidang isian.
  *
  * Digambar dari bounds, bukan `ColorDrawable` yang di-inset. Perbedaannya
  * penting: `LayerDrawable.setLayerInset()` memutuskan tebal garis waktu
  * drawable dibangun, padahal tinggi field baru diketahui nanti. Pada field
  * satu baris (48dp) celah 47dp itu kebetulan jadi garis 1dp; pada field
  * multi-baris (Payload, Impor config) "garis" tersebut melebar jadi blok
- * setinggi seluruh field dan field yang sedang fokus tampak seperti kotak
- * kertas di layar gelap.
+ * setinggi seluruh field dan field yang sedang fokus tampak seperti blok
+ * terang di layar gelap.
  *
  * Tebalnya ikut peran, bukan satu angka untuk semua: setipis garis rambut saat
  * biasa, dua kali itu saat fokus, supaya perpindahan fokus kelihatan tanpa
