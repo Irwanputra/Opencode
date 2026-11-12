@@ -60,6 +60,7 @@ class InkToggle(context: Context) : View(context) {
         isClickable = true
         isFocusable = true
         minimumHeight = dp(48f).toInt()
+        background = context.ripple()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

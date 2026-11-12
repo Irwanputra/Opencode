@@ -1,11 +1,11 @@
-# Wanz Tunnel 2.9.2
+# Wanz Tunnel 2.9.3
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
-TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.2 mengikuti **HTTP Custom**:
+TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.3 mengikuti **HTTP Custom**:
 kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
 dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
-kolom, tombol sambung bergaris, tombol bulat (+), dan laci bergrup. Font UI
-Roboto, data dan log Roboto Mono.
+kolom, tombol sambung bergaris, dan laci bergrup — tanpa menu tiga titik dan
+tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 
 ## Fitur
 
@@ -13,11 +13,12 @@ Roboto, data dan log Roboto Mono.
 - **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
   internal oleh tun2socks (default 1080, bisa diubah di bagian Lainnya)
-- UI mengikuti HTTP Custom: bilah atas dengan menu/impor/menu lain, tab
+- UI mengikuti HTTP Custom: bilah atas dengan menu dan impor config, tab
   **SSH** dan **LOG**, isian `ip:port@user:pass`, delapan centang dua kolom,
-  tombol sambung bergaris, bacaan Unduh/Unggah/Aktif, dan tombol bulat (+)
-  untuk profil baru. Laci kiri bergrup Utilitas/Koneksi/Alat. Konfigurasi rinci
-  tetap di Pengaturan.
+  tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri bergrup
+  Utilitas/Koneksi/Alat. Tidak ada menu tiga titik dan tidak ada tombol tambah
+  mengambang; profil baru dibuat lewat laci **Profil** atau tombol **+** di
+  Pengaturan. Konfigurasi rinci tetap di Pengaturan.
 - Delapan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
   WebSocket (mengubah `transport`), Verifikasi TLS, DNS lewat tunnel, Ping
   otomatis, Sambung ulang, dan Seluler saja.
@@ -163,12 +164,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.2.apk`** (1,9 MB, `versionCode 16`,
+Rilis siap pasang: **`WanzTunnel-2.9.3.apk`** (1,9 MB, `versionCode 17`,
 Android 10 ke atas), SHA-256
-`a9b2c2b87e54ae47ed74ee780c2321a7c866005c3637be42a833d90802091f83`.
-Rilis sebelumnya, `WanzTunnel-2.9.1.apk` (`versionCode 15`, SHA-256
-`0b7a6463fe9c01a51c6f91138f0932190bbd90123e491bc11de0485f7f316d47`), masih
-memakai arah desain "Konsol".
+`00ccfa12328418cb72fb3ca96adaf2dc146c4e616d1791cf0da92a5a5f3b1edb`.
+Rilis sebelumnya, `WanzTunnel-2.9.2.apk` (`versionCode 16`, SHA-256
+`a9b2c2b87e54ae47ed74ee780c2321a7c866005c3637be42a833d90802091f83`), masih
+memakai menu tiga titik dan tombol tambah mengambang.
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -183,11 +184,19 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
-- UI v2.9.2 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
+- UI v2.9.3 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
   Android 14: tema gelap `#1E1E1E` dan terang `#FFFFFF`, judul dua warna, tab
-  SSH/LOG bergaris bawah, kisi 8 centang, tombol bergaris, FAB, laci bergrup,
+  SSH/LOG bergaris bawah, kisi 8 centang, tombol bergaris, laci bergrup,
   dialog Payload/SNI/Tema/Profil/Impor/Tentang, serta halaman Pengaturan.
   Dialog memakai panel 4dp dengan aksen hijau (bukan ungu bawaan Android).
+- Bilah atas kini hanya menu + judul + impor config; tidak ada titik tiga dan
+  tidak ada tombol tambah mengambang. Profil baru dibuat lewat laci **Profil**
+  atau tombol **+** di Pengaturan, dan keduanya diuji tetap bekerja.
+- Umpan balik sentuh baru terlihat di emulator: ripple pada tab, baris profil,
+  sel centang, tombol sambung, baris laci, dan tombol Pengaturan; perpindahan
+  tab silang-memudar; centang mengisi dalam 140ms; laci memakai layer keras
+  saat bergeser. Log kini ditambah per baris (bukan dibangun ulang 180 baris
+  tiap 300ms), sehingga tab LOG tidak tersendat saat menyambung.
 - Log nyata dari percobaan koneksi ke `bansos.sunekvpn.cc.cd:80` tampil
   `[jam:menit:detik] pesan` berwarna per level (INFO tinta, WARN kuning,
   ERROR merah muda), dengan sambung-ulang otomatis tercatat setiap 5 detik.
@@ -360,6 +369,20 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.3: **menu tiga titik dan tombol tambah mengambang dihapus**, dan rasa
+  animasi diperbaiki.
+  - Keduanya hanya pintasan; menambah profil tetap bisa lewat laci **Profil** →
+    "Tambah profil baru" atau tombol **+** di Pengaturan. Ruang bawah beranda
+    dan daftar log dikurangi karena tidak lagi perlu menghindari tombol
+    mengambang. `ic_add` dan `ic_more_vert` ikut dihapus.
+  - Ripple sentuh di semua permukaan yang bisa diketuk (tab, baris profil, sel
+    centang, tombol sambung, baris laci, tautan dan tombol Pengaturan), jadi
+    sentuhan langsung terasa sebelum aksi selesai.
+  - Perpindahan tab SSH/LOG memudar silang 160ms; centang mengisi 140ms dengan
+    kotak garis memudar; laci memakai layer keras dan interpolator dipercepat/
+    diperlambat. Semua tetap menghormati "hapus animasi" sistem.
+  - Daftar log ditambah per baris, bukan dibangun ulang seluruhnya tiap
+    pembaruan; batas tampilan 180 baris dan jeda render 300ms.
 - v2.9.2: **tampilan disamakan dengan HTTP Custom** atas permintaan pemakai.
   - Palet baru: gelap `#1E1E1E`, panel `#252525`, tinta `#FFFFFF`, hijau
     `#4CAF50`; terang `#FFFFFF` dengan hijau `#2E7D32`. Kontras kedua palet
@@ -371,7 +394,7 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   - Beranda baru: bilah atas 56dp (menu, judul "Wanz Tunnel", impor config, menu
     lain), tab SSH/LOG dengan garis bawah hijau 3dp, isian `ip:port@user:pass`
     yang mengurai balik ke host/port/user/pass, kisi centang 2 kolom, tombol
-    sambung bergaris 56dp, baris status, bacaan Unduh/Unggah/Aktif, dan FAB (+).
+    sambung bergaris 56dp, baris status, dan bacaan Unduh/Unggah/Aktif.
   - Laci kiri bergrup (Utilitas/Koneksi/Alat) dengan logo heksagon WT dan versi;
     bisa digulir di layar pendek. Dialog Payload, SNI/host TLS, Tema, Impor
     config, Profil, dan Tentang semuanya berfungsi.
@@ -437,7 +460,7 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) 400/500 — alamat,
   angka, dan log; Apache License 2.0. (Roboto Mono sendiri berlisensi SIL OFL;
   berkas yang dibundel diambil dari paket Google Fonts dan lisensinya disertakan.)
-- [Material Icons](https://fonts.google.com/icons) — 25 ikon vektor; Apache
+- [Material Icons](https://fonts.google.com/icons) — 23 ikon vektor; Apache
   License 2.0.
   Font diambil dari Google Fonts lalu dipotong (fonttools) ke karakter yang
   dipakai aplikasi: Latin dasar plus `· — • … ← → × −`, total ± 100 KB untuk

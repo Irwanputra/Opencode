@@ -18,8 +18,7 @@ import android.os.Bundle
  * - judul "Wanz Tunnel" dengan kata pertama hijau dan kata kedua putih;
  * - dua tab selebar layar dengan garis bawah hijau setebal 3px;
  * - isian bergaris bawah saja, tanpa kotak latar;
- * - kisi centang dua kolom, tombol utama bergaris tepi, dan tombol bulat (+)
- *   di kanan bawah;
+ * - kisi centang dua kolom dan tombol utama bergaris tepi;
  * - log monospace berbaris `[jam:menit:detik] pesan` dengan garis pemisah tipis.
  *
  * Pasangan warna diukur ulang untuk dua palet (WCAG AA minimal 4,5:1 untuk

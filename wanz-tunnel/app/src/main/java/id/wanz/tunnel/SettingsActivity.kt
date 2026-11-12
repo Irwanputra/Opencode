@@ -175,7 +175,7 @@ class SettingsActivity : InkActivity() {
         inkSize(20f)
         gravity = Gravity.CENTER
         setTextColor(color)
-        background = box(0, 2, HAIR, 1)
+        background = ripple(box(0, 2, HAIR, 1))
         isClickable = true
         setOnClickListener { onClick() }
     }
@@ -268,6 +268,7 @@ class SettingsActivity : InkActivity() {
             gravity = Gravity.CENTER
             setTextColor(ACCENT)
             setPadding(dp(8), dp(8), 0, dp(8))
+            background = ripple()
             isClickable = true
             setOnClickListener { saveCurrent(); finish() }
         }, LinearLayout.LayoutParams(-2, -2))
@@ -449,7 +450,7 @@ class SettingsActivity : InkActivity() {
                 inkSize(13f)
                 gravity = Gravity.CENTER
                 setTextColor(INK)
-                background = box(0, 2, INK, 1)
+                background = ripple(box(0, 2, INK, 1))
                 setPadding(dp(12), dp(12), dp(12), dp(12))
                 isClickable = true
                 setOnClickListener {
@@ -500,6 +501,7 @@ class SettingsActivity : InkActivity() {
             inkSize(13f)
             setTextColor(INK)
             setPadding(0, dp(12), 0, dp(12))
+            background = ripple()
             isClickable = true
             setOnClickListener {
                 startActivity(
@@ -515,6 +517,7 @@ class SettingsActivity : InkActivity() {
             inkSize(13f)
             setTextColor(INK)
             setPadding(0, dp(12), 0, dp(12))
+            background = ripple()
             isClickable = true
             setOnClickListener {
                 val txt = TunnelLog.snapshot().joinToString("\n")
@@ -529,6 +532,7 @@ class SettingsActivity : InkActivity() {
             inkSize(13f)
             setTextColor(ERR)
             setPadding(0, dp(12), 0, dp(12))
+            background = ripple()
             isClickable = true
             setOnClickListener {
                 TunnelLog.clear()
@@ -569,7 +573,7 @@ class SettingsActivity : InkActivity() {
                 inkSize(13f)
                 gravity = Gravity.CENTER
                 setTextColor(ON_INK)
-                background = box(INK, 2)
+                background = ripple(box(INK, 2))
                 setPadding(dp(12), dp(13), dp(12), dp(13))
                 isClickable = true
                 setOnClickListener { applyConfig(importField.text.toString()) }
@@ -584,6 +588,7 @@ class SettingsActivity : InkActivity() {
             inkSize(12.5f)
             setTextColor(INK)
             setPadding(0, dp(12), 0, dp(4))
+            background = ripple()
             isClickable = true
             setOnClickListener {
                 File(filesDir, "known_hosts").delete()

@@ -1,10 +1,12 @@
 package id.wanz.tunnel
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 
 /** Ikon Material (Apache 2.0) sebagai vektor, diwarnai token aktif. */
@@ -28,6 +30,7 @@ internal fun Context.iconButton(
     isClickable = true
     isFocusable = true
     contentDescription = desc
+    background = ripple(circular = true)
     setOnClickListener { onClick() }
     addView(iconView(res, sizeDp, tint), android.widget.FrameLayout.LayoutParams(
         (sizeDp * resources.displayMetrics.density).toInt(),
@@ -41,12 +44,46 @@ internal fun Context.iconButton(
  * tercentang bidangnya hijau dan centangnya gelap.
  */
 class SquareCheckView(context: Context) : View(context) {
-    var checked: Boolean = false
-        set(value) {
-            if (field == value) return
-            field = value
+    private var checkedState = false
+    private var progress = 0f
+    private var animator: ValueAnimator? = null
+
+    var checked: Boolean
+        get() = checkedState
+        set(value) = setChecked(value, animate = true)
+
+    /**
+     * Pasang status tanpa animasi, dipakai saat layar pertama kali mengisi
+     * centang dari profil tersimpan supaya tidak ada delapan kotak berkedip.
+     */
+    fun snapTo(value: Boolean) {
+        checkedState = value
+        animator?.cancel()
+        animator = null
+        progress = if (value) 1f else 0f
+        invalidate()
+    }
+
+    fun setChecked(value: Boolean, animate: Boolean) {
+        if (checkedState == value) return
+        checkedState = value
+        animator?.cancel()
+        animator = null
+        if (!animate || !isAttachedToWindow || Face.reducedMotion(context)) {
+            progress = if (value) 1f else 0f
             invalidate()
+            return
         }
+        animator = ValueAnimator.ofFloat(progress, if (value) 1f else 0f).apply {
+            duration = 140L
+            interpolator = DecelerateInterpolator()
+            addUpdateListener {
+                progress = it.animatedValue as Float
+                invalidate()
+            }
+            start()
+        }
+    }
 
     /** Dipanggil setelah [checked] berubah karena sentuhan pengguna. */
     var onChecked: ((Boolean) -> Unit)? = null
@@ -86,19 +123,24 @@ class SquareCheckView(context: Context) : View(context) {
         val bottom = height - pad
         path.reset()
         path.addRoundRect(left, top, right, bottom, r, r, Path.Direction.CW)
-        if (checked) {
+        // Dua keadaan disilangkan memakai satu nilai 0..1, jadi centang tidak
+        // berkedip: garis kotak memudar saat bidang hijau muncul.
+        stroke.color = INK
+        stroke.alpha = ((1f - progress) * 255f).toInt().coerceIn(0, 255)
+        if (stroke.alpha > 0) canvas.drawPath(path, stroke)
+
+        if (progress > 0f) {
             fill.color = ACCENT
+            fill.alpha = (progress * 255f).toInt().coerceIn(0, 255)
             canvas.drawPath(path, fill)
             check.color = ON_ACCENT
+            check.alpha = (progress * 255f).toInt().coerceIn(0, 255)
             val w = right - left
             val h = bottom - top
             canvas.drawLine(left + w * 0.24f, top + h * 0.52f,
                 left + w * 0.44f, top + h * 0.72f, check)
             canvas.drawLine(left + w * 0.44f, top + h * 0.72f,
                 left + w * 0.78f, top + h * 0.30f, check)
-        } else {
-            stroke.color = INK
-            canvas.drawPath(path, stroke)
         }
     }
 }

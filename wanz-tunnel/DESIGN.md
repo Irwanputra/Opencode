@@ -1,6 +1,6 @@
 # Wanz Tunnel — Arah Desain: Klon Fungsional HTTP Custom
 
-Dokumen ini mengunci arah visual v2.9.2. Arah "Konsol" (grafit + kuningan)
+Dokumen ini mengunci arah visual v2.9.3. Arah "Konsol" (grafit + kuningan)
 dibatalkan atas permintaan pemilik aplikasi: **tampilan harus sama seperti HTTP
 Custom**. Yang ditiru adalah susunan, warna, dan bentuk kontrolnya; isinya tetap
 fitur Wanz Tunnel yang benar-benar bekerja.
@@ -25,6 +25,9 @@ profil atau layanan.
 - Tidak ada kontrol hiasan. Delapan centang di beranda semuanya mengubah field
   profil yang dibaca `TunnelService`; tidak ada toggle yang hanya mengubah warna.
 - Tidak ada teks hype atau label dekoratif `01 / 02 / 03`.
+- Tidak ada menu tiga titik di bilah atas dan tidak ada tombol tambah mengambang.
+  Menambah profil tetap lewat laci **Profil** → "Tambah profil baru" atau tombol
+  **+** di Pengaturan; keduanya sudah ada dan bekerja.
 - Tidak ada huruf kapital semua sebagai gaya. Pengecualiannya hanya merek
   "WANZ TUNNEL" dan label aksi tombol (`HUBUNGKAN`, `PUTUSKAN`, `COBA LAGI`)
   yang memang kapital pada acuan.
@@ -103,7 +106,7 @@ terlihat seperti template dengan font lain.
 
 ## Susunan beranda
 
-1. **Bilah atas 56dp**: menu di kiri; judul "Wanz Tunnel"; impor config; menu lain.
+1. **Bilah atas 56dp**: menu di kiri; judul "Wanz Tunnel"; impor config di kanan.
 2. **Dua tab 48dp** (`SSH`, `LOG`) dengan garis bawah hijau 3dp pada tab aktif,
    lalu garis rambut selebar layar.
 3. **Tab SSH**:
@@ -118,9 +121,7 @@ terlihat seperti template dengan font lain.
 4. **Tab LOG**: baris "Ikuti" + salin + bersihkan, lalu daftar log
    `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
    INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
-5. **Tombol bulat (+)** 56dp di kanan bawah: menambah profil baru lalu membuka
-   Pengaturan. Profil lama dipilih lewat baris profil atau laci "Profil".
-6. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
+5. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
    **Utilitas** (Profil, Payload, SNI/host TLS, Tema), **Koneksi** (Pengaturan,
    Impor config, Ping sekarang), dan **Alat** (Log, Salin log, Bersihkan log,
    Tentang). Laci bisa digulir pada layar pendek.
@@ -154,13 +155,23 @@ Delapan centang dan field yang diubahnya:
 
 ## Gerak
 
-Hanya dua, keduanya membawa informasi:
+Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
 
-- Laci masuk/keluar 180ms; scrim meredup bersamaan.
-- Tombol dan centang memakai umpan balik haptic, bukan animasi dekoratif.
+- **Ripple sentuh** di tab, baris profil, sel centang, tombol sambung, baris
+  laci, dan tombol Pengaturan. Kilau memakai tinta transparan, bukan warna
+  kedua.
+- **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate), memakai
+  `LAYER_TYPE_HARDWARE` saat bergeser supaya tidak digambar ulang tiap frame;
+  scrim meredup bersamaan.
+- **Tab SSH/LOG** silang-memudar 160ms masuk dan 120ms keluar; halaman lama
+  tetap terlihat di bawah halaman baru sampai transisi selesai.
+- **Centang** mengisi 140ms: bidang hijau muncul sementara garis kotak
+  memudar, jadi tidak ada kedipan saat status berubah.
+- Tombol dan centang tetap memakai umpan balik haptic.
 
-Keduanya menghormati `ANIMATOR_DURATION_SCALE` sistem lewat
-`Face.reducedMotion()`; bila animasi dimatikan, durasi menjadi nol.
+Semuanya menghormati `ANIMATOR_DURATION_SCALE` sistem lewat
+`Face.reducedMotion()`; bila animasi dimatikan, semua perubahan berlaku
+langsung tanpa durasi.
 
 ## Status
 

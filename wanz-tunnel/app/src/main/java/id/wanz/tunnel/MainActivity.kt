@@ -33,11 +33,11 @@ import java.util.Locale
  * Beranda, disusun mengikuti aplikasi acuan (HTTP Custom).
  *
  * Susunannya dari atas ke bawah: bilah atas berisi menu, judul "Wanz Tunnel",
- * impor config, dan menu lain; dua tab selebar layar dengan garis bawah hijau;
- * isian `ip:port@user:pass`; kisi centang dua kolom; tombol sambung bergaris;
+ * impor config; dua tab selebar layar dengan garis bawah hijau; isian
+ * `ip:port@user:pass`; kisi centang dua kolom; tombol sambung bergaris;
  * baris status; lalu bacaan trafik. Tab LOG menampilkan log berwarna per level.
- * Tombol bulat (+) di kanan bawah menambah profil, dan laci dari kiri memuat
- * pintasan yang semuanya benar-benar bekerja.
+ * Tidak ada menu tiga titik dan tidak ada tombol tambah mengambang: keduanya
+ * pintasan yang tidak dipakai, dan semua tujuannya tetap ada di laci kiri.
  *
  * Yang tidak berubah dari versi sebelumnya: tunnel tetap SSH + VPN, dan semua
  * angka memakai Roboto Mono dengan piksel utuh supaya tidak bergetar.
@@ -72,7 +72,6 @@ class MainActivity : InkActivity() {
     private lateinit var rxSub: TextView
     private lateinit var txSub: TextView
     private lateinit var upSub: TextView
-    private lateinit var fab: FrameLayout
     private lateinit var followCheck: SquareCheckView
     private var autoScroll = true
 
@@ -86,6 +85,14 @@ class MainActivity : InkActivity() {
     private var lastRx = 0L
     private var lastTx = 0L
     private var logPending = false
+
+    /**
+     * Jendela log yang sedang terpasang di layar. Dipakai untuk menambah baris
+     * baru saja, bukan membangun ulang 180 baris setiap kali log bertambah —
+     * pembangunan ulang itulah yang membuat tab LOG tersendat saat menyambung.
+     */
+    private var renderedTotal = -1
+    private var renderedStart = 0
 
     private val handler = Handler(Looper.getMainLooper())
     private val ticker = object : Runnable {
@@ -186,32 +193,10 @@ class MainActivity : InkActivity() {
         drawer.translationX = -drawerWidth.toFloat()
         drawer.visibility = View.GONE
 
-        fab = FrameLayout(this).apply {
-            minimumHeight = dp(48)
-            background = GradientDrawable().apply {
-                shape = GradientDrawable.OVAL
-                setColor(ACCENT)
-            }
-            isClickable = true
-            isFocusable = true
-            contentDescription = "Tambah profil baru"
-            setOnClickListener { addProfile() }
-        }
-        fab.addView(
-            iconView(R.drawable.ic_add, 24, ON_ACCENT),
-            FrameLayout.LayoutParams(dp(24), dp(24), Gravity.CENTER)
-        )
-        root.addView(
-            fab,
-            FrameLayout.LayoutParams(dp(56), dp(56), Gravity.BOTTOM or Gravity.END).apply {
-                rightMargin = dp(20)
-                bottomMargin = dp(24)
-            }
-        )
         return root
     }
 
-    /** Bilah atas: menu di kiri, judul dua warna, impor dan menu lain di kanan. */
+    /** Bilah atas: menu di kiri, judul dua warna, dan impor config di kanan. */
     private fun appBar(): View {
         val bar = horizontal().apply {
             setPadding(dp(4), 0, dp(4), 0)
@@ -233,10 +218,6 @@ class MainActivity : InkActivity() {
             iconButton(R.drawable.ic_cloud_download, "Impor config") { importDialog() },
             LinearLayout.LayoutParams(dp(48), dp(48))
         )
-        bar.addView(
-            iconButton(R.drawable.ic_more_vert, "Menu lain") { showOverflow() },
-            LinearLayout.LayoutParams(dp(48), dp(48))
-        )
         return bar
     }
 
@@ -253,6 +234,7 @@ class MainActivity : InkActivity() {
                 isClickable = true
                 isFocusable = true
                 contentDescription = if (which == TAB_SSH) "Tab SSH" else "Tab log"
+                background = ripple()
                 setOnClickListener { selectTab(which) }
             }
             val text = uiText(label, 15f, MUTED, medium = true).apply { gravity = Gravity.CENTER }
@@ -285,7 +267,7 @@ class MainActivity : InkActivity() {
         }
         val body = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(16), dp(20), dp(104))
+            setPadding(dp(20), dp(16), dp(20), dp(32))
         }
 
         // Profil aktif: ketuk untuk memilih profil lain.
@@ -293,6 +275,7 @@ class MainActivity : InkActivity() {
             minimumHeight = dp(48)
             isClickable = true
             contentDescription = "Pilih profil"
+            background = ripple()
             setOnClickListener { profileDialog() }
         }
         nameLabel = uiText("Server 1", 17f, INK, medium = true).apply {
@@ -326,10 +309,6 @@ class MainActivity : InkActivity() {
             contentDescription = "Server, format ip port user sandi"
             setOnFocusChangeListener { _, hasFocus ->
                 compactUnderline.setColor(if (hasFocus) ACCENT else HAIR)
-                // Tombol (+) tidak menutupi label centang saat papan ketik naik.
-                if (::fab.isInitialized) {
-                    fab.visibility = if (hasFocus) View.GONE else View.VISIBLE
-                }
                 if (!hasFocus) saveCompactField(false)
             }
             setOnEditorActionListener { _, actionId, _ ->
@@ -365,7 +344,7 @@ class MainActivity : InkActivity() {
             typeface = Face.proseMedium(this@MainActivity)
             inkSize(15f)
             setTextColor(ACCENT)
-            background = box(0, R_PANEL, ACCENT, 1.5f)
+            background = ripple(box(0, R_PANEL, ACCENT, 1.5f))
             isClickable = true
             isFocusable = true
             contentDescription = "Hubungkan tunnel"
@@ -427,6 +406,7 @@ class MainActivity : InkActivity() {
                     minimumHeight = dp(48)
                     isClickable = true
                     isFocusable = true
+                    background = ripple()
                     contentDescription = cell.label
                     setOnClickListener {
                         val active = profile ?: return@setOnClickListener
@@ -480,6 +460,7 @@ class MainActivity : InkActivity() {
                     isClickable = true
                     isFocusable = true
                     minimumHeight = dp(48)
+                    background = ripple()
                     contentDescription = "Ping sekarang"
                     setOnClickListener { sendPing() }
                 }
@@ -522,6 +503,7 @@ class MainActivity : InkActivity() {
             isClickable = true
             isFocusable = true
             contentDescription = "Ikuti log baru"
+            background = ripple()
             setOnClickListener {
                 followCheck.checked = !followCheck.checked
                 autoScroll = followCheck.checked
@@ -555,7 +537,7 @@ class MainActivity : InkActivity() {
         }
         logList = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(0, dp(2), 0, dp(100))
+            setPadding(0, dp(2), 0, dp(24))
         }
         logScroll.addView(logList, ViewGroup.LayoutParams(-1, -2))
         panel.addView(logScroll, LinearLayout.LayoutParams(-1, 0, 1f))
@@ -563,29 +545,53 @@ class MainActivity : InkActivity() {
     }
 
     private fun renderLog() {
-        logList.removeAllViews()
         val entries = TunnelLog.all()
-        if (entries.isEmpty()) {
-            logList.addView(
-                uiText("Belum ada log. Hubungkan tunnel untuk melihat aktivitas.", 13f, FAINT)
-                    .apply { setPadding(dp(20), dp(20), dp(20), dp(20)) }
-            )
+        val total = entries.size
+        if (total == 0) {
+            if (renderedTotal != 0) {
+                logList.removeAllViews()
+                logList.addView(
+                    uiText("Belum ada log. Hubungkan tunnel untuk melihat aktivitas.", 13f, FAINT)
+                        .apply { setPadding(dp(20), dp(20), dp(20), dp(20)) }
+                )
+                renderedTotal = 0
+                renderedStart = 0
+            }
             return
         }
-        entries.takeLast(300).forEach { entry ->
-            val line = TextView(this).apply {
-                text = entry.toSpanned()
-                typeface = Face.mono(this@MainActivity)
-                inkSize(12f, mono = true)
-                setLineSpacing(dp(4).toFloat(), 1f)
-                setPadding(dp(18), dp(8), dp(18), dp(8))
+        val start = (total - 180).coerceAtLeast(0)
+        val rebuild = renderedTotal < 0 || renderedTotal == 0 || total < renderedTotal ||
+            start < renderedStart
+        if (rebuild) {
+            logList.removeAllViews()
+            renderedStart = start
+            renderedTotal = start
+        } else if (start > renderedStart) {
+            // Jendela bergeser: buang pasangan baris+garis paling atas.
+            var drop = start - renderedStart
+            while (drop-- > 0 && logList.childCount >= 2) {
+                logList.removeViewAt(0)
+                logList.removeViewAt(0)
             }
-            logList.addView(line, LinearLayout.LayoutParams(-1, -2))
-            logList.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+            renderedStart = start
         }
+        for (i in renderedTotal until total) addLogLine(entries[i])
+        renderedTotal = total
         if (autoScroll) {
             logScroll.post { logScroll.fullScroll(View.FOCUS_DOWN) }
         }
+    }
+
+    private fun addLogLine(entry: TunnelLog.Entry) {
+        val line = TextView(this).apply {
+            text = entry.toSpanned()
+            typeface = Face.mono(this@MainActivity)
+            inkSize(12f, mono = true)
+            setLineSpacing(dp(4).toFloat(), 1f)
+            setPadding(dp(18), dp(8), dp(18), dp(8))
+        }
+        logList.addView(line, LinearLayout.LayoutParams(-1, -2))
+        logList.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
     }
 
     // ---------------------------------------------------------------- drawer
@@ -665,6 +671,7 @@ class MainActivity : InkActivity() {
             minimumHeight = dp(48)
             isClickable = true
             isFocusable = true
+            background = ripple()
             contentDescription = label
             setOnClickListener {
                 closeDrawer()
@@ -682,9 +689,14 @@ class MainActivity : InkActivity() {
         drawerOpen = true
         drawer.visibility = View.VISIBLE
         scrim.visibility = View.VISIBLE
-        val duration = if (Face.reducedMotion(this)) 0L else 180L
+        val duration = if (Face.reducedMotion(this)) 0L else 200L
         drawer.translationX = -drawerWidth.toFloat()
-        drawer.animate().translationX(0f).setDuration(duration).start()
+        // Layer keras: laci tidak digambar ulang tiap frame saat bergeser.
+        drawer.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        drawer.animate().translationX(0f).setDuration(duration)
+            .setInterpolator(android.view.animation.DecelerateInterpolator())
+            .withEndAction { drawer.setLayerType(View.LAYER_TYPE_NONE, null) }
+            .start()
         scrim.alpha = 0f
         scrim.animate().alpha(1f).setDuration(duration).start()
     }
@@ -692,9 +704,14 @@ class MainActivity : InkActivity() {
     private fun closeDrawer() {
         if (!drawerOpen) return
         drawerOpen = false
-        val duration = if (Face.reducedMotion(this)) 0L else 160L
+        val duration = if (Face.reducedMotion(this)) 0L else 180L
+        drawer.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         drawer.animate().translationX(-drawerWidth.toFloat()).setDuration(duration)
-            .withEndAction { drawer.visibility = View.GONE }.start()
+            .setInterpolator(android.view.animation.AccelerateInterpolator())
+            .withEndAction {
+                drawer.visibility = View.GONE
+                drawer.setLayerType(View.LAYER_TYPE_NONE, null)
+            }.start()
         scrim.animate().alpha(0f).setDuration(duration)
             .withEndAction { scrim.visibility = View.GONE }.start()
     }
@@ -703,14 +720,38 @@ class MainActivity : InkActivity() {
     private fun selectTab(which: Int) {
         saveCompactField(false)
         if (which != TAB_SSH) hideKeyboard()
+        val same = tab == which && sshPanel.visibility == View.VISIBLE == (which == TAB_SSH)
         tab = which
-        sshPanel.visibility = if (which == TAB_SSH) View.VISIBLE else View.GONE
-        logPanel.visibility = if (which == TAB_LOG) View.VISIBLE else View.GONE
         tabSsh.setTextColor(if (which == TAB_SSH) ACCENT else MUTED)
         tabLog.setTextColor(if (which == TAB_LOG) ACCENT else MUTED)
         tabSshLine.setBackgroundColor(if (which == TAB_SSH) ACCENT else Color.TRANSPARENT)
         tabLogLine.setBackgroundColor(if (which == TAB_LOG) ACCENT else Color.TRANSPARENT)
         if (which == TAB_LOG) renderLog()
+
+        val incoming = if (which == TAB_SSH) sshPanel else logPanel
+        val outgoing = if (which == TAB_SSH) logPanel else sshPanel
+        if (same) return
+        incoming.animate().cancel()
+        outgoing.animate().cancel()
+        if (Face.reducedMotion(this)) {
+            incoming.alpha = 1f
+            incoming.visibility = View.VISIBLE
+            outgoing.alpha = 1f
+            outgoing.visibility = View.GONE
+            return
+        }
+        // Halaman masuk berada di atas lalu memudar masuk; halaman lama tetap
+        // terlihat di bawahnya sampai transisi selesai, jadi tidak ada kedipan.
+        incoming.bringToFront()
+        incoming.alpha = 0f
+        incoming.visibility = View.VISIBLE
+        incoming.animate().alpha(1f).setDuration(160L).start()
+        outgoing.animate().alpha(0f).setDuration(120L).withEndAction {
+            if (outgoing !== incoming) {
+                outgoing.visibility = View.GONE
+                outgoing.alpha = 1f
+            }
+        }.start()
     }
 
     // ------------------------------------------------------------- profil UI
@@ -768,14 +809,16 @@ class MainActivity : InkActivity() {
 
     private fun syncChecks() {
         val p = profile ?: return
-        checks["payload"]?.checked = p.usePayload
-        checks["ssl"]?.checked = sslOn(p)
-        checks["ws"]?.checked = wsOn(p)
-        checks["verify"]?.checked = p.strictTls
-        checks["dns"]?.checked = p.mappedDns
-        checks["autoping"]?.checked = p.autoPing
-        checks["reconnect"]?.checked = p.autoReconnect
-        checks["mobile"]?.checked = p.onlyMobileData
+        // snapTo: status dari profil dipasang tanpa animasi; animasi hanya
+        // untuk sentuhan pengguna di kisi.
+        checks["payload"]?.snapTo(p.usePayload)
+        checks["ssl"]?.snapTo(sslOn(p))
+        checks["ws"]?.snapTo(wsOn(p))
+        checks["verify"]?.snapTo(p.strictTls)
+        checks["dns"]?.snapTo(p.mappedDns)
+        checks["autoping"]?.snapTo(p.autoPing)
+        checks["reconnect"]?.snapTo(p.autoReconnect)
+        checks["mobile"]?.snapTo(p.onlyMobileData)
     }
 
     private fun commitProfile(updated: Profile) {
@@ -915,7 +958,7 @@ class MainActivity : InkActivity() {
             else -> ACCENT
         }
         connectButton.setTextColor(border)
-        connectButton.background = box(0, R_PANEL, border, 1.5f)
+        connectButton.background = ripple(box(0, R_PANEL, border, 1.5f))
         connectButton.contentDescription = when (state) {
             Conn.CONNECTED -> "Putuskan tunnel"
             Conn.ERROR -> "Coba hubungkan lagi"
@@ -1163,25 +1206,6 @@ class MainActivity : InkActivity() {
             .show()
     }
 
-    private fun showOverflow() {
-        val items = arrayOf(
-            "Profil", "Payload", "SNI / host TLS", "Tema",
-            "Pengaturan", "Impor config", "Log", "Tentang"
-        )
-        themedBuilder(null).setItems(items) { _, which ->
-            when (which) {
-                0 -> profileDialog()
-                1 -> payloadDialog()
-                2 -> sniDialog()
-                3 -> themeDialog()
-                4 -> openSettings()
-                5 -> importDialog()
-                6 -> selectTab(TAB_LOG)
-                else -> aboutDialog()
-            }
-        }.show()
-    }
-
     private fun copyLog() {
         val text = TunnelLog.snapshot().joinToString("\n")
         val cm = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -1194,6 +1218,8 @@ class MainActivity : InkActivity() {
             .setMessage("Hapus semua baris log sekarang?")
             .setPositiveButton("Bersihkan") { _, _ ->
                 TunnelLog.clear()
+                renderedTotal = -1
+                renderedStart = 0
                 renderLog()
             }
             .setNegativeButton("Batal", null)
@@ -1236,7 +1262,7 @@ class MainActivity : InkActivity() {
         TunnelLog.onChange = {
             if (!logPending) {
                 logPending = true
-                handler.postDelayed(logRenderer, 150L)
+                handler.postDelayed(logRenderer, 300L)
             }
         }
         reloadProfile()
