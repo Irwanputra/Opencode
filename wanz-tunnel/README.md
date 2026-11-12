@@ -1,7 +1,7 @@
-# Wanz Tunnel 2.9.4
+# Wanz Tunnel 2.9.5
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
-TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.4 mengikuti **HTTP Custom**:
+TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.5 mengikuti **HTTP Custom**:
 kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
 dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
 kolom, tombol sambung bergaris, dan laci bergrup — tanpa menu tiga titik dan
@@ -27,9 +27,15 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   `#4CAF50`, terang `#FFFFFF` dengan hijau `#2E7D32`. Kedua palet diukur
   kontrasnya (bukan inversi), dan halaman dibangun ulang begitu pilihan berubah.
 - Log koneksi gaya HTTP Custom: ditampilkan `[jam:menit:detik]  pesan` dengan
-  garis pemisah tipis dan warna per level (**INFO** tinta, **PING** hijau,
-  **WARN** kuning, **ERROR** merah muda), auto-scroll, serta tombol Ikuti /
-  Salin / Bersihkan. Salinan memakai format `jam  [LEVEL]  pesan`.
+  garis pemisah tipis dan warna per level (**INFO** tinta, **OK/PING** hijau,
+  **WARN** kuning, **ERROR** merah muda, **BANNER** hijau aksen), auto-scroll,
+  serta tombol Ikuti / Salin / Bersihkan. Salinan memakai format
+  `jam  [LEVEL]  pesan` tanpa escape ANSI. Tahapan log mengikuti HTTP Custom:
+  header perangkat/sistem/jaringan/IP lokal, siklus layanan + WakeLock, resolve
+  host, socket + timeout, payload ter-escape per bagian, status HTTP preamble
+  (301/101), banner SSH, fingerprint kunci host (MD5/SHA-256), autentikasi,
+  server message (warna ANSI server tetap ditampilkan), SOCKS5/TUN, sampai
+  uji internet.
 - Ping bawaan: hasil ping tampil di kolom Aktif dan di log; ketuk kolom Aktif
   untuk ping manual (tidak ada menu ping terpisah)
 - Auto ping: interval 5/10/15/30/60 detik dengan target bisa diatur
@@ -167,12 +173,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.4.apk`** (1,9 MB, `versionCode 18`,
+Rilis siap pasang: **`WanzTunnel-2.9.5.apk`** (1,9 MB, `versionCode 19`,
 Android 10 ke atas), SHA-256
-`ade6e881efc5915557d16fe551c0966cf13e4f0f207162ea1a1d2d70031aa2ca`.
-Rilis sebelumnya, `WanzTunnel-2.9.3.apk` (`versionCode 17`, SHA-256
-`00ccfa12328418cb72fb3ca96adaf2dc146c4e616d1791cf0da92a5a5f3b1edb`), masih
-memakai entri menu "Pengaturan" di laci.
+`b40fdc05fa6f6265af3e840af23db1d240f26ee289077f7ce5f5767c1058b72c`.
+Rilis sebelumnya, `WanzTunnel-2.9.4.apk` (`versionCode 18`, SHA-256
+`ade6e881efc5915557d16fe551c0966cf13e4f0f207162ea1a1d2d70031aa2ca`), masih
+memakai log ringkas (hanya beberapa baris status).
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -189,18 +195,23 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
 - UI v2.9.4 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
   Android 14: tema gelap `#1E1E1E` dan terang `#FFFFFF`, judul dua warna, tab
-  SSH/LOG bergaris bawah, kisi 8 centang, tombol bergaris, laci bergrup,
-  dialog Payload/SNI/Tema/Profil/Impor/Tentang, serta halaman Pengaturan.
+  SSH/LOG bergaris bawah, kisi 8 centang, tombol bergaris, laci bergrup, dan
+  dialog Payload/Tema/Profil/Impor/Tentang.
   Dialog memakai panel 4dp dengan aksen hijau (bukan ungu bawaan Android).
+- Log v2.9.5 diuji ke server pemakai (`bansos.sunekvpn.cc.cd:80` via edge
+  `104.17.70.206:80`, payload HTTP Custom): 25 unit test lulus termasuk level
+  baru **OK**/**BANNER** dan pemangkasan ANSI pada salinan log; jalur nyata
+  menghasilkan preamble `301`/`101`, banner `SSH-2.0-dropbear_2019.78`, login
+  password sukses, dan kanal `direct-tcpip` aktif.
 - Bilah atas kini hanya menu + judul + impor config; tidak ada titik tiga dan
   tidak ada tombol tambah mengambang. Profil baru dibuat lewat laci **Profil**
   → "Tambah profil baru", dan profil lama diubah lewat **Profil → Ubah profil
   aktif". Tidak ada lagi entri "Pengaturan" di laci.
 - Umpan balik sentuh baru terlihat di emulator: ripple pada tab, baris profil,
-  sel centang, tombol sambung, baris laci, dan tombol Pengaturan; perpindahan
-  tab silang-memudar; centang mengisi dalam 140ms; laci memakai layer keras
-  saat bergeser. Log kini ditambah per baris (bukan dibangun ulang 180 baris
-  tiap 300ms), sehingga tab LOG tidak tersendat saat menyambung.
+  sel centang, tombol sambung, dan baris laci; perpindahan
+  tab silang-memudar; centang mengisi dalam 140ms. Log kini ditambah per baris
+  (bukan dibangun ulang 180 baris tiap 300ms), sehingga tab LOG tidak
+  tersendat saat menyambung.
 - Log nyata dari percobaan koneksi ke `bansos.sunekvpn.cc.cd:80` tampil
   `[jam:menit:detik] pesan` berwarna per level (INFO tinta, WARN kuning,
   ERROR merah muda), dengan sambung-ulang otomatis tercatat setiap 5 detik.
@@ -373,6 +384,27 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.5: **log diperkaya mengikuti HTTP Custom** atas permintaan pemakai
+  (log acuan: `bansos.sunekvpn.cc.cd:80@sunek-coolmaxx:Coolmaxx`).
+  - Tahapan koneksi kini dicatat lengkap: versi app, perangkat, sistem/ABI,
+    jaringan + IP lokal + operator, siklus layanan (mulai/stop/berhenti),
+    WakeLock partial (izin `WAKE_LOCK` + implementasi nyata), profil/transport/
+    payload/proxy, resolve host → IP, socket + timeout, payload ter-escape
+    (`\r\n` terlihat) per bagian, status HTTP preamble (`301`, `101`,
+    `Server: cloudflare`, `Location:`), banner SSH, kunci host + fingerprint
+    MD5 (`aa:bb:…`) dan SHA-256, autentikasi, kanal SSH siap, SOCKS5 lokal,
+    TUN/tun2socks, sampai uji internet.
+  - Level log baru: **OK** (hijau) untuk keberhasilan tahapan dan **BANNER**
+    untuk banner SSH / server message. Kode warna ANSI dari server ditafsirkan
+    jadi warna per span di layar, sedangkan tombol Salin menuliskan teks polos
+    tanpa escape.
+  - Status antara "SSH siap" dan "Terhubung" sekarang jujur: "Menyiapkan VPN…",
+    lalu "Terhubung • VPN" hanya setelah TUN + tun2socks benar-benar aktif.
+  - Uji ulang ke server pemakai lewat edge `104.17.70.206:80`: payload 2 bagian
+    terkirim, preamble `301`+`101` dilewati, banner `SSH-2.0-dropbear_2019.78`
+    diterima, login password berhasil, `direct-tcpip` jalan. Unit test naik
+    jadi 25 (log level OK/BANNER + parser ANSI), lint dan gerbang desain
+    tetap bersih.
 - v2.9.4: **layar Pengaturan dihapus total** dan seluruh fitur ganda
   dibereskan.
   - Laci kini hanya **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat**

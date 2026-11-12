@@ -38,4 +38,33 @@ class LogAndPingTest {
         assertEquals("1.1.1.1" to 443, TunnelService.parsePingTarget("1.1.1.1:99999"))
         assertEquals("1.1.1.1" to 443, TunnelService.parsePingTarget("1.1.1.1"))
     }
+
+    @Test
+    fun okAndBannerLevels() {
+        TunnelLog.clear()
+        TunnelLog.add(TunnelLog.OK, "Autentikasi berhasil")
+        TunnelLog.add(TunnelLog.BANNER, "SSH-2.0-dropbear_2019.78")
+        val entries = TunnelLog.all()
+        assertEquals(2, entries.size)
+        assertEquals(TunnelLog.OK, entries[0].level)
+        assertEquals(TunnelLog.BANNER, entries[1].level)
+    }
+
+    @Test
+    fun lineStripsAnsiEscape() {
+        TunnelLog.clear()
+        TunnelLog.add(TunnelLog.BANNER, "\u001B[1;32mServer Message:\u001B[0m welcome")
+        val line = TunnelLog.all().single().line()
+        assertTrue(line, !line.contains("\u001B"))
+        assertTrue(line, line.endsWith("Server Message: welcome"))
+        assertTrue(line, Regex("^\\d{2}:\\d{2}:\\d{2}  \\[BANNER]  ").containsMatchIn(line))
+    }
+
+    @Test
+    fun lineKeepsNewlinesButDropsControlChars() {
+        TunnelLog.clear()
+        TunnelLog.add("INFO", "baris1\nbaris2\u0000\u001B[31mx")
+        val line = TunnelLog.all().single().line()
+        assertTrue(line, line.contains("baris1\nbaris2x"))
+    }
 }

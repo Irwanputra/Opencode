@@ -213,15 +213,19 @@ class TransportSocketFactory(
 
         val chunks = splitPayload(request)
         val output = sock.getOutputStream()
-        TunnelLog.add("PAYLOAD", "Mengirim payload dalam ${chunks.size} bagian")
+        TunnelLog.add("PAYLOAD", "Payload ${request.length} char: ${printable(request)}")
+        TunnelLog.add("PAYLOAD", "Mengirim payload ke $host:$port • ${chunks.size} bagian")
         chunks.forEachIndexed { index, chunk ->
-            if (index > 0 && chunk.delayBeforeMs > 0) Thread.sleep(chunk.delayBeforeMs)
             if (chunk.text.isEmpty()) return@forEachIndexed
+            if (index > 0 && chunk.delayBeforeMs > 0) {
+                TunnelLog.add("PAYLOAD", "Jeda ${chunk.delayBeforeMs} ms sebelum bagian ${index + 1}")
+                Thread.sleep(chunk.delayBeforeMs)
+            }
             output.write(chunk.text.toByteArray(Charsets.ISO_8859_1))
             output.flush()
             TunnelLog.add(
                 "PAYLOAD",
-                "Bagian ${index + 1}/${chunks.size} terkirim (${chunk.text.length} char, jeda ${chunk.delayBeforeMs}ms)"
+                "Bagian ${index + 1}/${chunks.size} → ${chunk.text.length} byte: ${printable(chunk.text)}"
             )
         }
 
@@ -287,6 +291,7 @@ class TransportSocketFactory(
     private fun readUntilSshBanner(sock: Socket): InputStream {
         val input = sock.getInputStream()
         val buffer = ByteArrayOutputStream()
+        val seenLines = HashSet<Int>()
         sock.soTimeout = SSH_BANNER_TIMEOUT_MS
         try {
             val chunk = ByteArray(8192)
@@ -295,11 +300,12 @@ class TransportSocketFactory(
                 if (n < 0) throw EOFException("Koneksi ditutup sebelum banner SSH")
                 buffer.write(chunk, 0, n)
                 val data = buffer.toByteArray()
+                logPreambleLines(data, seenLines)
                 val index = findSshBanner(data)
                 if (index >= 0) {
-                    val banner = String(data, index, minOf(data.size - index, 96), Charsets.ISO_8859_1)
+                    val banner = String(data, index, minOf(data.size - index, 128), Charsets.ISO_8859_1)
                         .lineSequence().firstOrNull()?.trim().orEmpty()
-                    TunnelLog.add("SSH", "Banner diterima: $banner")
+                    TunnelLog.add(TunnelLog.BANNER, banner.ifBlank { "banner SSH" })
                     val prefix = data.copyOfRange(index, data.size)
                     return SequenceInputStream(ByteArrayInputStream(prefix), input)
                 }
@@ -311,6 +317,36 @@ class TransportSocketFactory(
         } finally {
             sock.soTimeout = 0
         }
+    }
+
+    /**
+     * Log baris preamble HTTP yang selesai dibaca (status line, Location,
+     * Server, Content-Type) seperti log HTTP Custom, tanpa mengulang baris
+     * lama dan tanpa ikut menampilkan body HTML.
+     */
+    private fun logPreambleLines(data: ByteArray, seen: MutableSet<Int>) {
+        var start = 0
+        for (i in data.indices) {
+            if (data[i] != '\n'.code.toByte()) continue
+            if (seen.add(start)) {
+                val line = String(data, start, i - start, Charsets.ISO_8859_1).trim()
+                val interesting = line.startsWith("HTTP/", ignoreCase = true) ||
+                    line.startsWith("Location:", ignoreCase = true) ||
+                    line.startsWith("Server:", ignoreCase = true) ||
+                    line.startsWith("Content-Type:", ignoreCase = true)
+                if (interesting) TunnelLog.add("HTTP", printable(line))
+            }
+            start = i + 1
+        }
+    }
+
+    /** Teks satu baris aman ditampilkan: escape \r\n\t, batasi panjang. */
+    private fun printable(text: String): String {
+        val escaped = text
+            .replace("\r", "\\r")
+            .replace("\n", "\\n")
+            .replace("\t", "\\t")
+        return if (escaped.length <= 320) escaped else escaped.take(317) + "…"
     }
 
     private fun findSshBanner(data: ByteArray): Int {
@@ -350,7 +386,10 @@ class TransportSocketFactory(
         if (cfg.strictTls) params.endpointIdentificationAlgorithm = "HTTPS"
         ssl.sslParameters = params
         ssl.startHandshake()
-        TunnelLog.add("TLS", "Handshake TLS selesai (${ssl.session.protocol})")
+        TunnelLog.add(
+            "TLS",
+            "Handshake TLS selesai • ${ssl.session.protocol} • ${ssl.session.cipherSuite}"
+        )
         return ssl
     }
 

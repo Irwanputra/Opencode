@@ -14,6 +14,8 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.ParcelFileDescriptor
+import android.os.PowerManager
+import android.telephony.TelephonyManager
 import android.util.Log
 import com.jcraft.jsch.ChannelDirectTCPIP
 import com.jcraft.jsch.JSch
@@ -23,10 +25,15 @@ import hev.htproxy.TProxyService
 import java.io.DataInputStream
 import java.io.File
 import java.io.IOException
+import java.net.Inet4Address
 import java.net.InetAddress
 import java.net.InetSocketAddress
+import java.net.NetworkInterface
 import java.net.ServerSocket
 import java.net.Socket
+import java.security.MessageDigest
+import java.util.Base64
+import java.util.Locale
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -100,6 +107,36 @@ class TunnelService : VpnService() {
     private val pool = Executors.newCachedThreadPool()
     private val main = Handler(Looper.getMainLooper())
 
+    /** WakeLock partial agar koneksi tetap hidup saat layar mati. */
+    private var wakeLock: PowerManager.WakeLock? = null
+
+    private fun acquireWakeLock() {
+        if (wakeLock?.isHeld == true) return
+        try {
+            val pm = getSystemService(PowerManager::class.java)
+            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "WanzTunnel:tunnel").apply {
+                setReferenceCounted(false)
+                // Timeout panjang sekadar pengaman; dilepas saat service mati.
+                acquire(10 * 60 * 60 * 1000L)
+            }
+            TunnelLog.add(TunnelLog.OK, "WakeLock aktif (partial, 10 jam)")
+        } catch (e: Exception) {
+            TunnelLog.add("WARN", "WakeLock gagal: ${e.message ?: e.javaClass.simpleName}")
+        }
+    }
+
+    private fun releaseWakeLock() {
+        val lock = wakeLock
+        wakeLock = null
+        try {
+            if (lock?.isHeld == true) {
+                lock.release()
+                TunnelLog.add("INFO", "WakeLock dilepas")
+            }
+        } catch (_: Exception) {
+        }
+    }
+
     private val cb = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(n: Network) {
             if (isVpnNetwork(n)) return
@@ -130,7 +167,12 @@ class TunnelService : VpnService() {
         override fun promptPassword(m: String?) = false
         override fun promptPassphrase(m: String?) = false
         override fun promptYesNo(m: String?) = m?.contains("CHANGED") != true
-        override fun showMessage(m: String?) {}
+        override fun showMessage(m: String?) {
+            // Server message/banner dari server SSH (bisa ber-ANSI), tampilkan
+            // utuh supaya lognya mirip HTTP Custom.
+            val text = m?.trim().orEmpty()
+            if (text.isNotEmpty()) TunnelLog.add(TunnelLog.BANNER, "Server Message: $text")
+        }
     }
 
     private fun set(s: String) {
@@ -152,10 +194,12 @@ class TunnelService : VpnService() {
 
     override fun onStartCommand(i: Intent?, f: Int, id: Int): Int {
         if (i?.action == ACTION_STOP) {
+            TunnelLog.add("INFO", "Stop diminta pengguna")
             running = false
             set("Terputus")
             shut()
             stopVpn()
+            releaseWakeLock()
             stopSelf()
             return START_NOT_STICKY
         }
@@ -167,11 +211,10 @@ class TunnelService : VpnService() {
         }
 
         if (!running) {
-            TunnelLog.add(
-                "INFO",
-                "Perangkat: ${Build.MANUFACTURER} ${Build.MODEL} • Android ${Build.VERSION.RELEASE} " +
-                    "(API ${Build.VERSION.SDK_INT}) • ABI ${Build.SUPPORTED_ABIS.joinToString(",")}"
-            )
+            TunnelLog.add(TunnelLog.OK, "Wanz Tunnel v${BuildConfig.VERSION_NAME} • SSH tunnel + VPN")
+            logEnvironment()
+            TunnelLog.add("INFO", "Layanan tunnel dimulai (foreground)")
+            acquireWakeLock()
             val profileId = i?.getLongExtra(EXTRA_PROFILE, 0L) ?: 0L
             profile = ProfileStore(this).get(profileId)
             pingMs = -1
@@ -190,6 +233,7 @@ class TunnelService : VpnService() {
 
     override fun onRevoke() {
         set("VPN dicabut")
+        releaseWakeLock()
         stopSelf()
         super.onRevoke()
     }
@@ -204,8 +248,10 @@ class TunnelService : VpnService() {
         main.removeCallbacksAndMessages(null)
         shut()
         stopVpn()
+        releaseWakeLock()
         pool.shutdownNow()
         set("Terputus")
+        TunnelLog.add("INFO", "Layanan tunnel berhenti")
         super.onDestroy()
     }
 
@@ -258,6 +304,13 @@ class TunnelService : VpnService() {
             try {
                 shut()
                 set("Menghubungkan…")
+                TunnelLog.add("INFO", "Profil \"${p.name}\" • ${p.user}@${p.host}:${p.port}")
+                TunnelLog.add(
+                    "INFO",
+                    "Transport ${p.transport.uppercase()} • payload " +
+                        (if (p.usePayload && p.payload.isNotBlank()) "aktif (${p.payload.length} char)" else "nonaktif") +
+                        " • proxy " + p.proxy.ifBlank { "langsung" }
+                )
                 if (!policiesOk(p)) {
                     busy.set(false)
                     return@Thread
@@ -268,10 +321,10 @@ class TunnelService : VpnService() {
                 session = s
                 server = srv
                 busy.set(false)
-                TunnelLog.add("SOCKS", "Proxy lokal SOCKS5 siap (port $port)")
+                TunnelLog.add(TunnelLog.OK, "SOCKS5 lokal siap • 127.0.0.1:$port")
 
                 val mode = "VPN"
-                set("Terhubung • $mode")
+                set("Menyiapkan VPN…")
                 main.post { startVpn(p) }
                 startPing(p)
 
@@ -316,6 +369,54 @@ class TunnelService : VpnService() {
             return false
         }
         return true
+    }
+
+    /**
+     * Header bergaya HTTP Custom: perangkat, sistem, jaringan, dan IP lokal.
+     * Semua dibaca nyata dari sistem; kalau tidak tersedia, ditulis apa adanya.
+     */
+    private fun logEnvironment() {
+        val device = Build.MANUFACTURER.replaceFirstChar { it.uppercase(Locale.US) } +
+            " ${Build.MODEL}"
+        TunnelLog.add("INFO", "Perangkat: $device")
+        TunnelLog.add(
+            "INFO",
+            "Sistem: Android ${Build.VERSION.RELEASE} (API ${Build.VERSION.SDK_INT}) • " +
+                "ABI ${Build.SUPPORTED_ABIS.firstOrNull() ?: "?"}"
+        )
+        val cm = getSystemService(ConnectivityManager::class.java)
+        val caps = cm.getNetworkCapabilities(cm.activeNetwork)
+        val net = when {
+            caps == null -> "tidak ada"
+            caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> "Wi-Fi"
+            caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> "seluler"
+            caps.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> "Ethernet"
+            caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN) -> "VPN"
+            else -> "lainnya"
+        }
+        val operator = try {
+            getSystemService(TelephonyManager::class.java)
+                ?.networkOperatorName?.trim().orEmpty()
+        } catch (_: Exception) {
+            ""
+        }
+        val ip = localIpv4()
+        TunnelLog.add(
+            "INFO",
+            "Jaringan: $net • IP lokal $ip" + if (operator.isNotBlank()) " • operator $operator" else ""
+        )
+    }
+
+    /** IPv4 non-loopback pertama (menghindari alamat virtual TUN 198.18.x.x). */
+    private fun localIpv4(): String = try {
+        NetworkInterface.getNetworkInterfaces().asSequence()
+            .filter { it.isUp && !it.isLoopback }
+            .flatMap { it.inetAddresses.asSequence() }
+            .filterIsInstance<Inet4Address>()
+            .firstOrNull { !it.isLoopbackAddress && !it.isLinkLocalAddress && !it.hostAddress!!.startsWith("198.18.") }
+            ?.hostAddress ?: "tidak diketahui"
+    } catch (_: Exception) {
+        "tidak diketahui"
     }
 
     private fun isRooted(): Boolean {
@@ -415,10 +516,8 @@ class TunnelService : VpnService() {
     }
 
     private fun dial(p: Profile): Session {
-        TunnelLog.add(
-            "SSH",
-            "Login ${p.user}@${p.host}:${p.port} • transport ${p.transport.uppercase()}"
-        )
+        TunnelLog.add("SSH", "Login ${p.user}@${p.host}:${p.port} • transport ${p.transport.uppercase()}")
+        TunnelLog.add("SSH", "Autentikasi: password, keyboard-interactive • timeout 20000 ms")
         val js = JSch().apply {
             setKnownHosts(File(filesDir, "known_hosts").path)
         }
@@ -443,8 +542,31 @@ class TunnelService : VpnService() {
             )
         )
         s.connect(20_000)
-        TunnelLog.add("SSH", "Autentikasi SSH berhasil")
+        logHostKey(s)
+        TunnelLog.add(TunnelLog.OK, "Autentikasi berhasil • ${p.user}@${p.host}")
+        TunnelLog.add("INFO", "Kanal SSH siap • ${s.serverVersion}")
         return s
+    }
+
+    /** Fingerprint kunci host (MD5 `aa:bb:…` dan SHA-256 base64) untuk log. */
+    private fun logHostKey(s: Session) {
+        try {
+            val hk = s.hostKey ?: return
+            val raw = Base64.getDecoder().decode(hk.key)
+            val md5 = MessageDigest.getInstance("MD5").digest(raw)
+            val sha = MessageDigest.getInstance("SHA-256").digest(raw)
+            TunnelLog.add("SSH", "Kunci host: ${hk.type}")
+            TunnelLog.add(
+                "SSH",
+                "Fingerprint MD5: " + md5.joinToString(":") { String.format(Locale.US, "%02x", it) }
+            )
+            TunnelLog.add(
+                "SSH",
+                "Fingerprint SHA256: " + Base64.getEncoder().withoutPadding().encodeToString(sha)
+            )
+        } catch (e: Exception) {
+            TunnelLog.add("WARN", "Fingerprint kunci host gagal: ${e.message ?: e.javaClass.simpleName}")
+        }
     }
 
     private fun protectFromVpn(socket: Socket): Boolean = try {
@@ -590,14 +712,15 @@ class TunnelService : VpnService() {
                 Charsets.UTF_8
             )
             TunnelLog.add(
-                "VPN",
-                "TUN siap: MTU ${VpnConfig.MTU}, IPv4-only, DNS ${VpnConfig.MAPPED_DNS} (mapped)"
+                TunnelLog.OK,
+                "TUN siap: MTU ${VpnConfig.MTU} • IPv4-only • DNS mapped ${VpnConfig.MAPPED_DNS}"
             )
 
             if (!TProxyService.TProxyStartService(conf.absolutePath, fd.fd)) {
                 throw IOException("tun2socks gagal dijalankan")
             }
             Log.d(TAG, "tun2socks aktif, SOCKS ${p.socksPort}")
+            TunnelLog.add(TunnelLog.OK, "tun2socks aktif • SOCKS 127.0.0.1:${p.socksPort}")
             set("Terhubung • VPN")
             verifyVpn(p)
         } catch (t: Throwable) {
@@ -660,8 +783,8 @@ class TunnelService : VpnService() {
             if (!running || tunFd == null) return@execute
             if (tcpOk && dnsOk) {
                 TunnelLog.add(
-                    "VPN",
-                    "Internet OK. Trafik aplikasi benar-benar lewat tunnel (TCP $host:$port + DNS)."
+                    TunnelLog.OK,
+                    "Internet OK • trafik aplikasi lewat tunnel (TCP $host:$port + DNS)"
                 )
                 set("Terhubung • VPN • internet OK")
             } else {

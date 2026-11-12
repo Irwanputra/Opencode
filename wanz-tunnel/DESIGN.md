@@ -182,7 +182,14 @@ langsung tanpa durasi.
 - Jika tunnel aktif tetapi internet gagal: "Tunnel aktif, tetapi uji internet
   gagal", warna `WARN`.
 - Alamat proxy lokal tidak ditampilkan sebagai status saat terhubung.
-- Log memakai jam perangkat dan level yang diturunkan dari tag/pesan.
+- Log memakai jam perangkat dan level yang diturunkan dari tag/pesan. Level
+  v2.9.5: INFO, OK (hijau), WARN, ERROR, PING (hijau), BANNER (aksen). Banner
+  SSH/server message boleh membawa kode warna ANSI dari server; kode itu
+  ditafsirkan menjadi warna per span, dan dibuang saat log disalin.
+- Tahapan log mengikuti HTTP Custom: header perangkat/jaringan/IP lokal,
+  siklus layanan + WakeLock, resolve → socket → timeout, payload per bagian
+  (escape `\r\n`), preamble HTTP (301/101), banner SSH, fingerprint kunci
+  host, autentikasi, server message, SOCKS5/TUN/tun2socks, uji internet.
 
 ## Latar foto (ditunda)
 
