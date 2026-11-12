@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.6
+# Wanz Tunnel 2.9.7
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.6 mengikuti **HTTP Custom**:
@@ -173,11 +173,11 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.6.apk`** (1,9 MB, `versionCode 20`,
+Rilis siap pasang: **`WanzTunnel-2.9.7.apk`** (1,9 MB, `versionCode 21`,
 Android 10 ke atas), SHA-256
-`571c3876a979c08fd8d500ae58746833c5291ba0331a8c21c4b443ffb52ffcd2`.
-Rilis sebelumnya, `WanzTunnel-2.9.5.apk` (`versionCode 19`, SHA-256
-`b40fdc05fa6f6265af3e840af23db1d240f26ee289077f7ce5f5767c1058b72c`), masih
+`a0ade573dbdab3afbeed10c0f1adcd55b9ddb65431cf0b6bdf7af00af6335cd6`.
+Rilis sebelumnya, `WanzTunnel-2.9.6.apk` (`versionCode 20`, SHA-256
+`571c3876a979c08fd8d500ae58746833c5291ba0331a8c21c4b443ffb52ffcd2`), masih
 menampilkan Server Message HTML mentah (penuh tag `<font>`).
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
@@ -384,6 +384,11 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.7: **log CONNECT per koneksi dihapus** (permintaan pemakai). Trafik
+  aplikasi menghasilkan puluhan `CONNECT host:port` per menit dan membanjiri
+  tab LOG; baris itu kini hanya masuk log debug internal. Log tetap menampilkan
+  satu baris "SOCKS5 lokal siap" saat tunnel naik, ping berkala, dan seluruh
+  tahapan koneksi. APK: `WanzTunnel-2.9.7.apk` (`versionCode 21`).
 - v2.9.6: **Server Message HTML dirender berwarna tanpa tag** (laporan pemakai:
   banner Sunek muncul sebagai teks `<p style=...><font color='#FF8A00'>...`).
   - `ServerBanner.toAnsi()` mengubah potongan HTML biasa dari server menjadi

@@ -648,7 +648,8 @@ class TunnelService : VpnService() {
             }
             val port = d.readUnsignedShort()
             Log.d(TAG, "SOCKS CONNECT $host:$port")
-            TunnelLog.add("SOCKS", "CONNECT $host:$port")
+            // Tidak dilog per koneksi: trafik aplikasi bisa puluhan CONNECT
+            // per detik dan membanjiri tab LOG (permintaan pemakai).
 
             channel = s.openChannel("direct-tcpip") as ChannelDirectTCPIP
             channel.setHost(host)
