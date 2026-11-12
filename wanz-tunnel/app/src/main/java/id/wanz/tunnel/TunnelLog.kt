@@ -14,19 +14,31 @@ import java.util.Locale
  * 10:25:02  [ERROR]  Gagal: Connection refused
  * ```
  *
- * Level: INFO, WARN, ERROR, PING. Pemanggil lama cukup memakai [add] dengan
- * tag; level diturunkan otomatis dari tag/pesan agar tidak perlu mengubah
- * seluruh kode transport.
+ * Level: INFO, WARN, ERROR, PING, OK, BANNER. Pemanggil lama cukup memakai
+ * [add] dengan tag; level diturunkan otomatis dari tag/pesan agar tidak perlu
+ * mengubah seluruh kode transport. BANNER dipakai untuk banner SSH/server
+ * message yang boleh membawa kode warna ANSI dari server.
  */
 object TunnelLog {
     const val INFO = "INFO"
     const val WARN = "WARN"
     const val ERROR = "ERROR"
     const val PING = "PING"
+    const val OK = "OK"
+    const val BANNER = "BANNER"
+
+    /** Kode ANSI SGR (`ESC[...m`) dan escape kontrol lain yang tidak terlihat. */
+    private val ANSI_SGR = Regex("\\u001B\\[[0-9;]*m")
+    private val ANSI_OTHER = Regex("\\u001B\\[[0-9;?]*[ -/]*[@-~]")
+    private val CONTROL = Regex("[\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F]")
+
+    /** Teks polos untuk disalin: escape ANSI/kontrol dibuang. */
+    internal fun plain(text: String): String =
+        CONTROL.replace(ANSI_OTHER.replace(ANSI_SGR.replace(text, ""), ""), "")
 
     data class Entry(val time: String, val level: String, val message: String) {
         /** Format satu baris siap tampil/salin. */
-        fun line(): String = "$time  [$level]  $message"
+        fun line(): String = "$time  [$level]  ${plain(message)}"
     }
 
     private const val MAX_LINES = 800
@@ -42,6 +54,8 @@ object TunnelLog {
             tag.equals(ERROR, true) -> ERROR
             tag.equals(WARN, true) -> WARN
             tag.equals(PING, true) -> PING
+            tag.equals(OK, true) -> OK
+            tag.equals(BANNER, true) -> BANNER
             message.startsWith("Gagal", true) -> ERROR
             message.startsWith("Mencoba ulang", true) -> WARN
             message.startsWith("Menunggu", true) -> INFO

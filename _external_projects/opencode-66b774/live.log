@@ -1,0 +1,581 @@
+Initialized native services in: /home/runner/.gradle/native
+Initialized jansi services in: /home/runner/.gradle/native
+Received JVM installation metadata from '/usr/lib/jvm/temurin-17-jdk-amd64': {JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64, JAVA_VERSION=17.0.21, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.21+9, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.21+9, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.7/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Starting process 'Gradle build daemon'. Working directory: /home/runner/.gradle/daemon/8.7 Command: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -XX:MaxMetaspaceSize=384m -XX:+HeapDumpOnOutOfMemoryError -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -cp /home/runner/.gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu/gradle-8.7/lib/gradle-launcher-8.7.jar -javaagent:/home/runner/.gradle/wrapper/dists/gradle-8.7-bin/bhs2wmbdwecv87pi65oeuq5iu/gradle-8.7/lib/agents/gradle-instrumentation-agent-8.7.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.7
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 0.633 secs.
+The client will now receive all logging from the daemon (pid: 11572). The daemon log file: /home/runner/.gradle/daemon/8.7/daemon-11572.out.log
+Closing daemon's stdin at end of input.
+The daemon will no longer process any standard input.
+Daemon will be stopped at the end of the build 
+Using 4 worker leases.
+Received JVM installation metadata from '/usr/lib/jvm/temurin-17-jdk-amd64': {JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64, JAVA_VERSION=17.0.21, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.21+9, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.21+9, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+Watching the file system is configured to be enabled if available
+Now considering [/home/runner/work/Opencode/Opencode/wanz-tunnel] as hierarchies to watch
+File system watching is active
+Starting Build
+Settings evaluated using settings file '/home/runner/work/Opencode/Opencode/wanz-tunnel/settings.gradle.kts'.
+Projects loaded. Root project using build file '/home/runner/work/Opencode/Opencode/wanz-tunnel/build.gradle.kts'.
+Included projects: [root project 'WanzTunnel', project ':app']
+
+> Configure project :
+Evaluating root project 'WanzTunnel' using build file '/home/runner/work/Opencode/Opencode/wanz-tunnel/build.gradle.kts'.
+Transforming gradle-8.5.2.jar (com.android.tools.build:gradle:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-settings-api-8.5.2.jar (com.android.tools.build:gradle-settings-api:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming lint-model-31.5.2.jar (com.android.tools.lint:lint-model:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming builder-8.5.2.jar (com.android.tools.build:builder:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming manifest-merger-31.5.2.jar (com.android.tools.build:manifest-merger:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming sdk-common-31.5.2.jar (com.android.tools:sdk-common:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming sdklib-31.5.2.jar (com.android.tools:sdklib:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming repository-31.5.2.jar (com.android.tools:repository:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming aaptcompiler-8.5.2.jar (com.android.tools.build:aaptcompiler:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tracker-31.5.2.jar (com.android.tools.analytics-library:tracker:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming shared-31.5.2.jar (com.android.tools.analytics-library:shared:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming databinding-compiler-common-8.5.2.jar (androidx.databinding:databinding-compiler-common:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-host-emulator-control-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-host-emulator-control-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-host-retention-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-host-retention-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming builder-model-8.5.2.jar (com.android.tools.build:builder-model:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gradle-api-8.5.2.jar (com.android.tools.build:gradle-api:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming builder-test-api-8.5.2.jar (com.android.tools.build:builder-test-api:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming ddmlib-31.5.2.jar (com.android.tools.ddms:ddmlib:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming layoutlib-api-31.5.2.jar (com.android.tools.layoutlib:layoutlib-api:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming dvlib-31.5.2.jar (com.android.tools:dvlib:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming common-31.5.2.jar (com.android.tools:common:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-jdk8-1.9.20.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jetifier-processor-1.0.0-beta10.jar (com.android.tools.build.jetifier:jetifier-processor:1.0.0-beta10) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jetifier-core-1.0.0-beta10.jar (com.android.tools.build.jetifier:jetifier-core:1.0.0-beta10) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-reflect-1.9.22.jar (org.jetbrains.kotlin:kotlin-reflect:1.9.22) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-jdk7-1.9.20.jar (org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.20) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-stdlib-1.9.22.jar (org.jetbrains.kotlin:kotlin-stdlib:1.9.22) with ExternalDependencyInstrumentingArtifactTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-model-1.9.24.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-model:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-api-1.9.24.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-api:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-1.9.24-gradle82.jar (org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bundletool-1.16.0.jar (com.android.tools.build:bundletool:1.16.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming aapt2-proto-8.5.2-11315950.jar (com.android.tools.build:aapt2-proto:8.5.2-11315950) with ExternalDependencyInstrumentingArtifactTransform
+Transforming crash-31.5.2.jar (com.android.tools.analytics-library:crash:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming lint-typedef-remover-31.5.2.jar (com.android.tools.lint:lint-typedef-remover:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming databinding-common-8.5.2.jar (androidx.databinding:databinding-common:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming baseLibrary-8.5.2.jar (com.android.databinding:baseLibrary:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-device-provider-ddmlib-proto-31.5.2.jar (com.android.tools.utp:android-device-provider-ddmlib-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-device-provider-gradle-proto-31.5.2.jar (com.android.tools.utp:android-device-provider-gradle-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-host-additional-test-output-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-host-additional-test-output-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-host-coverage-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-host-coverage-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-host-logcat-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-host-logcat-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-host-apk-installer-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-host-apk-installer-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming android-test-plugin-result-listener-gradle-proto-31.5.2.jar (com.android.tools.utp:android-test-plugin-result-listener-gradle-proto:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming transform-api-2.0.0-deprecated-use-gradle-api.jar (com.android.tools.build:transform-api:2.0.0-deprecated-use-gradle-api) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpmime-4.5.6.jar (org.apache.httpcomponents:httpmime:4.5.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-io-2.13.0.jar (commons-io:commons-io:2.13.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-commons-9.6.jar (org.ow2.asm:asm-commons:9.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-util-9.6.jar (org.ow2.asm:asm-util:9.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-analysis-9.6.jar (org.ow2.asm:asm-analysis:9.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-tree-9.6.jar (org.ow2.asm:asm-tree:9.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-9.6.jar (org.ow2.asm:asm:9.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming apkzlib-8.5.2.jar (com.android.tools.build:apkzlib:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bcpkix-jdk18on-1.77.jar (org.bouncycastle:bcpkix-jdk18on:1.77) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jaxb-runtime-2.3.2.jar (org.glassfish.jaxb:jaxb-runtime:2.3.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jopt-simple-4.9.jar (net.sf.jopt-simple:jopt-simple:4.9) with ExternalDependencyInstrumentingArtifactTransform
+Transforming javapoet-1.10.0.jar (com.squareup:javapoet:1.10.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming protobuf-java-util-3.22.3.jar (com.google.protobuf:protobuf-java-util:3.22.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-protobuf-1.57.0.jar (io.grpc:grpc-protobuf:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tink-1.7.0.jar (com.google.crypto.tink:tink:1.7.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming protos-31.5.2.jar (com.android.tools.analytics-library:protos:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming proto-google-common-protos-2.17.0.jar (com.google.api.grpc:proto-google-common-protos:2.17.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming protobuf-java-3.22.3.jar (com.google.protobuf:protobuf-java:3.22.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-netty-1.57.0.jar (io.grpc:grpc-netty:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-core-1.57.0.jar (io.grpc:grpc-core:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming gson-2.10.1.jar (com.google.code.gson:gson:2.10.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-stub-1.57.0.jar (io.grpc:grpc-stub:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming core-proto-0.0.9-alpha02.jar (com.google.testing.platform:core-proto:0.0.9-alpha02) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kxml2-2.3.0.jar (net.sf.kxml:kxml2:2.3.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tensorflow-lite-metadata-0.1.0-rc2.jar (org.tensorflow:tensorflow-lite-metadata:0.1.0-rc2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming flatbuffers-java-1.12.0.jar (com.google.flatbuffers:flatbuffers-java:1.12.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-idea-proto-1.9.24.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea-proto:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-idea-1.9.24.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-idea:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-klib-commonizer-api-1.9.24.jar (org.jetbrains.kotlin:kotlin-klib-commonizer-api:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-native-utils-1.9.24.jar (org.jetbrains.kotlin:kotlin-native-utils:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-util-klib-1.9.24.jar (org.jetbrains.kotlin:kotlin-util-klib:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-build-tools-api-1.9.24.jar (org.jetbrains.kotlin:kotlin-build-tools-api:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-android-extensions-1.9.24.jar (org.jetbrains.kotlin:kotlin-android-extensions:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-compiler-runner-1.9.24.jar (org.jetbrains.kotlin:kotlin-compiler-runner:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-compiler-embeddable-1.9.24.jar (org.jetbrains.kotlin:kotlin-compiler-embeddable:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-compiler-embeddable-1.9.24.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-compiler-impl-embeddable-1.9.24.jar (org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jimfs-1.1.jar (com.google.jimfs:jimfs:1.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-context-1.57.0.jar (io.grpc:grpc-context:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-protobuf-lite-1.57.0.jar (io.grpc:grpc-protobuf-lite:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming grpc-api-1.57.0.jar (io.grpc:grpc-api:1.57.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming guava-32.0.1-jre.jar (com.google.guava:guava:32.0.1-jre) with ExternalDependencyInstrumentingArtifactTransform
+Transforming dagger-2.28.3.jar (com.google.dagger:dagger:2.28.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming javax.inject-1.jar (javax.inject:javax.inject:1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bcutil-jdk18on-1.77.jar (org.bouncycastle:bcutil-jdk18on:1.77) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bcprov-jdk18on-1.77.jar (org.bouncycastle:bcprov-jdk18on:1.77) with ExternalDependencyInstrumentingArtifactTransform
+Transforming trove4j-1.0.20200330.jar (org.jetbrains.intellij.deps:trove4j:1.0.20200330) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-compress-1.21.jar (org.apache.commons:commons-compress:1.21) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpclient-4.5.14.jar (org.apache.httpcomponents:httpclient:4.5.14) with ExternalDependencyInstrumentingArtifactTransform
+Transforming httpcore-4.4.16.jar (org.apache.httpcomponents:httpcore:4.4.16) with ExternalDependencyInstrumentingArtifactTransform
+Transforming javax.activation-1.2.0.jar (com.sun.activation:javax.activation:1.2.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming signflinger-8.5.2.jar (com.android:signflinger:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming zipflinger-8.5.2.jar (com.android:zipflinger:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming annotations-31.5.2.jar (com.android.tools:annotations:31.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jna-platform-5.6.0.jar (net.java.dev.jna:jna-platform:5.6.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming juniversalchardet-1.0.3.jar (com.googlecode.juniversalchardet:juniversalchardet:1.0.3) with ExternalDependencyInstrumentingArtifactTransform
+Transforming javax.annotation-api-1.3.2.jar (javax.annotation:javax.annotation-api:1.3.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming stax-ex-1.8.1.jar (org.jvnet.staxex:stax-ex:1.8.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.xml.bind-api-2.3.2.jar (jakarta.xml.bind:jakarta.xml.bind-api:2.3.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming txw2-2.3.2.jar (org.glassfish.jaxb:txw2:2.3.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming istack-commons-runtime-3.0.8.jar (com.sun.istack:istack-commons-runtime:3.0.8) with ExternalDependencyInstrumentingArtifactTransform
+Transforming FastInfoset-1.2.16.jar (com.sun.xml.fastinfoset:FastInfoset:1.2.16) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jakarta.activation-api-1.2.1.jar (jakarta.activation:jakarta.activation-api:1.2.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming auto-value-annotations-1.6.2.jar (com.google.auto.value:auto-value-annotations:1.6.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming error_prone_annotations-2.18.0.jar (com.google.errorprone:error_prone_annotations:2.18.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jose4j-0.9.5.jar (org.bitbucket.b_c:jose4j:0.9.5) with ExternalDependencyInstrumentingArtifactTransform
+Transforming slf4j-api-1.7.30.jar (org.slf4j:slf4j-api:1.7.30) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jdom2-2.0.6.jar (org.jdom:jdom2:2.0.6) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming j2objc-annotations-2.8.jar (com.google.j2objc:j2objc-annotations:2.8) with ExternalDependencyInstrumentingArtifactTransform
+Transforming annotations-4.1.1.4.jar (com.google.android:annotations:4.1.1.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming animal-sniffer-annotations-1.23.jar (org.codehaus.mojo:animal-sniffer-annotations:1.23) with ExternalDependencyInstrumentingArtifactTransform
+Transforming perfmark-api-0.26.0.jar (io.perfmark:perfmark-api:0.26.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-codec-http2-4.1.93.Final.jar (io.netty:netty-codec-http2:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-handler-proxy-4.1.93.Final.jar (io.netty:netty-handler-proxy:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-codec-http-4.1.93.Final.jar (io.netty:netty-codec-http:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-handler-4.1.93.Final.jar (io.netty:netty-handler:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-transport-native-unix-common-4.1.93.Final.jar (io.netty:netty-transport-native-unix-common:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming checker-qual-3.33.0.jar (org.checkerframework:checker-qual:3.33.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-codec-1.11.jar (commons-codec:commons-codec:1.11) with ExternalDependencyInstrumentingArtifactTransform
+Transforming apksig-8.5.2.jar (com.android.tools.build:apksig:8.5.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming javawriter-2.5.0.jar (com.squareup:javawriter:2.5.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-gradle-plugin-annotations-1.9.24.jar (org.jetbrains.kotlin:kotlin-gradle-plugin-annotations:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-project-model-1.9.24.jar (org.jetbrains.kotlin:kotlin-project-model:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-tooling-core-1.9.24.jar (org.jetbrains.kotlin:kotlin-tooling-core:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-util-io-1.9.24.jar (org.jetbrains.kotlin:kotlin-util-io:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-daemon-embeddable-1.9.24.jar (org.jetbrains.kotlin:kotlin-daemon-embeddable:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-daemon-client-1.9.24.jar (org.jetbrains.kotlin:kotlin-daemon-client:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlinx-coroutines-core-jvm-1.5.0.jar (org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-jvm-1.9.24.jar (org.jetbrains.kotlin:kotlin-scripting-jvm:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlin-scripting-common-1.9.24.jar (org.jetbrains.kotlin:kotlin-scripting-common:1.9.24) with ExternalDependencyInstrumentingArtifactTransform
+Transforming failureaccess-1.0.1.jar (com.google.guava:failureaccess:1.0.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar (com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-logging-1.2.jar (commons-logging:commons-logging:1.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming jna-5.6.0.jar (net.java.dev.jna:jna:5.6.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-codec-socks-4.1.93.Final.jar (io.netty:netty-codec-socks:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-codec-4.1.93.Final.jar (io.netty:netty-codec:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-transport-4.1.93.Final.jar (io.netty:netty-transport:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-buffer-4.1.93.Final.jar (io.netty:netty-buffer:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-resolver-4.1.93.Final.jar (io.netty:netty-resolver:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+Transforming netty-common-4.1.93.Final.jar (io.netty:netty-common:4.1.93.Final) with ExternalDependencyInstrumentingArtifactTransform
+
+> Configure project :app
+Evaluating project ':app' using build file '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build.gradle.kts'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle82 variant
+Parsed shrinker version: 8.5.35
+All projects evaluated.
+Task name matched 'testDebugUnitTest'
+Selected primary task 'testDebugUnitTest' from project :
+Tasks to be executed: [task ':app:checkKotlinGradlePluginConfigurationErrors', task ':app:preBuild', task ':app:preDebugBuild', task ':app:generateDebugBuildConfig', task ':app:checkDebugAarMetadata', task ':app:generateDebugResValues', task ':app:mapDebugSourceSetPaths', task ':app:generateDebugResources', task ':app:mergeDebugResources', task ':app:packageDebugResources', task ':app:parseDebugLocalResources', task ':app:createDebugCompatibleScreenManifests', task ':app:extractDeepLinksDebug', task ':app:processDebugMainManifest', task ':app:processDebugManifest', task ':app:processDebugManifestForPackage', task ':app:processDebugResources', task ':app:compileDebugKotlin', task ':app:javaPreCompileDebug', task ':app:compileDebugJavaWithJavac', task ':app:bundleDebugClassesToRuntimeJar', task ':app:bundleDebugClassesToCompileJar', task ':app:compileDebugUnitTestKotlin', task ':app:preDebugUnitTestBuild', task ':app:javaPreCompileDebugUnitTest', task ':app:compileDebugUnitTestJavaWithJavac', task ':app:processDebugJavaRes', task ':app:processDebugUnitTestJavaRes', task ':app:testDebugUnitTest']
+Tasks that were excluded: []
+Resolve mutations for :app:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+:app:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':app:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':app:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :app:preBuild (Thread[included builds,5,main]) started.
+:app:preBuild (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :app:preBuild UP-TO-DATE
+Skipping task ':app:preBuild' as it has no actions.
+Resolve mutations for :app:preDebugBuild (Thread[included builds,5,main]) started.
+:app:preDebugBuild (Thread[included builds,5,main]) started.
+
+> Task :app:preDebugBuild UP-TO-DATE
+Skipping task ':app:preDebugBuild' as it has no actions.
+Resolve mutations for :app:generateDebugBuildConfig (Thread[included builds,5,main]) started.
+:app:generateDebugBuildConfig (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+Caching disabled for task ':app:generateDebugBuildConfig' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugBuildConfig' as it is up-to-date.
+Resolve mutations for :app:checkDebugAarMetadata (Thread[Execution worker Thread 3,5,main]) started.
+:app:checkDebugAarMetadata (Thread[included builds,5,main]) started.
+
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Caching disabled for task ':app:checkDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:checkDebugAarMetadata' as it is up-to-date.
+Resolve mutations for :app:generateDebugResValues (Thread[included builds,5,main]) started.
+:app:generateDebugResValues (Thread[included builds,5,main]) started.
+
+> Task :app:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':app:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :app:mapDebugSourceSetPaths (Thread[included builds,5,main]) started.
+:app:mapDebugSourceSetPaths (Thread[Execution worker,5,main]) started.
+
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Caching disabled for task ':app:mapDebugSourceSetPaths' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:mapDebugSourceSetPaths' as it is up-to-date.
+Resolve mutations for :app:generateDebugResources (Thread[Execution worker,5,main]) started.
+:app:generateDebugResources (Thread[Execution worker,5,main]) started.
+
+> Task :app:generateDebugResources UP-TO-DATE
+Caching disabled for task ':app:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugResources' as it is up-to-date.
+Resolve mutations for :app:mergeDebugResources (Thread[Execution worker Thread 3,5,main]) started.
+:app:mergeDebugResources (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:mergeDebugResources UP-TO-DATE
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Caching disabled for task ':app:mergeDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:mergeDebugResources' as it is up-to-date.
+Resolve mutations for :app:packageDebugResources (Thread[Execution worker Thread 3,5,main]) started.
+:app:packageDebugResources (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:packageDebugResources UP-TO-DATE
+Caching disabled for task ':app:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:packageDebugResources' as it is up-to-date.
+Resolve mutations for :app:parseDebugLocalResources (Thread[Execution worker Thread 3,5,main]) started.
+:app:parseDebugLocalResources (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:parseDebugLocalResources UP-TO-DATE
+Transforming android.jar with PlatformAttrTransform
+Transforming android.jar with PlatformAttrTransform
+Caching disabled for task ':app:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':app:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :app:createDebugCompatibleScreenManifests (Thread[included builds,5,main]) started.
+:app:createDebugCompatibleScreenManifests (Thread[included builds,5,main]) started.
+
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+Caching disabled for task ':app:createDebugCompatibleScreenManifests' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:createDebugCompatibleScreenManifests' as it is up-to-date.
+Resolve mutations for :app:extractDeepLinksDebug (Thread[included builds,5,main]) started.
+:app:extractDeepLinksDebug (Thread[included builds,5,main]) started.
+
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':app:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':app:extractDeepLinksDebug' as it is up-to-date.
+Resolve mutations for :app:processDebugMainManifest (Thread[included builds,5,main]) started.
+:app:processDebugMainManifest (Thread[included builds,5,main]) started.
+
+> Task :app:processDebugMainManifest UP-TO-DATE
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Caching disabled for task ':app:processDebugMainManifest' because:
+  Build cache is disabled
+Skipping task ':app:processDebugMainManifest' as it is up-to-date.
+Resolve mutations for :app:processDebugManifest (Thread[Execution worker Thread 2,5,main]) started.
+:app:processDebugManifest (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :app:processDebugManifest UP-TO-DATE
+Caching disabled for task ':app:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':app:processDebugManifest' as it is up-to-date.
+Resolve mutations for :app:processDebugManifestForPackage (Thread[Execution worker Thread 2,5,main]) started.
+:app:processDebugManifestForPackage (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+Custom actions are attached to task ':app:processDebugManifestForPackage'.
+Caching disabled for task ':app:processDebugManifestForPackage' because:
+  Build cache is disabled
+Skipping task ':app:processDebugManifestForPackage' as it is up-to-date.
+Resolve mutations for :app:processDebugResources (Thread[included builds,5,main]) started.
+:app:processDebugResources (Thread[Execution worker,5,main]) started.
+
+> Task :app:processDebugResources UP-TO-DATE
+Transforming aapt2-8.5.2-11315950-linux.jar (com.android.tools.build:aapt2:8.5.2-11315950) with Aapt2Extractor
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarResourcesCompilerTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with LibrarySymbolTableTransform
+Caching disabled for task ':app:processDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:processDebugResources' as it is up-to-date.
+Resolve mutations for :app:compileDebugKotlin (Thread[included builds,5,main]) started.
+:app:compileDebugKotlin (Thread[Execution worker,5,main]) started.
+
+> Task :app:compileDebugKotlin UP-TO-DATE
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming kotlin-stdlib-1.9.24.jar (org.jetbrains.kotlin:kotlin-stdlib:1.9.24) with IdentityTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with IdentityTransform
+Transforming jsch-0.2.17.jar (com.github.mwiede:jsch:0.2.17) with IdentityTransform
+Transforming R.jar with ClasspathEntrySnapshotTransform
+Transforming hev-socks5-tunnel-api.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-1.9.24.jar with ClasspathEntrySnapshotTransform
+Transforming jsch-0.2.17.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
+Transforming android.jar with ClasspathEntrySnapshotTransform
+Transforming core-lambda-stubs.jar with ClasspathEntrySnapshotTransform
+Caching disabled for task ':app:compileDebugKotlin' because:
+  Build cache is disabled
+Skipping task ':app:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :app:javaPreCompileDebug (Thread[Execution worker,5,main]) started.
+:app:javaPreCompileDebug (Thread[Execution worker,5,main]) started.
+
+> Task :app:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :app:compileDebugJavaWithJavac (Thread[Execution worker Thread 3,5,main]) started.
+:app:compileDebugJavaWithJavac (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming core-for-system-modules.jar with JdkImageTransform
+Transforming core-for-system-modules.jar with JdkImageTransform
+Transforming core-for-system-modules.jar with JdkImageTransform
+Transforming core-for-system-modules.jar with JdkImageTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming core-for-system-modules.jar with JdkImageTransform
+Transforming core-for-system-modules.jar with JdkImageTransform
+Custom actions are attached to task ':app:compileDebugJavaWithJavac'.
+Caching disabled for task ':app:compileDebugJavaWithJavac' because:
+  Build cache is disabled
+Skipping task ':app:compileDebugJavaWithJavac' as it is up-to-date.
+No compile result for :app:compileDebugJavaWithJavac
+Resolve mutations for :app:bundleDebugClassesToRuntimeJar (Thread[Execution worker Thread 3,5,main]) started.
+:app:bundleDebugClassesToRuntimeJar (Thread[Execution worker,5,main]) started.
+
+> Task :app:bundleDebugClassesToRuntimeJar UP-TO-DATE
+Caching disabled for task ':app:bundleDebugClassesToRuntimeJar' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:bundleDebugClassesToRuntimeJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[Execution worker Thread 3,5,main]) started.
+Resolve mutations for :app:bundleDebugClassesToCompileJar (Thread[Execution worker,5,main]) started.
+:app:bundleDebugClassesToCompileJar (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+Caching disabled for task ':app:bundleDebugClassesToCompileJar' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:bundleDebugClassesToCompileJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[Execution worker Thread 2,5,main]) started.
+Resolve mutations for :app:compileDebugUnitTestKotlin (Thread[Execution worker Thread 2,5,main]) started.
+:app:compileDebugUnitTestKotlin (Thread[Execution worker Thread 2,5,main]) started.
+Resolve mutations for :app:preDebugUnitTestBuild (Thread[Execution worker Thread 3,5,main]) started.
+:app:preDebugUnitTestBuild (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+Skipping task ':app:preDebugUnitTestBuild' as it has no actions.
+Resolve mutations for :app:javaPreCompileDebugUnitTest (Thread[Execution worker Thread 3,5,main]) started.
+:app:javaPreCompileDebugUnitTest (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:javaPreCompileDebugUnitTest UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileDebugUnitTest' as it is up-to-date.
+Resolve mutations for :app:processDebugJavaRes (Thread[Execution worker Thread 3,5,main]) started.
+:app:processDebugJavaRes (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :app:processDebugJavaRes UP-TO-DATE
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/resources', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/debug/resources', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/resources', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/debug/resources', not found
+Caching disabled for task ':app:processDebugJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :app) (Thread[Execution worker,5,main]) started.
+
+> Task :app:compileDebugUnitTestKotlin
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming junit-4.13.2.jar (junit:junit:4.13.2) with IdentityTransform
+Transforming hamcrest-core-1.3.jar (org.hamcrest:hamcrest-core:1.3) with IdentityTransform
+Transforming R.jar with ClasspathEntrySnapshotTransform
+Transforming hev-socks5-tunnel-api.jar with ClasspathEntrySnapshotTransform
+Transforming classes.jar with ClasspathEntrySnapshotTransform
+Transforming kotlin-stdlib-1.9.24.jar with ClasspathEntrySnapshotTransform
+Transforming jsch-0.2.17.jar with ClasspathEntrySnapshotTransform
+Transforming junit-4.13.2.jar with ClasspathEntrySnapshotTransform
+Transforming hamcrest-core-1.3.jar with ClasspathEntrySnapshotTransform
+Transforming annotations-13.0.jar with ClasspathEntrySnapshotTransform
+Transforming android.jar with ClasspathEntrySnapshotTransform
+Transforming core-lambda-stubs.jar with ClasspathEntrySnapshotTransform
+Caching disabled for task ':app:compileDebugUnitTestKotlin' because:
+  Build cache is disabled
+Task ':app:compileDebugUnitTestKotlin' is not up-to-date because:
+  Input property 'sources' file /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TempLiveTest.kt has been added.
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/debugUnitTest/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/debugUnitTest/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/debugUnitTest/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/debugUnitTest/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/kotlin', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/java', not found
+Kotlin source files: /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TempLiveTest.kt, /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/CompactTest.kt, /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TransportSocketFactoryTest.kt, /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/VpnConfigTest.kt, /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/LogAndPingTest.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+i: starting the daemon as: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java -cp /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.9.24/78dab849090e6c5e2eadb6e59a11cdc28fb67a08/kotlin-compiler-embeddable-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.9.24/96771497da90fbc5af1c90fce148db2595a62502/kotlin-script-runtime-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.10/1cbe9c92c12a94eea200d23c2bbaedaf3daf5132/kotlin-reflect-1.6.10.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.9.24/86685b9c5e8d170925bd9ddbdc263374a6a73281/kotlin-daemon-embeddable-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20200330/3afb14d5f9ceb459d724e907a21145e8ff394f02/trove4j-1.0.20200330.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar -Djava.awt.headless=true -D$java.rmi.server.hostname=127.0.0.1 -Xmx512m -XX:MaxMetaspaceSize=384m -Dkotlin.environment.keepalive -ea --add-exports java.base/sun.nio.ch=ALL-UNNAMED org.jetbrains.kotlin.daemon.KotlinCompileDaemon --daemon-runFilesPath /home/runner/.local/share/kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.9.24/78dab849090e6c5e2eadb6e59a11cdc28fb67a08/kotlin-compiler-embeddable-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.9.24/96771497da90fbc5af1c90fce148db2595a62502/kotlin-script-runtime-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.10/1cbe9c92c12a94eea200d23c2bbaedaf3daf5132/kotlin-reflect-1.6.10.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.9.24/86685b9c5e8d170925bd9ddbdc263374a6a73281/kotlin-daemon-embeddable-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20200330/3afb14d5f9ceb459d724e907a21145e8ff394f02/trove4j-1.0.20200330.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar
+i: Received the message signalling that the daemon is ready
+i: new daemon started, trying to find it
+i: found daemon on port 17520 (17 ms old), trying to connect
+i: connected to the daemon
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), areFileChangesKnown=true, modifiedFiles=[/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TempLiveTest.kt], deletedFiles=[], classpathChanges=NoChanges, workingDir=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/kotlin/compileDebugUnitTestKotlin/cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/kotlin/compileDebugUnitTestKotlin/local-state/build-history.bin, useModuleDetection=true), usePreciseJavaTracking=true, outputFiles=[/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/debugUnitTest, /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/kotlin/compileDebugUnitTestKotlin/cacheable, /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/kotlin/compileDebugUnitTestKotlin/local-state])
+Resolve mutations for :app:compileDebugUnitTestJavaWithJavac (Thread[Execution worker Thread 2,5,main]) started.
+:app:compileDebugUnitTestJavaWithJavac (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':app:compileDebugUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :app:processDebugUnitTestJavaRes (Thread[Execution worker Thread 2,5,main]) started.
+:app:processDebugUnitTestJavaRes (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :app:processDebugUnitTestJavaRes UP-TO-DATE
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/resources', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/resources', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/resources', not found
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/resources', not found
+Caching disabled for task ':app:processDebugUnitTestJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:processDebugUnitTestJavaRes' as it is up-to-date.
+Resolve mutations for :app:testDebugUnitTest (Thread[Execution worker Thread 2,5,main]) started.
+:app:testDebugUnitTest (Thread[Execution worker Thread 2,5,main]) started.
+Gradle Test Executor 1 started executing tests.
+
+> Task :app:testDebugUnitTest
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming junit-4.13.2.jar (junit:junit:4.13.2) with IdentityTransform
+Transforming kotlin-stdlib-1.9.24.jar (org.jetbrains.kotlin:kotlin-stdlib:1.9.24) with IdentityTransform
+Transforming jsch-0.2.17.jar (com.github.mwiede:jsch:0.2.17) with IdentityTransform
+Transforming hamcrest-core-1.3.jar (org.hamcrest:hamcrest-core:1.3) with IdentityTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with IdentityTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming junit-4.13.2.jar (junit:junit:4.13.2) with IdentityTransform
+Transforming kotlin-stdlib-1.9.24.jar (org.jetbrains.kotlin:kotlin-stdlib:1.9.24) with IdentityTransform
+Transforming jsch-0.2.17.jar (com.github.mwiede:jsch:0.2.17) with IdentityTransform
+Transforming hamcrest-core-1.3.jar (org.hamcrest:hamcrest-core:1.3) with IdentityTransform
+Transforming annotations-13.0.jar (org.jetbrains:annotations:13.0) with IdentityTransform
+Transforming android.jar with MockableJarTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming android.jar with MockableJarTransform
+Caching disabled for task ':app:testDebugUnitTest' because:
+  Build cache is disabled
+Task ':app:testDebugUnitTest' is not up-to-date because:
+  Value of input property 'filter.commandLineIncludePatterns' has changed for task ':app:testDebugUnitTest'
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming android.jar with MockableJarTransform
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+Transforming hev-socks5-tunnel.aar with ExtractAarTransform
+Transforming hev-socks5-tunnel.aar with AarTransform
+Transforming android.jar with MockableJarTransform
+file or directory '/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes', not found
+Starting process 'Gradle Test Executor 1'. Working directory: /home/runner/work/Opencode/Opencode/wanz-tunnel/app Command: /usr/lib/jvm/temurin-17-jdk-amd64/bin/java -Djava.awt.headless=true -Djava.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib:/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/testDebug/jniLibs:/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/jniLibs -Dorg.gradle.internal.worker.tmpdir=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/testDebugUnitTest/work -Dorg.gradle.native=false @/home/runner/.gradle/.tmp/gradle-worker-classpath5034827421015789813txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 1'
+Successfully started process 'Gradle Test Executor 1'
+
+Gradle Test Executor 1 finished executing tests.
+
+> Task :app:testDebugUnitTest
+
+id.wanz.tunnel.TempLiveTest > livePayload FAILED
+    java.net.SocketTimeoutException: Read timed out
+        at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:288)
+        at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:314)
+        at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+        at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+        at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+        at java.base/java.io.InputStream.read(InputStream.java:218)
+        at id.wanz.tunnel.TransportSocketFactory.readUntilSshBanner(Transport.kt:286)
+        at id.wanz.tunnel.TransportSocketFactory.sendPayload(Transport.kt:226)
+        at id.wanz.tunnel.TransportSocketFactory.connectRaw(Transport.kt:146)
+        at id.wanz.tunnel.TransportSocketFactory.createSocket(Transport.kt:92)
+        at id.wanz.tunnel.TempLiveTest.livePayload(TempLiveTest.kt:22)
+Transforming hev-socks5-tunnel.aar with AarToClassTransform
+
+1 test completed, 1 failed
+Finished generating test XML results (0.007 secs) into: /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/test-results/testDebugUnitTest
+Generating HTML test report...
+Finished generating test html results (0.01 secs) into: /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/reports/tests/testDebugUnitTest
+
+> Task :app:testDebugUnitTest FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+> Run with --scan to get full insights.
+
+BUILD FAILED in 30s
+25 actionable tasks: 3 executed, 22 up-to-date

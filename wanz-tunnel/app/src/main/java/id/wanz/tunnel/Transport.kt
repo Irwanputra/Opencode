@@ -108,13 +108,17 @@ class TransportSocketFactory(
     }
 
     private fun resolveEndpoint(host: String): InetAddress {
+        TunnelLog.add("RESOLVE", "Resolve $host…")
         val list = try {
             resolve?.invoke(host)?.takeIf { it.isNotEmpty() } ?: InetAddress.getAllByName(host)
         } catch (e: Exception) {
             throw IOException("Gagal resolve $host: ${e.message ?: e.javaClass.simpleName}", e)
         }
         // Utamakan IPv4: VPN kita IPv4-only (sama seperti HTTP Custom).
-        return list.firstOrNull { it is java.net.Inet4Address } ?: list.first()
+        val address = list.firstOrNull { it is java.net.Inet4Address } ?: list.first()
+        val family = if (address is java.net.Inet4Address) "IPv4" else "IPv6"
+        TunnelLog.add("RESOLVE", "$host → ${address.hostAddress} ($family)")
+        return address
     }
 
     private fun connectRaw(host: String, port: Int, transport: String): Socket {
@@ -137,9 +141,13 @@ class TransportSocketFactory(
             protect?.invoke(base)
             bind?.invoke(base)
             val address = resolveEndpoint(endpointHost)
+            TunnelLog.add(
+                "SOCKET",
+                "Set timeout ${CONNECT_TIMEOUT_MS} ms • socket ${address.hostAddress}:$endpointPort"
+            )
             base.connect(InetSocketAddress(address, endpointPort), CONNECT_TIMEOUT_MS)
             base.tcpNoDelay = true
-            TunnelLog.add("TRANSPORT", "Tersambung ke $endpointHost:$endpointPort")
+            TunnelLog.add("SOCKET", "Tersambung ke ${address.hostAddress}:$endpointPort (TCP)")
 
             val rawSsh = transport == "ssh"
             if (viaProxy || cfg.payload.isNotBlank()) {
