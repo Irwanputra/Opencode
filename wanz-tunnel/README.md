@@ -169,7 +169,7 @@ Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
 Rilis siap pasang: **`WanzTunnel-2.9.4.apk`** (1,9 MB, `versionCode 18`,
 Android 10 ke atas), SHA-256
-`__SHA__`.
+`ade6e881efc5915557d16fe551c0966cf13e4f0f207162ea1a1d2d70031aa2ca`.
 Rilis sebelumnya, `WanzTunnel-2.9.3.apk` (`versionCode 17`, SHA-256
 `00ccfa12328418cb72fb3ca96adaf2dc146c4e616d1791cf0da92a5a5f3b1edb`), masih
 memakai entri menu "Pengaturan" di laci.
@@ -386,6 +386,8 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   - `SettingsActivity.kt`, entri manifest-nya, `InkToggle`, `InkSelect`, serta
     ikon `ic_settings`, `ic_list`, `ic_network_check`, dan ikon tak terpakai
     lain dihapus (tersisa 9 ikon fungsional + 2 ikon launcher).
+  - Layer keras eksplisit pada laci dibuang: di emulator software renderer ia
+    membuat seluruh layar hitam; animasi tetap halus lewat interpolator.
 - v2.9.3: **menu tiga titik dan tombol tambah mengambang dihapus**, dan rasa
   animasi diperbaiki.
   - Keduanya hanya pintasan; menambah profil tetap bisa lewat laci **Profil** →
@@ -396,8 +398,8 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     centang, tombol sambung, baris laci, tautan dan tombol Pengaturan), jadi
     sentuhan langsung terasa sebelum aksi selesai.
   - Perpindahan tab SSH/LOG memudar silang 160ms; centang mengisi 140ms dengan
-    kotak garis memudar; laci memakai layer keras dan interpolator dipercepat/
-    diperlambat. Semua tetap menghormati "hapus animasi" sistem.
+    kotak garis memudar; laci memakai interpolator dipercepat/diperlambat.
+    Semua tetap menghormati "hapus animasi" sistem.
   - Daftar log ditambah per baris, bukan dibangun ulang seluruhnya tiap
     pembaruan; batas tampilan 180 baris dan jeda render 300ms.
 - v2.9.2: **tampilan disamakan dengan HTTP Custom** atas permintaan pemakai.

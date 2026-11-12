@@ -163,9 +163,9 @@ Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
 
 - **Ripple sentuh** di tab, baris profil, sel centang, tombol sambung, baris
   laci, dan tombol dialog. Kilau memakai tinta transparan, bukan warna kedua.
-- **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate), memakai
-  `LAYER_TYPE_HARDWARE` saat bergeser supaya tidak digambar ulang tiap frame;
-  scrim meredup bersamaan.
+- **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate); scrim
+  meredup bersamaan. Tidak memakai layer keras eksplisit karena pada sebagian
+  renderer (emulator software/SwiftShader) layer itu membuat laci tampil hitam.
 - **Tab SSH/LOG** silang-memudar 160ms masuk dan 120ms keluar; halaman lama
   tetap terlihat di bawah halaman baru sampai transisi selesai.
 - **Centang** mengisi 140ms: bidang hijau muncul sementara garis kotak

@@ -325,7 +325,7 @@ class MainActivity : InkActivity() {
         body.addView(compactField, LinearLayout.LayoutParams(-1, dp(50)))
 
         body.addView(
-            uiText("Port dan akun boleh menyusul di Pengaturan.", 11.5f, FAINT).apply {
+            uiText("Port dan akun boleh menyusul di baris ini.", 11.5f, FAINT).apply {
                 setPadding(0, dp(6), 0, 0)
             }
         )
@@ -680,11 +680,8 @@ class MainActivity : InkActivity() {
         scrim.visibility = View.VISIBLE
         val duration = if (Face.reducedMotion(this)) 0L else 200L
         drawer.translationX = -drawerWidth.toFloat()
-        // Layer keras: laci tidak digambar ulang tiap frame saat bergeser.
-        drawer.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         drawer.animate().translationX(0f).setDuration(duration)
             .setInterpolator(android.view.animation.DecelerateInterpolator())
-            .withEndAction { drawer.setLayerType(View.LAYER_TYPE_NONE, null) }
             .start()
         scrim.alpha = 0f
         scrim.animate().alpha(1f).setDuration(duration).start()
@@ -694,13 +691,9 @@ class MainActivity : InkActivity() {
         if (!drawerOpen) return
         drawerOpen = false
         val duration = if (Face.reducedMotion(this)) 0L else 180L
-        drawer.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         drawer.animate().translationX(-drawerWidth.toFloat()).setDuration(duration)
             .setInterpolator(android.view.animation.AccelerateInterpolator())
-            .withEndAction {
-                drawer.visibility = View.GONE
-                drawer.setLayerType(View.LAYER_TYPE_NONE, null)
-            }.start()
+            .withEndAction { drawer.visibility = View.GONE }.start()
         scrim.animate().alpha(0f).setDuration(duration)
             .withEndAction { scrim.visibility = View.GONE }.start()
     }
