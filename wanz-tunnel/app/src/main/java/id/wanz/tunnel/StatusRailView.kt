@@ -65,6 +65,14 @@ class StatusRailView(context: Context) : View(context) {
 
     private fun sync() {
         if (state == State.CONNECTING) {
+            // Pengguna bisa mematikan animasi sistem; saat itu tampilkan segmen
+            // diam di tengah, bukan memutar animasi dekoratif.
+            if (Face.reducedMotion(context)) {
+                animator?.cancel()
+                animator = null
+                phase = 0.37f
+                return
+            }
             if (animator != null) return
             animator = ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = 1350L

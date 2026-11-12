@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mode gelap. Nilainya harus sama dengan palet DARK di Theme.kt;
+     tools/design_gate.py memeriksa ini. -->
+<resources>
+    <color name="wanz_bg">#131410</color>
+    <color name="wanz_field">#1A1B15</color>
+    <!-- Pelat ikon launcher tetap terang supaya ikon tidak berbalik jadi asing. -->
+    <color name="wanz_icon_bg">#F1F1EC</color>
+</resources>

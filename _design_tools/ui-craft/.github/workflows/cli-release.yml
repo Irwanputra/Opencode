@@ -1,0 +1,146 @@
+name: CLI Release (goreleaser)
+
+# Triggered on semver tags pushed by the existing release.yml workflow
+# (e.g. v0.35.0). Uses the same tag scheme as the main release so the binary
+# version matches the coordinated repo version (ADR-6 / design.md §Build & Distribution).
+#
+# Distinct from release.yml (which only creates the GitHub Release note from
+# VERSIONS.md). This workflow builds and publishes the Go binary.
+#
+# Assets are committed directly (hand-authored, no gen-before-build).
+# The build is self-contained: checkout → setup-go → goreleaser.
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+      - "v[0-9]+.[0-9]+.[0-9]+-*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (must exist on the repo)"
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      # ── Step 1: Checkout ──────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          fetch-depth: 0
+          # On workflow_dispatch, check out the requested tag (not the dispatch
+          # branch) so goreleaser sees HEAD == the tag commit. On tag push,
+          # github.ref is the tag already.
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: Ensure cli/assets/agents/ is present
+        run: |
+          # Agent definitions are committed directly (not CI-generated), so this
+          # is a sanity check that the directory exists and is non-empty.
+          if [ ! -d "cli/assets/agents" ] || [ -z "$(ls -A cli/assets/agents)" ]; then
+            echo "WARNING: cli/assets/agents/ is missing or empty — agents will not be embedded"
+          else
+            echo "cli/assets/agents/ OK"
+          fi
+
+      # ── Step 2: Setup Go ──────────────────────────────────────────────────
+      # The binary writes `npx -y ui-craft-mcp@X` into every MCP config it generates. If that
+      # version is not on npm yet, the release installs nothing on a user's first launch --
+      # on a version string they never chose. The pin bump, the npm publish and this tag are
+      # three separate steps, and nothing connected them before.
+      - name: The pinned MCP version is published
+        run: node scripts/check-pin-published.mjs
+
+      - name: Setup Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e  # v7.0.0
+        with:
+          go-version: "1.23"
+          cache-dependency-path: cli/go.sum
+
+      # ── Step 3: goreleaser release ────────────────────────────────────────
+      - name: Run goreleaser
+        uses: goreleaser/goreleaser-action@a4f02ab5355a589de60d917a659ce617ed19b3de  # v7.3.0
+        with:
+          distribution: goreleaser
+          version: "~> v2"
+          args: release --clean
+          workdir: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+
+      - name: Attest release artifacts
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6  # v4.2.2
+        with:
+          subject-path: |
+            ${{ github.workspace }}/dist/*.tar.gz
+            ${{ github.workspace }}/dist/*.zip
+            ${{ github.workspace }}/dist/checksums.txt
+
+  # ── Post-release smoke test ───────────────────────────────────────────────
+  # This job covers what CI CAN automate. It is not a substitute for the
+  # manual Gatekeeper/Apple-Silicon verification in RELEASE_CHECKLIST.md —
+  # see that file for the steps CI structurally cannot cover.
+  smoke-test:
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Wait for release asset to be available
+        run: sleep 30
+
+      - name: Download release binary and verify
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # workflow_dispatch runs from a branch, so its explicit tag input
+          # must take precedence over github.ref_name.
+          TAG="${{ github.event.inputs.tag || github.ref_name }}"
+
+          echo "Smoke-testing release: $TAG"
+
+          # Download the linux/amd64 binary from the GitHub Release
+          ASSET_NAME="ui-craft_${TAG#v}_linux_amd64.tar.gz"
+          gh release download "$TAG" \
+            --repo educlopez/ui-craft \
+            --pattern "$ASSET_NAME" \
+            --output "release.tar.gz" || {
+            echo "ERROR: could not download expected release asset $ASSET_NAME"
+            exit 1
+          }
+
+          tar -xzf release.tar.gz
+          chmod +x ui-craft
+
+          # Assert: binary boots and returns non-empty version string
+          OUTPUT=$(./ui-craft version)
+          echo "ui-craft version output: $OUTPUT"
+
+          if [ -z "$OUTPUT" ]; then
+            echo "ERROR: ui-craft version returned empty output"
+            exit 1
+          fi
+
+          # Assert: install --dry-run --json does not crash and emits valid JSON
+          # against the actual released binary (installer-hardening spec:
+          # release-verification / Release Smoke Test — Install Dry-Run).
+          mkdir -p ~/.claude
+          DRYRUN_OUTPUT=$(./ui-craft install --harness claude --dry-run --json --yes)
+          echo "ui-craft install --dry-run --json output: $DRYRUN_OUTPUT"
+
+          if ! echo "$DRYRUN_OUTPUT" | jq empty >/dev/null 2>&1; then
+            echo "ERROR: ui-craft install --dry-run --json did not emit valid JSON"
+            exit 1
+          fi
+
+          echo "Smoke test passed."
+          echo "Reminder: complete the manual Gatekeeper/Apple-Silicon verification in RELEASE_CHECKLIST.md — CI cannot cover that step."

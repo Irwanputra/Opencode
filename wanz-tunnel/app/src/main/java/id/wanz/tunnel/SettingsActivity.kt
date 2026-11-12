@@ -5,23 +5,17 @@ import android.app.AlertDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
-import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
 import android.text.InputType
-import android.text.TextUtils
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.Spinner
-import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import java.io.File
@@ -31,18 +25,18 @@ import java.io.File
  * Profil, Koneksi, Payload & Proxy, Jaringan, Ping, Lainnya, Log, dan
  * Impor Config. Semua opsi di sini benar-benar dipakai oleh [TunnelService].
  */
-class SettingsActivity : Activity() {
+class SettingsActivity : InkActivity() {
     private val fields = LinkedHashMap<String, EditText>()
     private lateinit var root: LinearLayout
-    private lateinit var profileSpinner: Spinner
-    private lateinit var profileAdapter: ArrayAdapter<String>
-    private lateinit var transportSpinner: Spinner
-    private lateinit var pingIntervalSpinner: Spinner
-    private lateinit var strictSwitch: Switch
-    private lateinit var autoPingSwitch: Switch
-    private lateinit var autoReconnectSwitch: Switch
-    private lateinit var onlyMobileSwitch: Switch
-    private lateinit var blockRootSwitch: Switch
+    private lateinit var profileSelect: InkSelect
+    private lateinit var themeSelect: InkSelect
+    private lateinit var transportSelect: InkSelect
+    private lateinit var pingIntervalSelect: InkSelect
+    private lateinit var strictToggle: InkToggle
+    private lateinit var autoPingToggle: InkToggle
+    private lateinit var autoReconnectToggle: InkToggle
+    private lateinit var onlyMobileToggle: InkToggle
+    private lateinit var blockRootToggle: InkToggle
 
     private lateinit var store: ProfileStore
     private var profiles = mutableListOf<Profile>()
@@ -93,7 +87,7 @@ class SettingsActivity : Activity() {
         this.text = text
         textSize = 11f
         setTextColor(MUTED)
-        typeface = Typeface.create("sans-serif", Typeface.NORMAL)
+        typeface = Face.prose(this@SettingsActivity)
     }
 
     /** Judul bagian dengan garis rambut di bawahnya. */
@@ -101,9 +95,10 @@ class SettingsActivity : Activity() {
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         box.addView(TextView(this).apply {
             this.text = text
-            textSize = 12f
+            textSize = 11.5f
+            letterSpacing = 0.06f
             setTextColor(INK)
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+            typeface = Face.monoMedium(this@SettingsActivity)
         })
         box.addView(
             rule(),
@@ -119,14 +114,25 @@ class SettingsActivity : Activity() {
         setLineSpacing(dp(3).toFloat(), 1f)
     }
 
+    /**
+     * Bidang isian ala formulir cetak: kertas polos, garis rambut 1dp di
+     * bawah, tinta saat fokus. Bukan kotak abu-abu komponen default.
+     */
     private fun fieldBackground(): StateListDrawable {
-        val normal = box(FIELD, 2, HAIR, 1)
-        val focused = box(BG, 2, INK, 1)
+        fun underline(color: Int) = android.graphics.drawable.LayerDrawable(
+            arrayOf(
+                android.graphics.drawable.ColorDrawable(0x00000000),
+                android.graphics.drawable.ColorDrawable(color)
+            )
+        ).apply { setLayerInset(1, 0, height0(), 0, 0) }
         return StateListDrawable().apply {
-            addState(intArrayOf(android.R.attr.state_focused), focused)
-            addState(intArrayOf(), normal)
+            addState(intArrayOf(android.R.attr.state_focused), underline(INK))
+            addState(intArrayOf(), underline(HAIR))
         }
     }
+
+    /** Garis bawah ditaruh di dasar area setinggi 48dp. */
+    private fun height0(): Int = dp(47)
 
     private fun field(
         key: String,
@@ -146,9 +152,12 @@ class SettingsActivity : Activity() {
         setTextColor(INK)
         setHintTextColor(FAINT)
         textSize = 15f
+        typeface = Face.mono(this@SettingsActivity)
         background = fieldBackground()
-        setPadding(dp(12), dp(11), dp(12), dp(11))
+        setPadding(0, dp(11), 0, dp(10))
         includeFontPadding = false
+        minHeight = dp(48)
+        imeOptions = imeOptions or android.view.inputmethod.EditorInfo.IME_FLAG_NO_EXTRACT_UI
         fields[key] = this
     }
 
@@ -178,60 +187,20 @@ class SettingsActivity : Activity() {
         setOnClickListener { onClick() }
     }
 
-    private fun toggle(label: String, checked: Boolean) = Switch(this).apply {
-        text = label
-        setTextColor(INK)
-        textSize = 13.5f
+    private fun toggle(label: String, checked: Boolean) = InkToggle(this).apply {
+        this.label = label
         isChecked = checked
-        setPadding(0, dp(8), 0, dp(4))
-        thumbTintList = android.content.res.ColorStateList(
-            arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
-            intArrayOf(INK, 0xFF8E928C.toInt())
-        )
-        trackTintList = android.content.res.ColorStateList(
-            arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
-            intArrayOf(withAlpha(INK, 110), HAIR)
-        )
     }
 
-    private fun spinnerAdapter(items: List<String>) = object : ArrayAdapter<String>(
-        this, android.R.layout.simple_spinner_item, items
-    ) {
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            return (super.getView(position, convertView, parent) as TextView).apply {
-                setTextColor(INK)
-                textSize = 14f
-                setPadding(dp(4), dp(9), dp(4), dp(9))
-                background = null
-                maxLines = 1
-                ellipsize = TextUtils.TruncateAt.END
-            }
+    private fun select(caption: String, items: List<String>) =
+        InkSelect(this).apply {
+            this.caption = caption
+            options = items
         }
-
-        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
-            return (super.getDropDownView(position, convertView, parent) as TextView).apply {
-                setTextColor(INK)
-                textSize = 14.5f
-                setPadding(dp(16), dp(13), dp(16), dp(13))
-                setBackgroundColor(BG)
-            }
-        }
-    }
-
-    private fun darkSpinner(): Spinner = Spinner(this).apply {
-        background = box(BG, 2, HAIR, 1)
-        setPadding(dp(8), 0, dp(8), 0)
-        setPopupBackgroundDrawable(box(BG, 2, HAIR, 1))
-    }
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
-        window.statusBarColor = BG
-        window.navigationBarColor = BG
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        @Suppress("DEPRECATION")
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
 
         store = ProfileStore(this)
         profiles = store.load()
@@ -240,13 +209,10 @@ class SettingsActivity : Activity() {
         activeIndex = profiles.indexOfFirst { it.id == activeId }.takeIf { it >= 0 } ?: 0
 
         buildUi()
-        profileAdapter = spinnerAdapter(profileNames())
-        profileSpinner.adapter = profileAdapter
-        profileSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?, view: View?, position: Int, id: Long
-            ) {
-                if (loading || position == activeIndex) return
+        profileSelect.options = profileNames()
+        profileSelect.selectedIndex = activeIndex
+        profileSelect.onSelect = { position ->
+            if (!loading && position != activeIndex) {
                 saveCurrent()
                 if (TunnelService.running) {
                     startService(
@@ -264,12 +230,10 @@ class SettingsActivity : Activity() {
                 store.save(profiles, p.id)
                 loadProfile(p)
             }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
         loading = true
-        profileSpinner.setSelection(activeIndex, false)
+        profileSelect.selectedIndex = activeIndex
         loading = false
         loadProfile(profiles[activeIndex])
 
@@ -295,14 +259,14 @@ class SettingsActivity : Activity() {
             textSize = 27f
             setTextColor(INK)
             letterSpacing = -0.02f
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+            typeface = Face.proseMedium(this@SettingsActivity)
         })
         brand.addView(TextView(this).apply {
             text = "WANZ TUNNEL"
             textSize = 10f
             setTextColor(MUTED)
             letterSpacing = 0.1f
-            typeface = Typeface.create("sans-serif", Typeface.NORMAL)
+            typeface = Face.prose(this@SettingsActivity)
         })
         header.addView(brand, LinearLayout.LayoutParams(0, -2, 1f))
         header.addView(TextView(this).apply {
@@ -327,8 +291,8 @@ class SettingsActivity : Activity() {
         val profileCard = card()
         profileCard.addView(sectionLabel("Profil"))
         val profileRow = horizontal()
-        profileSpinner = darkSpinner()
-        profileRow.addView(profileSpinner, LinearLayout.LayoutParams(0, dp(48), 1f))
+        profileSelect = InkSelect(this).apply { caption = "Profil" }
+        profileRow.addView(profileSelect, LinearLayout.LayoutParams(0, dp(48), 1f))
         profileRow.addView(
             chipButton("+", INK) { addProfile() },
             LinearLayout.LayoutParams(dp(48), dp(48)).apply { leftMargin = dp(8) }
@@ -340,6 +304,29 @@ class SettingsActivity : Activity() {
         profileCard.addView(profileRow, lp(10))
         profileCard.addView(labeledField("Nama profil", "name", "Server 1"), lp(12))
         root.addView(profileCard, lp(26))
+
+        // ---------------------------------------------------------- TAMPILAN
+        // Preferensi global, bukan per profil: langsung disimpan dan aktivitas
+        // dibuat ulang supaya seluruh halaman ikut palet baru.
+        val viewCard = card()
+        viewCard.addView(sectionLabel("Tampilan"))
+        themeSelect = select("Tema", THEME_LABELS)
+        themeSelect.selectedIndex = AppPrefs.themeMode(this)
+        themeSelect.onSelect = { which ->
+            if (AppPrefs.themeMode(this@SettingsActivity) != which) {
+                AppPrefs.setThemeMode(this@SettingsActivity, which)
+                // Halaman ini dibangun ulang sekarang; halaman lain yang masih
+                // terbuka ikut dibangun ulang saat kembali ke depan.
+                recreate()
+            }
+        }
+        viewCard.addView(themeSelect, lp(10))
+        viewCard.addView(
+            note("Gelap: grafit hangat dengan aksen kuningan. Terang: kertas dengan " +
+                "tinta tua. Ikuti sistem mengikuti pengaturan HP."),
+            lp(10)
+        )
+        root.addView(viewCard, lp(26))
 
         // ---------------------------------------------------------- KONEKSI
         val connCard = card()
@@ -354,9 +341,9 @@ class SettingsActivity : Activity() {
         val transportRow = horizontal(Gravity.BOTTOM)
         val transportBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         transportBox.addView(caption("Transport"))
-        transportSpinner = darkSpinner().apply { adapter = spinnerAdapter(transportLabels) }
+        transportSelect = select("Transport", transportLabels)
         transportBox.addView(
-            transportSpinner,
+            transportSelect,
             LinearLayout.LayoutParams(-1, dp(48)).apply { topMargin = dp(7) }
         )
         transportRow.addView(transportBox, LinearLayout.LayoutParams(0, -2, 1f))
@@ -388,7 +375,7 @@ class SettingsActivity : Activity() {
         payloadCard.addView(
             labeledField(
                 "Payload (opsional)", "payload",
-                "GET / HTTP/1.1[crlf]Host: [host][crlf][crlf][split]...",
+                "GET / HTTP/1.1[crlf]Host: [host][crlf][crlf][split]…",
                 lines = 4
             ),
             lp(12)
@@ -411,8 +398,8 @@ class SettingsActivity : Activity() {
             LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(10) }
         )
         payloadCard.addView(wsRow, lp(12))
-        strictSwitch = toggle("Verifikasi sertifikat TLS ketat", true)
-        payloadCard.addView(strictSwitch, lp(10))
+        strictToggle = toggle("Verifikasi sertifikat TLS ketat", true)
+        payloadCard.addView(strictToggle, lp(10))
         payloadCard.addView(
             note("Config HTTP Custom (payload ber-[split]) otomatis memakai SSH langsung; " +
                 "handshake WS bawaan dilewati."),
@@ -445,15 +432,15 @@ class SettingsActivity : Activity() {
         // -------------------------------------------------------------- PING
         val pingCard = card()
         pingCard.addView(sectionLabel("Ping"))
-        autoPingSwitch = toggle("Auto ping saat terhubung", true)
-        pingCard.addView(autoPingSwitch, lp(6))
+        autoPingToggle = toggle("Auto ping saat terhubung", true)
+        pingCard.addView(autoPingToggle, lp(6))
 
         val pingRow = horizontal(Gravity.BOTTOM)
         val intervalBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         intervalBox.addView(caption("Interval"))
-        pingIntervalSpinner = darkSpinner().apply { adapter = spinnerAdapter(pingIntervalLabels) }
+        pingIntervalSelect = select("Interval ping", pingIntervalLabels)
         intervalBox.addView(
-            pingIntervalSpinner,
+            pingIntervalSelect,
             LinearLayout.LayoutParams(-1, dp(48)).apply { topMargin = dp(7) }
         )
         pingRow.addView(intervalBox, LinearLayout.LayoutParams(0, -2, 1f))
@@ -468,7 +455,7 @@ class SettingsActivity : Activity() {
                 textSize = 13f
                 gravity = Gravity.CENTER
                 setTextColor(INK)
-                typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+                typeface = Face.proseMedium(this@SettingsActivity)
                 background = box(0, 2, INK, 1)
                 setPadding(dp(12), dp(12), dp(12), dp(12))
                 isClickable = true
@@ -495,12 +482,12 @@ class SettingsActivity : Activity() {
         // ----------------------------------------------------------- LAINNYA
         val miscCard = card()
         miscCard.addView(sectionLabel("Lainnya"))
-        autoReconnectSwitch = toggle("Sambung ulang otomatis jika putus", true)
-        onlyMobileSwitch = toggle("Hanya data seluler (tolak Wi-Fi)", false)
-        blockRootSwitch = toggle("Blokir root (tolak perangkat ter-root)", false)
-        miscCard.addView(autoReconnectSwitch, lp(6))
-        miscCard.addView(onlyMobileSwitch, lp(4))
-        miscCard.addView(blockRootSwitch, lp(4))
+        autoReconnectToggle = toggle("Sambung ulang otomatis jika putus", true)
+        onlyMobileToggle = toggle("Hanya data seluler (tolak Wi-Fi)", false)
+        blockRootToggle = toggle("Blokir root (tolak perangkat ter-root)", false)
+        miscCard.addView(autoReconnectToggle, lp(6))
+        miscCard.addView(onlyMobileToggle, lp(4))
+        miscCard.addView(blockRootToggle, lp(4))
         // Port internal tun2socks. Tidak lagi bagian dari pilihan mode.
         miscCard.addView(
             labeledField("Port lokal", "socksPort", "1080", InputType.TYPE_CLASS_NUMBER),
@@ -562,7 +549,7 @@ class SettingsActivity : Activity() {
             lp(10)
         )
         val importField = EditText(this).apply {
-            hint = "GET / HTTP/1.1[crlf]Host: edu.ruangguru.com..." +
+            hint = "GET / HTTP/1.1[crlf]Host: edu.ruangguru.com…" +
                 "\n104.17.70.206:80" +
                 "\nindo5.vpnjz.com:80@Taekkk67-vpnjantit.com:123"
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
@@ -572,9 +559,9 @@ class SettingsActivity : Activity() {
             setTextColor(INK)
             setHintTextColor(FAINT)
             textSize = 12f
-            typeface = Typeface.MONOSPACE
+            typeface = Face.mono(this@SettingsActivity)
             background = fieldBackground()
-            setPadding(dp(12), dp(11), dp(12), dp(11))
+            setPadding(0, dp(11), 0, dp(12))
             includeFontPadding = false
         }
         importCard.addView(importField, lp(8))
@@ -583,8 +570,8 @@ class SettingsActivity : Activity() {
                 text = "Terapkan ke profil aktif"
                 textSize = 13f
                 gravity = Gravity.CENTER
-                setTextColor(PAPER)
-                typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+                setTextColor(ON_INK)
+                typeface = Face.proseMedium(this@SettingsActivity)
                 background = box(INK, 2)
                 setPadding(dp(12), dp(13), dp(12), dp(13))
                 isClickable = true
@@ -607,7 +594,7 @@ class SettingsActivity : Activity() {
             }
         })
         root.addView(TextView(this).apply {
-            text = "Wanz Tunnel 2.8.1  ·  koneksi pribadi"
+            text = "Wanz Tunnel " + BuildConfig.VERSION_NAME + "  ·  koneksi pribadi"
             textSize = 10.5f
             setTextColor(FAINT)
             setPadding(0, dp(8), 0, 0)
@@ -618,10 +605,8 @@ class SettingsActivity : Activity() {
         profiles.map { it.name.ifBlank { "Server ${it.id}" } }
 
     private fun refreshProfileNames() {
-        if (!::profileAdapter.isInitialized) return
-        profileAdapter.clear()
-        profileAdapter.addAll(profileNames())
-        profileAdapter.notifyDataSetChanged()
+        if (!::profileSelect.isInitialized) return
+        profileSelect.options = profileNames()
     }
 
     private fun text(key: String): String = fields[key]?.text?.toString()?.trim() ?: ""
@@ -640,17 +625,17 @@ class SettingsActivity : Activity() {
         // Mode tunggal: VPN. SOCKS5 hanya dipakai di dalam perangkat oleh
         // tun2socks, tidak lagi menjadi pilihan pengguna.
         p.vpn = true
-        p.transport = transportKeys.getOrElse(transportSpinner.selectedItemPosition) { "ssh" }
+        p.transport = transportKeys.getOrElse(transportSelect.selectedIndex) { "ssh" }
         p.sni = text("sni")
         p.wsHost = text("wsHost")
         p.wsPath = text("wsPath").ifBlank { "/" }
-        p.strictTls = strictSwitch.isChecked
-        p.autoPing = autoPingSwitch.isChecked
-        p.pingInterval = pingIntervalValues.getOrElse(pingIntervalSpinner.selectedItemPosition) { 10 }
+        p.strictTls = strictToggle.isChecked
+        p.autoPing = autoPingToggle.isChecked
+        p.pingInterval = pingIntervalValues.getOrElse(pingIntervalSelect.selectedIndex) { 10 }
         p.pingTarget = text("pingTarget").ifBlank { "1.1.1.1:443" }
-        p.autoReconnect = autoReconnectSwitch.isChecked
-        p.onlyMobileData = onlyMobileSwitch.isChecked
-        p.blockRoot = blockRootSwitch.isChecked
+        p.autoReconnect = autoReconnectToggle.isChecked
+        p.onlyMobileData = onlyMobileToggle.isChecked
+        p.blockRoot = blockRootToggle.isChecked
         // mapped-DNS wajib: SSH hanya meneruskan TCP.
         p.mappedDns = true
         store.save(profiles, p.id)
@@ -667,22 +652,20 @@ class SettingsActivity : Activity() {
         fields["proxy"]?.setText(p.proxy)
         fields["payload"]?.setText(p.payload)
         fields["socksPort"]?.setText((p.socksPort.takeIf { it > 0 } ?: 1080).toString())
-        transportSpinner.setSelection(
-            transportKeys.indexOf(p.transport).takeIf { it >= 0 } ?: 0, false
-        )
+        transportSelect.selectedIndex =
+            transportKeys.indexOf(p.transport).takeIf { it >= 0 } ?: 0
         fields["sni"]?.setText(p.sni)
         fields["wsHost"]?.setText(p.wsHost)
         fields["wsPath"]?.setText(p.wsPath.ifBlank { "/" })
-        strictSwitch.isChecked = p.strictTls
+        strictToggle.isChecked = p.strictTls
 
-        autoPingSwitch.isChecked = p.autoPing
-        pingIntervalSpinner.setSelection(
-            pingIntervalValues.indexOf(p.pingInterval).takeIf { it >= 0 } ?: 1, false
-        )
+        autoPingToggle.isChecked = p.autoPing
+        pingIntervalSelect.selectedIndex =
+            pingIntervalValues.indexOf(p.pingInterval).takeIf { it >= 0 } ?: 1
         fields["pingTarget"]?.setText(p.pingTarget)
-        autoReconnectSwitch.isChecked = p.autoReconnect
-        onlyMobileSwitch.isChecked = p.onlyMobileData
-        blockRootSwitch.isChecked = p.blockRoot
+        autoReconnectToggle.isChecked = p.autoReconnect
+        onlyMobileToggle.isChecked = p.onlyMobileData
+        blockRootToggle.isChecked = p.blockRoot
         loading = false
     }
 
@@ -695,7 +678,7 @@ class SettingsActivity : Activity() {
         store.save(profiles, p.id)
         loading = true
         refreshProfileNames()
-        profileSpinner.setSelection(activeIndex, false)
+        profileSelect.selectedIndex = activeIndex
         loading = false
         loadProfile(p)
     }
@@ -721,7 +704,7 @@ class SettingsActivity : Activity() {
                 store.save(profiles, profiles[activeIndex].id)
                 loading = true
                 refreshProfileNames()
-                profileSpinner.setSelection(activeIndex, false)
+                profileSelect.selectedIndex = activeIndex
                 loading = false
                 loadProfile(profiles[activeIndex])
             }
@@ -786,7 +769,7 @@ class SettingsActivity : Activity() {
         pass?.let { fields["pass"]?.setText(it) }
         proxy?.let { fields["proxy"]?.setText(it) }
         payload?.let { fields["payload"]?.setText(it) }
-        transportSpinner.setSelection(0, false)
+        transportSelect.selectedIndex = 0
         loading = false
         saveCurrent()
         val filled = listOfNotNull(

@@ -4,7 +4,10 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 
-/** Warna per level log pada kertas terang. */
+/**
+ * Warna per level log. Semua dibaca ulang tiap render: token warna berubah
+ * saat palet gelap dipasang, jadi warnanya tidak boleh ditambal di sini.
+ */
 internal fun logLevelColor(level: String): Int = when (level) {
     TunnelLog.WARN -> WARN
     TunnelLog.ERROR -> ERR
@@ -12,8 +15,8 @@ internal fun logLevelColor(level: String): Int = when (level) {
     else -> INK
 }
 
-private val LOG_TIME_COLOR = FAINT
-private val LOG_MESSAGE_COLOR = INK
+private fun logTimeColor(): Int = FAINT
+private fun logMessageColor(): Int = INK
 
 /**
  * Render satu entri log menjadi teks berwarna:
@@ -22,7 +25,7 @@ private val LOG_MESSAGE_COLOR = INK
 internal fun TunnelLog.Entry.toSpanned(): CharSequence {
     val ss = SpannableStringBuilder()
     ss.append(time)
-    ss.setSpan(ForegroundColorSpan(LOG_TIME_COLOR), 0, ss.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+    ss.setSpan(ForegroundColorSpan(logTimeColor()), 0, ss.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
 
     ss.append("  [")
     val levelStart = ss.length
@@ -38,7 +41,7 @@ internal fun TunnelLog.Entry.toSpanned(): CharSequence {
     val msgStart = ss.length
     ss.append(message)
     ss.setSpan(
-        ForegroundColorSpan(LOG_MESSAGE_COLOR),
+        ForegroundColorSpan(logMessageColor()),
         msgStart,
         ss.length,
         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE

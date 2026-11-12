@@ -1,0 +1,9 @@
+event: stderr
+data: {"data": "Traceback (most recent call last):\n  File \"/tmp/marimo_150/__marimo__cell___scratch___.py\", line 25, in <module>\n    if phase != \"done\" and \"200\" in str(getattr(r, \"status\", \"\")):\n                                                ^\nNameError: name 'r' is not defined\n"}
+
+event: stdout
+data: {"data": "public GAGAL: HTTP Error 403: Forbidden\n\nphase: relay\n"}
+
+event: done
+data: {"success": false, "output": {"mimetype": "text/plain", "data": ""}}
+

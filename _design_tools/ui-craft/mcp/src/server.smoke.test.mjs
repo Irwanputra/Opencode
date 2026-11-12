@@ -1,0 +1,138 @@
+/**
+ * Functional smoke test — spawns the REAL server over stdio via an MCP client.
+ * Catches server-startup failures (e.g. bad tool registration) that module-level
+ * unit tests miss. Regression guard for the v0.29/v0.30 registerTool Zod-schema bug.
+ */
+import { test } from 'node:test';
+import assert from 'node:assert';
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { MCP_VERSION } from './version.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+// Defaults to the source server; set UI_CRAFT_MCP_SERVER (e.g. dist/server.mjs)
+// to smoke the published bundle — same regression guard, real artifact.
+const SERVER = process.env.UI_CRAFT_MCP_SERVER
+  ? join(process.cwd(), process.env.UI_CRAFT_MCP_SERVER)
+  : join(__dirname, 'server.mjs');
+
+test('server boots over stdio and lists the 7 tools', async () => {
+  if (process.env.UI_CRAFT_MCP_SERVER) {
+    const bundledSource = readFileSync(SERVER, 'utf8');
+    assert.doesNotMatch(
+      bundledSource,
+      /new URL\(['"]\.\.\/package\.json['"]/,
+      'published bundle must not read package.json at runtime',
+    );
+  }
+  const transport = new StdioClientTransport({ command: 'node', args: [SERVER] });
+  const client = new Client({ name: 'smoke', version: '0.0.0' }, { capabilities: {} });
+  await client.connect(transport);
+  try {
+    assert.equal(
+      client.getServerVersion()?.version,
+      MCP_VERSION,
+      'server handshake version matches package.json',
+    );
+    const { tools } = await client.listTools();
+    const names = tools.map((t) => t.name).sort();
+    assert.deepStrictEqual(names, [
+      'acceptance_bar',
+      'check_anti_slop',
+      'check_fold',
+      'fold_candidates',
+      'route_task',
+      'score_ui',
+      'tokens_lint',
+      'ux_coverage',
+    ]);
+  } finally {
+    await client.close();
+  }
+});
+
+test('check_anti_slop + score_ui return content over stdio', async () => {
+  const transport = new StdioClientTransport({ command: 'node', args: [SERVER] });
+  const client = new Client({ name: 'smoke', version: '0.0.0' }, { capabilities: {} });
+  await client.connect(transport);
+  try {
+    const slop = 'export default () => <div className="bg-gradient-to-r from-purple-500 to-cyan-500"><img src="/x.png"/></div>;';
+    const anti = await client.callTool({ name: 'check_anti_slop', arguments: { code: slop } });
+    assert.ok(anti.content?.[0]?.text, 'check_anti_slop returns text content');
+    const score = await client.callTool({ name: 'score_ui', arguments: { code: slop } });
+    const parsed = JSON.parse(score.content[0].text);
+    assert.ok(typeof parsed.overall?.score === 'number', 'score_ui returns a numeric score');
+    const bar = await client.callTool({ name: 'acceptance_bar', arguments: { surface: 'dashboard' } });
+    assert.ok(bar.content?.[0]?.text, 'acceptance_bar returns content');
+  } finally {
+    await client.close();
+  }
+});
+
+test('every tool advertises an outputSchema and returns structuredContent', async () => {
+  const transport = new StdioClientTransport({ command: 'node', args: [SERVER] });
+  const client = new Client({ name: 'smoke', version: '0.0.0' }, { capabilities: {} });
+  await client.connect(transport);
+  try {
+    const { tools } = await client.listTools();
+    for (const tool of tools) {
+      assert.ok(tool.outputSchema, `${tool.name} advertises an outputSchema`);
+    }
+
+    const slop = 'export default () => <div className="bg-gradient-to-r from-purple-500 to-cyan-500"><img src="/x.png"/></div>;';
+
+    // A failing outputSchema validation surfaces as an MCP error, so reaching
+    // these assertions already proves the declared schemas match reality.
+    const anti = await client.callTool({ name: 'check_anti_slop', arguments: { code: slop } });
+    assert.equal(typeof anti.structuredContent?.summary?.total, 'number');
+    assert.ok(Array.isArray(anti.structuredContent.findings));
+
+    const tokens = await client.callTool({ name: 'tokens_lint', arguments: { code: slop } });
+    assert.equal(typeof tokens.structuredContent?.summary?.total, 'number');
+
+    const score = await client.callTool({ name: 'score_ui', arguments: { code: slop } });
+    assert.equal(typeof score.structuredContent?.overall?.score, 'number');
+    assert.equal(typeof score.structuredContent.overall.grade, 'string');
+    assert.equal(typeof score.structuredContent.dimensions.a11y.score, 'number');
+
+    const bar = await client.callTool({ name: 'acceptance_bar', arguments: { surface: 'dashboard' } });
+    assert.equal(bar.structuredContent?.surface, 'dashboard');
+    assert.ok(bar.structuredContent.items.length > 0);
+
+    // check_fold needs a browser and is not exercised here; fold_candidates is pure.
+    const drawn = await client.callTool({ name: 'fold_candidates', arguments: { used: ['type-only'] } });
+    const ids = drawn.structuredContent.candidates.map((c) => c.id);
+    assert.equal(ids.length, 3);
+    assert.ok(!ids.includes('type-only'), 'a spent class drops out of the draw');
+    assert.ok(!ids.includes('split'), 'split is never offered first');
+
+    // Worth smoking over stdio because it exercises stopwords and the synonym map in one
+    // call, against a filename that contains none of the words asked for.
+    const routed = await client.callTool({
+      name: 'route_task',
+      arguments: { prompt: 'build me an analytics panel with KPIs' },
+    });
+    const routedNames = routed.structuredContent.results.references.map((r) => r.name);
+    assert.ok(routedNames.includes('recipe-dashboard'), `expected recipe-dashboard, got ${routedNames.join(', ')}`);
+    assert.equal(typeof routed.structuredContent.first_move, 'string');
+  } finally {
+    await client.close();
+  }
+});
+
+test('an errored tool call still returns text and no structuredContent', async () => {
+  const transport = new StdioClientTransport({ command: 'node', args: [SERVER] });
+  const client = new Client({ name: 'smoke', version: '0.0.0' }, { capabilities: {} });
+  await client.connect(transport);
+  try {
+    const bad = await client.callTool({ name: 'check_anti_slop', arguments: {} });
+    assert.equal(bad.isError, true, 'missing input is an error result');
+    assert.ok(bad.content?.[0]?.text, 'error results keep the text block');
+    assert.equal(bad.structuredContent, undefined, 'error results carry no structuredContent');
+  } finally {
+    await client.close();
+  }
+});

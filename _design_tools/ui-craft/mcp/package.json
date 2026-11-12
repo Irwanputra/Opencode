@@ -1,0 +1,46 @@
+{
+  "name": "ui-craft-mcp",
+  "version": "0.9.0",
+  "description": "ui-craft MCP server — deterministic design-quality gate (anti-slop, tokens, acceptance-bar, score)",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/educlopez/ui-craft.git",
+    "directory": "mcp"
+  },
+  "homepage": "https://ui-craft.smoothui.dev",
+  "bugs": {
+    "url": "https://github.com/educlopez/ui-craft/issues"
+  },
+  "license": "MIT",
+  "bin": {
+    "ui-craft-mcp": "dist/server.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/server.mjs",
+    "build": "node esbuild.config.mjs",
+    "smoke:dist": "npm run build && UI_CRAFT_MCP_SERVER=dist/server.mjs node --test src/server.smoke.test.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "overrides": {
+    "proxy-addr": ">=2.0.8",
+    "hono": "^4.13.13",
+    "fast-uri": "^3.1.5",
+    "ip-address": "^10.7.1",
+    "qs": ">=6.16.0"
+  }
+}

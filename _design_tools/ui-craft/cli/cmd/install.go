@@ -1,0 +1,566 @@
+package cmd
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+	"os/exec"
+	"path/filepath"
+	"strings"
+
+	"github.com/educlopez/ui-craft/cli/assets"
+	"github.com/educlopez/ui-craft/cli/backup"
+	"github.com/educlopez/ui-craft/cli/component"
+	"github.com/educlopez/ui-craft/cli/core"
+	"github.com/educlopez/ui-craft/cli/fsutil"
+	"github.com/educlopez/ui-craft/cli/harness"
+	"github.com/educlopez/ui-craft/cli/tui"
+	"github.com/spf13/cobra"
+)
+
+// installJSONTarget is the per-target outcome in --json output.
+type installJSONTarget struct {
+	Harness    string `json:"harness"`
+	Component  string `json:"component"`
+	Status     string `json:"status"` // "installed", "already-up-to-date", "manual-action-needed", "skipped", "dry-run"
+	Skip       bool   `json:"skip,omitempty"`
+	SkipReason string `json:"skip_reason,omitempty"`
+	// Notice carries what the user must do by hand when Status is
+	// "manual-action-needed" (e.g. a commented opencode.jsonc ui-craft left untouched).
+	Notice string `json:"notice,omitempty"`
+}
+
+// needsManualAction reports a change that wrote nothing on purpose and asks the
+// user to finish by hand. Such a component is not installed: it must not be
+// recorded in state.json, and it must not report as already up to date.
+func needsManualAction(ch harness.Change) bool {
+	return ch.Notice != "" && !ch.Changed
+}
+
+// installJSONResult is the top-level --json result for install/update/uninstall.
+type installJSONResult struct {
+	DryRun    bool                `json:"dry_run"`
+	Harnesses []string            `json:"harnesses"`
+	Targets   []installJSONTarget `json:"targets"`
+}
+
+// supportedHarnessNames lists every harness by name for user-facing messages.
+var supportedHarnessNames = []string{"claude", "cursor", "codex", "gemini", "opencode"}
+
+// lookPathFn wraps exec.LookPath so tests can inject a fake implementation.
+var lookPathFn = func(file string) (string, error) {
+	return exec.LookPath(file)
+}
+
+// nativePluginDetectFn is injectable for testing. It checks whether a Claude
+// Code native plugin install is present (Slice 10: plugin-coexistence warning).
+var nativePluginDetectFn = detectNativeClaudePlugin
+
+// detectAllFn is injectable for testing. It wraps core.DetectAll so tests can
+// supply a controlled set of detected harnesses without filesystem side effects.
+var detectAllFn = func(reg []harness.Harness) []core.DetectedHarness {
+	return core.DetectAll(reg)
+}
+
+// installCmd implements the detect → plan → apply pipeline.
+var installCmd = &cobra.Command{
+	Use:   "install",
+	Short: "Install ui-craft components into detected AI coding harnesses",
+	Long: `Install ui-craft components into detected AI coding harnesses.
+
+Harness config paths are always GLOBAL for this subcommand — skills, commands,
+MCP config and review agents go to each harness's home-derived location (for
+example ~/.claude), never inside the current project.
+
+--dir does not change that. It locates the .ui-craft/ design-memory scaffold,
+so it only has an effect when design-memory is among the installed components.
+Passing --dir with --components skill+commands is a no-op.
+
+For a project-scoped install, run "ui-craft" with no arguments and choose
+"Install (this project)" in the interactive hub.`,
+	SilenceUsage: true,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		out := cmd.OutOrStdout()
+
+		// Resolve project directory early so both TUI and non-interactive paths
+		// use the same value.
+		projectDir := flags.Dir
+		if projectDir == "" || projectDir == "." {
+			if cwd, err := os.Getwd(); err == nil {
+				projectDir = cwd
+			}
+		}
+		if absDir, err := filepath.Abs(projectDir); err == nil {
+			projectDir = absDir
+		}
+
+		// TUI routing (Slice 7 — ADR-2):
+		// When stdout is a TTY AND --yes/--json is not set → launch Bubble Tea TUI.
+		// --json implies non-interactive (machine-readable output, no TUI).
+		// When not a TTY and --yes/--json is not set → exit with a clear error.
+		nonInteractive := flags.Yes || flags.JSON
+		if !nonInteractive {
+			if !tui.IsTerminal() {
+				return fmt.Errorf("interactive mode requires a TTY; use --yes to skip prompts")
+			}
+			// Launch the TUI. It blocks until the user exits or completes.
+			return tui.RunTUI(cmdVersion, projectDir)
+		}
+
+		// --- Non-interactive path (--yes flag set) ---
+
+		// Validate --harness flag before detection so unknown names fail fast.
+		if flags.Harness != "" {
+			valid := false
+			for _, name := range supportedHarnessNames {
+				if flags.Harness == name {
+					valid = true
+					break
+				}
+			}
+			if !valid {
+				return fmt.Errorf("unknown harness %q; valid values: %s", flags.Harness, strings.Join(supportedHarnessNames, ", "))
+			}
+		}
+
+		// Validate --components flag before any work.
+		if len(flags.Components) > 0 {
+			for _, name := range flags.Components {
+				found := false
+				for _, c := range component.All() {
+					if c.String() == name {
+						found = true
+						break
+					}
+				}
+				if !found {
+					return fmt.Errorf("unknown component %q; valid values: skill+commands, mcp-gates, review-agents, design-memory", name)
+				}
+			}
+		}
+
+		// DetectAll is best-effort: one harness erroring does not abort the rest.
+		detected := detectAllFn(harness.All())
+
+		// Honor --harness: filter detected list to only the requested harness.
+		if flags.Harness != "" {
+			var filtered []core.DetectedHarness
+			for _, dh := range detected {
+				if dh.Harness.Name() == flags.Harness {
+					filtered = append(filtered, dh)
+					break
+				}
+			}
+			if len(filtered) == 0 {
+				// Build a helpful error listing what was actually detected.
+				var detectedNames []string
+				for _, dh := range detected {
+					detectedNames = append(detectedNames, dh.Harness.Name())
+				}
+				if len(detectedNames) == 0 {
+					return fmt.Errorf("harness %q not detected; no harnesses detected on this machine", flags.Harness)
+				}
+				return fmt.Errorf("harness %q not detected; detected: %s", flags.Harness, strings.Join(detectedNames, ", "))
+			}
+			detected = filtered
+		}
+
+		if len(detected) == 0 {
+			fmt.Fprintln(out, "No supported AI coding harness detected.")
+			fmt.Fprintf(out, "Supported harnesses: %s\n", strings.Join(supportedHarnessNames, ", "))
+			fmt.Fprintln(out, "Install one of the above tools and re-run `ui-craft install`.")
+			return fmt.Errorf("no harness detected")
+		}
+
+		// --- Plugin coexistence warning (Slice 10) ---
+		// If the Claude Code native plugin is detected, warn the user and require
+		// --force to proceed (or interactive confirmation).
+		forceFlag, _ := cmd.Flags().GetBool("force")
+		claudeDetected := false
+		for _, dh := range detected {
+			if dh.Harness.Name() == "claude" {
+				claudeDetected = true
+				break
+			}
+		}
+		if claudeDetected && nativePluginDetectFn() && !forceFlag {
+			fmt.Fprintln(out, "WARNING: Native Claude Code plugin detected — CLI install may overlap.")
+			fmt.Fprintln(out, "Both installs write to the same skills and agents directories.")
+			fmt.Fprintln(out, "To proceed anyway, re-run with --force.")
+			return fmt.Errorf("native plugin detected: use --force to override")
+		}
+
+		if !flags.JSON && !flags.Quiet {
+			fmt.Fprintln(out, "Detected harnesses:")
+			for _, dh := range detected {
+				paths := dh.Harness.ConfigPaths()
+				fmt.Fprintf(out, "  %s\n", dh.Harness.Name())
+				fmt.Fprintf(out, "    config root: %s\n", dh.Result.ConfigRoot)
+				fmt.Fprintf(out, "    mcp config:  %s\n", paths.MCPConfig)
+				fmt.Fprintf(out, "    skills dir:  %s\n", paths.SkillsDir)
+
+				// Print per-component support.
+				var supported, skipped []string
+				for _, c := range component.All() {
+					if dh.Harness.Supports(c) {
+						supported = append(supported, c.String())
+					} else {
+						skipped = append(skipped, c.String())
+					}
+				}
+				if len(supported) > 0 {
+					fmt.Fprintf(out, "    supports:    %s\n", strings.Join(supported, ", "))
+				}
+				if len(skipped) > 0 {
+					fmt.Fprintf(out, "    skipped:     %s (not supported by this harness)\n", strings.Join(skipped, ", "))
+				}
+			}
+		}
+
+		// Honor --components: restrict to the requested subset.
+		selected := component.All()
+		if len(flags.Components) > 0 {
+			var filtered []component.Component
+			for _, name := range flags.Components {
+				for _, c := range component.All() {
+					if c.String() == name {
+						filtered = append(filtered, c)
+						break
+					}
+				}
+			}
+			selected = filtered
+		}
+		osfs := fsutil.OsFS{}
+		plan := core.Plan(detected, selected, osfs, assets.SkillsFS, assets.Agents, assets.TemplateFS, assets.CommandsFS, projectDir, core.Global, "")
+
+		// --- Dry-run: print what would happen and exit without writing ---
+		if flags.DryRun {
+			if flags.JSON {
+				var harnessNames []string
+				for _, dh := range detected {
+					harnessNames = append(harnessNames, dh.Harness.Name())
+				}
+				var targets []installJSONTarget
+				for _, t := range plan.Targets {
+					jt := installJSONTarget{
+						Harness:   t.Harness.Name(),
+						Component: t.Component.String(),
+						Status:    "dry-run",
+					}
+					if t.Skip {
+						jt.Skip = true
+						jt.SkipReason = t.SkipReason
+						jt.Status = "skipped"
+					}
+					targets = append(targets, jt)
+				}
+				res := installJSONResult{DryRun: true, Harnesses: harnessNames, Targets: targets}
+				enc := json.NewEncoder(out)
+				enc.SetIndent("", "  ")
+				return enc.Encode(res)
+			}
+			if !flags.Quiet {
+				fmt.Fprint(out, "\n[dry-run] No files will be written. Showing what would change:\n\n")
+			}
+			for _, t := range plan.Targets {
+				if t.Skip {
+					if !flags.Quiet {
+						fmt.Fprintf(out, "  would skip   %s/%s (%s)\n", t.Harness.Name(), t.Component.String(), t.SkipReason)
+					}
+					continue
+				}
+				if t.Op == nil {
+					continue
+				}
+				if !flags.Quiet {
+					fmt.Fprintf(out, "  would install %s/%s\n", t.Harness.Name(), t.Component.String())
+				}
+			}
+			if !flags.Quiet {
+				fmt.Fprintln(out, "\n[dry-run] Re-run without --dry-run to apply changes.")
+			}
+			return nil
+		}
+
+		// Backup store root: ~/.ui-craft-backups
+		home, _ := os.UserHomeDir()
+		backupRoot := filepath.Join(home, ".ui-craft-backups")
+		backupStore := backup.NewStore(backupRoot, osfs, nil) // nil clock = time.Now
+
+		// A config root moved outside HOME by CLAUDE_CONFIG_DIR, CODEX_HOME, etc. is
+		// outside the backup store's trust boundary: Restore refuses those paths, so
+		// `ui-craft rollback` (and the automatic rollback of a failed install) cannot
+		// put files there back. Say so before writing, on stderr so --json stays clean.
+		warnedRoots := map[string]bool{}
+		for _, t := range plan.Targets {
+			root := t.Harness.ConfigRoot()
+			if t.Skip || root == "" || warnedRoots[root] || backup.Restorable(root, "") {
+				continue
+			}
+			warnedRoots[root] = true
+			fmt.Fprintf(cmd.ErrOrStderr(),
+				"NOTE: %s config root %s is outside your home folder; rollback cannot restore files written there.\n",
+				t.Harness.Name(), root)
+		}
+
+		// Execute transactional apply.
+		result, applyErr := core.Apply(plan, osfs, backupStore, cmdVersion, false)
+		if applyErr != nil {
+			return fmt.Errorf("install: apply failed (all changes rolled back): %w", applyErr)
+		}
+
+		// Persist the harness+component choices before any output mode can
+		// return. In particular, --json returns immediately after encoding its
+		// result, so state must already be durable at that point.
+		stateRoot := filepath.Join(home, ".ui-craft")
+		state, _ := core.LoadState(osfs, stateRoot)
+		state.Version = cmdVersion
+		now := core.Now().UTC().Format("2006-01-02T15:04:05Z07:00")
+		for _, dh := range detected {
+			// Collect components that were actually applied (appear in
+			// result.Changes) for this harness. Using Changes avoids recording
+			// skipped components.
+			//
+			// Merged with what state already records, never replacing it. A run scoped with
+			// --components applies only those, so building the list from this run's changes
+			// alone drops every component installed earlier — the files stay on disk while
+			// state forgets them. `update` reads exactly this list to decide what to refresh
+			// and prints "not in saved state — skipping" for anything absent, so a single
+			// `install --components mcp-gates` silently stops `update` from ever touching
+			// skill+commands again. update.go already merges for this reason; install did not.
+			//
+			// Only uninstall removes entries, which is the same rule update follows.
+			seen := map[string]bool{}
+			var installedComps []string
+			// A component this run left for the user to finish by hand is not
+			// installed now, whatever an earlier run recorded: drop it, so `update`
+			// does not treat an unconfigured server as installed.
+			manual := map[string]bool{}
+			for _, ch := range result.Changes {
+				if ch.HarnessName == dh.Harness.Name() && needsManualAction(ch) {
+					manual[ch.Component] = true
+				}
+			}
+			if existing := core.FindHarness(state, dh.Harness.Name()); existing != nil {
+				for _, c := range existing.InstalledComponents {
+					if manual[c] {
+						continue
+					}
+					if !seen[c] {
+						seen[c] = true
+						installedComps = append(installedComps, c)
+					}
+				}
+			}
+			for _, ch := range result.Changes {
+				if needsManualAction(ch) {
+					continue
+				}
+				if ch.HarnessName == dh.Harness.Name() && !seen[ch.Component] {
+					seen[ch.Component] = true
+					installedComps = append(installedComps, ch.Component)
+				}
+			}
+			core.UpsertHarnessState(state, core.HarnessState{
+				Name:                dh.Harness.Name(),
+				InstalledComponents: installedComps,
+				InstalledAt:         now,
+			})
+		}
+		if err := core.SaveState(osfs, stateRoot, state); err != nil {
+			// Non-fatal: log but do not fail the command.
+			fmt.Fprintf(cmd.ErrOrStderr(), "warning: could not save state.json: %v\n", err)
+		}
+
+		// Build status for each target from plan + result.Changes.
+		targetStatus := func(t core.ComponentTarget) string {
+			if t.Skip {
+				return "skipped"
+			}
+			for _, ch := range result.Changes {
+				if ch.HarnessName == t.Harness.Name() && ch.Component == t.Component.String() {
+					if needsManualAction(ch) {
+						return "manual-action-needed"
+					}
+					if !ch.Changed {
+						return "already-up-to-date"
+					}
+					return "installed"
+				}
+				// MCP uses file path as key
+				if ch.FilePath == t.SnapPath {
+					if needsManualAction(ch) {
+						return "manual-action-needed"
+					}
+					if !ch.Changed {
+						return "already-up-to-date"
+					}
+					return "installed"
+				}
+			}
+			return "installed"
+		}
+
+		// --json: emit machine-readable result and return.
+		if flags.JSON {
+			var harnessNames []string
+			seen := map[string]bool{}
+			for _, dh := range detected {
+				if !seen[dh.Harness.Name()] {
+					harnessNames = append(harnessNames, dh.Harness.Name())
+					seen[dh.Harness.Name()] = true
+				}
+			}
+			var targets []installJSONTarget
+			for _, t := range plan.Targets {
+				status := targetStatus(t)
+				jt := installJSONTarget{
+					Harness:   t.Harness.Name(),
+					Component: t.Component.String(),
+					Status:    status,
+				}
+				if t.Skip {
+					jt.Skip = true
+					jt.SkipReason = t.SkipReason
+				}
+				for _, ch := range result.Changes {
+					if ch.FilePath == t.SnapPath && ch.Notice != "" {
+						jt.Notice = ch.Notice
+					}
+				}
+				targets = append(targets, jt)
+			}
+			res := installJSONResult{DryRun: false, Harnesses: harnessNames, Targets: targets}
+			enc := json.NewEncoder(out)
+			enc.SetIndent("", "  ")
+			return enc.Encode(res)
+		}
+
+		// Report skill-commands results.
+		if !flags.Quiet {
+			fmt.Fprintln(out, "\nSkill+commands results:")
+		}
+		for _, t := range plan.Targets {
+			if t.Component != component.SkillCommands {
+				continue
+			}
+			if t.Skip {
+				if !flags.Quiet {
+					fmt.Fprintf(out, "  %s/skill+commands: skipped (%s)\n", t.Harness.Name(), t.SkipReason)
+				}
+				continue
+			}
+			status := targetStatus(t)
+			// Gotcha #7: advisory for Gemini/Codex if global npm detected.
+			if (t.Harness.Name() == "gemini" || t.Harness.Name() == "codex") && status == "installed" {
+				if !detectNVMOrVolta() && !flags.Quiet {
+					fmt.Fprintf(out, "  ADVISORY: %s uses global npm; consider nvm/fnm/volta to avoid permission issues.\n", t.Harness.Name())
+				}
+			}
+			if !flags.Quiet {
+				fmt.Fprintf(out, "  %s/skill+commands: %s\n", t.Harness.Name(), status)
+			}
+		}
+
+		// Report MCP results.
+		if !flags.Quiet {
+			fmt.Fprintln(out, "\nMCP wiring results:")
+		}
+		for _, t := range plan.Targets {
+			if t.Component != component.MCPGates {
+				continue
+			}
+			if t.Skip {
+				if !flags.Quiet {
+					fmt.Fprintf(out, "  %s/mcp-gates: skipped (%s)\n", t.Harness.Name(), t.SkipReason)
+				}
+				continue
+			}
+			status := targetStatus(t)
+			for _, ch := range result.Changes {
+				if ch.FilePath == t.SnapPath && ch.MalformedBase && !flags.Quiet {
+					fmt.Fprintf(out, "  WARNING: %s was malformed JSON; original backed up before rewrite.\n", ch.FilePath)
+				}
+				if ch.FilePath == t.SnapPath && ch.Notice != "" {
+					if flags.Quiet {
+						// --quiet keeps stdout to the outcome, but a step the user must
+						// finish by hand is an outcome: send it to stderr.
+						fmt.Fprintf(cmd.ErrOrStderr(), "NOTE: %s\n", ch.Notice)
+					} else {
+						fmt.Fprintf(out, "  NOTE: %s\n", ch.Notice)
+					}
+				}
+			}
+			if !flags.Quiet {
+				fmt.Fprintf(out, "  %s/mcp-gates: %s\n", t.Harness.Name(), status)
+			}
+		}
+
+		// Report design-memory results.
+		designMemoryReported := false
+		for _, t := range plan.Targets {
+			if t.Component != component.DesignMemory {
+				continue
+			}
+			if t.Skip {
+				if !designMemoryReported && !flags.Quiet {
+					fmt.Fprintf(out, "\ndesign-memory: skipped (%s)\n", t.SkipReason)
+					designMemoryReported = true
+				}
+				continue
+			}
+			if !designMemoryReported {
+				status := targetStatus(t)
+				if !flags.Quiet {
+					fmt.Fprintf(out, "\ndesign-memory: %s → %s/.ui-craft/\n", status, projectDir)
+				}
+				designMemoryReported = true
+			}
+		}
+
+		// --quiet: emit the single final outcome line now that state is saved.
+		if flags.Quiet {
+			fmt.Fprintln(out, "install: ok")
+		}
+
+		return nil
+	},
+}
+
+// detectNativeClaudePlugin returns true when a Claude Code native plugin install
+// for ui-craft is detected. It checks for the presence of the plugin manifest
+// directory that the npm-based plugin install creates (<claude root>/plugins/ui-craft/,
+// where the root honours $CLAUDE_CONFIG_DIR).
+// This is a best-effort heuristic: false negatives are safe (no unnecessary blocking).
+func detectNativeClaudePlugin() bool {
+	root := harness.ClaudeHarness{}.ConfigRoot()
+	if root == "" {
+		return false
+	}
+	pluginDir := filepath.Join(root, "plugins", "ui-craft")
+	if _, err := os.Stat(pluginDir); err == nil {
+		return true
+	}
+	return false
+}
+
+// detectNVMOrVolta returns true when nvm, fnm, or volta is detectable on PATH
+// or via well-known environment variables. Used for gotcha #7 advisory.
+func detectNVMOrVolta() bool {
+	for _, tool := range []string{"nvm", "fnm", "volta"} {
+		if _, err := lookPathFn(tool); err == nil {
+			return true
+		}
+	}
+	// Also check NVM_DIR / VOLTA_HOME environment variables as secondary signals.
+	if os.Getenv("NVM_DIR") != "" || os.Getenv("VOLTA_HOME") != "" || os.Getenv("FNM_DIR") != "" {
+		return true
+	}
+	return false
+}
+
+func init() {
+	installCmd.Flags().Bool("force", false, "Bypass native plugin coexistence warning")
+	rootCmd.AddCommand(installCmd)
+}

@@ -58,7 +58,7 @@ class ActionBarView(context: Context) : View(context) {
     private var phase = 0f
 
     private fun textColor(): Int = when {
-        state == State.IDLE -> PAPER
+        state == State.IDLE -> ON_ACCENT
         state == State.ERROR -> ERR
         state == State.CONNECTED && warning -> WARN
         else -> INK
@@ -78,7 +78,7 @@ class ActionBarView(context: Context) : View(context) {
 
         when (state) {
             State.IDLE -> {
-                fill.color = INK
+                fill.color = ACCENT
                 canvas.drawRoundRect(0f, 0f, w, h, r, r, fill)
             }
             State.CONNECTING -> {
@@ -110,7 +110,12 @@ class ActionBarView(context: Context) : View(context) {
         }
 
         if (isPressed) {
-            fill.color = withAlpha(0xFF000000.toInt(), if (state == State.IDLE) 44 else 18)
+            // Scrim pakai warna yang memang duduk di atas warna isinya,
+            // jadi tetap terbaca sebagai tekanan di palet terang maupun gelap.
+            fill.color = withAlpha(
+                if (state == State.IDLE) ON_ACCENT else INK,
+                if (state == State.IDLE) 44 else 18
+            )
             canvas.drawRoundRect(0f, 0f, w, h, r, r, fill)
         }
 
@@ -147,6 +152,12 @@ class ActionBarView(context: Context) : View(context) {
 
     private fun sync() {
         if (state == State.CONNECTING) {
+            if (Face.reducedMotion(context)) {
+                animator?.cancel()
+                animator = null
+                phase = 0.35f
+                return
+            }
             if (animator != null) return
             animator = ValueAnimator.ofFloat(0f, 1f).apply {
                 duration = 1200L

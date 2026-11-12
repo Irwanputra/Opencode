@@ -1,0 +1,88 @@
+name: CLI Windows
+
+# We publish windows_amd64 and windows_arm64 archives on every release, and for a long time
+# no test had ever run on Windows. The CLI is not platform-neutral: it writes harness configs
+# by path, merges JSON and TOML on disk, unpacks a .zip there instead of a .tar.gz, and
+# resolves a self-update archive whose name is built per GOOS — the surface that produced #124.
+#
+# This gates pull requests, which it did not until 2026-08-07.
+#
+# The old reason for keeping it out was that Windows runners are slow enough to tax every PR
+# that has nothing to do with Windows, so a merge gate plus a nightly would catch breakage
+# within a day. Measured, the job takes about 90 seconds. And "within a day" is not what
+# happened: five Windows-only bugs reached users, including one where rollback deleted the
+# user's own files, because the only signal arrived after the merge that introduced it and
+# nobody was watching a workflow that does not block anything.
+#
+# The path filter keeps it off pull requests that do not touch the CLI, so the cost lands
+# only where the risk does. main is unprotected, so a skipped run cannot block a merge.
+#
+# There is a tempting alternative — a small "release blockers" subset here and the full suite
+# elsewhere. That shape exists to stop a backlog of known platform failures from holding up
+# releases. This suite has no backlog: it is green, every package, so there is nothing to
+# quarantine and splitting it would only create somewhere for failures to hide.
+
+on:
+  pull_request:
+    paths:
+      - 'cli/**'
+      # The self-update tests read the release config to render the archive name they assert
+      # against. #124 was precisely a mismatch between that template and the code, so a change
+      # to it alone must run this suite — the file is Windows-relevant even though it is not
+      # Windows-specific: it is where the .zip-instead-of-.tar.gz decision lives.
+      - '.goreleaser.yaml'
+      - '.github/workflows/cli-windows.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'cli/**'
+      # The self-update tests read the release config to render the archive name they assert
+      # against. #124 was precisely a mismatch between that template and the code, so a change
+      # to it alone must run this suite — the file is Windows-relevant even though it is not
+      # Windows-specific: it is where the .zip-instead-of-.tar.gz decision lives.
+      - '.goreleaser.yaml'
+      - '.github/workflows/cli-windows.yml'
+  schedule:
+    # 04:20 UTC — after the working day, before the next one.
+    - cron: '20 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Go suite on Windows
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+      # Defender scans every file the Go build writes, which turns a two-minute suite into a
+      # ten-minute one and occasionally trips the timeout. Excluding the runner's own
+      # workspace costs nothing: the machine is ephemeral and the tree is our own checkout.
+      - name: Exclude the workspace from Defender
+        shell: pwsh
+        run: |
+          Add-MpPreference -ExclusionPath $env:GITHUB_WORKSPACE -ErrorAction SilentlyContinue
+          Add-MpPreference -ExclusionPath $env:RUNNER_TEMP -ErrorAction SilentlyContinue
+
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e  # v7.0.0
+        with:
+          go-version: stable
+          cache-dependency-path: cli/go.sum
+
+      - name: Run tests
+        working-directory: cli
+        run: go test ./...
+
+      - name: Vet
+        working-directory: cli
+        run: go vet ./...
+
+      # The archive name is built from GOOS, and Windows is the one platform that gets .zip
+      # instead of .tar.gz. Asserting it here means the branch is exercised on the OS it
+      # describes, rather than inferred from a constant on a Mac.
+      - name: Self-update resolves a Windows archive
+        working-directory: cli
+        run: go test ./core/... -run ArchiveName -v

@@ -215,7 +215,7 @@ class TransportSocketFactory(
             // mengirim beberapa respons HTTP (301/200/101) sebelum banner SSH.
             // Lewati semuanya sampai banner ditemukan, lalu teruskan sisa
             // stream ke JSch.
-            TunnelLog.add("PAYLOAD", "Menunggu banner SSH dari server...")
+            TunnelLog.add("PAYLOAD", "Menunggu banner SSH dari server…")
             return readUntilSshBanner(sock)
         }
 

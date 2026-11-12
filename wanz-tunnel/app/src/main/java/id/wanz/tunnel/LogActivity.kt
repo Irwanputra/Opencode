@@ -3,8 +3,6 @@ package id.wanz.tunnel
 import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.res.ColorStateList
-import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Gravity
@@ -12,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 
@@ -20,10 +17,10 @@ import android.widget.Toast
  * Log penuh, satu sistem dengan beranda: kertas, tinta, garis rambut,
  * monospace untuk data. Tanpa kaca, tanpa gradien.
  */
-class LogActivity : Activity() {
+class LogActivity : InkActivity() {
     private lateinit var logText: TextView
     private lateinit var logScroll: ScrollView
-    private lateinit var autoScroll: Switch
+    private lateinit var autoScroll: InkToggle
     private lateinit var countText: TextView
 
     private fun dp(v: Int) = (v * resources.displayMetrics.density).toInt()
@@ -43,11 +40,6 @@ class LogActivity : Activity() {
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
-        window.statusBarColor = BG
-        window.navigationBarColor = BG
-        @Suppress("DEPRECATION")
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
 
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -62,14 +54,15 @@ class LogActivity : Activity() {
         }
         header.addView(TextView(this).apply {
             text = "←"
-            textSize = 20f
+            textSize = 19f
             gravity = Gravity.CENTER
             setTextColor(INK)
             contentDescription = "Kembali"
+            typeface = Face.mono(this@LogActivity)
             setPadding(0, 0, dp(14), 0)
             isClickable = true
             setOnClickListener { finish() }
-        }, LinearLayout.LayoutParams(-2, dp(40)))
+        }, LinearLayout.LayoutParams(-2, dp(48)))
 
         val title = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         title.addView(TextView(this).apply {
@@ -77,12 +70,13 @@ class LogActivity : Activity() {
             textSize = 27f
             setTextColor(INK)
             letterSpacing = -0.02f
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+            typeface = Face.proseMedium(this@LogActivity)
         })
         countText = TextView(this).apply {
             text = "0 baris"
             textSize = 10.5f
             setTextColor(MUTED)
+            typeface = Face.mono(this@LogActivity)
         }
         title.addView(countText)
         header.addView(title, LinearLayout.LayoutParams(0, -2, 1f))
@@ -90,8 +84,9 @@ class LogActivity : Activity() {
             text = "Salin"
             textSize = 12.5f
             setTextColor(INK)
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-            setPadding(dp(10), dp(10), 0, dp(10))
+            typeface = Face.proseMedium(this@LogActivity)
+            gravity = Gravity.CENTER
+            setPadding(dp(12), dp(10), dp(2), dp(10))
             isClickable = true
             setOnClickListener { copyLog() }
         })
@@ -103,27 +98,18 @@ class LogActivity : Activity() {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
         }
-        autoScroll = Switch(this).apply {
-            text = "Auto-scroll"
-            setTextColor(INK)
-            textSize = 13f
+        autoScroll = InkToggle(this).apply {
+            label = "Auto-scroll"
             isChecked = true
-            thumbTintList = ColorStateList(
-                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
-                intArrayOf(INK, 0xFF8E928C.toInt())
-            )
-            trackTintList = ColorStateList(
-                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
-                intArrayOf((INK and 0x00FFFFFF) or (110 shl 24), HAIR)
-            )
         }
         toolbar.addView(autoScroll, LinearLayout.LayoutParams(0, dp(48), 1f))
         toolbar.addView(TextView(this).apply {
             text = "Bersihkan"
             textSize = 12.5f
             setTextColor(ERR)
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-            setPadding(dp(10), dp(10), 0, dp(10))
+            typeface = Face.proseMedium(this@LogActivity)
+            gravity = Gravity.CENTER
+            setPadding(dp(12), dp(10), dp(2), dp(10))
             isClickable = true
             setOnClickListener {
                 TunnelLog.clear()
@@ -136,7 +122,7 @@ class LogActivity : Activity() {
         logText = TextView(this).apply {
             textSize = 10.5f
             setTextColor(INK)
-            typeface = Typeface.MONOSPACE
+            typeface = Face.mono(this@LogActivity)
             setLineSpacing(dp(3).toFloat(), 1f)
             setTextIsSelectable(true)
             setPadding(dp(12), dp(12), dp(12), dp(12))

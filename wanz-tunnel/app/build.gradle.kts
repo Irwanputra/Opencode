@@ -10,8 +10,8 @@ android {
         applicationId = "id.wanz.tunnel"
         minSdk = 29
         targetSdk = 34
-        versionCode = 13
-        versionName = "2.8.1"
+        versionCode = 14
+        versionName = "2.9"
     }
     buildTypes {
         release {
@@ -21,6 +21,7 @@ android {
             signingConfig = signingConfigs.getByName("debug") // APK langsung bisa dipasang; ganti dengan keystore sendiri untuk rilis
         }
     }
+    buildFeatures { buildConfig = true }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17

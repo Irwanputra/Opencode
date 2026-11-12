@@ -53,6 +53,26 @@ class TunnelService : VpnService() {
         /** Waktu mulai terhubung (epoch ms); 0 = belum terhubung. */
         @Volatile var connectedAt: Long = 0L
 
+        /**
+         * Penghitung trafik sesi, diambil dari counter perangkat. Karena TUN
+         * membawa seluruh lalu lintas aplikasi, selisih counter ini adalah
+         * trafik yang benar-benar lewat tunnel.
+         */
+        @Volatile private var rxBase = 0L
+        @Volatile private var txBase = 0L
+
+        private fun deviceRx(): Long = android.net.TrafficStats.getTotalRxBytes()
+
+        private fun deviceTx(): Long = android.net.TrafficStats.getTotalTxBytes()
+
+        /** Byte yang diterima sejak tunnel naik; 0 saat belum terhubung. */
+        fun sessionRx(): Long =
+            if (connectedAt == 0L) 0L else (deviceRx() - rxBase).coerceAtLeast(0L)
+
+        /** Byte yang dikirim sejak tunnel naik; 0 saat belum terhubung. */
+        fun sessionTx(): Long =
+            if (connectedAt == 0L) 0L else (deviceTx() - txBase).coerceAtLeast(0L)
+
         const val ACTION_START = "start"
         const val ACTION_STOP = "stop"
         const val ACTION_PING = "ping"
@@ -116,9 +136,15 @@ class TunnelService : VpnService() {
     private fun set(s: String) {
         status = s
         if (s.startsWith("Terhubung")) {
-            if (connectedAt == 0L) connectedAt = System.currentTimeMillis()
+            if (connectedAt == 0L) {
+                connectedAt = System.currentTimeMillis()
+                rxBase = deviceRx()
+                txBase = deviceTx()
+            }
         } else {
             connectedAt = 0L
+            rxBase = 0L
+            txBase = 0L
         }
         TunnelLog.add("STATUS", s)
         onStatus?.invoke()
@@ -275,7 +301,7 @@ class TunnelService : VpnService() {
             val onWifi = caps?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true ||
                 caps?.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) == true
             if (onWifi) {
-                TunnelLog.add("WARN", "Hanya data seluler aktif — Wi-Fi terdeteksi, koneksi ditolak")
+                TunnelLog.add("WARN", "Hanya data seluler aktif. Wi-Fi terdeteksi, koneksi ditolak.")
                 set("Gagal: Hanya data seluler (Wi-Fi aktif)")
                 running = false
                 stopSelf()
@@ -283,7 +309,7 @@ class TunnelService : VpnService() {
             }
         }
         if (p.blockRoot && isRooted()) {
-            TunnelLog.add("WARN", "Blokir root aktif — akses root terdeteksi, koneksi ditolak")
+            TunnelLog.add("WARN", "Blokir root aktif. Akses root terdeteksi, koneksi ditolak.")
             set("Gagal: Perangkat ter-root (Blokir root aktif)")
             running = false
             stopSelf()
@@ -309,7 +335,7 @@ class TunnelService : VpnService() {
     }
 
     private fun scheduleRetry() {
-        TunnelLog.add("STATUS", "Mencoba ulang dalam 5 detik...")
+        TunnelLog.add("STATUS", "Mencoba ulang dalam 5 detik…")
         main.postDelayed({
             if (running) connect()
         }, 5_000)
@@ -455,7 +481,7 @@ class TunnelService : VpnService() {
             } catch (e: Exception) {
                 TunnelLog.add(
                     "WARN",
-                    "Resolve via jaringan dasar gagal (${e.message ?: e.javaClass.simpleName}) — memakai resolver sistem"
+                    "Resolve via jaringan dasar gagal (${e.message ?: e.javaClass.simpleName}); memakai resolver sistem"
                 )
             }
         }
@@ -633,7 +659,7 @@ class TunnelService : VpnService() {
             if (tcpOk && dnsOk) {
                 TunnelLog.add(
                     "VPN",
-                    "Internet OK — trafik aplikasi benar-benar lewat tunnel (TCP $host:$port + DNS)"
+                    "Internet OK. Trafik aplikasi benar-benar lewat tunnel (TCP $host:$port + DNS)."
                 )
                 set("Terhubung • VPN • internet OK")
             } else {

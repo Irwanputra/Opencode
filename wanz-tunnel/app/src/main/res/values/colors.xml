@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="wanz_bg">#F1F1EC</color>
+    <color name="wanz_field">#EAEAE4</color>
     <color name="wanz_icon_bg">#F1F1EC</color>
 </resources>

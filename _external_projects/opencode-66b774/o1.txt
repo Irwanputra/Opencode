@@ -1,0 +1,1 @@
+{"detail":"Missing Marimo-Session-Id header"}

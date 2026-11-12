@@ -1,0 +1,6 @@
+event: stderr
+data: {"data": "Traceback (most recent call last):\n  File \"/tmp/marimo_150/__marimo__cell___scratch___.py\", line 2, in <module>\n    mo.status.toast(\"\ud83c\udf89 Mercury is online and locked in! Ready to pair and rebuild this notebook with you \ud83d\ude80\", duration=8000)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: toast() got an unexpected keyword argument 'duration'\n"}
+
+event: done
+data: {"success": false, "output": {"mimetype": "text/plain", "data": ""}}
+

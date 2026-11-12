@@ -1,0 +1,64 @@
+name: mcp-test
+
+on:
+  push:
+    paths:
+      - 'mcp/**'
+      # Fix 11: check-anti-slop depends on scripts/detect.mjs — changes there must trigger MCP CI
+      - 'scripts/detect.mjs'
+      - 'scripts/detect/**'
+      - 'scripts/detect.test.mjs'
+      # eval harness — also triggers when eval sources change
+      - 'evals/quality/**'
+      - 'scripts/eval.mjs'
+      # build-eval harness — scorers, recorded fixtures and the runner
+      - 'evals/build/**'
+      - 'scripts/eval-build.mjs'
+      - 'scripts/eval-build.test.mjs'
+  pull_request:
+    paths:
+      - 'mcp/**'
+      - 'scripts/detect.mjs'
+      - 'scripts/detect/**'
+      - 'scripts/detect.test.mjs'
+      - 'evals/quality/**'
+      - 'scripts/eval.mjs'
+      # build-eval harness — scorers, recorded fixtures and the runner
+      - 'evals/build/**'
+      - 'scripts/eval-build.mjs'
+      - 'scripts/eval-build.test.mjs'
+
+jobs:
+  mcp-test:
+    name: MCP Server Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7.1.0
+        with:
+          node-version: '20'
+      - name: Install MCP dependencies
+        run: cd mcp && npm install
+      - name: Run MCP tests
+        run: cd mcp && npm test
+      - name: Build + smoke the published bundle
+        run: cd mcp && npm run smoke:dist
+
+  quality-eval:
+    name: Quality Eval Harness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1  # v7.1.0
+        with:
+          node-version: '20'
+      # No npm install — eval harness is zero-dep (node built-ins only)
+      - name: Run eval unit tests
+        run: node --test evals/quality/*.test.mjs
+      - name: Run baseline regression gate
+        run: node scripts/eval.mjs --baseline
+      # Build-eval scorers, against recorded workspaces only — no agent runs, no API keys,
+      # no cost. The live arms are opt-in from a developer machine; what CI protects is that
+      # the scorers still catch the misses the recorded fixtures were frozen for.
+      - name: Run build-eval scorer tests
+        run: npm run test:evals
