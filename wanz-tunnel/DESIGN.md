@@ -71,7 +71,8 @@ Bentuk: sudut 2dp. Garis 1dp. Tanpa elevasi. Tombol aksi 56dp.
 7. Bilah bawah menempel: tombol aksi lebar + versi.
 
 Pengaturan dan Log memakai sistem yang sama: judul bagian bergaris, field
-datar, segmen SOCKS5/VPN dengan bidang tinta penuh, daftar aksi tanpa kartu.
+datar, daftar aksi tanpa kartu. Mode tunggal: VPN (seperti HTTP Custom); tidak
+ada pilihan SOCKS5/VPN, SOCKS5 hanya detail internal tun2socks.
 
 ## Gerak
 

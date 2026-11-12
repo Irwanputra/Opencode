@@ -90,7 +90,9 @@ class TunnelService : VpnService() {
         override fun onLost(n: Network) {
             if (n == underlyingNetwork) underlyingNetwork = null
             if (!running || isVpnNetwork(n)) return
-            if (profile?.vpn == true && tunFd != null) return
+            // Mode tunggal VPN: selama TUN terpasang, hilangnya jaringan fisik
+            // akan memicu onAvailable jaringan baru dan menyambung ulang.
+            if (tunFd != null) return
             set("Menunggu jaringan…")
         }
     }
@@ -194,7 +196,7 @@ class TunnelService : VpnService() {
             Intent(this, TunnelService::class.java).setAction(ACTION_STOP),
             PendingIntent.FLAG_IMMUTABLE
         )
-        val mode = if (profile?.vpn == true) "Tunnel aktif • VPN" else "Tunnel aktif"
+        val mode = "Tunnel aktif • VPN"
         val n = Notification.Builder(this, "w")
             .setSmallIcon(android.R.drawable.ic_lock_lock)
             .setContentTitle("Wanz Tunnel")
@@ -242,9 +244,9 @@ class TunnelService : VpnService() {
                 busy.set(false)
                 TunnelLog.add("SOCKS", "Proxy lokal SOCKS5 siap (port $port)")
 
-                val mode = if (p.vpn) "VPN" else ""
-                set(if (mode.isEmpty()) "Terhubung" else "Terhubung • $mode")
-                if (p.vpn) main.post { startVpn(p) }
+                val mode = "VPN"
+                set("Terhubung • $mode")
+                main.post { startVpn(p) }
                 startPing(p)
 
                 while (true) {

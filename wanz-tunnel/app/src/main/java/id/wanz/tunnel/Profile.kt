@@ -8,7 +8,7 @@ import org.json.JSONObject
  * Satu konfigurasi server/tunnel.
  *
  * transport: ssh | tls | ws | wss
- * vpn: false = hanya SOCKS5 lokal, true = tunnel semua aplikasi lewat VpnService
+ * vpn: selalu true (mode tunggal, seperti HTTP Custom); false tidak lagi dipakai
  *
  * Opsi tambahan (gaya HTTP Custom):
  * - autoPing / pingInterval / pingTarget : ping berkala saat terhubung
@@ -27,7 +27,9 @@ data class Profile(
     var proxy: String = "",
     var payload: String = "",
     var socksPort: Int = 1080,
-    var vpn: Boolean = false,
+    // Mode tunggal: selalu VPN. Field disimpan hanya untuk kompatibilitas
+    // config lama; nilai false dibaca ulang sebagai true.
+    var vpn: Boolean = true,
     var transport: String = "ssh",
     var sni: String = "",
     var wsPath: String = "/",
@@ -91,7 +93,7 @@ class ProfileStore(context: Context) {
             proxy = str("proxy"),
             payload = str("payload"),
             socksPort = 1080,
-            vpn = false,
+            vpn = true,
             transport = "ssh"
         )
     }
@@ -132,7 +134,9 @@ class ProfileStore(context: Context) {
         proxy = o.optString("proxy", ""),
         payload = o.optString("payload", ""),
         socksPort = o.optInt("socksPort", 1080),
-        vpn = o.optBoolean("vpn", false),
+        // Config lama bisa menyimpan vpn=false (mode SOCKS5). Mode itu sudah
+        // dihapus; semua profil dipaksa VPN seperti HTTP Custom.
+        vpn = true,
         transport = o.optString("transport", "ssh"),
         sni = o.optString("sni", ""),
         wsPath = o.optString("wsPath", "/"),

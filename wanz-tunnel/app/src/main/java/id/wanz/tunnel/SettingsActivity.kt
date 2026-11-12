@@ -9,10 +9,8 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.StateListDrawable
 import android.os.Bundle
-import android.text.Editable
 import android.text.InputType
 import android.text.TextUtils
-import android.text.TextWatcher
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -45,8 +43,6 @@ class SettingsActivity : Activity() {
     private lateinit var autoReconnectSwitch: Switch
     private lateinit var onlyMobileSwitch: Switch
     private lateinit var blockRootSwitch: Switch
-    private lateinit var mappedDnsSwitch: Switch
-    private lateinit var dnsHint: TextView
 
     private lateinit var store: ProfileStore
     private var profiles = mutableListOf<Profile>()
@@ -196,22 +192,6 @@ class SettingsActivity : Activity() {
             arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
             intArrayOf(withAlpha(INK, 110), HAIR)
         )
-    }
-
-    /**
-     * DNS selalu mapped: SSH hanya meneruskan TCP, jadi kueri DNS UDP biasa
-     * tidak akan pernah sampai ke server. Tidak ada pilihan mode lagi —
-     * seluruh aplikasi selalu lewat VPN, sama seperti HTTP Custom.
-     */
-    private fun updateDnsHint() {
-        if (!::dnsHint.isInitialized || !::mappedDnsSwitch.isInitialized) return
-        if (!mappedDnsSwitch.isChecked) mappedDnsSwitch.isChecked = true
-        mappedDnsSwitch.isEnabled = false
-        fields["dnsServer"]?.isEnabled = false
-        fields["dnsServer"]?.alpha = 0.45f
-        dnsHint.text =
-            "DNS lewat tunnel (198.18.0.2). Nama domain diselesaikan di sisi server, " +
-                "tanpa kebocoran DNS. DNS kustom belum didukung karena SSH hanya TCP."
     }
 
     private fun spinnerAdapter(items: List<String>) = object : ArrayAdapter<String>(
@@ -443,15 +423,23 @@ class SettingsActivity : Activity() {
         // --------------------------------------------------------- JARINGAN
         val netCard = card()
         netCard.addView(sectionLabel("Jaringan"))
-        mappedDnsSwitch = toggle("DNS lewat tunnel (mapped-DNS)", true)
-        mappedDnsSwitch.setOnCheckedChangeListener { _, _ -> updateDnsHint() }
-        netCard.addView(mappedDnsSwitch, lp(6))
+        // DNS tidak lagi menjadi pilihan: SSH hanya meneruskan TCP, jadi DNS
+        // selalu diselesaikan di sisi server lewat mapped-DNS.
         netCard.addView(
-            labeledField("DNS kustom", "dnsServer", "1.1.1.1"),
-            lp(12)
+            TextView(this).apply {
+                text = "DNS lewat tunnel (198.18.0.2)"
+                textSize = 13.5f
+                setTextColor(INK)
+                setPadding(0, dp(12), 0, dp(12))
+            },
+            lp(4)
         )
-        dnsHint = note("")
-        netCard.addView(dnsHint, lp(8))
+        netCard.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        netCard.addView(
+            note("Nama domain diselesaikan di sisi server, tanpa kebocoran DNS. " +
+                "DNS kustom tidak dipakai karena SSH hanya meneruskan TCP."),
+            lp(10)
+        )
         root.addView(netCard, lp(26))
 
         // -------------------------------------------------------------- PING
@@ -619,13 +607,11 @@ class SettingsActivity : Activity() {
             }
         })
         root.addView(TextView(this).apply {
-            text = "Wanz Tunnel 2.8  ·  koneksi pribadi"
+            text = "Wanz Tunnel 2.8.1  ·  koneksi pribadi"
             textSize = 10.5f
             setTextColor(FAINT)
             setPadding(0, dp(8), 0, 0)
         })
-
-        updateDnsHint()
     }
 
     private fun profileNames(): List<String> =
@@ -667,7 +653,6 @@ class SettingsActivity : Activity() {
         p.blockRoot = blockRootSwitch.isChecked
         // mapped-DNS wajib: SSH hanya meneruskan TCP.
         p.mappedDns = true
-        p.dnsServer = text("dnsServer").ifBlank { "1.1.1.1" }
         store.save(profiles, p.id)
         refreshProfileNames()
     }
@@ -698,10 +683,7 @@ class SettingsActivity : Activity() {
         autoReconnectSwitch.isChecked = p.autoReconnect
         onlyMobileSwitch.isChecked = p.onlyMobileData
         blockRootSwitch.isChecked = p.blockRoot
-        mappedDnsSwitch.isChecked = p.mappedDns
-        fields["dnsServer"]?.setText(p.dnsServer)
         loading = false
-        updateDnsHint()
     }
 
     private fun addProfile() {

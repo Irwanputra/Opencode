@@ -157,7 +157,7 @@ class MainActivity : Activity() {
         }
         bottomInner.addView(action, LinearLayout.LayoutParams(-1, dp(56)))
         bottomInner.addView(TextView(this).apply {
-            text = "Wanz Tunnel 2.8  ·  koneksi pribadi"
+            text = "Wanz Tunnel 2.8.1  ·  koneksi pribadi"
             textSize = 10f
             setTextColor(FAINT)
             setPadding(0, dp(8), 0, 0)
@@ -386,9 +386,9 @@ class MainActivity : Activity() {
     private fun modeCell(): LinearLayout {
         val c = cell(true)
         c.addView(label("Mode"))
-        modeValue = value(18f).apply { text = "SOCKS5" }
+        modeValue = value(18f).apply { text = "VPN" }
         c.addView(modeValue, lp(5))
-        modeSub = sub().apply { text = "proxy lokal" }
+        modeSub = sub().apply { text = "semua aplikasi" }
         c.addView(modeSub, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(2) })
         return c
     }
@@ -415,8 +415,8 @@ class MainActivity : Activity() {
         if (p == null) {
             serverName.text = "Belum ada server"
             serverHost.text = "Atur host dan akun di pengaturan."
-            modeValue.text = "SOCKS5"
-            modeSub.text = "proxy lokal"
+            modeValue.text = "VPN"
+            modeSub.text = "semua aplikasi"
             transportValue.text = "SSH"
             transportSub.text = "langsung"
             return
@@ -427,12 +427,8 @@ class MainActivity : Activity() {
         } else {
             "${p.host}:${p.port}"
         }
-        modeValue.text = if (p.vpn) "VPN" else "SOCKS5"
-        modeSub.text = when {
-            p.vpn -> "semua aplikasi"
-            TunnelService.running -> "proxy aktif"
-            else -> "port ${p.socksPort}"
-        }
+        modeValue.text = "VPN"
+        modeSub.text = "semua aplikasi"
         transportValue.text = when (p.transport) {
             "ssh" -> "SSH"
             "tls" -> "TLS"
@@ -590,14 +586,13 @@ class MainActivity : Activity() {
             startActivity(Intent(this, SettingsActivity::class.java))
             return
         }
-        if (p.vpn) {
-            val prepare = VpnService.prepare(this)
-            if (prepare != null) {
-                pendingProfileId = p.id
-                @Suppress("DEPRECATION")
-                startActivityForResult(prepare, REQ_VPN)
-                return
-            }
+        // Selalu VPN (mode tunggal, seperti HTTP Custom).
+        val prepare = VpnService.prepare(this)
+        if (prepare != null) {
+            pendingProfileId = p.id
+            @Suppress("DEPRECATION")
+            startActivityForResult(prepare, REQ_VPN)
+            return
         }
         startTunnel(p.id)
     }

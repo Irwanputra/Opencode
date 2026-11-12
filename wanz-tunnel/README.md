@@ -8,9 +8,9 @@ warna yang hanya dipakai untuk menyatakan status koneksi.
 ## Fitur
 
 - SSH password authentication (JSch)
-- SOCKS5 lokal `127.0.0.1:<port>` (port bisa diubah)
-- Mode **VPN** memakai `VpnService` + tun2socks (hev-socks5-tunnel)
-- Mode **Proxy** hanya membuka SOCKS5 lokal
+- **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
+  `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
+  internal oleh tun2socks (default 1080, bisa diubah di bagian Lainnya)
 - UI panel instrumen: rel status di tepi atas, tabel bacaan
   (ping/uptime/mode/transport), server aktif, cuplikan log, dan satu tombol
   aksi lebar di bawah. Semua konfigurasi di halaman Pengaturan.
@@ -37,7 +37,8 @@ warna yang hanya dipakai untuk menyatakan status koneksi.
   jadi memilih transport WS/WSS tidak lagi menyebabkan `301`
 - Proxy perantara opsional
 - Multi-profil: tambah, ganti, hapus, simpan otomatis
-- DNS mode VPN: mapped-DNS (lewat tunnel) atau DNS kustom
+- DNS mode VPN: selalu mapped-DNS (lewat tunnel); DNS kustom tidak tersedia
+  karena SSH hanya meneruskan TCP
 - Auto-reconnect saat jaringan berubah / koneksi terputus (bisa dimatikan)
 - Opsi gaya HTTP Custom: hanya data seluler, blokir root
 - SSH keepalive 120 detik
@@ -48,17 +49,13 @@ warna yang hanya dipakai untuk menyatakan status koneksi.
 ## Cara pakai
 
 1. Isi nama profil, host, port SSH, username, password.
-2. Pilih port SOCKS5 (default 1080).
-3. Pilih mode:
-   - **VPN semua aplikasi** aktif: seluruh trafik TCP aplikasi lewat tunnel.
-   - Nonaktif: hanya SOCKS5 lokal; atur aplikasi agar memakai proxy
-     `127.0.0.1:<port>`.
-4. Pilih transport:
+2. Pilih transport:
    - `SSH langsung` untuk server SSH biasa.
    - `TLS / SNI` untuk SSH di balik TLS (stunnel) atau CDN.
    - `WS` / `WSS` untuk SSH di balik WebSocket.
-5. Isi SNI, Host header WS, dan path WS bila memakai TLS/WS.
-6. Tekan Hubungkan. Mode VPN akan meminta izin VPN Android sekali.
+3. Isi SNI, Host header WS, dan path WS bila memakai TLS/WS.
+4. Tekan Hubungkan. Izin VPN Android diminta sekali, lalu seluruh trafik
+   TCP aplikasi lewat tunnel.
 
 ### Impor config
 
@@ -226,12 +223,23 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     (ping + riwayat bilah, uptime, mode, transport), server aktif, cuplikan
     aktivitas, dan satu tombol aksi lebar yang menempel di bawah.
   - Pengaturan dan Log memakai sistem yang sama: judul bagian bergaris,
-    field datar, segmen SOCKS5/VPN tinta-penuh, daftar aksi tanpa kartu.
+    field datar, daftar aksi tanpa kartu.
   - Ikon adaptif monokrom: gerbang tunnel digambar sebagai garis, bukan
     gradien. Splash screen kertas.
   - Data tetap nyata: ping diukur lewat kanal SSH, uptime dari waktu koneksi,
     status "Tanpa internet" bila self-test DNS/TCP gagal.
   - Catatan lengkap: `DESIGN.md`.
+- v2.8.1: **mode tunggal VPN, seperti HTTP Custom**:
+  - Pilihan `SOCKS5 / VPN` di Pengaturan dihapus. Tidak ada pilihan mode;
+    seluruh trafik aplikasi selalu lewat VPN, sama seperti HTTP Custom.
+  - Proxy SOCKS5 lokal tetap hidup tetapi hanya sebagai bagian internal
+    tun2socks (port diatur di **Lainnya → Port lokal**, default 1080).
+  - Config lama yang tersimpan dengan `vpn: false` otomatis dipaksa VPN saat
+    dibaca; perilaku "hanya proxy" sudah tidak ada.
+  - DNS kustom dimatikan permanen (field diredupkan) karena SSH hanya TCP;
+    DNS selalu mapped-DNS 198.18.0.2.
+  - Beranda selalu menampilkan Mode `VPN` · "semua aplikasi"; tombol
+    Hubungkan selalu meminta izin VPN.
 
 ## Komponen pihak ketiga
 
