@@ -254,6 +254,103 @@ class TransportSocketFactoryTest {
         }
     }
 
+    /**
+     * Payload HTTP Custom ASLI (dari log pemakai) tidak memakai [split] sama
+     * sekali — cuma satu baris panjang dengan `\r\n` harfiah dan dua request,
+     * request keduanya yang menaikkan koneksi ke websocket:
+     *
+     *   GET / HTTP/1.1\r\nHost: edu.ruangguru.com\r\n\r\n
+     *   PATCH / HTTP/1.1\r\nHost: <server>\r\nUpgrade: websocket\r\n\r\n
+     *
+     * Dengan transport WS, app tidak boleh menambah handshake sendiri: server
+     * hanya menerima satu upgrade dan menjawab 301 kalau ada yang kedua. Yang
+     * diharapkan: payload dikirim utuh, preamble HTTP (301 + body + 101)
+     * dilewati, stream dimulai dari banner SSH.
+     */
+    @Test
+    fun payloadWithUpgradeHeaderSkipsAppHandshake() {
+        val server = ServerSocket(0, 1, InetAddress.getByName("127.0.0.1"))
+        val port = server.localPort
+        val received = ByteArrayOutputStream()
+        val done = java.util.concurrent.CountDownLatch(1)
+
+        Thread {
+            try {
+                server.accept().use { s ->
+                    val input = s.getInputStream()
+                    val buf = ByteArray(4096)
+                    while (!received.toString("ISO-8859-1").contains("Upgrade: websocket")) {
+                        val n = input.read(buf)
+                        if (n < 0) break
+                        received.write(buf, 0, n)
+                    }
+                    done.await(3, java.util.concurrent.TimeUnit.SECONDS)
+                    val out = s.getOutputStream()
+                    out.write(
+                        ("HTTP/1.1 301 Moved Permanently\r\n" +
+                            "Server: cloudflare\r\nTransfer-Encoding: chunked\r\n\r\n" +
+                            "HTTP/1.1 101 Switching Protocols\r\n" +
+                            "Upgrade: websocket\r\n\r\n" +
+                            "SSH-2.0-dropbear_2019.78\r\nKEXDATA")
+                            .toByteArray(Charsets.ISO_8859_1)
+                    )
+                    out.flush()
+                    Thread.sleep(300)
+                }
+            } catch (_: Exception) {
+            }
+        }.apply { isDaemon = true }.start()
+
+        val payload = "GET / HTTP/1.1\\r\\nHost: edu.ruangguru.com\\r\\n\\r\\n" +
+            "PATCH / HTTP/1.1\\r\\nHost: [host]\\r\\nUpgrade: websocket\\r\\n\\r\\n"
+        val cfg = Profile(
+            id = 1,
+            name = "1forcr",
+            host = "127.0.0.1",
+            port = port,
+            transport = "ws",
+            payload = payload,
+            strictTls = false
+        )
+        val factory = TransportSocketFactory(cfg)
+        val socket = factory.createSocket("127.0.0.1", port)
+        try {
+            val input = factory.getInputStream(socket)
+            val expected = "SSH-2.0-dropbear_2019.78\r\nKEXDATA"
+            val got = ByteArray(expected.length)
+            readFully(input, got)
+            assertEquals(expected, String(got, Charsets.ISO_8859_1))
+
+            val sent = received.toString("ISO-8859-1")
+            assertTrue(sent.contains("PATCH / HTTP/1.1\r\nHost: 127.0.0.1\r\n"))
+            assertTrue(sent.contains("Upgrade: websocket"))
+            // Handshake WS bawaan app tidak boleh ikut terkirim.
+            assertTrue(!sent.contains("Sec-WebSocket-Key"))
+        } finally {
+            done.countDown()
+            socket.close()
+            server.close()
+        }
+    }
+
+    /** Payload tanpa upgrade (hanya GET pura-pura) tetap boleh pakai WS app. */
+    @Test
+    fun upgradeDetectorIgnoresPlainFakeHttpPayload() {
+        val real = "GET / HTTP/1.1\\r\\nHost: edu.ruangguru.com\\r\\n\\r\\n" +
+            "PATCH / HTTP/1.1\\r\\nHost: x\\r\\nUpgrade: websocket\\r\\n\\r\\n"
+        assertTrue(TransportSocketFactory.UPGRADE_LINE.containsMatchIn(real))
+        assertTrue(
+            TransportSocketFactory.UPGRADE_LINE.containsMatchIn(
+                "GET / HTTP/1.1[crlf]Host: x[crlf]Upgrade: Websocket[crlf][crlf]"
+            )
+        )
+        assertTrue(
+            !TransportSocketFactory.UPGRADE_LINE.containsMatchIn(
+                "GET / HTTP/1.1[crlf]Host: x[crlf][crlf]"
+            )
+        )
+    }
+
     private fun readHeader(input: InputStream): String {
         val sb = StringBuilder()
         while (true) {

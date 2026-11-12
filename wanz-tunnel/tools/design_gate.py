@@ -215,6 +215,50 @@ if "R.font." not in "".join(text_of(f) for f in KOTLIN):
     add("WARN", SRC / "java/id/wanz/tunnel/Theme.kt", 1,
         "tidak ada font yang dibundel — tipografi jadi default sistem")
 
+# Ukuran huruf yang menghasilkan piksel pecahan membuat huruf kecil kelihatan
+# bergetar di layar HP (9,5sp x densitas 2,75 = 26,125px). Semua ukuran harus
+# lewat Face.px()/inkSize(), dan tidak ada lagi sp mentah di view mana pun.
+FACE_SRC = SRC / "java/id/wanz/tunnel/Face.kt"
+if FACE_SRC.exists() and "fun px(" not in text_of(FACE_SRC):
+    add("ERROR", FACE_SRC, 1, "Face.px() hilang — ukuran huruf berisiko pecahan piksel")
+for f in KOTLIN:
+    if f.name == "Face.kt":
+        continue
+    for i, line in enumerate(text_of(f).splitlines(), 1):
+        s = line.strip()
+        if s.startswith("//") or "COMPLEX_UNIT_PX" in s:
+            continue
+        if "COMPLEX_UNIT_SP" in s:
+            add("ERROR", f, i,
+                "ukuran huruf sp bisa jatuh di setengah piksel — pakai inkSize()")
+        elif re.search(r"\btextSize = dp\(", s) or re.search(r"\btextSize = [^;]*density", s):
+            add("ERROR", f, i,
+                "ukuran teks Paint tidak dibulatkan ke piksel utuh — pakai Face.px()")
+        elif re.search(r"\btextSize = [0-9.]+f$", s):
+            add("ERROR", f, i, "textSize sp mentah — pakai inkSize()")
+
+# Ukuran huruf yang menghasilkan piksel pecahan membuat huruf kecil kelihatan
+# bergetar di layar HP (9,5sp x densitas 2,75 = 26,125px). Semua ukuran harus
+# lewat Face.px()/inkSize(), dan tidak ada lagi sp mentah di view mana pun.
+FACE_SRC = SRC / "java/id/wanz/tunnel/Face.kt"
+if FACE_SRC.exists() and "fun px(" not in text_of(FACE_SRC):
+    add("ERROR", FACE_SRC, 1, "Face.px() hilang — ukuran huruf berisiko pecahan piksel")
+for f in KOTLIN:
+    if f.name == "Face.kt":
+        continue
+    for i, line in enumerate(text_of(f).splitlines(), 1):
+        s = line.strip()
+        if s.startswith("//") or "COMPLEX_UNIT_PX" in s:
+            continue
+        if "COMPLEX_UNIT_SP" in s:
+            add("ERROR", f, i,
+                "ukuran huruf sp bisa jatuh di setengah piksel — pakai inkSize()")
+        elif re.search(r"\btextSize = dp\(", s) or re.search(r"\btextSize = [^;]*density", s):
+            add("ERROR", f, i,
+                "ukuran teks Paint tidak dibulatkan ke piksel utuh — pakai Face.px()")
+        elif re.search(r"\btextSize = [0-9.]+f$", s):
+            add("ERROR", f, i, "textSize sp mentah — pakai inkSize()")
+
 # -------------------------------------------------------------------------- laporan
 order = {"ERROR": 0, "WARN": 1}
 findings.sort(key=lambda x: (order[x[0]], x[1], x[2]))

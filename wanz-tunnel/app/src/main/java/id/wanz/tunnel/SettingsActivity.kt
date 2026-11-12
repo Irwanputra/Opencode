@@ -85,9 +85,9 @@ class SettingsActivity : InkActivity() {
 
     private fun caption(text: String) = TextView(this).apply {
         this.text = text
-        textSize = 11f
-        setTextColor(MUTED)
         typeface = Face.prose(this@SettingsActivity)
+        inkSize(11f)
+        setTextColor(MUTED)
     }
 
     /** Judul bagian dengan garis rambut di bawahnya. */
@@ -95,10 +95,9 @@ class SettingsActivity : InkActivity() {
         val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         box.addView(TextView(this).apply {
             this.text = text
-            textSize = 11.5f
-            letterSpacing = 0.06f
-            setTextColor(INK)
             typeface = Face.monoMedium(this@SettingsActivity)
+            inkSize(11.5f, mono = true, tracking = 0.06f)
+            setTextColor(INK)
         })
         box.addView(
             rule(),
@@ -109,7 +108,7 @@ class SettingsActivity : InkActivity() {
 
     private fun note(text: String) = TextView(this).apply {
         this.text = text
-        textSize = 11f
+        inkSize(11f)
         setTextColor(MUTED)
         setLineSpacing(dp(3).toFloat(), 1f)
     }
@@ -119,20 +118,14 @@ class SettingsActivity : InkActivity() {
      * bawah, tinta saat fokus. Bukan kotak abu-abu komponen default.
      */
     private fun fieldBackground(): StateListDrawable {
-        fun underline(color: Int) = android.graphics.drawable.LayerDrawable(
-            arrayOf(
-                android.graphics.drawable.ColorDrawable(0x00000000),
-                android.graphics.drawable.ColorDrawable(color)
-            )
-        ).apply { setLayerInset(1, 0, height0(), 0, 0) }
+        val hair = dp(1).coerceAtLeast(1)
         return StateListDrawable().apply {
-            addState(intArrayOf(android.R.attr.state_focused), underline(INK))
-            addState(intArrayOf(), underline(HAIR))
+            // Fokus duluan: StateListDrawable memakai state pertama yang cocok.
+            addState(intArrayOf(android.R.attr.state_focused),
+                FieldUnderline(INK, hair * 2f))
+            addState(intArrayOf(), FieldUnderline(HAIR, hair.toFloat()))
         }
     }
-
-    /** Garis bawah ditaruh di dasar area setinggi 48dp. */
-    private fun height0(): Int = dp(47)
 
     private fun field(
         key: String,
@@ -151,8 +144,8 @@ class SettingsActivity : InkActivity() {
         }
         setTextColor(INK)
         setHintTextColor(FAINT)
-        textSize = 15f
         typeface = Face.mono(this@SettingsActivity)
+        inkSize(15f, mono = true)
         background = fieldBackground()
         setPadding(0, dp(11), 0, dp(10))
         includeFontPadding = false
@@ -179,7 +172,7 @@ class SettingsActivity : InkActivity() {
 
     private fun chipButton(label: String, color: Int, onClick: () -> Unit) = TextView(this).apply {
         text = label
-        textSize = 20f
+        inkSize(20f)
         gravity = Gravity.CENTER
         setTextColor(color)
         background = box(0, 2, HAIR, 1)
@@ -256,22 +249,23 @@ class SettingsActivity : InkActivity() {
         val brand = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         brand.addView(TextView(this).apply {
             text = "Pengaturan"
-            textSize = 27f
+            typeface = Face.proseMedium(this@SettingsActivity)
+            inkSize(27f)
             setTextColor(INK)
             letterSpacing = -0.02f
-            typeface = Face.proseMedium(this@SettingsActivity)
         })
         brand.addView(TextView(this).apply {
             text = "WANZ TUNNEL"
-            textSize = 10f
+            typeface = Face.monoMedium(this@SettingsActivity)
+            inkSize(10f, mono = true, tracking = 0.10f)
             setTextColor(MUTED)
-            letterSpacing = 0.1f
-            typeface = Face.prose(this@SettingsActivity)
         })
         header.addView(brand, LinearLayout.LayoutParams(0, -2, 1f))
         header.addView(TextView(this).apply {
             text = "← Kembali"
-            textSize = 12.5f
+            // Mono: Chivo tidak punya glyph panah, JetBrains Mono punya.
+            typeface = Face.mono(this@SettingsActivity)
+            inkSize(12.5f, mono = true)
             gravity = Gravity.CENTER
             setTextColor(INK)
             setPadding(dp(8), dp(8), 0, dp(8))
@@ -283,7 +277,7 @@ class SettingsActivity : InkActivity() {
 
         root.addView(TextView(this).apply {
             text = "Tunnel, jaringan, dan ping."
-            textSize = 12.5f
+            inkSize(12.5f)
             setTextColor(MUTED)
         }, lp(10))
 
@@ -401,8 +395,8 @@ class SettingsActivity : InkActivity() {
         strictToggle = toggle("Verifikasi sertifikat TLS ketat", true)
         payloadCard.addView(strictToggle, lp(10))
         payloadCard.addView(
-            note("Config HTTP Custom (payload ber-[split]) otomatis memakai SSH langsung; " +
-                "handshake WS bawaan dilewati."),
+            note("Payload yang sudah memuat [split] atau Upgrade: websocket otomatis " +
+                "memakai SSH langsung; handshake WS bawaan dilewati."),
             lp(8)
         )
         root.addView(payloadCard, lp(26))
@@ -415,7 +409,7 @@ class SettingsActivity : InkActivity() {
         netCard.addView(
             TextView(this).apply {
                 text = "DNS lewat tunnel (198.18.0.2)"
-                textSize = 13.5f
+                inkSize(13.5f)
                 setTextColor(INK)
                 setPadding(0, dp(12), 0, dp(12))
             },
@@ -452,10 +446,10 @@ class SettingsActivity : InkActivity() {
         pingCard.addView(
             TextView(this).apply {
                 text = "Ping sekarang"
-                textSize = 13f
+                typeface = Face.proseMedium(this@SettingsActivity)
+                inkSize(13f)
                 gravity = Gravity.CENTER
                 setTextColor(INK)
-                typeface = Face.proseMedium(this@SettingsActivity)
                 background = box(0, 2, INK, 1)
                 setPadding(dp(12), dp(12), dp(12), dp(12))
                 isClickable = true
@@ -504,7 +498,7 @@ class SettingsActivity : InkActivity() {
         logCard.addView(sectionLabel("Log"))
         logCard.addView(TextView(this).apply {
             text = "Buka log penuh"
-            textSize = 13f
+            inkSize(13f)
             setTextColor(INK)
             setPadding(0, dp(12), 0, dp(12))
             isClickable = true
@@ -515,7 +509,7 @@ class SettingsActivity : InkActivity() {
         logCard.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
         logCard.addView(TextView(this).apply {
             text = "Salin log ke clipboard"
-            textSize = 13f
+            inkSize(13f)
             setTextColor(INK)
             setPadding(0, dp(12), 0, dp(12))
             isClickable = true
@@ -529,7 +523,7 @@ class SettingsActivity : InkActivity() {
         logCard.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
         logCard.addView(TextView(this).apply {
             text = "Bersihkan log"
-            textSize = 13f
+            inkSize(13f)
             setTextColor(ERR)
             setPadding(0, dp(12), 0, dp(12))
             isClickable = true
@@ -558,8 +552,8 @@ class SettingsActivity : InkActivity() {
             setLineSpacing(dp(3).toFloat(), 1f)
             setTextColor(INK)
             setHintTextColor(FAINT)
-            textSize = 12f
             typeface = Face.mono(this@SettingsActivity)
+            inkSize(12f, mono = true)
             background = fieldBackground()
             setPadding(0, dp(11), 0, dp(12))
             includeFontPadding = false
@@ -568,10 +562,10 @@ class SettingsActivity : InkActivity() {
         importCard.addView(
             TextView(this).apply {
                 text = "Terapkan ke profil aktif"
-                textSize = 13f
+                typeface = Face.proseMedium(this@SettingsActivity)
+                inkSize(13f)
                 gravity = Gravity.CENTER
                 setTextColor(ON_INK)
-                typeface = Face.proseMedium(this@SettingsActivity)
                 background = box(INK, 2)
                 setPadding(dp(12), dp(13), dp(12), dp(13))
                 isClickable = true
@@ -584,7 +578,7 @@ class SettingsActivity : InkActivity() {
         root.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)).apply { topMargin = dp(22) })
         root.addView(TextView(this).apply {
             text = "Reset kunci host"
-            textSize = 12.5f
+            inkSize(12.5f)
             setTextColor(INK)
             setPadding(0, dp(12), 0, dp(4))
             isClickable = true
@@ -595,7 +589,7 @@ class SettingsActivity : InkActivity() {
         })
         root.addView(TextView(this).apply {
             text = "Wanz Tunnel " + BuildConfig.VERSION_NAME + "  ·  koneksi pribadi"
-            textSize = 10.5f
+            inkSize(10.5f)
             setTextColor(FAINT)
             setPadding(0, dp(8), 0, 0)
         })

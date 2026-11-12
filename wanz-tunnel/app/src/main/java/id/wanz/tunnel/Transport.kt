@@ -66,15 +66,22 @@ class TransportSocketFactory(
         val targetPort = cfg.port.takeIf { it in 1..65535 } ?: port
 
         val requested = cfg.transport.lowercase()
-        // Payload gaya HTTP Custom ([split]/[delay]/[delay_split]/[split_delay])
-        // sudah melakukan upgrade HTTP/WebSocket sendiri. Kalau transport
-        // dipilih WS/WSS, handshake tambahan dari app justru ditolak server
-        // (301). Deteksi ini dan pakai mode SSH langsung (raw) supaya konsisten.
-        val splitPayload = SPLIT_MARKER.containsMatchIn(cfg.payload)
-        val transport = if (splitPayload && (requested == "ws" || requested == "wss")) {
+        // Payload gaya HTTP Custom — baik yang memakai [split] maupun tidak —
+        // sudah melakukan upgrade HTTP/WebSocket sendiri. Payload asli dari log
+        // HTTP Custom contoh:
+        //   GET / HTTP/1.1\r\nHost: edu.ruangguru.com\r\n\r\n
+        //   PATCH / HTTP/1.1\r\nHost: <server>\r\nUpgrade: websocket\r\n\r\n
+        // Kalau transport WS/WSS dipilih, handshake WS tambahan dari app justru
+        // ditolak server (301) dan banner SSH tidak pernah datang. Jadi begitu
+        // payload memuat upgrade, pakai mode SSH langsung (raw).
+        val payloadDoesUpgrade = SPLIT_MARKER.containsMatchIn(cfg.payload) ||
+            UPGRADE_LINE.containsMatchIn(cfg.payload)
+        val transport = if (payloadDoesUpgrade && (requested == "ws" || requested == "wss")) {
             TunnelLog.add(
                 "TRANSPORT",
-                "Payload [split] terdeteksi → handshake WS bawaan dilewati (payload Anda sudah melakukan upgrade)"
+                "Payload sudah memuat upgrade HTTP → handshake WS bawaan dilewati" +
+                    if (requested == "wss") " (TLS juga tidak dipakai: payload dikirim polos seperti di HTTP Custom)"
+                    else " (server cukup satu upgrade)"
             )
             "ssh"
         } else {
@@ -418,6 +425,16 @@ class TransportSocketFactory(
         /** Penanda split HTTP Custom: [split], [delay], [delay_split], [split_delay]. */
         internal val SPLIT_MARKER = Regex(
             "\\[(?:split|delay|delay_split|split_delay)\\]",
+            RegexOption.IGNORE_CASE
+        )
+
+        /**
+         * Header upgrade di payload, mis. `Upgrade: websocket`. Ditulis sebagai
+         * ekspresi: payload dari log HTTP Custom memakai `\r\n` harfiah, jadi
+         * pembandingnya tidak boleh mengandalkan CRLF asli.
+         */
+        internal val UPGRADE_LINE = Regex(
+            "upgrade:[^\\\\\\r\\n]*websocket",
             RegexOption.IGNORE_CASE
         )
 

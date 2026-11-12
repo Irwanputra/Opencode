@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
-import android.util.TypedValue
 import android.view.Gravity
 import android.view.HapticFeedbackConstants
 import android.view.View
@@ -34,7 +33,7 @@ import java.util.Locale
  * bisa ditekan walau halaman digulir.
  *
  * Bagian teratas selalu: rel status, kop, satu baris status. Semua angka di
- *IBM Plex Mono supaya perubahan antar-sekatan tidak membuat layout meloncat.
+ *JetBrains Mono supaya perubahan antar-sekatan tidak membuat layout meloncat.
  */
 class MainActivity : InkActivity() {
     private lateinit var page: ScrollView
@@ -107,31 +106,30 @@ class MainActivity : InkActivity() {
 
     /** Label micro 9,5sp mono: nama kolom, bukan kalimat. */
     private fun micro(size: Float = 9.5f, color: Int = FAINT) = TextView(this).apply {
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
-        letterSpacing = 0.04f
-        setTextColor(color)
         typeface = Face.mono(this@MainActivity)
+        inkSize(size, mono = true, tracking = 0.04f)
+        setTextColor(color)
         maxLines = 1
         ellipsize = TextUtils.TruncateAt.END
     }
 
     /** Angka: mono, satu baris, tidak pernah membuat layout meloncat. */
     private fun number(size: Float, color: Int = INK) = TextView(this).apply {
-        setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
-        setTextColor(color)
         typeface = Face.mono(this@MainActivity)
+        inkSize(size, mono = true)
+        setTextColor(color)
         maxLines = 1
         ellipsize = TextUtils.TruncateAt.END
         includeFontPadding = false
     }
 
-    /** Kalimat: sans sistem, dibaca sekali lalu dilupakan. */
+    /** Kalimat: Chivo, dibaca sekali lalu dilupakan. */
     private fun prose(size: Float, color: Int = MUTED, medium: Boolean = false) =
         TextView(this).apply {
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, size)
-            setTextColor(color)
             typeface = if (medium) Face.proseMedium(this@MainActivity)
             else Face.prose(this@MainActivity)
+            inkSize(size)
+            setTextColor(color)
             setLineSpacing(dp(2).toFloat(), 1f)
         }
 
@@ -187,8 +185,8 @@ class MainActivity : InkActivity() {
             LinearLayout.LayoutParams(dp(10), dp(10)).apply { rightMargin = dp(9) })
         row.addView(micro(12f, INK).apply {
             text = "WANZ TUNNEL"
-            letterSpacing = 0.10f
             typeface = Face.monoMedium(this@MainActivity)
+            inkSize(12f, mono = true, tracking = 0.10f)
         }, LinearLayout.LayoutParams(0, -2, 1f))
 
         val gear = FrameLayout(this).apply {
@@ -287,7 +285,7 @@ class MainActivity : InkActivity() {
     private fun proseStep(glyph: String, desc: String, onTap: () -> Unit) =
         TextView(this).apply {
             text = glyph
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 17f)
+            inkSize(17f)
             setTextColor(FAINT)
             contentDescription = desc
             gravity = Gravity.CENTER
@@ -308,7 +306,7 @@ class MainActivity : InkActivity() {
         val value = number(12.5f, INK).apply {
             text = "—"
             gravity = Gravity.END
-            letterSpacing = 0.01f
+            inkSize(12.5f, mono = true, tracking = 0.01f)
         }
         row.addView(value, LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(12) })
         parent.addView(row)

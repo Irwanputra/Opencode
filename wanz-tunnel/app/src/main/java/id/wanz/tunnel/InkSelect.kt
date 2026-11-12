@@ -13,7 +13,7 @@ import android.view.View
  * Spinner bawaan masih terasa komponen default sistem (rubrik
  * `anti-ai-slop-ui`, *component defaultness*). Ini bidang bergaris bawah
  * saja, sama seperti kolom isian: tanpa kotak, tanpa isi abu-abu. Nilai
- * memakai IBM Plex Mono, panah digambar dengan garis, dan daftar pilihan
+ * memakai JetBrains Mono, panah digambar dengan garis, dan daftar pilihan
  * memakai dialog sistem supaya perilakunya tetap milik platform.
  */
 class InkSelect(context: Context) : View(context) {
@@ -64,6 +64,13 @@ class InkSelect(context: Context) : View(context) {
     init {
         isClickable = true
         minimumHeight = dp(48f).toInt()
+        // Font dan ukuran dipasang sekali: nilai digambar berulang kali, dan
+        // ukuran yang bukan bilangan piksel membuat teks kelihatan bergetar.
+        value.typeface = Face.mono(context)
+        value.textSize = Face.px(context, 14f)
+        value.letterSpacing = Face.tracking(
+            Face.advance(value.typeface, value.textSize), value.textSize
+        )
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -76,8 +83,6 @@ class InkSelect(context: Context) : View(context) {
         edge.strokeWidth = if (isPressed) dp(1.6f) else dp(1f)
         canvas.drawLine(0f, h - 0.5f, w, h - 0.5f, edge)
 
-        value.typeface = Face.mono(context)
-        value.textSize = dp(14f)
         value.color = INK
         val text = options.getOrElse(selectedIndex) { "—" }
         val base = (h - dp(6f)) / 2f - (value.ascent() + value.descent()) / 2f

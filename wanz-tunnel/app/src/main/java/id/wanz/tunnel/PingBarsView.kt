@@ -24,7 +24,11 @@ class PingBarsView(context: Context) : View(context) {
     private val bar = Paint(Paint.ANTI_ALIAS_FLAG)
     private val line = Paint()
     private val stamp = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = 9.5f * density
+        typeface = Face.monoMedium(context)
+        textSize = Face.px(context, 9.5f)
+        letterSpacing = Face.tracking(
+            Face.advance(typeface, textSize), textSize, 0.04f
+        )
     }
 
     var values: List<Int> = emptyList()

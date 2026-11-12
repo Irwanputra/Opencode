@@ -37,8 +37,9 @@ class InkToggle(context: Context) : View(context) {
     private fun dp(v: Float) = v * density
 
     private val labelText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        textSize = dp(13.5f)
+        typeface = Face.proseMedium(context)
         color = INK
+        textSize = Face.px(context, 13.5f)
     }
     private val shape = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE

@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9
+# Wanz Tunnel 2.9.1
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, dan multi-profil. Tampilan memakai arah **"Konsol"**:
@@ -38,8 +38,9 @@ menyatakan status koneksi.
   `[delay]`/`[delay_split]`/`[split_delay]` memberi jeda 1 detik antar
   potongan; preamble HTTP 301/101 dilewati sampai banner SSH ditemukan pada
   mode `SSH langsung`)
-- Deteksi otomatis: payload ber-`[split]` selalu diproses sebagai `SSH langsung`,
-  jadi memilih transport WS/WSS tidak lagi menyebabkan `301`
+- Deteksi otomatis: payload yang sudah memuat upgrade HTTP — ber-`[split]` **atau**
+  ber-header `Upgrade: websocket` — selalu diproses sebagai `SSH langsung`, jadi
+  memilih transport WS/WSS tidak lagi menyebabkan `301`
 - Proxy perantara opsional
 - Multi-profil: tambah, ganti, hapus, simpan otomatis
 - DNS mode VPN: selalu mapped-DNS (lewat tunnel); DNS kustom tidak tersedia
@@ -108,8 +109,11 @@ Catatan penting:
   perilaku HTTP Custom.
 - Server biasanya membalas `301` lalu `101`, baru banner SSH. Wanz Tunnel
   otomatis melewati respons HTTP itu pada mode `SSH langsung`.
-- `[split]` hanya didukung untuk transport `SSH langsung`. Kombinasi dengan
-  TLS/WS belum didukung.
+- Payload yang memuat `Upgrade: websocket` (dipisah `[crlf]` maupun `\r\n`
+  harfiah) dianggap sudah melakukan upgrade sendiri: transport WS/WSS otomatis
+  turun ke `SSH langsung` supaya app tidak mengirim upgrade kedua — server jenis
+  ini menolak upgrade kedua dengan `301` dan banner SSH tidak pernah datang.
+  Untuk `WSS`, payload model ini dikirim polos (di HTTP Custom juga begitu).
 
 ## Catatan
 
@@ -138,9 +142,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.apk`** (2,0 MB, `versionCode 14`,
+Rilis siap pasang: **`WanzTunnel-2.9.1.apk`** (2,0 MB, `versionCode 15`,
 Android 10 ke atas), SHA-256
-`159639ddae709d88e50153118f95c751987c35204bbbbdad25807ffb40a14213`.
+`0b7a6463fe9c01a51c6f91138f0932190bbd90123e491bc11de0485f7f316d47`.
+Rilis sebelumnya, `WanzTunnel-2.9.apk` (`versionCode 14`, SHA-256
+`159639ddae709d88e50153118f95c751987c35204bbbbdad25807ffb40a14213`), punya cacat
+tampilan pada field multi-baris — perbaiki di 2.9.1.
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -258,6 +265,52 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     DNS selalu mapped-DNS 198.18.0.2.
   - Beranda selalu menampilkan Mode `VPN` · "semua aplikasi"; tombol
     Hubungkan selalu meminta izin VPN.
+- v2.9.1: **perbaikan tampilan dari laporan perangkat nyata** (satu APK, dua bug):
+  - **Field multi-baris jadi blok warna.**
+    - Gejala di perangkat nyata: pada layar gelap, field **Payload** dan kolom
+      **Impor config** tampil seperti kotak kertas krem, terutama saat fokus.
+    - Penyebab: garis bawah field dibuat dari `LayerDrawable` berisi
+      `ColorDrawable` solid yang di-inset 47dp dari atas. Tinggi field belum
+      diketahui waktu drawable dibangun, jadi pada field 4 baris "garis" itu
+      melebar jadi blok setinggi field. Field satu baris (48dp) tidak kena karena
+      sisanya cuma 1dp.
+    - Sekarang garis digambar dari bounds oleh `FieldUnderline`, jadi selalu garis
+      setebal 1dp di dasar field berapa pun tingginya; saat fokus tebalnya 2dp dan
+      warnanya `INK`. Tidak ada warna atau kartu tambahan yang masuk.
+  - **Ganti font + tulisan tidak geter lagi.**
+    - IBM Plex Mono + Roboto (font bawaan HP) diganti **JetBrains Mono** untuk
+      angka/alamat/log dan **Chivo** untuk kalimat. Keduanya dari
+      Google Fonts, OFL, dipotong ke karakter yang dipakai aplikasi: 206 KB,
+      lebih kecil dari font sebelumnya (272 KB). `inkSize()` dipasang di semua
+      kolom isian, judul, baris log, dan label Pengaturan.
+    - "Geter" dibereskan di akarnya, bukan dipoles: `Face.px()` membulatkan
+      ukuran ke piksel utuh (9,5sp pada densitas 2,75 = 26,125px — garis dasar di
+      setengah piksel bikin huruf kecil kelihatan bergetar), dan `Face.tracking()`
+      menghitung ulang `letterSpacing` supaya langkah glyph mono (0,6em = 15,6px
+      pada 26px) jatuh di batas piksel. `InkSelect`, `InkToggle`, `PingBarsView`,
+      dan kop action bar yang digambar dengan `Paint` ikut dibulatkan.
+    - Semua kolom bacaan tetap rata kiri dengan lebar tetap, jadi angka trafik
+      yang berubah tiap detik tidak menggeser kolom di sebelahnya.
+  - **Payload HTTP Custom tanpa `[split]` kini dikenali** (ditemukan dari log
+    HTTP Custom pemakai — log tab `LOG` aplikasi itu):
+    - Payload nyata satu baris saja, tanpa penanda split:
+      `GET / HTTP/1.1\r\nHost: edu.ruangguru.com\r\n\r\nPATCH / HTTP/1.1\r\nHost: <server>\r\nUpgrade: websocket\r\n\r\n`
+      dengan `\r\n` ditulis harfiah.
+    - Sebelum: hanya payload ber-`[split]` yang membuat app melewatkan handshake
+      WS miliknya. Dengan transport WS, app jadi mengirim upgrade **kedua**;
+      server menjawab `HTTP/1.1 301 Moved Permanently` dan banner SSH tidak
+      pernah tiba — inilah gejala "terhubung tapi tidak bisa internetan".
+    - Sekarang payload apa pun yang memuat `Upgrade: websocket` (dengan `[crlf]`
+      maupun `\r\n` harfiah) otomatis diproses sebagai `SSH langsung`: payload
+      dikirim utuh satu kali, preamble `301`/`101` dilewati, banner langsung
+      dipakai. Log app menuliskan alasannya.
+    - Diuji ke server nyata: `id3-1forcr.zivpn.site` lewat edge `104.17.70.206:80`
+      membalas preamble Cloudflare lalu banner `SSH-2.0-dropbear_2019.78`;
+      `bansos.sunekvpn.cc.cd` pada edge yang sama kadang hanya membalas `301`
+      tanpa banner (server-nya memang tidak menjawab lewat IP itu).
+    - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
+      banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
+      `upgradeDetectorIgnoresPlainFakeHttpPayload`.
 - v2.9: **arah desain baru "Konsol"** (menggantikan "Panel"), dua palet, dan
   bacaan koneksi yang benar-benar hidup:
   - Kanvas grafit hangat `#131410` untuk gelap, kertas `#F1F1EC` untuk terang;
@@ -298,8 +351,14 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
 - [JSch (mwiede fork)](https://github.com/mwiede/jsch) — SSH, BSD-style license.
 - [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel) — tun2socks, MIT license.
-- [IBM Plex Mono](https://github.com/IBM/plex) — tipografi angka
-  dan label, SIL Open Font License 1.1. Dibundel di `app/src/main/res/font/`,
-  salinan lisensi di `app/src/main/assets/legal/OFL-IBM-Plex-Mono.txt`.
+- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) — angka,
+  alamat, log, dan label kolom; SIL Open Font License 1.1.
+- [Chivo](https://fonts.google.com/specimen/Chivo) — kalimat dan judul; SIL Open
+  Font License 1.1.
+  Keduanya diambil dari Google Fonts lalu dipotong (fonttools) ke karakter yang
+  dipakai aplikasi: Latin dasar plus `· — • … ← → × − ‹ ›`, total 206 KB untuk
+  empat berkas. Dibundel di `app/src/main/res/font/`, salinan lisensi di
+  `app/src/main/assets/legal/`.
+- IBM Plex Mono dipakai sampai v2.9; sejak v2.9.1 digantikan dua font di atas.
 - Foto latar (belum dipakai): sumber Pinterest, fotografer belum diketahui.
   Lihat `design/wallpaper/README.md` sebelum APK-nya diedarkan luas.

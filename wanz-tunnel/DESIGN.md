@@ -87,12 +87,38 @@ tidak mengikuti pengaturan HP secara diam-diam. Dialog pilihan (mis. dialog
 
 ## Tipografi
 
-- Dua keluarga, keduanya dibundel: IBM Plex Mono untuk angka dan label micro,
-  sans sistem untuk kalimat (`Face.mono`, `Face.prose`).
-- Label micro 9,5sp mono dengan tracking +0,04: nama kolom, bukan kalimat.
+- Dua keluarga, keduanya dibundel dari Google Fonts dan dipotong ke karakter yang
+  dipakai aplikasi (total 206 KB): **JetBrains Mono** untuk angka, alamat, dan log;
+  **Chivo** untuk kalimat (`Face.mono`, `Face.prose`). Font bawaan HP (Roboto)
+  dibuang: di aplikasi jaringan, kalimat yang memakai font sistem membuat seluruh
+  layar terbaca seperti template.
+- Pemilihannya diukur, bukan selera. Tinggi x (seberapa besar huruf kecil) dan
+  tebal garis saat di-render pada densitas 2,75:
+
+  | font | tinggi x / em | garis @26px | @29px | @34px |
+  |---|---|---|---|---|
+  | Roboto 400 (bawaan HP) | 0,528 | 2,67 | 2,67 | 3,00 |
+  | IBM Plex Mono 400 (sebelumnya) | 0,516 | 2,33 | 2,67 | 3,00 |
+  | **JetBrains Mono 400** | **0,550** | 2,00 | 3,00 | 3,00 |
+  | **Chivo 400** | 0,511 | **3,00** | **4,00** | **4,00** |
+
+  Tinggi x terbesar dan angka tabular membuat JetBrains Mono paling terbaca di
+  deret bacaan; Chivo satu-satunya yang tetap di atas tiga piksel pada semua
+  ukuran kalimat, jadi teks penjelas tidak jadi benang.
+- Label micro 9,5sp mono dengan tracking +0,04: nama kolom, bukan kalimat. Setelah
+  langkah glyph dibulatkan, tracking efektifnya jadi +0,054 em pada 26px
+  (15,6px → 17px) — selisihnya sepersepuluh piksel huruf, tidak terlihat.
 - Angka 12,5–16sp mono; perubahan antar-sekatan tidak membuat layout meloncat.
 - Judul status 23sp medium; judul halaman 27sp tracking negatif tipis.
 - Tidak ada huruf kapital semua sebagai gaya; hanya merek "WANZ TUNNEL".
+- **Tulisan tidak boleh geter.** Dua penyebabnya dibereskan di `Face`:
+  ukuran sp yang menghasilkan piksel pecahan (9,5sp × densitas 2,75 = 26,125px)
+  dibulatkan ke piksel utuh oleh `Face.px` lewat `inkSize()`, dan
+  `Face.tracking()` memilih nilai `letterSpacing` sehingga langkah glyph mono
+  (0,6em — pada 26px berarti 15,6px) jatuh lagi di batas piksel. Semua kolom
+  bacaan rata kiri dengan lebar tetap, jadi angka yang berubah tiap detik tidak
+  menggeser tetangganya. Aturan ini dijaga `design_gate.py`: `COMPLEX_UNIT_SP`
+  atau `textSize = dp(...)` di luar `Face.kt` dianggap galat.
 
 ## Susunan beranda
 
@@ -114,7 +140,11 @@ tidak mengikuti pengaturan HP secara diam-diam. Dialog pilihan (mis. dialog
 Pengaturan dan Log memakai sistem yang sama: judul bagian bergaris rambut, field
 bergaris bawah saja (bukan kotak abu komponen default), daftar aksi tanpa kartu.
 `InkSelect` dan `InkToggle` menggambar dirinya sendiri dan menjamin tinggi sentuh
-48dp, karena `Spinner` bawaan masih terasa komponen sistem.
+48dp, karena `Spinner` bawaan masih terasa komponen sistem. Garis bawah field
+digambar dari bounds (`FieldUnderline`): 1dp biasa, 2dp saat fokus. Bukan
+`LayerDrawable` yang di-inset dari atas — pada field multi-baris (Payload, Impor
+config) celah inset itu melebar jadi blok tinta setinggi field, dan field fokus
+tampak seperti kertas di layar gelap.
 
 Mode tunggal: **VPN**, seperti HTTP Custom. Tidak ada pilihan SOCKS5/VPN; SOCKS5
 hanya detail internal tun2socks.

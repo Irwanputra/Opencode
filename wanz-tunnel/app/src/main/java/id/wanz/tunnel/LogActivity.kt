@@ -54,11 +54,11 @@ class LogActivity : InkActivity() {
         }
         header.addView(TextView(this).apply {
             text = "←"
-            textSize = 19f
+            typeface = Face.mono(this@LogActivity)
+            inkSize(19f, mono = true)
             gravity = Gravity.CENTER
             setTextColor(INK)
             contentDescription = "Kembali"
-            typeface = Face.mono(this@LogActivity)
             setPadding(0, 0, dp(14), 0)
             isClickable = true
             setOnClickListener { finish() }
@@ -67,24 +67,24 @@ class LogActivity : InkActivity() {
         val title = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         title.addView(TextView(this).apply {
             text = "Log"
-            textSize = 27f
+            typeface = Face.proseMedium(this@LogActivity)
+            inkSize(27f)
             setTextColor(INK)
             letterSpacing = -0.02f
-            typeface = Face.proseMedium(this@LogActivity)
         })
         countText = TextView(this).apply {
             text = "0 baris"
-            textSize = 10.5f
-            setTextColor(MUTED)
             typeface = Face.mono(this@LogActivity)
+            inkSize(10.5f, mono = true)
+            setTextColor(MUTED)
         }
         title.addView(countText)
         header.addView(title, LinearLayout.LayoutParams(0, -2, 1f))
         header.addView(TextView(this).apply {
             text = "Salin"
-            textSize = 12.5f
-            setTextColor(INK)
             typeface = Face.proseMedium(this@LogActivity)
+            inkSize(12.5f)
+            setTextColor(INK)
             gravity = Gravity.CENTER
             setPadding(dp(12), dp(10), dp(2), dp(10))
             isClickable = true
@@ -105,9 +105,9 @@ class LogActivity : InkActivity() {
         toolbar.addView(autoScroll, LinearLayout.LayoutParams(0, dp(48), 1f))
         toolbar.addView(TextView(this).apply {
             text = "Bersihkan"
-            textSize = 12.5f
-            setTextColor(ERR)
             typeface = Face.proseMedium(this@LogActivity)
+            inkSize(12.5f)
+            setTextColor(ERR)
             gravity = Gravity.CENTER
             setPadding(dp(12), dp(10), dp(2), dp(10))
             isClickable = true
@@ -120,9 +120,9 @@ class LogActivity : InkActivity() {
 
         // -------------------------------------------------------------- LOG
         logText = TextView(this).apply {
-            textSize = 10.5f
-            setTextColor(INK)
             typeface = Face.mono(this@LogActivity)
+            inkSize(10.5f, mono = true)
+            setTextColor(INK)
             setLineSpacing(dp(3).toFloat(), 1f)
             setTextIsSelectable(true)
             setPadding(dp(12), dp(12), dp(12), dp(12))

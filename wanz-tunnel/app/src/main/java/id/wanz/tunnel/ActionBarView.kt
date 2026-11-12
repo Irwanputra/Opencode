@@ -4,7 +4,6 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
-import android.graphics.Typeface
 import android.view.View
 import android.view.animation.LinearInterpolator
 
@@ -43,8 +42,8 @@ class ActionBarView(context: Context) : View(context) {
         strokeWidth = dp(1f)
     }
     private val label = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        textSize = dp(16f)
+        typeface = Face.proseMedium(context)
+        textSize = Face.px(context, 16f)
     }
     private val glyph = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.STROKE
