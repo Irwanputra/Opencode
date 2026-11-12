@@ -128,3 +128,7 @@ ERROR        | Failed to find ColorBuffer: 71
 ERROR        | Failed to bind to texture: invalid color buffer.
 INFO         | Boot completed in 175828 ms
 INFO         | Increasing screen off timeout, logcat buffer size to 2M.
+ERROR        | Failed to find ColorBuffer: 318
+ERROR        | Failed to bind to texture: invalid color buffer.
+ERROR        | Failed to find ColorBuffer: 335
+ERROR        | Failed to bind to texture: invalid color buffer.
