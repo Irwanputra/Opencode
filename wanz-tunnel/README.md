@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.7
+# Wanz Tunnel 2.9.8
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.6 mengikuti **HTTP Custom**:
@@ -13,7 +13,7 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 - **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
   internal oleh tun2socks (port 1080 tetap)
-- UI mengikuti HTTP Custom: bilah atas dengan menu dan impor config, tab
+- UI mengikuti HTTP Custom: bilah atas hanya menu dan judul, tab
   **SSH** dan **LOG**, isian `ip:port@user:pass`, delapan centang dua kolom,
   tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri hanya
   **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat** (Tentang). Tidak ada
@@ -79,24 +79,17 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 4. Tekan Hubungkan. Izin VPN Android diminta sekali, lalu seluruh trafik
    TCP aplikasi lewat tunnel.
 
-### Impor config
+### Isi profil (tanpa fitur impor)
 
-Di layar rinci profil (**Profil → Ubah profil aktif**) ada kartu **IMPOR
-CONFIG**. Tempel bundle config
-gaya HTTP Custom lalu ketuk **Terapkan ke profil aktif**; Wanz Tunnel
-mengisi otomatis field yang dikenali:
+Fitur impor config dihapus sejak v2.9.8 (ikon di bilah atas tidak ada lagi).
+Isi profil langsung:
 
-- baris payload (mengandung `[crlf]` / `[split]`) → **PAYLOAD**
-- baris proxy `ip:port` → **PROXY / EDGE**
-- baris akun `host:port@user:pass` → **HOST / IP**, **PORT**, **USERNAME**, **PASSWORD**
-
-Contoh:
-
-```
-GET / HTTP/1.1[crlf]Host: edu.ruangguru.com[crlf][crlf]PATCH / HTTP/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf][split]HTTP/ 69[crlf][crlf]
-104.17.70.206:80
-indo5.vpnjz.com:80@Taekkk67-vpnjantit.com:123
-```
+1. Kolom **Server** berformat `ip:port@user:pass` — contoh:
+   `bansos.sunekvpn.cc.cd:80@sunek-coolmaxx:Coolmaxx`
+2. Laci **Utilitas → Payload** untuk payload HTTP Custom, dan
+   **Utilitas → Proxy** untuk proxy/edge (mis. `104.17.70.206:80`).
+3. Centang **Pakai payload**, lalu tekan **Hubungkan**. Izin VPN Android
+   diminta sekali, lalu seluruh trafik TCP aplikasi lewat tunnel.
 
 ### Config gaya HTTP Custom (XL edukasi)
 
@@ -173,12 +166,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.7.apk`** (1,9 MB, `versionCode 21`,
+Rilis siap pasang: **`WanzTunnel-2.9.8.apk`** (1,9 MB, `versionCode 22`,
 Android 10 ke atas), SHA-256
-`a0ade573dbdab3afbeed10c0f1adcd55b9ddb65431cf0b6bdf7af00af6335cd6`.
-Rilis sebelumnya, `WanzTunnel-2.9.6.apk` (`versionCode 20`, SHA-256
-`571c3876a979c08fd8d500ae58746833c5291ba0331a8c21c4b443ffb52ffcd2`), masih
-menampilkan Server Message HTML mentah (penuh tag `<font>`).
+`846e58ac6358559228871b018275cefa05fec9ad75084c2cbba54268ff2225c8`.
+Rilis sebelumnya, `WanzTunnel-2.9.7.apk` (`versionCode 21`, SHA-256
+`a0ade573dbdab3afbeed10c0f1adcd55b9ddb65431cf0b6bdf7af00af6335cd6`), masih
+menampilkan ikon impor config di bilah atas.
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -203,7 +196,8 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   baru **OK**/**BANNER** dan pemangkasan ANSI pada salinan log; jalur nyata
   menghasilkan preamble `301`/`101`, banner `SSH-2.0-dropbear_2019.78`, login
   password sukses, dan kanal `direct-tcpip` aktif.
-- Bilah atas kini hanya menu + judul + impor config; tidak ada titik tiga dan
+- Bilah atas hanya menu + judul (ikon impor config dihapus sejak v2.9.8);
+  tidak ada titik tiga dan
   tidak ada tombol tambah mengambang. Profil baru dibuat lewat laci **Profil**
   → "Tambah profil baru", dan profil lama diubah lewat **Profil → Ubah profil
   aktif". Tidak ada lagi entri "Pengaturan" di laci.
@@ -384,6 +378,13 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.8: **ikon impor config di bilah atas dihapus** (permintaan pemakai).
+  - Bilah atas kini hanya menu + judul "Wanz Tunnel", persis gaya HTTP Custom.
+  - Fitur impor config hilang bersama ikonnya (tidak ada jalur duplikat);
+    profil diisi lewat field `ip:port@user:pass`, dialog **Payload** dan
+    **Proxy** di laci. `ic_cloud_download` dan `importDialog()` ikut dihapus.
+  - APK: `WanzTunnel-2.9.8.apk` (`versionCode 22`); 31 unit test, lint, dan
+    gerbang desain tetap bersih.
 - v2.9.7: **log CONNECT per koneksi dihapus** (permintaan pemakai). Trafik
   aplikasi menghasilkan puluhan `CONNECT host:port` per menit dan membanjiri
   tab LOG; baris itu kini hanya masuk log debug internal. Log tetap menampilkan

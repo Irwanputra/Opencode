@@ -106,7 +106,7 @@ terlihat seperti template dengan font lain.
 
 ## Susunan beranda
 
-1. **Bilah atas 56dp**: menu di kiri; judul "Wanz Tunnel"; impor config di kanan.
+1. **Bilah atas 56dp**: menu di kiri; judul "Wanz Tunnel" di tengah.
 2. **Dua tab 48dp** (`SSH`, `LOG`) dengan garis bawah hijau 3dp pada tab aktif,
    lalu garis rambut selebar layar.
 3. **Tab SSH**:
@@ -130,9 +130,9 @@ terlihat seperti template dengan font lain.
    - **Payload** dan **Proxy** mengubah dua field profil yang tidak muat di
      beranda; SSH (host/port/user/pass) diisi langsung di field ringkas.
    - **Tema** memilih Ikuti sistem/Terang/Gelap.
-   - Impor config cukup ikon di bilah atas; ping manual cukup ketuk kolom
+   - Ping manual cukup ketuk kolom
      Aktif; log dan salin/bersihkan cukup di tab LOG; reset kunci host ada di
-     dialog Tentang.
+     dialog Tentang. (Ikon impor config dihapus sejak v2.9.8.)
 
 Delapan centang dan field yang diubahnya:
 

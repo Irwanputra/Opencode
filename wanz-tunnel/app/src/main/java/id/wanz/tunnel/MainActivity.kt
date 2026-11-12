@@ -197,7 +197,7 @@ class MainActivity : InkActivity() {
         return root
     }
 
-    /** Bilah atas: menu di kiri, judul dua warna, dan impor config di kanan. */
+    /** Bilah atas: menu di kiri, judul dua warna di tengah. */
     private fun appBar(): View {
         val bar = horizontal().apply {
             setPadding(dp(4), 0, dp(4), 0)
@@ -214,11 +214,6 @@ class MainActivity : InkActivity() {
             uiText("Tunnel", 22f, INK).apply { setPadding(dp(6), 0, 0, 0) }
         )
         bar.addView(title, LinearLayout.LayoutParams(0, -2, 1f))
-
-        bar.addView(
-            iconButton(R.drawable.ic_cloud_download, "Impor config") { importDialog() },
-            LinearLayout.LayoutParams(dp(48), dp(48))
-        )
         return bar
     }
 
@@ -1180,34 +1175,6 @@ class MainActivity : InkActivity() {
                 commitProfile(p.copy(proxy = input.text.toString().trim()))
                 syncUi()
                 Toast.makeText(this, "Proxy disimpan", Toast.LENGTH_SHORT).show()
-            }
-            .setNegativeButton("Batal", null)
-            .show()
-    }
-
-    private fun importDialog() {
-        saveCompactField(false)
-        val p = profile ?: return
-        val input = dialogInput("", "host:port@user:pass", multiline = true)
-        themedBuilder("Impor config")
-            .setView(
-                dialogWrap(
-                    input,
-                    "Baris pertama yang tidak berisi spasi dibaca sebagai host:port@user:pass."
-                )
-            )
-            .setPositiveButton("Terapkan") { _, _ ->
-                val candidate = input.text.toString().lineSequence()
-                    .map { it.trim() }
-                    .firstOrNull { it.isNotEmpty() && !it.contains(' ') }
-                val cfg = candidate?.let { Compact.parse(it) }
-                if (cfg == null) {
-                    Toast.makeText(this, "Config tidak dikenali", Toast.LENGTH_SHORT).show()
-                } else {
-                    commitProfile(Compact.apply(p, cfg))
-                    syncUi()
-                    Toast.makeText(this, "Config diterapkan", Toast.LENGTH_SHORT).show()
-                }
             }
             .setNegativeButton("Batal", null)
             .show()
