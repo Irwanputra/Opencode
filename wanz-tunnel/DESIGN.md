@@ -185,7 +185,8 @@ langsung tanpa durasi.
 - Log memakai jam perangkat dan level yang diturunkan dari tag/pesan. Level
   v2.9.5: INFO, OK (hijau), WARN, ERROR, PING (hijau), BANNER (aksen). Banner
   SSH/server message boleh membawa kode warna ANSI dari server; kode itu
-  ditafsirkan menjadi warna per span, dan dibuang saat log disalin.
+  ditafsirkan menjadi warna per span (termasuk truecolor `38;2;R;G;B` dari
+  konversi HTML `ServerBanner`), dan dibuang saat log disalin.
 - Tahapan log mengikuti HTTP Custom: header perangkat/jaringan/IP lokal,
   siklus layanan + WakeLock, resolve → socket → timeout, payload per bagian
   (escape `\r\n`), preamble HTTP (301/101), banner SSH, fingerprint kunci

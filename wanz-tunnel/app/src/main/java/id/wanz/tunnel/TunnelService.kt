@@ -168,10 +168,13 @@ class TunnelService : VpnService() {
         override fun promptPassphrase(m: String?) = false
         override fun promptYesNo(m: String?) = m?.contains("CHANGED") != true
         override fun showMessage(m: String?) {
-            // Server message/banner dari server SSH (bisa ber-ANSI), tampilkan
-            // utuh supaya lognya mirip HTTP Custom.
-            val text = m?.trim().orEmpty()
-            if (text.isNotEmpty()) TunnelLog.add(TunnelLog.BANNER, "Server Message: $text")
+            // Server message/banner dari server SSH. Banyak server mengirim
+            // HTML berwarna (font color=...); ubah jadi ANSI supaya tampil
+            // berwarna tanpa tag. Banner ANSI murni tetap lewat apa adanya.
+            val raw = m?.trim().orEmpty()
+            if (raw.isNotEmpty()) {
+                TunnelLog.add(TunnelLog.BANNER, "Server Message: ${ServerBanner.toAnsi(raw)}")
+            }
         }
     }
 

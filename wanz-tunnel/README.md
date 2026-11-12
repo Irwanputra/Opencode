@@ -1,7 +1,7 @@
-# Wanz Tunnel 2.9.5
+# Wanz Tunnel 2.9.6
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
-TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.5 mengikuti **HTTP Custom**:
+TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.6 mengikuti **HTTP Custom**:
 kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
 dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
 kolom, tombol sambung bergaris, dan laci bergrup — tanpa menu tiga titik dan
@@ -30,12 +30,12 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   garis pemisah tipis dan warna per level (**INFO** tinta, **OK/PING** hijau,
   **WARN** kuning, **ERROR** merah muda, **BANNER** hijau aksen), auto-scroll,
   serta tombol Ikuti / Salin / Bersihkan. Salinan memakai format
-  `jam  [LEVEL]  pesan` tanpa escape ANSI. Tahapan log mengikuti HTTP Custom:
-  header perangkat/sistem/jaringan/IP lokal, siklus layanan + WakeLock, resolve
-  host, socket + timeout, payload ter-escape per bagian, status HTTP preamble
-  (301/101), banner SSH, fingerprint kunci host (MD5/SHA-256), autentikasi,
-  server message (warna ANSI server tetap ditampilkan), SOCKS5/TUN, sampai
-  uji internet.
+  `jam  [LEVEL]  pesan` tanpa escape ANSI. Server message HTML dari server
+  (`<font color=...>`) dirender berwarna tanpa tag. Tahapan log mengikuti
+  HTTP Custom: header perangkat/sistem/jaringan/IP lokal, siklus layanan +
+  WakeLock, resolve host, socket + timeout, payload ter-escape per bagian,
+  status HTTP preamble (301/101), banner SSH, fingerprint kunci host
+  (MD5/SHA-256), autentikasi, server message, SOCKS5/TUN, sampai uji internet.
 - Ping bawaan: hasil ping tampil di kolom Aktif dan di log; ketuk kolom Aktif
   untuk ping manual (tidak ada menu ping terpisah)
 - Auto ping: interval 5/10/15/30/60 detik dengan target bisa diatur
@@ -173,12 +173,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.5.apk`** (1,9 MB, `versionCode 19`,
+Rilis siap pasang: **`WanzTunnel-2.9.6.apk`** (1,9 MB, `versionCode 20`,
 Android 10 ke atas), SHA-256
-`b40fdc05fa6f6265af3e840af23db1d240f26ee289077f7ce5f5767c1058b72c`.
-Rilis sebelumnya, `WanzTunnel-2.9.4.apk` (`versionCode 18`, SHA-256
-`ade6e881efc5915557d16fe551c0966cf13e4f0f207162ea1a1d2d70031aa2ca`), masih
-memakai log ringkas (hanya beberapa baris status).
+`571c3876a979c08fd8d500ae58746833c5291ba0331a8c21c4b443ffb52ffcd2`.
+Rilis sebelumnya, `WanzTunnel-2.9.5.apk` (`versionCode 19`, SHA-256
+`b40fdc05fa6f6265af3e840af23db1d240f26ee289077f7ce5f5767c1058b72c`), masih
+menampilkan Server Message HTML mentah (penuh tag `<font>`).
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -384,6 +384,20 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
+- v2.9.6: **Server Message HTML dirender berwarna tanpa tag** (laporan pemakai:
+  banner Sunek muncul sebagai teks `<p style=...><font color='#FF8A00'>...`).
+  - `ServerBanner.toAnsi()` mengubah potongan HTML biasa dari server menjadi
+    kode warna ANSI SGR: `<font color='#RRGGBB'>` → warna teks 24-bit,
+    `<b>`/`<strong>` → tebal, `<u>` → garis bawah, `<br>` → baris baru,
+    `<p style=...>` dan tag sisa dibuang, entity dasar (`>`, `&`, ...)
+    diterjemahkan. Pesan tanpa tag (termasuk banner ANSI murni) tidak diubah.
+  - Renderer log kini juga mengerti ANSI extended: `38;2;R;G;B` (truecolor),
+    `38;5;n` (16 warna dasar), garis bawah (4/24), dan latar (48, diabaikan)
+    selain kode 30-37/90-97 yang sudah ada.
+  - Tombol Salin tetap menghasilkan teks polos: escape ANSI dan tag HTML
+    dibuang di `TunnelLog.plain()`.
+  - 6 unit test baru (`HtmlBannerTest`), total 31 test lulus; gerbang desain
+    dan lint tetap bersih. APK: `WanzTunnel-2.9.6.apk` (`versionCode 20`).
 - v2.9.5: **log diperkaya mengikuti HTTP Custom** atas permintaan pemakai
   (log acuan: `bansos.sunekvpn.cc.cd:80@sunek-coolmaxx:Coolmaxx`).
   - Tahapan koneksi kini dicatat lengkap: versi app, perangkat, sistem/ABI,

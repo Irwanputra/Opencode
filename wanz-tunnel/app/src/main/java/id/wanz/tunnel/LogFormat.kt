@@ -5,6 +5,7 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
+import android.text.style.UnderlineSpan
 
 /**
  * Warna per level log. Semua dibaca ulang tiap render: token warna berubah
@@ -59,18 +60,19 @@ internal fun TunnelLog.Entry.toSpanned(): CharSequence {
     return ss
 }
 
-/** Tulis teks dengan kode SGR ANSI ditafsirkan menjadi span warna/tebal. */
+/** Tulis teks dengan kode SGR ANSI ditafsirkan menjadi span warna/gaya. */
 private fun appendAnsi(out: SpannableStringBuilder, text: String, base: Int) {
     var color = base
     var bold = false
+    var underline = false
     var index = 0
     while (index < text.length) {
         val esc = text.indexOf(ESC, index)
         if (esc < 0) {
-            appendStyled(out, text.substring(index), color, bold)
+            appendStyled(out, text.substring(index), color, bold, underline)
             return
         }
-        if (esc > index) appendStyled(out, text.substring(index, esc), color, bold)
+        if (esc > index) appendStyled(out, text.substring(index, esc), color, bold, underline)
         val end = text.indexOf('m', esc + 1)
         if (end < 0) return // escape menggantung: sisa teks dibuang
         val codes = text.substring(esc + 2, end)
@@ -79,19 +81,42 @@ private fun appendAnsi(out: SpannableStringBuilder, text: String, base: Int) {
         if (codes.isEmpty()) {
             color = base
             bold = false
+            underline = false
         }
-        for (code in codes) {
-            when {
-                code == 0 -> {
+        var i = 0
+        while (i < codes.size) {
+            when (val code = codes[i]) {
+                0 -> {
                     color = base
                     bold = false
+                    underline = false
                 }
-                code == 1 -> bold = true
-                code == 22 -> bold = false
-                code == 39 -> color = base
-                code in 30..37 -> color = ANSI_NORMAL[code - 30]
-                code in 90..97 -> color = ANSI_BRIGHT[code - 90]
+                1 -> bold = true
+                4 -> underline = true
+                22 -> bold = false
+                24 -> underline = false
+                39 -> color = base
+                in 30..37 -> color = ANSI_NORMAL[code - 30]
+                in 90..97 -> color = ANSI_BRIGHT[code - 90]
+                // 38/48: warna extended (48 = latar, diabaikan). Bentuk
+                // 38;2;r;g;b (truecolor) dan 38;5;n (256 warna) didukung.
+                38, 48 -> {
+                    if (i + 1 < codes.size && codes[i + 1] == 2 && i + 4 < codes.size) {
+                        val rgb = (codes[i + 2].coerceIn(0, 255) shl 16) or
+                            (codes[i + 3].coerceIn(0, 255) shl 8) or
+                            codes[i + 4].coerceIn(0, 255)
+                        if (code == 38) color = -0x1000000 or rgb
+                        i += 4
+                    } else if (i + 1 < codes.size && codes[i + 1] == 5 && i + 2 < codes.size) {
+                        val n = codes[i + 2]
+                        if (code == 38 && n in 0..15) {
+                            color = if (n < 8) ANSI_NORMAL[n] else ANSI_BRIGHT[n - 8]
+                        }
+                        i += 2
+                    }
+                }
             }
+            i++
         }
         index = end + 1
     }
@@ -101,7 +126,8 @@ private fun appendStyled(
     out: SpannableStringBuilder,
     text: String,
     color: Int,
-    bold: Boolean
+    bold: Boolean,
+    underline: Boolean
 ) {
     if (text.isEmpty()) return
     val start = out.length
@@ -115,6 +141,14 @@ private fun appendStyled(
     if (bold) {
         out.setSpan(
             StyleSpan(Typeface.BOLD),
+            start,
+            out.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+    }
+    if (underline) {
+        out.setSpan(
+            UnderlineSpan(),
             start,
             out.length,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
