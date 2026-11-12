@@ -50,6 +50,9 @@ class TunnelService : VpnService() {
         @Volatile var pingMs: Int = -1
         @Volatile var pingAt: Long = 0L
 
+        /** Waktu mulai terhubung (epoch ms); 0 = belum terhubung. */
+        @Volatile var connectedAt: Long = 0L
+
         const val ACTION_START = "start"
         const val ACTION_STOP = "stop"
         const val ACTION_PING = "ping"
@@ -110,6 +113,11 @@ class TunnelService : VpnService() {
 
     private fun set(s: String) {
         status = s
+        if (s.startsWith("Terhubung")) {
+            if (connectedAt == 0L) connectedAt = System.currentTimeMillis()
+        } else {
+            connectedAt = 0L
+        }
         TunnelLog.add("STATUS", s)
         onStatus?.invoke()
     }
@@ -140,6 +148,7 @@ class TunnelService : VpnService() {
             profile = ProfileStore(this).get(profileId)
             pingMs = -1
             pingAt = 0L
+            connectedAt = 0L
             running = true
             foreground()
             set("Menunggu jaringan…")

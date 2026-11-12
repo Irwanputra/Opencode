@@ -1,9 +1,9 @@
-# Wanz Tunnel 2.6.2
+# Wanz Tunnel 2.8
 
 Aplikasi Android untuk SSH tunnel dengan SOCKS5 lokal, mode VPN system-wide,
-payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan bergaya modern
-dark: halaman utama bersih berisi tombol koneksi melingkar beranimasi dan log
-koneksi langsung, sedangkan seluruh konfigurasi berada di menu Pengaturan.
+payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan memakai arah
+**panel instrumen**: kertas terang, tinta, garis rambut, angka tabular, dan
+warna yang hanya dipakai untuk menyatakan status koneksi.
 
 ## Fitur
 
@@ -11,11 +11,12 @@ koneksi langsung, sedangkan seluruh konfigurasi berada di menu Pengaturan.
 - SOCKS5 lokal `127.0.0.1:<port>` (port bisa diubah)
 - Mode **VPN** memakai `VpnService` + tun2socks (hev-socks5-tunnel)
 - Mode **Proxy** hanya membuka SOCKS5 lokal
-- UI modern: halaman utama bersih (tombol koneksi melingkar, ringkasan profil
-  aktif, panel log langsung) dan halaman Pengaturan terpisah untuk semua opsi
+- UI panel instrumen: rel status di tepi atas, tabel bacaan
+  (ping/uptime/mode/transport), server aktif, cuplikan log, dan satu tombol
+  aksi lebar di bawah. Semua konfigurasi di halaman Pengaturan.
 - Log koneksi gaya HTTP Custom: setiap baris `jam  [LEVEL]  pesan` dengan
   level **INFO/WARN/ERROR/PING**, warna per level, auto-scroll, layar log
-  penuh (⤢) serta tombol Salin / Bersihkan
+  penuh serta tombol Salin / Bersihkan
 - Ping bawaan: hasil ping tampil di halaman utama dan di log; ketuk baris
   ping untuk ping manual
 - Auto ping: interval 5/10/15/30/60 detik dengan target bisa diatur
@@ -212,6 +213,25 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     "terhubung" yang bohong.
   - Verifikasi emulator: `Terhubung • VPN • internet OK`, DNS
     `example.org → 240.0.0.0`, Chrome memuat example.com, ping ~284 ms.
+- v2.7: redesign UI "Aurora Bento" (digantikan v2.8):
+  - Palet gelap dengan aksen violet–mint, permukaan kaca, latar aurora, dan
+    orb koneksi. Arah ini dinilai masih mengikuti pola UI generik, sehingga
+    tidak dipakai lagi.
+- v2.8: **arah desain baru "Panel"** — anti-pola UI generik:
+  - Kertas terang `#F1F1EC`, tinta `#15171A`, garis rambut 1dp, sudut 2dp.
+    Tidak ada gradien, glow, glassmorphism, orb, emoji, atau kartu seragam.
+  - Warna hanya semantik: hijau = terhubung, amber = menyambung/peringatan,
+    merah = gagal. Sisanya monokrom.
+  - Beranda: rel status 4dp di tepi atas, kop kiri, status besar, tabel bacaan
+    (ping + riwayat bilah, uptime, mode, transport), server aktif, cuplikan
+    aktivitas, dan satu tombol aksi lebar yang menempel di bawah.
+  - Pengaturan dan Log memakai sistem yang sama: judul bagian bergaris,
+    field datar, segmen SOCKS5/VPN tinta-penuh, daftar aksi tanpa kartu.
+  - Ikon adaptif monokrom: gerbang tunnel digambar sebagai garis, bukan
+    gradien. Splash screen kertas.
+  - Data tetap nyata: ping diukur lewat kanal SSH, uptime dari waktu koneksi,
+    status "Tanpa internet" bila self-test DNS/TCP gagal.
+  - Catatan lengkap: `DESIGN.md`.
 
 ## Komponen pihak ketiga
 

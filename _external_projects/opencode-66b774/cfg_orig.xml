@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <long name="activeProfile" value="1" />
+    <string name="profiles">[{&quot;id&quot;:1,&quot;name&quot;:&quot;Singapore 01&quot;,&quot;host&quot;:&quot;indo5.vpnjz.com&quot;,&quot;port&quot;:80,&quot;user&quot;:&quot;Taekkk67-vpnjantit.com&quot;,&quot;pass&quot;:&quot;123&quot;,&quot;proxy&quot;:&quot;104.17.70.206:80&quot;,&quot;payload&quot;:&quot;GET \/ HTTP\/1.1[crlf]Host: edu.ruangguru.com[crlf][crlf]PATCH \/ HTTP\/1.1[crlf]Host: [host][crlf]Upgrade: websocket[crlf][crlf][split]HTTP\/ 69[crlf][crlf]&quot;,&quot;socksPort&quot;:1080,&quot;vpn&quot;:false,&quot;transport&quot;:&quot;ws&quot;,&quot;sni&quot;:&quot;&quot;,&quot;wsPath&quot;:&quot;\/&quot;,&quot;wsHost&quot;:&quot;&quot;,&quot;strictTls&quot;:true,&quot;autoPing&quot;:true,&quot;pingInterval&quot;:5,&quot;pingTarget&quot;:&quot;1.1.1.1:443&quot;,&quot;autoReconnect&quot;:true,&quot;onlyMobileData&quot;:false,&quot;blockRoot&quot;:false,&quot;mappedDns&quot;:true,&quot;dnsServer&quot;:&quot;1.1.1.1&quot;}]</string>
+</map>

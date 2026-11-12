@@ -46,16 +46,12 @@ class SettingsActivity : Activity() {
     private lateinit var onlyMobileSwitch: Switch
     private lateinit var blockRootSwitch: Switch
     private lateinit var mappedDnsSwitch: Switch
-    private lateinit var modeProxy: TextView
-    private lateinit var modeVpn: TextView
-    private lateinit var modeHint: TextView
     private lateinit var dnsHint: TextView
 
     private lateinit var store: ProfileStore
     private var profiles = mutableListOf<Profile>()
     private var activeIndex = 0
     private var loading = false
-    private var vpnMode = false
 
     private val transportKeys = listOf("ssh", "tls", "ws", "wss")
     private val transportLabels = listOf(
@@ -69,17 +65,19 @@ class SettingsActivity : Activity() {
     private fun withAlpha(color: Int, alpha: Int): Int =
         (color and 0x00FFFFFF) or (alpha.coerceIn(0, 255) shl 24)
 
-    private fun rounded(
-        color: Int,
-        radius: Int,
-        ring: Int = 0,
-        stroke: Int = 1,
+    private fun box(
+        fill: Int,
+        radius: Int = 2,
+        stroke: Int = 0,
+        strokeWidth: Int = 1,
         oval: Boolean = false
     ) = GradientDrawable().apply {
         if (oval) shape = GradientDrawable.OVAL else cornerRadius = dp(radius).toFloat()
-        setColor(color)
-        if (ring != 0) setStroke(dp(stroke), ring)
+        setColor(fill)
+        if (stroke != 0) setStroke(dp(strokeWidth), stroke)
     }
+
+    private fun rule() = View(this).apply { setBackgroundColor(HAIR) }
 
     private fun lp(top: Int) =
         LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(top) }
@@ -90,45 +88,44 @@ class SettingsActivity : Activity() {
             this.gravity = gravity
         }
 
+    /** Bagian datar: tanpa kartu, tanpa bayangan, tanpa sudut. */
     private fun card() = LinearLayout(this).apply {
         orientation = LinearLayout.VERTICAL
-        background = GradientDrawable(
-            GradientDrawable.Orientation.TL_BR,
-            intArrayOf(CARD_TOP, CARD_BOTTOM)
-        ).apply {
-            cornerRadius = dp(26).toFloat()
-            setStroke(dp(1), BORDER)
-        }
-        setPadding(dp(18), dp(17), dp(18), dp(18))
-        elevation = dp(2).toFloat()
     }
 
     private fun caption(text: String) = TextView(this).apply {
         this.text = text
-        textSize = 10.5f
-        letterSpacing = 0.14f
+        textSize = 11f
         setTextColor(MUTED)
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        typeface = Typeface.create("sans-serif", Typeface.NORMAL)
     }
 
-    private fun sectionLabel(text: String) = TextView(this).apply {
-        this.text = text
-        textSize = 11f
-        letterSpacing = 0.16f
-        setTextColor(withAlpha(CYAN, 225))
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+    /** Judul bagian dengan garis rambut di bawahnya. */
+    private fun sectionLabel(text: String): LinearLayout {
+        val box = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        box.addView(TextView(this).apply {
+            this.text = text
+            textSize = 12f
+            setTextColor(INK)
+            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        })
+        box.addView(
+            rule(),
+            LinearLayout.LayoutParams(-1, dp(1)).apply { topMargin = dp(7) }
+        )
+        return box
     }
 
     private fun note(text: String) = TextView(this).apply {
         this.text = text
         textSize = 11f
-        setTextColor(withAlpha(MUTED, 215))
-        setLineSpacing(dp(2).toFloat(), 1f)
+        setTextColor(MUTED)
+        setLineSpacing(dp(3).toFloat(), 1f)
     }
 
     private fun fieldBackground(): StateListDrawable {
-        val normal = rounded(FIELD, 14, BORDER)
-        val focused = rounded(FIELD_FOCUS, 14, withAlpha(CYAN, 180))
+        val normal = box(FIELD, 2, HAIR, 1)
+        val focused = box(BG, 2, INK, 1)
         return StateListDrawable().apply {
             addState(intArrayOf(android.R.attr.state_focused), focused)
             addState(intArrayOf(), normal)
@@ -150,11 +147,11 @@ class SettingsActivity : Activity() {
         } else {
             isSingleLine = true
         }
-        setTextColor(TEXT)
-        setHintTextColor(withAlpha(MUTED, 155))
+        setTextColor(INK)
+        setHintTextColor(FAINT)
         textSize = 15f
         background = fieldBackground()
-        setPadding(dp(14), dp(12), dp(14), dp(12))
+        setPadding(dp(12), dp(11), dp(12), dp(11))
         includeFontPadding = false
         fields[key] = this
     }
@@ -177,93 +174,44 @@ class SettingsActivity : Activity() {
 
     private fun chipButton(label: String, color: Int, onClick: () -> Unit) = TextView(this).apply {
         text = label
-        textSize = 22f
+        textSize = 20f
         gravity = Gravity.CENTER
         setTextColor(color)
-        background = rounded(withAlpha(color, 24), 14, withAlpha(color, 70))
+        background = box(0, 2, HAIR, 1)
+        isClickable = true
         setOnClickListener { onClick() }
-    }
-
-    private fun segmentButton(label: String) = TextView(this).apply {
-        text = label
-        textSize = 13f
-        gravity = Gravity.CENTER
-        letterSpacing = 0.04f
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-    }
-
-    private fun styleSegment(button: TextView, selected: Boolean) {
-        button.background = if (selected) {
-            GradientDrawable(
-                GradientDrawable.Orientation.LEFT_RIGHT,
-                intArrayOf(VIOLET, CYAN)
-            ).apply { cornerRadius = dp(12).toFloat() }
-        } else {
-            rounded(0, 12)
-        }
-        button.setTextColor(if (selected) 0xFF071018.toInt() else MUTED)
     }
 
     private fun toggle(label: String, checked: Boolean) = Switch(this).apply {
         text = label
-        setTextColor(TEXT)
-        textSize = 13f
+        setTextColor(INK)
+        textSize = 13.5f
         isChecked = checked
-        setPadding(0, dp(6), 0, dp(2))
+        setPadding(0, dp(8), 0, dp(4))
         thumbTintList = android.content.res.ColorStateList(
             arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
-            intArrayOf(CYAN, 0xFF8A97AD.toInt())
+            intArrayOf(INK, 0xFF8E928C.toInt())
         )
         trackTintList = android.content.res.ColorStateList(
             arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
-            intArrayOf(withAlpha(CYAN, 130), 0xFF2A3550.toInt())
+            intArrayOf(withAlpha(INK, 110), HAIR)
         )
     }
 
-    private fun setVpnMode(vpn: Boolean) {
-        vpnMode = vpn
-        if (::modeProxy.isInitialized) {
-            styleSegment(modeProxy, !vpn)
-            styleSegment(modeVpn, vpn)
-        }
-        updateModeHint()
-        updateDnsHint()
-    }
-
-    private fun updateModeHint() {
-        if (!::modeHint.isInitialized) return
-        val port = text("socksPort").ifBlank { "1080" }
-        modeHint.text = if (vpnMode) {
-            "Semua aplikasi TCP lewat VPN. Android akan meminta izin sekali."
-        } else {
-            "Hanya aplikasi yang memakai proxy 127.0.0.1:$port yang lewat tunnel."
-        }
-    }
-
+    /**
+     * DNS selalu mapped: SSH hanya meneruskan TCP, jadi kueri DNS UDP biasa
+     * tidak akan pernah sampai ke server. Tidak ada pilihan mode lagi —
+     * seluruh aplikasi selalu lewat VPN, sama seperti HTTP Custom.
+     */
     private fun updateDnsHint() {
         if (!::dnsHint.isInitialized || !::mappedDnsSwitch.isInitialized) return
-        // Mode VPN: mapped-DNS wajib. SSH hanya meneruskan TCP, sehingga DNS
-        // UDP biasa (termasuk "DNS kustom") tidak akan pernah sampai.
-        if (vpnMode) {
-            if (!mappedDnsSwitch.isChecked) mappedDnsSwitch.isChecked = true
-            mappedDnsSwitch.isEnabled = false
-            fields["dnsServer"]?.isEnabled = false
-            fields["dnsServer"]?.alpha = 0.45f
-            dnsHint.text =
-                "Mode VPN selalu memakai mapped-DNS 198.18.0.2. Nama domain diselesaikan " +
-                    "di sisi server, tanpa kebocoran DNS. DNS kustom belum didukung karena " +
-                    "SSH hanya meneruskan TCP."
-            return
-        }
-        mappedDnsSwitch.isEnabled = true
-        val mapped = mappedDnsSwitch.isChecked
-        fields["dnsServer"]?.isEnabled = !mapped
-        fields["dnsServer"]?.alpha = if (mapped) 0.45f else 1f
-        dnsHint.text = if (mapped) {
-            "DNS lewat tunnel (mapped-DNS 198.18.0.2) — nama domain diselesaikan di sisi server, tanpa kebocoran DNS."
-        } else {
-            "DNS kustom dipakai langsung. Catatan: kueri DNS tidak lewat tunnel."
-        }
+        if (!mappedDnsSwitch.isChecked) mappedDnsSwitch.isChecked = true
+        mappedDnsSwitch.isEnabled = false
+        fields["dnsServer"]?.isEnabled = false
+        fields["dnsServer"]?.alpha = 0.45f
+        dnsHint.text =
+            "DNS lewat tunnel (198.18.0.2). Nama domain diselesaikan di sisi server, " +
+                "tanpa kebocoran DNS. DNS kustom belum didukung karena SSH hanya TCP."
     }
 
     private fun spinnerAdapter(items: List<String>) = object : ArrayAdapter<String>(
@@ -271,9 +219,9 @@ class SettingsActivity : Activity() {
     ) {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             return (super.getView(position, convertView, parent) as TextView).apply {
-                setTextColor(TEXT)
+                setTextColor(INK)
                 textSize = 14f
-                setPadding(dp(8), dp(9), dp(8), dp(9))
+                setPadding(dp(4), dp(9), dp(4), dp(9))
                 background = null
                 maxLines = 1
                 ellipsize = TextUtils.TruncateAt.END
@@ -282,25 +230,28 @@ class SettingsActivity : Activity() {
 
         override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
             return (super.getDropDownView(position, convertView, parent) as TextView).apply {
-                setTextColor(TEXT)
+                setTextColor(INK)
                 textSize = 14.5f
                 setPadding(dp(16), dp(13), dp(16), dp(13))
-                setBackgroundColor(0xFF141F35.toInt())
+                setBackgroundColor(BG)
             }
         }
     }
 
     private fun darkSpinner(): Spinner = Spinner(this).apply {
-        background = rounded(FIELD, 14, BORDER)
-        setPadding(dp(10), 0, dp(10), 0)
-        setPopupBackgroundDrawable(rounded(0xFF141F35.toInt(), 14, BORDER))
+        background = box(BG, 2, HAIR, 1)
+        setPadding(dp(8), 0, dp(8), 0)
+        setPopupBackgroundDrawable(box(BG, 2, HAIR, 1))
     }
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
-        window.statusBarColor = BG_TOP
-        window.navigationBarColor = BG_BOTTOM
+        window.statusBarColor = BG
+        window.navigationBarColor = BG
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        @Suppress("DEPRECATION")
+        window.decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
 
         store = ProfileStore(this)
         profiles = store.load()
@@ -343,10 +294,7 @@ class SettingsActivity : Activity() {
         loadProfile(profiles[activeIndex])
 
         setContentView(ScrollView(this).apply {
-            background = GradientDrawable(
-                GradientDrawable.Orientation.TL_BR,
-                intArrayOf(BG_TOP, BG_BOTTOM)
-            )
+            setBackgroundColor(BG)
             isFillViewport = true
             clipToPadding = false
             isVerticalScrollBarEnabled = false
@@ -357,148 +305,129 @@ class SettingsActivity : Activity() {
     private fun buildUi() {
         root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(22), dp(20), dp(40))
+            setPadding(dp(24), dp(18), dp(24), dp(40))
         }
 
         val header = horizontal()
         val brand = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         brand.addView(TextView(this).apply {
-            text = "PENGATURAN"
-            textSize = 22f
-            setTextColor(TEXT)
-            letterSpacing = 0.02f
-            typeface = Typeface.create("sans-serif-black", Typeface.NORMAL)
+            text = "Pengaturan"
+            textSize = 27f
+            setTextColor(INK)
+            letterSpacing = -0.02f
+            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         })
         brand.addView(TextView(this).apply {
             text = "WANZ TUNNEL"
-            textSize = 10.5f
-            setTextColor(CYAN)
-            letterSpacing = 0.34f
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+            textSize = 10f
+            setTextColor(MUTED)
+            letterSpacing = 0.1f
+            typeface = Typeface.create("sans-serif", Typeface.NORMAL)
         })
         header.addView(brand, LinearLayout.LayoutParams(0, -2, 1f))
         header.addView(TextView(this).apply {
-            text = "‹ Kembali"
-            textSize = 13f
+            text = "← Kembali"
+            textSize = 12.5f
             gravity = Gravity.CENTER
-            setTextColor(CYAN)
-            setPadding(dp(12), dp(8), dp(12), dp(8))
-            background = rounded(withAlpha(CYAN, 16), 99, withAlpha(CYAN, 60))
+            setTextColor(INK)
+            setPadding(dp(8), dp(8), 0, dp(8))
+            isClickable = true
             setOnClickListener { saveCurrent(); finish() }
         }, LinearLayout.LayoutParams(-2, -2))
         root.addView(header)
+        root.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)).apply { topMargin = dp(14) })
 
         root.addView(TextView(this).apply {
-            text = "Semua opsi tunnel, ping, dan jaringan ada di sini."
-            textSize = 13f
+            text = "Tunnel, jaringan, dan ping."
+            textSize = 12.5f
             setTextColor(MUTED)
-        }, lp(6))
+        }, lp(10))
 
         // ------------------------------------------------------------ PROFIL
         val profileCard = card()
-        profileCard.addView(sectionLabel("PROFIL"))
+        profileCard.addView(sectionLabel("Profil"))
         val profileRow = horizontal()
         profileSpinner = darkSpinner()
         profileRow.addView(profileSpinner, LinearLayout.LayoutParams(0, dp(48), 1f))
         profileRow.addView(
-            chipButton("+", CYAN) { addProfile() },
+            chipButton("+", INK) { addProfile() },
             LinearLayout.LayoutParams(dp(48), dp(48)).apply { leftMargin = dp(8) }
         )
         profileRow.addView(
-            chipButton("−", CORAL) { deleteProfile() },
+            chipButton("−", ERR) { deleteProfile() },
             LinearLayout.LayoutParams(dp(48), dp(48)).apply { leftMargin = dp(6) }
         )
         profileCard.addView(profileRow, lp(10))
-        profileCard.addView(labeledField("NAMA PROFIL", "name", "Server 1"), lp(12))
-        root.addView(profileCard, lp(16))
+        profileCard.addView(labeledField("Nama profil", "name", "Server 1"), lp(12))
+        root.addView(profileCard, lp(26))
 
         // ---------------------------------------------------------- KONEKSI
         val connCard = card()
-        connCard.addView(sectionLabel("KONEKSI"))
-        val segment = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            background = rounded(FIELD, 16, BORDER)
-            setPadding(dp(4), dp(4), dp(4), dp(4))
-        }
-        modeProxy = segmentButton("SOCKS5")
-        modeVpn = segmentButton("VPN")
-        modeProxy.setOnClickListener { setVpnMode(false) }
-        modeVpn.setOnClickListener { setVpnMode(true) }
-        segment.addView(modeProxy, LinearLayout.LayoutParams(0, dp(42), 1f))
-        segment.addView(
-            modeVpn,
-            LinearLayout.LayoutParams(0, dp(42), 1f).apply { leftMargin = dp(4) }
+        connCard.addView(sectionLabel("Koneksi"))
+        // Tidak ada pilihan mode. Seluruh trafik selalu masuk VPN, sama seperti
+        // HTTP Custom; proxy SOCKS5 hanya detail internal tun2socks.
+        connCard.addView(
+            note("Trafik semua aplikasi lewat VPN. Android meminta izin sekali saat pertama menyambung."),
+            lp(12)
         )
-        connCard.addView(segment, lp(12))
-
-        modeHint = TextView(this).apply {
-            textSize = 11.5f
-            setTextColor(MUTED)
-            setLineSpacing(dp(2).toFloat(), 1f)
-        }
-        connCard.addView(modeHint, lp(8))
 
         val transportRow = horizontal(Gravity.BOTTOM)
         val transportBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        transportBox.addView(caption("TRANSPORT"))
+        transportBox.addView(caption("Transport"))
         transportSpinner = darkSpinner().apply { adapter = spinnerAdapter(transportLabels) }
         transportBox.addView(
             transportSpinner,
             LinearLayout.LayoutParams(-1, dp(48)).apply { topMargin = dp(7) }
         )
-        transportRow.addView(transportBox, LinearLayout.LayoutParams(0, -2, 2f))
-        transportRow.addView(
-            labeledField("PORT SOCKS5", "socksPort", "1080", InputType.TYPE_CLASS_NUMBER),
-            LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(10) }
-        )
+        transportRow.addView(transportBox, LinearLayout.LayoutParams(0, -2, 1f))
         connCard.addView(transportRow, lp(12))
 
         val hostRow = horizontal(Gravity.BOTTOM)
         hostRow.addView(
-            labeledField("HOST / IP", "host", "contoh: 104.17.70.206"),
+            labeledField("Host / IP", "host", "contoh: 104.17.70.206"),
             LinearLayout.LayoutParams(0, -2, 2f)
         )
         hostRow.addView(
-            labeledField("PORT", "port", "80", InputType.TYPE_CLASS_NUMBER),
+            labeledField("Port", "port", "80", InputType.TYPE_CLASS_NUMBER),
             LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(10) }
         )
         connCard.addView(hostRow, lp(12))
-        connCard.addView(labeledField("USERNAME", "user", "nama pengguna SSH"), lp(12))
+        connCard.addView(labeledField("Username", "user", "nama pengguna SSH"), lp(12))
         connCard.addView(
             labeledField(
-                "PASSWORD", "pass", "password SSH",
+                "Password", "pass", "password SSH",
                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
             ),
             lp(12)
         )
-        root.addView(connCard, lp(14))
+        root.addView(connCard, lp(26))
 
         // -------------------------------------------------- PAYLOAD & PROXY
         val payloadCard = card()
-        payloadCard.addView(sectionLabel("PAYLOAD & PROXY"))
+        payloadCard.addView(sectionLabel("Payload & proxy"))
         payloadCard.addView(
             labeledField(
-                "PAYLOAD (OPSIONAL)", "payload",
+                "Payload (opsional)", "payload",
                 "GET / HTTP/1.1[crlf]Host: [host][crlf][crlf][split]...",
                 lines = 4
             ),
             lp(12)
         )
         payloadCard.addView(
-            labeledField("PROXY / EDGE (OPSIONAL)", "proxy", "104.17.70.206:80"),
+            labeledField("Proxy / edge (opsional)", "proxy", "104.17.70.206:80"),
             lp(12)
         )
         payloadCard.addView(
-            labeledField("SNI / HOST TLS (OPSIONAL)", "sni", "contoh: id3-1forcr.zivpn.site"),
+            labeledField("SNI / host TLS (opsional)", "sni", "contoh: id3-1forcr.zivpn.site"),
             lp(12)
         )
         val wsRow = horizontal(Gravity.BOTTOM)
         wsRow.addView(
-            labeledField("HOST HEADER WS", "wsHost", "opsional"),
+            labeledField("Host header WS", "wsHost", "opsional"),
             LinearLayout.LayoutParams(0, -2, 1f)
         )
         wsRow.addView(
-            labeledField("PATH WS", "wsPath", "/"),
+            labeledField("Path WS", "wsPath", "/"),
             LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(10) }
         )
         payloadCard.addView(wsRow, lp(12))
@@ -509,31 +438,31 @@ class SettingsActivity : Activity() {
                 "handshake WS bawaan dilewati."),
             lp(8)
         )
-        root.addView(payloadCard, lp(14))
+        root.addView(payloadCard, lp(26))
 
         // --------------------------------------------------------- JARINGAN
         val netCard = card()
-        netCard.addView(sectionLabel("JARINGAN"))
+        netCard.addView(sectionLabel("Jaringan"))
         mappedDnsSwitch = toggle("DNS lewat tunnel (mapped-DNS)", true)
         mappedDnsSwitch.setOnCheckedChangeListener { _, _ -> updateDnsHint() }
         netCard.addView(mappedDnsSwitch, lp(6))
         netCard.addView(
-            labeledField("DNS KUSTOM", "dnsServer", "1.1.1.1"),
+            labeledField("DNS kustom", "dnsServer", "1.1.1.1"),
             lp(12)
         )
         dnsHint = note("")
         netCard.addView(dnsHint, lp(8))
-        root.addView(netCard, lp(14))
+        root.addView(netCard, lp(26))
 
         // -------------------------------------------------------------- PING
         val pingCard = card()
-        pingCard.addView(sectionLabel("PING"))
+        pingCard.addView(sectionLabel("Ping"))
         autoPingSwitch = toggle("Auto ping saat terhubung", true)
         pingCard.addView(autoPingSwitch, lp(6))
 
         val pingRow = horizontal(Gravity.BOTTOM)
         val intervalBox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        intervalBox.addView(caption("INTERVAL"))
+        intervalBox.addView(caption("Interval"))
         pingIntervalSpinner = darkSpinner().apply { adapter = spinnerAdapter(pingIntervalLabels) }
         intervalBox.addView(
             pingIntervalSpinner,
@@ -541,19 +470,20 @@ class SettingsActivity : Activity() {
         )
         pingRow.addView(intervalBox, LinearLayout.LayoutParams(0, -2, 1f))
         pingRow.addView(
-            labeledField("TARGET PING", "pingTarget", "1.1.1.1:443"),
+            labeledField("Target ping", "pingTarget", "1.1.1.1:443"),
             LinearLayout.LayoutParams(0, -2, 1.4f).apply { leftMargin = dp(10) }
         )
         pingCard.addView(pingRow, lp(12))
         pingCard.addView(
             TextView(this).apply {
                 text = "Ping sekarang"
-                textSize = 12.5f
+                textSize = 13f
                 gravity = Gravity.CENTER
-                setTextColor(CYAN)
+                setTextColor(INK)
                 typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-                background = rounded(withAlpha(CYAN, 16), 12, withAlpha(CYAN, 70))
-                setPadding(dp(10), dp(10), dp(10), dp(10))
+                background = box(0, 2, INK, 1)
+                setPadding(dp(12), dp(12), dp(12), dp(12))
+                isClickable = true
                 setOnClickListener {
                     if (TunnelService.running) {
                         startService(
@@ -572,68 +502,76 @@ class SettingsActivity : Activity() {
             note("Ping mengukur RTT lewat kanal SSH langsung, bukan ICMP lokal."),
             lp(8)
         )
-        root.addView(pingCard, lp(14))
+        root.addView(pingCard, lp(26))
 
         // ----------------------------------------------------------- LAINNYA
         val miscCard = card()
-        miscCard.addView(sectionLabel("LAINNYA"))
+        miscCard.addView(sectionLabel("Lainnya"))
         autoReconnectSwitch = toggle("Sambung ulang otomatis jika putus", true)
         onlyMobileSwitch = toggle("Hanya data seluler (tolak Wi-Fi)", false)
         blockRootSwitch = toggle("Blokir root (tolak perangkat ter-root)", false)
         miscCard.addView(autoReconnectSwitch, lp(6))
         miscCard.addView(onlyMobileSwitch, lp(4))
         miscCard.addView(blockRootSwitch, lp(4))
-        root.addView(miscCard, lp(14))
+        // Port internal tun2socks. Tidak lagi bagian dari pilihan mode.
+        miscCard.addView(
+            labeledField("Port lokal", "socksPort", "1080", InputType.TYPE_CLASS_NUMBER),
+            lp(16)
+        )
+        miscCard.addView(
+            note("Dipakai VPN di dalam perangkat. Ubah hanya jika port 1080 bentrok."),
+            lp(6)
+        )
+        root.addView(miscCard, lp(26))
 
         // --------------------------------------------------------------- LOG
         val logCard = card()
-        logCard.addView(sectionLabel("LOG"))
-        logCard.addView(
-            TextView(this).apply {
-                text = "Buka log penuh"
-                textSize = 13f
-                setTextColor(CYAN)
-                setPadding(0, dp(10), 0, dp(6))
-                setOnClickListener {
-                    startActivity(Intent(this@SettingsActivity, LogActivity::class.java))
-                }
+        logCard.addView(sectionLabel("Log"))
+        logCard.addView(TextView(this).apply {
+            text = "Buka log penuh"
+            textSize = 13f
+            setTextColor(INK)
+            setPadding(0, dp(12), 0, dp(12))
+            isClickable = true
+            setOnClickListener {
+                startActivity(Intent(this@SettingsActivity, LogActivity::class.java))
             }
-        )
-        logCard.addView(
-            TextView(this).apply {
-                text = "Salin log ke clipboard"
-                textSize = 13f
-                setTextColor(CYAN)
-                setPadding(0, dp(6), 0, dp(6))
-                setOnClickListener {
-                    val txt = TunnelLog.snapshot().joinToString("\n")
-                    val cm = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-                    cm.setPrimaryClip(ClipData.newPlainText("WanzTunnel", txt))
-                    Toast.makeText(this@SettingsActivity, "Log disalin", Toast.LENGTH_SHORT).show()
-                }
+        })
+        logCard.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        logCard.addView(TextView(this).apply {
+            text = "Salin log ke clipboard"
+            textSize = 13f
+            setTextColor(INK)
+            setPadding(0, dp(12), 0, dp(12))
+            isClickable = true
+            setOnClickListener {
+                val txt = TunnelLog.snapshot().joinToString("\n")
+                val cm = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                cm.setPrimaryClip(ClipData.newPlainText("WanzTunnel", txt))
+                Toast.makeText(this@SettingsActivity, "Log disalin", Toast.LENGTH_SHORT).show()
             }
-        )
-        logCard.addView(
-            TextView(this).apply {
-                text = "Bersihkan log"
-                textSize = 13f
-                setTextColor(CORAL)
-                setPadding(0, dp(6), 0, 0)
-                setOnClickListener {
-                    TunnelLog.clear()
-                    Toast.makeText(this@SettingsActivity, "Log dibersihkan", Toast.LENGTH_SHORT).show()
-                }
+        })
+        logCard.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        logCard.addView(TextView(this).apply {
+            text = "Bersihkan log"
+            textSize = 13f
+            setTextColor(ERR)
+            setPadding(0, dp(12), 0, dp(12))
+            isClickable = true
+            setOnClickListener {
+                TunnelLog.clear()
+                Toast.makeText(this@SettingsActivity, "Log dibersihkan", Toast.LENGTH_SHORT).show()
             }
-        )
-        root.addView(logCard, lp(14))
+        })
+        root.addView(logCard, lp(26))
 
         // ------------------------------------------------------- IMPOR CONFIG
         val importCard = card()
-        importCard.addView(sectionLabel("IMPOR CONFIG"))
+        importCard.addView(sectionLabel("Impor config"))
         importCard.addView(
             note("Tempel config (payload + proxy + akun), lalu ketuk Terapkan. " +
                 "Baris akun berformat host:port@user:pass."),
-            lp(8)
+            lp(10)
         )
         val importField = EditText(this).apply {
             hint = "GET / HTTP/1.1[crlf]Host: edu.ruangguru.com..." +
@@ -643,59 +581,50 @@ class SettingsActivity : Activity() {
             minLines = 4
             gravity = Gravity.TOP or Gravity.START
             setLineSpacing(dp(3).toFloat(), 1f)
-            setTextColor(TEXT)
-            setHintTextColor(withAlpha(MUTED, 155))
-            textSize = 12.5f
+            setTextColor(INK)
+            setHintTextColor(FAINT)
+            textSize = 12f
             typeface = Typeface.MONOSPACE
             background = fieldBackground()
-            setPadding(dp(14), dp(12), dp(14), dp(12))
+            setPadding(dp(12), dp(11), dp(12), dp(11))
             includeFontPadding = false
         }
-        importCard.addView(importField, lp(6))
+        importCard.addView(importField, lp(8))
         importCard.addView(
             TextView(this).apply {
                 text = "Terapkan ke profil aktif"
                 textSize = 13f
                 gravity = Gravity.CENTER
-                setTextColor(0xFF071018.toInt())
+                setTextColor(PAPER)
                 typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-                background = GradientDrawable(
-                    GradientDrawable.Orientation.LEFT_RIGHT,
-                    intArrayOf(VIOLET, CYAN)
-                ).apply { cornerRadius = dp(14).toFloat() }
-                setPadding(dp(12), dp(12), dp(12), dp(12))
+                background = box(INK, 2)
+                setPadding(dp(12), dp(13), dp(12), dp(13))
+                isClickable = true
                 setOnClickListener { applyConfig(importField.text.toString()) }
             },
-            lp(12)
+            lp(10)
         )
-        root.addView(importCard, lp(14))
+        root.addView(importCard, lp(26))
 
+        root.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)).apply { topMargin = dp(22) })
         root.addView(TextView(this).apply {
             text = "Reset kunci host"
-            textSize = 12f
-            setTextColor(CYAN)
-            gravity = Gravity.CENTER
-            setPadding(dp(10), dp(10), dp(10), dp(6))
+            textSize = 12.5f
+            setTextColor(INK)
+            setPadding(0, dp(12), 0, dp(4))
+            isClickable = true
             setOnClickListener {
                 File(filesDir, "known_hosts").delete()
                 Toast.makeText(this@SettingsActivity, "Kunci host direset", Toast.LENGTH_SHORT).show()
             }
-        }, lp(6))
-
+        })
         root.addView(TextView(this).apply {
-            text = "Wanz Tunnel • dibuat untuk koneksi pribadi"
+            text = "Wanz Tunnel 2.8  ·  koneksi pribadi"
             textSize = 10.5f
-            setTextColor(withAlpha(MUTED, 150))
-            gravity = Gravity.CENTER
-        }, lp(4))
-
-        fields["socksPort"]?.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-            override fun afterTextChanged(s: Editable?) = updateModeHint()
+            setTextColor(FAINT)
+            setPadding(0, dp(8), 0, 0)
         })
 
-        setVpnMode(false)
         updateDnsHint()
     }
 
@@ -721,8 +650,10 @@ class SettingsActivity : Activity() {
         p.pass = fields["pass"]?.text?.toString() ?: ""
         p.proxy = text("proxy")
         p.payload = fields["payload"]?.text?.toString() ?: ""
-        p.socksPort = text("socksPort").toIntOrNull()?.coerceIn(1024, 65535) ?: 1080
-        p.vpn = vpnMode
+        p.socksPort = text("socksPort").toIntOrNull()?.coerceIn(1024, 65535) ?: p.socksPort
+        // Mode tunggal: VPN. SOCKS5 hanya dipakai di dalam perangkat oleh
+        // tun2socks, tidak lagi menjadi pilihan pengguna.
+        p.vpn = true
         p.transport = transportKeys.getOrElse(transportSpinner.selectedItemPosition) { "ssh" }
         p.sni = text("sni")
         p.wsHost = text("wsHost")
@@ -734,8 +665,8 @@ class SettingsActivity : Activity() {
         p.autoReconnect = autoReconnectSwitch.isChecked
         p.onlyMobileData = onlyMobileSwitch.isChecked
         p.blockRoot = blockRootSwitch.isChecked
-        // mapped-DNS wajib untuk mode VPN (SSH hanya TCP).
-        p.mappedDns = if (vpnMode) true else mappedDnsSwitch.isChecked
+        // mapped-DNS wajib: SSH hanya meneruskan TCP.
+        p.mappedDns = true
         p.dnsServer = text("dnsServer").ifBlank { "1.1.1.1" }
         store.save(profiles, p.id)
         refreshProfileNames()
@@ -750,8 +681,7 @@ class SettingsActivity : Activity() {
         fields["pass"]?.setText(p.pass)
         fields["proxy"]?.setText(p.proxy)
         fields["payload"]?.setText(p.payload)
-        fields["socksPort"]?.setText(p.socksPort.toString())
-        setVpnMode(p.vpn)
+        fields["socksPort"]?.setText((p.socksPort.takeIf { it > 0 } ?: 1080).toString())
         transportSpinner.setSelection(
             transportKeys.indexOf(p.transport).takeIf { it >= 0 } ?: 0, false
         )
@@ -771,7 +701,6 @@ class SettingsActivity : Activity() {
         mappedDnsSwitch.isChecked = p.mappedDns
         fields["dnsServer"]?.setText(p.dnsServer)
         loading = false
-        updateModeHint()
         updateDnsHint()
     }
 

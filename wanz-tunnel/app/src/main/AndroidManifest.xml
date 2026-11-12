@@ -9,9 +9,9 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="Wanz Tunnel"
-        android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+        android:theme="@style/WanzTheme">
 
         <activity
             android:name=".MainActivity"

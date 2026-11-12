@@ -4,16 +4,16 @@ import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 
-/** Warna per level log, mengikuti nuansa HTTP Custom. */
+/** Warna per level log pada kertas terang. */
 internal fun logLevelColor(level: String): Int = when (level) {
-    TunnelLog.WARN -> AMBER
-    TunnelLog.ERROR -> CORAL
-    TunnelLog.PING -> TEAL
-    else -> 0xFFD7E2F5.toInt()
+    TunnelLog.WARN -> WARN
+    TunnelLog.ERROR -> ERR
+    TunnelLog.PING -> OK
+    else -> INK
 }
 
-private const val LOG_TIME_COLOR = 0xFF6C82A8.toInt()
-private const val LOG_MESSAGE_COLOR = 0xFFDCE6F7.toInt()
+private val LOG_TIME_COLOR = FAINT
+private val LOG_MESSAGE_COLOR = INK
 
 /**
  * Render satu entri log menjadi teks berwarna:
