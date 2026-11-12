@@ -20,7 +20,10 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from PIL import Image
+try:
+    from PIL import Image
+except ImportError:                                   # pragma: no cover
+    sys.exit("butuh Pillow: python3 -m pip install --user pillow")
 
 WALL = Path(__file__).resolve().parent.parent / "design" / "wallpaper"
 

@@ -1,9 +1,10 @@
-# Wanz Tunnel 2.8
+# Wanz Tunnel 2.9
 
-Aplikasi Android untuk SSH tunnel dengan SOCKS5 lokal, mode VPN system-wide,
-payload/proxy, TLS/SNI, WebSocket, dan multi-profil. Tampilan memakai arah
-**panel instrumen**: kertas terang, tinta, garis rambut, angka tabular, dan
-warna yang hanya dipakai untuk menyatakan status koneksi.
+Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
+TLS/SNI, WebSocket, dan multi-profil. Tampilan memakai arah **"Konsol"**:
+kanvas grafit hangat (gelap) atau kertas (terang), tinta, garis rambut, angka
+monospace tabular, aksen kuningan, dan warna yang hanya dipakai untuk
+menyatakan status koneksi.
 
 ## Fitur
 
@@ -11,9 +12,13 @@ warna yang hanya dipakai untuk menyatakan status koneksi.
 - **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
   internal oleh tun2socks (default 1080, bisa diubah di bagian Lainnya)
-- UI panel instrumen: rel status di tepi atas, tabel bacaan
-  (ping/uptime/mode/transport), server aktif, cuplikan log, dan satu tombol
-  aksi lebar di bawah. Semua konfigurasi di halaman Pengaturan.
+- UI "Konsol": rel status di tepi atas, kartu koneksi dengan baris label/nilai,
+  deret bacaan **kunde / kirim / aktif** (jumlah, laju per detik, puncak sesi),
+  rel ping dengan riwayat, cuplikan log mono, dan satu tombol aksi 58dp yang
+  menempel di bawah layar. Semua konfigurasi di halaman Pengaturan.
+- Tema **Ikuti sistem / Terang / Gelap**: grafit hangat dengan aksen kuningan
+  untuk gelap, kertas dengan tinta tua untuk terang. Kedua palet diukur kontrasnya
+  (bukan inversi), dan halaman dibangun ulang begitu pilihan berubah.
 - Log koneksi gaya HTTP Custom: setiap baris `jam  [LEVEL]  pesan` dengan
   level **INFO/WARN/ERROR/PING**, warna per level, auto-scroll, layar log
   penuh serta tombol Salin / Bersihkan
@@ -133,6 +138,19 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
+Rilis siap pasang: **`WanzTunnel-2.9.apk`** (2,0 MB, `versionCode 14`,
+Android 10 ke atas), SHA-256
+`159639ddae709d88e50153118f95c751987c35204bbbbdad25807ffb40a14213`.
+Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
+
+Gerbang desain dan pemeriksaan sebelum rilis:
+
+```bash
+python3 tools/design_gate.py --strict   # 0 galat, 0 peringatan
+python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
+./gradlew testDebugUnitTest lintDebug assembleRelease
+```
+
 ## Status uji
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
@@ -240,8 +258,48 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     DNS selalu mapped-DNS 198.18.0.2.
   - Beranda selalu menampilkan Mode `VPN` · "semua aplikasi"; tombol
     Hubungkan selalu meminta izin VPN.
+- v2.9: **arah desain baru "Konsol"** (menggantikan "Panel"), dua palet, dan
+  bacaan koneksi yang benar-benar hidup:
+  - Kanvas grafit hangat `#131410` untuk gelap, kertas `#F1F1EC` untuk terang;
+    aksen kuningan `#C9A22F` / `#7E5B10`. Sengaja bukan ungu dan bukan biru —
+    dua warna yang dipakai DarkTunnel dan HTTP Custom — dan tanpa ikon Material.
+  - Mode gelap bukan inversi: tiap pasangan teks/bidang diukur. Contoh
+    `INK/BG` 16,44:1 (gelap) dan 15,85:1 (terang); label micro `FAINT` tetap
+    di atas 4,5:1 di kedua palet.
+  - Tema **Ikuti sistem / Terang / Gelap** di Pengaturan → Tampilan, disimpan
+    global (`app_cfg`, kunci `theme_mode`). `InkActivity` memasang palet sebelum
+    view dibuat dan membangun ulang halaman saat pilihan berubah, jadi tidak ada
+    lagi layar campur aduk; status bar, navigation bar, dan splash ikut palet,
+    bukan pengaturan HP.
+  - Beranda: kartu koneksi dengan pemindah profil `‹ ›` dan baris `target` /
+    `akun` / `pembungkus`, deret bacaan **kunde / kirim / aktif** (angka besar,
+    laju per detik, puncak sesi), rel ping dengan riwayat 12 slot (ketuk untuk
+    ping manual), cuplikan log lima baris berwarna, dan tombol aksi 58dp yang
+    menempel di dasar layar. Roda gigi di kop membuka Pengaturan.
+  - Angka trafik berasal dari penghitung sesi `TunnelService` (delta per detik),
+    bukan hiasan; status `Terhubung, tanpa internet` tetap muncul kalau self-test
+    DNS/TCP gagal.
+  - Kontrol `InkSelect` dan `InkToggle` digambar sendiri (bidang bergaris bawah,
+    tinggi sentuh 48dp, `contentDescription` "..., nilai") karena `Spinner`
+    bawaan masih terasa komponen default.
+  - `tools/design_gate.py` diperluas: gradien/glow/emoji, variasi sudut per
+    peran, kontras WCAG **kedua** palet, warna resource malam, tinggi sentuh,
+    label aksesibilitas, huruf kapital, elipsis, dan easing memantul.
+  - Diverifikasi di emulator Android 14: dengan sistem terang dan pilihan Gelap
+    manual, seluruh beranda dan dialog tema ikut grafit; bacaan trafik, bilah
+    ping, uptime, dan log berwarna teruji saat terhubung (`VPN • internet OK`,
+    ping 13–23 ms).
+  - Latar foto Freya JKT48: dua belas kandidat HD (1080x2340, master sampai
+    3104x4096) beserta cara mengukur kontras panel semi-opaque-nya disiapkan di
+    `design/wallpaper/` dan `tools/wall_contrast.py`; pemasangannya **ditunda**
+    atas permintaan pemakai, jadi APK tetap 2,0 MB.
 
 ## Komponen pihak ketiga
 
 - [JSch (mwiede fork)](https://github.com/mwiede/jsch) — SSH, BSD-style license.
 - [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel) — tun2socks, MIT license.
+- [IBM Plex Mono](https://github.com/IBM/plex) — tipografi angka
+  dan label, SIL Open Font License 1.1. Dibundel di `app/src/main/res/font/`,
+  salinan lisensi di `app/src/main/assets/legal/OFL-IBM-Plex-Mono.txt`.
+- Foto latar (belum dipakai): sumber Pinterest, fotografer belum diketahui.
+  Lihat `design/wallpaper/README.md` sebelum APK-nya diedarkan luas.
