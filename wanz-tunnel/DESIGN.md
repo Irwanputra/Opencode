@@ -60,15 +60,14 @@ dibuat. Rasio kontras diukur terhadap permukaan tempat token dipakai.
 | Di atas aksen (`ON_ACCENT`) | `#FFFFFF` | `#0D1B0E` | 5,13 / 6,40 |
 
 Hijau tunggal dipakai untuk judul "Wanz", garis tab aktif, kotak centang
-terpilih, tepi tombol utama, dan tombol tambah. Tidak ada warna kedua sebagai
-aksen.
+terpilih, dan tepi tombol utama. Tidak ada warna kedua sebagai aksen.
 
 Ukuran: garis 1dp (dibulatkan ke piksel utuh), tinggi sentuh minimal 48dp,
 tombol sambung 56dp, laci 86% lebar layar (maksimal 320dp).
 
 ## Tema
 
-Tiga pilihan di Pengaturan > Tampilan: **Ikuti sistem**, **Terang**, **Gelap**.
+Tiga pilihan di laci **Tema**: **Ikuti sistem**, **Terang**, **Gelap**.
 Pilihan disimpan global di `shared_prefs/app_cfg.xml` (`theme_mode`) dan
 diterapkan dengan membangun ulang halaman, bukan lewat resource `-night` saja.
 `InkActivity` memasang palet di `onCreate`, lalu `applyWindowChrome()` setelah
@@ -123,10 +122,17 @@ terlihat seperti template dengan font lain.
    `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
    INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
 5. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
-   **Utilitas** (Profil, Payload, SNI/host TLS, Tema), **Koneksi** (Impor
-   config, Ping sekarang), dan **Alat** (Log, Salin log, Bersihkan log,
-   Tentang). Laci bisa digulir pada layar pendek. Layar rinci profil dibuka
-   dari **Profil → Ubah profil aktif**, bukan dari entri menu tersendiri.
+   **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat** (Tentang). Laci
+   bisa digulir pada layar pendek. Tidak ada entri menu yang hanya membuka
+   layar atau aksi yang sudah ada di beranda:
+   - **Profil** membuka daftar profil; di situ ada pilih profil, Ubah nama,
+     Hapus, dan Tambah profil baru.
+   - **Payload** dan **Proxy** mengubah dua field profil yang tidak muat di
+     beranda; SSH (host/port/user/pass) diisi langsung di field ringkas.
+   - **Tema** memilih Ikuti sistem/Terang/Gelap.
+   - Impor config cukup ikon di bilah atas; ping manual cukup ketuk kolom
+     Aktif; log dan salin/bersihkan cukup di tab LOG; reset kunci host ada di
+     dialog Tentang.
 
 Delapan centang dan field yang diubahnya:
 
@@ -145,10 +151,6 @@ Delapan centang dan field yang diubahnya:
 
 - `SquareCheckView` (24dp, sudut 2dp): kotak garis tinta saat mati; bidang hijau
   dengan centang gelap saat hidup.
-- `InkToggle`: label Roboto di kiri + kotak centang 22dp di kanan, dipakai di
-  layar rinci profil. Menggantikan `Switch` bawaan.
-- `InkSelect`: bidang bergaris bawah + panah garis, nilai Roboto Mono, daftar
-  pilihan lewat dialog.
 - `FieldUnderline`: garis bawah digambar dari bounds (1dp biasa, 2dp saat fokus),
   bukan `LayerDrawable` yang di-inset; inset itu melebar jadi blok tinta pada
   field multi-baris.
@@ -160,8 +162,7 @@ Delapan centang dan field yang diubahnya:
 Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
 
 - **Ripple sentuh** di tab, baris profil, sel centang, tombol sambung, baris
-  laci, dan tombol di layar rinci profil. Kilau memakai tinta transparan,
-  bukan warna kedua.
+  laci, dan tombol dialog. Kilau memakai tinta transparan, bukan warna kedua.
 - **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate), memakai
   `LAYER_TYPE_HARDWARE` saat bergeser supaya tidak digambar ulang tiap frame;
   scrim meredup bersamaan.

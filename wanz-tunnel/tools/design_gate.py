@@ -196,8 +196,7 @@ for f in KOTLIN:
         add("ERROR", f, 1, "easing memantul — tanda UI generator")
 
 # ------------------------------------------------------------------ 8. Angka dan font
-for fname, names in [("MainActivity.kt", ("pingValue", "uptimeValue")),
-                     ("SettingsActivity.kt", ())]:
+for fname, names in [("MainActivity.kt", ("pingValue", "uptimeValue"))]:
     src = SRC / f"java/id/wanz/tunnel/{fname}"
     if not src.exists():
         continue

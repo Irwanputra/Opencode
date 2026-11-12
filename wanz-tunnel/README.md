@@ -12,13 +12,14 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 - SSH password authentication (JSch)
 - **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
-  internal oleh tun2socks (default 1080, bisa diubah di bagian Lainnya)
+  internal oleh tun2socks (port 1080 tetap)
 - UI mengikuti HTTP Custom: bilah atas dengan menu dan impor config, tab
   **SSH** dan **LOG**, isian `ip:port@user:pass`, delapan centang dua kolom,
-  tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri bergrup
-  Utilitas/Koneksi/Alat. Tidak ada menu tiga titik dan tidak ada tombol tambah
-  mengambang; profil baru dibuat lewat laci **Profil**, dan konfigurasi rinci
-  dibuka lewat **Profil → Ubah profil aktif**.
+  tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri hanya
+  **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat** (Tentang). Tidak ada
+  menu tiga titik, tombol tambah mengambang, atau layar Pengaturan terpisah;
+  SSH diisi di field ringkas, dan profil dikelola langsung dari dialog Profil
+  (pilih, ubah nama, hapus, tambah).
 - Delapan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
   WebSocket (mengubah `transport`), Verifikasi TLS, DNS lewat tunnel, Ping
   otomatis, Sambung ulang, dan Seluler saja.
@@ -30,7 +31,7 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   **WARN** kuning, **ERROR** merah muda), auto-scroll, serta tombol Ikuti /
   Salin / Bersihkan. Salinan memakai format `jam  [LEVEL]  pesan`.
 - Ping bawaan: hasil ping tampil di kolom Aktif dan di log; ketuk kolom Aktif
-  (atau menu Ping sekarang) untuk ping manual
+  untuk ping manual (tidak ada menu ping terpisah)
 - Auto ping: interval 5/10/15/30/60 detik dengan target bisa diatur
   (default `1.1.1.1:443`), diukur lewat jalur SSH (SOCKS5), bukan ICMP lokal
 - Transport:
@@ -55,7 +56,8 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 - Auto-reconnect saat jaringan berubah / koneksi terputus (bisa dimatikan)
 - Opsi gaya HTTP Custom: hanya data seluler, blokir root
 - SSH keepalive 120 detik
-- Host key TOFU; kunci yang berubah ditolak, tombol reset tersedia
+- Host key TOFU; kunci yang berubah ditolak, reset kunci host ada di dialog
+  **Tentang**
 - Foreground service + notifikasi
 - APK release di-minify dengan R8
 
@@ -371,12 +373,19 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
     - Unit test baru: `payloadWithUpgradeHeaderSkipsAppHandshake` (301 → 101 →
       banner, tanpa `Sec-WebSocket-Key` ikut terkirim) dan
       `upgradeDetectorIgnoresPlainFakeHttpPayload`. Total 16 unit test, 0 gagal.
-- v2.9.4: **entri "Pengaturan" di laci dihapus** karena hanya pintasan ke
-  layar yang sama dengan alur profil. Layar rinci tetap ada dan dibuka lewat
-  laci **Profil** → "Ubah profil aktif" (atau otomatis setelah menambah profil
-  baru), jadi isian host/port/user/pass, proxy, SNI, path WebSocket, ping,
-  tema, impor config, dan hapus profil tetap terjangkau. Ikon `ic_settings`
-  dan ikon Material yang tidak terpakai ikut dibersihkan (tersisa 11 ikon).
+- v2.9.4: **layar Pengaturan dihapus total** dan seluruh fitur ganda
+  dibereskan.
+  - Laci kini hanya **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat**
+    (Tentang). Tidak ada entri yang hanya membuka layar atau aksi yang sudah
+    tersedia di beranda.
+  - Dialog **Profil** menangani pilih profil, ubah nama, hapus, dan tambah.
+    SSH diisi lewat field `ip:port@user:pass`; tidak perlu layar rinci.
+  - **Payload** dan **Proxy** menjadi dialog tersendiri. Impor config tetap
+    lewat ikon bilah atas, ping manual lewat kolom Aktif, log lewat tab LOG,
+    dan reset kunci host pindah ke dialog Tentang.
+  - `SettingsActivity.kt`, entri manifest-nya, `InkToggle`, `InkSelect`, serta
+    ikon `ic_settings`, `ic_list`, `ic_network_check`, dan ikon tak terpakai
+    lain dihapus (tersisa 9 ikon fungsional + 2 ikon launcher).
 - v2.9.3: **menu tiga titik dan tombol tambah mengambang dihapus**, dan rasa
   animasi diperbaiki.
   - Keduanya hanya pintasan; menambah profil tetap bisa lewat laci **Profil** →

@@ -27,6 +27,7 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
+import java.io.File
 import java.util.Locale
 
 /**
@@ -628,21 +629,10 @@ class MainActivity : InkActivity() {
         panel.addView(groupLabel("Utilitas"))
         panel.addView(drawerRow(R.drawable.ic_account_circle, "Profil") { profileDialog() })
         panel.addView(drawerRow(R.drawable.ic_receipt_long, "Payload") { payloadDialog() })
-        panel.addView(drawerRow(R.drawable.ic_dns, "SNI / host TLS") { sniDialog() })
+        panel.addView(drawerRow(R.drawable.ic_dns, "Proxy") { proxyDialog() })
         panel.addView(drawerRow(R.drawable.ic_brightness_6, "Tema") { themeDialog() })
 
-        panel.addView(groupLabel("Koneksi"))
-        panel.addView(drawerRow(R.drawable.ic_cloud_download, "Impor config") { importDialog() })
-        panel.addView(drawerRow(R.drawable.ic_network_check, "Ping sekarang") { sendPing() })
-
         panel.addView(groupLabel("Alat"))
-        panel.addView(
-            drawerRow(R.drawable.ic_list, "Log") {
-                selectTab(TAB_LOG)
-            }
-        )
-        panel.addView(drawerRow(R.drawable.ic_content_copy, "Salin log") { copyLog() })
-        panel.addView(drawerRow(R.drawable.ic_delete, "Bersihkan log") { clearLog() })
         panel.addView(drawerRow(R.drawable.ic_info, "Tentang") { aboutDialog() })
 
         panel.addView(View(this), LinearLayout.LayoutParams(0, 0, 1f))
@@ -883,9 +873,9 @@ class MainActivity : InkActivity() {
         profile = fresh
         syncUi()
         render()
-        Toast.makeText(this, "Profil baru dibuat. Isi server di Pengaturan.",
+        Toast.makeText(this, "Profil baru dibuat. Isi server di kolom Server.",
             Toast.LENGTH_SHORT).show()
-        openSettings()
+        compactField.requestFocus()
     }
 
     // -------------------------------------------------------------- koneksi
@@ -1064,11 +1054,6 @@ class MainActivity : InkActivity() {
         )
     }
 
-    private fun openSettings() {
-        saveCompactField(false)
-        startActivity(Intent(this, SettingsActivity::class.java))
-    }
-
     // -------------------------------------------------------------- dialog
     private fun themedBuilder(title: String?): AlertDialog.Builder {
         val theme = if (darkActive) R.style.WanzDialogDark else R.style.WanzDialogLight
@@ -1114,20 +1099,66 @@ class MainActivity : InkActivity() {
         saveCompactField(false)
         hideKeyboard()
         val names = profiles.map { it.name.ifBlank { "Server ${it.id}" } }.toMutableList()
-        names.add("Ubah profil aktif")
+        names.add("Ubah nama profil")
+        names.add("Hapus profil")
         names.add("Tambah profil baru")
-        val editAt = profiles.size
-        val addAt = profiles.size + 1
+        val renameAt = profiles.size
+        val deleteAt = profiles.size + 1
+        val addAt = profiles.size + 2
         themedBuilder("Profil")
             .setItems(names.toTypedArray()) { _, which ->
                 when (which) {
-                    editAt -> openSettings()
+                    renameAt -> renameProfileDialog()
+                    deleteAt -> deleteProfileDialog()
                     addAt -> addProfile()
                     else -> switchProfile(profiles[which])
                 }
             }
             .setNegativeButton("Batal", null)
             .show()
+    }
+
+    private fun renameProfileDialog() {
+        saveCompactField(false)
+        val p = profile ?: return
+        val input = dialogInput(p.name, "Nama profil")
+        themedBuilder("Ubah nama profil")
+            .setView(dialogWrap(input))
+            .setPositiveButton("Simpan") { _, _ ->
+                val name = input.text.toString().trim().ifBlank { "Server ${p.id}" }
+                commitProfile(p.copy(name = name))
+                syncUi()
+                Toast.makeText(this, "Nama profil disimpan", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Batal", null)
+            .show()
+    }
+
+    private fun deleteProfileDialog() {
+        saveCompactField(false)
+        val p = profile ?: return
+        themedBuilder("Hapus profil")
+            .setMessage("Hapus \"${p.name.ifBlank { "Server ${p.id}" }}\"? Tindakan ini tidak bisa dibatalkan.")
+            .setPositiveButton("Hapus") { _, _ -> deleteProfile(p) }
+            .setNegativeButton("Batal", null)
+            .show()
+    }
+
+    private fun deleteProfile(target: Profile) {
+        if (TunnelService.running) {
+            startService(
+                Intent(this, TunnelService::class.java).setAction(TunnelService.ACTION_STOP)
+            )
+            Toast.makeText(this, "Tunnel diputus karena profil dihapus", Toast.LENGTH_SHORT).show()
+        }
+        profiles.removeAll { it.id == target.id }
+        if (profiles.isEmpty()) profiles.add(Profile(id = 1, name = "Server 1"))
+        val next = profiles.first()
+        store.save(profiles, next.id)
+        profile = next
+        syncUi()
+        render()
+        Toast.makeText(this, "Profil dihapus", Toast.LENGTH_SHORT).show()
     }
 
     private fun payloadDialog() {
@@ -1144,17 +1175,18 @@ class MainActivity : InkActivity() {
             .show()
     }
 
-    private fun sniDialog() {
+    private fun proxyDialog() {
         saveCompactField(false)
         val p = profile ?: return
-        val input = dialogInput(p.sni, "contoh.com")
-        themedBuilder("SNI / host TLS")
+        val input = dialogInput(p.proxy, "host:port")
+        themedBuilder("Proxy")
             .setView(
-                dialogWrap(input, "Nama host di dalam TLS. Kosongkan untuk memakai host server.")
+                dialogWrap(input, "Alamat proxy/edge sebelum server SSH. Kosongkan untuk langsung ke server.")
             )
             .setPositiveButton("Terapkan") { _, _ ->
-                commitProfile(p.copy(sni = input.text.toString().trim()))
-                Toast.makeText(this, "SNI disimpan", Toast.LENGTH_SHORT).show()
+                commitProfile(p.copy(proxy = input.text.toString().trim()))
+                syncUi()
+                Toast.makeText(this, "Proxy disimpan", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton("Batal", null)
             .show()
@@ -1207,6 +1239,10 @@ class MainActivity : InkActivity() {
             "(Apache 2.0), JSch (BSD), hev-socks5-tunnel (Apache 2.0)."
         themedBuilder("Tentang")
             .setMessage(message)
+            .setNeutralButton("Reset kunci host") { _, _ ->
+                File(filesDir, "known_hosts").delete()
+                Toast.makeText(this, "Kunci host direset", Toast.LENGTH_SHORT).show()
+            }
             .setPositiveButton("Tutup", null)
             .show()
     }
