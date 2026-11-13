@@ -296,6 +296,7 @@ class TunnelService : VpnService() {
         try { session?.disconnect() } catch (_: Exception) {}
         server = null
         session = null
+        SlowDnsTunnel.stop()
     }
 
     private fun connect() {
@@ -519,6 +520,16 @@ class TunnelService : VpnService() {
     }
 
     private fun dial(p: Profile): Session {
+        // SlowDNS: nyalakan terowongan DNS lebih dulu. SSH lalu masuk ke
+        // listener lokal 127.0.0.1:<port> milik pustaka native dan diteruskan
+        // lewat DNS ke server (upstream ditentukan server SlowDNS).
+        var slowDnsPort = -1
+        if (p.slowdns) {
+            val cfgErr = SlowDns.validate(p)
+            if (cfgErr != null) throw IOException(cfgErr)
+            SlowDnsTunnel.stop()
+            slowDnsPort = SlowDnsTunnel.startAndWait(p, timeoutMs = 20_000)
+        }
         TunnelLog.add("SSH", "Login ${p.user}@${p.host}:${p.port} • transport ${p.transport.uppercase()}")
         TunnelLog.add("SSH", "Autentikasi: password, keyboard-interactive • timeout 20000 ms")
         val js = JSch().apply {
@@ -531,19 +542,26 @@ class TunnelService : VpnService() {
         s.setConfig("PreferredAuthentications", "password,keyboard-interactive")
         s.setServerAliveInterval(120_000)
         s.setServerAliveCountMax(3)
-        // Penting untuk mode VPN: socket SSH harus di-protect supaya tidak
-        // masuk kembali ke TUN (loop VPN → SOCKS → SSH → VPN). Resolusi nama
-        // endpoint juga dilakukan lewat jaringan dasar, bukan DNS VPN.
-        s.setSocketFactory(
-            TransportSocketFactory(
-                // "Pakai payload" bisa dimatikan dari layar utama tanpa
-                // menghapus teks payload yang sudah ditulis.
-                p.copy(payload = if (p.usePayload) p.payload else ""),
-                protect = { socket -> protectFromVpn(socket) },
-                bind = { socket -> bindOffVpn(socket) },
-                resolve = { host -> resolveOnUnderlying(host) }
+        if (slowDnsPort > 0) {
+            // SSH berjalan di atas terowongan SlowDNS (loopback → DNS).
+            // Socket loopback tidak masuk TUN, jadi tidak perlu protect().
+            TunnelLog.add(SlowDns.TAG, "SSH melalui listener SlowDNS 127.0.0.1:$slowDnsPort")
+            s.setSocketFactory(SlowDnsSocketFactory(slowDnsPort))
+        } else {
+            // Penting untuk mode VPN: socket SSH harus di-protect supaya tidak
+            // masuk kembali ke TUN (loop VPN → SOCKS → SSH → VPN). Resolusi nama
+            // endpoint juga dilakukan lewat jaringan dasar, bukan DNS VPN.
+            s.setSocketFactory(
+                TransportSocketFactory(
+                    // "Pakai payload" bisa dimatikan dari layar utama tanpa
+                    // menghapus teks payload yang sudah ditulis.
+                    p.copy(payload = if (p.usePayload) p.payload else ""),
+                    protect = { socket -> protectFromVpn(socket) },
+                    bind = { socket -> bindOffVpn(socket) },
+                    resolve = { host -> resolveOnUnderlying(host) }
+                )
             )
-        )
+        }
         s.connect(20_000)
         logHostKey(s)
         TunnelLog.add(TunnelLog.OK, "Autentikasi berhasil • ${p.user}@${p.host}")

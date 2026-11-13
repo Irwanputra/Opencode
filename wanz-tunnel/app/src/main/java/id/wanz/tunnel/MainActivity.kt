@@ -47,6 +47,7 @@ class MainActivity : InkActivity() {
 
     private lateinit var root: FrameLayout
     private lateinit var sshPanel: ScrollView
+    private lateinit var sshBody: LinearLayout
     private lateinit var logPanel: LinearLayout
     private lateinit var logScroll: ScrollView
     private lateinit var logList: LinearLayout
@@ -86,6 +87,8 @@ class MainActivity : InkActivity() {
     private var lastRx = 0L
     private var lastTx = 0L
     private var logPending = false
+    private var lastButtonLabel: String? = null
+    private var lastStatus: String? = null
 
     /**
      * Jendela log yang sedang terpasang di layar. Dipakai untuk menambah baris
@@ -265,6 +268,7 @@ class MainActivity : InkActivity() {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(20), dp(16), dp(20), dp(32))
         }
+        sshBody = body
 
         // Profil aktif: ketuk untuk memilih profil lain.
         val profileRow = horizontal().apply {
@@ -347,6 +351,8 @@ class MainActivity : InkActivity() {
             minimumHeight = dp(56)
             setOnClickListener { toggleTunnel() }
         }
+        // Tekanan jari terasa: tombol mengecil sedikit lalu pulih.
+        Anim.pressScale(connectButton)
         body.addView(connectButton, LinearLayout.LayoutParams(-1, dp(56)).apply { topMargin = dp(24) })
 
         statusText = uiText("Belum tersambung.", 12f, MUTED).apply {
@@ -386,7 +392,9 @@ class MainActivity : InkActivity() {
             CheckCell("reconnect", "Sambung ulang",
                 { it.autoReconnect }, { p, v -> p.copy(autoReconnect = v) }),
             CheckCell("mobile", "Seluler saja",
-                { it.onlyMobileData }, { p, v -> p.copy(onlyMobileData = v) })
+                { it.onlyMobileData }, { p, v -> p.copy(onlyMobileData = v) }),
+            CheckCell("slowdns", "SlowDNS",
+                { it.slowdns }, { p, v -> p.copy(slowdns = v) })
         )
 
         cells.chunked(2).forEach { pair ->
@@ -410,6 +418,13 @@ class MainActivity : InkActivity() {
                         performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
                         commitProfile(cell.write(active, tick.checked))
                         syncChecks()
+                        // SlowDNS baru dicentang tanpa konfigurasi: buka
+                        // langsung dialognya supaya tidak menyambung kosong.
+                        if (cell.key == "slowdns" && tick.checked &&
+                            profile?.slowdnsDomain?.isBlank() == true
+                        ) {
+                            slowDnsDialog()
+                        }
                     }
                 }
                 holder.addView(
@@ -588,6 +603,14 @@ class MainActivity : InkActivity() {
         }
         logList.addView(line, LinearLayout.LayoutParams(-1, -2))
         logList.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        // Baris baru meluncur masuk dari bawah, pelan dan singkat.
+        if (Anim.on(this)) {
+            line.alpha = 0f
+            line.translationY = dp(8).toFloat()
+            line.animate().alpha(1f).translationY(0f).setDuration(170L)
+                .setInterpolator(android.view.animation.DecelerateInterpolator())
+                .start()
+        }
     }
 
     // ---------------------------------------------------------------- drawer
@@ -625,6 +648,7 @@ class MainActivity : InkActivity() {
         panel.addView(drawerRow(R.drawable.ic_account_circle, "Profil") { profileDialog() })
         panel.addView(drawerRow(R.drawable.ic_receipt_long, "Payload") { payloadDialog() })
         panel.addView(drawerRow(R.drawable.ic_dns, "Proxy") { proxyDialog() })
+        panel.addView(drawerRow(R.drawable.ic_language, "SlowDNS") { slowDnsDialog() })
         panel.addView(drawerRow(R.drawable.ic_brightness_6, "Tema") { themeDialog() })
 
         panel.addView(groupLabel("Alat"))
@@ -763,7 +787,8 @@ class MainActivity : InkActivity() {
             "wss" -> "SSH + TLS + WS"
             else -> "SSH"
         }
-        return "$base · VPN"
+        val slow = if (p.slowdns) " + SlowDNS" else ""
+        return "$base$slow · VPN"
     }
 
     private fun syncUi() {
@@ -796,6 +821,7 @@ class MainActivity : InkActivity() {
         checks["autoping"]?.snapTo(p.autoPing)
         checks["reconnect"]?.snapTo(p.autoReconnect)
         checks["mobile"]?.snapTo(p.onlyMobileData)
+        checks["slowdns"]?.snapTo(p.slowdns)
     }
 
     private fun commitProfile(updated: Profile) {
@@ -941,6 +967,20 @@ class MainActivity : InkActivity() {
             Conn.ERROR -> "Coba hubungkan lagi"
             else -> "Hubungkan tunnel"
         }
+        // Pantulan kecil saat label tombol berganti keadaan.
+        if (label != lastButtonLabel) {
+            lastButtonLabel = label
+            if (Anim.on(this)) {
+                connectButton.animate().cancel()
+                connectButton.scaleX = 0.96f
+                connectButton.scaleY = 0.96f
+                connectButton.animate().scaleX(1f).scaleY(1f).setDuration(220L)
+                    .setInterpolator(android.view.animation.DecelerateInterpolator())
+                    .start()
+            }
+        }
+        // Denyut lembut selagi menyambung; berhenti pada keadaan lain.
+        if (state == Conn.CONNECTING) Anim.pulse(connectButton) else Anim.stopPulse(connectButton)
 
         val message = when {
             noInternet -> "Tunnel aktif, tetapi uji internet gagal. Periksa server atau payload."
@@ -951,7 +991,16 @@ class MainActivity : InkActivity() {
             state == Conn.CONNECTING -> raw
             else -> "Belum tersambung. Isi server lalu ketuk HUBUNGKAN."
         }
-        statusText.text = message
+        if (message != lastStatus) {
+            lastStatus = message
+            statusText.text = message
+            // Status baru memudar masuk, tidak muncul mendadak.
+            if (Anim.on(this)) {
+                statusText.animate().cancel()
+                statusText.alpha = 0f
+                statusText.animate().alpha(1f).setDuration(160L).start()
+            }
+        }
         statusText.setTextColor(
             when {
                 noInternet -> WARN
@@ -1180,6 +1229,123 @@ class MainActivity : InkActivity() {
             .show()
     }
 
+    /** Dialog pengaturan SlowDNS: aktif, resolver, domain, pubkey, tipe. */
+    private fun slowDnsDialog() {
+        saveCompactField(false)
+        val p = profile ?: return
+        val box = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(22), dp(8), dp(22), dp(4))
+        }
+
+        // Baris aktif/nonaktif gaya kisi centang.
+        val enableCheck = SquareCheckView(this).apply {
+            checked = p.slowdns
+            contentDescription = "Aktifkan SlowDNS"
+        }
+        val enableRow = horizontal().apply {
+            minimumHeight = dp(44)
+            isClickable = true
+            isFocusable = true
+            background = ripple()
+            contentDescription = "Aktifkan SlowDNS"
+            setOnClickListener {
+                enableCheck.checked = !enableCheck.checked
+                performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            }
+        }
+        enableRow.addView(
+            enableCheck,
+            LinearLayout.LayoutParams(dp(24), dp(24)).apply { rightMargin = dp(12) }
+        )
+        enableRow.addView(uiText("Aktifkan SlowDNS", 14.5f, INK))
+        box.addView(enableRow, lp(4))
+
+        fun addField(label: String, value: String, hint: String): EditText {
+            box.addView(
+                monoText(label, 10.5f, FAINT).apply {
+                    letterSpacing = 0.12f
+                    setPadding(0, dp(12), 0, dp(2))
+                }
+            )
+            val input = dialogInput(value, hint)
+            box.addView(input, LinearLayout.LayoutParams(-1, -2))
+            return input
+        }
+
+        val resolverInput = addField("DNS RESOLVER", p.slowdnsResolver, "8.8.8.8 atau 1.1.1.1:53")
+        val domainInput = addField("DOMAIN TUNNEL", p.slowdnsDomain, "tunnel.domain.com")
+        val pubkeyInput = addField("PUBLIC KEY SERVER", p.slowdnsPubkey, "64 karakter heksadesimal")
+
+        // Pilihan tipe record query: AUTO/NULL/TXT/CNAME/MX/NS/SRV.
+        box.addView(
+            monoText("TIPE RECORD", 10.5f, FAINT).apply {
+                letterSpacing = 0.12f
+                setPadding(0, dp(12), 0, dp(2))
+            }
+        )
+        var selectedType = SlowDns.normalizeType(p.slowdnsType)
+        val typeView = uiText(selectedType, 14f, INK).apply {
+            background = ripple()
+            isClickable = true
+            isFocusable = true
+            minimumHeight = dp(44)
+            gravity = Gravity.CENTER_VERTICAL
+            contentDescription = "Pilih tipe record SlowDNS"
+            setOnClickListener {
+                val current = SlowDns.TYPES.indexOf(selectedType).coerceAtLeast(0)
+                themedBuilder("Tipe SlowDNS")
+                    .setSingleChoiceItems(SlowDns.TYPES.toTypedArray(), current) { dialog, which ->
+                        selectedType = SlowDns.TYPES[which]
+                        text = selectedType
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton("Batal", null)
+                    .show()
+            }
+        }
+        box.addView(typeView, LinearLayout.LayoutParams(-1, -2))
+
+        box.addView(
+            uiText(
+                "SSH disalurkan lewat terowongan DNS (dnstt). Isi resolver, domain, dan " +
+                    "public key dari penyedia SlowDNS. Tipe NULL paling tahan cache; " +
+                    "AUTO menguji sendiri tipe yang lolos.",
+                12f, MUTED
+            ).apply { setPadding(0, dp(12), 0, 0) }
+        )
+
+        // Validasi ditangani manual agar dialog tetap terbuka saat salah isi.
+        val dialog = themedBuilder("SlowDNS")
+            .setView(box)
+            .setPositiveButton("Terapkan", null)
+            .setNegativeButton("Batal", null)
+            .create()
+        dialog.show()
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            val updated = p.copy(
+                slowdns = enableCheck.checked,
+                slowdnsResolver = resolverInput.text.toString().trim(),
+                slowdnsDomain = domainInput.text.toString().trim(),
+                slowdnsPubkey = pubkeyInput.text.toString().trim(),
+                slowdnsType = selectedType
+            )
+            val err = SlowDns.validate(updated)
+            if (err != null) {
+                Toast.makeText(this, err, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            commitProfile(updated)
+            syncUi()
+            dialog.dismiss()
+            Toast.makeText(
+                this,
+                if (updated.slowdns) "SlowDNS diaktifkan" else "SlowDNS dimatikan",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     private fun themeDialog() {
         themedBuilder("Tema")
             .setSingleChoiceItems(THEME_LABELS.toTypedArray(), AppPrefs.themeMode(this)) { dialog, which ->
@@ -1242,6 +1408,17 @@ class MainActivity : InkActivity() {
         store = ProfileStore(this)
         reloadProfile()
         syncUi()
+        // Sambutan halus: blok-blok halaman SSH naik dan memudar masuk
+        // berurutan sekali di awal (tidak diulang saat rotasi layar).
+        if (b == null && Anim.on(this)) {
+            sshBody.post {
+                var delay = 40L
+                for (i in 0 until sshBody.childCount) {
+                    Anim.riseIn(sshBody.getChildAt(i), delay)
+                    delay += 30L
+                }
+            }
+        }
         selectTab(if (intent?.getStringExtra("tab") == "log") TAB_LOG else TAB_SSH)
 
         if (Build.VERSION.SDK_INT >= 33 &&
@@ -1276,6 +1453,7 @@ class MainActivity : InkActivity() {
 
     override fun onPause() {
         super.onPause()
+        Anim.stopPulse(connectButton)
         TunnelService.onStatus = null
         TunnelLog.onChange = null
         handler.removeCallbacks(ticker)

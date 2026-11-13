@@ -1,5 +1,7 @@
 -keep class com.jcraft.jsch.** { *; }
 -keep class hev.htproxy.** { *; }
+-keep class id.wanz.slowdns.** { *; }
+-keep class go.** { *; }
 -dontwarn com.jcraft.jsch.**
 -dontwarn org.ietf.jgss.**
 -dontwarn com.sun.jna.**
@@ -8,3 +10,5 @@
 -dontwarn org.bouncycastle.**
 -dontwarn javax.security.**
 -dontwarn java.lang.management.**
+-dontwarn id.wanz.slowdns.**
+-dontwarn go.**

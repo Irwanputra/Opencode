@@ -10,8 +10,8 @@ android {
         applicationId = "id.wanz.tunnel"
         minSdk = 29
         targetSdk = 34
-        versionCode = 22
-        versionName = "2.9.8"
+        versionCode = 23
+        versionName = "2.9.9"
     }
     buildTypes {
         release {
@@ -32,5 +32,7 @@ android {
 dependencies {
     implementation("com.github.mwiede:jsch:0.2.17") // pustaka SSH
     implementation(files("libs/hev-socks5-tunnel.aar")) // tun2socks untuk mode VPN
+    implementation(files("libs/slowdns.aar")) // terowongan SlowDNS (dnstt) via gomobile
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.json:json:20240303") // org.json asli untuk uji JSON profil
 }

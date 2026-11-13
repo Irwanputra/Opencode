@@ -1,7 +1,8 @@
-# Wanz Tunnel 2.9.8
+# Wanz Tunnel 2.9.9
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
-TLS/SNI, WebSocket, dan multi-profil. Tampilan v2.9.6 mengikuti **HTTP Custom**:
+TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
+v2.9.6 mengikuti **HTTP Custom**:
 kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
 dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
 kolom, tombol sambung bergaris, dan laci bergrup — tanpa menu tiga titik dan
@@ -14,15 +15,16 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
   internal oleh tun2socks (port 1080 tetap)
 - UI mengikuti HTTP Custom: bilah atas hanya menu dan judul, tab
-  **SSH** dan **LOG**, isian `ip:port@user:pass`, delapan centang dua kolom,
+  **SSH** dan **LOG**, isian `ip:port@user:pass`, sembilan centang dua kolom,
   tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri hanya
-  **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat** (Tentang). Tidak ada
+  **Utilitas** (Profil, Payload, Proxy, SlowDNS, Tema) dan **Alat** (Tentang).
+  Tidak ada
   menu tiga titik, tombol tambah mengambang, atau layar Pengaturan terpisah;
   SSH diisi di field ringkas, dan profil dikelola langsung dari dialog Profil
   (pilih, ubah nama, hapus, tambah).
-- Delapan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
+- Sembilan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
   WebSocket (mengubah `transport`), Verifikasi TLS, DNS lewat tunnel, Ping
-  otomatis, Sambung ulang, dan Seluler saja.
+  otomatis, Sambung ulang, Seluler saja, dan SlowDNS (`slowdns`).
 - Tema **Ikuti sistem / Terang / Gelap**: gelap `#1E1E1E` dengan hijau
   `#4CAF50`, terang `#FFFFFF` dengan hijau `#2E7D32`. Kedua palet diukur
   kontrasnya (bukan inversi), dan halaman dibangun ulang begitu pilihan berubah.
@@ -45,6 +47,15 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   - TLS / SNI (mis. stunnel)
   - WebSocket (WS)
   - WebSocket + TLS (WSS)
+- **SlowDNS** (baru di v2.9.9, hasil reverse engineering HTTP Custom
+  8.0.22-Patch 2): SSH disalurkan lewat terowongan DNS protokol **dnstt**
+  (KCP → Noise_NK → smux di atas query DNS). Diatur lewat laci **SlowDNS**:
+  DNS resolver, domain tunnel, public key server (Noise), dan tipe record
+  query **Automatic / NULL / TXT / CNAME / MX / NS / SRV** — persis pilihan
+  HTTP Custom. Tipe `Automatic` mengkalibrasi sendiri tipe yang lolos
+  resolver/server; `NULL` adalah tipe favorit yang jarang disentuh resolver.
+  Saat aktif, SSH masuk ke listener lokal `127.0.0.1:<port>` milik pustaka
+  native (`slowdns.aar`, arm64) lalu diteruskan lewat DNS ke server.
 - Payload HTTP kustom dengan placeholder:
   `[host_port]`, `[host]`, `[port]`, `[crlf]`, `[crlr]`, `[cr]`, `[lf]`
 - Payload HTTP Custom: `[split]`, `[delay]`, `[delay_split]`, `[split_delay]`
@@ -66,6 +77,12 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   **Tentang**
 - Foreground service + notifikasi
 - APK release di-minify dengan R8
+- Gerak halus (baru di v2.9.9): dialog membesar dari pusat saat muncul dan
+  mengecil saat tertutup, tombol sambung mengecil saat ditekan lalu pulih,
+  label tombol mengembang ketika keadaan berganti, denyut lembut selagi
+  `MENYAMBUNG…`, baris log meluncur masuk, konten naik memudar di buka
+  pertama, dan kotak centang mengembang singkat saat dipilih. Semuanya
+  otomatis mati bila skala animasi sistem disetel nol.
 
 ## Cara pakai
 
@@ -76,7 +93,11 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
    - `TLS / SNI` untuk SSH di balik TLS (stunnel) atau CDN.
    - `WS` / `WSS` untuk SSH di balik WebSocket.
 3. Isi SNI, Host header WS, dan path WS bila memakai TLS/WS.
-4. Tekan Hubungkan. Izin VPN Android diminta sekali, lalu seluruh trafik
+4. Bila server hanya bisa dijangkau lewat DNS (port UDP diblokir), buka laci
+   **SlowDNS**: isi resolver (mis. `8.8.8.8`), domain tunnel, public key
+   server, pilih tipe record (`Automatic` cukup untuk mulai), lalu centang
+   **SlowDNS** di beranda.
+5. Tekan Hubungkan. Izin VPN Android diminta sekali, lalu seluruh trafik
    TCP aplikasi lewat tunnel.
 
 ### Isi profil (tanpa fitur impor)
@@ -185,6 +206,16 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 ## Status uji
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
+
+- v2.9.9 (SlowDNS + animasi): unit test Go `slowdns-go` lulus untuk format
+  query QNAME base32 (ClientID + padding + paket), pemecahan paket
+  downstream, decode jawaban **TXT/NULL/CNAME/MX/NS/SRV**, pemilihan tipe
+  (`AUTO/NULL/TXT/CNAME/MX/NS/SRV`), dan normalisasi resolver. Unit test
+  Kotlin menguji validasi SlowDNS (pubkey 64-hex, resolver, domain) serta
+  simpan-baca JSON profil termasuk field baru. Binding native diverifikasi
+  lewat `javap` (`id.wanz.slowdns.Slowdns`: `start/waitReady/listenPort/
+  stop/isRunning`, `Logger.log`). Animasi baru memakai `Face.reducedMotion`
+  sehingga otomatis mengikuti skala animasi sistem.
 
 - UI v2.9.4 (rilis yang sama dengan APK di atas) diverifikasi ulang di emulator
   Android 14: tema gelap `#1E1E1E` dan terang `#FFFFFF`, judul dua warna, tab
@@ -526,6 +557,11 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
 - [JSch (mwiede fork)](https://github.com/mwiede/jsch) — SSH, BSD-style license.
 - [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel) — tun2socks, MIT license.
+- [dnstt](https://www.bamsoftware.com/git/dnstt.git) — protokol terowongan DNS
+  untuk SlowDNS; **CC0**. Dipakai lewat modul Go `slowdns-go/` (paket utama
+  hasil tulisan ulang + salinan `internal/dns`, `internal/noise`,
+  `internal/turbotunnel` dari dnstt dengan berkas `DNSTT-COPYING`), lalu
+  dikompilasi `gomobile bind` menjadi `app/libs/slowdns.aar` (arm64-v8a).
 - [Roboto](https://fonts.google.com/specimen/Roboto) 400/500 — seluruh teks
   antarmuka; Apache License 2.0.
 - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) 400/500 — alamat,

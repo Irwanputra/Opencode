@@ -113,7 +113,7 @@ terlihat seperti template dengan font lain.
    - baris profil aktif (ketuk untuk memilih profil) dan label pembungkus
      `SSH · VPN` / `SSH + TLS · VPN` dan seterusnya;
    - bidang `ip:port@user:pass` bergaris bawah, Roboto Mono, satu baris;
-   - kisi centang **dua kolom, empat baris**, tiap sel tinggi 48dp;
+   - kisi centang **dua kolom** (sembilan sel), tiap sel tinggi 48dp;
    - tombol sambung bergaris tepi 1,5dp, tinggi 56dp, label berubah
      `HUBUNGKAN` → `MENYAMBUNG…` → `PUTUSKAN` / `COBA LAGI`;
    - baris status satu sampai dua baris;
@@ -122,19 +122,23 @@ terlihat seperti template dengan font lain.
    `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
    INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
 5. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
-   **Utilitas** (Profil, Payload, Proxy, Tema) dan **Alat** (Tentang). Laci
+   **Utilitas** (Profil, Payload, Proxy, SlowDNS, Tema) dan **Alat** (Tentang).
+   Laci
    bisa digulir pada layar pendek. Tidak ada entri menu yang hanya membuka
    layar atau aksi yang sudah ada di beranda:
    - **Profil** membuka daftar profil; di situ ada pilih profil, Ubah nama,
      Hapus, dan Tambah profil baru.
    - **Payload** dan **Proxy** mengubah dua field profil yang tidak muat di
      beranda; SSH (host/port/user/pass) diisi langsung di field ringkas.
+   - **SlowDNS** mengatur resolver, domain tunnel, public key server, dan
+     tipe record query (Automatic/NULL/TXT/CNAME/MX/NS/SRV); centangnya ada
+     di kisi beranda.
    - **Tema** memilih Ikuti sistem/Terang/Gelap.
    - Ping manual cukup ketuk kolom
      Aktif; log dan salin/bersihkan cukup di tab LOG; reset kunci host ada di
      dialog Tentang. (Ikon impor config dihapus sejak v2.9.8.)
 
-Delapan centang dan field yang diubahnya:
+Sembilan centang dan field yang diubahnya:
 
 | Label | Field profil | Akibat nyata |
 |---|---|---|
@@ -146,6 +150,7 @@ Delapan centang dan field yang diubahnya:
 | Ping otomatis | `autoPing` | ping berkala saat terhubung |
 | Sambung ulang | `autoReconnect` | sambung ulang otomatis saat putus |
 | Seluler saja | `onlyMobileData` | menolak koneksi saat memakai Wi-Fi |
+| SlowDNS | `slowdns` | SSH disalurkan lewat terowongan DNS (dnstt) |
 
 ## Komponen
 
@@ -163,13 +168,29 @@ Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
 
 - **Ripple sentuh** di tab, baris profil, sel centang, tombol sambung, baris
   laci, dan tombol dialog. Kilau memakai tinta transparan, bukan warna kedua.
+- **Tekan tombol** mengecil 3% (`Anim.pressScale`) pada tombol sambung —
+  umpan balik tekan tanpa mengubah warna.
 - **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate); scrim
   meredup bersamaan. Tidak memakai layer keras eksplisit karena pada sebagian
   renderer (emulator software/SwiftShader) layer itu membuat laci tampil hitam.
 - **Tab SSH/LOG** silang-memudar 160ms masuk dan 120ms keluar; halaman lama
   tetap terlihat di bawah halaman baru sampai transisi selesai.
 - **Centang** mengisi 140ms: bidang hijau muncul sementara garis kotak
-  memudar, jadi tidak ada kedipan saat status berubah.
+  memudar, jadi tidak ada kedipan saat status berubah. Kotaknya juga
+  menyusut 0,86 lalu pulih 190ms — terasa "diklik", bukan hanya berganti
+  warna.
+- **Dialog** (semua dialog tema Wanz) masuk membesar dari 92% sambil memudar
+  200ms dari pusat, keluar mengecil 94% + memudar 140ms
+  (`res/anim/dialog_*.xml` lewat `windowAnimationStyle`).
+- **Tombol sambung** mengecil 3% saat ditekan dan pulih 110ms
+  (`Anim.pressScale`); label yang berganti keadaan mengembang dari 96% ke
+  100% dalam 220ms; selagi `MENYAMBUNG…` opasitasnya berdenyut lembut
+  850ms bolak-balik (`Anim.pulse`) dan berhenti bersih di keadaan lain.
+- **Sambutan konten**: blok-blok tab SSH naik 14dp sambil memudar masuk
+  260ms, dijeda berurutan 30ms, sekali saja di buka pertama (tidak diulang
+  saat rotasi).
+- **Baris log baru** meluncur masuk 170ms dari bawah; log lama tidak
+  dianimasikan ulang.
 - Tombol dan centang tetap memakai umpan balik haptic.
 
 Semuanya menghormati `ANIMATOR_DURATION_SCALE` sistem lewat

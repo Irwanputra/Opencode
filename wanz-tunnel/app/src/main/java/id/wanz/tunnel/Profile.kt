@@ -16,6 +16,7 @@ import org.json.JSONObject
  * - onlyMobileData                       : tolak koneksi saat memakai Wi-Fi
  * - blockRoot                            : tolak koneksi bila perangkat ter-root
  * - mappedDns / dnsServer                : DNS lewat tunnel atau DNS kustom
+ * - slowdns*                             : jalur SSH lewat terowongan DNS
  */
 data class Profile(
     var id: Long = 0,
@@ -44,7 +45,15 @@ data class Profile(
     var onlyMobileData: Boolean = false,
     var blockRoot: Boolean = false,
     var mappedDns: Boolean = true,
-    var dnsServer: String = "1.1.1.1"
+    var dnsServer: String = "1.1.1.1",
+    // SlowDNS (gaya HTTP Custom): SSH disalurkan lewat terowongan DNS
+    // (dnstt). resolver/domain/pubkey milik server SlowDNS; type memilih
+    // tipe record query: AUTO, NULL, TXT, CNAME, MX, NS, atau SRV.
+    var slowdns: Boolean = false,
+    var slowdnsResolver: String = "8.8.8.8",
+    var slowdnsDomain: String = "",
+    var slowdnsPubkey: String = "",
+    var slowdnsType: String = SlowDns.TYPE_AUTO
 )
 
 class ProfileStore(context: Context) {
@@ -100,64 +109,76 @@ class ProfileStore(context: Context) {
         )
     }
 
-    private fun toJson(p: Profile) = JSONObject().apply {
-        put("id", p.id)
-        put("name", p.name)
-        put("host", p.host)
-        put("port", p.port)
-        put("user", p.user)
-        put("pass", p.pass)
-        put("proxy", p.proxy)
-        put("payload", p.payload)
-        put("usePayload", p.usePayload)
-        put("socksPort", p.socksPort)
-        put("vpn", p.vpn)
-        put("transport", p.transport)
-        put("sni", p.sni)
-        put("wsPath", p.wsPath)
-        put("wsHost", p.wsHost)
-        put("strictTls", p.strictTls)
-        put("autoPing", p.autoPing)
-        put("pingInterval", p.pingInterval)
-        put("pingTarget", p.pingTarget)
-        put("autoReconnect", p.autoReconnect)
-        put("onlyMobileData", p.onlyMobileData)
-        put("blockRoot", p.blockRoot)
-        put("mappedDns", p.mappedDns)
-        put("dnsServer", p.dnsServer)
-    }
-
-    private fun fromJson(o: JSONObject) = Profile(
-        id = o.optLong("id", 0L),
-        name = o.optString("name", "Server"),
-        host = o.optString("host", ""),
-        port = o.optInt("port", 22),
-        user = o.optString("user", ""),
-        pass = o.optString("pass", ""),
-        proxy = o.optString("proxy", ""),
-        payload = o.optString("payload", ""),
-        usePayload = o.optBoolean("usePayload", true),
-        socksPort = o.optInt("socksPort", 1080),
-        // Config lama bisa menyimpan vpn=false (mode SOCKS5). Mode itu sudah
-        // dihapus; semua profil dipaksa VPN seperti HTTP Custom.
-        vpn = true,
-        transport = o.optString("transport", "ssh"),
-        sni = o.optString("sni", ""),
-        wsPath = o.optString("wsPath", "/"),
-        wsHost = o.optString("wsHost", ""),
-        strictTls = o.optBoolean("strictTls", true),
-        autoPing = o.optBoolean("autoPing", true),
-        pingInterval = o.optInt("pingInterval", 10),
-        pingTarget = o.optString("pingTarget", "1.1.1.1:443"),
-        autoReconnect = o.optBoolean("autoReconnect", true),
-        onlyMobileData = o.optBoolean("onlyMobileData", false),
-        blockRoot = o.optBoolean("blockRoot", false),
-        mappedDns = o.optBoolean("mappedDns", true),
-        dnsServer = o.optString("dnsServer", "1.1.1.1")
-    )
-
     companion object {
         private const val KEY_PROFILES = "profiles"
         private const val KEY_ACTIVE = "activeProfile"
+
+        /** Profil → JSON (internal agar bisa diuji tanpa Context). */
+        internal fun toJson(p: Profile) = JSONObject().apply {
+            put("id", p.id)
+            put("name", p.name)
+            put("host", p.host)
+            put("port", p.port)
+            put("user", p.user)
+            put("pass", p.pass)
+            put("proxy", p.proxy)
+            put("payload", p.payload)
+            put("usePayload", p.usePayload)
+            put("socksPort", p.socksPort)
+            put("vpn", p.vpn)
+            put("transport", p.transport)
+            put("sni", p.sni)
+            put("wsPath", p.wsPath)
+            put("wsHost", p.wsHost)
+            put("strictTls", p.strictTls)
+            put("autoPing", p.autoPing)
+            put("pingInterval", p.pingInterval)
+            put("pingTarget", p.pingTarget)
+            put("autoReconnect", p.autoReconnect)
+            put("onlyMobileData", p.onlyMobileData)
+            put("blockRoot", p.blockRoot)
+            put("mappedDns", p.mappedDns)
+            put("dnsServer", p.dnsServer)
+            put("slowdns", p.slowdns)
+            put("slowdnsResolver", p.slowdnsResolver)
+            put("slowdnsDomain", p.slowdnsDomain)
+            put("slowdnsPubkey", p.slowdnsPubkey)
+            put("slowdnsType", p.slowdnsType)
+        }
+
+        /** JSON → Profil (internal agar bisa diuji tanpa Context). */
+        internal fun fromJson(o: JSONObject) = Profile(
+            id = o.optLong("id", 0L),
+            name = o.optString("name", "Server"),
+            host = o.optString("host", ""),
+            port = o.optInt("port", 22),
+            user = o.optString("user", ""),
+            pass = o.optString("pass", ""),
+            proxy = o.optString("proxy", ""),
+            payload = o.optString("payload", ""),
+            usePayload = o.optBoolean("usePayload", true),
+            socksPort = o.optInt("socksPort", 1080),
+            // Config lama bisa menyimpan vpn=false (mode SOCKS5). Mode itu sudah
+            // dihapus; semua profil dipaksa VPN seperti HTTP Custom.
+            vpn = true,
+            transport = o.optString("transport", "ssh"),
+            sni = o.optString("sni", ""),
+            wsPath = o.optString("wsPath", "/"),
+            wsHost = o.optString("wsHost", ""),
+            strictTls = o.optBoolean("strictTls", true),
+            autoPing = o.optBoolean("autoPing", true),
+            pingInterval = o.optInt("pingInterval", 10),
+            pingTarget = o.optString("pingTarget", "1.1.1.1:443"),
+            autoReconnect = o.optBoolean("autoReconnect", true),
+            onlyMobileData = o.optBoolean("onlyMobileData", false),
+            blockRoot = o.optBoolean("blockRoot", false),
+            mappedDns = o.optBoolean("mappedDns", true),
+            dnsServer = o.optString("dnsServer", "1.1.1.1"),
+            slowdns = o.optBoolean("slowdns", false),
+            slowdnsResolver = o.optString("slowdnsResolver", "8.8.8.8"),
+            slowdnsDomain = o.optString("slowdnsDomain", ""),
+            slowdnsPubkey = o.optString("slowdnsPubkey", ""),
+            slowdnsType = SlowDns.normalizeType(o.optString("slowdnsType", SlowDns.TYPE_AUTO))
+        )
     }
 }

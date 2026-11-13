@@ -74,6 +74,12 @@ class SquareCheckView(context: Context) : View(context) {
             invalidate()
             return
         }
+        // Kotak sedikit menyusut lalu pulih bersama centangnya — sentuhan
+        // terasa hidup tanpa memantul berlebihan.
+        scaleX = 0.86f
+        scaleY = 0.86f
+        animate().scaleX(1f).scaleY(1f).setDuration(190L)
+            .setInterpolator(DecelerateInterpolator()).start()
         animator = ValueAnimator.ofFloat(progress, if (value) 1f else 0f).apply {
             duration = 140L
             interpolator = DecelerateInterpolator()

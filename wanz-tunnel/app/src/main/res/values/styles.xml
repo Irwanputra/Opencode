@@ -8,9 +8,11 @@
         <item name="android:windowLightNavigationBar">true</item>
     </style>
     <!-- Dialog: sudut 4dp, garis rambut, aksen hijau. Dua varian karena tema
-         aplikasi bisa berbeda dari mode sistem. -->
+         aplikasi bisa berbeda dari mode sistem. Keduanya memakai animasi
+         masuk/keluar yang sama agar selalu terasa utuh. -->
     <style name="WanzDialogLight" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/bg_dialog_light</item>
+        <item name="android:windowAnimationStyle">@style/WanzDialogAnim</item>
         <item name="android:colorAccent">@color/dlg_light_accent</item>
         <item name="android:textColorPrimary">@color/dlg_light_ink</item>
         <item name="android:textColorSecondary">@color/dlg_light_muted</item>
@@ -18,9 +20,15 @@
     </style>
     <style name="WanzDialogDark" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
         <item name="android:windowBackground">@drawable/bg_dialog_dark</item>
+        <item name="android:windowAnimationStyle">@style/WanzDialogAnim</item>
         <item name="android:colorAccent">@color/dlg_dark_accent</item>
         <item name="android:textColorPrimary">@color/dlg_dark_ink</item>
         <item name="android:textColorSecondary">@color/dlg_dark_muted</item>
         <item name="android:textColorTertiary">@color/dlg_dark_muted</item>
+    </style>
+    <!-- Animasi dialog: muncul membesar dari pusat, menutup mengecil cepat. -->
+    <style name="WanzDialogAnim">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
 </resources>
