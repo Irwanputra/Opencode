@@ -170,22 +170,34 @@ Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
   laci, dan tombol dialog. Kilau memakai tinta transparan, bukan warna kedua.
 - **Tekan tombol** mengecil 3% (`Anim.pressScale`) pada tombol sambung —
   umpan balik tekan tanpa mengubah warna.
-- **Laci** masuk 200ms dan keluar 180ms (Decelerate/Accelerate); scrim
+- **Laci** masuk 200ms dan keluar 180ms dengan kurva emphasized
+  decelerate/accelerate Material 3 (persis kurva pada acuan); scrim
   meredup bersamaan. Tidak memakai layer keras eksplisit karena pada sebagian
   renderer (emulator software/SwiftShader) layer itu membuat laci tampil hitam.
+- **Garis tab** aktif adalah satu garis bersama yang meluncur 250ms
+  (fast_out_slow_in) ke tab terpilih — perilaku TabLayout pada acuan, bukan
+  garis per sel yang nyala-mati.
 - **Tab SSH/LOG** silang-memudar 160ms masuk dan 120ms keluar; halaman lama
   tetap terlihat di bawah halaman baru sampai transisi selesai.
 - **Centang** mengisi 140ms: bidang hijau muncul sementara garis kotak
   memudar, jadi tidak ada kedipan saat status berubah. Kotaknya juga
   menyusut 0,86 lalu pulih 190ms — terasa "diklik", bukan hanya berganti
   warna.
-- **Dialog** (semua dialog tema Wanz) masuk membesar dari 92% sambil memudar
-  200ms dari pusat, keluar mengecil 94% + memudar 140ms
+- **Dialog** (semua dialog tema Wanz) masuk persis spesifikasi Material 3
+  pada acuan: memudar sambil membesar dari 80% selama 400ms (emphasized
+  decelerate), keluar memudar 150ms (emphasized accelerate)
   (`res/anim/dialog_*.xml` lewat `windowAnimationStyle`).
 - **Tombol sambung** mengecil 3% saat ditekan dan pulih 110ms
   (`Anim.pressScale`); label yang berganti keadaan mengembang dari 96% ke
-  100% dalam 220ms; selagi `MENYAMBUNG…` opasitasnya berdenyut lembut
-  850ms bolak-balik (`Anim.pulse`) dan berhenti bersih di keadaan lain.
+  100% dalam 220ms; selagi `MENYAMBUNG…` tombol bernapas pelan — skala
+  1,00 → 1,03 selama 1500ms bolak-balik (fast_out_slow_in), pola
+  `animator/icon_scale` pada acuan (`Anim.pulse`) — dan berhenti bersih di
+  keadaan lain.
+- Kurva gerak memakai keluarga Material 3, didefinisikan di
+  `res/interpolator/`: fast_out_slow_in (0,4; 0; 0,2; 1) untuk gerak kecil,
+  emphasized decelerate (0,1; 0,7; 0,1; 1) untuk masuk, dan emphasized
+  accelerate (0,3; 0; 0,8; 0,2) untuk keluar — nilai kontrol persis dari
+  acuan.
 - **Sambutan konten**: blok-blok tab SSH naik 14dp sambil memudar masuk
   260ms, dijeda berurutan 30ms, sekali saja di buka pertama (tidak diulang
   saat rotasi).

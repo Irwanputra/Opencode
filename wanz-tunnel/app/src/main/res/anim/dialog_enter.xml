@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Dialog masuk: memudar sambil membesar dari 92% ke ukuran penuh.
-     Durasi mengikuti skala animasi sistem (skala 0 = langsung tampil). -->
+<!-- Dialog masuk persis Material 3 pada acuan: memudar sambil membesar dari
+     80% selama 400ms (m3_sys_motion_duration_medium4) dengan easing
+     emphasized decelerate. Durasi tetap mengikuti skala animasi sistem. -->
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:interpolator/decelerate_quad">
+    android:interpolator="@interpolator/m3_emphasized_decelerate"
+    android:shareInterpolator="true">
     <alpha
-        android:duration="180"
+        android:duration="400"
         android:fromAlpha="0.0"
         android:toAlpha="1.0" />
     <scale
-        android:duration="200"
-        android:fromXScale="0.92"
-        android:fromYScale="0.92"
+        android:duration="400"
+        android:fromXScale="0.8"
+        android:fromYScale="0.8"
         android:pivotX="50%"
         android:pivotY="50%"
         android:toXScale="1.0"

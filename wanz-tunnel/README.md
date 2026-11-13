@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.9
+# Wanz Tunnel 2.9.10
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -77,12 +77,15 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   **Tentang**
 - Foreground service + notifikasi
 - APK release di-minify dengan R8
-- Gerak halus (baru di v2.9.9): dialog membesar dari pusat saat muncul dan
-  mengecil saat tertutup, tombol sambung mengecil saat ditekan lalu pulih,
-  label tombol mengembang ketika keadaan berganti, denyut lembut selagi
-  `MENYAMBUNG…`, baris log meluncur masuk, konten naik memudar di buka
-  pertama, dan kotak centang mengembang singkat saat dipilih. Semuanya
-  otomatis mati bila skala animasi sistem disetel nol.
+- Gerak halus (v2.9.9–v2.9.10, bahasa gerak Material 3 hasil reverse
+  engineering acuan): dialog masuk memudar + membesar dari 80% selama 400ms
+  (easing emphasized decelerate) dan keluar memudar 150ms (emphasized
+  accelerate); garis bawah tab meluncur antar tab seperti TabLayout; tombol
+  sambung mengecil saat ditekan, labelnya mengembang saat keadaan berganti,
+  dan bernapas pelan 1500ms selagi `MENYAMBUNG…` (pola `animator/icon_scale`
+  pada acuan); baris log meluncur masuk; konten naik memudar di buka
+  pertama; kotak centang mengembang singkat saat dipilih. Semuanya otomatis
+  mati bila skala animasi sistem disetel nol.
 
 ## Cara pakai
 

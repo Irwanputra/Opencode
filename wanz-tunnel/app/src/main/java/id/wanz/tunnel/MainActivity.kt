@@ -58,8 +58,7 @@ class MainActivity : InkActivity() {
 
     private lateinit var tabSsh: TextView
     private lateinit var tabLog: TextView
-    private lateinit var tabSshLine: View
-    private lateinit var tabLogLine: View
+    private lateinit var tabIndicator: View
     private var tab = TAB_SSH
 
     private lateinit var nameLabel: TextView
@@ -220,7 +219,8 @@ class MainActivity : InkActivity() {
         return bar
     }
 
-    /** Dua tab dengan garis bawah 3dp pada tab aktif. */
+    /** Dua tab dengan garis bawah 3dp yang meluncur ke tab aktif — perilaku
+     *  TabLayout pada acuan, dengan easing emphasized Material 3. */
     private fun tabBar(): View {
         val wrap = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -230,6 +230,8 @@ class MainActivity : InkActivity() {
         fun cell(label: String, which: Int): LinearLayout {
             val cell = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
+                gravity = Gravity.CENTER
+                minimumHeight = dp(48)
                 isClickable = true
                 isFocusable = true
                 contentDescription = if (which == TAB_SSH) "Tab SSH" else "Tab log"
@@ -237,22 +239,23 @@ class MainActivity : InkActivity() {
                 setOnClickListener { selectTab(which) }
             }
             val text = uiText(label, 15f, MUTED, medium = true).apply { gravity = Gravity.CENTER }
-            val line = View(this).apply { setBackgroundColor(Color.TRANSPARENT) }
-            cell.addView(text, LinearLayout.LayoutParams(-1, 0, 1f))
-            cell.addView(line, LinearLayout.LayoutParams(-1, dp(3)))
-            if (which == TAB_SSH) {
-                tabSsh = text
-                tabSshLine = line
-            } else {
-                tabLog = text
-                tabLogLine = line
-            }
+            cell.addView(text, LinearLayout.LayoutParams(-1, -2))
+            if (which == TAB_SSH) tabSsh = text else tabLog = text
             return cell
         }
 
-        row.addView(cell("SSH", TAB_SSH), LinearLayout.LayoutParams(0, dp(48), 1f))
-        row.addView(cell("LOG", TAB_LOG), LinearLayout.LayoutParams(0, dp(48), 1f))
-        wrap.addView(row, LinearLayout.LayoutParams(-1, dp(48)))
+        row.addView(cell("SSH", TAB_SSH), LinearLayout.LayoutParams(0, -1, 1f))
+        row.addView(cell("LOG", TAB_LOG), LinearLayout.LayoutParams(0, -1, 1f))
+
+        // Satu garis aktif bersama: digeser antar tab, bukan nyala-mati.
+        val track = FrameLayout(this)
+        track.addView(row, FrameLayout.LayoutParams(-1, dp(48)))
+        tabIndicator = View(this).apply { setBackgroundColor(ACCENT) }
+        track.addView(
+            tabIndicator,
+            FrameLayout.LayoutParams(-1, dp(3), Gravity.BOTTOM)
+        )
+        wrap.addView(track, LinearLayout.LayoutParams(-1, dp(48)))
         wrap.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
         return wrap
     }
@@ -608,7 +611,7 @@ class MainActivity : InkActivity() {
             line.alpha = 0f
             line.translationY = dp(8).toFloat()
             line.animate().alpha(1f).translationY(0f).setDuration(170L)
-                .setInterpolator(android.view.animation.DecelerateInterpolator())
+                .setInterpolator(Anim.fastOutSlowIn)
                 .start()
         }
     }
@@ -700,7 +703,7 @@ class MainActivity : InkActivity() {
         val duration = if (Face.reducedMotion(this)) 0L else 200L
         drawer.translationX = -drawerWidth.toFloat()
         drawer.animate().translationX(0f).setDuration(duration)
-            .setInterpolator(android.view.animation.DecelerateInterpolator())
+            .setInterpolator(Anim.emphasizedDecelerate)
             .start()
         scrim.alpha = 0f
         scrim.animate().alpha(1f).setDuration(duration).start()
@@ -711,7 +714,7 @@ class MainActivity : InkActivity() {
         drawerOpen = false
         val duration = if (Face.reducedMotion(this)) 0L else 180L
         drawer.animate().translationX(-drawerWidth.toFloat()).setDuration(duration)
-            .setInterpolator(android.view.animation.AccelerateInterpolator())
+            .setInterpolator(Anim.emphasizedAccelerate)
             .withEndAction { drawer.visibility = View.GONE }.start()
         scrim.animate().alpha(0f).setDuration(duration)
             .withEndAction { scrim.visibility = View.GONE }.start()
@@ -725,9 +728,8 @@ class MainActivity : InkActivity() {
         tab = which
         tabSsh.setTextColor(if (which == TAB_SSH) ACCENT else MUTED)
         tabLog.setTextColor(if (which == TAB_LOG) ACCENT else MUTED)
-        tabSshLine.setBackgroundColor(if (which == TAB_SSH) ACCENT else Color.TRANSPARENT)
-        tabLogLine.setBackgroundColor(if (which == TAB_LOG) ACCENT else Color.TRANSPARENT)
         if (which == TAB_LOG) renderLog()
+        slideTabIndicator()
 
         val incoming = if (which == TAB_SSH) sshPanel else logPanel
         val outgoing = if (which == TAB_SSH) logPanel else sshPanel
@@ -753,6 +755,21 @@ class MainActivity : InkActivity() {
                 outgoing.alpha = 1f
             }
         }.start()
+    }
+
+    /** Garis aktif tab meluncur ke posisi tab terpilih (fast_out_slow_in). */
+    private fun slideTabIndicator() {
+        if (!::tabIndicator.isInitialized) return
+        tabIndicator.post {
+            val target = if (tab == TAB_SSH) 0f else tabIndicator.width / 2f
+            if (!Anim.on(this)) {
+                tabIndicator.translationX = target
+                return@post
+            }
+            tabIndicator.animate().translationX(target).setDuration(250L)
+                .setInterpolator(Anim.fastOutSlowIn)
+                .start()
+        }
     }
 
     // ------------------------------------------------------------- profil UI
@@ -975,7 +992,7 @@ class MainActivity : InkActivity() {
                 connectButton.scaleX = 0.96f
                 connectButton.scaleY = 0.96f
                 connectButton.animate().scaleX(1f).scaleY(1f).setDuration(220L)
-                    .setInterpolator(android.view.animation.DecelerateInterpolator())
+                    .setInterpolator(Anim.fastOutSlowIn)
                     .start()
             }
         }

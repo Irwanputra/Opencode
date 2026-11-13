@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Easing "emphasized decelerate" Material 3 — nilai kontrol persis seperti
+     pada acuan (m3_sys_motion_easing_emphasized_decelerate). -->
+<pathInterpolator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:controlX1="0.1"
+    android:controlY1="0.7"
+    android:controlX2="0.1"
+    android:controlY2="1.0" />

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Dialog keluar: memudar sambil mengecil sedikit, lebih cepat dari masuk
-     supaya penutupan terasa sigap. -->
+<!-- Dialog keluar persis Material 3 pada acuan: memudar saja selama 150ms
+     (m3_sys_motion_duration_short3) dengan easing emphasized accelerate. -->
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:interpolator/accelerate_quad">
+    android:interpolator="@interpolator/m3_emphasized_accelerate"
+    android:shareInterpolator="true">
     <alpha
-        android:duration="140"
+        android:duration="150"
         android:fromAlpha="1.0"
         android:toAlpha="0.0" />
-    <scale
-        android:duration="140"
-        android:fromXScale="1.0"
-        android:fromYScale="1.0"
-        android:pivotX="50%"
-        android:pivotY="50%"
-        android:toXScale="0.94"
-        android:toYScale="0.94" />
 </set>
