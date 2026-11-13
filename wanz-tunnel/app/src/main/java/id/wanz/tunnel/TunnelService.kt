@@ -339,6 +339,10 @@ class TunnelService : VpnService() {
             } catch (e: Exception) {
                 if (srv == null) busy.set(false)
                 try { s?.disconnect() } catch (_: Exception) {}
+                // Jangan tinggalkan terowongan DNS berjalan saat SSH gagal:
+                // instance lama akan terus melakukan polling dan (sebelum
+                // v2.9.11) membanjiri log dengan galat socket tertutup.
+                SlowDnsTunnel.stop()
                 if (running && srv?.isClosed != true) {
                     set("Gagal: ${e.message ?: e.javaClass.simpleName}")
                     if (p.autoReconnect) scheduleRetry() else set("Terputus")

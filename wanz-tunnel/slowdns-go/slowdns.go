@@ -39,6 +39,7 @@ type tunnel struct {
 	udp     *net.UDPConn
 	kcp     *kcp.UDPSession
 	sess    *smux.Session
+	pconn   *DNSPacketConn
 	port    int
 	ready   chan struct{}
 	done    chan struct{}
@@ -214,6 +215,14 @@ func Stop() {
 	if t == nil {
 		return
 	}
+	// Hentikan loop kirim/terima DNS lebih dulu supaya tidak ada paket baru
+	// yang dicoba setelah socket ditutup (mencegah banjir log ErrClosed).
+	t.mu.Lock()
+	pconn := t.pconn
+	t.mu.Unlock()
+	if pconn != nil {
+		pconn.Close()
+	}
 	t.closeAll()
 	select {
 	case <-t.done:
@@ -253,7 +262,19 @@ func (t *tunnel) fail(err error) {
 
 // run menjalankan seluruh rangkaian tunnel (meniru run() dnstt-client).
 func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, raddr *net.UDPAddr, kcpWindow int) (retErr error) {
-	defer func() { t.fail(retErr) }()
+	defer func() {
+		// Saat run berakhir — gagal awal maupun di-Stop — hentikan loop DNS
+		// lebih dulu lalu tutup socket supaya tidak ada goroutine yang
+		// tertinggal terus menulis ke socket tertutup.
+		t.mu.Lock()
+		pconn := t.pconn
+		t.mu.Unlock()
+		if pconn != nil {
+			pconn.Close()
+		}
+		t.closeAll()
+		t.fail(retErr)
+	}()
 
 	// Mode AUTO: kalibrasi tipe record yang lolos resolver/server.
 	if isAuto {
@@ -262,6 +283,9 @@ func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, 
 	}
 
 	pconn := NewDNSPacketConn(t.udp, raddr, domain, qtype, logf)
+	t.mu.Lock()
+	t.pconn = pconn
+	t.mu.Unlock()
 
 	mtu := dnsNameCapacity(domain) - 8 - 1 - numPadding - 1 // clientid + prefiks padding + padding + prefiks data
 	if mtu < 80 {

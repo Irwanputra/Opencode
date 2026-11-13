@@ -160,6 +160,11 @@ Sembilan centang dan field yang diubahnya:
   bukan `LayerDrawable` yang di-inset; inset itu melebar jadi blok tinta pada
   field multi-baris.
 - `HexLogoView`: heksagon putih dengan "W" tinta dan "T" hijau.
+- `DNSPacketConn` (SlowDNS): pembungkus `net.PacketConn` untuk query DNS.
+  `Close() error` menutup kanal `done` sekali (aman berulang) sehingga loop
+  kirim/terima berhenti; `Stop()` memanggilnya sebelum menutup socket UDP
+  dan membungkam `net.ErrClosed`, jadi instance yang sudah berhenti tidak
+  meninggalkan goroutine yang menulis ke socket tertutup.
 - Semua kontrol sentuh berlabel `contentDescription` dan minimal 48dp.
 
 ## Gerak

@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.10
+# Wanz Tunnel 2.9.11
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -56,6 +56,9 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   resolver/server; `NULL` adalah tipe favorit yang jarang disentuh resolver.
   Saat aktif, SSH masuk ke listener lokal `127.0.0.1:<port>` milik pustaka
   native (`slowdns.aar`, arm64) lalu diteruskan lewat DNS ke server.
+  Sejak v2.9.11 loop kirim/terima DNS dihentikan lebih dulu saat tunnel
+  di-Stop, sehingga tidak ada lagi baris
+  `use of closed network connection` berulang setelah putus/sambung ulang.
 - Payload HTTP kustom dengan placeholder:
   `[host_port]`, `[host]`, `[port]`, `[crlf]`, `[crlr]`, `[cr]`, `[lf]`
 - Payload HTTP Custom: `[split]`, `[delay]`, `[delay_split]`, `[split_delay]`
@@ -209,6 +212,14 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 ## Status uji
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
+
+- v2.9.11 (perbaikan lifecycle SlowDNS): `DNSPacketConn` kini punya kanal
+  `done` yang ditutup oleh `Close() error`, dan `Stop()` memanggil `Close()`
+  pada `DNSPacketConn` lebih dulu sebelum menutup socket UDP. Loop
+  `sendLoop`/`recvLoop` keluar tanpa mencetak galat, dan galat `net.ErrClosed`
+  dibungkam — log yang dulu dibanjiri `use of closed network connection`
+  tiap poll dari instance lama sekarang bersih. `go vet` dan `go test ./...`
+  di `slowdns-go` lulus.
 
 - v2.9.9 (SlowDNS + animasi): unit test Go `slowdns-go` lulus untuk format
   query QNAME base32 (ClientID + padding + paket), pemecahan paket

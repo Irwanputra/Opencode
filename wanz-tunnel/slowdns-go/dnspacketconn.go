@@ -13,10 +13,12 @@ import (
 	"crypto/rand"
 	"encoding/base32"
 	"encoding/binary"
+	"errors"
 	"fmt"
 	"io"
 	"net"
 	"strings"
+	"sync"
 	"time"
 
 	"wanz/slowdns/internal/dns"
@@ -84,8 +86,17 @@ type DNSPacketConn struct {
 	logf  func(format string, args ...interface{})
 	// pollChan mengizinkan sendLoop mengirim query polling kosong.
 	pollChan chan struct{}
+	// done ditutup oleh Close untuk menghentikan loop kirim/terima.
+	done      chan struct{}
+	closeOnce sync.Once
 	// QueuePacketConn penerima langsung ReadFrom/WriteTo.
 	*turbotunnel.QueuePacketConn
+}
+
+// Close menghentikan loop kirim/terima. Aman dipanggil berkali-kali.
+func (c *DNSPacketConn) Close() error {
+	c.closeOnce.Do(func() { close(c.done) })
+	return nil
 }
 
 // NewDNSPacketConn membuat DNSPacketConn. transport mengirim/menerima pesan
@@ -107,17 +118,19 @@ func NewDNSPacketConn(
 		qtype:           qtype,
 		logf:            logf,
 		pollChan:        make(chan struct{}, pollLimit),
+		done:            make(chan struct{}),
 		QueuePacketConn: turbotunnel.NewQueuePacketConn(clientID, 0),
 	}
 	go func() {
 		err := c.recvLoop(transport)
-		if err != nil {
+		// Socket tertutup adalah akhir yang normal saat tunnel di-Stop.
+		if err != nil && !errors.Is(err, net.ErrClosed) {
 			c.logf("SlowDNS recvLoop berhenti: %v", err)
 		}
 	}()
 	go func() {
 		err := c.sendLoop(transport, addr)
-		if err != nil {
+		if err != nil && !errors.Is(err, net.ErrClosed) {
 			c.logf("SlowDNS sendLoop berhenti: %v", err)
 		}
 	}()
@@ -319,9 +332,20 @@ func (c *DNSPacketConn) dnsResponsePackets(resp *dns.Message) [][]byte {
 // ReadFrom. Setiap jawaban berisi data mengizinkan satu poll segera.
 func (c *DNSPacketConn) recvLoop(transport net.PacketConn) error {
 	for {
+		// Berhenti bersih saat tunnel ditutup.
+		select {
+		case <-c.done:
+			return nil
+		default:
+		}
 		var buf [4096]byte
 		n, addr, err := transport.ReadFrom(buf[:])
 		if err != nil {
+			select {
+			case <-c.done:
+				return nil
+			default:
+			}
 			return err
 		}
 
@@ -381,12 +405,16 @@ func (c *DNSPacketConn) sendLoop(transport net.PacketConn, addr net.Addr) error 
 		// Utamakan paket data; poll hanya bila tidak ada paket.
 		select {
 		case p = <-outgoing:
+		case <-c.done:
+			return nil
 		default:
 			select {
 			case p = <-outgoing:
 			case <-c.pollChan:
 			case <-pollTimer.C:
 				pollTimerExpired = true
+			case <-c.done:
+				return nil
 			}
 		}
 
@@ -414,6 +442,13 @@ func (c *DNSPacketConn) sendLoop(transport net.PacketConn, addr net.Addr) error 
 		// Satu paket per query — kapasitas query terbatas.
 		err := c.send(transport, p, addr)
 		if err != nil {
+			// Setelah tunnel ditutup, jangan membanjiri log dengan
+			// "use of closed network connection" berulang.
+			select {
+			case <-c.done:
+				return nil
+			default:
+			}
 			c.logf("SlowDNS send: %v", err)
 			continue
 		}
