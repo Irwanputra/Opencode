@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation("com.github.mwiede:jsch:0.2.17") // pustaka SSH
+    implementation("com.github.mwiede:jsch:0.2.21") // pustaka SSH
     implementation(files("libs/hev-socks5-tunnel.aar")) // tun2socks untuk mode VPN
     implementation(files("libs/slowdns.aar")) // terowongan SlowDNS (dnstt) via gomobile
     testImplementation("junit:junit:4.13.2")
