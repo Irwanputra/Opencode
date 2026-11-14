@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.12
+# Wanz Tunnel 2.9.13
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -222,6 +222,17 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 ## Status uji
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
+
+- v2.9.13 (perbaikan crash saat Sambung): `SetSocketProtector(nil)`
+  yang dipanggil setiap `Stop()` menyimpan nilai kosong ke `atomic.Value`
+  dan memicu panic Go (`store of nil value into Value`) sehingga proses
+  Android mati begitu tombol Sambung ditekan. Penanda pelindung socket kini
+  memakai mutex + variabel biasa, dan `protectFd` membaca salinan di bawah
+  kunci baca. Unit test regresi `TestSetSocketProtectorNil` serta
+  `TestSetSocketProtectorReceivesFd` memastikan pemasangan/pelepasan
+  pelindung aman dan fd tetap diteruskan. `go vet`/`go test ./...`,
+  `testDebugUnitTest lintDebug assembleRelease`, dan
+  `python3 tools/design_gate.py --strict` (0 galat, 0 peringatan) lulus.
 
 - v2.9.12 (SlowDNS setara HTTP Custom): socket resolver UDP/DoH/DoT
   diproteksi `VpnService.protect` lewat `SocketProtector` di pustaka Go, dan

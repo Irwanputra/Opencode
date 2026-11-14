@@ -256,3 +256,31 @@ func TestCalibrationCandidates(t *testing.T) {
 		}
 	}
 }
+
+func TestSetSocketProtectorNil(t *testing.T) {
+	// Regresi crash v2.9.12: SetSocketProtector(nil) dipanggil setiap Stop.
+	SetSocketProtector(nil)
+	SetSocketProtector(nil)
+	protectFd(1) // tanpa pelindung: tidak boleh panic
+}
+
+type recordingProtector struct{ calls int }
+
+func (r *recordingProtector) Protect(fd int) bool {
+	r.calls++
+	return true
+}
+
+func TestSetSocketProtectorReceivesFd(t *testing.T) {
+	p := &recordingProtector{}
+	SetSocketProtector(p)
+	protectFd(7)
+	SetSocketProtector(nil)
+	if p.calls != 1 {
+		t.Fatalf("Protect dipanggil %d kali, mau 1", p.calls)
+	}
+	protectFd(8) // setelah dilepas: tidak ada panggilan tambahan
+	if p.calls != 1 {
+		t.Fatalf("Protect dipanggil setelah dilepas (%d)", p.calls)
+	}
+}

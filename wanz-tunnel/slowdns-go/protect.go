@@ -15,7 +15,7 @@ package slowdns
 import (
 	"context"
 	"net"
-	"sync/atomic"
+	"sync"
 	"syscall"
 )
 
@@ -26,21 +26,27 @@ type SocketProtector interface {
 	Protect(fd int) bool
 }
 
-var socketProtector atomic.Value // SocketProtector
+// Pakai mutex, bukan atomic.Value: atomic.Value.Store(nil) panic
+// ("store of nil value into Value"), dan sisi Android memang memanggil
+// setSocketProtector(null) setiap kali tunnel dihentikan.
+var (
+	protectorMu sync.RWMutex
+	protector   SocketProtector
+)
 
 // SetSocketProtector mendaftarkan pelindung socket. Panggil sebelum Start;
 // nil berarti tidak ada proteksi (mis. saat VPN belum aktif).
 func SetSocketProtector(p SocketProtector) {
-	if p == nil {
-		socketProtector.Store(SocketProtector(nil))
-		return
-	}
-	socketProtector.Store(p)
+	protectorMu.Lock()
+	protector = p
+	protectorMu.Unlock()
 }
 
 // protectFd memanggil pelindung yang terdaftar, bila ada.
 func protectFd(fd uintptr) {
-	p, _ := socketProtector.Load().(SocketProtector)
+	protectorMu.RLock()
+	p := protector
+	protectorMu.RUnlock()
 	if p == nil {
 		return
 	}
