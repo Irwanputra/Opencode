@@ -1,21 +1,25 @@
-# Wanz Tunnel — Arah Desain: Klon Fungsional HTTP Custom
+# Wanz Tunnel — Arah Desain: Bahasa Visual "Wanz"
 
-Dokumen ini mengunci arah visual v2.9.4. Arah "Konsol" (grafit + kuningan)
-dibatalkan atas permintaan pemilik aplikasi: **tampilan harus sama seperti HTTP
-Custom**. Yang ditiru adalah susunan, warna, dan bentuk kontrolnya; isinya tetap
-fitur Wanz Tunnel yang benar-benar bekerja.
+Dokumen ini mengunci arah visual v2.9.16. Sejak versi ini tampilan tidak lagi
+meniru layar HTTP Custom: seluruh tampilan dan tata letak dirancang ulang
+memakai mockup **text-to-image (Seedream 5.5)** sebagai referensi — beranda
+gelap/terang, laci, tab LOG, dan dialog Tentang (prompt tercatat di
+`brand/PROMPTS.md`). Yang diambil dari mockup adalah bahasa visualnya: latar
+charcoal, kartu membulat, pil tab, dan tombol hijau penuh; isinya tetap fitur
+Wanz Tunnel yang benar-benar bekerja.
 
 ## Ide
 
-HTTP Custom dipakai karena satu layar sudah memuat semua yang dibutuhkan orang
-saat menyambung: judul, dua tab, satu baris server, delapan opsi, satu tombol
-besar, dan log di tab sebelah. Wanz Tunnel memakai susunan yang sama supaya
-tangan yang sudah hafal acuan tidak perlu belajar ulang.
+Satu layar tetap memuat semua yang dibutuhkan orang saat menyambung: judul,
+dua tab, satu baris server, delapan opsi, satu tombol besar, dan log di tab
+sebelah. Mockup AI menata ulang kontrol yang sama ke bahasa visual "Wanz"
+supaya aplikasi terasa dirancang khusus untuk Wanz Tunnel, bukan meniru
+aplikasi lain.
 
-Uji cepat: ambil tangkapan layar, ganti teks "Wanz Tunnel" menjadi "HTTP
-Custom", dan hasilnya harus terbaca sebagai aplikasi yang sama. Yang tidak boleh
-sama adalah isi palsu: setiap centang, menu, dan tombol di sini tersambung ke
-profil atau layanan.
+Uji cepat: ambil tangkapan layar, dan hasilnya harus terbaca sebagai Wanz
+Tunnel — bukan aplikasi acuan mana pun. Yang tidak boleh sama adalah isi
+palsu: setiap centang, menu, dan tombol di sini tersambung ke profil atau
+layanan.
 
 ## Yang dilarang
 
@@ -29,9 +33,9 @@ profil atau layanan.
   Menambah profil lewat laci **Profil** → "Tambah profil baru"; mengubah profil
   aktif lewat laci **Profil** → "Ubah profil aktif". Tidak ada lagi entri
   "Pengaturan" di laci karena pintasan itu hanya membuka layar yang sama.
-- Tidak ada huruf kapital semua sebagai gaya. Pengecualiannya hanya merek
-  "WANZ TUNNEL" dan label aksi tombol (`HUBUNGKAN`, `PUTUSKAN`, `COBA LAGI`)
-  yang memang kapital pada acuan.
+- Tidak ada huruf kapital semua sebagai gaya. Pengecualiannya hanya label
+  aksi tombol (`HUBUNGKAN`, `PUTUSKAN`, `COBA LAGI`) dan label mikro
+  (`SERVER`, `OPSI`) yang memang kapital di mockup.
 - Mode gelap bukan inversi mentah; kedua palet diukur terpisah.
 
 Aturan yang bisa diperiksa mesin dijaga `tools/design_gate.py --strict`
@@ -46,21 +50,25 @@ dibuat. Rasio kontras diukur terhadap permukaan tempat token dipakai.
 
 | Peran | Terang | Gelap | Kontras (terang / gelap) |
 |---|---|---|---|
-| Latar (`BG`) | `#FFFFFF` | `#1E1E1E` | — |
-| Panel, laci, log (`PANEL`) | `#F5F5F5` | `#252525` | INK 15,80 / 15,33 terhadap `PANEL` |
-| Bidang isian (`FIELD`) | `#FFFFFF` | `#1E1E1E` | INK 17,22 / 16,67 |
-| Tinta (`INK`) | `#1B1B1B` | `#FFFFFF` | 17,22 / 16,67 terhadap `BG` |
-| Teks sekunder (`MUTED`) | `#5F5F5F` | `#BDBDBD` | 6,39 / 8,87 |
-| Teks samar (`FAINT`) | `#6B6B6B` | `#9E9E9E` | 5,33 / 6,22 thd `BG`; 4,89 / 5,72 thd `PANEL` |
-| Garis rambut (`HAIR`) | `#DDDDDD` | `#3C3C3C` | bukan teks; 1dp cukup |
-| Terhubung (`OK`) | `#2E7D32` | `#4CAF50` | 5,13 / 6,00 |
-| Peringatan (`WARN`) | `#8A5300` | `#FFD54F` | 6,33 / 11,81 |
-| Gagal (`ERR`) | `#B3261E` | `#FF6B81` | 6,54 / 6,09 |
-| Identitas (`ACCENT`) | `#2E7D32` | `#4CAF50` | 5,13 / 6,00 |
+| Latar (`BG`) | `#FFFFFF` | `#15171A` | — |
+| Panel, laci, kartu log (`PANEL`) | `#F3F5F4` | `#1E2328` | INK 15,73 / 15,83 terhadap `PANEL` |
+| Bidang isian (`FIELD`) | `#FFFFFF` | `#262D34` | INK 17,22 / 13,93 |
+| Tinta (`INK`) | `#1B1B1B` | `#FFFFFF` | 17,22 / 17,96 terhadap `BG` |
+| Teks sekunder (`MUTED`) | `#5A6167` | `#AEB6BD` | 6,29 / 8,74 |
+| Teks samar (`FAINT`) | `#676F76` | `#87929B` | 5,11 / 5,66 thd `BG`; 4,66 / 4,99 thd `PANEL` |
+| Garis rambut (`HAIR`) | `#E2E6E4` | `#2E363D` | bukan teks; 1dp cukup |
+| Terhubung (`OK`) | `#2E7D32` | `#4CAF50` | 5,13 / 6,46 |
+| Peringatan (`WARN`) | `#8A5300` | `#FFD54F` | 6,33 / 12,73 |
+| Gagal (`ERR`) | `#B3261E` | `#FF6B81` | 6,54 / 6,56 |
+| Identitas (`ACCENT`) | `#2E7D32` | `#4CAF50` | 5,13 / 6,46 |
 | Di atas aksen (`ON_ACCENT`) | `#FFFFFF` | `#0D1B0E` | 5,13 / 6,40 |
 
-Hijau tunggal dipakai untuk judul "Wanz", garis tab aktif, kotak centang
-terpilih, dan tepi tombol utama. Tidak ada warna kedua sebagai aksen.
+Hijau tunggal dipakai untuk pil tab aktif, kotak centang terpilih, tombol
+sambung terisi, dan label transport. Tidak ada warna kedua sebagai aksen.
+
+Sudut memakai lima peran sesuai mockup: kartu dan panel 20dp (`R_PANEL`),
+isian dan input dialog 14dp (`R_FIELD`), kotak centang 12dp (`R_CHECK`),
+tombol dan pil 28dp penuh (`R_PILL`), baris log 10dp (`R_LINE`).
 
 Ukuran: garis 1dp (dibulatkan ke piksel utuh), tinggi sentuh minimal 48dp,
 tombol sambung 56dp, laci 86% lebar layar (maksimal 320dp).
@@ -86,17 +94,18 @@ karakter yang dipakai (total ± 100 KB):
 - **Roboto Mono 400/500** untuk data: alamat server, port, angka trafik, uptime,
   ping, dan log.
 
-Roboto dipilih justru karena sama dengan acuan; aplikasi ini tidak lagi mencoba
-terlihat seperti template dengan font lain.
+Roboto dipertahankan sebagai font UI; identitas baru datang dari warna,
+sudut, dan bentuk kontrol, bukan dari font.
 
 | font | tinggi x / em | tebal garis @26px | @29px | @34px |
 |---|---|---|---|---|
 | **Roboto 400** | 0,528 | 2,67 | 2,67 | 3,00 |
 | **Roboto Mono 400** | 0,528 | 2,67 | 2,67 | 3,00 |
 
-- Judul aplikasi 22sp medium: "Wanz" hijau, "Tunnel" tinta.
-- Label tab 15sp medium. Judul bagian 15sp medium hijau.
-- Isian server 14,5sp mono; label mikro 10,5sp mono; log 12sp mono.
+- Judul aplikasi 21sp medium: "Wanz" hijau, "Tunnel" tinta.
+- Label tab 14,5sp medium; label mikro (`SERVER`, `OPSI`, grup laci) 10,5sp
+  mono.
+- Isian server 14sp mono; log 12sp mono.
 - Label kotak centang 14,5sp Roboto; tombol aksi 15sp medium.
 - **Tulisan tidak boleh geter.** Dua penyebabnya dibereskan di `Face`: ukuran sp
   yang menghasilkan piksel pecahan dibulatkan oleh `Face.px()` lewat `inkSize()`,
@@ -106,25 +115,34 @@ terlihat seperti template dengan font lain.
 
 ## Susunan beranda
 
-1. **Bilah atas 56dp**: menu di kiri; judul "Wanz Tunnel" di tengah.
-2. **Dua tab 48dp** (`SSH`, `LOG`) dengan garis bawah hijau 3dp pada tab aktif,
-   lalu garis rambut selebar layar.
-3. **Tab SSH**:
-   - baris profil aktif (ketuk untuk memilih profil) dan label pembungkus
+1. **Bilah atas 56dp**: menu di kiri; ubin merek W 30dp + judul "Wanz Tunnel"
+   ("Wanz" hijau, "Tunnel" tinta).
+2. **Kontrol tab berbentuk pil 52dp** (`SSH`, `LOG`): trek garis rambut
+   membulat 28dp, pil hijau selebar satu tab meluncur di dalamnya ke tab
+   aktif; label tab aktif memakai warna `ON_ACCENT`.
+3. **Tab SSH — kartu Koneksi** (panel membulat 20dp, garis rambut) membungkus
+   profil, isian, opsi, dan tombol:
+   - baris profil aktif (ketuk untuk memilih profil) dengan pil label
      `SSH · VPN` / `SSH + TLS · VPN` dan seterusnya;
-   - bidang `ip:port@user:pass` bergaris bawah, Roboto Mono, satu baris;
-   - kisi centang **dua kolom** (sembilan sel), tiap sel tinggi 48dp;
-   - tombol sambung bergaris tepi 1,5dp, tinggi 56dp, label berubah
-     `HUBUNGKAN` → `MENYAMBUNG…` → `PUTUSKAN` / `COBA LAGI`;
-   - baris status satu sampai dua baris;
-   - kartu statistik bergaris tipis: panah ↓ Unduh dan ↑ Unggah dengan angka
+   - label mikro `SERVER`, lalu isian kotak 14dp berisi ikon DNS dan format
+     `ip:port@user:pass`, Roboto Mono, satu baris; tepi berubah hijau saat
+     fokus;
+   - label mikro `OPSI`, lalu kisi centang **dua kolom** (sembilan sel),
+     tiap sel tinggi 48dp dengan kotak centang membulat;
+   - tombol sambung **terisi penuh** hijau, membulat 28dp, tinggi 56dp,
+     ikon gembok + label `HUBUNGKAN` → `MENYAMBUNG…` (abu) → `PUTUSKAN` /
+     `COBA LAGI` (merah);
+   - di luar kartu: baris status satu sampai dua baris;
+   - kartu statistik: panah ↓ Unduh dan ↑ Unggah dengan angka
      total besar dan kecepatan sesaat di bawahnya; baris bawah berisi titik
      status, durasi, dan globe + ping. Seluruh baris bawah memicu ping manual.
-     Susunan ini mengikuti kartu statistik HTTP Custom terbaru.
-4. **Tab LOG**: baris "Ikuti" + salin + bersihkan, lalu daftar log
-   `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
-   INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
-5. **Laci kiri**: ubin merek W, nama dan versi, lalu grup
+4. **Tab LOG**: tiga pil aksi — `Ikuti` (terisi hijau saat aktif), `Salin`,
+   dan `Bersihkan` (garis rambut) — lalu daftar log
+   `[jam:menit:detik] pesan` dalam kartu kecil membulat 10dp, tanpa garis
+   pemisah. Warna pesan per level: INFO tinta, PING hijau, WARN kuning,
+   ERROR merah muda.
+5. **Laci kiri**: kepala ubin merek W 72dp, nama "Wanz Tunnel", slogan
+   "Aman · Cepat · Gratis", dan versi; lalu grup
    **Utilitas** (Profil, Payload, Proxy, SlowDNS, Tema) dan **Alat** (Tentang).
    Laci
    bisa digulir pada layar pendek. Tidak ada entri menu yang hanya membuka
@@ -159,11 +177,11 @@ Sembilan centang dan field yang diubahnya:
 
 ## Komponen
 
-- `SquareCheckView` (24dp, sudut 2dp): kotak garis tinta saat mati; bidang hijau
-  dengan centang gelap saat hidup.
-- `FieldUnderline`: garis bawah digambar dari bounds (1dp biasa, 2dp saat fokus),
-  bukan `LayerDrawable` yang di-inset; inset itu melebar jadi blok tinta pada
-  field multi-baris.
+- `SquareCheckView` (24dp, sudut membulat 12dp): kotak garis tinta saat mati;
+  bidang hijau dengan centang gelap saat hidup.
+- Isian server dan input dialog: `EditText` berlatar kotak `GradientDrawable`
+  (`FIELD`, sudut 14dp, garis rambut 1dp); tepi berubah `ACCENT` saat fokus.
+  `FieldUnderline` dihapus sejak v2.9.16.
 - `brandTile()`: ubin charcoal dengan monogram W hijau; dipakai di laci dan
   dialog Tentang. Sumber asetnya ada di `brand/`.
 - `DNSPacketConn` (SlowDNS): pembungkus `net.PacketConn` untuk query DNS.
@@ -189,6 +207,9 @@ acuan:
   dan dialog Tentang agar identitasnya konsisten dengan launcher.
 - **Ilustrasi terowongan**: banner flat pada dialog Tentang memakai perspektif
   lengkung abu dengan jalur hijau; dikompres WebP agar APK tetap ringan.
+- **Mockup UI**: lima mockup Seedream 5.5 (beranda gelap/terang, laci, tab LOG,
+  dialog Tentang) menjadi referensi desain ulang v2.9.16; prompt lengkapnya
+  ada di `brand/PROMPTS.md`.
 
 Prompt, langkah pengolahan, dan berkas sumber dicatat di `brand/PROMPTS.md`.
 
@@ -204,9 +225,8 @@ Semua gerak membawa informasi, tidak ada yang sekadar hiasan:
   decelerate/accelerate Material 3 (persis kurva pada acuan); scrim
   meredup bersamaan. Tidak memakai layer keras eksplisit karena pada sebagian
   renderer (emulator software/SwiftShader) layer itu membuat laci tampil hitam.
-- **Garis tab** aktif adalah satu garis bersama yang meluncur 250ms
-  (fast_out_slow_in) ke tab terpilih — perilaku TabLayout pada acuan, bukan
-  garis per sel yang nyala-mati.
+- **Pil tab** aktif adalah satu pil bersama yang meluncur 250ms
+  (fast_out_slow_in) ke tab terpilih — bukan pil per sel yang nyala-mati.
 - **Tab SSH/LOG** silang-memudar 160ms masuk dan 120ms keluar; halaman lama
   tetap terlihat di bawah halaman baru sampai transisi selesai.
 - **Centang** mengisi 140ms: bidang hijau muncul sementara garis kotak

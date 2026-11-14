@@ -8,12 +8,12 @@
          aplikasi tidak selalu sama dengan mode sistem. -->
     <color name="dlg_light_bg">#FFFFFF</color>
     <color name="dlg_light_ink">#1B1B1B</color>
-    <color name="dlg_light_muted">#5F5F5F</color>
+    <color name="dlg_light_muted">#5A6167</color>
     <color name="dlg_light_accent">#2E7D32</color>
-    <color name="dlg_light_hair">#DDDDDD</color>
-    <color name="dlg_dark_bg">#252525</color>
+    <color name="dlg_light_hair">#E2E6E4</color>
+    <color name="dlg_dark_bg">#1E2328</color>
     <color name="dlg_dark_ink">#FFFFFF</color>
-    <color name="dlg_dark_muted">#BDBDBD</color>
+    <color name="dlg_dark_muted">#AEB6BD</color>
     <color name="dlg_dark_accent">#4CAF50</color>
-    <color name="dlg_dark_hair">#3C3C3C</color>
+    <color name="dlg_dark_hair">#2E363D</color>
 </resources>

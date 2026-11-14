@@ -7,20 +7,17 @@ import android.os.Build
 import android.os.Bundle
 
 /**
- * Sistem visual: mengikuti aplikasi acuan **HTTP Custom** yang dipakai
- * pemilik aplikasi ini — bukan lagi arah "Konsol" yang abstrak.
+ * Sistem visual "Wanz" — dirancang ulang pada v2.9.16 memakai mockup
+ * text-to-image (Seedream 5.5) sebagai referensi, bukan lagi tiruan layar
+ * HTTP Custom. Bahasa visualnya:
  *
- * Yang diambil dari acuan, bukan ditebak:
- * - kanvas abu gelap netral (#1E1E1E) untuk seluruh layar, termasuk bilah atas
- *   dan tab — tanpa gradien dan tanpa bayangan; satu-satunya kartu adalah
- *   ringkasan trafik bergaris tipis di bawah tombol sambung;
- * - hijau tunggal (#4CAF50) untuk identitas dan status hidup: judul, garis tab
- *   aktif, kotak centang terpilih, tepi tombol utama, tombol tambah;
- * - judul "Wanz Tunnel" dengan kata pertama hijau dan kata kedua putih;
- * - dua tab selebar layar dengan garis bawah hijau setebal 3px;
- * - isian bergaris bawah saja, tanpa kotak latar;
- * - kisi centang dua kolom dan tombol utama bergaris tepi;
- * - log monospace berbaris `[jam:menit:detik] pesan` dengan garis pemisah tipis.
+ * - kanvas charcoal `#15171A` (gelap) dan putih bersih (terang);
+ * - kartu membulat 20dp (`PANEL`) dengan garis rambut, isian kotak 14dp,
+ *   tombol dan pil 28dp penuh;
+ * - hijau tunggal `#4CAF50`/`#2E7D32` untuk identitas dan status hidup:
+ *   pil tab aktif, kotak centang, tombol sambung terisi penuh;
+ * - ubin merek W di bilah atas, laci, dan dialog Tentang;
+ * - log monospace berbaris dalam kartu kecil membulat, bukan garis tipis.
  *
  * Pasangan warna diukur ulang untuk dua palet (WCAG AA minimal 4,5:1 untuk
  * teks). Mode terang bukan inversi: latar putih, teks hampir hitam, hijau
@@ -28,13 +25,13 @@ import android.os.Bundle
  *
  * ```
  *                 TERANG                        GELAP
- *   INK/BG   17.22      INK/BG   16.67
- *   MUTED/BG  6.39      MUTED/BG  8.87
- *   FAINT/BG  5.33      FAINT/BG  6.22
- *   OK/BG     5.13      OK/BG     6.00
- *   WARN/BG   6.33      WARN/BG  11.81
- *   ERR/BG    6.54      ERR/BG    6.09
- *   ACCENT/BG 5.13      ACCENT/BG 6.00
+ *   INK/BG   17.22      INK/BG   17.96
+ *   MUTED/BG  6.29      MUTED/BG  8.74
+ *   FAINT/BG  5.11      FAINT/BG  5.66
+ *   OK/BG     5.13      OK/BG     6.46
+ *   WARN/BG   6.33      WARN/BG  12.73
+ *   ERR/BG    6.54      ERR/BG    6.56
+ *   ACCENT/BG 5.13      ACCENT/BG 6.46
  * ```
  */
 internal class Palette(
@@ -45,12 +42,12 @@ internal class Palette(
 )
 
 private const val LIGHT_BG = 0xFFFFFFFF.toInt()
-private const val LIGHT_PANEL = 0xFFF5F5F5.toInt()
+private const val LIGHT_PANEL = 0xFFF3F5F4.toInt()
 private const val LIGHT_FIELD = 0xFFFFFFFF.toInt()
 private const val LIGHT_INK = 0xFF1B1B1B.toInt()
-private const val LIGHT_MUTED = 0xFF5F5F5F.toInt()
-private const val LIGHT_FAINT = 0xFF6B6B6B.toInt()
-private const val LIGHT_HAIR = 0xFFDDDDDD.toInt()
+private const val LIGHT_MUTED = 0xFF5A6167.toInt()
+private const val LIGHT_FAINT = 0xFF676F76.toInt()
+private const val LIGHT_HAIR = 0xFFE2E6E4.toInt()
 private const val LIGHT_OK = 0xFF2E7D32.toInt()
 private const val LIGHT_WARN = 0xFF8A5300.toInt()
 private const val LIGHT_ERR = 0xFFB3261E.toInt()
@@ -58,13 +55,13 @@ private const val LIGHT_ON_INK = 0xFFFFFFFF.toInt()
 private const val LIGHT_ACCENT = 0xFF2E7D32.toInt()
 private const val LIGHT_ON_ACCENT = 0xFFFFFFFF.toInt()
 
-private const val DARK_BG = 0xFF1E1E1E.toInt()
-private const val DARK_PANEL = 0xFF252525.toInt()
-private const val DARK_FIELD = 0xFF1E1E1E.toInt()
+private const val DARK_BG = 0xFF15171A.toInt()
+private const val DARK_PANEL = 0xFF1E2328.toInt()
+private const val DARK_FIELD = 0xFF262D34.toInt()
 private const val DARK_INK = 0xFFFFFFFF.toInt()
-private const val DARK_MUTED = 0xFFBDBDBD.toInt()
-private const val DARK_FAINT = 0xFF9E9E9E.toInt()
-private const val DARK_HAIR = 0xFF3C3C3C.toInt()
+private const val DARK_MUTED = 0xFFAEB6BD.toInt()
+private const val DARK_FAINT = 0xFF87929B.toInt()
+private const val DARK_HAIR = 0xFF2E363D.toInt()
 private const val DARK_OK = 0xFF4CAF50.toInt()
 private const val DARK_WARN = 0xFFFFD54F.toInt()
 private const val DARK_ERR = 0xFFFF6B81.toInt()
@@ -220,10 +217,13 @@ private fun setLightBars(window: android.view.Window, light: Boolean) {
 }
 
 /**
- * Sudut: isian tidak bersudut (hanya garis bawah), kotak centang 2dp, tombol
- * dan panel 4dp. Tiga peran, tiga alasan — bukan satu angka untuk semua.
+ * Sudut mengikuti bahasa mockup "Wanz": kartu 20dp, isian kotak 14dp,
+ * kotak centang 7dp, tombol dan pil 28dp penuh, baris log 10dp. Tiga peran
+ * utama + dua peran kecil — bukan satu angka untuk semua.
  */
-internal const val R_FIELD = 0
-internal const val R_CHECK = 2
-internal const val R_PANEL = 4
+internal const val R_FIELD = 14
+internal const val R_CHECK = 12
+internal const val R_PANEL = 20
 internal const val R_HAIR = 0
+internal const val R_PILL = 28
+internal const val R_LINE = 10

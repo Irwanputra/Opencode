@@ -1,12 +1,13 @@
-# Wanz Tunnel 2.9.15
+# Wanz Tunnel 2.9.16
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
-v2.9.6 mengikuti **HTTP Custom**:
-kanvas abu netral gelap (atau putih), hijau tunggal `#4CAF50`/`#2E7D32`, judul
-dua warna, dua tab bergaris bawah, isian `ip:port@user:pass`, kisi centang dua
-kolom, tombol sambung bergaris, dan laci bergrup — tanpa menu tiga titik dan
-tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
+v2.9.16 memakai bahasa visual **Wanz** hasil mockup text-to-image (Seedream
+5.5): kanvas charcoal `#15171A` (atau putih), hijau tunggal
+`#4CAF50`/`#2E7D32`, kartu membulat 20dp, tab berbentuk pil, isian kotak
+`ip:port@user:pass`, kisi centang dua kolom, tombol sambung hijau penuh, dan
+laci bergrup dengan ubin merek W — tanpa menu tiga titik dan tanpa tombol
+tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 
 ## Fitur
 
@@ -14,9 +15,11 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 - **Mode tunggal VPN** seperti HTTP Custom: semua aplikasi lewat
   `VpnService` + tun2socks (hev-socks5-tunnel); SOCKS5 lokal hanya dipakai
   internal oleh tun2socks (port 1080 tetap)
-- UI mengikuti HTTP Custom: bilah atas hanya menu dan judul, tab
-  **SSH** dan **LOG**, isian `ip:port@user:pass`, sembilan centang dua kolom,
-  tombol sambung bergaris, serta kartu statistik Unduh/Unggah dengan durasi
+- UI bergaya Wanz (mockup AI, lihat `DESIGN.md`): bilah atas berisi menu,
+  ubin merek W, dan judul dua warna; tab pil **SSH** dan **LOG**; isian kotak
+  `ip:port@user:pass` di dalam kartu Koneksi; sembilan centang dua kolom;
+  tombol sambung hijau penuh berikon gembok; serta kartu statistik
+  Unduh/Unggah dengan durasi
   dan ping. Laci kiri hanya
   **Utilitas** (Profil, Payload, Proxy, SlowDNS, Tema) dan **Alat** (Tentang).
   Tidak ada
@@ -26,11 +29,11 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 - Sembilan centang berfungsi nyata: Pakai payload (`usePayload`), SSL dan
   WebSocket (mengubah `transport`), Verifikasi TLS, DNS lewat tunnel, Ping
   otomatis, Sambung ulang, Seluler saja, dan SlowDNS (`slowdns`).
-- Tema **Ikuti sistem / Terang / Gelap**: gelap `#1E1E1E` dengan hijau
+- Tema **Ikuti sistem / Terang / Gelap**: gelap `#15171A` dengan hijau
   `#4CAF50`, terang `#FFFFFF` dengan hijau `#2E7D32`. Kedua palet diukur
   kontrasnya (bukan inversi), dan halaman dibangun ulang begitu pilihan berubah.
-- Log koneksi gaya HTTP Custom: ditampilkan `[jam:menit:detik]  pesan` dengan
-  garis pemisah tipis dan warna per level (**INFO** tinta, **OK/PING** hijau,
+- Log koneksi: ditampilkan `[jam:menit:detik]  pesan` dalam kartu kecil
+  membulat, warna per level (**INFO** tinta, **OK/PING** hijau,
   **WARN** kuning, **ERROR** merah muda, **BANNER** hijau aksen), auto-scroll,
   serta tombol Ikuti / Salin / Bersihkan. Salinan memakai format
   `jam  [LEVEL]  pesan` tanpa escape ANSI. Server message HTML dari server
@@ -94,7 +97,7 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
 - Gerak halus (v2.9.9–v2.9.10, bahasa gerak Material 3 hasil reverse
   engineering acuan): dialog masuk memudar + membesar dari 80% selama 400ms
   (easing emphasized decelerate) dan keluar memudar 150ms (emphasized
-  accelerate); garis bawah tab meluncur antar tab seperti TabLayout; tombol
+  accelerate); pil tab meluncur antar tab; tombol
   sambung mengecil saat ditekan, labelnya mengembang saat keadaan berganti,
   dan bernapas pelan 1500ms selagi `MENYAMBUNG…` (pola `animator/icon_scale`
   pada acuan); baris log meluncur masuk; konten naik memudar di buka
@@ -224,6 +227,22 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.16 (desain ulang total dari mockup AI): seluruh tampilan dan tata
+  letak dirancang ulang memakai lima mockup text-to-image Seedream 5.5 —
+  beranda gelap/terang, laci, tab LOG, dan dialog Tentang (prompt di
+  `brand/PROMPTS.md`). Palet baru: charcoal `#15171A`, panel `#1E2328`,
+  field `#262D34`, hijau `#4CAF50`; sudut membulat (kartu 20dp, field 14dp,
+  pil 28dp, baris log 10dp). Tab menjadi kontrol pil dengan pil hijau yang
+  meluncur; isian server berubah dari garis bawah menjadi kotak berikon DNS
+  dengan tepi fokus hijau; tombol sambung kini terisi penuh (hijau saat
+  siap, abu saat menyambung, merah saat memutus) dengan ikon gembok; aksi
+  log menjadi pil chip (Ikuti/Salin/Bersihkan); baris log menjadi kartu
+  kecil membulat; laci mendapat kepala ubin W 72dp + slogan
+  "Aman · Cepat · Gratis"; dialog Tentang mendapat banner terowongan, ubin
+  di tengah, dan badge versi/transport/OS. `FieldUnderline` dihapus. Kontras
+  kedua palet terverifikasi ≥ 4,5:1 dan tampilan diverifikasi di emulator
+  Android 14 untuk kedua tema. `testDebugUnitTest lintDebug assembleRelease`
+  dan `design_gate.py --strict` (0 galat, 0 peringatan) lulus.
 - v2.9.15 (identitas merek & aset AI): logo heksagon "WT" diganti monogram
   **W** khusus Wanz Tunnel. Mark dibuat dengan AI (Seedream 5.5), lalu
   diratakan ke dua warna palet dan ditebalkan agar tetap terbaca di ukuran

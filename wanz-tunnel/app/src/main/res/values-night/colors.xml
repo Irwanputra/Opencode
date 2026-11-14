@@ -2,7 +2,7 @@
 <!-- Mode gelap. Nilainya harus sama dengan palet DARK di Theme.kt;
      tools/design_gate.py memeriksa ini. -->
 <resources>
-    <color name="wanz_bg">#1E1E1E</color>
-    <color name="wanz_field">#1E1E1E</color>
+    <color name="wanz_bg">#15171A</color>
+    <color name="wanz_field">#262D34</color>
     <color name="wanz_icon_bg">#15171A</color>
 </resources>

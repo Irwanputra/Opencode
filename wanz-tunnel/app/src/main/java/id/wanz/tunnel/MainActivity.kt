@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.net.VpnService
 import android.os.Build
@@ -33,17 +34,20 @@ import java.io.File
 import java.util.Locale
 
 /**
- * Beranda, disusun mengikuti aplikasi acuan (HTTP Custom).
+ * Beranda gaya "Wanz" — dirancang ulang dari mockup text-to-image
+ * (Seedream 5.5; lihat `brand/PROMPTS.md`).
  *
- * Susunannya dari atas ke bawah: bilah atas berisi menu, judul "Wanz Tunnel",
- * impor config; dua tab selebar layar dengan garis bawah hijau; isian
- * `ip:port@user:pass`; kisi centang dua kolom; tombol sambung bergaris;
- * baris status; lalu bacaan trafik. Tab LOG menampilkan log berwarna per level.
+ * Susunannya dari atas ke bawah: bilah atas berisi menu, ubin merek W, dan
+ * judul "Wanz Tunnel"; kontrol tab berbentuk pil dengan pil hijau yang
+ * meluncur; kartu Koneksi membulat berisi profil, isian server berbentuk
+ * kotak, kisi centang dua kolom, dan tombol sambung hijau penuh; lalu kartu
+ * statistik. Tab LOG menampilkan baris log dalam kartu kecil membulat.
  * Tidak ada menu tiga titik dan tidak ada tombol tambah mengambang: keduanya
  * pintasan yang tidak dipakai, dan semua tujuannya tetap ada di laci kiri.
  *
- * Yang tidak berubah dari versi sebelumnya: tunnel tetap SSH + VPN, dan semua
- * angka memakai Roboto Mono dengan piksel utuh supaya tidak bergetar.
+ * Yang tidak berubah: tunnel tetap SSH + VPN, format isian `ip:port@user:pass`
+ * tetap dipakai, dan semua angka memakai Roboto Mono dengan piksel utuh
+ * supaya tidak bergetar.
  */
 class MainActivity : InkActivity() {
 
@@ -66,7 +70,6 @@ class MainActivity : InkActivity() {
     private lateinit var nameLabel: TextView
     private lateinit var transportLabel: TextView
     private lateinit var compactField: EditText
-    private lateinit var compactUnderline: FieldUnderline
     private lateinit var connectButton: TextView
     private lateinit var statusText: TextView
     private lateinit var rxText: TextView
@@ -76,7 +79,7 @@ class MainActivity : InkActivity() {
     private lateinit var txSub: TextView
     private lateinit var upSub: TextView
     private lateinit var metricsDot: View
-    private lateinit var followCheck: SquareCheckView
+    private lateinit var followChip: TextView
     private var autoScroll = true
 
     private val checks = LinkedHashMap<String, SquareCheckView>()
@@ -160,6 +163,13 @@ class MainActivity : InkActivity() {
             includeFontPadding = false
         }
 
+    /** Ikon kecil untuk drawable komposit TextView, diwarnai token aktif. */
+    private fun drawableIcon(res: Int, sizeDp: Int, tint: Int): Drawable =
+        resources.getDrawable(res, theme).mutate().apply {
+            setTint(tint)
+            setBounds(0, 0, dp(sizeDp), dp(sizeDp))
+        }
+
     // ------------------------------------------------------------------ layout
     private fun buildUi(): View {
         root = FrameLayout(this).apply { setBackgroundColor(BG) }
@@ -202,7 +212,7 @@ class MainActivity : InkActivity() {
         return root
     }
 
-    /** Bilah atas: menu di kiri, judul dua warna di tengah. */
+    /** Bilah atas: menu di kiri, lalu ubin merek W dan judul dua warna. */
     private fun appBar(): View {
         val bar = horizontal().apply {
             setPadding(dp(4), 0, dp(4), 0)
@@ -213,35 +223,52 @@ class MainActivity : InkActivity() {
             LinearLayout.LayoutParams(dp(48), dp(48))
         )
 
-        val title = horizontal().apply { setPadding(dp(4), 0, 0, 0) }
-        title.addView(uiText("Wanz", 22f, ACCENT, medium = true))
+        val title = horizontal().apply { setPadding(dp(8), 0, 0, 0) }
+        title.addView(brandTile(30), LinearLayout.LayoutParams(dp(30), dp(30)))
         title.addView(
-            uiText("Tunnel", 22f, INK).apply { setPadding(dp(6), 0, 0, 0) }
+            uiText("Wanz", 21f, ACCENT, medium = true).apply { setPadding(dp(10), 0, 0, 0) }
+        )
+        title.addView(
+            uiText("Tunnel", 21f, INK).apply { setPadding(dp(6), 0, 0, 0) }
         )
         bar.addView(title, LinearLayout.LayoutParams(0, -2, 1f))
         return bar
     }
 
-    /** Dua tab dengan garis bawah 3dp yang meluncur ke tab aktif — perilaku
-     *  TabLayout pada acuan, dengan easing emphasized Material 3. */
+    /** Dua tab dalam wadah pil: pil hijau meluncur ke tab aktif. */
     private fun tabBar(): View {
         val wrap = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
+            setPadding(dp(16), dp(12), dp(16), dp(8))
         }
-        val row = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+        val track = FrameLayout(this).apply {
+            background = box(0, R_PILL, HAIR, 1f)
+        }
+
+        // Pil aktif di belakang label; digeser antar tab, bukan nyala-mati.
+        tabIndicator = View(this).apply { background = box(ACCENT, R_PILL) }
+        track.addView(
+            tabIndicator,
+            FrameLayout.LayoutParams(-1, -1).apply { setMargins(dp(4), dp(4), dp(4), dp(4)) }
+        )
+
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            setPadding(dp(4), 0, dp(4), 0)
+        }
 
         fun cell(label: String, which: Int): LinearLayout {
             val cell = LinearLayout(this).apply {
                 orientation = LinearLayout.VERTICAL
                 gravity = Gravity.CENTER
-                minimumHeight = dp(48)
+                minimumHeight = dp(44)
                 isClickable = true
                 isFocusable = true
                 contentDescription = if (which == TAB_SSH) "Tab SSH" else "Tab log"
                 background = ripple()
                 setOnClickListener { selectTab(which) }
             }
-            val text = uiText(label, 15f, MUTED, medium = true).apply { gravity = Gravity.CENTER }
+            val text = uiText(label, 14.5f, MUTED, medium = true).apply { gravity = Gravity.CENTER }
             cell.addView(text, LinearLayout.LayoutParams(-1, -2))
             if (which == TAB_SSH) tabSsh = text else tabLog = text
             return cell
@@ -249,17 +276,19 @@ class MainActivity : InkActivity() {
 
         row.addView(cell("SSH", TAB_SSH), LinearLayout.LayoutParams(0, -1, 1f))
         row.addView(cell("LOG", TAB_LOG), LinearLayout.LayoutParams(0, -1, 1f))
-
-        // Satu garis aktif bersama: digeser antar tab, bukan nyala-mati.
-        val track = FrameLayout(this)
-        track.addView(row, FrameLayout.LayoutParams(-1, dp(48)))
-        tabIndicator = View(this).apply { setBackgroundColor(ACCENT) }
         track.addView(
-            tabIndicator,
-            FrameLayout.LayoutParams(-1, dp(3), Gravity.BOTTOM)
+            row,
+            FrameLayout.LayoutParams(-1, dp(44), Gravity.CENTER)
         )
-        wrap.addView(track, LinearLayout.LayoutParams(-1, dp(48)))
-        wrap.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        wrap.addView(track, LinearLayout.LayoutParams(-1, dp(52)))
+
+        // Pil aktif selebar satu sel; lebarnya baru pasti setelah track diukur.
+        tabIndicator.post {
+            tabIndicator.layoutParams = FrameLayout.LayoutParams(
+                tabIndicator.width / 2, FrameLayout.LayoutParams.MATCH_PARENT
+            ).apply { setMargins(dp(4), dp(4), dp(4), dp(4)) }
+            slideTabIndicator()
+        }
         return wrap
     }
 
@@ -272,9 +301,17 @@ class MainActivity : InkActivity() {
         }
         val body = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(16), dp(20), dp(24))
+            setPadding(dp(16), dp(12), dp(16), dp(24))
         }
         sshBody = body
+
+        // Kartu Koneksi: profil, isian server, opsi, dan tombol sambung.
+        val card = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            background = box(PANEL, R_PANEL, HAIR, 1f)
+            setPadding(dp(16), dp(12), dp(16), dp(16))
+        }
+        body.addView(card, LinearLayout.LayoutParams(-1, -2))
 
         // Profil aktif: ketuk untuk memilih profil lain.
         val profileRow = horizontal().apply {
@@ -289,32 +326,44 @@ class MainActivity : InkActivity() {
             ellipsize = TextUtils.TruncateAt.END
         }
         profileRow.addView(nameLabel, LinearLayout.LayoutParams(0, -2, 1f))
-        transportLabel = monoText("SSH · VPN", 10.5f, ACCENT).apply { gravity = Gravity.END }
-        profileRow.addView(transportLabel, LinearLayout.LayoutParams(-2, -2))
-        body.addView(profileRow)
+        transportLabel = monoText("SSH · VPN", 10.5f, ACCENT).apply {
+            gravity = Gravity.CENTER
+            background = box(0, R_PILL, HAIR, 1f)
+            setPadding(dp(10), dp(4), dp(10), dp(4))
+        }
+        profileRow.addView(
+            transportLabel,
+            LinearLayout.LayoutParams(-2, -2).apply { leftMargin = dp(12) }
+        )
+        card.addView(profileRow)
 
         // Bidang ringkas: satu baris yang mengatur host, port, user, dan sandi.
-        val caption = monoText("Server", 10.5f, FAINT).apply {
-            letterSpacing = 0.12f
-            setPadding(0, dp(8), 0, 0)
-        }
-        body.addView(caption)
+        card.addView(
+            monoText("Server", 10.5f, FAINT).apply {
+                letterSpacing = 0.12f
+                setPadding(0, dp(12), 0, dp(6))
+            }
+        )
 
-        compactUnderline = FieldUnderline(HAIR, Face.linePx(this, 1f))
+        val hair = Face.linePx(this, 1f).toInt()
         compactField = EditText(this).apply {
             hint = "ip:port@user:pass"
             setHintTextColor(FAINT)
             setTextColor(INK)
             typeface = Face.mono(this@MainActivity)
-            inkSize(14.5f, mono = true)
-            setPadding(0, dp(10), 0, dp(10))
-            background = compactUnderline
+            inkSize(14f, mono = true)
+            setPadding(dp(14), dp(12), dp(14), dp(12))
+            background = box(FIELD, R_FIELD, HAIR, 1f)
             isSingleLine = true
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
             imeOptions = EditorInfo.IME_ACTION_DONE
             contentDescription = "Server, format ip port user sandi"
+            setCompoundDrawables(drawableIcon(R.drawable.ic_dns, 18, MUTED), null, null, null)
+            compoundDrawablePadding = dp(10)
             setOnFocusChangeListener { _, hasFocus ->
-                compactUnderline.setColor(if (hasFocus) ACCENT else HAIR)
+                (background as? GradientDrawable)?.setStroke(
+                    hair, if (hasFocus) ACCENT else HAIR
+                )
                 if (!hasFocus) saveCompactField(false)
             }
             setOnEditorActionListener { _, actionId, _ ->
@@ -327,45 +376,47 @@ class MainActivity : InkActivity() {
                 }
             }
         }
-        body.addView(compactField, LinearLayout.LayoutParams(-1, dp(50)))
+        card.addView(compactField, LinearLayout.LayoutParams(-1, dp(52)))
 
-        body.addView(
+        card.addView(
             uiText("Port dan akun boleh menyusul di baris ini.", 11.5f, FAINT).apply {
                 setPadding(0, dp(6), 0, 0)
             }
         )
 
         // Kisi centang dua kolom, delapan opsi yang semuanya tersambung ke profil.
-        body.addView(
+        card.addView(
             monoText("Opsi", 10.5f, FAINT).apply {
                 letterSpacing = 0.12f
-                setPadding(0, dp(22), 0, dp(2))
+                setPadding(0, dp(18), 0, dp(2))
             }
         )
-        body.addView(checkGrid(), lp(2))
+        card.addView(checkGrid(), lp(2))
 
         connectButton = TextView(this).apply {
             text = "HUBUNGKAN"
             gravity = Gravity.CENTER
             typeface = Face.proseMedium(this@MainActivity)
             inkSize(15f)
-            setTextColor(ACCENT)
-            background = ripple(box(0, R_PANEL, ACCENT, 1.5f))
+            setTextColor(ON_ACCENT)
+            background = ripple(box(ACCENT, R_PILL))
             isClickable = true
             isFocusable = true
             contentDescription = "Hubungkan tunnel"
             minimumHeight = dp(56)
+            setCompoundDrawables(drawableIcon(R.drawable.ic_lock, 18, ON_ACCENT), null, null, null)
+            compoundDrawablePadding = dp(8)
             setOnClickListener { toggleTunnel() }
         }
         // Tekanan jari terasa: tombol mengecil sedikit lalu pulih.
         Anim.pressScale(connectButton)
-        body.addView(connectButton, LinearLayout.LayoutParams(-1, dp(56)).apply { topMargin = dp(24) })
+        card.addView(connectButton, LinearLayout.LayoutParams(-1, dp(56)).apply { topMargin = dp(20) })
 
         statusText = uiText("Belum tersambung.", 12f, MUTED).apply {
             maxLines = 2
             setLineSpacing(dp(2).toFloat(), 1f)
         }
-        body.addView(statusText, lp(8))
+        body.addView(statusText, lp(10))
 
         body.addView(metricsRow(), lp(14))
 
@@ -572,46 +623,25 @@ class MainActivity : InkActivity() {
             setBackgroundColor(BG)
         }
         val bar = horizontal().apply {
-            setPadding(dp(16), 0, dp(8), 0)
-            minimumHeight = dp(48)
+            setPadding(dp(16), dp(8), dp(16), dp(8))
         }
-
-        followCheck = SquareCheckView(this).apply {
-            checked = true
-            contentDescription = "Ikuti log baru"
-        }
-        val follow = horizontal().apply {
-            minimumHeight = dp(48)
-            isClickable = true
-            isFocusable = true
-            contentDescription = "Ikuti log baru"
-            background = ripple()
-            setOnClickListener {
-                followCheck.checked = !followCheck.checked
-                autoScroll = followCheck.checked
-                if (autoScroll) {
-                    logScroll.post { logScroll.fullScroll(View.FOCUS_DOWN) }
-                }
+        followChip = chip("Ikuti", null, autoScroll, "Ikuti log baru") {
+            autoScroll = !autoScroll
+            syncFollowChip()
+            if (autoScroll) {
+                logScroll.post { logScroll.fullScroll(View.FOCUS_DOWN) }
             }
         }
-        follow.addView(
-            followCheck,
-            LinearLayout.LayoutParams(dp(24), dp(24)).apply { rightMargin = dp(12) }
-        )
-        follow.addView(uiText("Ikuti", 13f, MUTED), LinearLayout.LayoutParams(-2, -2))
-        bar.addView(follow, LinearLayout.LayoutParams(-2, dp(48)))
-
-        bar.addView(View(this), LinearLayout.LayoutParams(0, 0, 1f))
+        bar.addView(followChip, LinearLayout.LayoutParams(-2, -2).apply { rightMargin = dp(8) })
         bar.addView(
-            iconButton(R.drawable.ic_content_copy, "Salin log") { copyLog() },
-            LinearLayout.LayoutParams(dp(48), dp(48))
+            chip("Salin", R.drawable.ic_content_copy, false, "Salin log") { copyLog() },
+            LinearLayout.LayoutParams(-2, -2).apply { rightMargin = dp(8) }
         )
         bar.addView(
-            iconButton(R.drawable.ic_delete, "Bersihkan log") { clearLog() },
-            LinearLayout.LayoutParams(dp(48), dp(48))
+            chip("Bersihkan", R.drawable.ic_delete, false, "Bersihkan log") { clearLog() },
+            LinearLayout.LayoutParams(-2, -2)
         )
-        panel.addView(bar, LinearLayout.LayoutParams(-1, dp(48)))
-        panel.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        panel.addView(bar, LinearLayout.LayoutParams(-1, -2))
 
         logScroll = ScrollView(this).apply {
             isVerticalScrollBarEnabled = false
@@ -619,11 +649,46 @@ class MainActivity : InkActivity() {
         }
         logList = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(0, dp(2), 0, dp(24))
+            setPadding(dp(16), dp(2), dp(16), dp(24))
         }
         logScroll.addView(logList, ViewGroup.LayoutParams(-1, -2))
         panel.addView(logScroll, LinearLayout.LayoutParams(-1, 0, 1f))
         return panel
+    }
+
+    /** Pil aksi bilah log: terisi hijau saat aktif, garis rambut saat diam. */
+    private fun chip(
+        label: String,
+        icon: Int?,
+        filled: Boolean,
+        desc: String = label,
+        onClick: () -> Unit
+    ): TextView = TextView(this).apply {
+        text = label
+        typeface = Face.proseMedium(this@MainActivity)
+        inkSize(13f)
+        gravity = Gravity.CENTER_VERTICAL
+        minimumHeight = dp(44)
+        setPadding(dp(18), 0, dp(18), 0)
+        isClickable = true
+        isFocusable = true
+        contentDescription = desc
+        setOnClickListener { onClick() }
+        if (icon != null) {
+            setCompoundDrawables(
+                drawableIcon(icon, 16, if (filled) ON_ACCENT else MUTED), null, null, null
+            )
+            compoundDrawablePadding = dp(8)
+        }
+        background = ripple(if (filled) box(ACCENT, R_PILL) else box(0, R_PILL, HAIR, 1f))
+        setTextColor(if (filled) ON_ACCENT else INK)
+    }
+
+    /** Pil Ikuti berubah bentuk saat dinyalakan/dimatikan. */
+    private fun syncFollowChip() {
+        followChip.background =
+            ripple(if (autoScroll) box(ACCENT, R_PILL) else box(0, R_PILL, HAIR, 1f))
+        followChip.setTextColor(if (autoScroll) ON_ACCENT else INK)
     }
 
     private fun renderLog() {
@@ -669,11 +734,15 @@ class MainActivity : InkActivity() {
             text = entry.toSpanned()
             typeface = Face.mono(this@MainActivity)
             inkSize(12f, mono = true)
-            setLineSpacing(dp(4).toFloat(), 1f)
-            setPadding(dp(18), dp(8), dp(18), dp(8))
+            setLineSpacing(dp(3).toFloat(), 1f)
+            setPadding(dp(14), dp(8), dp(14), dp(8))
+            background = box(PANEL, R_LINE)
         }
-        logList.addView(line, LinearLayout.LayoutParams(-1, -2))
-        logList.addView(rule(), LinearLayout.LayoutParams(-1, dp(1)))
+        logList.addView(
+            line,
+            LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(4) }
+        )
+        logList.addView(gap(), LinearLayout.LayoutParams(-1, dp(4)))
         // Baris baru meluncur masuk dari bawah, pelan dan singkat.
         if (Anim.on(this)) {
             line.alpha = 0f
@@ -684,51 +753,63 @@ class MainActivity : InkActivity() {
         }
     }
 
+    /** Jarak antarkartu log; dipasangkan dengan barisnya saat jendela geser. */
+    private fun gap() = View(this)
+
     // ---------------------------------------------------------------- drawer
     private fun buildDrawer(): ScrollView {
         val panel = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setBackgroundColor(PANEL)
-            setPadding(0, dp(22), 0, dp(28))
+            setPadding(0, dp(24), 0, dp(28))
         }
 
-        val head = horizontal().apply { setPadding(dp(20), 0, dp(20), 0) }
-        head.addView(brandTile(), LinearLayout.LayoutParams(dp(64), dp(64)))
-        val names = LinearLayout(this).apply {
+        // Kepala laci: ubin merek besar, nama, slogan, dan versi.
+        val head = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(14), 0, 0, 0)
+            setPadding(dp(20), 0, dp(20), 0)
         }
-        val brand = horizontal()
+        head.addView(brandTile(72), LinearLayout.LayoutParams(dp(72), dp(72)))
+        val brand = horizontal().apply { setPadding(0, dp(14), 0, 0) }
         brand.addView(uiText("Wanz", 20f, ACCENT, medium = true))
         brand.addView(
             uiText("Tunnel", 20f, INK, medium = true).apply { setPadding(dp(5), 0, 0, 0) }
         )
-        names.addView(brand)
-        names.addView(
-            monoText("v" + BuildConfig.VERSION_NAME + " · koneksi pribadi", 10f, FAINT)
-                .apply { setPadding(0, dp(4), 0, 0) }
+        head.addView(brand)
+        head.addView(
+            uiText("Aman · Cepat · Gratis", 11.5f, MUTED).apply { setPadding(0, dp(3), 0, 0) }
         )
-        head.addView(names, LinearLayout.LayoutParams(0, -2, 1f))
+        head.addView(
+            monoText("v" + BuildConfig.VERSION_NAME, 10f, FAINT).apply {
+                setPadding(0, dp(2), 0, 0)
+            }
+        )
         panel.addView(head)
         panel.addView(
             rule(),
-            LinearLayout.LayoutParams(-1, dp(1)).apply { topMargin = dp(18) }
+            LinearLayout.LayoutParams(-1, dp(1)).apply {
+                setMargins(dp(20), dp(18), dp(20), 0)
+            }
         )
 
         panel.addView(groupLabel("Utilitas"))
-        panel.addView(drawerRow(R.drawable.ic_account_circle, "Profil") { profileDialog() })
-        panel.addView(drawerRow(R.drawable.ic_receipt_long, "Payload") { payloadDialog() })
-        panel.addView(drawerRow(R.drawable.ic_dns, "Proxy") { proxyDialog() })
-        panel.addView(drawerRow(R.drawable.ic_language, "SlowDNS") { slowDnsDialog() })
-        panel.addView(drawerRow(R.drawable.ic_brightness_6, "Tema") { themeDialog() })
+        panel.addView(
+            drawerRow(R.drawable.ic_account_circle, "Profil") { profileDialog() }, rowLp()
+        )
+        panel.addView(
+            drawerRow(R.drawable.ic_receipt_long, "Payload") { payloadDialog() }, rowLp()
+        )
+        panel.addView(drawerRow(R.drawable.ic_dns, "Proxy") { proxyDialog() }, rowLp())
+        panel.addView(drawerRow(R.drawable.ic_language, "SlowDNS") { slowDnsDialog() }, rowLp())
+        panel.addView(drawerRow(R.drawable.ic_brightness_6, "Tema") { themeDialog() }, rowLp())
 
         panel.addView(groupLabel("Alat"))
-        panel.addView(drawerRow(R.drawable.ic_info, "Tentang") { aboutDialog() })
+        panel.addView(drawerRow(R.drawable.ic_info, "Tentang") { aboutDialog() }, rowLp())
 
         panel.addView(View(this), LinearLayout.LayoutParams(0, 0, 1f))
         panel.addView(
             monoText("Wanz Tunnel v" + BuildConfig.VERSION_NAME, 10f, FAINT).apply {
-                setPadding(dp(20), dp(10), dp(20), 0)
+                setPadding(dp(32), dp(10), dp(20), 0)
             }
         )
         return ScrollView(this).apply {
@@ -742,27 +823,34 @@ class MainActivity : InkActivity() {
     /**
      * Tanda merek: ubin charcoal dengan monogram W hijau. Aset dibuat khusus
      * untuk Wanz Tunnel (Seedream 5.5, prompt di `brand/PROMPTS.md`), lalu
-     * diratakan ke dua warna dan dipertajam agar tetap terbaca di 64dp.
+     * diratakan ke dua warna dan dipertajam agar tetap terbaca di ukuran kecil.
      */
-    private fun brandTile(): ImageView = ImageView(this).apply {
+    private fun brandTile(sizeDp: Int = 64): ImageView = ImageView(this).apply {
         setImageResource(R.drawable.wanz_tile)
         scaleType = ImageView.ScaleType.FIT_CENTER
         contentDescription = null
         importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        minimumWidth = dp(sizeDp)
+        minimumHeight = dp(sizeDp)
     }
 
     private fun groupLabel(text: String) = monoText(text, 10.5f, FAINT).apply {
         letterSpacing = 0.12f
-        setPadding(dp(20), dp(16), dp(20), dp(4))
+        setPadding(dp(32), dp(16), dp(20), dp(4))
+    }
+
+    /** Baris laci diberi margin samping supaya pil ripple membulat terlihat. */
+    private fun rowLp() = LinearLayout.LayoutParams(-1, -2).apply {
+        setMargins(dp(12), 0, dp(12), 0)
     }
 
     private fun drawerRow(icon: Int, label: String, onTap: () -> Unit) =
         horizontal().apply {
-            setPadding(dp(20), 0, dp(20), 0)
+            setPadding(dp(16), 0, dp(16), 0)
             minimumHeight = dp(48)
             isClickable = true
             isFocusable = true
-            background = ripple()
+            background = ripple(box(0, R_PILL))
             contentDescription = label
             setOnClickListener {
                 closeDrawer()
@@ -806,8 +894,8 @@ class MainActivity : InkActivity() {
         if (which != TAB_SSH) hideKeyboard()
         val same = tab == which && sshPanel.visibility == View.VISIBLE == (which == TAB_SSH)
         tab = which
-        tabSsh.setTextColor(if (which == TAB_SSH) ACCENT else MUTED)
-        tabLog.setTextColor(if (which == TAB_LOG) ACCENT else MUTED)
+        tabSsh.setTextColor(if (which == TAB_SSH) ON_ACCENT else MUTED)
+        tabLog.setTextColor(if (which == TAB_LOG) ON_ACCENT else MUTED)
         if (which == TAB_LOG) renderLog()
         slideTabIndicator()
 
@@ -837,11 +925,11 @@ class MainActivity : InkActivity() {
         }.start()
     }
 
-    /** Garis aktif tab meluncur ke posisi tab terpilih (fast_out_slow_in). */
+    /** Pil aktif meluncur ke posisi tab terpilih (fast_out_slow_in). */
     private fun slideTabIndicator() {
         if (!::tabIndicator.isInitialized) return
         tabIndicator.post {
-            val target = if (tab == TAB_SSH) 0f else tabIndicator.width / 2f
+            val target = if (tab == TAB_SSH) 0f else tabIndicator.width.toFloat()
             if (!Anim.on(this)) {
                 tabIndicator.translationX = target
                 return@post
@@ -1052,13 +1140,15 @@ class MainActivity : InkActivity() {
             else -> "HUBUNGKAN"
         }
         connectButton.text = label
-        val border = when (state) {
+        // Tombol selalu terisi penuh: hijau saat siap, abu saat menyambung,
+        // merah saat terhubung (tindakannya memutus).
+        val fill = when (state) {
             Conn.CONNECTED -> ERR
             Conn.CONNECTING -> MUTED
             else -> ACCENT
         }
-        connectButton.setTextColor(border)
-        connectButton.background = ripple(box(0, R_PANEL, border, 1.5f))
+        connectButton.setTextColor(ON_ACCENT)
+        connectButton.background = ripple(box(fill, R_PILL))
         connectButton.contentDescription = when (state) {
             Conn.CONNECTED -> "Putuskan tunnel"
             Conn.ERROR -> "Coba hubungkan lagi"
@@ -1207,8 +1297,13 @@ class MainActivity : InkActivity() {
             setHintTextColor(FAINT)
             typeface = Face.mono(this@MainActivity)
             inkSize(14f, mono = true)
-            setPadding(0, dp(10), 0, dp(10))
-            background = FieldUnderline(HAIR, Face.linePx(this@MainActivity, 1f))
+            setPadding(dp(14), dp(12), dp(14), dp(12))
+            background = box(FIELD, R_FIELD, HAIR, 1f)
+            setOnFocusChangeListener { v, hasFocus ->
+                (v.background as? GradientDrawable)?.setStroke(
+                    Face.linePx(this@MainActivity, 1f).toInt(), if (hasFocus) ACCENT else HAIR
+                )
+            }
             if (multiline) {
                 minLines = 6
                 gravity = Gravity.TOP or Gravity.START
@@ -1389,10 +1484,11 @@ class MainActivity : InkActivity() {
         )
         var selectedType = SlowDns.normalizeType(p.slowdnsType)
         val typeView = uiText(selectedType, 14f, INK).apply {
-            background = ripple()
+            background = ripple(box(FIELD, R_FIELD, HAIR, 1f))
+            setPadding(dp(14), 0, dp(14), 0)
             isClickable = true
             isFocusable = true
-            minimumHeight = dp(44)
+            minimumHeight = dp(48)
             gravity = Gravity.CENTER_VERTICAL
             contentDescription = "Pilih tipe record SlowDNS"
             setOnClickListener {
@@ -1532,33 +1628,47 @@ class MainActivity : InkActivity() {
             background = box(PANEL, R_PANEL)
             clipToOutline = true
         }
-        val brand = horizontal().apply { setPadding(0, dp(14), 0, 0) }
-        brand.addView(brandTile(), LinearLayout.LayoutParams(dp(42), dp(42)))
-        val names = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            addView(uiText("Wanz Tunnel", 17f, INK, medium = true))
-            addView(
-                monoText("v" + BuildConfig.VERSION_NAME + " · koneksi pribadi", 10f, FAINT)
-                    .apply { setPadding(0, dp(3), 0, 0) }
-            )
-        }
-        brand.addView(
-            names,
-            LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(12) }
+        // Banner terowongan dengan ubin merek di tengahnya, seperti mockup.
+        val hero = FrameLayout(this)
+        hero.addView(banner, FrameLayout.LayoutParams(-1, dp(132)))
+        hero.addView(
+            brandTile(56),
+            FrameLayout.LayoutParams(dp(56), dp(56), Gravity.CENTER)
         )
+
+        fun badge(text: String, margin: Int = 0): TextView =
+            monoText(text, 10f, MUTED).apply {
+                background = box(0, R_PILL, HAIR, 1f)
+                setPadding(dp(12), dp(5), dp(12), dp(5))
+                layoutParams = LinearLayout.LayoutParams(-2, -2).apply {
+                    leftMargin = dp(margin)
+                }
+            }
+        val badges = horizontal().apply { gravity = Gravity.CENTER }
+        badges.addView(badge("v" + BuildConfig.VERSION_NAME))
+        badges.addView(badge("SSH · VPN", 8))
+        badges.addView(badge("Android 10+", 8))
 
         val content = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(14), dp(20), dp(0))
-            addView(banner, LinearLayout.LayoutParams(-1, dp(118)))
-            addView(brand, LinearLayout.LayoutParams(-1, -2))
+            gravity = Gravity.CENTER_HORIZONTAL
+            setPadding(dp(20), dp(16), dp(20), dp(0))
+            addView(hero, LinearLayout.LayoutParams(-1, -2))
+            addView(
+                uiText("Wanz Tunnel", 20f, INK, medium = true)
+                    .apply { setPadding(0, dp(14), 0, 0) }
+            )
+            addView(badges, LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(10) })
             addView(
                 uiText(
                     "Klien SSH + VPN untuk Android. Semua trafik aplikasi masuk " +
                         "lewat terowongan SSH, lalu diteruskan oleh tun2socks di " +
                         "dalam perangkat.",
                     12.5f, MUTED
-                ).apply { setLineSpacing(dp(2).toFloat(), 1f) },
+                ).apply {
+                    gravity = Gravity.CENTER
+                    setLineSpacing(dp(2).toFloat(), 1f)
+                },
                 lp(12)
             )
             addView(
@@ -1568,7 +1678,10 @@ class MainActivity : InkActivity() {
                         "Monogram W dan ilustrasi terowongan dibuat khusus untuk " +
                         "Wanz Tunnel.",
                     10.5f, FAINT
-                ).apply { setLineSpacing(dp(2).toFloat(), 1f) },
+                ).apply {
+                    gravity = Gravity.CENTER
+                    setLineSpacing(dp(2).toFloat(), 1f)
+                },
                 lp(10)
             )
         }
