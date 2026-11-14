@@ -130,9 +130,11 @@ terlihat seperti template dengan font lain.
      Hapus, dan Tambah profil baru.
    - **Payload** dan **Proxy** mengubah dua field profil yang tidak muat di
      beranda; SSH (host/port/user/pass) diisi langsung di field ringkas.
-   - **SlowDNS** mengatur resolver, domain tunnel, public key server, dan
-     tipe record query (Automatic/NULL/TXT/CNAME/MX/NS/SRV); centangnya ada
-     di kisi beranda.
+   - **SlowDNS** mengatur resolver (UDP/DoH/DoT), domain tunnel, public key
+     server, tipe record query (Automatic/NULL/TXT/CNAME/MX/NS/SRV), serta
+     pengaturan lanjutan QNAME limit, EDNS0 limit, KCP Window, Session,
+     Multi login, dan Automatic calibration; centangnya ada di kisi
+     beranda.
    - **Tema** memilih Ikuti sistem/Terang/Gelap.
    - Ping manual cukup ketuk kolom
      Aktif; log dan salin/bersihkan cukup di tab LOG; reset kunci host ada di
