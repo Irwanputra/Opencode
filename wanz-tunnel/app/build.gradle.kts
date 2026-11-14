@@ -22,11 +22,35 @@ android {
         }
     }
     buildFeatures { buildConfig = true }
+    // Dua varian ketebalan:
+    // - full : semua fitur, termasuk SlowDNS (pustaka native gomobile ~9 MB)
+    // - lite : tanpa pustaka native SlowDNS → APK ~2 MB; SlowDNS otomatis
+    //   nonaktif saat dijalankan (guard nativeAvailable() menampilkan
+    //   pesan jelas), fitur SSH/VPN/payload/WS tetap lengkap.
+    flavorDimensions += "engine"
+    productFlavors {
+        create("full") { dimension = "engine" }
+        create("lite") {
+            dimension = "engine"
+            versionNameSuffix = "-lite"
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions { jvmTarget = "17" }
+}
+
+// Varian lite tidak mengemas libgojni.so (pustaka native SlowDNS yang paling
+// besar). Penjaga nativeAvailable() di SlowDns.kt memastikan aplikasi tetap
+// berjalan normal tanpa pustaka itu.
+androidComponents {
+    onVariants { v ->
+        if (v.flavorName == "lite") {
+            v.packaging.jniLibs.excludes.add("**/libgojni.so")
+        }
+    }
 }
 
 dependencies {

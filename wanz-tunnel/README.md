@@ -249,7 +249,14 @@ Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
   (9) service memakai START_STICKY agar proses yang dibunuh sistem tetap
   tersambung kembali. Opsi baru tersimpan di profil: `pingTimeoutSec`,
   `pingFailReset`, `pingUrl` (uji internet lewat tunnel), `reconnectDelaySec`,
-  `maxReconnect`, `sshKeepAliveSec`.
+  `maxReconnect`, `sshKeepAliveSec`. Untuk soal **ringan** (alasan utama
+  Wanz Tunnel dibuat — HTTP Custom terasa berat): dua varian APK kini
+  tersedia — **full** 10,9 MB (semua fitur + SlowDNS) dan **lite** 2,1 MB
+  (tanpa pustaka native SlowDNS `libgojni.so` 9,3 MB; SlowDNS otomatis
+  nonaktif dengan pesan jelas, fitur SSH/VPN/payload/WS/TLS tetap utuh).
+  Sebagai pembanding, HTTP Custom 8.0.22 berukuran 34,6 MB — lite 17×
+  lebih kecil, full 3× lebih kecil; `classes.dex` Wanz hanya 0,6 MB
+  (UI Views polos tanpa Compose, tanpa framework berat).
 - v2.9.17 (rampungan desain dialog dari mockup AI): lima mockup Seedream 5.5
   baru — dialog Profil, dialog SlowDNS, dialog Payload, dialog Tema, dan
   beranda saat terhubung. Dialog Profil kini berupa daftar kartu membulat
