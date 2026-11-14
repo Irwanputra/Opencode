@@ -1,0 +1,21 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class I13941898907765200010 implements A5401921815192175371 {
+    public final A5401921815192175371 a;
+
+    public I13941898907765200010(A5401921815192175371 a5401921815192175371) {
+        this.a = a5401921815192175371;
+    }
+
+    @Override // dev.epro.r0.A5401921815192175371
+    public final Object a(L12639328004344855510 l12639328004344855510, K14749510448791472029 k14749510448791472029) {
+        return this.a.a(new P7598478828797568949(l12639328004344855510, null, (byte) 0), k14749510448791472029);
+    }
+
+    @Override // dev.epro.r0.A5401921815192175371
+    public final J12043550928838212009 getData() {
+        return this.a.getData();
+    }
+}

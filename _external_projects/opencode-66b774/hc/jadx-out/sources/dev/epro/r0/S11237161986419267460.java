@@ -1,0 +1,12 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class S11237161986419267460 {
+    public static final V10300877997588547986 b = new V10300877997588547986((Object) new T10658432029677253838((byte) 12), (Object) new V3436737973405206042((byte) 1), (byte) 20);
+    public final U16834965109098959004 a;
+
+    public S11237161986419267460(U16834965109098959004 u16834965109098959004) {
+        this.a = u16834965109098959004;
+    }
+}

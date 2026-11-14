@@ -1,0 +1,41 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class E6969320725925327626 {
+    public final long a;
+    public final long b;
+    public final long c;
+    public final long d;
+    public final long e;
+    public final long f;
+    public final long g;
+
+    public E6969320725925327626(long j, long j2, long j3, long j4, long j5, long j6, long j7) {
+        this.a = j;
+        this.b = j2;
+        this.c = j3;
+        this.d = j4;
+        this.e = j5;
+        this.f = j6;
+        this.g = j7;
+    }
+
+    public final boolean equals(java.lang.Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || !(obj instanceof dev.epro.r0.E6969320725925327626)) {
+            return false;
+        }
+        dev.epro.r0.E6969320725925327626 e6969320725925327626 = (dev.epro.r0.E6969320725925327626) obj;
+        long j = e6969320725925327626.a;
+        int i = dev.epro.r0.U10174709222559481877.i;
+        return dev.epro.r0.P15388715743159210616.a(this.a, j) && dev.epro.r0.P15388715743159210616.a(this.d, e6969320725925327626.d) && dev.epro.r0.P15388715743159210616.a(this.b, e6969320725925327626.b) && dev.epro.r0.P15388715743159210616.a(this.e, e6969320725925327626.e) && dev.epro.r0.P15388715743159210616.a(this.c, e6969320725925327626.c) && dev.epro.r0.P15388715743159210616.a(this.f, e6969320725925327626.f) && dev.epro.r0.P15388715743159210616.a(this.g, e6969320725925327626.g);
+    }
+
+    public final int hashCode() {
+        int i = dev.epro.r0.U10174709222559481877.i;
+        return java.lang.Long.hashCode(this.g) + dev.epro.r0.G6547577305291411977.j(dev.epro.r0.G6547577305291411977.j(dev.epro.r0.G6547577305291411977.j(dev.epro.r0.G6547577305291411977.j(dev.epro.r0.G6547577305291411977.j(java.lang.Long.hashCode(this.a) * 31, this.d, 31), this.b, 31), this.e, 31), this.c, 31), this.f, 31);
+    }
+}

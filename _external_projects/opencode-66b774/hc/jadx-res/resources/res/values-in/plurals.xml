@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="cloud_config_file_count">
+        <item quantity="other">%1$d file</item>
+    </plurals>
+    <plurals name="log_generic_config_entries">
+        <item quantity="other">%1$s: Menerima %2$d entri konfigurasi</item>
+    </plurals>
+    <plurals name="log_lb_started">
+        <item quantity="other">Load Balancer: Memulai dengan %1$d backend</item>
+    </plurals>
+    <plurals name="log_profile_config_entries">
+        <item quantity="other">Menerima %2$d entri konfigurasi %1$s</item>
+    </plurals>
+    <plurals name="one_cloud_create_server_count">
+        <item quantity="other">%d server</item>
+    </plurals>
+    <plurals name="profiles_selected_count">
+        <item quantity="other">%1$d dipilih</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_delete_selected_message">
+        <item quantity="other">%1$d file terpilih akan dihapus dari penyimpanan aplikasi.</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_selected_count">
+        <item quantity="other">%1$d dipilih</item>
+    </plurals>
+    <plurals name="v2ray_dns_host_presets_selected">
+        <item quantity="other">%1$d preset dipilih</item>
+    </plurals>
+    <plurals name="v2ray_profiles_imported">
+        <item quantity="other">%1$d profil V2Ray berhasil diimpor</item>
+    </plurals>
+</resources>

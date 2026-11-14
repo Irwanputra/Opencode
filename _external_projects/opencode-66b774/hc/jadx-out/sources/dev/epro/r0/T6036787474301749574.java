@@ -1,0 +1,36 @@
+package dev.epro.r0;
+
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class T6036787474301749574 {
+    public static final T6036787474301749574 a;
+    public static final T6036787474301749574 b;
+    public static final T6036787474301749574 c;
+    public static final T6036787474301749574 d;
+    public static final T6036787474301749574 e;
+    public static final /* synthetic */ T6036787474301749574[] f;
+
+    static {
+        T6036787474301749574 t6036787474301749574 = new T6036787474301749574("END", 0);
+        a = t6036787474301749574;
+        T6036787474301749574 t60367874743017495742 = new T6036787474301749574("ROLLBACK", 1);
+        b = t60367874743017495742;
+        T6036787474301749574 t60367874743017495743 = new T6036787474301749574("BEGIN_EXCLUSIVE", 2);
+        c = t60367874743017495743;
+        T6036787474301749574 t60367874743017495744 = new T6036787474301749574("BEGIN_IMMEDIATE", 3);
+        d = t60367874743017495744;
+        T6036787474301749574 t60367874743017495745 = new T6036787474301749574("BEGIN_DEFERRED", 4);
+        e = t60367874743017495745;
+        f = new T6036787474301749574[]{t6036787474301749574, t60367874743017495742, t60367874743017495743, t60367874743017495744, t60367874743017495745};
+    }
+
+    public static T6036787474301749574 valueOf(String str) {
+        return (T6036787474301749574) Enum.valueOf(T6036787474301749574.class, str);
+    }
+
+    public static T6036787474301749574[] values() {
+        return (T6036787474301749574[]) f.clone();
+    }
+}

@@ -1,0 +1,13 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public final class ii3 {
+    public long b;
+    public volatile th3 a = null;
+    public c7 c = null;
+
+    public ii3(long j) {
+        this.b = j;
+    }
+}

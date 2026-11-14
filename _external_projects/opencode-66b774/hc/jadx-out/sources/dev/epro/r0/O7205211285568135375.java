@@ -1,0 +1,33 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class O7205211285568135375 implements A15018154210956052140 {
+    public final W3656598099029166611 a;
+    public G15527156457921655762 b;
+    public final V697849047308847220 c = V4416135141588678913.t(new Q13254524308163418711(0));
+    public final A4559761392562572984 d;
+
+    public O7205211285568135375(W3656598099029166611 w3656598099029166611, G15527156457921655762 g15527156457921655762) {
+        this.a = w3656598099029166611;
+        this.b = g15527156457921655762;
+        long[] jArr = X4026756943680612204.a;
+        this.d = new A4559761392562572984();
+    }
+
+    @Override // dev.epro.r0.A15018154210956052140
+    public final P14536951722050632485 a(P14536951722050632485 p14536951722050632485, O5713505082642007229 o5713505082642007229) {
+        p14536951722050632485.d = o5713505082642007229;
+        return p14536951722050632485;
+    }
+
+    @Override // dev.epro.r0.H4526303238406690808
+    public final Object b() {
+        return this.a.f().b();
+    }
+
+    @Override // dev.epro.r0.H4526303238406690808
+    public final Object d() {
+        return this.a.f().d();
+    }
+}

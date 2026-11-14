@@ -1,0 +1,61 @@
+package dev.epro.r0;
+
+import java.util.Arrays;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class M18253660291989159393 {
+    public static final int j;
+    public final M755325389802720773 a;
+    public final U13355873707176977607 b;
+    public final E10950040955201754167 c;
+    public final J17418217995904968003 d;
+    public final E6735768236136663892 e;
+    public final K8012119412851312076 f;
+    public final L12602321637077960189 g;
+    public final I5672057281458837636 h;
+    public final B11487200085536790145 i;
+
+    static {
+        int iEpbkehwcnzkf;
+        izmyclvb.dpqpjfpoanwt1(984);
+        Object[] objArr = new Object[3];
+        while (true) {
+            try {
+                iEpbkehwcnzkf = epbkehwcnzkf(objArr);
+            } finally {
+                Arrays.fill(objArr, (Object) null);
+            }
+            if (iEpbkehwcnzkf != 0) {
+                switch (iEpbkehwcnzkf) {
+                    case 1:
+                        j = ((Integer) objArr[1]).intValue();
+                        break;
+                    default:
+                        throw null;
+                }
+                Arrays.fill(objArr, (Object) null);
+            }
+            return;
+        }
+    }
+
+    private static native int epbkehwcnzkf(Object[] objArr);
+
+    private native void prhvedsfurkr(M755325389802720773 m755325389802720773, U13355873707176977607 u13355873707176977607, E10950040955201754167 e10950040955201754167, J17418217995904968003 j17418217995904968003, E6735768236136663892 e6735768236136663892, K8012119412851312076 k8012119412851312076, L12602321637077960189 l12602321637077960189, I5672057281458837636 i5672057281458837636, B11487200085536790145 b11487200085536790145);
+
+    public final native Object a(K14749510448791472029 k14749510448791472029);
+
+    public M18253660291989159393(M755325389802720773 m755325389802720773, U13355873707176977607 u13355873707176977607, E10950040955201754167 e10950040955201754167, J17418217995904968003 j17418217995904968003, E6735768236136663892 e6735768236136663892, K8012119412851312076 k8012119412851312076, L12602321637077960189 l12602321637077960189, I5672057281458837636 i5672057281458837636, B11487200085536790145 b11487200085536790145) {
+        m755325389802720773.getClass();
+        u13355873707176977607.getClass();
+        e10950040955201754167.getClass();
+        j17418217995904968003.getClass();
+        e6735768236136663892.getClass();
+        k8012119412851312076.getClass();
+        l12602321637077960189.getClass();
+        i5672057281458837636.getClass();
+        b11487200085536790145.getClass();
+        prhvedsfurkr(m755325389802720773, u13355873707176977607, e10950040955201754167, j17418217995904968003, e6735768236136663892, k8012119412851312076, l12602321637077960189, i5672057281458837636, b11487200085536790145);
+    }
+}

@@ -1,0 +1,55 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class bg implements dev.epro.r0.B8427392651679410143 {
+    public final ads_mobile_sdk.rg0 a;
+    public final dev.epro.r0.V2597580950516131749 b;
+    public final dev.epro.r0.V2597580950516131749 c;
+    public final dev.epro.r0.V2597580950516131749 d;
+    public final dev.epro.r0.V2597580950516131749 e;
+    public final dev.epro.r0.V2597580950516131749 f;
+    public final dev.epro.r0.V2597580950516131749 g;
+    public final dev.epro.r0.V2597580950516131749 h;
+    public final /* synthetic */ byte i = 0;
+
+    public bg(ads_mobile_sdk.rg0 rg0Var, dev.epro.r0.V2597580950516131749 v2597580950516131749, dev.epro.r0.V2597580950516131749 v25975809505161317492, dev.epro.r0.V2597580950516131749 v25975809505161317493, dev.epro.r0.V2597580950516131749 v25975809505161317494, dev.epro.r0.V2597580950516131749 v25975809505161317495, dev.epro.r0.V2597580950516131749 v25975809505161317496, dev.epro.r0.V2597580950516131749 v25975809505161317497) {
+        this.a = rg0Var;
+        this.b = v2597580950516131749;
+        this.c = v25975809505161317492;
+        this.d = v25975809505161317493;
+        this.e = v25975809505161317494;
+        this.f = v25975809505161317495;
+        this.g = v25975809505161317496;
+        this.h = v25975809505161317497;
+    }
+
+    public final java.lang.Object get() {
+        byte b = this.i;
+        dev.epro.r0.V2597580950516131749 v2597580950516131749 = this.h;
+        dev.epro.r0.V2597580950516131749 v25975809505161317492 = this.g;
+        dev.epro.r0.V2597580950516131749 v25975809505161317493 = this.f;
+        dev.epro.r0.V2597580950516131749 v25975809505161317494 = this.e;
+        ads_mobile_sdk.rg0 rg0Var = this.a;
+        dev.epro.r0.V2597580950516131749 v25975809505161317495 = this.d;
+        dev.epro.r0.V2597580950516131749 v25975809505161317496 = this.c;
+        dev.epro.r0.V2597580950516131749 v25975809505161317497 = this.b;
+        switch (b) {
+            case 0:
+                return new ads_mobile_sdk.ag((dev.epro.r0.W5797197595347441198) rg0Var.get(), (dev.epro.r0.W5797197595347441198) v25975809505161317497.get(), (ads_mobile_sdk.jr0) v25975809505161317496.get(), (dev.epro.r0.O16637889491137121389) v25975809505161317495.get(), (dev.epro.r0.O12043144740933444288) v25975809505161317494.get(), (ads_mobile_sdk.we) v25975809505161317493.get(), (ads_mobile_sdk.df) v25975809505161317492.get(), (ads_mobile_sdk.kz2) v2597580950516131749.get());
+            default:
+                return new ads_mobile_sdk.cs1((ads_mobile_sdk.di0) v25975809505161317497.get(), (ads_mobile_sdk.bq1) v25975809505161317496.get(), (dev.epro.r0.W5797197595347441198) v25975809505161317495.get(), (dev.epro.r0.W5797197595347441198) rg0Var.get(), (dev.epro.r0.O12043144740933444288) v25975809505161317494.get(), (ads_mobile_sdk.g0) v25975809505161317493.get(), (ads_mobile_sdk.kz2) v25975809505161317492.get(), (ads_mobile_sdk.mi3) v2597580950516131749.get());
+        }
+    }
+
+    public bg(dev.epro.r0.V2597580950516131749 v2597580950516131749, dev.epro.r0.V2597580950516131749 v25975809505161317492, dev.epro.r0.V2597580950516131749 v25975809505161317493, ads_mobile_sdk.rg0 rg0Var, dev.epro.r0.V2597580950516131749 v25975809505161317494, dev.epro.r0.V2597580950516131749 v25975809505161317495, dev.epro.r0.V2597580950516131749 v25975809505161317496, dev.epro.r0.V2597580950516131749 v25975809505161317497) {
+        this.b = v2597580950516131749;
+        this.c = v25975809505161317492;
+        this.d = v25975809505161317493;
+        this.a = rg0Var;
+        this.e = v25975809505161317494;
+        this.f = v25975809505161317495;
+        this.g = v25975809505161317496;
+        this.h = v25975809505161317497;
+    }
+}

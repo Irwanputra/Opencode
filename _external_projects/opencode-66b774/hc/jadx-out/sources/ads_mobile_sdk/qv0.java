@@ -1,0 +1,56 @@
+package ads_mobile_sdk;
+
+import dev.epro.r0.A13333228626634894082;
+import dev.epro.r0.O6641393078261985068;
+import dev.epro.r0.T1335862270807194835;
+import dev.epro.r0.T8598786036980488824;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public final class qv0 extends cu0 {
+    private static final qv0 DEFAULT_INSTANCE;
+    public static final int c = 1;
+    public static final int d = 2;
+    private int bitField0_;
+    private xt clientPingMetadata_;
+    private O6641393078261985068 payloads_ = in2.e;
+
+    static {
+        qv0 qv0Var = new qv0();
+        DEFAULT_INSTANCE = qv0Var;
+        cu0.a(qv0.class, qv0Var);
+    }
+
+    public static A13333228626634894082 o() {
+        return (A13333228626634894082) DEFAULT_INSTANCE.e();
+    }
+
+    @Override // ads_mobile_sdk.cu0
+    public final Object a(int i, cu0 cu0Var) {
+        int iE = T1335862270807194835.e(i);
+        if (iE == 2) {
+            return new ps2(DEFAULT_INSTANCE, "\u0004\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0001\u0000\u0001\u001b\u0002ဉ\u0000", new Object[]{"bitField0_", "payloads_", pv0.class, "clientPingMetadata_"});
+        }
+        if (iE == 3) {
+            return new qv0();
+        }
+        if (iE != 4) {
+            return null;
+        }
+        return new A13333228626634894082(DEFAULT_INSTANCE);
+    }
+
+    public final void a(pv0 pv0Var) {
+        O6641393078261985068 o6641393078261985068B = this.payloads_;
+        if (!((j) o6641393078261985068B).a) {
+            o6641393078261985068B = T8598786036980488824.b(o6641393078261985068B);
+            this.payloads_ = o6641393078261985068B;
+        }
+        o6641393078261985068B.add(pv0Var);
+    }
+
+    public final void a(xt xtVar) {
+        this.clientPingMetadata_ = xtVar;
+        this.bitField0_ |= 1;
+    }
+}

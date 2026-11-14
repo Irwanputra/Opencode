@@ -1,0 +1,13 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class Q295190250517022391 {
+    public final U14177313425639231181 a = new U14177313425639231181(this, 0);
+    public final M12425592900854590339 b;
+    public B13729205492206812220 c;
+
+    public Q295190250517022391(Z13495289232682714606 z13495289232682714606) {
+        this.b = new M12425592900854590339(this, z13495289232682714606);
+    }
+}

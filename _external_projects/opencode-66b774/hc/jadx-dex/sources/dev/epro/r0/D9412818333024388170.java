@@ -1,0 +1,14 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class D9412818333024388170 {
+    public final dev.epro.r0.N12800445656637864660 a;
+    public final dev.epro.r0.E3422549137300678133 b;
+
+    public D9412818333024388170(dev.epro.r0.N12800445656637864660 n12800445656637864660, dev.epro.r0.E3422549137300678133 e3422549137300678133) {
+        e3422549137300678133.getClass();
+        this.a = n12800445656637864660;
+        this.b = e3422549137300678133;
+    }
+}

@@ -1,0 +1,14 @@
+package dev.epro.r0;
+
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public abstract class E15878005640599055743 {
+    static {
+        o.bwmna.gdrqkg.izmyclvb.oeynnivvrnts0(131);
+    }
+
+    public static final native void a(dev.epro.r0.N4052665617792397286 n4052665617792397286, dev.epro.r0.F16705069398168805061 f16705069398168805061, dev.epro.r0.M3727281027331139839 m3727281027331139839, int i);
+
+    public static final native void b(dev.epro.r0.F16705069398168805061 f16705069398168805061, dev.epro.r0.F4096073349764486348 f4096073349764486348, dev.epro.r0.M3727281027331139839 m3727281027331139839, int i);
+
+    public static final native void c(dev.epro.r0.F16705069398168805061 f16705069398168805061, dev.epro.r0.F4096073349764486348 f4096073349764486348, dev.epro.r0.M3727281027331139839 m3727281027331139839, int i);
+}

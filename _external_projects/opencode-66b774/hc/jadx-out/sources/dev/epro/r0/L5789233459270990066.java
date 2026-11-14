@@ -1,0 +1,114 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public abstract class L5789233459270990066 {
+    public static final long A;
+    public static final long B;
+    public static final long C;
+    public static final long D;
+    public static final long E;
+    public static final long F;
+    public static final long G;
+    public static final long H;
+    public static final long I;
+    public static final long J;
+    public static final long K;
+    public static final long L;
+    public static final long M;
+    public static final long N;
+    public static final long O;
+    public static final long P;
+    public static final long Q;
+    public static final long R;
+    public static final long S;
+    public static final long T;
+    public static final long U;
+    public static final long a;
+    public static final long b;
+    public static final long c;
+    public static final long d;
+    public static final long e;
+    public static final long f;
+    public static final long g;
+    public static final long h;
+    public static final long i;
+    public static final long j;
+    public static final long k;
+    public static final long l;
+    public static final long m;
+    public static final long n;
+
+    /* JADX INFO: renamed from: o, reason: collision with root package name */
+    public static final long f349o;
+    public static final long p;
+    public static final long q;
+    public static final long r;
+    public static final long s;
+    public static final long t;
+    public static final long u;
+    public static final long v;
+    public static final long w;
+    public static final long x;
+    public static final long y;
+    public static final long z;
+
+    static {
+        long j2 = N1671275809504426722.x;
+        a = j2;
+        b = N1671275809504426722.e;
+        c = N1671275809504426722.g;
+        d = N1671275809504426722.v;
+        long j3 = N1671275809504426722.I;
+        e = j3;
+        f = N1671275809504426722.m;
+        long j4 = N1671275809504426722.i;
+        g = j4;
+        h = N1671275809504426722.b;
+        i = N1671275809504426722.a;
+        j = N1671275809504426722.E;
+        long j5 = N1671275809504426722.D;
+        k = j5;
+        l = j5;
+        m = N1671275809504426722.G;
+        n = N1671275809504426722.L;
+        long j6 = N1671275809504426722.K;
+        f349o = j6;
+        p = j6;
+        q = N1671275809504426722.N;
+        r = j4;
+        s = N1671275809504426722.y;
+        t = N1671275809504426722.S;
+        long j7 = N1671275809504426722.R;
+        u = j7;
+        v = j7;
+        w = N1671275809504426722.U;
+        x = N1671275809504426722.z;
+        y = N1671275809504426722.B;
+        z = N1671275809504426722.H;
+        long j8 = N1671275809504426722.J;
+        A = j8;
+        B = j8;
+        C = j3;
+        D = N1671275809504426722.h;
+        E = N1671275809504426722.O;
+        long j9 = N1671275809504426722.Q;
+        F = j9;
+        G = j9;
+        H = N1671275809504426722.P;
+        I = j2;
+        J = j2;
+        K = N1671275809504426722.u;
+        L = N1671275809504426722.t;
+        M = N1671275809504426722.s;
+        N = N1671275809504426722.w;
+        O = N1671275809504426722.j;
+        P = N1671275809504426722.r;
+        Q = N1671275809504426722.C;
+        R = N1671275809504426722.V;
+        long j10 = N1671275809504426722.X;
+        S = j10;
+        T = j10;
+        U = N1671275809504426722.W;
+    }
+}

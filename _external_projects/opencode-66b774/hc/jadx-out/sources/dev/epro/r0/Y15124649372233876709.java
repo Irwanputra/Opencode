@@ -1,0 +1,57 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class Y15124649372233876709 implements J12078565427869724451 {
+    public final /* synthetic */ String a;
+    public final /* synthetic */ boolean b;
+    public final /* synthetic */ boolean c;
+    public final /* synthetic */ H14763425654620554740 d;
+    public final /* synthetic */ S9385204271696540760 e;
+    public final /* synthetic */ boolean f;
+    public final /* synthetic */ L12639328004344855510 g;
+    public final /* synthetic */ L12639328004344855510 h;
+    public final /* synthetic */ L12639328004344855510 i;
+    public final /* synthetic */ L12639328004344855510 j;
+    public final /* synthetic */ L12639328004344855510 k;
+    public final /* synthetic */ M15706644554150934798 l;
+    public final /* synthetic */ I5573661370475160895 m;
+
+    public Y15124649372233876709(String str, boolean z, boolean z2, H14763425654620554740 h14763425654620554740, S9385204271696540760 s9385204271696540760, boolean z3, L12639328004344855510 l12639328004344855510, L12639328004344855510 l126393280043448555102, L12639328004344855510 l126393280043448555103, L12639328004344855510 l126393280043448555104, L12639328004344855510 l126393280043448555105, M15706644554150934798 m15706644554150934798, I5573661370475160895 i5573661370475160895) {
+        this.a = str;
+        this.b = z;
+        this.c = z2;
+        this.d = h14763425654620554740;
+        this.e = s9385204271696540760;
+        this.f = z3;
+        this.g = l12639328004344855510;
+        this.h = l126393280043448555102;
+        this.i = l126393280043448555103;
+        this.j = l126393280043448555104;
+        this.k = l126393280043448555105;
+        this.l = m15706644554150934798;
+        this.m = i5573661370475160895;
+    }
+
+    @Override // dev.epro.r0.J12078565427869724451
+    public final Object invoke(Object obj, Object obj2, Object obj3) {
+        L12639328004344855510 l12639328004344855510 = (L12639328004344855510) obj;
+        M3727281027331139839 m3727281027331139839 = (M3727281027331139839) obj2;
+        int iIntValue = ((Number) obj3).intValue();
+        if ((iIntValue & 6) == 0) {
+            iIntValue |= m3727281027331139839.h(l12639328004344855510) ? 4 : 2;
+        }
+        if (m3727281027331139839.R(iIntValue & 1, (iIntValue & 19) != 18)) {
+            T13350664027331345869 t13350664027331345869 = T13350664027331345869.A;
+            I5573661370475160895 i5573661370475160895 = this.m;
+            boolean z = this.b;
+            boolean z2 = this.f;
+            S9385204271696540760 s9385204271696540760 = this.e;
+            M15706644554150934798 m15706644554150934798 = this.l;
+            t13350664027331345869.i(this.a, l12639328004344855510, z, this.c, this.d, s9385204271696540760, z2, this.g, this.h, this.i, this.j, this.k, m15706644554150934798, null, S10823041268949770285.T(-656940872, new V15955572429703851621(z, z2, s9385204271696540760, m15706644554150934798, i5573661370475160895, (byte) 1), m3727281027331139839), m3727281027331139839, (iIntValue << 3) & 112, 14155776, 32768);
+        } else {
+            m3727281027331139839.U();
+        }
+        return O9245300239821758723.a;
+    }
+}

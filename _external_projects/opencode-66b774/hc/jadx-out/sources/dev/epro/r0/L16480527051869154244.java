@@ -1,0 +1,51 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class L16480527051869154244 extends A8269341136279542501 {
+    public final C4150953935654002107 a;
+
+    public L16480527051869154244(C4150953935654002107 c4150953935654002107) {
+        this.a = c4150953935654002107;
+    }
+
+    @Override // dev.epro.r0.A8269341136279542501
+    public final R15896830329318850690 a() {
+        return new V12329626155089446320(D15445857918358799638.k, this.a);
+    }
+
+    @Override // dev.epro.r0.A8269341136279542501
+    public final void c(R15896830329318850690 r15896830329318850690) {
+        V12329626155089446320 v12329626155089446320 = (V12329626155089446320) r15896830329318850690;
+        P10283164515565247229 p10283164515565247229 = D15445857918358799638.k;
+        if (!S10823041268949770285.t(v12329626155089446320.p, p10283164515565247229)) {
+            v12329626155089446320.p = p10283164515565247229;
+            if (v12329626155089446320.q) {
+                v12329626155089446320.j1();
+            }
+        }
+        v12329626155089446320.f265o = this.a;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof L16480527051869154244)) {
+            return false;
+        }
+        L16480527051869154244 l16480527051869154244 = (L16480527051869154244) obj;
+        P10283164515565247229 p10283164515565247229 = D15445857918358799638.k;
+        return p10283164515565247229.equals(p10283164515565247229) && S10823041268949770285.t(this.a, l16480527051869154244.a);
+    }
+
+    public final int hashCode() {
+        int i = G6547577305291411977.i(1022 * 31, 31, false);
+        C4150953935654002107 c4150953935654002107 = this.a;
+        return i + (c4150953935654002107 != null ? c4150953935654002107.hashCode() : 0);
+    }
+
+    public final String toString() {
+        return "StylusHoverIconModifierElement(icon=" + D15445857918358799638.k + ", overrideDescendants=false, touchBoundsExpansion=" + this.a + ")";
+    }
+}

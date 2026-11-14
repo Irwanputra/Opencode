@@ -1,0 +1,47 @@
+package ads_mobile_sdk;
+
+import android.util.DisplayMetrics;
+import dev.epro.r0.B8427392651679410143;
+import dev.epro.r0.V2597580950516131749;
+import dev.epro.r0.V5431423861497278836;
+import dev.epro.r0.W5797197595347441198;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public final class gq1 implements B8427392651679410143 {
+    public final V2597580950516131749 a;
+    public final V2597580950516131749 b;
+    public final V2597580950516131749 c;
+    public final V2597580950516131749 d;
+    public final V2597580950516131749 e;
+    public final /* synthetic */ byte f;
+
+    public /* synthetic */ gq1(V2597580950516131749 v2597580950516131749, V2597580950516131749 v25975809505161317492, V2597580950516131749 v25975809505161317493, V2597580950516131749 v25975809505161317494, V2597580950516131749 v25975809505161317495, byte b) {
+        this.f = b;
+        this.a = v2597580950516131749;
+        this.b = v25975809505161317492;
+        this.c = v25975809505161317493;
+        this.d = v25975809505161317494;
+        this.e = v25975809505161317495;
+    }
+
+    @Override // dev.epro.r0.V2597580950516131749
+    public final Object get() {
+        byte b = this.f;
+        V2597580950516131749 v2597580950516131749 = this.e;
+        V2597580950516131749 v25975809505161317492 = this.d;
+        V2597580950516131749 v25975809505161317493 = this.c;
+        V2597580950516131749 v25975809505161317494 = this.b;
+        V2597580950516131749 v25975809505161317495 = this.a;
+        switch (b) {
+            case 0:
+                return new fq1((di0) v25975809505161317495.get(), (bq1) v25975809505161317494.get(), (rw0) v25975809505161317493.get(), (W5797197595347441198) v25975809505161317492.get(), (g0) v2597580950516131749.get());
+            case 1:
+                return new ga3((j7) v25975809505161317495.get(), (da3) v25975809505161317494.get(), (qm1) v25975809505161317493.get(), (ExecutorService) v25975809505161317492.get(), (vi3) v2597580950516131749.get());
+            default:
+                return new qh3((V5431423861497278836) v25975809505161317495.get(), (rp1) v25975809505161317494.get(), (Map) v25975809505161317493.get(), (DisplayMetrics) v25975809505161317492.get(), (vi3) v2597580950516131749.get());
+        }
+    }
+}

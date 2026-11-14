@@ -1,0 +1,199 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public abstract class pm3 {
+    public static final sun.misc.Unsafe a;
+    public static final java.lang.Class b;
+    public static final ads_mobile_sdk.yu c;
+    public static final boolean d;
+    public static final boolean e;
+
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0034  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0095 A[PHI: r0
+      0x0095: PHI (r0v18 java.lang.reflect.Field) = (r0v13 java.lang.reflect.Field), (r0v21 java.lang.reflect.Field) binds: [B:34:0x00a5, B:26:0x0093] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0097  */
+    static {
+        /*
+            sun.misc.Unsafe r0 = a()
+            ads_mobile_sdk.pm3.a = r0
+            java.lang.Class r1 = ads_mobile_sdk.qe.a()
+            ads_mobile_sdk.pm3.b = r1
+            java.lang.Class r1 = java.lang.Long.TYPE
+            boolean r2 = d(r1)
+            java.lang.Class r3 = java.lang.Integer.TYPE
+            boolean r3 = d(r3)
+            r4 = 1
+            r5 = 0
+            r6 = 0
+            if (r0 != 0) goto L1e
+            goto L34
+        L1e:
+            boolean r7 = ads_mobile_sdk.qe.b()
+            if (r7 == 0) goto L36
+            if (r2 == 0) goto L2c
+            dev.epro.r0.I1123763153108354587 r2 = new dev.epro.r0.I1123763153108354587
+            r2.<init>(r0, r4)
+            goto L3c
+        L2c:
+            if (r3 == 0) goto L34
+            dev.epro.r0.I1123763153108354587 r2 = new dev.epro.r0.I1123763153108354587
+            r2.<init>(r0, r5)
+            goto L3c
+        L34:
+            r2 = r6
+            goto L3c
+        L36:
+            dev.epro.r0.I1123763153108354587 r2 = new dev.epro.r0.I1123763153108354587
+            r3 = 2
+            r2.<init>(r0, r3)
+        L3c:
+            ads_mobile_sdk.pm3.c = r2
+            if (r2 != 0) goto L41
+            goto L44
+        L41:
+            r2.b()
+        L44:
+            if (r2 != 0) goto L48
+            r0 = r5
+            goto L4c
+        L48:
+            boolean r0 = r2.mo14a()
+        L4c:
+            ads_mobile_sdk.pm3.d = r0
+            java.lang.Class<byte[]> r0 = byte[].class
+            b(r0)
+            java.lang.Class<boolean[]> r0 = boolean[].class
+            b(r0)
+            c(r0)
+            java.lang.Class<int[]> r0 = int[].class
+            b(r0)
+            c(r0)
+            java.lang.Class<long[]> r0 = long[].class
+            b(r0)
+            c(r0)
+            java.lang.Class<float[]> r0 = float[].class
+            b(r0)
+            c(r0)
+            java.lang.Class<double[]> r0 = double[].class
+            b(r0)
+            c(r0)
+            java.lang.Class<java.lang.Object[]> r0 = java.lang.Object[].class
+            b(r0)
+            c(r0)
+            boolean r0 = ads_mobile_sdk.qe.b()
+            java.lang.Class<java.nio.Buffer> r3 = java.nio.Buffer.class
+            if (r0 == 0) goto L97
+            java.lang.String r0 = "effectiveDirectAddress"
+            java.lang.reflect.Field r0 = r3.getDeclaredField(r0)     // Catch: java.lang.Throwable -> L92
+            goto L93
+        L92:
+            r0 = r6
+        L93:
+            if (r0 == 0) goto L97
+        L95:
+            r6 = r0
+            goto La8
+        L97:
+            java.lang.String r0 = "address"
+            java.lang.reflect.Field r0 = r3.getDeclaredField(r0)     // Catch: java.lang.Throwable -> L9e
+            goto L9f
+        L9e:
+            r0 = r6
+        L9f:
+            if (r0 == 0) goto La8
+            java.lang.Class r3 = r0.getType()
+            if (r3 != r1) goto La8
+            goto L95
+        La8:
+            if (r6 == 0) goto Lb4
+            if (r2 != 0) goto Lad
+            goto Lb4
+        Lad:
+            java.lang.Object r0 = r2.a
+            sun.misc.Unsafe r0 = (sun.misc.Unsafe) r0
+            r0.objectFieldOffset(r6)
+        Lb4:
+            java.nio.ByteOrder r0 = java.nio.ByteOrder.nativeOrder()
+            java.nio.ByteOrder r1 = java.nio.ByteOrder.BIG_ENDIAN
+            if (r0 != r1) goto Lbd
+            goto Lbe
+        Lbd:
+            r4 = r5
+        Lbe:
+            ads_mobile_sdk.pm3.e = r4
+            return
+        */
+        throw new UnsupportedOperationException("Method not decompiled: ads_mobile_sdk.pm3.<clinit>():void");
+    }
+
+    public static sun.misc.Unsafe a() {
+        sun.misc.Unsafe unsafe;
+        try {
+            unsafe = (sun.misc.Unsafe) java.security.AccessController.doPrivileged((java.security.PrivilegedExceptionAction) new dev.epro.r0.F2522870689781627311((byte) 4));
+        } catch (java.lang.Throwable unused) {
+            unsafe = null;
+        }
+        if (unsafe == null) {
+            return null;
+        }
+        try {
+            unsafe.arrayBaseOffset(byte[].class);
+            return unsafe;
+        } catch (java.lang.Exception unused2) {
+            java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ads_mobile_sdk.pm3.class.getName());
+            java.util.logging.Level level = java.util.logging.Level.WARNING;
+            logger.getClass();
+            return null;
+        }
+    }
+
+    public static void b(java.lang.Class cls) {
+        if (d) {
+            ((sun.misc.Unsafe) c.a).arrayBaseOffset(cls);
+        }
+    }
+
+    public static void c(java.lang.Class cls) {
+        if (d) {
+            ((sun.misc.Unsafe) c.a).arrayIndexScale(cls);
+        }
+    }
+
+    public static boolean d(java.lang.Class cls) {
+        if (!ads_mobile_sdk.qe.b()) {
+            return false;
+        }
+        try {
+            java.lang.Class cls2 = b;
+            java.lang.Class cls3 = java.lang.Boolean.TYPE;
+            cls2.getMethod("peekLong", cls, cls3);
+            cls2.getMethod("pokeLong", cls, java.lang.Long.TYPE, cls3);
+            java.lang.Class cls4 = java.lang.Integer.TYPE;
+            cls2.getMethod("pokeInt", cls, cls4, cls3);
+            cls2.getMethod("peekInt", cls, cls3);
+            cls2.getMethod("pokeByte", cls, java.lang.Byte.TYPE);
+            cls2.getMethod("peekByte", cls);
+            cls2.getMethod("pokeByteArray", cls, byte[].class, cls4, cls4);
+            cls2.getMethod("peekByteArray", cls, byte[].class, cls4, cls4);
+            return true;
+        } catch (java.lang.Throwable unused) {
+            return false;
+        }
+    }
+
+    public static void a(int i, long j, java.lang.Object obj) {
+        c.a(i, j, obj);
+    }
+
+    public static void a(long j, java.lang.Object obj, java.io.Serializable serializable) {
+        c.a(j, obj, serializable);
+    }
+
+    public static void a(java.lang.Throwable th) {
+        java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ads_mobile_sdk.pm3.class.getName());
+        java.util.logging.Level level = java.util.logging.Level.WARNING;
+        java.lang.String.valueOf(th);
+        logger.getClass();
+    }
+}

@@ -52,6 +52,18 @@ object SlowDns {
         }
         validatePubkey(p.slowdnsPubkey)?.let { return it }
         validateResolver(p.slowdnsResolver)?.let { return it }
+        if (p.slowdnsQname != 0 && p.slowdnsQname !in 64..255) {
+            return "Batas QNAME harus 0 (default) atau 64–255 byte"
+        }
+        if (p.slowdnsEdns != 0 && p.slowdnsEdns !in 512..4096) {
+            return "Batas EDNS0 harus 0 (default) atau 512–4096 byte"
+        }
+        if (p.slowdnsWindow != 0 && p.slowdnsWindow !in 8..128) {
+            return "KCP Window harus 0 (default) atau 8–128"
+        }
+        if (p.slowdnsSessions !in 1..8) {
+            return "Jumlah sesi SlowDNS harus 1–8"
+        }
         return null
     }
 
@@ -65,24 +77,49 @@ object SlowDns {
         return null
     }
 
-    /** Resolver boleh "host" atau "host:port" (dan boleh berawalan udp://). */
+    /**
+     * Resolver boleh:
+     * - "host" atau "host:port" / "udp://host[:port]" — DNS biasa
+     * - "https://…" — DNS over HTTPS (DoH)
+     * - "tls://host[:port]" atau "dot://host[:port]" — DNS over TLS (DoT)
+     */
     fun validateResolver(resolver: String): String? {
-        val r = resolver.trim().removePrefix("udp://")
+        val r = resolver.trim()
         if (r.isEmpty()) return "Isi alamat DNS resolver untuk SlowDNS"
-        val host = r.substringBefore(':').trim()
+        val lower = r.lowercase()
+        if (lower.startsWith("https://")) {
+            if (r.length <= "https://".length || !r.substringAfter("://").contains('.')) {
+                return "Alamat DoH tidak valid (contoh: https://dns.google/dns-query)"
+            }
+            return null
+        }
+        val raw = when {
+            lower.startsWith("tls://") -> r.substring(6)
+            lower.startsWith("dot://") -> r.substring(6)
+            lower.startsWith("udp://") -> r.substring(6)
+            else -> r
+        }.trim().removeSuffix("/")
+        if (raw.isEmpty()) return "Alamat DNS resolver SlowDNS tidak valid"
+        val host = raw.substringBefore(':').trim()
         if (host.isEmpty()) return "Alamat DNS resolver SlowDNS tidak valid"
-        val port = r.substringAfter(':', "").trim()
+        val port = raw.substringAfter(':', "").trim()
         if (port.isNotEmpty() && port.toIntOrNull() !in 1..65535) {
             return "Port DNS resolver SlowDNS tidak valid"
         }
         return null
     }
 
-    /** Resolver siap pakai untuk pustaka native (selalu host:port). */
+    /** Resolver siap pakai untuk pustaka native (skema dipertahankan). */
     fun normalizeResolver(resolver: String): String {
-        val r = resolver.trim().removePrefix("udp://")
+        val r = resolver.trim()
         if (r.isEmpty()) return "8.8.8.8:53"
-        return if (r.contains(':')) r else "$r:53"
+        val lower = r.lowercase()
+        if (lower.startsWith("https://")) return r
+        if (lower.startsWith("tls://") || lower.startsWith("dot://")) {
+            return "tls://" + r.substring(6).trim().removeSuffix("/")
+        }
+        val raw = if (lower.startsWith("udp://")) r.substring(6).trim() else r
+        return if (raw.contains(':')) raw else "$raw:53"
     }
 }
 
@@ -112,24 +149,43 @@ object SlowDnsTunnel {
 
     /**
      * Nyalakan terowongan SlowDNS dan tunggu sesi terbentuk.
+     * @param protect dipanggil dengan fd socket resolver agar tidak masuk
+     *   kembali ke VPN (VpnService.protect) — tanpa ini query DNS akan
+     *   berputar lewat TUN dan terowongan diam setelah VPN menyala.
      * @return port TCP lokal (127.0.0.1:port) tempat SSH harus menyambung.
      * @throws IOException bila konfigurasi/sesi gagal.
      */
-    fun startAndWait(p: Profile, timeoutMs: Int): Int {
+    fun startAndWait(p: Profile, timeoutMs: Int, protect: ((Int) -> Boolean)? = null): Int {
         TunnelLog.add(
             SlowDns.TAG,
             "Menyalakan SlowDNS • ${SlowDns.normalizeResolver(p.slowdnsResolver)} • " +
                 "${p.slowdnsDomain.trim()} • tipe ${SlowDns.normalizeType(p.slowdnsType)}"
         )
         try {
-            // Port 0 = pilih otomatis; window 0 = default (64, seperti dnstt).
+            NativeSlowDns.setSocketProtector(
+                protect?.let { fn ->
+                    object : id.wanz.slowdns.SocketProtector {
+                        override fun protect(fd: Long): Boolean = fn(fd.toInt())
+                    }
+                }
+            )
+        } catch (e: Exception) {
+            TunnelLog.add(TunnelLog.WARN, "SlowDNS: proteksi socket tidak tersedia: ${e.message}")
+        }
+        try {
+            // Port 0 = pilih otomatis; 0 pada batas lain = default dnstt.
             NativeSlowDns.start(
                 SlowDns.normalizeResolver(p.slowdnsResolver),
                 p.slowdnsDomain.trim(),
                 p.slowdnsPubkey.trim(),
                 SlowDns.normalizeType(p.slowdnsType),
                 0L,
-                0L,
+                p.slowdnsWindow.toLong(),
+                p.slowdnsQname.toLong(),
+                p.slowdnsEdns.toLong(),
+                p.slowdnsSessions.toLong(),
+                p.slowdnsMultiLogin,
+                p.slowdnsCalibrate,
                 logger
             )
         } catch (e: Exception) {
@@ -153,6 +209,10 @@ object SlowDnsTunnel {
     fun stop() {
         try {
             NativeSlowDns.stop()
+        } catch (_: Exception) {
+        }
+        try {
+            NativeSlowDns.setSocketProtector(null)
         } catch (_: Exception) {
         }
     }

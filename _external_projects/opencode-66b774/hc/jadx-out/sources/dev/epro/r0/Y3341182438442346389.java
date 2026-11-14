@@ -1,0 +1,25 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public interface Y3341182438442346389 {
+    void a(Object obj, Object obj2);
+
+    void b(Object obj);
+
+    boolean c(Object obj);
+
+    Object d();
+
+    boolean e(Z14368087615735085238 z14368087615735085238, Z14368087615735085238 z143680876157350852382);
+
+    int f(Z14368087615735085238 z14368087615735085238);
+
+    void g(Object obj, E17564419012940707302 e17564419012940707302, R4931231174251890987 r4931231174251890987);
+
+    void h(Object obj, H12843822278061842084 h12843822278061842084);
+
+    int i(Z14368087615735085238 z14368087615735085238);
+
+    void j(Object obj, byte[] bArr, int i, int i2, D15735805680132151670 d15735805680132151670);
+}

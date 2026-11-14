@@ -1,0 +1,39 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class M7314710921533197805 {
+    public final H7608868384467129204 a;
+    public final Z1396859976745335857 b;
+    public final K10477390386609247876 c;
+    public final String d;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(70);
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    public /* synthetic */ M7314710921533197805(H7608868384467129204 h7608868384467129204, Z1396859976745335857 z1396859976745335857, K10477390386609247876 k10477390386609247876, String str, int i, O18369580107802500074 o18369580107802500074) {
+        Object[] objArrUzdnjrtdwjdd = uzdnjrtdwjdd(h7608868384467129204, z1396859976745335857, k10477390386609247876, str, i, o18369580107802500074);
+        this(h7608868384467129204, (Z1396859976745335857) objArrUzdnjrtdwjdd[0], (K10477390386609247876) objArrUzdnjrtdwjdd[1], (String) objArrUzdnjrtdwjdd[2]);
+        kjopccmtjkzn();
+    }
+
+    private native void kjopccmtjkzn();
+
+    private native void orzfhtxgfmnw(H7608868384467129204 h7608868384467129204, Z1396859976745335857 z1396859976745335857, K10477390386609247876 k10477390386609247876, String str);
+
+    private static native Object[] uzdnjrtdwjdd(H7608868384467129204 h7608868384467129204, Z1396859976745335857 z1396859976745335857, K10477390386609247876 k10477390386609247876, String str, int i, O18369580107802500074 o18369580107802500074);
+
+    public final native boolean equals(Object obj);
+
+    public final native int hashCode();
+
+    public final native String toString();
+
+    public M7314710921533197805(H7608868384467129204 h7608868384467129204, Z1396859976745335857 z1396859976745335857, K10477390386609247876 k10477390386609247876, String str) {
+        h7608868384467129204.getClass();
+        orzfhtxgfmnw(h7608868384467129204, z1396859976745335857, k10477390386609247876, str);
+    }
+}

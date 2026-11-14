@@ -33,18 +33,27 @@ type Logger interface {
 	Log(msg string)
 }
 
+// sessionConn adalah satu "login" SlowDNS: transport resolver sendiri,
+// DNSPacketConn (ClientID sendiri), KCP, Noise, dan sesi smux.
+type sessionConn struct {
+	transport net.PacketConn
+	addr      net.Addr
+	kcp       *kcp.UDPSession
+	sess      *smux.Session
+	pconn     *DNSPacketConn
+	conv      uint32
+}
+
 type tunnel struct {
-	mu      sync.Mutex
-	ln      *net.TCPListener
-	udp     *net.UDPConn
-	kcp     *kcp.UDPSession
-	sess    *smux.Session
-	pconn   *DNSPacketConn
-	port    int
-	ready   chan struct{}
-	done    chan struct{}
-	errOnce sync.Once
-	errMsg  atomic.Value // string
+	mu       sync.Mutex
+	ln       *net.TCPListener
+	sessions []*sessionConn
+	next     atomic.Uint32 // pemilihan sesi bergiliran (bonding)
+	port     int
+	ready    chan struct{}
+	done     chan struct{}
+	errOnce  sync.Once
+	errMsg   atomic.Value // string
 }
 
 var (
@@ -87,33 +96,39 @@ func parseQType(s string) (uint16, bool) {
 	return 0, false
 }
 
-// normalizeResolver melengkapi port DNS bila belum ada dan membuang skema.
+// normalizeResolver menampilkan alamat resolver dalam bentuk host:port/URL.
 func normalizeResolver(resolver string) string {
-	r := strings.TrimSpace(resolver)
-	r = strings.TrimPrefix(r, "udp://")
-	if r == "" {
-		return "8.8.8.8:53"
+	spec, err := parseResolver(resolver)
+	if err != nil {
+		return strings.TrimSpace(resolver)
 	}
-	if _, _, err := net.SplitHostPort(r); err != nil {
-		return r + ":53"
-	}
-	return r
+	return spec.addr
 }
 
 // Start menjalankan tunnel SlowDNS dan membuka listener TCP lokal di
 // 127.0.0.1:listenPort (listenPort 0 = port acak; lihat ListenPort).
 //
-// resolver : alamat DNS upstream, mis. "8.8.8.8" atau "1.1.1.1:53".
+// resolver : alamat DNS upstream — "8.8.8.8", "udp://1.1.1.1:53",
+// "https://dns.google/dns-query" (DoH), atau "tls://1.1.1.1" (DoT).
 // domain   : domain tunnel, mis. "t.example.com" (harus di-host dnstt-server).
 // pubkeyHex: public key server (64 karakter hex) untuk Noise_NK.
 // qtype    : AUTO | NULL | TXT | CNAME | MX | NS | SRV.
 // listenPort: port TCP lokal; 0 = pilih otomatis.
 // kcpWindow: jendela KCP; 0 = default (64).
-// logger   : penerima log (boleh nil).
+// qnameLimit: panjang maksimum nama DNS (0/default = 255).
+// ednsLimit : ukuran payload UDP di OPT record (0/default = 4096).
+// sessions  : jumlah sesi SlowDNS paralel (1–8); >1 hanya dipakai bila
+// multiLogin aktif.
+// multiLogin: true = tiap sesi memakai login/ClientID DNS sendiri
+// (sesuai "Multi login" HTTP Custom). Saat false, hanya satu sesi
+// dijalankan karena login dibagi bersama.
+// autoCalibrate: uji QNAME/EDNS0 sebelum menyambung dan pilih batas
+// terbesar yang lolos jaringan (nilai manual tetap tersimpan).
+// logger    : penerima log (boleh nil).
 //
 // Fungsi ini sinkron sampai listener lokal siap. Gunakan WaitReady untuk
 // menunggu sesi smux ke server benar-benar terbentuk.
-func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow int, logger Logger) error {
+func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow, qnameLimit, ednsLimit, sessions int, multiLogin, autoCalibrate bool, logger Logger) error {
 	mu.Lock()
 	defer mu.Unlock()
 	if active != nil {
@@ -135,32 +150,47 @@ func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow int,
 	if kcpWindow <= 0 || kcpWindow > turbotunnel.QueueSize {
 		kcpWindow = turbotunnel.QueueSize / 2
 	}
-	raddr, err := net.ResolveUDPAddr("udp", normalizeResolver(resolver))
+	if qnameLimit > 0 && (qnameLimit < 64 || qnameLimit > 255) {
+		return fmt.Errorf("batas QNAME harus 0 atau 64–255 byte")
+	}
+	if ednsLimit > 0 && (ednsLimit < 512 || ednsLimit > 4096) {
+		return fmt.Errorf("batas EDNS0 harus 0 atau 512–4096 byte")
+	}
+	if sessions < 1 {
+		sessions = 1
+	}
+	if sessions > 8 {
+		sessions = 8
+	}
+	if !multiLogin {
+		// Tanpa login terpisah, beberapa sesi DNS tidak bisa berbagi satu
+		// ClientID: server dnstt memetakan ClientID ke satu jalur.
+		sessions = 1
+	}
+	spec, err := parseResolver(resolver)
 	if err != nil {
 		return fmt.Errorf("resolver tidak valid: %v", err)
 	}
-	udp, err := net.ListenUDP("udp", nil)
-	if err != nil {
-		return fmt.Errorf("membuka socket UDP: %v", err)
-	}
 	ln, err := net.ListenTCP("tcp", &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: listenPort})
 	if err != nil {
-		udp.Close()
 		return fmt.Errorf("membuka listener lokal: %v", err)
 	}
 
 	t := &tunnel{
 		ln:    ln,
-		udp:   udp,
 		port:  ln.Addr().(*net.TCPAddr).Port,
 		ready: make(chan struct{}),
 		done:  make(chan struct{}),
 	}
 	active = t
 	setLogger(logger)
-	logf("SlowDNS: mulai • resolver %s • domain %s • tipe %s • 127.0.0.1:%d",
-		normalizeResolver(resolver), domain, strings.ToUpper(strings.TrimSpace(qtype)), t.port)
-	go t.run(pubkey, d, qt, isAuto, raddr, kcpWindow)
+	mode := "1 sesi"
+	if sessions > 1 {
+		mode = fmt.Sprintf("%d sesi • login terpisah", sessions)
+	}
+	logf("SlowDNS: mulai • resolver %s (%s) • domain %s • tipe %s • %s • 127.0.0.1:%d",
+		normalizeResolver(resolver), spec.kind, domain, strings.ToUpper(strings.TrimSpace(qtype)), mode, t.port)
+	go t.run(pubkey, d, qt, isAuto, spec, kcpWindow, qnameLimit, ednsLimit, sessions, autoCalibrate)
 	return nil
 }
 
@@ -218,10 +248,10 @@ func Stop() {
 	// Hentikan loop kirim/terima DNS lebih dulu supaya tidak ada paket baru
 	// yang dicoba setelah socket ditutup (mencegah banjir log ErrClosed).
 	t.mu.Lock()
-	pconn := t.pconn
+	sessions := append([]*sessionConn(nil), t.sessions...)
 	t.mu.Unlock()
-	if pconn != nil {
-		pconn.Close()
+	for _, sc := range sessions {
+		sc.pconn.Close()
 	}
 	t.closeAll()
 	select {
@@ -233,18 +263,23 @@ func Stop() {
 
 func (t *tunnel) closeAll() {
 	t.mu.Lock()
-	defer t.mu.Unlock()
-	if t.ln != nil {
-		t.ln.Close()
+	sessions := append([]*sessionConn(nil), t.sessions...)
+	t.sessions = nil
+	ln := t.ln
+	t.mu.Unlock()
+	if ln != nil {
+		ln.Close()
 	}
-	if t.sess != nil {
-		t.sess.Close()
-	}
-	if t.kcp != nil {
-		t.kcp.Close()
-	}
-	if t.udp != nil {
-		t.udp.Close()
+	for _, sc := range sessions {
+		if sc.sess != nil {
+			sc.sess.Close()
+		}
+		if sc.kcp != nil {
+			sc.kcp.Close()
+		}
+		if sc.transport != nil {
+			sc.transport.Close()
+		}
 	}
 }
 
@@ -261,16 +296,16 @@ func (t *tunnel) fail(err error) {
 }
 
 // run menjalankan seluruh rangkaian tunnel (meniru run() dnstt-client).
-func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, raddr *net.UDPAddr, kcpWindow int) (retErr error) {
+func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, spec resolverSpec, kcpWindow, qnameLimit, ednsLimit, sessions int, autoCalibrate bool) (retErr error) {
 	defer func() {
 		// Saat run berakhir — gagal awal maupun di-Stop — hentikan loop DNS
 		// lebih dulu lalu tutup socket supaya tidak ada goroutine yang
 		// tertinggal terus menulis ke socket tertutup.
 		t.mu.Lock()
-		pconn := t.pconn
+		all := append([]*sessionConn(nil), t.sessions...)
 		t.mu.Unlock()
-		if pconn != nil {
-			pconn.Close()
+		for _, sc := range all {
+			sc.pconn.Close()
 		}
 		t.closeAll()
 		t.fail(retErr)
@@ -278,61 +313,51 @@ func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, 
 
 	// Mode AUTO: kalibrasi tipe record yang lolos resolver/server.
 	if isAuto {
-		qtype = calibrateQType(raddr, domain, 2*time.Second, logf)
+		qtype = calibrateQType(spec, domain, 1200*time.Millisecond, logf)
 		logf("SlowDNS: kalibrasi selesai • tipe %s", typeName(qtype))
 	}
 
-	pconn := NewDNSPacketConn(t.udp, raddr, domain, qtype, logf)
-	t.mu.Lock()
-	t.pconn = pconn
-	t.mu.Unlock()
-
-	mtu := dnsNameCapacity(domain) - 8 - 1 - numPadding - 1 // clientid + prefiks padding + padding + prefiks data
-	if mtu < 80 {
-		return fmt.Errorf("domain %s hanya menyisakan %d byte untuk payload", domain, mtu)
-	}
-	logf("SlowDNS native: effective MTU %d", mtu)
-
-	conn, err := kcp.NewConn2(raddr, nil, 0, 0, pconn)
-	if err != nil {
-		return fmt.Errorf("membuka KCP: %v", err)
-	}
-	t.mu.Lock()
-	t.kcp = conn
-	t.mu.Unlock()
-	logf("SlowDNS native: begin session %08x", conn.GetConv())
-
-	// Izinkan penggabungan payload beberapa pengiriman berturut-turut.
-	conn.SetStreamMode(true)
-	// Matikan congestion window dinamis (batas hanya dari jendela statis).
-	conn.SetNoDelay(0, 0, 0, 1)
-	conn.SetWindowSize(kcpWindow, kcpWindow)
-	if rc := conn.SetMtu(mtu); !rc {
-		return errors.New("SetMtu gagal")
+	// Kalibrasi batas QNAME/EDNS0 (gaya HTTP Custom): uji dari nilai
+	// terbesar, pakai yang benar-benar lolos. Nilai profil tidak diubah.
+	if autoCalibrate {
+		qnameLimit, ednsLimit = calibrateLimits(spec, domain, qtype, qnameLimit, ednsLimit, logf)
 	}
 
-	// Kanal Noise di atas KCP: Noise_NK_25519_ChaChaPoly_BLAKE2s,
-	// prologue "dnstt 2020-04-13".
-	rw, err := noise.NewClient(conn, pubkey)
-	if err != nil {
-		return err
+	// Buka semua sesi paralel. Masing-masing punya transport, ClientID,
+	// KCP, dan Noise sendiri ("login terpisah").
+	type opened struct {
+		sc  *sessionConn
+		err error
 	}
-
-	// Sesi smux v2 di atas Noise.
-	cfg := smux.DefaultConfig()
-	cfg.Version = 2
-	cfg.KeepAliveTimeout = idleTimeout
-	cfg.MaxStreamBuffer = 1 * 1024 * 1024
-	sess, err := smux.Client(rw, cfg)
-	if err != nil {
-		return fmt.Errorf("membuka sesi smux: %v", err)
+	ch := make(chan opened, sessions)
+	for i := 0; i < sessions; i++ {
+		go func(idx int) {
+			sc, err := t.openSession(pubkey, domain, qtype, spec, kcpWindow, qnameLimit, ednsLimit)
+			if err != nil && idx > 0 {
+				err = fmt.Errorf("sesi %d: %v", idx+1, err)
+			}
+			ch <- opened{sc: sc, err: err}
+		}(i)
 	}
-	t.mu.Lock()
-	t.sess = sess
-	t.mu.Unlock()
+	var firstErr error
+	for i := 0; i < sessions; i++ {
+		res := <-ch
+		if res.err != nil {
+			if firstErr == nil {
+				firstErr = res.err
+			}
+			continue
+		}
+		t.mu.Lock()
+		t.sessions = append(t.sessions, res.sc)
+		t.mu.Unlock()
+	}
+	if firstErr != nil {
+		return firstErr
+	}
 
 	close(t.ready)
-	logf("SlowDNS siap • 127.0.0.1:%d • tipe %s", t.port, typeName(qtype))
+	logf("SlowDNS siap • 127.0.0.1:%d • tipe %s • %d sesi", t.port, typeName(qtype), len(t.sessions))
 
 	for {
 		local, err := t.ln.Accept()
@@ -342,13 +367,98 @@ func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, 
 			}
 			return nil
 		}
-		go func() {
+		// Pilih sesi bergiliran: stream/kanal SSH disebar ke semua sesi.
+		t.mu.Lock()
+		n := len(t.sessions)
+		var sc *sessionConn
+		if n > 0 {
+			sc = t.sessions[int(t.next.Add(1)-1)%n]
+		}
+		t.mu.Unlock()
+		if sc == nil {
+			local.Close()
+			continue
+		}
+		go func(local *net.TCPConn, sc *sessionConn) {
 			defer local.Close()
-			if err := handleStream(local.(*net.TCPConn), sess, conn.GetConv()); err != nil {
+			if err := handleStream(local, sc.sess, sc.conv); err != nil {
 				logf("SlowDNS handle: %v", err)
 			}
-		}()
+		}(local.(*net.TCPConn), sc)
 	}
+}
+
+// openSession membangun satu sesi SlowDNS lengkap: transport resolver →
+// DNSPacketConn → KCP → Noise → smux.
+func (t *tunnel) openSession(
+	pubkey []byte,
+	domain dns.Name,
+	qtype uint16,
+	spec resolverSpec,
+	kcpWindow, qnameLimit, ednsLimit int,
+) (*sessionConn, error) {
+	tr, err := openTransport(spec)
+	if err != nil {
+		return nil, fmt.Errorf("membuka resolver: %v", err)
+	}
+	sc := &sessionConn{transport: tr.PacketConn, addr: tr.addr}
+	ok := false
+	defer func() {
+		if !ok {
+			tr.Close()
+		}
+	}()
+
+	mtu := dnsNameCapacity(domain, qnameLimit) - 8 - 1 - numPadding - 1 // clientid + prefiks padding + padding + prefiks data
+	if mtu < 80 {
+		return nil, fmt.Errorf("domain %s hanya menyisakan %d byte untuk payload", domain, mtu)
+	}
+	logf("SlowDNS native: effective MTU %d", mtu)
+
+	sc.pconn = NewDNSPacketConn(sc.transport, sc.addr, domain, qtype, ednsLimit, logf)
+	conn, err := kcp.NewConn2(sc.addr, nil, 0, 0, sc.pconn)
+	if err != nil {
+		sc.pconn.Close()
+		return nil, fmt.Errorf("membuka KCP: %v", err)
+	}
+	sc.kcp = conn
+	sc.conv = conn.GetConv()
+	logf("SlowDNS native: begin session %08x", sc.conv)
+
+	// Izinkan penggabungan payload beberapa pengiriman berturut-turut.
+	conn.SetStreamMode(true)
+	// Matikan congestion window dinamis (batas hanya dari jendela statis).
+	conn.SetNoDelay(0, 0, 0, 1)
+	conn.SetWindowSize(kcpWindow, kcpWindow)
+	if rc := conn.SetMtu(mtu); !rc {
+		conn.Close()
+		sc.pconn.Close()
+		return nil, errors.New("SetMtu gagal")
+	}
+
+	// Kanal Noise di atas KCP: Noise_NK_25519_ChaChaPoly_BLAKE2s,
+	// prologue "dnstt 2020-04-13".
+	rw, err := noise.NewClient(conn, pubkey)
+	if err != nil {
+		conn.Close()
+		sc.pconn.Close()
+		return nil, err
+	}
+
+	// Sesi smux v2 di atas Noise.
+	cfg := smux.DefaultConfig()
+	cfg.Version = 2
+	cfg.KeepAliveTimeout = idleTimeout
+	cfg.MaxStreamBuffer = 1 * 1024 * 1024
+	sess, err := smux.Client(rw, cfg)
+	if err != nil {
+		conn.Close()
+		sc.pconn.Close()
+		return nil, fmt.Errorf("membuka sesi smux: %v", err)
+	}
+	sc.sess = sess
+	ok = true
+	return sc, nil
 }
 
 // handleStream meneruskan satu koneksi TCP lokal ke satu stream smux.
@@ -395,9 +505,13 @@ func handleStream(local *net.TCPConn, sess *smux.Session, conv uint32) error {
 
 // dnsNameCapacity menghitung sisa byte untuk data terenkode setelah domain
 // dimasukkan ke nama DNS (sama dengan dnstt-client).
-func dnsNameCapacity(domain dns.Name) int {
+func dnsNameCapacity(domain dns.Name, limit int) int {
 	// Nama maksimal 255 oktet. https://tools.ietf.org/html/rfc1035#section-2.3.4
 	capacity := 255
+	// Batas QNAME dari pengaturan (0 = default 255).
+	if limit > 0 && limit < capacity {
+		capacity = limit
+	}
 	// Null terminator.
 	capacity -= 1
 	for _, label := range domain {

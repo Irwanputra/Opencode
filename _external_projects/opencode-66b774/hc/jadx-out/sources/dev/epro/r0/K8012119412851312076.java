@@ -1,0 +1,51 @@
+package dev.epro.r0;
+
+import java.util.List;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class K8012119412851312076 {
+    public final C9265849176590713551 a;
+    public final J12043550928838212009 b;
+
+    public static final class Z11244019023321623390 implements J12043550928838212009 {
+        public final /* synthetic */ J12043550928838212009 a;
+        public final /* synthetic */ K8012119412851312076 b;
+
+        static {
+            izmyclvb.dpqpjfpoanwt1(167);
+        }
+
+        private native void gnmpuzzfxlby(J12043550928838212009 j12043550928838212009, K8012119412851312076 k8012119412851312076);
+
+        @Override // dev.epro.r0.J12043550928838212009
+        public final native Object collect(S7864201625552763331 s7864201625552763331, R4833348786910499294 r4833348786910499294);
+
+        public Z11244019023321623390(J12043550928838212009 j12043550928838212009, K8012119412851312076 k8012119412851312076) {
+            this.a = j12043550928838212009;
+            this.b = k8012119412851312076;
+            gnmpuzzfxlby(j12043550928838212009, k8012119412851312076);
+        }
+    }
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(2146);
+    }
+
+    public static native String a(String str);
+
+    public static native K6255634571546489463 b(K6255634571546489463 k6255634571546489463);
+
+    public static native K6255634571546489463 d(K6255634571546489463 k6255634571546489463);
+
+    private native void erqfzyeqyyxn(C9265849176590713551 c9265849176590713551);
+
+    public final native Object c(List list, K14749510448791472029 k14749510448791472029);
+
+    public final native Object e(K6255634571546489463 k6255634571546489463, R14062301455140331524 r14062301455140331524);
+
+    public K8012119412851312076(C9265849176590713551 c9265849176590713551) {
+        c9265849176590713551.getClass();
+        erqfzyeqyyxn(c9265849176590713551);
+    }
+}

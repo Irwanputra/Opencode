@@ -1,0 +1,26 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class M8966241735825581316 implements M72006348651188775 {
+    public final /* synthetic */ I4293432593871965076 a;
+    public final /* synthetic */ I2388620560486547149 b;
+    public final /* synthetic */ F328346499417384150 c;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(1014);
+    }
+
+    private native void ujprwsoydaji(I4293432593871965076 i4293432593871965076, I2388620560486547149 i2388620560486547149, F328346499417384150 f328346499417384150);
+
+    @Override // dev.epro.r0.M72006348651188775
+    public final native void a();
+
+    public M8966241735825581316(I4293432593871965076 i4293432593871965076, I2388620560486547149 i2388620560486547149, F328346499417384150 f328346499417384150) {
+        this.a = i4293432593871965076;
+        this.b = i2388620560486547149;
+        this.c = f328346499417384150;
+        ujprwsoydaji(i4293432593871965076, i2388620560486547149, f328346499417384150);
+    }
+}

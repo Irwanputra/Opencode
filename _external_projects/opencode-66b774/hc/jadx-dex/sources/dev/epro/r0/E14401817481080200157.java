@@ -1,0 +1,26 @@
+package dev.epro.r0;
+
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class E14401817481080200157 {
+    public static final dev.epro.r0.E14401817481080200157 a;
+    public static final dev.epro.r0.E14401817481080200157 b;
+    public static final dev.epro.r0.E14401817481080200157 c;
+    public static final /* synthetic */ dev.epro.r0.E14401817481080200157[] d;
+
+    static {
+        dev.epro.r0.E14401817481080200157 e14401817481080200157 = new dev.epro.r0.E14401817481080200157("NATIVE", 0);
+        a = e14401817481080200157;
+        dev.epro.r0.E14401817481080200157 e144018174810802001572 = new dev.epro.r0.E14401817481080200157("CUSTOM_NATIVE", 1);
+        b = e144018174810802001572;
+        dev.epro.r0.E14401817481080200157 e144018174810802001573 = new dev.epro.r0.E14401817481080200157("BANNER", 2);
+        c = e144018174810802001573;
+        d = new dev.epro.r0.E14401817481080200157[]{e14401817481080200157, e144018174810802001572, e144018174810802001573};
+    }
+
+    public static dev.epro.r0.E14401817481080200157[] values() {
+        return (dev.epro.r0.E14401817481080200157[]) d.clone();
+    }
+}

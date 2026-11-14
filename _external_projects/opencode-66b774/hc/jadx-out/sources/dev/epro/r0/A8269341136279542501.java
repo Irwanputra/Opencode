@@ -1,0 +1,14 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public abstract class A8269341136279542501 implements L8750838032724194107 {
+    public R15896830329318850690 a() {
+        W7490182664534622746 w7490182664534622746 = new W7490182664534622746();
+        w7490182664534622746.h1(new J9638579967056948799(2, null, 10));
+        return w7490182664534622746;
+    }
+
+    public void c(R15896830329318850690 r15896830329318850690) {
+    }
+}

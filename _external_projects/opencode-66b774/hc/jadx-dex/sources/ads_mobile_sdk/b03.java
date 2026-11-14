@@ -1,0 +1,12 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class b03 extends ads_mobile_sdk.i61 implements dev.epro.r0.Q16898486116126855517 {
+    public final com.google.android.gms.ads.mediation.rtb.RtbAdapter b;
+
+    public b03(com.google.android.gms.ads.mediation.rtb.RtbAdapter rtbAdapter) {
+        super(rtbAdapter);
+        this.b = rtbAdapter;
+    }
+}

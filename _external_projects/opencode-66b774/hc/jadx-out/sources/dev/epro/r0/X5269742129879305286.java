@@ -1,0 +1,8 @@
+package dev.epro.r0;
+
+/* JADX INFO: loaded from: classes3.dex */
+public interface X5269742129879305286 {
+    static Object a(X5269742129879305286 x5269742129879305286, K14749510448791472029 k14749510448791472029) {
+        return taispfdcuhretefy.a0(x5269742129879305286, k14749510448791472029);
+    }
+}

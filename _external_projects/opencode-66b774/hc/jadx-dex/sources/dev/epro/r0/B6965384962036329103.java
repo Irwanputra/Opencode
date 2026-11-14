@@ -1,0 +1,182 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class B6965384962036329103 extends dev.epro.r0.R15896830329318850690 implements dev.epro.r0.D10205225622993155321 {
+
+    /* JADX INFO: renamed from: o, reason: collision with root package name */
+    public float f178o;
+    public float p;
+    public float q;
+    public float r;
+    public boolean s;
+
+    @Override // dev.epro.r0.D10205225622993155321
+    public final int W(dev.epro.r0.I11965759855724288421 i11965759855724288421, dev.epro.r0.G17613326942144185441 g17613326942144185441, int i) {
+        long jH1 = h1(i11965759855724288421);
+        if (dev.epro.r0.I16980768508151520658.g(jH1)) {
+            return dev.epro.r0.I16980768508151520658.i(jH1);
+        }
+        if (!this.s) {
+            i = dev.epro.r0.O15160157444238005800.f(i, jH1);
+        }
+        return dev.epro.r0.O15160157444238005800.g(g17613326942144185441.a0(i), jH1);
+    }
+
+    @Override // dev.epro.r0.D10205225622993155321
+    public final dev.epro.r0.H11646813293457574213 h(dev.epro.r0.I5164649337253478959 i5164649337253478959, dev.epro.r0.G17613326942144185441 g17613326942144185441, long j) {
+        int iK;
+        int i;
+        int iJ;
+        int iH;
+        long jA;
+        long jH1 = h1(i5164649337253478959);
+        if (this.s) {
+            jA = dev.epro.r0.O15160157444238005800.e(j, jH1);
+        } else {
+            if (java.lang.Float.isNaN(this.f178o)) {
+                iK = dev.epro.r0.I16980768508151520658.k(j);
+                int i2 = dev.epro.r0.I16980768508151520658.i(jH1);
+                if (iK > i2) {
+                    iK = i2;
+                }
+            } else {
+                iK = dev.epro.r0.I16980768508151520658.k(jH1);
+            }
+            if (java.lang.Float.isNaN(this.q)) {
+                i = dev.epro.r0.I16980768508151520658.i(j);
+                int iK2 = dev.epro.r0.I16980768508151520658.k(jH1);
+                if (i < iK2) {
+                    i = iK2;
+                }
+            } else {
+                i = dev.epro.r0.I16980768508151520658.i(jH1);
+            }
+            if (java.lang.Float.isNaN(this.p)) {
+                iJ = dev.epro.r0.I16980768508151520658.j(j);
+                int iH2 = dev.epro.r0.I16980768508151520658.h(jH1);
+                if (iJ > iH2) {
+                    iJ = iH2;
+                }
+            } else {
+                iJ = dev.epro.r0.I16980768508151520658.j(jH1);
+            }
+            if (java.lang.Float.isNaN(this.r)) {
+                iH = dev.epro.r0.I16980768508151520658.h(j);
+                int iJ2 = dev.epro.r0.I16980768508151520658.j(jH1);
+                if (iH < iJ2) {
+                    iH = iJ2;
+                }
+            } else {
+                iH = dev.epro.r0.I16980768508151520658.h(jH1);
+            }
+            jA = dev.epro.r0.O15160157444238005800.a(iK, i, iJ, iH);
+        }
+        dev.epro.r0.Z17471428274427141949 z17471428274427141949D = g17613326942144185441.d(jA);
+        return i5164649337253478959.m(z17471428274427141949D.a, z17471428274427141949D.b, dev.epro.r0.X9852054718446117252.a, new dev.epro.r0.Y17164194448930251553(z17471428274427141949D, (byte) 13));
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public final long h1(dev.epro.r0.I5164649337253478959 r7) {
+        /*
+            r6 = this;
+            float r0 = r6.q
+            boolean r0 = java.lang.Float.isNaN(r0)
+            r1 = 2147483647(0x7fffffff, float:NaN)
+            r2 = 0
+            if (r0 != 0) goto L16
+            float r0 = r6.q
+            int r0 = r7.g0(r0)
+            if (r0 >= 0) goto L17
+            r0 = r2
+            goto L17
+        L16:
+            r0 = r1
+        L17:
+            float r3 = r6.r
+            boolean r3 = java.lang.Float.isNaN(r3)
+            if (r3 != 0) goto L29
+            float r3 = r6.r
+            int r3 = r7.g0(r3)
+            if (r3 >= 0) goto L2a
+            r3 = r2
+            goto L2a
+        L29:
+            r3 = r1
+        L2a:
+            float r4 = r6.f178o
+            boolean r4 = java.lang.Float.isNaN(r4)
+            if (r4 != 0) goto L41
+            float r4 = r6.f178o
+            int r4 = r7.g0(r4)
+            if (r4 >= 0) goto L3b
+            r4 = r2
+        L3b:
+            if (r4 <= r0) goto L3e
+            r4 = r0
+        L3e:
+            if (r4 == r1) goto L41
+            goto L42
+        L41:
+            r4 = r2
+        L42:
+            float r5 = r6.p
+            boolean r5 = java.lang.Float.isNaN(r5)
+            if (r5 != 0) goto L59
+            float r6 = r6.p
+            int r6 = r7.g0(r6)
+            if (r6 >= 0) goto L53
+            r6 = r2
+        L53:
+            if (r6 <= r3) goto L56
+            r6 = r3
+        L56:
+            if (r6 == r1) goto L59
+            r2 = r6
+        L59:
+            long r6 = dev.epro.r0.O15160157444238005800.a(r4, r0, r2, r3)
+            return r6
+        */
+        throw new UnsupportedOperationException("Method not decompiled: dev.epro.r0.B6965384962036329103.h1(dev.epro.r0.I5164649337253478959):long");
+    }
+
+    @Override // dev.epro.r0.D10205225622993155321
+    public final int l0(dev.epro.r0.I11965759855724288421 i11965759855724288421, dev.epro.r0.G17613326942144185441 g17613326942144185441, int i) {
+        long jH1 = h1(i11965759855724288421);
+        if (dev.epro.r0.I16980768508151520658.f(jH1)) {
+            return dev.epro.r0.I16980768508151520658.h(jH1);
+        }
+        if (!this.s) {
+            i = dev.epro.r0.O15160157444238005800.g(i, jH1);
+        }
+        return dev.epro.r0.O15160157444238005800.f(g17613326942144185441.f(i), jH1);
+    }
+
+    @Override // dev.epro.r0.D10205225622993155321
+    public final int r(dev.epro.r0.I11965759855724288421 i11965759855724288421, dev.epro.r0.G17613326942144185441 g17613326942144185441, int i) {
+        long jH1 = h1(i11965759855724288421);
+        if (dev.epro.r0.I16980768508151520658.f(jH1)) {
+            return dev.epro.r0.I16980768508151520658.h(jH1);
+        }
+        if (!this.s) {
+            i = dev.epro.r0.O15160157444238005800.g(i, jH1);
+        }
+        return dev.epro.r0.O15160157444238005800.f(g17613326942144185441.b0(i), jH1);
+    }
+
+    @Override // dev.epro.r0.D10205225622993155321
+    public final int z(dev.epro.r0.I11965759855724288421 i11965759855724288421, dev.epro.r0.G17613326942144185441 g17613326942144185441, int i) {
+        long jH1 = h1(i11965759855724288421);
+        if (dev.epro.r0.I16980768508151520658.g(jH1)) {
+            return dev.epro.r0.I16980768508151520658.i(jH1);
+        }
+        if (!this.s) {
+            i = dev.epro.r0.O15160157444238005800.f(i, jH1);
+        }
+        return dev.epro.r0.O15160157444238005800.g(g17613326942144185441.V(i), jH1);
+    }
+}

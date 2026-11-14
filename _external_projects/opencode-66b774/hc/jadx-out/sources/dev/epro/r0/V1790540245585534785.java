@@ -1,0 +1,73 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class V1790540245585534785 extends P9893650590651797888 implements L12639328004344855510 {
+    public final /* synthetic */ byte i = 1;
+    public final /* synthetic */ W3656598099029166611 j;
+    public final /* synthetic */ F4096073349764486348 k;
+    public final /* synthetic */ I1722681268793429505 l;
+    public final /* synthetic */ int m;
+    public final /* synthetic */ Object n;
+
+    /* JADX INFO: renamed from: o, reason: collision with root package name */
+    public final /* synthetic */ Object f539o;
+    public final /* synthetic */ Object p;
+    public final /* synthetic */ J12078565427869724451 q;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public V1790540245585534785(W3656598099029166611 w3656598099029166611, F4096073349764486348 f4096073349764486348, I1722681268793429505 i1722681268793429505, Z5580852631924387145 z5580852631924387145, J2232875916072654838 j2232875916072654838, L12639328004344855510 l12639328004344855510, J12078565427869724451 j12078565427869724451, int i) {
+        super(2);
+        this.j = w3656598099029166611;
+        this.k = f4096073349764486348;
+        this.l = i1722681268793429505;
+        this.n = z5580852631924387145;
+        this.f539o = j2232875916072654838;
+        this.p = l12639328004344855510;
+        this.q = j12078565427869724451;
+        this.m = i;
+    }
+
+    @Override // dev.epro.r0.L12639328004344855510
+    public final Object invoke(Object obj, Object obj2) {
+        byte b = this.i;
+        O9245300239821758723 o9245300239821758723 = O9245300239821758723.a;
+        int i = this.m;
+        Object obj3 = this.p;
+        Object obj4 = this.f539o;
+        Object obj5 = this.n;
+        switch (b) {
+            case 0:
+                ((Number) obj2).intValue();
+                T15443218846549482730 t15443218846549482730 = (T15443218846549482730) this.q;
+                int iP = V16504496955554646429.p(i | 1);
+                W3656598099029166611 w3656598099029166611 = this.j;
+                I1722681268793429505 i1722681268793429505 = this.l;
+                F4096073349764486348 f4096073349764486348 = this.k;
+                T18016951143603335921.c(w3656598099029166611, i1722681268793429505, f4096073349764486348, (G15527156457921655762) obj3, (F4096073349764486348) obj5, (F4096073349764486348) obj4, t15443218846549482730, (M3727281027331139839) obj, iP);
+                break;
+            default:
+                ((Number) obj2).intValue();
+                int iP2 = V16504496955554646429.p(i | 1);
+                W3656598099029166611 w36565980990291666112 = this.j;
+                F4096073349764486348 f40960733497644863482 = this.k;
+                I1722681268793429505 i17226812687934295052 = this.l;
+                C9869900372345142877.a(w36565980990291666112, f40960733497644863482, i17226812687934295052, (Z5580852631924387145) obj5, (J2232875916072654838) obj4, (L12639328004344855510) obj3, this.q, (M3727281027331139839) obj, iP2);
+                break;
+        }
+        return o9245300239821758723;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public V1790540245585534785(W3656598099029166611 w3656598099029166611, I1722681268793429505 i1722681268793429505, F4096073349764486348 f4096073349764486348, G15527156457921655762 g15527156457921655762, F4096073349764486348 f40960733497644863482, F4096073349764486348 f40960733497644863483, T15443218846549482730 t15443218846549482730, int i) {
+        super(2);
+        this.j = w3656598099029166611;
+        this.l = i1722681268793429505;
+        this.k = f4096073349764486348;
+        this.p = g15527156457921655762;
+        this.n = f40960733497644863482;
+        this.f539o = f40960733497644863483;
+        this.q = t15443218846549482730;
+        this.m = i;
+    }
+}

@@ -1,0 +1,28 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public abstract class Q16536459847538462718 {
+    public static final J3345206889276528198 a = new J3345206889276528198();
+
+    public void b(V16360509766617756755 v16360509766617756755) {
+    }
+
+    public void c(V16360509766617756755 v16360509766617756755) {
+    }
+
+    public void d(V16360509766617756755 v16360509766617756755) {
+    }
+
+    public void e(V16360509766617756755 v16360509766617756755) {
+    }
+
+    public void f(V16360509766617756755 v16360509766617756755) {
+    }
+
+    public void g(V16360509766617756755 v16360509766617756755) {
+    }
+
+    public void a(V5252629055842691065 v5252629055842691065, String str) {
+    }
+}

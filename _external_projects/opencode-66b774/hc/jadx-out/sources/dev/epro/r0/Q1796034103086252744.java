@@ -1,0 +1,37 @@
+package dev.epro.r0;
+
+import android.content.Context;
+import o.bwmna.gdrqkg.izmyclvb;
+import org.json.JSONObject;
+
+/* JADX INFO: loaded from: classes3.dex */
+public final class Q1796034103086252744 {
+    public final Context a;
+    public final L12602321637077960189 b;
+    public final F6186074950899161357 c;
+    public final S18239585271315992040 d;
+    public final H15186625828076266306 e;
+
+    static {
+        izmyclvb.qgayjvbiagej2(204);
+    }
+
+    private native void dckbygnumwcx(Context context, L12602321637077960189 l12602321637077960189, A8996524994521565307 a8996524994521565307, F6186074950899161357 f6186074950899161357, S18239585271315992040 s18239585271315992040);
+
+    public final native Object a(String str, JSONObject jSONObject, R14062301455140331524 r14062301455140331524);
+
+    public final native boolean b();
+
+    public final native void c();
+
+    public final native Object d(F4096073349764486348 f4096073349764486348, R4833348786910499294 r4833348786910499294);
+
+    public Q1796034103086252744(Context context, L12602321637077960189 l12602321637077960189, A8996524994521565307 a8996524994521565307, F6186074950899161357 f6186074950899161357, S18239585271315992040 s18239585271315992040) {
+        context.getClass();
+        l12602321637077960189.getClass();
+        a8996524994521565307.getClass();
+        f6186074950899161357.getClass();
+        s18239585271315992040.getClass();
+        dckbygnumwcx(context, l12602321637077960189, a8996524994521565307, f6186074950899161357, s18239585271315992040);
+    }
+}

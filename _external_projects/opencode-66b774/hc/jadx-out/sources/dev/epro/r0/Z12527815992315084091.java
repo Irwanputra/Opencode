@@ -1,0 +1,9 @@
+package dev.epro.r0;
+
+import android.view.ViewGroup;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public abstract class Z12527815992315084091 {
+    public static final ViewGroup.LayoutParams a = new ViewGroup.LayoutParams(-2, -2);
+}

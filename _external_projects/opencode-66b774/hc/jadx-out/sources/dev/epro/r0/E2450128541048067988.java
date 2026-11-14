@@ -1,0 +1,11 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public abstract class E2450128541048067988 {
+    public static final C10679442109412439625 a = new C10679442109412439625(new A6662317080022852970(J8045362843799184672.h, (byte) 20));
+
+    public static J5715778638296486773 a(M3727281027331139839 m3727281027331139839) {
+        return (J5715778638296486773) m3727281027331139839.j(a);
+    }
+}

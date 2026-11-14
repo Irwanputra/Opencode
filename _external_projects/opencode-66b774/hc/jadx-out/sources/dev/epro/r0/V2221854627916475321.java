@@ -1,0 +1,25 @@
+package dev.epro.r0;
+
+import java.util.List;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes3.dex */
+public final class V2221854627916475321 implements A10838822263452390785 {
+    public final /* synthetic */ L12639328004344855510 a;
+    public final /* synthetic */ L12639328004344855510 b;
+
+    static {
+        izmyclvb.qgayjvbiagej2(728);
+    }
+
+    private native void ivctpldhrnjq(L12639328004344855510 l12639328004344855510, L12639328004344855510 l126393280043448555102);
+
+    @Override // dev.epro.r0.A10838822263452390785
+    public final native H11646813293457574213 c(I5164649337253478959 i5164649337253478959, List list, long j);
+
+    public V2221854627916475321(L12639328004344855510 l12639328004344855510, L12639328004344855510 l126393280043448555102) {
+        this.a = l12639328004344855510;
+        this.b = l126393280043448555102;
+        ivctpldhrnjq(l12639328004344855510, l126393280043448555102);
+    }
+}

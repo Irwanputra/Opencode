@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="cloud_config_file_count">
+        <item quantity="one">%1$d file</item>
+        <item quantity="other">%1$d files</item>
+    </plurals>
+    <plurals name="log_generic_config_entries">
+        <item quantity="one">%1$s: Received %2$d configuration entry</item>
+        <item quantity="other">%1$s: Received %2$d configuration entries</item>
+    </plurals>
+    <plurals name="log_lb_started">
+        <item quantity="one">Load Balancer: Started with %1$d backend</item>
+        <item quantity="other">Load Balancer: Started with %1$d backends</item>
+    </plurals>
+    <plurals name="log_profile_config_entries">
+        <item quantity="one">Received %2$d %1$s configuration entry</item>
+        <item quantity="other">Received %2$d %1$s configuration entries</item>
+    </plurals>
+    <plurals name="one_cloud_create_server_count">
+        <item quantity="one">%d server</item>
+        <item quantity="other">%d servers</item>
+    </plurals>
+    <plurals name="profiles_selected_count">
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_delete_selected_message">
+        <item quantity="one">%1$d selected file will be removed from app storage.</item>
+        <item quantity="other">%1$d selected files will be removed from app storage.</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_selected_count">
+        <item quantity="one">%1$d selected</item>
+        <item quantity="other">%1$d selected</item>
+    </plurals>
+    <plurals name="v2ray_dns_host_presets_selected">
+        <item quantity="one">%1$d preset selected</item>
+        <item quantity="other">%1$d presets selected</item>
+    </plurals>
+    <plurals name="v2ray_profiles_imported">
+        <item quantity="one">%1$d V2Ray profile imported</item>
+        <item quantity="other">%1$d V2Ray profiles imported</item>
+    </plurals>
+</resources>

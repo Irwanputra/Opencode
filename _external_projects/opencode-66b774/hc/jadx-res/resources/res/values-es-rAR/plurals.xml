@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="cloud_config_file_count">
+        <item quantity="one">%1$d archivo</item>
+        <item quantity="many">%1$d archivos</item>
+        <item quantity="other">%1$d archivos</item>
+    </plurals>
+    <plurals name="log_generic_config_entries">
+        <item quantity="one">%1$s: se recibió %2$d entrada de configuración</item>
+        <item quantity="many">%1$s: se recibieron %2$d entradas de configuración</item>
+        <item quantity="other">%1$s: se recibieron %2$d entradas de configuración</item>
+    </plurals>
+    <plurals name="log_lb_started">
+        <item quantity="one">Balanceador de carga: iniciado con %1$d backend</item>
+        <item quantity="many">Balanceador de carga: iniciado con %1$d backends</item>
+        <item quantity="other">Balanceador de carga: iniciado con %1$d backends</item>
+    </plurals>
+    <plurals name="log_profile_config_entries">
+        <item quantity="one">Se recibió %2$d entrada de configuración %1$s</item>
+        <item quantity="many">Se recibieron %2$d entradas de configuración %1$s</item>
+        <item quantity="other">Se recibieron %2$d entradas de configuración %1$s</item>
+    </plurals>
+    <plurals name="one_cloud_create_server_count">
+        <item quantity="one">%d servidor</item>
+        <item quantity="many">%d servidores</item>
+        <item quantity="other">%d servidores</item>
+    </plurals>
+    <plurals name="profiles_selected_count">
+        <item quantity="one">%1$d seleccionado</item>
+        <item quantity="many">%1$d seleccionados</item>
+        <item quantity="other">%1$d seleccionados</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_delete_selected_message">
+        <item quantity="one">%1$d archivo seleccionado se eliminará del almacenamiento de la app.</item>
+        <item quantity="many">%1$d archivos seleccionados se eliminarán del almacenamiento de la app.</item>
+        <item quantity="other">%1$d archivos seleccionados se eliminarán del almacenamiento de la app.</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_selected_count">
+        <item quantity="one">%1$d seleccionado</item>
+        <item quantity="many">%1$d seleccionados</item>
+        <item quantity="other">%1$d seleccionados</item>
+    </plurals>
+    <plurals name="v2ray_dns_host_presets_selected">
+        <item quantity="one">%1$d preset seleccionado</item>
+        <item quantity="many">%1$d presets seleccionados</item>
+        <item quantity="other">%1$d presets seleccionados</item>
+    </plurals>
+    <plurals name="v2ray_profiles_imported">
+        <item quantity="one">%1$d perfil V2Ray importado</item>
+        <item quantity="many">%1$d perfiles V2Ray importados</item>
+        <item quantity="other">%1$d perfiles V2Ray importados</item>
+    </plurals>
+</resources>

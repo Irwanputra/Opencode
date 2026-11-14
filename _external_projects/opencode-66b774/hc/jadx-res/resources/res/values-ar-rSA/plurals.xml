@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="cloud_config_file_count">
+        <item quantity="zero">لا ملفات</item>
+        <item quantity="one">ملف واحد</item>
+        <item quantity="two">ملفان</item>
+        <item quantity="few">%1$d ملفات</item>
+        <item quantity="many">%1$d ملفًا</item>
+        <item quantity="other">%1$d ملف</item>
+    </plurals>
+    <plurals name="log_generic_config_entries">
+        <item quantity="zero">⁦%1$s⁩: تم استلام %2$d إدخال إعداد</item>
+        <item quantity="one">⁦%1$s⁩: تم استلام إدخال إعداد واحد</item>
+        <item quantity="two">⁦%1$s⁩: تم استلام إدخالي إعداد</item>
+        <item quantity="few">⁦%1$s⁩: تم استلام %2$d إدخالات إعداد</item>
+        <item quantity="many">⁦%1$s⁩: تم استلام %2$d إدخال إعداد</item>
+        <item quantity="other">⁦%1$s⁩: تم استلام %2$d إدخال إعداد</item>
+    </plurals>
+    <plurals name="log_lb_started">
+        <item quantity="zero">موازن التحميل: بدأ مع %1$d backend</item>
+        <item quantity="one">موازن التحميل: بدأ مع backend واحد</item>
+        <item quantity="two">موازن التحميل: بدأ مع backend اثنين</item>
+        <item quantity="few">موازن التحميل: بدأ مع %1$d backends</item>
+        <item quantity="many">موازن التحميل: بدأ مع %1$d backend</item>
+        <item quantity="other">موازن التحميل: بدأ مع %1$d backend</item>
+    </plurals>
+    <plurals name="log_profile_config_entries">
+        <item quantity="zero">تم استلام %2$d إدخال إعداد %1$s</item>
+        <item quantity="one">تم استلام إدخال إعداد %1$s واحد</item>
+        <item quantity="two">تم استلام إدخالي إعداد %1$s</item>
+        <item quantity="few">تم استلام %2$d إدخالات إعداد %1$s</item>
+        <item quantity="many">تم استلام %2$d إدخال إعداد %1$s</item>
+        <item quantity="other">تم استلام %2$d إدخال إعداد %1$s</item>
+    </plurals>
+    <plurals name="one_cloud_create_server_count">
+        <item quantity="zero">%d خادم</item>
+        <item quantity="one">%d خادم</item>
+        <item quantity="two">%d خادمان</item>
+        <item quantity="few">%d خوادم</item>
+        <item quantity="many">%d خادمًا</item>
+        <item quantity="other">%d خادم</item>
+    </plurals>
+    <plurals name="profiles_selected_count">
+        <item quantity="zero">لم يتم تحديد أي عنصر</item>
+        <item quantity="one">تم تحديد %1$d</item>
+        <item quantity="two">تم تحديد %1$d</item>
+        <item quantity="few">تم تحديد %1$d</item>
+        <item quantity="many">تم تحديد %1$d</item>
+        <item quantity="other">تم تحديد %1$d</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_delete_selected_message">
+        <item quantity="zero">سيتم حذف %1$d ملف محدد من تخزين التطبيق.</item>
+        <item quantity="one">سيتم حذف الملف المحدد من تخزين التطبيق.</item>
+        <item quantity="two">سيتم حذف الملفين المحددين من تخزين التطبيق.</item>
+        <item quantity="few">سيتم حذف %1$d ملفات محددة من تخزين التطبيق.</item>
+        <item quantity="many">سيتم حذف %1$d ملفًا محددًا من تخزين التطبيق.</item>
+        <item quantity="other">سيتم حذف %1$d ملف محدد من تخزين التطبيق.</item>
+    </plurals>
+    <plurals name="v2ray_asset_files_selected_count">
+        <item quantity="zero">لم يتم تحديد أي عنصر</item>
+        <item quantity="one">تم تحديد %1$d</item>
+        <item quantity="two">تم تحديد %1$d</item>
+        <item quantity="few">تم تحديد %1$d</item>
+        <item quantity="many">تم تحديد %1$d</item>
+        <item quantity="other">تم تحديد %1$d</item>
+    </plurals>
+    <plurals name="v2ray_dns_host_presets_selected">
+        <item quantity="zero">لم يتم تحديد أي إعداد مسبق</item>
+        <item quantity="one">تم تحديد إعداد مسبق واحد</item>
+        <item quantity="two">تم تحديد إعدادين مسبقين</item>
+        <item quantity="few">تم تحديد %1$d إعدادات مسبقة</item>
+        <item quantity="many">تم تحديد %1$d إعدادًا مسبقًا</item>
+        <item quantity="other">تم تحديد %1$d إعداد مسبق</item>
+    </plurals>
+    <plurals name="v2ray_profiles_imported">
+        <item quantity="zero">تم استيراد %1$d ملف ⁦V2Ray⁩ شخصي</item>
+        <item quantity="one">تم استيراد ملف ⁦V2Ray⁩ شخصي واحد</item>
+        <item quantity="two">تم استيراد ملفي ⁦V2Ray⁩ شخصيين</item>
+        <item quantity="few">تم استيراد %1$d ملفات ⁦V2Ray⁩ شخصية</item>
+        <item quantity="many">تم استيراد %1$d ملف ⁦V2Ray⁩ شخصي</item>
+        <item quantity="other">تم استيراد %1$d ملف ⁦V2Ray⁩ شخصي</item>
+    </plurals>
+</resources>

@@ -1,0 +1,20 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class N14167181018348403125 implements G13991919739136867102 {
+    public H11646813293457574213 a;
+    public final I11965759855724288421 b;
+    public final D9734197463427655843 c;
+
+    public N14167181018348403125(H11646813293457574213 h11646813293457574213, I11965759855724288421 i11965759855724288421, D9734197463427655843 d9734197463427655843) {
+        this.a = h11646813293457574213;
+        this.b = i11965759855724288421;
+        this.c = d9734197463427655843;
+    }
+
+    @Override // dev.epro.r0.G13991919739136867102
+    public final boolean L() {
+        return this.b.B0().C();
+    }
+}

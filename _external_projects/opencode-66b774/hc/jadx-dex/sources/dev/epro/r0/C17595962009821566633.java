@@ -1,0 +1,133 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class C17595962009821566633 extends java.util.LinkedHashMap {
+    public static final dev.epro.r0.C17595962009821566633 b;
+    public boolean a = true;
+
+    static {
+        dev.epro.r0.C17595962009821566633 c17595962009821566633 = new dev.epro.r0.C17595962009821566633();
+        b = c17595962009821566633;
+        c17595962009821566633.a = false;
+    }
+
+    public final void a() {
+        if (this.a) {
+            return;
+        }
+        dev.epro.r0.Z3383101362411723454.t();
+    }
+
+    public final dev.epro.r0.C17595962009821566633 b() {
+        if (isEmpty()) {
+            return new dev.epro.r0.C17595962009821566633();
+        }
+        dev.epro.r0.C17595962009821566633 c17595962009821566633 = new dev.epro.r0.C17595962009821566633(this);
+        c17595962009821566633.a = true;
+        return c17595962009821566633;
+    }
+
+    @Override // java.util.LinkedHashMap, java.util.HashMap, java.util.AbstractMap, java.util.Map
+    public final void clear() {
+        a();
+        super.clear();
+    }
+
+    @Override // java.util.LinkedHashMap, java.util.HashMap, java.util.AbstractMap, java.util.Map
+    public final java.util.Set entrySet() {
+        return isEmpty() ? java.util.Collections.EMPTY_SET : super.entrySet();
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof java.util.Map)) {
+            return false;
+        }
+        java.util.Map map = (java.util.Map) obj;
+        if (this == map) {
+            return true;
+        }
+        if (size() != map.size()) {
+            return false;
+        }
+        for (java.util.Map.Entry entry : entrySet()) {
+            if (!map.containsKey(entry.getKey())) {
+                return false;
+            }
+            java.lang.Object value = entry.getValue();
+            java.lang.Object obj2 = map.get(entry.getKey());
+            if (!(((value instanceof byte[]) && (obj2 instanceof byte[])) ? java.util.Arrays.equals((byte[]) value, (byte[]) obj2) : value.equals(obj2))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final int hashCode() {
+        int iHashCode;
+        int i = 0;
+        for (java.util.Map.Entry entry : entrySet()) {
+            java.lang.Object key = entry.getKey();
+            int iHashCode2 = 1;
+            if (key instanceof byte[]) {
+                byte[] bArr = (byte[]) key;
+                int length = bArr.length;
+                java.nio.charset.Charset charset = dev.epro.r0.A9187767737237685029.a;
+                iHashCode = length;
+                for (byte b2 : bArr) {
+                    iHashCode = (iHashCode * 31) + b2;
+                }
+                if (iHashCode == 0) {
+                    iHashCode = 1;
+                }
+            } else {
+                iHashCode = key.hashCode();
+            }
+            java.lang.Object value = entry.getValue();
+            if (value instanceof byte[]) {
+                byte[] bArr2 = (byte[]) value;
+                int length2 = bArr2.length;
+                java.nio.charset.Charset charset2 = dev.epro.r0.A9187767737237685029.a;
+                int i2 = length2;
+                for (byte b3 : bArr2) {
+                    i2 = (i2 * 31) + b3;
+                }
+                if (i2 != 0) {
+                    iHashCode2 = i2;
+                }
+            } else {
+                iHashCode2 = value.hashCode();
+            }
+            i += iHashCode ^ iHashCode2;
+        }
+        return i;
+    }
+
+    @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
+    public final java.lang.Object put(java.lang.Object obj, java.lang.Object obj2) {
+        a();
+        java.nio.charset.Charset charset = dev.epro.r0.A9187767737237685029.a;
+        obj.getClass();
+        obj2.getClass();
+        return super.put(obj, obj2);
+    }
+
+    @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
+    public final void putAll(java.util.Map map) {
+        a();
+        for (java.lang.Object obj : map.keySet()) {
+            java.nio.charset.Charset charset = dev.epro.r0.A9187767737237685029.a;
+            obj.getClass();
+            map.get(obj).getClass();
+        }
+        super.putAll(map);
+    }
+
+    @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map
+    public final java.lang.Object remove(java.lang.Object obj) {
+        a();
+        return super.remove(obj);
+    }
+}

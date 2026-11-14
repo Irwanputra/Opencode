@@ -1,0 +1,53 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class R11149085407531885860 extends I10827619964430248728 {
+    private static final R11149085407531885860 zzb;
+    private int zzd;
+    private int zze = 0;
+    private Object zzf;
+    private long zzg;
+    private int zzh;
+
+    static {
+        R11149085407531885860 r11149085407531885860 = new R11149085407531885860();
+        zzb = r11149085407531885860;
+        I10827619964430248728.k(R11149085407531885860.class, r11149085407531885860);
+    }
+
+    public static U502168740281352038 l() {
+        return (U502168740281352038) zzb.g();
+    }
+
+    public static /* synthetic */ void m(R11149085407531885860 r11149085407531885860, O17502728698316798833 o17502728698316798833) {
+        r11149085407531885860.zzf = o17502728698316798833;
+        r11149085407531885860.zze = 38;
+    }
+
+    public static /* synthetic */ void n(R11149085407531885860 r11149085407531885860, long j) {
+        r11149085407531885860.zzd |= 1;
+        r11149085407531885860.zzg = j;
+    }
+
+    @Override // dev.epro.r0.I10827619964430248728
+    public final Object f(int i) {
+        int i2 = i - 1;
+        if (i2 == 0) {
+            return (byte) 1;
+        }
+        if (i2 == 2) {
+            return new N17310361809908093775(zzb, "\u0004\u0019\u0001\u0001\b&\u0019\u0000\u0000\u0000\b<\u0000\tဂ\u0000\u000b<\u0000\f<\u0000\r<\u0000\u000f<\u0000\u0011<\u0000\u0012<\u0000\u0013<\u0000\u0014<\u0000\u0015<\u0000\u0016<\u0000\u0019<\u0000\u001a<\u0000\u001b<\u0000\u001dင\u0001\u001e<\u0000\u001f<\u0000 <\u0000!<\u0000\"<\u0000#<\u0000$<\u0000%<\u0000&<\u0000", new Object[]{"zzf", "zze", "zzd", G7551925058783643773.class, "zzg", C16365647275095688901.class, O5378457779390525685.class, U17985382791462758770.class, T17707506575458807587.class, O2663696157264296616.class, J9065838161871120746.class, W10697988950441291066.class, G6825943468673942177.class, S5730132278147781277.class, G16743268131091017313.class, L577645845778888773.class, I5755580789559229683.class, P7611715516827799692.class, "zzh", L4676039263926423058.class, P16515782978970761657.class, L9372075785596778990.class, P17779665324465128260.class, K6115206885113771268.class, X10719663054600929772.class, L1502649500173669708.class, A17692442657173765334.class, O17502728698316798833.class});
+        }
+        if (i2 == 3) {
+            return new R11149085407531885860();
+        }
+        if (i2 == 4) {
+            return new U502168740281352038(zzb);
+        }
+        if (i2 == 5) {
+            return zzb;
+        }
+        throw null;
+    }
+}

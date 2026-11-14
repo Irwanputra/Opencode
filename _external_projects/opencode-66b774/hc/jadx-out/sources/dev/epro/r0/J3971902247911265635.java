@@ -1,0 +1,7 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public interface J3971902247911265635 {
+    Object a(A7868207189447841291 a7868207189447841291, float f, R4833348786910499294 r4833348786910499294);
+}

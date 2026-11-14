@@ -1,0 +1,20 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes.dex */
+public final /* synthetic */ class C2211724759552534956 extends H4611829575853284164 implements B13729205492206812220 {
+    static {
+        izmyclvb.oeynnivvrnts0(693);
+    }
+
+    private native void shrcvuqsrnck();
+
+    @Override // dev.epro.r0.B13729205492206812220
+    public final native Object invoke();
+
+    public C2211724759552534956(Object obj) {
+        super(0, obj, P17322734382376035823.class, izmyclvb.sb250e956f549(134), izmyclvb.sb250e956f549(135), 0);
+        shrcvuqsrnck();
+    }
+}

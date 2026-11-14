@@ -1,0 +1,14 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class j0 {
+    public final dev.epro.r0.H8032588520594078423 a;
+    public final dev.epro.r0.X7175349259954592591 b;
+
+    public j0(dev.epro.r0.H8032588520594078423 h8032588520594078423, dev.epro.r0.X7175349259954592591 x7175349259954592591) {
+        h8032588520594078423.getClass();
+        this.a = h8032588520594078423;
+        this.b = x7175349259954592591;
+    }
+}

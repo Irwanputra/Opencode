@@ -1,0 +1,11 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class F9391898320595800750 implements X15580384018267311831 {
+    public final N13814068345032586384 a;
+
+    public F9391898320595800750(N13814068345032586384 n13814068345032586384) {
+        this.a = n13814068345032586384;
+    }
+}

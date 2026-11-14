@@ -1,0 +1,103 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class qj0 extends ads_mobile_sdk.t93 {
+    public final android.content.Context f;
+    public final /* synthetic */ byte l;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qj0(dev.epro.r0.V5431423861497278836 v5431423861497278836, ads_mobile_sdk.rp1 rp1Var, android.content.Context context, ads_mobile_sdk.vi3 vi3Var, byte b) {
+        super("wR2D10Xhd7AA6QN8obbV6bnwboYMhfn4dJdUcBEHzTV+bur/qJh3jt9MOYgb5vDn", "WAXQgXP0h6bZmwqISdWvILPB4MB4rx/XvC4l/Hdxir0=", v5431423861497278836, rp1Var, vi3Var.a(ads_mobile_sdk.yk0.EVENT_ID_DYNAMIC_DEVICE_SIGNALS_TASK));
+        this.l = b;
+        switch (b) {
+            case 1:
+                super("DuE5+y9p56NZeYfGLhoxt0vxV1yd8CTBwk0NIgcJ+5d3wkbDyqX/WPtxlfm0oyLY", "o1bzjIN6n+CUyG9pPZD3I5gMNg4pgPs6Q9EO/JousEA=", v5431423861497278836, rp1Var, vi3Var.a(ads_mobile_sdk.yk0.EVENT_ID_PROCESS_INFO_SIGNALS_TASK));
+                this.f = context;
+                break;
+            default:
+                this.f = context;
+                break;
+        }
+    }
+
+    @Override // ads_mobile_sdk.t93
+    public final void a(java.lang.reflect.Method method, dev.epro.r0.V5431423861497278836 v5431423861497278836) {
+        switch (this.l) {
+            case 0:
+                java.lang.Object[] objArr = (java.lang.Object[]) method.invoke("", this.f);
+                objArr.getClass();
+                synchronized (v5431423861497278836) {
+                    long jIntValue = ((java.lang.Integer) objArr[0]).intValue();
+                    v5431423861497278836.b();
+                    ads_mobile_sdk.pd pdVar = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                    pdVar.bitField1_ |= 2097152;
+                    pdVar.batteryTemperatureSignal_ = jIntValue;
+                    long jIntValue2 = ((java.lang.Integer) objArr[1]).intValue();
+                    v5431423861497278836.b();
+                    ads_mobile_sdk.pd pdVar2 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                    pdVar2.bitField0_ |= 16;
+                    pdVar2.btsSignal_ = jIntValue2;
+                    long jIntValue3 = ((java.lang.Integer) objArr[2]).intValue();
+                    v5431423861497278836.b();
+                    ads_mobile_sdk.pd pdVar3 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                    pdVar3.bitField0_ |= 32;
+                    pdVar3.btlSignal_ = jIntValue3;
+                    long jIntValue4 = ((java.lang.Integer) objArr[3]).intValue();
+                    v5431423861497278836.b();
+                    ads_mobile_sdk.pd pdVar4 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                    pdVar4.bitField2_ |= 8388608;
+                    pdVar4.bootCountSignal_ = jIntValue4;
+                    java.lang.Boolean bool = (java.lang.Boolean) objArr[4];
+                    if (bool == null) {
+                        v5431423861497278836.b();
+                        ads_mobile_sdk.pd pdVar5 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                        pdVar5.getClass();
+                        pdVar5.adbEnabledSignal_ = dev.epro.r0.G6547577305291411977.f(3);
+                        pdVar5.bitField1_ |= 2048;
+                    } else {
+                        int i = bool.booleanValue() ? 2 : 1;
+                        v5431423861497278836.b();
+                        ads_mobile_sdk.pd pdVar6 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                        pdVar6.getClass();
+                        pdVar6.adbEnabledSignal_ = dev.epro.r0.G6547577305291411977.f(i);
+                        pdVar6.bitField1_ |= 2048;
+                    }
+                    java.lang.Boolean bool2 = (java.lang.Boolean) objArr[5];
+                    if (bool2 == null) {
+                        v5431423861497278836.b();
+                        ads_mobile_sdk.pd pdVar7 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                        pdVar7.getClass();
+                        pdVar7.usbConnectedSignal_ = dev.epro.r0.G6547577305291411977.f(3);
+                        pdVar7.bitField1_ |= 1024;
+                    } else {
+                        int i2 = bool2.booleanValue() ? 2 : 1;
+                        v5431423861497278836.b();
+                        ads_mobile_sdk.pd pdVar8 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                        pdVar8.getClass();
+                        pdVar8.usbConnectedSignal_ = dev.epro.r0.G6547577305291411977.f(i2);
+                        pdVar8.bitField1_ |= 1024;
+                    }
+                    break;
+                }
+                return;
+            default:
+                java.lang.Object[] objArr2 = (java.lang.Object[]) method.invoke("", this.f);
+                objArr2.getClass();
+                synchronized (v5431423861497278836) {
+                    long jLongValue = ((java.lang.Long) objArr2[0]).longValue();
+                    v5431423861497278836.b();
+                    ads_mobile_sdk.pd pdVar9 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                    pdVar9.bitField0_ |= 4;
+                    pdVar9.atvSignal_ = jLongValue;
+                    long jLongValue2 = ((java.lang.Long) objArr2[1]).longValue();
+                    v5431423861497278836.b();
+                    ads_mobile_sdk.pd pdVar10 = (ads_mobile_sdk.pd) v5431423861497278836.b;
+                    pdVar10.bitField1_ |= 4194304;
+                    pdVar10.processImportanceSignal_ = jLongValue2;
+                    break;
+                }
+                return;
+        }
+    }
+}

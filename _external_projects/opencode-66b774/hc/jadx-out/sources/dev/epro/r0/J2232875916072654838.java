@@ -1,0 +1,86 @@
+package dev.epro.r0;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class J2232875916072654838 {
+    public static final J2232875916072654838 b;
+    public static final J2232875916072654838 c;
+    public final I16033532688174121955 a;
+
+    static {
+        LinkedHashMap linkedHashMap = null;
+        N12971976141354546695 n12971976141354546695 = null;
+        H2331361512828203859 h2331361512828203859 = null;
+        E874292296621450842 e874292296621450842 = null;
+        C236413207748491238 c236413207748491238 = null;
+        b = new J2232875916072654838(new I16033532688174121955(n12971976141354546695, h2331361512828203859, e874292296621450842, c236413207748491238, linkedHashMap, 127));
+        c = new J2232875916072654838(new I16033532688174121955(n12971976141354546695, h2331361512828203859, e874292296621450842, c236413207748491238, linkedHashMap, 95));
+    }
+
+    public J2232875916072654838(I16033532688174121955 i16033532688174121955) {
+        this.a = i16033532688174121955;
+    }
+
+    public final J2232875916072654838 a(J2232875916072654838 j2232875916072654838) {
+        I16033532688174121955 i16033532688174121955 = j2232875916072654838.a;
+        N12971976141354546695 n12971976141354546695 = i16033532688174121955.a;
+        I16033532688174121955 i160335326881741219552 = this.a;
+        if (n12971976141354546695 == null) {
+            n12971976141354546695 = i160335326881741219552.a;
+        }
+        H2331361512828203859 h2331361512828203859 = i16033532688174121955.b;
+        if (h2331361512828203859 == null) {
+            h2331361512828203859 = i160335326881741219552.b;
+        }
+        E874292296621450842 e874292296621450842 = i16033532688174121955.c;
+        if (e874292296621450842 == null) {
+            e874292296621450842 = i160335326881741219552.c;
+        }
+        C236413207748491238 c236413207748491238 = i16033532688174121955.d;
+        if (c236413207748491238 == null) {
+            c236413207748491238 = i160335326881741219552.d;
+        }
+        boolean z = i16033532688174121955.e || i160335326881741219552.e;
+        Map map = i160335326881741219552.f;
+        Map map2 = i16033532688174121955.f;
+        map.getClass();
+        map2.getClass();
+        LinkedHashMap linkedHashMap = new LinkedHashMap(map);
+        linkedHashMap.putAll(map2);
+        return new J2232875916072654838(new I16033532688174121955(n12971976141354546695, h2331361512828203859, e874292296621450842, c236413207748491238, z, linkedHashMap));
+    }
+
+    public final boolean equals(Object obj) {
+        return (obj instanceof J2232875916072654838) && ((J2232875916072654838) obj).a.equals(this.a);
+    }
+
+    public final int hashCode() {
+        return this.a.hashCode();
+    }
+
+    public final String toString() {
+        if (equals(b)) {
+            return "ExitTransition.None";
+        }
+        if (equals(c)) {
+            return "ExitTransition.KeepUntilTransitionsFinished";
+        }
+        I16033532688174121955 i16033532688174121955 = this.a;
+        N12971976141354546695 n12971976141354546695 = i16033532688174121955.a;
+        String string = n12971976141354546695 != null ? n12971976141354546695.toString() : null;
+        H2331361512828203859 h2331361512828203859 = i16033532688174121955.b;
+        String string2 = h2331361512828203859 != null ? h2331361512828203859.toString() : null;
+        E874292296621450842 e874292296621450842 = i16033532688174121955.c;
+        String string3 = e874292296621450842 != null ? e874292296621450842.toString() : null;
+        C236413207748491238 c236413207748491238 = i16033532688174121955.d;
+        String string4 = c236413207748491238 != null ? c236413207748491238.toString() : null;
+        boolean z = i16033532688174121955.e;
+        StringBuilder sbY = G6547577305291411977.y("ExitTransition:  Fade - ", string, ",  Slide - ", string2, ",  Shrink - ");
+        G6547577305291411977.B(sbY, string3, ",  Scale - ", string4, ",  Veil - null,  KeepUntilTransitionsFinished - ");
+        sbY.append(z);
+        return sbY.toString();
+    }
+}

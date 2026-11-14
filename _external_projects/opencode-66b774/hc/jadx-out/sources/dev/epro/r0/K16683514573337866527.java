@@ -1,0 +1,39 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class K16683514573337866527 extends T1422539684983103901 {
+    public Q13637171669401920315 J;
+    public boolean K;
+    public J12078565427869724451 L;
+    public J12078565427869724451 M;
+
+    @Override // dev.epro.r0.T1422539684983103901
+    public final Object l1(O12152244488187446230 o12152244488187446230, J13979756969328643311 j13979756969328643311) {
+        Object objA;
+        R7000310675073492254 r7000310675073492254 = this.q;
+        return (r7000310675073492254 != null && (objA = this.J.a(new O12152244488187446230(o12152244488187446230, this, r7000310675073492254, null, (byte) 11), j13979756969328643311)) == Z3437138737604933638.a) ? objA : O9245300239821758723.a;
+    }
+
+    @Override // dev.epro.r0.T1422539684983103901
+    public final void q1(long j) {
+        if (!this.n || S10823041268949770285.t(this.L, R3964428913610127921.a)) {
+            return;
+        }
+        R7033599853981556291.E(V0(), null, L856869997670741194.d, new N9388237224661464957(this, j, null), 1);
+    }
+
+    @Override // dev.epro.r0.T1422539684983103901
+    public final void r1(U6972183442521542605 u6972183442521542605) {
+        R7000310675073492254 r7000310675073492254;
+        if (!this.n || S10823041268949770285.t(this.M, R3964428913610127921.b) || (r7000310675073492254 = this.q) == null) {
+            return;
+        }
+        R7033599853981556291.E(V0(), null, L856869997670741194.d, new O12152244488187446230(this, u6972183442521542605, r7000310675073492254, null, (byte) 12), 1);
+    }
+
+    @Override // dev.epro.r0.T1422539684983103901
+    public final boolean z1() {
+        return this.K;
+    }
+}

@@ -53,7 +53,18 @@ data class Profile(
     var slowdnsResolver: String = "8.8.8.8",
     var slowdnsDomain: String = "",
     var slowdnsPubkey: String = "",
-    var slowdnsType: String = SlowDns.TYPE_AUTO
+    var slowdnsType: String = SlowDns.TYPE_AUTO,
+    // Pengaturan lanjutan (gaya HTTP Custom); 0 = default pustaka.
+    // QNAME/EDNS membatasi ukuran nama & jawaban agar lolos jaringan;
+    // window mengatur jendela KCP.
+    var slowdnsQname: Int = 0,
+    var slowdnsEdns: Int = 0,
+    var slowdnsWindow: Int = 0,
+    // Gaya HTTP Custom: jumlah sesi paralel, login terpisah per sesi, dan
+    // kalibrasi batas QNAME/EDNS0 sebelum menyambung.
+    var slowdnsSessions: Int = 1,
+    var slowdnsMultiLogin: Boolean = false,
+    var slowdnsCalibrate: Boolean = true
 )
 
 class ProfileStore(context: Context) {
@@ -144,6 +155,12 @@ class ProfileStore(context: Context) {
             put("slowdnsDomain", p.slowdnsDomain)
             put("slowdnsPubkey", p.slowdnsPubkey)
             put("slowdnsType", p.slowdnsType)
+            put("slowdnsQname", p.slowdnsQname)
+            put("slowdnsEdns", p.slowdnsEdns)
+            put("slowdnsWindow", p.slowdnsWindow)
+            put("slowdnsSessions", p.slowdnsSessions)
+            put("slowdnsMultiLogin", p.slowdnsMultiLogin)
+            put("slowdnsCalibrate", p.slowdnsCalibrate)
         }
 
         /** JSON → Profil (internal agar bisa diuji tanpa Context). */
@@ -178,7 +195,13 @@ class ProfileStore(context: Context) {
             slowdnsResolver = o.optString("slowdnsResolver", "8.8.8.8"),
             slowdnsDomain = o.optString("slowdnsDomain", ""),
             slowdnsPubkey = o.optString("slowdnsPubkey", ""),
-            slowdnsType = SlowDns.normalizeType(o.optString("slowdnsType", SlowDns.TYPE_AUTO))
+            slowdnsType = SlowDns.normalizeType(o.optString("slowdnsType", SlowDns.TYPE_AUTO)),
+            slowdnsQname = o.optInt("slowdnsQname", 0).coerceIn(0, 255),
+            slowdnsEdns = o.optInt("slowdnsEdns", 0).coerceIn(0, 4096),
+            slowdnsWindow = o.optInt("slowdnsWindow", 0).coerceIn(0, 128),
+            slowdnsSessions = o.optInt("slowdnsSessions", 1).coerceIn(1, 8),
+            slowdnsMultiLogin = o.optBoolean("slowdnsMultiLogin", false),
+            slowdnsCalibrate = o.optBoolean("slowdnsCalibrate", true)
         )
     }
 }

@@ -1,0 +1,17 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class E4498958144884678646 extends dev.epro.r0.U3171922415799673643 {
+    public dev.epro.r0.Y16443381041276641359 M;
+
+    public final void k1(dev.epro.r0.S2460821117650695638 s2460821117650695638) {
+        dev.epro.r0.U4676709778812953726.p(s2460821117650695638, this.M);
+        dev.epro.r0.U4676709778812953726.f(s2460821117650695638, dev.epro.r0.N5158094851646208854.f);
+        dev.epro.r0.R1411039272204519728 r1411039272204519728 = android.os.Build.VERSION.SDK_INT >= 26 ? new dev.epro.r0.R1411039272204519728(dev.epro.r0.J16238531192459137453.i(this.M != dev.epro.r0.Y16443381041276641359.c)) : null;
+        if (r1411039272204519728 != null) {
+            dev.epro.r0.U4676709778812953726.i(s2460821117650695638, r1411039272204519728);
+        }
+        dev.epro.r0.U4676709778812953726.c(s2460821117650695638, new dev.epro.r0.T4015880614313284322(s2460821117650695638, (byte) 2));
+    }
+}

@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.11
+# Wanz Tunnel 2.9.12
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -56,6 +56,16 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   resolver/server; `NULL` adalah tipe favorit yang jarang disentuh resolver.
   Saat aktif, SSH masuk ke listener lokal `127.0.0.1:<port>` milik pustaka
   native (`slowdns.aar`, arm64) lalu diteruskan lewat DNS ke server.
+  Resolver boleh UDP biasa, **DoH** (`https://…`), atau **DoT**
+  (`tls://…`/`dot://…`). Panel SlowDNS juga memuat pengaturan lanjutan
+  seperti HTTP Custom: **QNAME limit** (0/64–255 byte), **EDNS0 limit**
+  (0/512–4096 byte), **KCP Window** (0/8–128), **Session** (1–8),
+  **Multi login** (login/ClientID terpisah per sesi), dan
+  **Automatic calibration** (uji QNAME/EDNS0 sebelum menyambung; nilai
+  manual tetap tersimpan). Sejak v2.9.12 setiap socket resolver diproteksi
+  lewat `VpnService.protect` dan VPN dipasang sebelum terowongan DNS dimulai,
+  jadi query DNS tidak masuk kembali ke TUN — penyebab tunnel diam dan
+  `PING timeout` setelah status terhubung.
   Sejak v2.9.11 loop kirim/terima DNS dihentikan lebih dulu saat tunnel
   di-Stop, sehingga tidak ada lagi baris
   `use of closed network connection` berulang setelah putus/sambung ulang.
@@ -212,6 +222,17 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 ## Status uji
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
+
+- v2.9.12 (SlowDNS setara HTTP Custom): socket resolver UDP/DoH/DoT
+  diproteksi `VpnService.protect` lewat `SocketProtector` di pustaka Go, dan
+  untuk profil SlowDNS TUN dipasang lebih dulu supaya proteksi berlaku saat
+  socket resolver dibuat. Resolver DoH (`https://`) dan DoT
+  (`tls://`/`dot://`) memakai transport TCP terproteksi; QNAME/EDNS0/KCP
+  window, jumlah sesi, multi login, dan kalibrasi otomatis diteruskan ke
+  pustaka native. `go vet`/`go test ./...` lulus, termasuk unit test baru
+  untuk `parseResolver` (UDP/DoH/DoT), class EDNS0 pada query, batas QNAME,
+  dan kandidat kalibrasi. `testDebugUnitTest lintDebug assembleRelease` serta
+  `python3 tools/design_gate.py --strict` (0 galat, 0 peringatan) lulus.
 
 - v2.9.11 (perbaikan lifecycle SlowDNS): `DNSPacketConn` kini punya kanal
   `done` yang ditutup oleh `Close() error`, dan `Stop()` memanggil `Close()`

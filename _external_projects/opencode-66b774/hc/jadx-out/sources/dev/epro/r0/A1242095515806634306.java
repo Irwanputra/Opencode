@@ -1,0 +1,44 @@
+package dev.epro.r0;
+
+import dev.epro.r0.V13488058467038473104;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes.dex */
+public final class A1242095515806634306 {
+    public final L12639328004344855510 a;
+
+    static {
+        izmyclvb.oeynnivvrnts0(876);
+    }
+
+    private native void ffdwayaoxbrp(L12639328004344855510 l12639328004344855510);
+
+    public final native Object a(U13708706832586797090 u13708706832586797090, V13488058467038473104.Y6921797927338498306 y6921797927338498306, P2741085197685753517 p2741085197685753517, K14749510448791472029 k14749510448791472029);
+
+    public static final class Z11244019023321623390 {
+        public final P6844290924810456420 a;
+        public final V13488058467038473104.Z11244019023321623390 b;
+
+        static {
+            izmyclvb.oeynnivvrnts0(271);
+        }
+
+        private native void qesvxbichqzr(P6844290924810456420 p6844290924810456420, V13488058467038473104.Z11244019023321623390 z11244019023321623390);
+
+        public final native boolean equals(Object obj);
+
+        public final native int hashCode();
+
+        public final native String toString();
+
+        public Z11244019023321623390(P6844290924810456420 p6844290924810456420, V13488058467038473104.Z11244019023321623390 z11244019023321623390) {
+            p6844290924810456420.getClass();
+            qesvxbichqzr(p6844290924810456420, z11244019023321623390);
+        }
+    }
+
+    public A1242095515806634306(L12639328004344855510 l12639328004344855510) {
+        l12639328004344855510.getClass();
+        ffdwayaoxbrp(l12639328004344855510);
+    }
+}

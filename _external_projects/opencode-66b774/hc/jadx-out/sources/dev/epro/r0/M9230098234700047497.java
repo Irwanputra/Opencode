@@ -1,0 +1,34 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class M9230098234700047497 {
+    public final N5407556009060208754 a;
+    public final N5407556009060208754 b;
+    public final D885993738951460308 c;
+    public final D885993738951460308 d;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(480);
+        mvosndcwmkvx();
+    }
+
+    private native void cobrenezyxol(N5407556009060208754 n5407556009060208754, N5407556009060208754 n54075560090602087542, D885993738951460308 d885993738951460308, D885993738951460308 d8859937389514603082);
+
+    private static native void mvosndcwmkvx();
+
+    public final native boolean equals(Object obj);
+
+    public final native int hashCode();
+
+    public final native String toString();
+
+    public M9230098234700047497(N5407556009060208754 n5407556009060208754, N5407556009060208754 n54075560090602087542, D885993738951460308 d885993738951460308, D885993738951460308 d8859937389514603082) {
+        n5407556009060208754.getClass();
+        n54075560090602087542.getClass();
+        d885993738951460308.getClass();
+        d8859937389514603082.getClass();
+        cobrenezyxol(n5407556009060208754, n54075560090602087542, d885993738951460308, d8859937389514603082);
+    }
+}

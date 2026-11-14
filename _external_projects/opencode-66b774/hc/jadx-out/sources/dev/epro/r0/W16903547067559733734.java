@@ -1,0 +1,71 @@
+package dev.epro.r0;
+
+import java.io.IOException;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class W16903547067559733734 extends K10678596132709730734 {
+    public static final Z11244019023321623390 b = new Z11244019023321623390();
+    public final SimpleDateFormat a;
+
+    /* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+    public class Z11244019023321623390 implements V4446577237959483780 {
+        @Override // dev.epro.r0.V4446577237959483780
+        public final K10678596132709730734 a(F14240031463097426304 f14240031463097426304, K11898134656129953686 k11898134656129953686) {
+            if (k11898134656129953686.a == Time.class) {
+                return new W16903547067559733734(0);
+            }
+            return null;
+        }
+    }
+
+    private W16903547067559733734() {
+        this.a = new SimpleDateFormat("hh:mm:ss a");
+    }
+
+    @Override // dev.epro.r0.K10678596132709730734
+    public final Object b(D13396727227989475489 d13396727227989475489) throws IOException {
+        Time time;
+        if (d13396727227989475489.H() == 9) {
+            d13396727227989475489.D();
+            return null;
+        }
+        String strF = d13396727227989475489.F();
+        synchronized (this) {
+            TimeZone timeZone = this.a.getTimeZone();
+            try {
+                try {
+                    time = new Time(this.a.parse(strF).getTime());
+                } catch (ParseException e) {
+                    throw new X13554947934760653097("Failed parsing '" + strF + "' as SQL Time; at path " + d13396727227989475489.o(true), e);
+                }
+            } finally {
+                this.a.setTimeZone(timeZone);
+            }
+        }
+        return time;
+    }
+
+    @Override // dev.epro.r0.K10678596132709730734
+    public final void c(Y14132333989764804283 y14132333989764804283, Object obj) throws IOException {
+        String str;
+        Time time = (Time) obj;
+        if (time == null) {
+            y14132333989764804283.p();
+            return;
+        }
+        synchronized (this) {
+            str = this.a.format((Date) time);
+        }
+        y14132333989764804283.D(str);
+    }
+
+    public /* synthetic */ W16903547067559733734(int i) {
+        this();
+    }
+}

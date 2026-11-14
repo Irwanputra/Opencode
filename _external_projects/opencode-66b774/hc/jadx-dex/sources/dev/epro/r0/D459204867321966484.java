@@ -1,0 +1,734 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public abstract class D459204867321966484 {
+    public static final dev.epro.r0.Y13361005827119333637 a = new dev.epro.r0.Y13361005827119333637((byte) 14);
+    public static final dev.epro.r0.I1632105416032993715 b = new dev.epro.r0.I1632105416032993715((byte) 11);
+    public static final java.lang.Object c = new java.lang.Object();
+    public static dev.epro.r0.D7201182503133677242 d;
+    public static long e;
+    public static final dev.epro.r0.Y1681784425110360379 f;
+    public static final dev.epro.r0.N12245111110189169079 g;
+    public static java.util.List h;
+    public static java.util.List i;
+    public static final dev.epro.r0.J15946920862211647593 j;
+    public static final dev.epro.r0.X13205888428499400927 k;
+
+    static {
+        dev.epro.r0.D7201182503133677242 d7201182503133677242 = dev.epro.r0.D7201182503133677242.e;
+        d = d7201182503133677242;
+        e = 2L;
+        dev.epro.r0.Y1681784425110360379 y1681784425110360379 = new dev.epro.r0.Y1681784425110360379();
+        y1681784425110360379.d = new long[16];
+        y1681784425110360379.b = new int[16];
+        int[] iArr = new int[16];
+        int i2 = 0;
+        while (i2 < 16) {
+            int i3 = i2 + 1;
+            iArr[i2] = i3;
+            i2 = i3;
+        }
+        y1681784425110360379.e = iArr;
+        f = y1681784425110360379;
+        dev.epro.r0.N12245111110189169079 n12245111110189169079 = new dev.epro.r0.N12245111110189169079((byte) 10);
+        n12245111110189169079.c = new int[16];
+        n12245111110189169079.d = new dev.epro.r0.C12642994619513326483[16];
+        g = n12245111110189169079;
+        dev.epro.r0.O2161699089510411363 o2161699089510411363 = dev.epro.r0.O2161699089510411363.a;
+        h = o2161699089510411363;
+        i = o2161699089510411363;
+        long j2 = e;
+        e = 1 + j2;
+        dev.epro.r0.J15946920862211647593 j15946920862211647593 = new dev.epro.r0.J15946920862211647593(j2, d7201182503133677242, null, new dev.epro.r0.V10450421848591554621((byte) 29));
+        d = d.j(((dev.epro.r0.M4722199849958580248) j15946920862211647593).b);
+        j = j15946920862211647593;
+        k = new dev.epro.r0.X13205888428499400927(0);
+    }
+
+    public static final dev.epro.r0.D7201182503133677242 a(dev.epro.r0.D7201182503133677242 d7201182503133677242, long j2, long j3) {
+        while (dev.epro.r0.S10823041268949770285.A(j2, j3) < 0) {
+            d7201182503133677242 = d7201182503133677242.j(j2);
+            j2++;
+        }
+        return d7201182503133677242;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:42:0x008e  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public static final java.lang.Object b(dev.epro.r0.F4096073349764486348 r15) {
+        /*
+            dev.epro.r0.J15946920862211647593 r0 = dev.epro.r0.D459204867321966484.j
+            java.lang.Object r1 = dev.epro.r0.D459204867321966484.c
+            monitor-enter(r1)
+            dev.epro.r0.E13273723708836014930 r2 = r0.h     // Catch: java.lang.Throwable -> L10
+            if (r2 == 0) goto L13
+            dev.epro.r0.X13205888428499400927 r3 = dev.epro.r0.D459204867321966484.k     // Catch: java.lang.Throwable -> L10
+            r4 = 1
+            r3.addAndGet(r4)     // Catch: java.lang.Throwable -> L10
+            goto L13
+        L10:
+            r15 = move-exception
+            goto L97
+        L13:
+            java.lang.Object r15 = u(r0, r15)     // Catch: java.lang.Throwable -> L10
+            monitor-exit(r1)
+            r1 = 0
+            if (r2 == 0) goto L44
+            r3 = -1
+            java.util.List r4 = dev.epro.r0.D459204867321966484.h     // Catch: java.lang.Throwable -> L36
+            dev.epro.r0.Q16533201950876191546 r5 = new dev.epro.r0.Q16533201950876191546     // Catch: java.lang.Throwable -> L36
+            r5.<init>(r2)     // Catch: java.lang.Throwable -> L36
+            int r6 = r4.size()     // Catch: java.lang.Throwable -> L36
+            r7 = r1
+        L28:
+            if (r7 >= r6) goto L38
+            java.lang.Object r8 = r4.get(r7)     // Catch: java.lang.Throwable -> L36
+            dev.epro.r0.L12639328004344855510 r8 = (dev.epro.r0.L12639328004344855510) r8     // Catch: java.lang.Throwable -> L36
+            r8.invoke(r5, r0)     // Catch: java.lang.Throwable -> L36
+            int r7 = r7 + 1
+            goto L28
+        L36:
+            r15 = move-exception
+            goto L3e
+        L38:
+            dev.epro.r0.X13205888428499400927 r0 = dev.epro.r0.D459204867321966484.k
+            r0.addAndGet(r3)
+            goto L44
+        L3e:
+            dev.epro.r0.X13205888428499400927 r0 = dev.epro.r0.D459204867321966484.k
+            r0.addAndGet(r3)
+            throw r15
+        L44:
+            java.lang.Object r0 = dev.epro.r0.D459204867321966484.c
+            monitor-enter(r0)
+            d()     // Catch: java.lang.Throwable -> L86
+            if (r2 == 0) goto L93
+            java.lang.Object[] r3 = r2.b     // Catch: java.lang.Throwable -> L86
+            long[] r2 = r2.a     // Catch: java.lang.Throwable -> L86
+            int r4 = r2.length     // Catch: java.lang.Throwable -> L86
+            int r4 = r4 + (-2)
+            if (r4 < 0) goto L93
+            r5 = r1
+        L56:
+            r6 = r2[r5]     // Catch: java.lang.Throwable -> L86
+            long r8 = ~r6     // Catch: java.lang.Throwable -> L86
+            r10 = 7
+            long r8 = r8 << r10
+            long r8 = r8 & r6
+            r10 = -9187201950435737472(0x8080808080808080, double:-2.937446524422997E-306)
+            long r8 = r8 & r10
+            int r8 = (r8 > r10 ? 1 : (r8 == r10 ? 0 : -1))
+            if (r8 == 0) goto L8e
+            int r8 = r5 - r4
+            int r8 = ~r8     // Catch: java.lang.Throwable -> L86
+            int r8 = r8 >>> 31
+            r9 = 8
+            int r8 = 8 - r8
+            r10 = r1
+        L70:
+            if (r10 >= r8) goto L8c
+            r11 = 255(0xff, double:1.26E-321)
+            long r11 = r11 & r6
+            r13 = 128(0x80, double:6.32E-322)
+            int r11 = (r11 > r13 ? 1 : (r11 == r13 ? 0 : -1))
+            if (r11 >= 0) goto L88
+            int r11 = r5 << 3
+            int r11 = r11 + r10
+            r11 = r3[r11]     // Catch: java.lang.Throwable -> L86
+            dev.epro.r0.O13595511762861117873 r11 = (dev.epro.r0.O13595511762861117873) r11     // Catch: java.lang.Throwable -> L86
+            p(r11)     // Catch: java.lang.Throwable -> L86
+            goto L88
+        L86:
+            r15 = move-exception
+            goto L95
+        L88:
+            long r6 = r6 >> r9
+            int r10 = r10 + 1
+            goto L70
+        L8c:
+            if (r8 != r9) goto L93
+        L8e:
+            if (r5 == r4) goto L93
+            int r5 = r5 + 1
+            goto L56
+        L93:
+            monitor-exit(r0)
+            return r15
+        L95:
+            monitor-exit(r0)
+            throw r15
+        L97:
+            monitor-exit(r1)
+            throw r15
+        */
+        throw new UnsupportedOperationException("Method not decompiled: dev.epro.r0.D459204867321966484.b(dev.epro.r0.F4096073349764486348):java.lang.Object");
+    }
+
+    public static final void c() {
+        b(a);
+    }
+
+    public static final void d() {
+        dev.epro.r0.N12245111110189169079 n12245111110189169079 = g;
+        int i2 = n12245111110189169079.b;
+        int i3 = 0;
+        int i4 = 0;
+        while (true) {
+            if (i3 >= i2) {
+                break;
+            }
+            dev.epro.r0.C12642994619513326483 c12642994619513326483 = ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i3];
+            java.lang.Object obj = c12642994619513326483 != null ? c12642994619513326483.get() : null;
+            if (obj != null && o((dev.epro.r0.O13595511762861117873) obj)) {
+                if (i4 != i3) {
+                    ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i4] = c12642994619513326483;
+                    int[] iArr = (int[]) n12245111110189169079.c;
+                    iArr[i4] = iArr[i3];
+                }
+                i4++;
+            }
+            i3++;
+        }
+        for (int i5 = i4; i5 < i2; i5++) {
+            ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i5] = null;
+            ((int[]) n12245111110189169079.c)[i5] = 0;
+        }
+        if (i4 != i2) {
+            n12245111110189169079.b = i4;
+        }
+    }
+
+    public static final dev.epro.r0.M4722199849958580248 e(dev.epro.r0.M4722199849958580248 m4722199849958580248, dev.epro.r0.F4096073349764486348 f4096073349764486348, boolean z) {
+        boolean z2 = m4722199849958580248 instanceof dev.epro.r0.A6237865184482427403;
+        if (z2 || m4722199849958580248 == null) {
+            return new dev.epro.r0.U15634453686864636590(z2 ? (dev.epro.r0.A6237865184482427403) m4722199849958580248 : null, f4096073349764486348, (dev.epro.r0.F4096073349764486348) null, false, z);
+        }
+        return new dev.epro.r0.S5331577176189851392(m4722199849958580248, f4096073349764486348, false, z);
+    }
+
+    public static final dev.epro.r0.T9533098554585011700 f(dev.epro.r0.T9533098554585011700 t9533098554585011700) {
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R;
+        dev.epro.r0.M4722199849958580248 m4722199849958580248H = h();
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R2 = r(t9533098554585011700, m4722199849958580248H.g(), m4722199849958580248H.d());
+        if (t9533098554585011700R2 != null) {
+            return t9533098554585011700R2;
+        }
+        synchronized (c) {
+            dev.epro.r0.M4722199849958580248 m4722199849958580248H2 = h();
+            t9533098554585011700R = r(t9533098554585011700, m4722199849958580248H2.g(), m4722199849958580248H2.d());
+        }
+        if (t9533098554585011700R != null) {
+            return t9533098554585011700R;
+        }
+        q();
+        throw null;
+    }
+
+    public static final dev.epro.r0.T9533098554585011700 g(dev.epro.r0.T9533098554585011700 t9533098554585011700, dev.epro.r0.M4722199849958580248 m4722199849958580248) {
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R;
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R2 = r(t9533098554585011700, m4722199849958580248.g(), m4722199849958580248.d());
+        if (t9533098554585011700R2 != null) {
+            return t9533098554585011700R2;
+        }
+        synchronized (c) {
+            t9533098554585011700R = r(t9533098554585011700, m4722199849958580248.g(), m4722199849958580248.d());
+        }
+        if (t9533098554585011700R != null) {
+            return t9533098554585011700R;
+        }
+        q();
+        throw null;
+    }
+
+    public static final dev.epro.r0.M4722199849958580248 h() {
+        dev.epro.r0.M4722199849958580248 m4722199849958580248 = (dev.epro.r0.M4722199849958580248) b.e();
+        return m4722199849958580248 == null ? j : m4722199849958580248;
+    }
+
+    public static final dev.epro.r0.F4096073349764486348 i(dev.epro.r0.F4096073349764486348 f4096073349764486348, dev.epro.r0.F4096073349764486348 f40960733497644863482, boolean z) {
+        if (!z) {
+            f40960733497644863482 = null;
+        }
+        return (f4096073349764486348 == null || f40960733497644863482 == null || f4096073349764486348 == f40960733497644863482) ? f4096073349764486348 == null ? f40960733497644863482 : f4096073349764486348 : new dev.epro.r0.I13981237383585703181(f4096073349764486348, f40960733497644863482, (byte) 0);
+    }
+
+    public static final dev.epro.r0.F4096073349764486348 j(dev.epro.r0.F4096073349764486348 f4096073349764486348, dev.epro.r0.F4096073349764486348 f40960733497644863482) {
+        return (f4096073349764486348 == null || f40960733497644863482 == null || f4096073349764486348 == f40960733497644863482) ? f4096073349764486348 == null ? f40960733497644863482 : f4096073349764486348 : new dev.epro.r0.I13981237383585703181(f4096073349764486348, f40960733497644863482, (byte) 1);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0044, code lost:
+    
+        r3 = r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public static final dev.epro.r0.T9533098554585011700 k(dev.epro.r0.T9533098554585011700 r10, dev.epro.r0.O13595511762861117873 r11) {
+        /*
+            dev.epro.r0.T9533098554585011700 r0 = r11.a()
+            long r1 = dev.epro.r0.D459204867321966484.e
+            dev.epro.r0.Y1681784425110360379 r3 = dev.epro.r0.D459204867321966484.f
+            int r4 = r3.a
+            if (r4 <= 0) goto L14
+            java.lang.Object r1 = r3.d
+            long[] r1 = (long[]) r1
+            r2 = 0
+            r2 = r1[r2]
+            r1 = r2
+        L14:
+            r3 = 1
+            long r1 = r1 - r3
+            r3 = 0
+            r4 = r3
+        L19:
+            if (r0 == 0) goto L4b
+            long r5 = r0.a
+            r7 = 0
+            int r9 = (r5 > r7 ? 1 : (r5 == r7 ? 0 : -1))
+            if (r9 != 0) goto L24
+            goto L44
+        L24:
+            int r7 = (r5 > r7 ? 1 : (r5 == r7 ? 0 : -1))
+            if (r7 == 0) goto L48
+            int r7 = dev.epro.r0.S10823041268949770285.A(r5, r1)
+            if (r7 > 0) goto L48
+            dev.epro.r0.D7201182503133677242 r7 = dev.epro.r0.D7201182503133677242.e
+            boolean r5 = r7.c(r5)
+            if (r5 != 0) goto L48
+            if (r4 != 0) goto L3a
+            r4 = r0
+            goto L48
+        L3a:
+            long r1 = r0.a
+            long r5 = r4.a
+            int r1 = dev.epro.r0.S10823041268949770285.A(r1, r5)
+            if (r1 >= 0) goto L46
+        L44:
+            r3 = r0
+            goto L4b
+        L46:
+            r3 = r4
+            goto L4b
+        L48:
+            dev.epro.r0.T9533098554585011700 r0 = r0.b
+            goto L19
+        L4b:
+            r0 = 9223372036854775807(0x7fffffffffffffff, double:NaN)
+            if (r3 == 0) goto L55
+            r3.a = r0
+            return r3
+        L55:
+            dev.epro.r0.T9533098554585011700 r10 = r10.c(r0)
+            dev.epro.r0.T9533098554585011700 r0 = r11.a()
+            r10.b = r0
+            r11.c(r10)
+            return r10
+        */
+        throw new UnsupportedOperationException("Method not decompiled: dev.epro.r0.D459204867321966484.k(dev.epro.r0.T9533098554585011700, dev.epro.r0.O13595511762861117873):dev.epro.r0.T9533098554585011700");
+    }
+
+    public static final void l(dev.epro.r0.M4722199849958580248 m4722199849958580248, dev.epro.r0.O13595511762861117873 o13595511762861117873) {
+        m4722199849958580248.t(m4722199849958580248.h() + 1);
+        dev.epro.r0.F4096073349764486348 f4096073349764486348I = m4722199849958580248.i();
+        if (f4096073349764486348I != null) {
+            f4096073349764486348I.invoke(o13595511762861117873);
+        }
+    }
+
+    public static final java.util.HashMap m(long j2, dev.epro.r0.A6237865184482427403 a6237865184482427403, dev.epro.r0.D7201182503133677242 d7201182503133677242) {
+        long[] jArr;
+        dev.epro.r0.D7201182503133677242 d72011825031336772422;
+        long[] jArr2;
+        dev.epro.r0.D7201182503133677242 d72011825031336772423;
+        int i2;
+        int i3;
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R;
+        dev.epro.r0.E13273723708836014930 e13273723708836014930X = a6237865184482427403.x();
+        if (e13273723708836014930X != null) {
+            long jG = a6237865184482427403.g();
+            dev.epro.r0.D7201182503133677242 d7201182503133677242I = a6237865184482427403.d().j(jG).i(a6237865184482427403.j);
+            java.lang.Object[] objArr = e13273723708836014930X.b;
+            long[] jArr3 = e13273723708836014930X.a;
+            int length = jArr3.length - 2;
+            if (length >= 0) {
+                int i4 = 0;
+                java.util.HashMap map = null;
+                while (true) {
+                    long j3 = jArr3[i4];
+                    if ((((~j3) << 7) & j3 & (-9187201950435737472L)) != -9187201950435737472L) {
+                        int i5 = 8;
+                        int i6 = 8 - ((~(i4 - length)) >>> 31);
+                        int i7 = 0;
+                        while (i7 < i6) {
+                            if ((j3 & 255) < 128) {
+                                dev.epro.r0.O13595511762861117873 o13595511762861117873 = (dev.epro.r0.O13595511762861117873) objArr[(i4 << 3) + i7];
+                                dev.epro.r0.T9533098554585011700 t9533098554585011700A = o13595511762861117873.a();
+                                jArr2 = jArr3;
+                                i2 = i5;
+                                i3 = i7;
+                                dev.epro.r0.T9533098554585011700 t9533098554585011700R2 = r(t9533098554585011700A, j2, d7201182503133677242);
+                                if (t9533098554585011700R2 == null || (t9533098554585011700R = r(t9533098554585011700A, jG, d7201182503133677242I)) == null || t9533098554585011700R2.equals(t9533098554585011700R)) {
+                                    d72011825031336772423 = d7201182503133677242I;
+                                } else {
+                                    d72011825031336772423 = d7201182503133677242I;
+                                    dev.epro.r0.T9533098554585011700 t9533098554585011700R3 = r(t9533098554585011700A, jG, a6237865184482427403.d());
+                                    if (t9533098554585011700R3 == null) {
+                                        q();
+                                        throw null;
+                                    }
+                                    dev.epro.r0.T9533098554585011700 t9533098554585011700B = o13595511762861117873.b(t9533098554585011700R, t9533098554585011700R2, t9533098554585011700R3);
+                                    if (t9533098554585011700B == null) {
+                                        return null;
+                                    }
+                                    if (map == null) {
+                                        map = new java.util.HashMap();
+                                    }
+                                    map.put(t9533098554585011700R2, t9533098554585011700B);
+                                    map = map;
+                                }
+                            } else {
+                                jArr2 = jArr3;
+                                d72011825031336772423 = d7201182503133677242I;
+                                i2 = i5;
+                                i3 = i7;
+                            }
+                            j3 >>= i2;
+                            i7 = i3 + 1;
+                            i5 = i2;
+                            jArr3 = jArr2;
+                            d7201182503133677242I = d72011825031336772423;
+                        }
+                        jArr = jArr3;
+                        d72011825031336772422 = d7201182503133677242I;
+                        if (i6 != i5) {
+                            return map;
+                        }
+                    } else {
+                        jArr = jArr3;
+                        d72011825031336772422 = d7201182503133677242I;
+                    }
+                    if (i4 == length) {
+                        return map;
+                    }
+                    i4++;
+                    jArr3 = jArr;
+                    d7201182503133677242I = d72011825031336772422;
+                }
+            }
+        }
+        return null;
+    }
+
+    public static final dev.epro.r0.T9533098554585011700 n(dev.epro.r0.T9533098554585011700 t9533098554585011700, dev.epro.r0.Y14161449526678499798 y14161449526678499798, dev.epro.r0.M4722199849958580248 m4722199849958580248, dev.epro.r0.T9533098554585011700 t95330985545850117002) {
+        dev.epro.r0.T9533098554585011700 t9533098554585011700K;
+        if (m4722199849958580248.f()) {
+            m4722199849958580248.n(y14161449526678499798);
+        }
+        long jG = m4722199849958580248.g();
+        if (t95330985545850117002.a == jG) {
+            return t95330985545850117002;
+        }
+        synchronized (c) {
+            t9533098554585011700K = k(t9533098554585011700, y14161449526678499798);
+        }
+        t9533098554585011700K.a = jG;
+        m4722199849958580248.n(y14161449526678499798);
+        return t9533098554585011700K;
+    }
+
+    public static final boolean o(dev.epro.r0.O13595511762861117873 o13595511762861117873) {
+        dev.epro.r0.T9533098554585011700 t9533098554585011700;
+        long j2 = e;
+        dev.epro.r0.Y1681784425110360379 y1681784425110360379 = f;
+        if (y1681784425110360379.a > 0) {
+            j2 = ((long[]) y1681784425110360379.d)[0];
+        }
+        dev.epro.r0.T9533098554585011700 t95330985545850117002 = null;
+        dev.epro.r0.T9533098554585011700 t9533098554585011700A = null;
+        int i2 = 0;
+        for (dev.epro.r0.T9533098554585011700 t9533098554585011700A2 = o13595511762861117873.a(); t9533098554585011700A2 != null; t9533098554585011700A2 = t9533098554585011700A2.b) {
+            long j3 = t9533098554585011700A2.a;
+            if (j3 != 0) {
+                if (dev.epro.r0.S10823041268949770285.A(j3, j2) >= 0) {
+                    i2++;
+                } else if (t95330985545850117002 == null) {
+                    i2++;
+                    t95330985545850117002 = t9533098554585011700A2;
+                } else {
+                    if (dev.epro.r0.S10823041268949770285.A(t9533098554585011700A2.a, t95330985545850117002.a) < 0) {
+                        t9533098554585011700 = t95330985545850117002;
+                        t95330985545850117002 = t9533098554585011700A2;
+                    } else {
+                        t9533098554585011700 = t9533098554585011700A2;
+                    }
+                    if (t9533098554585011700A == null) {
+                        t9533098554585011700A = o13595511762861117873.a();
+                        dev.epro.r0.T9533098554585011700 t95330985545850117003 = t9533098554585011700A;
+                        while (true) {
+                            if (t9533098554585011700A == null) {
+                                t9533098554585011700A = t95330985545850117003;
+                                break;
+                            }
+                            if (dev.epro.r0.S10823041268949770285.A(t9533098554585011700A.a, j2) >= 0) {
+                                break;
+                            }
+                            if (dev.epro.r0.S10823041268949770285.A(t95330985545850117003.a, t9533098554585011700A.a) < 0) {
+                                t95330985545850117003 = t9533098554585011700A;
+                            }
+                            t9533098554585011700A = t9533098554585011700A.b;
+                        }
+                    }
+                    t95330985545850117002.a = 0L;
+                    t95330985545850117002.a(t9533098554585011700A);
+                    t95330985545850117002 = t9533098554585011700;
+                }
+            }
+        }
+        return i2 > 1;
+    }
+
+    public static final void p(dev.epro.r0.O13595511762861117873 o13595511762861117873) {
+        if (o(o13595511762861117873)) {
+            dev.epro.r0.N12245111110189169079 n12245111110189169079 = g;
+            int i2 = n12245111110189169079.b;
+            int iIdentityHashCode = java.lang.System.identityHashCode(o13595511762861117873);
+            int i3 = -1;
+            if (i2 > 0) {
+                int i4 = n12245111110189169079.b - 1;
+                int i5 = 0;
+                while (true) {
+                    if (i5 > i4) {
+                        i3 = -(i5 + 1);
+                        break;
+                    }
+                    int i6 = (i5 + i4) >>> 1;
+                    int i7 = ((int[]) n12245111110189169079.c)[i6];
+                    if (i7 < iIdentityHashCode) {
+                        i5 = i6 + 1;
+                    } else if (i7 > iIdentityHashCode) {
+                        i4 = i6 - 1;
+                    } else {
+                        dev.epro.r0.C12642994619513326483 c12642994619513326483 = ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i6];
+                        if (o13595511762861117873 == (c12642994619513326483 != null ? c12642994619513326483.get() : null)) {
+                            i3 = i6;
+                        } else {
+                            for (int i8 = i6 - 1; -1 < i8 && ((int[]) n12245111110189169079.c)[i8] == iIdentityHashCode; i8--) {
+                                dev.epro.r0.C12642994619513326483 c126429946195133264832 = ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i8];
+                                if ((c126429946195133264832 != null ? c126429946195133264832.get() : null) == o13595511762861117873) {
+                                    i3 = i8;
+                                    break;
+                                }
+                            }
+                            i6++;
+                            int i9 = n12245111110189169079.b;
+                            while (true) {
+                                if (i6 >= i9) {
+                                    i3 = -(n12245111110189169079.b + 1);
+                                    break;
+                                } else {
+                                    if (((int[]) n12245111110189169079.c)[i6] != iIdentityHashCode) {
+                                        i3 = -(i6 + 1);
+                                        break;
+                                    }
+                                    dev.epro.r0.C12642994619513326483 c126429946195133264833 = ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i6];
+                                    if ((c126429946195133264833 != null ? c126429946195133264833.get() : null) == o13595511762861117873) {
+                                        break;
+                                    } else {
+                                        i6++;
+                                    }
+                                }
+                            }
+                            i3 = i6;
+                        }
+                    }
+                }
+                if (i3 >= 0) {
+                    return;
+                }
+            }
+            int i10 = -(i3 + 1);
+            dev.epro.r0.C12642994619513326483[] c12642994619513326483Arr = (dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d;
+            int length = c12642994619513326483Arr.length;
+            if (i2 == length) {
+                int i11 = length * 2;
+                dev.epro.r0.C12642994619513326483[] c12642994619513326483Arr2 = new dev.epro.r0.C12642994619513326483[i11];
+                int[] iArr = new int[i11];
+                int i12 = i10 + 1;
+                java.lang.System.arraycopy(c12642994619513326483Arr, i10, c12642994619513326483Arr2, i12, i2 - i10);
+                java.lang.System.arraycopy((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d, 0, c12642994619513326483Arr2, 0, i10);
+                dev.epro.r0.O5378677881740157249.m0(i12, i10, i2, (int[]) n12245111110189169079.c, iArr);
+                dev.epro.r0.O5378677881740157249.r0(0, i10, 6, (int[]) n12245111110189169079.c, iArr);
+                n12245111110189169079.d = c12642994619513326483Arr2;
+                n12245111110189169079.c = iArr;
+            } else {
+                int i13 = i10 + 1;
+                java.lang.System.arraycopy(c12642994619513326483Arr, i10, c12642994619513326483Arr, i13, i2 - i10);
+                int[] iArr2 = (int[]) n12245111110189169079.c;
+                dev.epro.r0.O5378677881740157249.m0(i13, i10, i2, iArr2, iArr2);
+            }
+            ((dev.epro.r0.C12642994619513326483[]) n12245111110189169079.d)[i10] = new dev.epro.r0.C12642994619513326483(o13595511762861117873);
+            ((int[]) n12245111110189169079.c)[i10] = iIdentityHashCode;
+            n12245111110189169079.b++;
+        }
+    }
+
+    public static final void q() {
+        throw new java.lang.IllegalStateException("Reading a state that was created after the snapshot was taken or in a snapshot that has not yet been applied");
+    }
+
+    public static final dev.epro.r0.T9533098554585011700 r(dev.epro.r0.T9533098554585011700 t9533098554585011700, long j2, dev.epro.r0.D7201182503133677242 d7201182503133677242) {
+        dev.epro.r0.T9533098554585011700 t95330985545850117002 = null;
+        while (t9533098554585011700 != null) {
+            long j3 = t9533098554585011700.a;
+            if (j3 != 0 && dev.epro.r0.S10823041268949770285.A(j3, j2) <= 0 && !d7201182503133677242.c(j3) && (t95330985545850117002 == null || dev.epro.r0.S10823041268949770285.A(t95330985545850117002.a, t9533098554585011700.a) < 0)) {
+                t95330985545850117002 = t9533098554585011700;
+            }
+            t9533098554585011700 = t9533098554585011700.b;
+        }
+        if (t95330985545850117002 != null) {
+            return t95330985545850117002;
+        }
+        return null;
+    }
+
+    public static final dev.epro.r0.T9533098554585011700 s(dev.epro.r0.T9533098554585011700 t9533098554585011700, dev.epro.r0.O13595511762861117873 o13595511762861117873) {
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R;
+        dev.epro.r0.M4722199849958580248 m4722199849958580248H = h();
+        dev.epro.r0.F4096073349764486348 f4096073349764486348E = m4722199849958580248H.e();
+        if (f4096073349764486348E != null) {
+            f4096073349764486348E.invoke(o13595511762861117873);
+        }
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R2 = r(t9533098554585011700, m4722199849958580248H.g(), m4722199849958580248H.d());
+        if (t9533098554585011700R2 != null) {
+            return t9533098554585011700R2;
+        }
+        synchronized (c) {
+            dev.epro.r0.M4722199849958580248 m4722199849958580248H2 = h();
+            dev.epro.r0.T9533098554585011700 t9533098554585011700A = o13595511762861117873.a();
+            t9533098554585011700A.getClass();
+            t9533098554585011700R = r(t9533098554585011700A, m4722199849958580248H2.g(), m4722199849958580248H2.d());
+            if (t9533098554585011700R == null) {
+                q();
+                throw null;
+            }
+        }
+        return t9533098554585011700R;
+    }
+
+    public static final void t(int i2) {
+        dev.epro.r0.Y1681784425110360379 y1681784425110360379 = f;
+        int i3 = ((int[]) y1681784425110360379.e)[i2];
+        y1681784425110360379.c(i3, y1681784425110360379.a - 1);
+        y1681784425110360379.a--;
+        long[] jArr = (long[]) y1681784425110360379.d;
+        long j2 = jArr[i3];
+        int i4 = i3;
+        while (i4 > 0) {
+            int i5 = ((i4 + 1) >> 1) - 1;
+            if (dev.epro.r0.S10823041268949770285.A(jArr[i5], j2) <= 0) {
+                break;
+            }
+            y1681784425110360379.c(i5, i4);
+            i4 = i5;
+        }
+        long[] jArr2 = (long[]) y1681784425110360379.d;
+        int i6 = y1681784425110360379.a >> 1;
+        while (i3 < i6) {
+            int i7 = (i3 + 1) << 1;
+            int i8 = i7 - 1;
+            if (i7 < y1681784425110360379.a && dev.epro.r0.S10823041268949770285.A(jArr2[i7], jArr2[i8]) < 0) {
+                if (dev.epro.r0.S10823041268949770285.A(jArr2[i7], jArr2[i3]) >= 0) {
+                    break;
+                }
+                y1681784425110360379.c(i7, i3);
+                i3 = i7;
+            } else {
+                if (dev.epro.r0.S10823041268949770285.A(jArr2[i8], jArr2[i3]) >= 0) {
+                    break;
+                }
+                y1681784425110360379.c(i8, i3);
+                i3 = i8;
+            }
+        }
+        ((int[]) y1681784425110360379.e)[i2] = y1681784425110360379.c;
+        y1681784425110360379.c = i2;
+    }
+
+    public static final java.lang.Object u(dev.epro.r0.J15946920862211647593 j15946920862211647593, dev.epro.r0.F4096073349764486348 f4096073349764486348) {
+        long j2 = ((dev.epro.r0.M4722199849958580248) j15946920862211647593).b;
+        java.lang.Object objInvoke = f4096073349764486348.invoke(d.b(j2));
+        long j3 = e;
+        e = 1 + j3;
+        dev.epro.r0.D7201182503133677242 d7201182503133677242B = d.b(j2);
+        d = d7201182503133677242B;
+        ((dev.epro.r0.M4722199849958580248) j15946920862211647593).b = j3;
+        ((dev.epro.r0.M4722199849958580248) j15946920862211647593).a = d7201182503133677242B;
+        j15946920862211647593.g = 0;
+        j15946920862211647593.h = null;
+        j15946920862211647593.o();
+        d = d.j(j3);
+        return objInvoke;
+    }
+
+    public static final void v(dev.epro.r0.M4722199849958580248 m4722199849958580248) {
+        java.lang.Long lValueOf;
+        if (d.c(m4722199849958580248.g())) {
+            return;
+        }
+        long jG = m4722199849958580248.g();
+        boolean z = m4722199849958580248.c;
+        dev.epro.r0.A6237865184482427403 a6237865184482427403 = m4722199849958580248 instanceof dev.epro.r0.A6237865184482427403 ? (dev.epro.r0.A6237865184482427403) m4722199849958580248 : null;
+        java.lang.String strValueOf = a6237865184482427403 != null ? java.lang.Boolean.valueOf(a6237865184482427403.m) : "read-only";
+        synchronized (c) {
+            dev.epro.r0.Y1681784425110360379 y1681784425110360379 = f;
+            lValueOf = java.lang.Long.valueOf(y1681784425110360379.a > 0 ? ((long[]) y1681784425110360379.d)[0] : -1L);
+        }
+        throw new java.lang.IllegalStateException(("Snapshot is not open: snapshotId=" + jG + ", disposed=" + z + ", applied=" + strValueOf + ", lowestPin=" + lValueOf).toString());
+    }
+
+    public static final dev.epro.r0.T9533098554585011700 w(dev.epro.r0.T9533098554585011700 t9533098554585011700, dev.epro.r0.O13595511762861117873 o13595511762861117873, dev.epro.r0.M4722199849958580248 m4722199849958580248) {
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R;
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R2;
+        if (m4722199849958580248.f()) {
+            m4722199849958580248.n(o13595511762861117873);
+        }
+        long jG = m4722199849958580248.g();
+        dev.epro.r0.T9533098554585011700 t9533098554585011700R3 = r(t9533098554585011700, jG, m4722199849958580248.d());
+        if (t9533098554585011700R3 == null) {
+            synchronized (c) {
+                dev.epro.r0.M4722199849958580248 m4722199849958580248H = h();
+                dev.epro.r0.T9533098554585011700 t9533098554585011700A = o13595511762861117873.a();
+                t9533098554585011700A.getClass();
+                t9533098554585011700R2 = r(t9533098554585011700A, m4722199849958580248H.g(), m4722199849958580248H.d());
+                if (t9533098554585011700R2 == null) {
+                    q();
+                    throw null;
+                }
+            }
+            t9533098554585011700R3 = t9533098554585011700R2;
+        }
+        if (t9533098554585011700R3.a == m4722199849958580248.g()) {
+            return t9533098554585011700R3;
+        }
+        synchronized (c) {
+            t9533098554585011700R = r(o13595511762861117873.a(), jG, m4722199849958580248.d());
+            if (t9533098554585011700R == null) {
+                q();
+                throw null;
+            }
+            if (t9533098554585011700R.a != jG) {
+                dev.epro.r0.T9533098554585011700 t9533098554585011700K = k(t9533098554585011700R, o13595511762861117873);
+                t9533098554585011700K.a(t9533098554585011700R);
+                t9533098554585011700K.a = m4722199849958580248.g();
+                t9533098554585011700R = t9533098554585011700K;
+            }
+        }
+        m4722199849958580248.n(o13595511762861117873);
+        return t9533098554585011700R;
+    }
+}

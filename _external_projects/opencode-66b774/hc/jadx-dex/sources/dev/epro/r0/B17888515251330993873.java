@@ -1,0 +1,25 @@
+package dev.epro.r0;
+
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class B17888515251330993873 implements dev.epro.r0.M72006348651188775 {
+    public final /* synthetic */ dev.epro.r0.I4293432593871965076 a;
+    public final /* synthetic */ dev.epro.r0.I2388620560486547149 b;
+    public final /* synthetic */ dev.epro.r0.S13912776033159381943 c;
+    public final /* synthetic */ dev.epro.r0.L13148442655056575112 d;
+
+    static {
+        o.bwmna.gdrqkg.izmyclvb.oeynnivvrnts0(416);
+    }
+
+    private native void lmvulhnokyhi(dev.epro.r0.I4293432593871965076 i4293432593871965076, dev.epro.r0.I2388620560486547149 i2388620560486547149, dev.epro.r0.S13912776033159381943 s13912776033159381943, dev.epro.r0.L13148442655056575112 l13148442655056575112);
+
+    public final native void a();
+
+    public B17888515251330993873(dev.epro.r0.I4293432593871965076 i4293432593871965076, dev.epro.r0.I2388620560486547149 i2388620560486547149, dev.epro.r0.S13912776033159381943 s13912776033159381943, dev.epro.r0.L13148442655056575112 l13148442655056575112) {
+        this.a = i4293432593871965076;
+        this.b = i2388620560486547149;
+        this.c = s13912776033159381943;
+        this.d = l13148442655056575112;
+        lmvulhnokyhi(i4293432593871965076, i2388620560486547149, s13912776033159381943, l13148442655056575112);
+    }
+}

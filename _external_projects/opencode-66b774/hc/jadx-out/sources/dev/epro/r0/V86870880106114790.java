@@ -1,0 +1,11 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class V86870880106114790 {
+    public final J196785984016436306 a;
+
+    public V86870880106114790(J196785984016436306 j196785984016436306) {
+        this.a = j196785984016436306;
+    }
+}

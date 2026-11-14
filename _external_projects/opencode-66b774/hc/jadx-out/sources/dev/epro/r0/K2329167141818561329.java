@@ -1,0 +1,20 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class K2329167141818561329 {
+    public final Y9581402170807256401 a;
+    public final Y9581402170807256401 b;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(312);
+    }
+
+    private native void wkehakovhifl(Y9581402170807256401 y9581402170807256401, Y9581402170807256401 y95814021708072564012);
+
+    public K2329167141818561329(Y9581402170807256401 y9581402170807256401, Y9581402170807256401 y95814021708072564012) {
+        y9581402170807256401.getClass();
+        wkehakovhifl(y9581402170807256401, y95814021708072564012);
+    }
+}

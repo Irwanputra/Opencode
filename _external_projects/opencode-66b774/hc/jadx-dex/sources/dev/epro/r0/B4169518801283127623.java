@@ -1,0 +1,24 @@
+package dev.epro.r0;
+
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class B4169518801283127623 extends dev.epro.r0.R14062301455140331524 implements dev.epro.r0.L12639328004344855510 {
+    public boolean t;
+    public /* synthetic */ java.lang.Object u;
+
+    static {
+        o.bwmna.gdrqkg.izmyclvb.oeynnivvrnts0(360);
+    }
+
+    public B4169518801283127623(dev.epro.r0.R4833348786910499294 r4833348786910499294) {
+        super(2, r4833348786910499294);
+        vpvgpgziadkg();
+    }
+
+    private native void vpvgpgziadkg();
+
+    public final native dev.epro.r0.R4833348786910499294 create(dev.epro.r0.R4833348786910499294 r4833348786910499294, java.lang.Object obj);
+
+    public final native java.lang.Object invoke(java.lang.Object obj, java.lang.Object obj2);
+
+    public final native java.lang.Object invokeSuspend(java.lang.Object obj);
+}

@@ -1,0 +1,86 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class O4457910766390293492 extends R14062301455140331524 implements L12639328004344855510 {
+    public final /* synthetic */ byte t;
+    public boolean u;
+    public final /* synthetic */ O13555142349968671984 v;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public /* synthetic */ O4457910766390293492(O13555142349968671984 o13555142349968671984, R4833348786910499294 r4833348786910499294, byte b) {
+        super(2, r4833348786910499294);
+        this.t = b;
+        this.v = o13555142349968671984;
+    }
+
+    @Override // dev.epro.r0.B401944902727389462
+    public final R4833348786910499294 create(R4833348786910499294 r4833348786910499294, Object obj) {
+        byte b = this.t;
+        O13555142349968671984 o13555142349968671984 = this.v;
+        switch (b) {
+            case 0:
+                return new O4457910766390293492(o13555142349968671984, r4833348786910499294, (byte) 0);
+            default:
+                return new O4457910766390293492(o13555142349968671984, r4833348786910499294, (byte) 1);
+        }
+    }
+
+    @Override // dev.epro.r0.L12639328004344855510
+    public final Object invoke(Object obj, Object obj2) {
+        byte b = this.t;
+        O9245300239821758723 o9245300239821758723 = O9245300239821758723.a;
+        W5797197595347441198 w5797197595347441198 = (W5797197595347441198) obj;
+        R4833348786910499294 r4833348786910499294 = (R4833348786910499294) obj2;
+        switch (b) {
+        }
+        return ((O4457910766390293492) create(r4833348786910499294, w5797197595347441198)).invokeSuspend(o9245300239821758723);
+    }
+
+    @Override // dev.epro.r0.B401944902727389462
+    public final Object invokeSuspend(Object obj) throws Throwable {
+        byte b = this.t;
+        O13555142349968671984 o13555142349968671984 = this.v;
+        Z3437138737604933638 z3437138737604933638 = Z3437138737604933638.a;
+        O9245300239821758723 o9245300239821758723 = O9245300239821758723.a;
+        switch (b) {
+            case 0:
+                boolean z = this.u;
+                if (!z) {
+                    E17665849472693074628.k(obj);
+                    S7974369370986781936 s7974369370986781936 = o13555142349968671984.a;
+                    this.u = true;
+                    Object objG = s7974369370986781936.w.g(this);
+                    if (objG != z3437138737604933638) {
+                        objG = o9245300239821758723;
+                    }
+                    if (objG == z3437138737604933638) {
+                    }
+                } else if (!z) {
+                    S10973172697741180971.m("call to 'resume' before 'invoke' with coroutine");
+                } else {
+                    E17665849472693074628.k(obj);
+                }
+                break;
+            default:
+                boolean z2 = this.u;
+                if (!z2) {
+                    E17665849472693074628.k(obj);
+                    S7974369370986781936 s79743693709867819362 = o13555142349968671984.a;
+                    this.u = true;
+                    Object objA = s79743693709867819362.x.a(this);
+                    if (objA != z3437138737604933638) {
+                        objA = o9245300239821758723;
+                    }
+                    if (objA == z3437138737604933638) {
+                    }
+                } else if (!z2) {
+                    S10973172697741180971.m("call to 'resume' before 'invoke' with coroutine");
+                } else {
+                    E17665849472693074628.k(obj);
+                }
+                break;
+        }
+        return z3437138737604933638;
+    }
+}

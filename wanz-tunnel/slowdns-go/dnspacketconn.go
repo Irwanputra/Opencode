@@ -83,7 +83,9 @@ type DNSPacketConn struct {
 	domain   dns.Name
 	// qtype: tipe record untuk query upstream.
 	qtype uint16
-	logf  func(format string, args ...interface{})
+	// ednsLimit: ukuran payload UDP maksimum di OPT record (0 = 4096).
+	ednsLimit int
+	logf      func(format string, args ...interface{})
 	// pollChan mengizinkan sendLoop mengirim query polling kosong.
 	pollChan chan struct{}
 	// done ditutup oleh Close untuk menghentikan loop kirim/terima.
@@ -106,6 +108,7 @@ func NewDNSPacketConn(
 	addr net.Addr,
 	domain dns.Name,
 	qtype uint16,
+	ednsLimit int,
 	logf func(format string, args ...interface{}),
 ) *DNSPacketConn {
 	if logf == nil {
@@ -116,6 +119,7 @@ func NewDNSPacketConn(
 		clientID:        clientID,
 		domain:          domain,
 		qtype:           qtype,
+		ednsLimit:       ednsLimit,
 		logf:            logf,
 		pollChan:        make(chan struct{}, pollLimit),
 		done:            make(chan struct{}),
@@ -139,9 +143,18 @@ func NewDNSPacketConn(
 
 // buildQuery menyusun pesan query DNS dari satu paket (p kosong = polling).
 // Isi QNAME sebelum base32: ClientID(8) ‖ 0xE0+n ‖ n byte acak ‖ [len ‖ data].
-func buildQuery(clientID turbotunnel.ClientID, domain dns.Name, qtype uint16, p []byte) ([]byte, error) {
+func buildQuery(clientID turbotunnel.ClientID, domain dns.Name, qtype uint16, p []byte, ednsLimit int) ([]byte, error) {
 	if len(p) >= 224 {
 		return nil, fmt.Errorf("paket terlalu panjang")
+	}
+	if ednsLimit <= 0 {
+		ednsLimit = 4096
+	}
+	if ednsLimit < 512 {
+		ednsLimit = 512
+	}
+	if ednsLimit > 4096 {
+		ednsLimit = 4096
 	}
 	var buf bytes.Buffer
 	// ClientID
@@ -187,7 +200,7 @@ func buildQuery(clientID turbotunnel.ClientID, domain dns.Name, qtype uint16, p 
 			{
 				Name:  dns.Name{},
 				Type:  dns.RRTypeOPT,
-				Class: 4096, // ukuran payload UDP peminta
+				Class: uint16(ednsLimit), // ukuran payload UDP peminta
 				TTL:   0,
 				Data:  []byte{},
 			},
@@ -386,7 +399,7 @@ func chunks(p []byte, n int) [][]byte {
 
 // send mengirim satu paket sebagai query DNS dengan QTYPE terpilih.
 func (c *DNSPacketConn) send(transport net.PacketConn, p []byte, addr net.Addr) error {
-	buf, err := buildQuery(c.clientID, c.domain, c.qtype, p)
+	buf, err := buildQuery(c.clientID, c.domain, c.qtype, p, c.ednsLimit)
 	if err != nil {
 		return err
 	}
@@ -458,13 +471,13 @@ func (c *DNSPacketConn) sendLoop(transport net.PacketConn, addr net.Addr) error 
 // probeQType mengirim satu query polling kosong dengan tipe tertentu dan
 // menunggu jawaban server tunnel. true = tipe ini lolos resolver + server.
 func probeQType(resolver *net.UDPAddr, domain dns.Name, qtype uint16, timeout time.Duration) bool {
-	sock, err := net.DialUDP("udp", nil, resolver)
+	sock, err := dialUDP(resolver)
 	if err != nil {
 		return false
 	}
 	defer sock.Close()
 	clientID := turbotunnel.NewClientID()
-	buf, err := buildQuery(clientID, domain, qtype, nil)
+	buf, err := buildQuery(clientID, domain, qtype, nil, 0)
 	if err != nil {
 		return false
 	}
@@ -500,12 +513,73 @@ func probeQType(resolver *net.UDPAddr, domain dns.Name, qtype uint16, timeout ti
 	}
 }
 
+// probeQTypeSpec menguji satu tipe lewat transport apa pun (UDP/DoH/DoT).
+func probeQTypeSpec(spec resolverSpec, domain dns.Name, qtype uint16, timeout time.Duration) bool {
+	if spec.kind == "udp" {
+		raddr, err := net.ResolveUDPAddr("udp", spec.addr)
+		if err != nil {
+			return false
+		}
+		return probeQType(raddr, domain, qtype, timeout)
+	}
+
+	tr, err := openTransport(spec)
+	if err != nil {
+		return false
+	}
+	defer tr.Close()
+	buf, err := buildQuery(turbotunnel.NewClientID(), domain, qtype, nil, 0)
+	if err != nil {
+		return false
+	}
+	if _, err := tr.WriteTo(buf, tr.addr); err != nil {
+		return false
+	}
+
+	type result struct {
+		rsp []byte
+		ok  bool
+	}
+	ch := make(chan result, 1)
+	go func() {
+		var rsp [4096]byte
+		n, _, err := tr.ReadFrom(rsp[:])
+		if err != nil {
+			ch <- result{}
+			return
+		}
+		out := make([]byte, n)
+		copy(out, rsp[:n])
+		ch <- result{rsp: out, ok: true}
+	}()
+	select {
+	case res := <-ch:
+		if !res.ok {
+			return false
+		}
+		msg, err := dns.MessageFromWireFormat(res.rsp)
+		if err != nil || msg.Flags&0x8000 != 0x8000 || msg.Flags&0x000f != dns.RcodeNoError {
+			return false
+		}
+		for _, a := range msg.Answer {
+			if _, ok := a.Name.TrimSuffix(domain); ok && a.Type == qtype {
+				return true
+			}
+		}
+		return false
+	case <-time.After(timeout):
+		// Tutup transport supaya goroutine ReadFrom tidak menggantung.
+		tr.Close()
+		return false
+	}
+}
+
 // calibrateQType mencoba tiap tipe record sampai ada yang lolos. Dipakai
 // mode AUTO, meniru "Automatic calibration" SlowDNS HTTP Custom.
-func calibrateQType(resolver *net.UDPAddr, domain dns.Name, timeout time.Duration, logf func(string, ...interface{})) uint16 {
+func calibrateQType(spec resolverSpec, domain dns.Name, timeout time.Duration, logf func(string, ...interface{})) uint16 {
 	for _, qt := range autoCandidates {
 		logf("SlowDNS: kalibrasi tipe %s…", typeName(qt))
-		if probeQType(resolver, domain, qt, timeout) {
+		if probeQTypeSpec(spec, domain, qt, timeout) {
 			return qt
 		}
 	}

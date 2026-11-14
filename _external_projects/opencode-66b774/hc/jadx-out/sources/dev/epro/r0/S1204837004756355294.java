@@ -1,0 +1,21 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class S1204837004756355294 extends R15896830329318850690 implements D10205225622993155321 {
+
+    /* JADX INFO: renamed from: o, reason: collision with root package name */
+    public F4096073349764486348 f477o;
+    public boolean p;
+
+    @Override // dev.epro.r0.R15896830329318850690
+    public final boolean W0() {
+        return false;
+    }
+
+    @Override // dev.epro.r0.D10205225622993155321
+    public final H11646813293457574213 h(I5164649337253478959 i5164649337253478959, G17613326942144185441 g17613326942144185441, long j) {
+        Z17471428274427141949 z17471428274427141949D = g17613326942144185441.d(j);
+        return i5164649337253478959.m(z17471428274427141949D.a, z17471428274427141949D.b, X9852054718446117252.a, new B2138252231653711516(this, z17471428274427141949D, (byte) 29));
+    }
+}

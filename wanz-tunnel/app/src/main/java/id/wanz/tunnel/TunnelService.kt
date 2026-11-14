@@ -319,6 +319,24 @@ class TunnelService : VpnService() {
                     busy.set(false)
                     return@Thread
                 }
+                if (p.slowdns) {
+                    // VPN dinyalakan lebih dulu supaya socket resolver SlowDNS
+                    // dibuat saat VPN sudah aktif → protect() pasti berlaku
+                    // dan query DNS tidak masuk kembali ke TUN (penyebab
+                    // "terhubung tapi timeout").
+                    set("Menyiapkan VPN…")
+                    TunnelLog.add(
+                        "INFO",
+                        "VPN dipasang sebelum terowongan SlowDNS agar socket resolver di-protect"
+                    )
+                    try {
+                        establishVpn(p)
+                    } catch (e: Exception) {
+                        throw IOException(
+                            "Gagal menyiapkan VPN: ${e.message ?: e.javaClass.simpleName}", e
+                        )
+                    }
+                }
                 s = dial(p)
                 val port = p.socksPort.coerceIn(1024, 65535)
                 srv = ServerSocket(port, 64, InetAddress.getByName("127.0.0.1"))
@@ -343,6 +361,9 @@ class TunnelService : VpnService() {
                 // instance lama akan terus melakukan polling dan (sebelum
                 // v2.9.11) membanjiri log dengan galat socket tertutup.
                 SlowDnsTunnel.stop()
+                // TUN tanpa SOCKS hidup = semua trafik aplikasi mati. Tutup
+                // agar internet kembali normal saat koneksi gagal.
+                stopVpn()
                 if (running && srv?.isClosed != true) {
                     set("Gagal: ${e.message ?: e.javaClass.simpleName}")
                     if (p.autoReconnect) scheduleRetry() else set("Terputus")
@@ -532,7 +553,11 @@ class TunnelService : VpnService() {
             val cfgErr = SlowDns.validate(p)
             if (cfgErr != null) throw IOException(cfgErr)
             SlowDnsTunnel.stop()
-            slowDnsPort = SlowDnsTunnel.startAndWait(p, timeoutMs = 20_000)
+            slowDnsPort = SlowDnsTunnel.startAndWait(
+                p,
+                timeoutMs = 20_000,
+                protect = { fd -> protectFromVpn(fd) }
+            )
         }
         TunnelLog.add("SSH", "Login ${p.user}@${p.host}:${p.port} • transport ${p.transport.uppercase()}")
         TunnelLog.add("SSH", "Autentikasi: password, keyboard-interactive • timeout 20000 ms")
@@ -596,6 +621,13 @@ class TunnelService : VpnService() {
 
     private fun protectFromVpn(socket: Socket): Boolean = try {
         protect(socket)
+    } catch (_: Exception) {
+        false
+    }
+
+    /** VpnService.protect untuk socket milik pustaka native (fd mentah). */
+    private fun protectFromVpn(fd: Int): Boolean = try {
+        protect(fd)
     } catch (_: Exception) {
         false
     }
@@ -700,53 +732,65 @@ class TunnelService : VpnService() {
         }
     }
 
+    /**
+     * Pasang TUN + tun2socks. Boleh dipanggil dari thread koneksi, dan
+     * sengaja dipisah dari [startVpn] agar SlowDNS dapat menyalakan VPN
+     * lebih dulu: socket resolver DNS baru dibuat setelah VPN aktif,
+     * sehingga VpnService.protect benar-benar mengeluarkannya dari TUN.
+     */
+    private fun establishVpn(p: Profile) {
+        if (tunFd != null) return
+        val builder = Builder()
+        builder.setSession("Wanz Tunnel")
+        // HTTP Custom memakai MTU 1500 (0x5dc), bukan 8500.
+        builder.setMtu(VpnConfig.MTU)
+        builder.setBlocking(false)
+        // IPv4-only, sama seperti HTTP Custom. Tanpa alamat/route IPv6:
+        // route ::/0 di perangkat nyata sering membuat trafik memilih
+        // jalur IPv6 yang tidak bisa diteruskan SOCKS/SSH.
+        builder.addAddress(VpnConfig.VPN_ADDRESS, 32)
+        builder.addRoute("0.0.0.0", 0)
+        // SSH hanya meneruskan TCP, jadi DNS tidak boleh dikirim sebagai
+        // UDP biasa. Selalu pakai mapped-DNS, apa pun pilihan di Settings.
+        builder.addDnsServer(VpnConfig.MAPPED_DNS)
+        // Sengaja TIDAK addDisallowedApplication: socket SSH di-protect
+        // satu per satu (lihat dial()), sehingga app ini bisa ikut menguji
+        // jalur VPN secara nyata lewat verifyVpn().
+        builder.setConfigureIntent(
+            PendingIntent.getActivity(
+                this, 2, Intent(this, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE
+            )
+        )
+
+        val fd = builder.establish() ?: throw IOException("TUN tidak bisa dibuat")
+        tunFd = fd
+
+        val conf = File(cacheDir, "hev-socks5-tunnel.conf")
+        conf.writeText(
+            VpnConfig.hevConfig(p.socksPort, mappedDns = true),
+            Charsets.UTF_8
+        )
+        TunnelLog.add(
+            TunnelLog.OK,
+            "TUN siap: MTU ${VpnConfig.MTU} • IPv4-only • DNS mapped ${VpnConfig.MAPPED_DNS}"
+        )
+
+        if (!TProxyService.TProxyStartService(conf.absolutePath, fd.fd)) {
+            throw IOException("tun2socks gagal dijalankan")
+        }
+        Log.d(TAG, "tun2socks aktif, SOCKS ${p.socksPort}")
+        TunnelLog.add(TunnelLog.OK, "tun2socks aktif • SOCKS 127.0.0.1:${p.socksPort}")
+    }
+
     private fun startVpn(p: Profile) {
         if (!running) return
         if (tunFd != null) {
             set("Terhubung • VPN")
+            verifyVpn(p)
             return
         }
         try {
-            val builder = Builder()
-            builder.setSession("Wanz Tunnel")
-            // HTTP Custom memakai MTU 1500 (0x5dc), bukan 8500.
-            builder.setMtu(VpnConfig.MTU)
-            builder.setBlocking(false)
-            // IPv4-only, sama seperti HTTP Custom. Tanpa alamat/route IPv6:
-            // route ::/0 di perangkat nyata sering membuat trafik memilih
-            // jalur IPv6 yang tidak bisa diteruskan SOCKS/SSH.
-            builder.addAddress(VpnConfig.VPN_ADDRESS, 32)
-            builder.addRoute("0.0.0.0", 0)
-            // SSH hanya meneruskan TCP, jadi DNS tidak boleh dikirim sebagai
-            // UDP biasa. Selalu pakai mapped-DNS, apa pun pilihan di Settings.
-            builder.addDnsServer(VpnConfig.MAPPED_DNS)
-            // Sengaja TIDAK addDisallowedApplication: socket SSH di-protect
-            // satu per satu (lihat dial()), sehingga app ini bisa ikut menguji
-            // jalur VPN secara nyata lewat verifyVpn().
-            builder.setConfigureIntent(
-                PendingIntent.getActivity(
-                    this, 2, Intent(this, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE
-                )
-            )
-
-            val fd = builder.establish() ?: throw IOException("TUN tidak bisa dibuat")
-            tunFd = fd
-
-            val conf = File(cacheDir, "hev-socks5-tunnel.conf")
-            conf.writeText(
-                VpnConfig.hevConfig(p.socksPort, mappedDns = true),
-                Charsets.UTF_8
-            )
-            TunnelLog.add(
-                TunnelLog.OK,
-                "TUN siap: MTU ${VpnConfig.MTU} • IPv4-only • DNS mapped ${VpnConfig.MAPPED_DNS}"
-            )
-
-            if (!TProxyService.TProxyStartService(conf.absolutePath, fd.fd)) {
-                throw IOException("tun2socks gagal dijalankan")
-            }
-            Log.d(TAG, "tun2socks aktif, SOCKS ${p.socksPort}")
-            TunnelLog.add(TunnelLog.OK, "tun2socks aktif • SOCKS 127.0.0.1:${p.socksPort}")
+            establishVpn(p)
             set("Terhubung • VPN")
             verifyVpn(p)
         } catch (t: Throwable) {

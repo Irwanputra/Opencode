@@ -1,0 +1,12 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public class Q3455882957094431299 extends V18164520886680827197 {
+    public Q3455882957094431299() {
+    }
+
+    public Q3455882957094431299(N3121440022506799205 n3121440022506799205) {
+        super(n3121440022506799205);
+    }
+}

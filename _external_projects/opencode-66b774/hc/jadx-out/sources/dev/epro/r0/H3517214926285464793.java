@@ -1,0 +1,14 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public interface H3517214926285464793 extends Y16209271193599430318 {
+    @Override // dev.epro.r0.V9266657454036696449
+    default long b(Z13251062865217617579 z13251062865217617579, Z13251062865217617579 z132510628652176175792, Z13251062865217617579 z132510628652176175793) {
+        return ((long) (q() + n())) * 1000000;
+    }
+
+    int n();
+
+    int q();
+}

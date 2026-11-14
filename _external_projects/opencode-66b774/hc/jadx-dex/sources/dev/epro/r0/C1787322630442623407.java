@@ -1,0 +1,33 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class C1787322630442623407 implements dev.epro.r0.L13148442655056575112 {
+    public final dev.epro.r0.O4957013336652243483 a;
+    public dev.epro.r0.F4096073349764486348 b;
+    public dev.epro.r0.F4096073349764486348 c;
+    public final /* synthetic */ dev.epro.r0.O11687042873311337343 d;
+
+    public C1787322630442623407(dev.epro.r0.O11687042873311337343 o11687042873311337343, dev.epro.r0.O4957013336652243483 o4957013336652243483, dev.epro.r0.F4096073349764486348 f4096073349764486348, dev.epro.r0.F4096073349764486348 f40960733497644863482) {
+        this.d = o11687042873311337343;
+        this.a = o4957013336652243483;
+        this.b = f4096073349764486348;
+        this.c = f40960733497644863482;
+    }
+
+    public final void a(dev.epro.r0.H4526303238406690808 h4526303238406690808, java.lang.Object obj, dev.epro.r0.Z13251062865217617579 z13251062865217617579) {
+        java.lang.Object objInvoke = this.c.invoke(h4526303238406690808.d());
+        boolean zG = this.d.c.g();
+        dev.epro.r0.O4957013336652243483 o4957013336652243483 = this.a;
+        if (zG) {
+            o4957013336652243483.f(this.c.invoke(h4526303238406690808.b()), objInvoke, (dev.epro.r0.A10693687560045094360) this.b.invoke(h4526303238406690808));
+        } else {
+            o4957013336652243483.g(objInvoke, (dev.epro.r0.A10693687560045094360) this.b.invoke(h4526303238406690808), obj, z13251062865217617579);
+        }
+    }
+
+    public final java.lang.Object getValue() {
+        a(this.d.c.f(), null, null);
+        return this.a.j.getValue();
+    }
+}

@@ -1,0 +1,28 @@
+package dev.epro.r0;
+
+import java.security.GeneralSecurityException;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class O1900704066613195549 extends Z1953481206310471956 {
+    public final D2728421111140880766 j;
+    public final M9197813449740923653 k;
+
+    public O1900704066613195549(D2728421111140880766 d2728421111140880766, M9197813449740923653 m9197813449740923653) {
+        this.j = d2728421111140880766;
+        this.k = m9197813449740923653;
+    }
+
+    public static O1900704066613195549 d0(D2728421111140880766 d2728421111140880766, M9197813449740923653 m9197813449740923653) throws GeneralSecurityException {
+        if (d2728421111140880766.a == ((J4250663911053539605) m9197813449740923653.b).a.length) {
+            return new O1900704066613195549(d2728421111140880766, m9197813449740923653);
+        }
+        W4415201450379021245.c("Key size mismatch");
+        return null;
+    }
+
+    @Override // dev.epro.r0.Z1953481206310471956
+    public final T5990920249823963282 N() {
+        return this.j;
+    }
+}

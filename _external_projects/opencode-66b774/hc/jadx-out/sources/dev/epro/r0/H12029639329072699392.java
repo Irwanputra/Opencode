@@ -1,0 +1,45 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+final class H12029639329072699392<T> extends A8269341136279542501 {
+    public final F9886074403848142923 a;
+    public final L12639328004344855510 b;
+
+    public H12029639329072699392(F9886074403848142923 f9886074403848142923, L12639328004344855510 l12639328004344855510) {
+        this.a = f9886074403848142923;
+        this.b = l12639328004344855510;
+    }
+
+    @Override // dev.epro.r0.A8269341136279542501
+    public final R15896830329318850690 a() {
+        U4263127521745616003 u4263127521745616003 = new U4263127521745616003();
+        u4263127521745616003.f526o = this.a;
+        u4263127521745616003.p = this.b;
+        u4263127521745616003.q = R7000310675073492254.a;
+        return u4263127521745616003;
+    }
+
+    @Override // dev.epro.r0.A8269341136279542501
+    public final void c(R15896830329318850690 r15896830329318850690) {
+        U4263127521745616003 u4263127521745616003 = (U4263127521745616003) r15896830329318850690;
+        u4263127521745616003.f526o = this.a;
+        u4263127521745616003.p = this.b;
+        u4263127521745616003.q = R7000310675073492254.a;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof H12029639329072699392)) {
+            return false;
+        }
+        H12029639329072699392 h12029639329072699392 = (H12029639329072699392) obj;
+        return S10823041268949770285.t(this.a, h12029639329072699392.a) && this.b == h12029639329072699392.b;
+    }
+
+    public final int hashCode() {
+        return R7000310675073492254.a.hashCode() + ((this.b.hashCode() + (this.a.hashCode() * 31)) * 31);
+    }
+}

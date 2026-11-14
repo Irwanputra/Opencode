@@ -1,0 +1,48 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public abstract class A16760084530060701231 {
+    public static final java.lang.reflect.Method a;
+    public static final java.lang.reflect.Method b;
+
+    static {
+        java.lang.reflect.Method method;
+        java.lang.reflect.Method method2;
+        java.lang.reflect.Method[] methods = java.lang.Throwable.class.getMethods();
+        methods.getClass();
+        int length = methods.length;
+        int i = 0;
+        int i2 = 0;
+        while (true) {
+            method = null;
+            if (i2 >= length) {
+                method2 = null;
+                break;
+            }
+            method2 = methods[i2];
+            if (dev.epro.r0.S10823041268949770285.t(method2.getName(), "addSuppressed")) {
+                java.lang.Class<?>[] parameterTypes = method2.getParameterTypes();
+                parameterTypes.getClass();
+                if (dev.epro.r0.S10823041268949770285.t(parameterTypes.length == 1 ? parameterTypes[0] : null, java.lang.Throwable.class)) {
+                    break;
+                }
+            }
+            i2++;
+        }
+        a = method2;
+        int length2 = methods.length;
+        while (true) {
+            if (i >= length2) {
+                break;
+            }
+            java.lang.reflect.Method method3 = methods[i];
+            if (dev.epro.r0.S10823041268949770285.t(method3.getName(), "getSuppressed")) {
+                method = method3;
+                break;
+            }
+            i++;
+        }
+        b = method;
+    }
+}

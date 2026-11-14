@@ -1,0 +1,17 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public class V18164520886680827197 extends D9305770446274769439 {
+    public V18164520886680827197() {
+    }
+
+    @Override // dev.epro.r0.F3837300029271916472
+    public void d(int i, Z1975157152518754667 z1975157152518754667) {
+        this.e.setInsets(P11294723927105127505.a(i), z1975157152518754667.d());
+    }
+
+    public V18164520886680827197(N3121440022506799205 n3121440022506799205) {
+        super(n3121440022506799205);
+    }
+}

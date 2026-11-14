@@ -25,7 +25,7 @@ func TestBuildQueryCarriesPacketInQName(t *testing.T) {
 	clientID := turbotunnel.ClientID{1, 2, 3, 4, 5, 6, 7, 8}
 	packet := []byte("hello-tunnel")
 
-	wire, err := buildQuery(clientID, domain, rrTypeNULL, packet)
+	wire, err := buildQuery(clientID, domain, rrTypeNULL, packet, 0)
 	if err != nil {
 		t.Fatalf("buildQuery: %v", err)
 	}
@@ -189,5 +189,70 @@ func TestNormalizeResolver(t *testing.T) {
 	}
 	if got := normalizeResolver(""); got != "8.8.8.8:53" {
 		t.Fatalf("normalizeResolver('') = %s", got)
+	}
+}
+
+func TestParseResolverKinds(t *testing.T) {
+	cases := []struct {
+		in, kind, addr string
+	}{
+		{"8.8.8.8", "udp", "8.8.8.8:53"},
+		{"udp://1.1.1.1:5353", "udp", "1.1.1.1:5353"},
+		{"https://dns.google/dns-query", "doh", "https://dns.google/dns-query"},
+		{"https://cloudflare-dns.com", "doh", "https://cloudflare-dns.com/dns-query"},
+		{"tls://1.1.1.1", "dot", "1.1.1.1:853"},
+		{"dot://dns.google:8853", "dot", "dns.google:8853"},
+	}
+	for _, c := range cases {
+		spec, err := parseResolver(c.in)
+		if err != nil {
+			t.Fatalf("parseResolver(%q): %v", c.in, err)
+		}
+		if spec.kind != c.kind || spec.addr != c.addr {
+			t.Fatalf("parseResolver(%q) = %s %s, want %s %s", c.in, spec.kind, spec.addr, c.kind, c.addr)
+		}
+	}
+}
+
+func TestBuildQueryEDNSLimit(t *testing.T) {
+	domain := testDomain(t)
+	wire, err := buildQuery(turbotunnel.ClientID{9}, domain, rrTypeNULL, []byte("x"), 1232)
+	if err != nil {
+		t.Fatalf("buildQuery: %v", err)
+	}
+	msg, err := dns.MessageFromWireFormat(wire)
+	if err != nil {
+		t.Fatalf("MessageFromWireFormat: %v", err)
+	}
+	if len(msg.Additional) != 1 || msg.Additional[0].Class != 1232 {
+		t.Fatalf("EDNS0 class = %+v, want 1232", msg.Additional)
+	}
+}
+
+func TestDnsNameCapacityHonoursLimit(t *testing.T) {
+	domain := testDomain(t)
+	full := dnsNameCapacity(domain, 0)
+	small := dnsNameCapacity(domain, 96)
+	if small >= full {
+		t.Fatalf("batas 96 (%d) harus lebih kecil dari default (%d)", small, full)
+	}
+	if small < 0 || full < 80 {
+		t.Fatalf("kapasitas tidak wajar: %d / %d", small, full)
+	}
+}
+
+func TestCalibrationCandidates(t *testing.T) {
+	got := candidates(0, qnameSteps)
+	if len(got) != len(qnameSteps) || got[0] != 255 {
+		t.Fatalf("kandidat default = %v", got)
+	}
+	got = candidates(200, qnameSteps)
+	if got[0] != 200 {
+		t.Fatalf("kandidat manual = %v", got)
+	}
+	for i := 1; i < len(got); i++ {
+		if got[i] >= got[0] {
+			t.Fatalf("kandidat harus menurun: %v", got)
+		}
 	}
 }

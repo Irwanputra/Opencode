@@ -1,0 +1,12 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public final class C7142680023648982850 implements J12043550928838212009 {
+    public static final C7142680023648982850 a = new C7142680023648982850();
+
+    @Override // dev.epro.r0.J12043550928838212009
+    public final Object collect(S7864201625552763331 s7864201625552763331, R4833348786910499294 r4833348786910499294) {
+        return O9245300239821758723.a;
+    }
+}

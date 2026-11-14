@@ -1,0 +1,43 @@
+package dev.epro.r0;
+
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class O10786581066278972601 {
+    public static final E17149812035295265804 b;
+    public static final O10786581066278972601 c;
+    public static final O10786581066278972601 d;
+    public static final O10786581066278972601 e;
+    public static final /* synthetic */ O10786581066278972601[] f;
+    public static final /* synthetic */ M665231115116566295 g;
+    public final int a;
+
+    static {
+        O10786581066278972601 o10786581066278972601 = new O10786581066278972601("SessionClosed", 0, -1);
+        O10786581066278972601 o107865810662789726012 = new O10786581066278972601("Accepted", 1, 0);
+        c = o107865810662789726012;
+        O10786581066278972601 o107865810662789726013 = new O10786581066278972601("InvalidArgument", 2, 1);
+        O10786581066278972601 o107865810662789726014 = new O10786581066278972601("ChannelUnavailable", 3, 2);
+        d = o107865810662789726014;
+        O10786581066278972601 o107865810662789726015 = new O10786581066278972601("PacketRejected", 4, 7);
+        O10786581066278972601 o107865810662789726016 = new O10786581066278972601("InternalError", 5, 8);
+        e = o107865810662789726016;
+        O10786581066278972601[] o10786581066278972601Arr = {o10786581066278972601, o107865810662789726012, o107865810662789726013, o107865810662789726014, o107865810662789726015, o107865810662789726016};
+        f = o10786581066278972601Arr;
+        g = new M665231115116566295(o10786581066278972601Arr);
+        b = new E17149812035295265804((byte) 16);
+    }
+
+    public O10786581066278972601(String str, int i, int i2) {
+        this.a = i2;
+    }
+
+    public static O10786581066278972601 valueOf(String str) {
+        return (O10786581066278972601) Enum.valueOf(O10786581066278972601.class, str);
+    }
+
+    public static O10786581066278972601[] values() {
+        return (O10786581066278972601[]) f.clone();
+    }
+}

@@ -1,0 +1,68 @@
+package dev.epro.r0;
+
+import android.net.Uri;
+import java.util.Arrays;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes3.dex */
+public final class Q8291669043059010059 {
+    public static final int g;
+    public final L13930310742215533163 a;
+    public final D9462827023796037217 b;
+    public final I10764242060264635637 c;
+    public final G6569621081692773575 d;
+    public final P6930438896847633867 e;
+    public final B7089816307598196933 f;
+
+    static {
+        int iXqzxfczcltvn;
+        izmyclvb.qgayjvbiagej2(1739);
+        Object[] objArr = new Object[5];
+        while (true) {
+            try {
+                iXqzxfczcltvn = xqzxfczcltvn(objArr);
+            } finally {
+                Arrays.fill(objArr, (Object) null);
+            }
+            if (iXqzxfczcltvn != 0) {
+                switch (iXqzxfczcltvn) {
+                    case 1:
+                        g = ((Integer) objArr[1]).intValue();
+                        break;
+                    default:
+                        throw null;
+                }
+                Arrays.fill(objArr, (Object) null);
+            }
+            return;
+        }
+    }
+
+    private static native int xqzxfczcltvn(Object[] objArr);
+
+    private native void yvofeiwqwyky(L13930310742215533163 l13930310742215533163, D9462827023796037217 d9462827023796037217, I10764242060264635637 i10764242060264635637, G6569621081692773575 g6569621081692773575, P6930438896847633867 p6930438896847633867, B7089816307598196933 b7089816307598196933);
+
+    public final native Object a(B1606538014887623394 b1606538014887623394, F4096073349764486348 f4096073349764486348, F4096073349764486348 f40960733497644863482, K14749510448791472029 k14749510448791472029);
+
+    public final native F14001823183233764069 b(B1606538014887623394 b1606538014887623394, String str, byte[] bArr);
+
+    public final native Object c(K14749510448791472029 k14749510448791472029, F4096073349764486348 f4096073349764486348, String str, String str2);
+
+    public final native Object d(String str, F4096073349764486348 f4096073349764486348, K14749510448791472029 k14749510448791472029);
+
+    public final native Object e(Uri uri, F4096073349764486348 f4096073349764486348, F4096073349764486348 f40960733497644863482, L12639328004344855510 l12639328004344855510, K14749510448791472029 k14749510448791472029);
+
+    public final native Object f(String str, R4833348786910499294 r4833348786910499294);
+
+    public final native Object g(String str, R4833348786910499294 r4833348786910499294);
+
+    public Q8291669043059010059(L13930310742215533163 l13930310742215533163, D9462827023796037217 d9462827023796037217, I10764242060264635637 i10764242060264635637, G6569621081692773575 g6569621081692773575, P6930438896847633867 p6930438896847633867, B7089816307598196933 b7089816307598196933) {
+        l13930310742215533163.getClass();
+        d9462827023796037217.getClass();
+        i10764242060264635637.getClass();
+        g6569621081692773575.getClass();
+        p6930438896847633867.getClass();
+        b7089816307598196933.getClass();
+        yvofeiwqwyky(l13930310742215533163, d9462827023796037217, i10764242060264635637, g6569621081692773575, p6930438896847633867, b7089816307598196933);
+    }
+}

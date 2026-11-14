@@ -1,0 +1,11 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final /* synthetic */ class U6389045311587420009 implements R3171298526896875739 {
+    @Override // dev.epro.r0.R3171298526896875739
+    public final D16915945238461757356 apply(Object obj) {
+        K17751841687800543607 k17751841687800543607 = (K17751841687800543607) obj;
+        return B11509606741455062017.s(k17751841687800543607.a(), new M15292376008478569006(k17751841687800543607, (byte) 0), Z886113521968091188.a);
+    }
+}

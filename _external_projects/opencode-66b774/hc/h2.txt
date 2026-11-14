@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Date: Fri, 13 Nov 2026 19:09:19 GMT
+Content-Type: application/vnd.android.package-archive
+Content-Length: 26528823
+Connection: keep-alive
+Last-Modified: Wed, 27 Dec 2023 20:58:52 GMT
+X-URI: /b/1/xyz-easypro-httpcustom-718-b1858366b1b86ff76614d497f7316630.apk
+Original-URI: /teamefara3nh1/xyz-easypro-httpcustom-718-56289455-b1858366b1b86ff76614d497f7316630.apk
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, OPTIONS
+Access-Control-Expose-Headers: Content-Length,Content-Range
+Cache-Control: public, max-age=604800
+X-Frame-Options: DENY
+X-Mirror: mirror92-apk
+X-Cache-Key: b1858366b1b86ff76614d497f7316630bytes=0-10485759
+X-Cache-Status: HIT
+Accept-Ranges: bytes
+

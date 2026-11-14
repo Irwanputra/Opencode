@@ -1,0 +1,39 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public abstract class C1954869789476761065 {
+    public static final int a;
+
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0028  */
+    static {
+        /*
+            int r0 = android.os.Build.VERSION.SDK_INT
+            r1 = 31
+            r2 = 33554432(0x2000000, float:9.403955E-38)
+            if (r0 < r1) goto L9
+            goto L29
+        L9:
+            r1 = 30
+            r3 = 0
+            if (r0 < r1) goto L28
+            java.lang.String r0 = android.os.Build.VERSION.CODENAME
+            int r1 = r0.length()
+            r4 = 1
+            if (r1 != r4) goto L28
+            char r1 = r0.charAt(r3)
+            r4 = 83
+            if (r1 < r4) goto L28
+            char r0 = r0.charAt(r3)
+            r1 = 90
+            if (r0 > r1) goto L28
+            goto L29
+        L28:
+            r2 = r3
+        L29:
+            dev.epro.r0.C1954869789476761065.a = r2
+            return
+        */
+        throw new UnsupportedOperationException("Method not decompiled: dev.epro.r0.C1954869789476761065.<clinit>():void");
+    }
+}

@@ -1,0 +1,20 @@
+package dev.epro.r0;
+
+import android.graphics.PathMeasure;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public final class A3536468285381521810 {
+    public final B1061516154492673368 a;
+    public final U18321239743851522118 b;
+    public final B1061516154492673368 c;
+
+    public A3536468285381521810() {
+        B1061516154492673368 b1061516154492673368A = W7346099082318612118.a();
+        U18321239743851522118 u18321239743851522118 = new U18321239743851522118(new PathMeasure());
+        B1061516154492673368 b1061516154492673368A2 = W7346099082318612118.a();
+        this.a = b1061516154492673368A;
+        this.b = u18321239743851522118;
+        this.c = b1061516154492673368A2;
+    }
+}

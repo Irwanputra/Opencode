@@ -1,0 +1,16 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public final class P8983337184029926132 implements I5573661370475160895 {
+    public final /* synthetic */ B1061516154492673368 a;
+
+    public P8983337184029926132(B1061516154492673368 b1061516154492673368) {
+        this.a = b1061516154492673368;
+    }
+
+    @Override // dev.epro.r0.I5573661370475160895
+    public final J8045362843799184672 a(long j, F10342546226345611902 f10342546226345611902, R8540738700654750557 r8540738700654750557) {
+        return new L11060719515004085110(this.a);
+    }
+}

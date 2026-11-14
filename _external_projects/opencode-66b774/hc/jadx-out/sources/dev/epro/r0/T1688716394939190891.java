@@ -1,0 +1,9 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes3.dex */
+public interface T1688716394939190891 extends R16749699847173633337 {
+    void O();
+
+    void w0(N12245111110189169079 n12245111110189169079, J17191566391535857141 j17191566391535857141);
+}

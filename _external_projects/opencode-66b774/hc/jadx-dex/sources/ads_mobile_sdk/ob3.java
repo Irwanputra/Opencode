@@ -1,0 +1,171 @@
+package ads_mobile_sdk;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class ob3 extends java.util.AbstractMap {
+    public volatile dev.epro.r0.I8586442731552441025 d;
+    public boolean c = false;
+    public java.lang.Object[] a = null;
+    public int b = 0;
+
+    public final void a(int i) {
+        java.lang.Object[] objArr = this.a;
+        if (objArr == null || objArr.length == 0) {
+            this.a = new java.lang.Object[java.lang.Math.max(16, i)];
+            return;
+        }
+        if (i > objArr.length) {
+            int length = objArr.length;
+            int i2 = length + (length >> 1);
+            if (i2 - i >= 0) {
+                i = i2;
+            }
+            if (i - 2147483639 > 0) {
+                i = 2147483639;
+            }
+            this.a = java.util.Arrays.copyOf(objArr, i);
+        }
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final void clear() {
+        a();
+        if (this.b != 0) {
+            this.a = null;
+            this.b = 0;
+        }
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final boolean containsKey(java.lang.Object obj) {
+        if (obj != null) {
+            dev.epro.r0.Z3383101362411723454.s();
+            return false;
+        }
+        int i = this.b - 1;
+        if (i < 0) {
+            return false;
+        }
+        throw dev.epro.r0.G6547577305291411977.m(this.a[i >>> 1]);
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final java.util.Set entrySet() {
+        if (this.d == null) {
+            this.d = new dev.epro.r0.I8586442731552441025(this, (byte) 1);
+        }
+        return this.d;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final boolean equals(java.lang.Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof ads_mobile_sdk.ob3)) {
+            return super.equals(obj);
+        }
+        ads_mobile_sdk.ob3 ob3Var = (ads_mobile_sdk.ob3) obj;
+        int i = this.b;
+        if (i == ob3Var.b) {
+            java.lang.Object[] objArr = this.a;
+            java.lang.Object[] objArr2 = ob3Var.a;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (objArr[i2].equals(objArr2[i2])) {
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final java.lang.Object get(java.lang.Object obj) {
+        if (obj != null) {
+            dev.epro.r0.Z3383101362411723454.s();
+            return null;
+        }
+        int i = this.b - 1;
+        if (i < 0) {
+            return null;
+        }
+        throw dev.epro.r0.G6547577305291411977.m(this.a[i >>> 1]);
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final int hashCode() {
+        int i = this.b;
+        int iHashCode = 0;
+        for (int i2 = 0; i2 < i; i2++) {
+            iHashCode += this.a[i2].hashCode();
+        }
+        return iHashCode;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final boolean isEmpty() {
+        return this.b == 0;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final java.lang.Object put(java.lang.Object obj, java.lang.Object obj2) {
+        if (obj != null) {
+            throw new java.lang.ClassCastException();
+        }
+        a();
+        throw null;
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final void putAll(java.util.Map map) {
+        a();
+        boolean z = map instanceof ads_mobile_sdk.ob3;
+        int i = this.b;
+        if (z) {
+            ads_mobile_sdk.ob3 ob3Var = (ads_mobile_sdk.ob3) map;
+            a(i + ob3Var.b);
+            int i2 = this.b;
+            if (i2 < ob3Var.b + i2) {
+                throw dev.epro.r0.G6547577305291411977.m(ob3Var.a[0]);
+            }
+            return;
+        }
+        a(map.size() + i);
+        java.util.Iterator it = map.entrySet().iterator();
+        if (it.hasNext()) {
+            java.util.Map.Entry entry = (java.util.Map.Entry) it.next();
+            if (entry.getKey() != null) {
+                dev.epro.r0.Z3383101362411723454.s();
+            } else {
+                entry.getValue();
+                a();
+                throw null;
+            }
+        }
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final java.lang.Object remove(java.lang.Object obj) {
+        a();
+        if (obj != null) {
+            dev.epro.r0.Z3383101362411723454.s();
+            return null;
+        }
+        int i = this.b - 1;
+        if (i < 0) {
+            return null;
+        }
+        throw dev.epro.r0.G6547577305291411977.m(this.a[i >>> 1]);
+    }
+
+    @Override // java.util.AbstractMap, java.util.Map
+    public final int size() {
+        return this.b;
+    }
+
+    public final void a() {
+        if (this.c) {
+            dev.epro.r0.Z3383101362411723454.t();
+        }
+    }
+}

@@ -1,0 +1,33 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class L11638193457662313911 {
+    public final C16981837378848755971 a;
+    public final B13729205492206812220 b;
+    public final B13729205492206812220 c;
+    public final F4096073349764486348 d;
+    public final boolean e;
+    public final boolean f;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(592);
+    }
+
+    private native void tamjsotqbwkt(C16981837378848755971 c16981837378848755971, B13729205492206812220 b13729205492206812220, B13729205492206812220 b137292054922068122202, F4096073349764486348 f4096073349764486348, boolean z, boolean z2);
+
+    public final native boolean equals(Object obj);
+
+    public final native int hashCode();
+
+    public final native String toString();
+
+    public L11638193457662313911(C16981837378848755971 c16981837378848755971, B13729205492206812220 b13729205492206812220, B13729205492206812220 b137292054922068122202, F4096073349764486348 f4096073349764486348, boolean z, boolean z2) {
+        c16981837378848755971.getClass();
+        b13729205492206812220.getClass();
+        b137292054922068122202.getClass();
+        f4096073349764486348.getClass();
+        tamjsotqbwkt(c16981837378848755971, b13729205492206812220, b137292054922068122202, f4096073349764486348, z, z2);
+    }
+}

@@ -1,0 +1,68 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class D15801829229162989138 implements dev.epro.r0.L12639328004344855510 {
+    public final /* synthetic */ dev.epro.r0.I1722681268793429505 a;
+    public final /* synthetic */ dev.epro.r0.I5573661370475160895 b;
+    public final /* synthetic */ long c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ dev.epro.r0.U6155824110361579454 e;
+    public final /* synthetic */ float f;
+    public final /* synthetic */ dev.epro.r0.L12639328004344855510 g;
+
+    public D15801829229162989138(dev.epro.r0.I1722681268793429505 i1722681268793429505, dev.epro.r0.I5573661370475160895 i5573661370475160895, long j, float f, dev.epro.r0.U6155824110361579454 u6155824110361579454, float f2, dev.epro.r0.L12639328004344855510 l12639328004344855510) {
+        this.a = i1722681268793429505;
+        this.b = i5573661370475160895;
+        this.c = j;
+        this.d = f;
+        this.e = u6155824110361579454;
+        this.f = f2;
+        this.g = l12639328004344855510;
+    }
+
+    public final java.lang.Object invoke(java.lang.Object obj, java.lang.Object obj2) {
+        dev.epro.r0.M3727281027331139839 m3727281027331139839 = (dev.epro.r0.M3727281027331139839) obj;
+        int iIntValue = ((java.lang.Number) obj2).intValue();
+        boolean zR = m3727281027331139839.R(iIntValue & 1, (iIntValue & 3) != 2);
+        dev.epro.r0.O9245300239821758723 o9245300239821758723 = dev.epro.r0.O9245300239821758723.a;
+        if (!zR) {
+            m3727281027331139839.U();
+            return o9245300239821758723;
+        }
+        dev.epro.r0.I1722681268793429505 i1722681268793429505D = dev.epro.r0.X15668192874961033526.d(this.a, this.b, dev.epro.r0.X15668192874961033526.e(this.c, this.d, m3727281027331139839), this.e, ((dev.epro.r0.R8540738700654750557) m3727281027331139839.j(dev.epro.r0.Y238707362170117896.h)).K(this.f));
+        java.lang.Object objM = m3727281027331139839.M();
+        dev.epro.r0.E17149812035295265804 e17149812035295265804 = dev.epro.r0.O9023047933786425027.a;
+        if (objM == e17149812035295265804) {
+            objM = new dev.epro.r0.Y13361005827119333637((byte) 19);
+            m3727281027331139839.k0(objM);
+        }
+        dev.epro.r0.I1722681268793429505 i1722681268793429505B = dev.epro.r0.J11170665878571083300.b(i1722681268793429505D, false, (dev.epro.r0.F4096073349764486348) objM);
+        java.lang.Object objM2 = m3727281027331139839.M();
+        if (objM2 == e17149812035295265804) {
+            objM2 = dev.epro.r0.F17149532908488969986.c;
+            m3727281027331139839.k0(objM2);
+        }
+        dev.epro.r0.I1722681268793429505 i1722681268793429505B2 = dev.epro.r0.T7055906184043387232.b(i1722681268793429505B, o9245300239821758723, (androidx.compose.ui.input.pointer.PointerInputEventHandler) objM2);
+        dev.epro.r0.A10838822263452390785 a10838822263452390785C = dev.epro.r0.Z6714950837425363575.c(dev.epro.r0.T13350664027331345869.b, true);
+        int iA = dev.epro.r0.E12775674050813925581.A(m3727281027331139839);
+        dev.epro.r0.P3648740535677465818 p3648740535677465818L = m3727281027331139839.l();
+        dev.epro.r0.I1722681268793429505 i1722681268793429505N = dev.epro.r0.V12319504402545346730.N(m3727281027331139839, i1722681268793429505B2);
+        dev.epro.r0.X4572652335386916693.Po.getClass();
+        m3727281027331139839.d0();
+        if (m3727281027331139839.S) {
+            m3727281027331139839.k(dev.epro.r0.H11725168162114556860.S);
+        } else {
+            m3727281027331139839.n0();
+        }
+        dev.epro.r0.W7808703833045379622.J(dev.epro.r0.P2382941533350862833.i, m3727281027331139839, a10838822263452390785C);
+        dev.epro.r0.W7808703833045379622.J(dev.epro.r0.P2382941533350862833.h, m3727281027331139839, p3648740535677465818L);
+        dev.epro.r0.X4712621039624176170 x4712621039624176170 = dev.epro.r0.P2382941533350862833.j;
+        if (m3727281027331139839.S || !dev.epro.r0.S10823041268949770285.t(m3727281027331139839.M(), java.lang.Integer.valueOf(iA))) {
+            dev.epro.r0.L11610354117192841236.t(iA, m3727281027331139839, iA, x4712621039624176170);
+        }
+        dev.epro.r0.W7808703833045379622.J(dev.epro.r0.P2382941533350862833.g, m3727281027331139839, i1722681268793429505N);
+        dev.epro.r0.L11610354117192841236.s(0, this.g, m3727281027331139839, true);
+        return o9245300239821758723;
+    }
+}

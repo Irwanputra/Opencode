@@ -1,0 +1,17 @@
+package dev.epro.r0;
+
+import android.os.Build;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes.dex */
+public abstract class C3128094202652520619 {
+    public static final P14992748401341948828 a = new P14992748401341948828("MagnifierPositionInRoot");
+
+    public static boolean a() {
+        return Build.VERSION.SDK_INT >= 28;
+    }
+
+    public static I1722681268793429505 b(F4096073349764486348 f4096073349764486348, F4096073349764486348 f40960733497644863482, V9509531021431440752 v9509531021431440752) {
+        return a() ? new K15474290647318393716(f4096073349764486348, f40960733497644863482, v9509531021431440752) : V10993962107938880611.a;
+    }
+}

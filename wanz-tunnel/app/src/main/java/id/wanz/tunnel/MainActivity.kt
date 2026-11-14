@@ -1290,7 +1290,10 @@ class MainActivity : InkActivity() {
             return input
         }
 
-        val resolverInput = addField("DNS RESOLVER", p.slowdnsResolver, "8.8.8.8 atau 1.1.1.1:53")
+        val resolverInput = addField(
+            "DNS RESOLVER", p.slowdnsResolver,
+            "8.8.8.8 • https://dns.google/dns-query • tls://1.1.1.1"
+        )
         val domainInput = addField("DOMAIN TUNNEL", p.slowdnsDomain, "tunnel.domain.com")
         val pubkeyInput = addField("PUBLIC KEY SERVER", p.slowdnsPubkey, "64 karakter heksadesimal")
 
@@ -1323,29 +1326,92 @@ class MainActivity : InkActivity() {
         }
         box.addView(typeView, LinearLayout.LayoutParams(-1, -2))
 
+        // Pengaturan lanjutan, sama seperti panel SlowDNS HTTP Custom.
+        val qnameInput = addField(
+            "BATAS QNAME (BYTE)",
+            if (p.slowdnsQname == 0) "" else p.slowdnsQname.toString(),
+            "0 = default (255)"
+        )
+        val ednsInput = addField(
+            "BATAS EDNS0 (BYTE)",
+            if (p.slowdnsEdns == 0) "" else p.slowdnsEdns.toString(),
+            "0 = default (4096)"
+        )
+        val windowInput = addField(
+            "KCP WINDOW",
+            if (p.slowdnsWindow == 0) "" else p.slowdnsWindow.toString(),
+            "0 = default (64)"
+        )
+        val sessionInput = addField(
+            "JUMLAH SESI (1–8)",
+            p.slowdnsSessions.toString(),
+            "1 = satu sesi"
+        )
+
+        fun addToggle(label: String, checked: Boolean): SquareCheckView {
+            val check = SquareCheckView(this).apply {
+                this.checked = checked
+                contentDescription = label
+            }
+            val row = horizontal().apply {
+                minimumHeight = dp(44)
+                isClickable = true
+                isFocusable = true
+                background = ripple()
+                contentDescription = label
+                setOnClickListener {
+                    check.checked = !check.checked
+                    performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+                }
+            }
+            row.addView(
+                check,
+                LinearLayout.LayoutParams(dp(24), dp(24)).apply { rightMargin = dp(12) }
+            )
+            row.addView(uiText(label, 14.5f, INK))
+            box.addView(row, lp(4))
+            return check
+        }
+
+        val multiLoginCheck = addToggle("Multi login (login terpisah per sesi)", p.slowdnsMultiLogin)
+        val calibrateCheck = addToggle("Automatic calibration (uji QNAME/EDNS0)", p.slowdnsCalibrate)
+
         box.addView(
             uiText(
-                "SSH disalurkan lewat terowongan DNS (dnstt). Isi resolver, domain, dan " +
-                    "public key dari penyedia SlowDNS. Tipe NULL paling tahan cache; " +
-                    "AUTO menguji sendiri tipe yang lolos.",
+                "SSH disalurkan lewat terowongan DNS (dnstt). Resolver boleh UDP biasa, " +
+                    "DoH (https://), atau DoT (tls://). Tipe NULL paling tahan cache; " +
+                    "AUTO menguji sendiri tipe yang lolos. Batas QNAME/EDNS membantu " +
+                    "pada jaringan yang memotong DNS besar. Sesi >1 hanya dipakai saat " +
+                    "Multi login aktif; kalibrasi menguji batas sebelum menyambung.",
                 12f, MUTED
             ).apply { setPadding(0, dp(12), 0, 0) }
         )
 
         // Validasi ditangani manual agar dialog tetap terbuka saat salah isi.
         val dialog = themedBuilder("SlowDNS")
-            .setView(box)
+            .setView(ScrollView(this).apply { addView(box) })
             .setPositiveButton("Terapkan", null)
             .setNegativeButton("Batal", null)
             .create()
         dialog.show()
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+            // Kosong = 0 (default pustaka); teks bukan angka = -1 agar validasi menolak.
+            fun number(input: EditText): Int {
+                val text = input.text.toString().trim()
+                return if (text.isEmpty()) 0 else (text.toIntOrNull() ?: -1)
+            }
             val updated = p.copy(
                 slowdns = enableCheck.checked,
                 slowdnsResolver = resolverInput.text.toString().trim(),
                 slowdnsDomain = domainInput.text.toString().trim(),
                 slowdnsPubkey = pubkeyInput.text.toString().trim(),
-                slowdnsType = selectedType
+                slowdnsType = selectedType,
+                slowdnsQname = number(qnameInput),
+                slowdnsEdns = number(ednsInput),
+                slowdnsWindow = number(windowInput),
+                slowdnsSessions = number(sessionInput),
+                slowdnsMultiLogin = multiLoginCheck.checked,
+                slowdnsCalibrate = calibrateCheck.checked
             )
             val err = SlowDns.validate(updated)
             if (err != null) {

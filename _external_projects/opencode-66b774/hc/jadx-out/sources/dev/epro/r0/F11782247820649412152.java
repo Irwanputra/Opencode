@@ -1,0 +1,37 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: classes2.dex */
+public final class F11782247820649412152 extends I10827619964430248728 {
+    private static final F11782247820649412152 zzb;
+    private int zzd;
+    private long zze;
+    private long zzf;
+
+    static {
+        F11782247820649412152 f11782247820649412152 = new F11782247820649412152();
+        zzb = f11782247820649412152;
+        I10827619964430248728.k(F11782247820649412152.class, f11782247820649412152);
+    }
+
+    @Override // dev.epro.r0.I10827619964430248728
+    public final Object f(int i) {
+        int i2 = i - 1;
+        if (i2 == 0) {
+            return (byte) 1;
+        }
+        if (i2 == 2) {
+            return new N17310361809908093775(zzb, "\u0004\u0002\u0000\u0001\u0001\u0002\u0002\u0000\u0000\u0000\u0001ဂ\u0000\u0002ဂ\u0001", new Object[]{"zzd", "zze", "zzf"});
+        }
+        if (i2 == 3) {
+            return new F11782247820649412152();
+        }
+        if (i2 == 4) {
+            return new G13688397741526433948(zzb);
+        }
+        if (i2 == 5) {
+            return zzb;
+        }
+        throw null;
+    }
+}

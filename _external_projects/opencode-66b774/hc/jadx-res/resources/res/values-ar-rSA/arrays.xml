@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="languages_display">
+        <item>@string/lang_default</item>
+        <item>@string/lang_en</item>
+        <item>@string/lang_id</item>
+        <item>@string/lang_ar_ma</item>
+        <item>@string/lang_ar_sa</item>
+        <item>@string/lang_en_za</item>
+        <item>@string/lang_es_ar</item>
+        <item>@string/lang_tr_tr</item>
+    </array>
+    <array name="log_filter_display">
+        <item>@string/log_filter_essential</item>
+        <item>@string/log_filter_normal</item>
+        <item>@string/log_filter_detailed</item>
+    </array>
+    <array name="theme_modes_display">
+        <item>@string/theme_mode_system</item>
+        <item>@string/theme_mode_light</item>
+        <item>@string/theme_mode_dark</item>
+    </array>
+</resources>

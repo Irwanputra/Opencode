@@ -1,0 +1,32 @@
+package dev.epro.r0;
+
+/* JADX INFO: compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* JADX INFO: loaded from: /tmp/opencode/hc/dex/classes.dex */
+public final class A16333291076997953260 extends dev.epro.r0.Y8405992380652585640 {
+    public final dev.epro.r0.W5797197595347441198 Y;
+    public final dev.epro.r0.U16834965109098959004 Z;
+    public final dev.epro.r0.W2269277550458425547 a0;
+
+    public A16333291076997953260(dev.epro.r0.W5797197595347441198 w5797197595347441198, dev.epro.r0.U16834965109098959004 u16834965109098959004, dev.epro.r0.W2269277550458425547 w2269277550458425547) {
+        super(true);
+        this.Y = w5797197595347441198;
+        this.Z = u16834965109098959004;
+        this.a0 = w2269277550458425547;
+    }
+
+    public final void handleOnBackCancelled() {
+        dev.epro.r0.R7033599853981556291.E(this.Y, (dev.epro.r0.G8001132634698687269) null, (dev.epro.r0.L856869997670741194) null, new dev.epro.r0.G16212247282630895364(this, (dev.epro.r0.R4833348786910499294) null, (byte) 8), 3);
+    }
+
+    public final void handleOnBackPressed() {
+        this.a0.invoke();
+    }
+
+    public final void handleOnBackProgressed(dev.epro.r0.N7102107663372104177 n7102107663372104177) {
+        dev.epro.r0.R7033599853981556291.E(this.Y, (dev.epro.r0.G8001132634698687269) null, (dev.epro.r0.L856869997670741194) null, new dev.epro.r0.F9369235655626653964(this, n7102107663372104177, (dev.epro.r0.R4833348786910499294) null, (byte) 0), 3);
+    }
+
+    public final void handleOnBackStarted(dev.epro.r0.N7102107663372104177 n7102107663372104177) {
+        dev.epro.r0.R7033599853981556291.E(this.Y, (dev.epro.r0.G8001132634698687269) null, (dev.epro.r0.L856869997670741194) null, new dev.epro.r0.F9369235655626653964(this, n7102107663372104177, (dev.epro.r0.R4833348786910499294) null, (byte) 1), 3);
+    }
+}
