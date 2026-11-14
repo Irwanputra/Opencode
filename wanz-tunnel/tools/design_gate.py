@@ -179,7 +179,8 @@ for f in KOTLIN:
                 add("WARN", f, i, "em-dash di kalimat UI — pakai titik atau titik koma")
                 break
         m = re.search(r'text = "([A-Z][A-Z .&/0-9]{4,})"', code)
-        action_labels = {"WANZ TUNNEL", "HUBUNGKAN", "PUTUSKAN", "COBA LAGI"}
+        action_labels = {"WANZ TUNNEL", "HUBUNGKAN", "PUTUSKAN", "COBA LAGI",
+                         "TAMBAH PROFIL BARU"}
         if m and m.group(1) not in action_labels:
             add("WARN", f, i, f"HURUF KAPITAL SEMUA: {m.group(1)!r}")
         if re.search(r'"[^"]*\.\.\."', code):

@@ -9,6 +9,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
@@ -28,6 +29,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import java.io.File
@@ -72,6 +74,8 @@ class MainActivity : InkActivity() {
     private lateinit var compactField: EditText
     private lateinit var connectButton: TextView
     private lateinit var statusText: TextView
+    private lateinit var statusDot: View
+    private lateinit var livePill: TextView
     private lateinit var rxText: TextView
     private lateinit var txText: TextView
     private lateinit var upText: TextView
@@ -414,9 +418,26 @@ class MainActivity : InkActivity() {
 
         statusText = uiText("Belum tersambung.", 12f, MUTED).apply {
             maxLines = 2
+            gravity = Gravity.CENTER
             setLineSpacing(dp(2).toFloat(), 1f)
         }
-        body.addView(statusText, lp(10))
+        // Baris status di tengah dengan titik warna status, seperti mockup.
+        statusDot = View(this).apply {
+            background = GradientDrawable().apply {
+                shape = GradientDrawable.OVAL
+                setColor(MUTED)
+            }
+        }
+        val statusRow = horizontal().apply { gravity = Gravity.CENTER }
+        statusRow.addView(
+            statusDot,
+            LinearLayout.LayoutParams(dp(8), dp(8)).apply {
+                rightMargin = dp(8)
+                topMargin = dp(3)
+            }
+        )
+        statusRow.addView(statusText, LinearLayout.LayoutParams(-2, -2))
+        body.addView(statusRow, lp(10))
 
         body.addView(metricsRow(), lp(14))
 
@@ -516,6 +537,29 @@ class MainActivity : InkActivity() {
             background = box(PANEL, R_PANEL, HAIR, 1f)
             setPadding(dp(16), dp(12), dp(16), 0)
         }
+
+        // Kepala kartu: label mikro + pil LIVE saat tunnel aktif (mockup).
+        livePill = monoText("LIVE", 10f, OK).apply {
+            background = box(0, R_PILL, HAIR, 1f)
+            setPadding(dp(12), dp(4), dp(12), dp(4))
+            val dot = GradientDrawable().apply {
+                shape = GradientDrawable.OVAL
+                setSize(dp(6), dp(6))
+                setColor(OK)
+            }
+            setCompoundDrawablesRelativeWithIntrinsicBounds(dot, null, null, null)
+            compoundDrawablePadding = dp(6)
+            visibility = View.GONE
+        }
+        val head = horizontal().apply { gravity = Gravity.CENTER_VERTICAL }
+        head.addView(
+            monoText("TRANSFER DATA", 10.5f, FAINT).apply {
+                letterSpacing = 0.12f
+            },
+            LinearLayout.LayoutParams(0, -2, 1f)
+        )
+        head.addView(livePill, LinearLayout.LayoutParams(-2, -2))
+        card.addView(head, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(6) })
 
         rxText = monoText("—", 18f)
         rxSub = monoText("belum ada", 10f, FAINT)
@@ -1188,20 +1232,21 @@ class MainActivity : InkActivity() {
                 statusText.animate().alpha(1f).setDuration(160L).start()
             }
         }
-        statusText.setTextColor(
-            when {
-                noInternet -> WARN
-                state == Conn.ERROR -> ERR
-                state == Conn.CONNECTED -> OK
-                else -> MUTED
-            }
-        )
+        val statusColor = when {
+            noInternet -> WARN
+            state == Conn.ERROR -> ERR
+            state == Conn.CONNECTED -> OK
+            else -> MUTED
+        }
+        statusText.setTextColor(statusColor)
+        (statusDot.background as? GradientDrawable)?.setColor(statusColor)
         renderMetrics()
     }
 
     private fun renderMetrics() {
         val active = TunnelService.running && TunnelService.connectedAt > 0L
         (metricsDot.background as? GradientDrawable)?.setColor(if (active) OK else HAIR)
+        livePill.visibility = if (active) View.VISIBLE else View.GONE
         if (!active) {
             lastRx = 0L
             lastTx = 0L
@@ -1327,38 +1372,106 @@ class MainActivity : InkActivity() {
             }
         }
 
+    /** Dialog Profil: daftar kartu profil + tombol tambah, ala mockup AI. */
     private fun profileDialog() {
         saveCompactField(false)
         hideKeyboard()
-        val names = profiles.map { it.name.ifBlank { "Server ${it.id}" } }.toMutableList()
-        names.add("Ubah nama profil")
-        names.add("Hapus profil")
-        names.add("Tambah profil baru")
-        val renameAt = profiles.size
-        val deleteAt = profiles.size + 1
-        val addAt = profiles.size + 2
-        themedBuilder("Profil")
-            .setItems(names.toTypedArray()) { _, which ->
-                when (which) {
-                    renameAt -> renameProfileDialog()
-                    deleteAt -> deleteProfileDialog()
-                    addAt -> addProfile()
-                    else -> switchProfile(profiles[which])
+        val list = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(22), dp(8), dp(22), dp(4))
+        }
+        val dialogRef = arrayOfNulls<AlertDialog>(1)
+        profiles.forEach { p ->
+            val active = p.id == profile?.id
+            val label = p.name.ifBlank { "Server ${p.id}" }
+            val row = horizontal().apply {
+                setPadding(dp(14), dp(8), dp(6), dp(8))
+                background = ripple(
+                    box(PANEL, R_PANEL, if (active) ACCENT else HAIR, if (active) 1.5f else 1f)
+                )
+                isClickable = true
+                isFocusable = true
+                contentDescription = "Pilih profil $label"
+                setOnClickListener {
+                    dialogRef[0]?.dismiss()
+                    switchProfile(p)
                 }
             }
+            row.addView(radioDot(active), LinearLayout.LayoutParams(dp(16), dp(16)))
+            val col = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(dp(12), 0, 0, 0)
+            }
+            col.addView(
+                uiText(label, 15f, INK, medium = true).apply {
+                    maxLines = 1
+                    ellipsize = TextUtils.TruncateAt.END
+                }
+            )
+            col.addView(
+                monoText(
+                    if (p.host.isBlank()) "host belum diisi" else "${p.host} : ${p.port}",
+                    11f, MUTED
+                ).apply {
+                    setPadding(0, dp(2), 0, 0)
+                    maxLines = 1
+                    ellipsize = TextUtils.TruncateAt.END
+                }
+            )
+            row.addView(col, LinearLayout.LayoutParams(0, -2, 1f))
+            row.addView(
+                iconButton(R.drawable.ic_edit, "Ubah nama $label", MUTED, 20) {
+                    dialogRef[0]?.dismiss()
+                    renameProfileDialog(p)
+                },
+                LinearLayout.LayoutParams(dp(48), dp(48))
+            )
+            row.addView(
+                iconButton(R.drawable.ic_delete, "Hapus $label", MUTED, 20) {
+                    dialogRef[0]?.dismiss()
+                    deleteProfileDialog(p)
+                },
+                LinearLayout.LayoutParams(dp(48), dp(48))
+            )
+            list.addView(row, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(10) })
+        }
+        val add = TextView(this).apply {
+            text = "TAMBAH PROFIL BARU"
+            gravity = Gravity.CENTER
+            typeface = Face.proseMedium(this@MainActivity)
+            inkSize(14f)
+            setTextColor(ON_ACCENT)
+            background = ripple(box(ACCENT, R_PILL))
+            minimumHeight = dp(52)
+            isClickable = true
+            isFocusable = true
+            contentDescription = "Tambah profil baru"
+            setCompoundDrawables(
+                drawableIcon(R.drawable.ic_add, 18, ON_ACCENT), null, null, null
+            )
+            compoundDrawablePadding = dp(8)
+            setOnClickListener {
+                dialogRef[0]?.dismiss()
+                addProfile()
+            }
+        }
+        list.addView(add, LinearLayout.LayoutParams(-1, -2).apply { topMargin = dp(6) })
+        val dialog = themedBuilder("Profil")
+            .setView(ScrollView(this).apply { addView(list) })
             .setNegativeButton("Batal", null)
-            .show()
+            .create()
+        dialogRef[0] = dialog
+        dialog.show()
     }
 
-    private fun renameProfileDialog() {
+    private fun renameProfileDialog(target: Profile) {
         saveCompactField(false)
-        val p = profile ?: return
-        val input = dialogInput(p.name, "Nama profil")
+        val input = dialogInput(target.name, "Nama profil")
         themedBuilder("Ubah nama profil")
             .setView(dialogWrap(input))
             .setPositiveButton("Simpan") { _, _ ->
-                val name = input.text.toString().trim().ifBlank { "Server ${p.id}" }
-                commitProfile(p.copy(name = name))
+                val name = input.text.toString().trim().ifBlank { "Server ${target.id}" }
+                commitProfile(target.copy(name = name))
                 syncUi()
                 Toast.makeText(this, "Nama profil disimpan", Toast.LENGTH_SHORT).show()
             }
@@ -1366,12 +1479,14 @@ class MainActivity : InkActivity() {
             .show()
     }
 
-    private fun deleteProfileDialog() {
+    private fun deleteProfileDialog(target: Profile) {
         saveCompactField(false)
-        val p = profile ?: return
         themedBuilder("Hapus profil")
-            .setMessage("Hapus \"${p.name.ifBlank { "Server ${p.id}" }}\"? Tindakan ini tidak bisa dibatalkan.")
-            .setPositiveButton("Hapus") { _, _ -> deleteProfile(p) }
+            .setMessage(
+                "Hapus \"${target.name.ifBlank { "Server ${target.id}" }}\"? " +
+                    "Tindakan ini tidak bisa dibatalkan."
+            )
+            .setPositiveButton("Hapus") { _, _ -> deleteProfile(target) }
             .setNegativeButton("Batal", null)
             .show()
     }
@@ -1424,6 +1539,101 @@ class MainActivity : InkActivity() {
             .show()
     }
 
+    /**
+     * Baris saklar: label dan keterangan di kiri, Switch beraksen hijau di
+     * kanan — mengikuti mockup SlowDNS (Setelan klien).
+     */
+    private fun switchRow(
+        label: String,
+        sub: String?,
+        checked: Boolean
+    ): Pair<LinearLayout, Switch> {
+        val sw = Switch(this).apply {
+            isChecked = checked
+            contentDescription = label
+            thumbTintList = ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+                intArrayOf(ACCENT, MUTED)
+            )
+            trackTintList = ColorStateList(
+                arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+                intArrayOf(0x664CAF50, 0x3387929B)
+            )
+        }
+        val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        col.addView(uiText(label, 14.5f, INK))
+        if (sub != null) {
+            col.addView(uiText(sub, 11.5f, MUTED).apply { setPadding(0, dp(1), 0, 0) })
+        }
+        val row = horizontal().apply {
+            setPadding(0, dp(6), 0, dp(6))
+            minimumHeight = dp(48)
+            isClickable = true
+            isFocusable = true
+            background = ripple()
+            contentDescription = label
+            setOnClickListener {
+                sw.toggle()
+                performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+            }
+        }
+        row.addView(col, LinearLayout.LayoutParams(0, -2, 1f))
+        row.addView(sw, LinearLayout.LayoutParams(-2, -2).apply { leftMargin = dp(12) })
+        return row to sw
+    }
+
+    /** Indikator pilihan: cincin abu saat kosong, titik hijau saat terpilih. */
+    private fun radioDot(selected: Boolean): View = View(this).apply {
+        background = if (selected) {
+            LayerDrawable(
+                arrayOf(
+                    GradientDrawable().apply {
+                        shape = GradientDrawable.OVAL
+                        setStroke(dp(2), ACCENT)
+                    },
+                    GradientDrawable().apply {
+                        shape = GradientDrawable.OVAL
+                        setColor(ACCENT)
+                    }
+                )
+            ).apply { setLayerInset(1, dp(5), dp(5), dp(5), dp(5)) }
+        } else {
+            GradientDrawable().apply {
+                shape = GradientDrawable.OVAL
+                setStroke(dp(2), MUTED)
+            }
+        }
+    }
+
+    /**
+     * Pratinjau mini tema untuk kartu pilihan Tema: kanvas warna dasar
+     * dengan bilah aksen; mode sistem membelah putih/charcoal.
+     */
+    private fun previewThumb(mode: Int): View {
+        val dark = 0xFF15171A.toInt()
+        val light = 0xFFFFFFFF.toInt()
+        val frame = FrameLayout(this).apply {
+            clipToOutline = true
+            when (mode) {
+                THEME_DARK -> background = box(dark, R_FIELD)
+                THEME_LIGHT -> background = box(light, R_FIELD, HAIR, 1f)
+                else -> {
+                    background = box(light, R_FIELD, HAIR, 1f)
+                    addView(
+                        View(this@MainActivity).apply { background = box(dark, 0) },
+                        FrameLayout.LayoutParams(dp(20), -1, Gravity.END)
+                    )
+                }
+            }
+            addView(
+                View(this@MainActivity).apply { background = box(ACCENT, 0) },
+                FrameLayout.LayoutParams(dp(14), dp(4), Gravity.TOP or Gravity.START)
+                    .apply { setMargins(dp(6), dp(6), 0, 0) }
+            )
+        }
+        return frame
+    }
+
     /** Dialog pengaturan SlowDNS: aktif, resolver, domain, pubkey, tipe. */
     private fun slowDnsDialog() {
         saveCompactField(false)
@@ -1433,27 +1643,8 @@ class MainActivity : InkActivity() {
             setPadding(dp(22), dp(8), dp(22), dp(4))
         }
 
-        // Baris aktif/nonaktif gaya kisi centang.
-        val enableCheck = SquareCheckView(this).apply {
-            checked = p.slowdns
-            contentDescription = "Aktifkan SlowDNS"
-        }
-        val enableRow = horizontal().apply {
-            minimumHeight = dp(44)
-            isClickable = true
-            isFocusable = true
-            background = ripple()
-            contentDescription = "Aktifkan SlowDNS"
-            setOnClickListener {
-                enableCheck.checked = !enableCheck.checked
-                performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-            }
-        }
-        enableRow.addView(
-            enableCheck,
-            LinearLayout.LayoutParams(dp(24), dp(24)).apply { rightMargin = dp(12) }
-        )
-        enableRow.addView(uiText("Aktifkan SlowDNS", 14.5f, INK))
+        // Baris aktif/nonaktif memakai saklar, seperti mockup SlowDNS.
+        val (enableRow, enableSwitch) = switchRow("Aktifkan SlowDNS", null, p.slowdns)
         box.addView(enableRow, lp(4))
 
         fun addField(label: String, value: String, hint: String): EditText {
@@ -1468,10 +1659,89 @@ class MainActivity : InkActivity() {
             return input
         }
 
-        val resolverInput = addField(
-            "DNS RESOLVER", p.slowdnsResolver,
-            "8.8.8.8 • https://dns.google/dns-query • tls://1.1.1.1"
+        /** Sel kisi dua kolom untuk setelan lanjutan, seperti mockup. */
+        fun addGrid(row: LinearLayout, label: String, value: String, hint: String): EditText {
+            val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+            col.addView(
+                monoText(label, 10.5f, FAINT).apply {
+                    letterSpacing = 0.12f
+                    setPadding(0, dp(8), 0, dp(4))
+                }
+            )
+            val input = dialogInput(value, hint)
+            col.addView(input, LinearLayout.LayoutParams(-1, -2))
+            row.addView(
+                col,
+                LinearLayout.LayoutParams(0, -2, 1f).apply {
+                    if (row.childCount > 0) leftMargin = dp(10)
+                }
+            )
+            return input
+        }
+
+        // Resolver dipilih lewat kontrol segmen pil: UDP / DOH / DOT.
+        val resolverHost = p.slowdnsResolver
+            .removePrefix("https://").removePrefix("tls://").removePrefix("dot://")
+        var scheme = when {
+            p.slowdnsResolver.startsWith("https://") -> "DOH"
+            p.slowdnsResolver.startsWith("tls://") ||
+                p.slowdnsResolver.startsWith("dot://") -> "DOT"
+            else -> "UDP"
+        }
+        val segHint = mapOf(
+            "UDP" to "8.8.8.8",
+            "DOH" to "dns.google/dns-query",
+            "DOT" to "1.1.1.1"
         )
+        box.addView(
+            monoText("RESOLVER", 10.5f, FAINT).apply {
+                letterSpacing = 0.12f
+                setPadding(0, dp(12), 0, dp(4))
+            }
+        )
+        val segTrack = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            background = box(0, R_PILL, HAIR, 1f)
+            setPadding(dp(4), dp(4), dp(4), dp(4))
+        }
+        val segs = listOf("UDP", "DOH", "DOT").map { name ->
+            TextView(this).apply {
+                text = name
+                gravity = Gravity.CENTER
+                typeface = Face.proseMedium(this@MainActivity)
+                inkSize(13f)
+                minimumHeight = dp(40)
+                isClickable = true
+                isFocusable = true
+                contentDescription = "Resolver $name"
+            }
+        }
+        segs.forEachIndexed { i, s ->
+            segTrack.addView(
+                s,
+                LinearLayout.LayoutParams(0, -1, 1f).apply {
+                    if (i < segs.size - 1) rightMargin = dp(4)
+                }
+            )
+        }
+        box.addView(segTrack, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(8) })
+        val resolverInput = addField("DNS UTAMA", resolverHost, segHint[scheme] ?: "8.8.8.8")
+
+        fun paintSegs() {
+            segs.forEach { s ->
+                val on = s.text == scheme
+                s.background = ripple(if (on) box(ACCENT, R_PILL) else box(0, R_PILL))
+                s.setTextColor(if (on) ON_ACCENT else MUTED)
+            }
+        }
+        segs.forEach { s ->
+            s.setOnClickListener {
+                scheme = s.text.toString()
+                resolverInput.hint = segHint[scheme]
+                paintSegs()
+            }
+        }
+        paintSegs()
         val domainInput = addField("DOMAIN TUNNEL", p.slowdnsDomain, "tunnel.domain.com")
         val pubkeyInput = addField("PUBLIC KEY SERVER", p.slowdnsPubkey, "64 karakter heksadesimal")
 
@@ -1505,55 +1775,42 @@ class MainActivity : InkActivity() {
         }
         box.addView(typeView, LinearLayout.LayoutParams(-1, -2))
 
-        // Pengaturan lanjutan, sama seperti panel SlowDNS HTTP Custom.
-        val qnameInput = addField(
-            "BATAS QNAME (BYTE)",
-            if (p.slowdnsQname == 0) "" else p.slowdnsQname.toString(),
-            "0 = default (255)"
-        )
-        val ednsInput = addField(
-            "BATAS EDNS0 (BYTE)",
-            if (p.slowdnsEdns == 0) "" else p.slowdnsEdns.toString(),
-            "0 = default (4096)"
-        )
-        val windowInput = addField(
-            "KCP WINDOW",
-            if (p.slowdnsWindow == 0) "" else p.slowdnsWindow.toString(),
-            "0 = default (64)"
-        )
-        val sessionInput = addField(
-            "JUMLAH SESI (1–8)",
-            p.slowdnsSessions.toString(),
-            "1 = satu sesi"
-        )
-
-        fun addToggle(label: String, checked: Boolean): SquareCheckView {
-            val check = SquareCheckView(this).apply {
-                this.checked = checked
-                contentDescription = label
+        // Pengaturan lanjutan dalam kisi dua kolom, seperti mockup SlowDNS.
+        box.addView(
+            monoText("SETELAN LANJUTAN", 10.5f, FAINT).apply {
+                letterSpacing = 0.12f
+                setPadding(0, dp(14), 0, dp(2))
             }
-            val row = horizontal().apply {
-                minimumHeight = dp(44)
-                isClickable = true
-                isFocusable = true
-                background = ripple()
-                contentDescription = label
-                setOnClickListener {
-                    check.checked = !check.checked
-                    performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
-                }
-            }
-            row.addView(
-                check,
-                LinearLayout.LayoutParams(dp(24), dp(24)).apply { rightMargin = dp(12) }
-            )
-            row.addView(uiText(label, 14.5f, INK))
-            box.addView(row, lp(4))
-            return check
-        }
+        )
+        val grid1 = horizontal().apply { gravity = Gravity.TOP }
+        val qnameInput = addGrid(
+            grid1, "BATAS QNAME (BYTE)",
+            if (p.slowdnsQname == 0) "" else p.slowdnsQname.toString(), "0 = default (255)"
+        )
+        val ednsInput = addGrid(
+            grid1, "BATAS EDNS0 (BYTE)",
+            if (p.slowdnsEdns == 0) "" else p.slowdnsEdns.toString(), "0 = default (4096)"
+        )
+        box.addView(grid1, lp(4))
+        val grid2 = horizontal().apply { gravity = Gravity.TOP }
+        val windowInput = addGrid(
+            grid2, "KCP WINDOW",
+            if (p.slowdnsWindow == 0) "" else p.slowdnsWindow.toString(), "0 = default (64)"
+        )
+        val sessionInput = addGrid(
+            grid2, "JUMLAH SESI (1–8)",
+            p.slowdnsSessions.toString(), "1 = satu sesi"
+        )
+        box.addView(grid2, lp(4))
 
-        val multiLoginCheck = addToggle("Multi login (login terpisah per sesi)", p.slowdnsMultiLogin)
-        val calibrateCheck = addToggle("Automatic calibration (uji QNAME/EDNS0)", p.slowdnsCalibrate)
+        val (multiLoginRow, multiLoginCheck) = switchRow(
+            "Multi login", "Login terpisah per sesi", p.slowdnsMultiLogin
+        )
+        box.addView(multiLoginRow, lp(4))
+        val (calibrateRow, calibrateCheck) = switchRow(
+            "Automatic calibration", "Uji QNAME/EDNS0 sebelum menyambung", p.slowdnsCalibrate
+        )
+        box.addView(calibrateRow, lp(4))
 
         box.addView(
             uiText(
@@ -1573,15 +1830,35 @@ class MainActivity : InkActivity() {
             .setNegativeButton("Batal", null)
             .create()
         dialog.show()
+        // Tombol utama pil hijau penuh, sekunder garis rambut — ala mockup.
+        val pos = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+        pos.typeface = Face.proseMedium(this)
+        pos.setTextColor(ON_ACCENT)
+        pos.background = ripple(box(ACCENT, R_PILL))
+        pos.minimumHeight = dp(48)
+        pos.setPadding(dp(28), 0, dp(28), 0)
+        val neg = dialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+        neg.setTextColor(INK)
+        neg.background = ripple(box(0, R_PILL, HAIR, 1f))
+        neg.minimumHeight = dp(48)
+        neg.setPadding(dp(20), 0, dp(20), 0)
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             // Kosong = 0 (default pustaka); teks bukan angka = -1 agar validasi menolak.
             fun number(input: EditText): Int {
                 val text = input.text.toString().trim()
                 return if (text.isEmpty()) 0 else (text.toIntOrNull() ?: -1)
             }
+            // Susun ulang resolver dari skema segmen + host yang diisi.
+            val host = resolverInput.text.toString().trim()
+                .removePrefix("https://").removePrefix("tls://").removePrefix("dot://")
+            val resolver = when (scheme) {
+                "DOH" -> "https://$host"
+                "DOT" -> "tls://$host"
+                else -> host
+            }
             val updated = p.copy(
-                slowdns = enableCheck.checked,
-                slowdnsResolver = resolverInput.text.toString().trim(),
+                slowdns = enableSwitch.isChecked,
+                slowdnsResolver = resolver,
                 slowdnsDomain = domainInput.text.toString().trim(),
                 slowdnsPubkey = pubkeyInput.text.toString().trim(),
                 slowdnsType = selectedType,
@@ -1589,8 +1866,8 @@ class MainActivity : InkActivity() {
                 slowdnsEdns = number(ednsInput),
                 slowdnsWindow = number(windowInput),
                 slowdnsSessions = number(sessionInput),
-                slowdnsMultiLogin = multiLoginCheck.checked,
-                slowdnsCalibrate = calibrateCheck.checked
+                slowdnsMultiLogin = multiLoginCheck.isChecked,
+                slowdnsCalibrate = calibrateCheck.isChecked
             )
             val err = SlowDns.validate(updated)
             if (err != null) {
@@ -1608,15 +1885,58 @@ class MainActivity : InkActivity() {
         }
     }
 
+    /** Dialog Tema: tiga kartu pilihan berpratinjau mini, ala mockup AI. */
     private fun themeDialog() {
-        themedBuilder("Tema")
-            .setSingleChoiceItems(THEME_LABELS.toTypedArray(), AppPrefs.themeMode(this)) { dialog, which ->
-                AppPrefs.setThemeMode(this, which)
-                dialog.dismiss()
-                recreate()
+        val current = AppPrefs.themeMode(this)
+        val box = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(22), dp(8), dp(22), dp(4))
+        }
+        // Urutan mengikuti mockup: Ikuti sistem, Gelap, Terang.
+        val order = listOf(THEME_SYSTEM, THEME_DARK, THEME_LIGHT)
+        val subs = mapOf(
+            THEME_SYSTEM to "Ikuti mode terang/gelap perangkat",
+            THEME_DARK to "Kurangi silau dan hemat baterai",
+            THEME_LIGHT to "Tampilan lebih jelas dan bersih"
+        )
+        val dialogRef = arrayOfNulls<AlertDialog>(1)
+        order.forEach { mode ->
+            val selected = mode == current
+            val card = horizontal().apply {
+                setPadding(dp(14), dp(12), dp(14), dp(12))
+                background = ripple(
+                    box(PANEL, R_PANEL, if (selected) ACCENT else HAIR, if (selected) 1.5f else 1f)
+                )
+                isClickable = true
+                isFocusable = true
+                contentDescription = "Tema ${THEME_LABELS[mode]}"
+                setOnClickListener {
+                    dialogRef[0]?.dismiss()
+                    if (mode != current) {
+                        AppPrefs.setThemeMode(this@MainActivity, mode)
+                        recreate()
+                    }
+                }
             }
+            card.addView(previewThumb(mode), LinearLayout.LayoutParams(dp(40), dp(56)))
+            val col = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(dp(14), 0, 0, 0)
+            }
+            col.addView(uiText(THEME_LABELS[mode], 15f, INK, medium = true))
+            col.addView(
+                uiText(subs[mode] ?: "", 11.5f, MUTED).apply { setPadding(0, dp(2), 0, 0) }
+            )
+            card.addView(col, LinearLayout.LayoutParams(0, -2, 1f))
+            card.addView(radioDot(selected), LinearLayout.LayoutParams(dp(18), dp(18)))
+            box.addView(card, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(10) })
+        }
+        val dialog = themedBuilder("Tema")
+            .setView(box)
             .setNegativeButton("Batal", null)
-            .show()
+            .create()
+        dialogRef[0] = dialog
+        dialog.show()
     }
 
     private fun aboutDialog() {

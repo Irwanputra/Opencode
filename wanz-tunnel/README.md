@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.16
+# Wanz Tunnel 2.9.17
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -227,6 +227,19 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.17 (rampungan desain dialog dari mockup AI): lima mockup Seedream 5.5
+  baru — dialog Profil, dialog SlowDNS, dialog Payload, dialog Tema, dan
+  beranda saat terhubung. Dialog Profil kini berupa daftar kartu membulat
+  dengan titik status, alamat mono, aksi ubah/hapus per baris, dan tombol
+  hijau penuh "TAMBAH PROFIL BARU". Dialog SlowDNS memakai kontrol segmen
+  resolver UDP/DOH/DOT, saklar beraksen hijau untuk Aktifkan/Multi login/
+  Kalibrasi, kisi dua kolom untuk setelan lanjutan, serta tombol Terapkan
+  berbentuk pil hijau. Dialog Tema menjadi tiga kartu berpratinjau mini
+  (Ikuti sistem/Gelap/Terang) dengan indikator radio. Di beranda, baris
+  status kini tampil di tengah dengan titik warna status, dan kartu statistik
+  mendapat kepala "TRANSFER DATA" dengan pil LIVE saat tunnel aktif.
+  `testDebugUnitTest lintDebug assembleRelease` dan `design_gate.py --strict`
+  (0 galat, 0 peringatan) lulus.
 - v2.9.16 (desain ulang total dari mockup AI): seluruh tampilan dan tata
   letak dirancang ulang memakai lima mockup text-to-image Seedream 5.5 —
   beranda gelap/terang, laci, tab LOG, dan dialog Tentang (prompt di

@@ -132,8 +132,10 @@ sudut, dan bentuk kontrol, bukan dari font.
    - tombol sambung **terisi penuh** hijau, membulat 28dp, tinggi 56dp,
      ikon gembok + label `HUBUNGKAN` → `MENYAMBUNG…` (abu) → `PUTUSKAN` /
      `COBA LAGI` (merah);
-   - di luar kartu: baris status satu sampai dua baris;
-   - kartu statistik: panah ↓ Unduh dan ↑ Unggah dengan angka
+   - di luar kartu: baris status di tengah dengan titik warna status
+     (hijau Terhubung, kuning peringatan, merah gagal);
+   - kartu statistik dengan kepala label mikro `TRANSFER DATA` dan pil
+     `LIVE` saat tunnel aktif; panah ↓ Unduh dan ↑ Unggah dengan angka
      total besar dan kecepatan sesaat di bawahnya; baris bawah berisi titik
      status, durasi, dan globe + ping. Seluruh baris bawah memicu ping manual.
 4. **Tab LOG**: tiga pil aksi — `Ikuti` (terisi hijau saat aktif), `Salin`,
@@ -182,6 +184,14 @@ Sembilan centang dan field yang diubahnya:
 - Isian server dan input dialog: `EditText` berlatar kotak `GradientDrawable`
   (`FIELD`, sudut 14dp, garis rambut 1dp); tepi berubah `ACCENT` saat fokus.
   `FieldUnderline` dihapus sejak v2.9.16.
+- Dialog Profil (v2.9.17): daftar kartu membulat dengan titik radio hijau,
+  alamat mono di bawah nama, aksi ubah/hapus per baris, dan tombol hijau
+  penuh `TAMBAH PROFIL BARU`.
+- Dialog SlowDNS (v2.9.17): kontrol segmen resolver UDP/DOH/DOT, saklar
+  beraksen hijau (Aktifkan, Multi login, Kalibrasi), kisi dua kolom untuk
+  setelan lanjutan, dan tombol Terapkan berbentuk pil hijau.
+- Dialog Tema (v2.9.17): tiga kartu berpratinjau mini (Ikuti sistem/Gelap/
+  Terang) dengan indikator radio; kartu terpilih bergaris hijau.
 - `brandTile()`: ubin charcoal dengan monogram W hijau; dipakai di laci dan
   dialog Tentang. Sumber asetnya ada di `brand/`.
 - `DNSPacketConn` (SlowDNS): pembungkus `net.PacketConn` untuk query DNS.
