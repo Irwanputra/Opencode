@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.net.VpnService
@@ -23,6 +24,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -73,6 +75,7 @@ class MainActivity : InkActivity() {
     private lateinit var rxSub: TextView
     private lateinit var txSub: TextView
     private lateinit var upSub: TextView
+    private lateinit var metricsDot: View
     private lateinit var followCheck: SquareCheckView
     private var autoScroll = true
 
@@ -269,7 +272,7 @@ class MainActivity : InkActivity() {
         }
         val body = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(20), dp(16), dp(20), dp(32))
+            setPadding(dp(20), dp(16), dp(20), dp(24))
         }
         sshBody = body
 
@@ -362,9 +365,9 @@ class MainActivity : InkActivity() {
             maxLines = 2
             setLineSpacing(dp(2).toFloat(), 1f)
         }
-        body.addView(statusText, lp(10))
+        body.addView(statusText, lp(8))
 
-        body.addView(metricsRow(), lp(22))
+        body.addView(metricsRow(), lp(14))
 
         scroll.addView(body, ViewGroup.LayoutParams(-1, -2))
         return scroll
@@ -450,51 +453,116 @@ class MainActivity : InkActivity() {
         return grid
     }
 
-    /** Tiga bacaan sejajar; kolom "Aktif" juga memicu ping saat diketuk. */
+    /**
+     * Kartu statistik mengikuti beranda HTTP Custom terbaru: panah ↓/↑ dengan
+     * angka besar, kecepatan sesaat di bawahnya, lalu satu baris status +
+     * ping. Bentuknya kartu bergaris tipis, bukan tabel tiga kolom — angka
+     * total dan kecepatan jadi lebih mudah dibaca sekilas.
+     */
     private fun metricsRow(): View {
-        val row = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
-
-        rxText = monoText("—", 15f)
-        rxSub = monoText("belum ada", 10f, FAINT)
-        txText = monoText("—", 15f)
-        txSub = monoText("belum ada", 10f, FAINT)
-        upText = monoText("—", 15f)
-        upSub = monoText("belum berjalan", 10f, FAINT)
-
-        fun metric(
-            title: String,
-            value: TextView,
-            sub: TextView,
-            clickable: Boolean = false
-        ): View {
-            val cell = LinearLayout(this).apply {
-                orientation = LinearLayout.VERTICAL
-                setPadding(dp(10), dp(10), dp(10), dp(10))
-                if (clickable) {
-                    isClickable = true
-                    isFocusable = true
-                    minimumHeight = dp(48)
-                    background = ripple()
-                    contentDescription = "Ping sekarang"
-                    setOnClickListener { sendPing() }
-                }
-            }
-            cell.addView(
-                monoText(title, 10f, FAINT).apply { letterSpacing = 0.10f },
-                LinearLayout.LayoutParams(-1, -2)
-            )
-            cell.addView(value, lp(4))
-            cell.addView(sub, lp(3))
-            return cell
+        val card = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            background = box(PANEL, R_PANEL, HAIR, 1f)
+            setPadding(dp(16), dp(12), dp(16), 0)
         }
 
-        val weight = { LinearLayout.LayoutParams(0, -2, 1f) }
-        row.addView(metric("Unduh", rxText, rxSub), weight())
-        row.addView(rule(), LinearLayout.LayoutParams(dp(1), -1))
-        row.addView(metric("Unggah", txText, txSub), weight())
-        row.addView(rule(), LinearLayout.LayoutParams(dp(1), -1))
-        row.addView(metric("Aktif", upText, upSub, clickable = true), weight())
-        return row
+        rxText = monoText("—", 18f)
+        rxSub = monoText("belum ada", 10f, FAINT)
+        txText = monoText("—", 18f)
+        txSub = monoText("belum ada", 10f, FAINT)
+        upText = monoText("—", 12.5f, MUTED)
+        upSub = monoText("ping belum diuji", 11f, FAINT)
+
+        fun arrow(res: Int) = ImageView(this).apply {
+            setImageResource(res)
+            imageTintList = ColorStateList.valueOf(ACCENT)
+            scaleType = ImageView.ScaleType.FIT_CENTER
+        }
+
+        fun block(
+            label: String,
+            icon: Int,
+            value: TextView,
+            sub: TextView,
+            alignEnd: Boolean
+        ): View {
+            val col = LinearLayout(this).apply {
+                orientation = LinearLayout.VERTICAL
+                gravity = if (alignEnd) Gravity.END else Gravity.START
+            }
+            val head = horizontal().apply {
+                gravity = Gravity.CENTER_VERTICAL or
+                    (if (alignEnd) Gravity.END else Gravity.START)
+            }
+            head.addView(arrow(icon), LinearLayout.LayoutParams(dp(14), dp(14)))
+            head.addView(
+                uiText(label, 11f, ACCENT, medium = true).apply {
+                    letterSpacing = 0.06f
+                    setPadding(dp(6), 0, 0, 0)
+                }
+            )
+            col.addView(head)
+            col.addView(
+                value,
+                LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(4) }
+            )
+            col.addView(
+                sub,
+                LinearLayout.LayoutParams(-2, -2).apply { topMargin = dp(1) }
+            )
+            return col
+        }
+
+        val top = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+        top.addView(
+            block("Unduh", R.drawable.ic_arrow_downward, rxText, rxSub, false),
+            LinearLayout.LayoutParams(0, -2, 1f)
+        )
+        top.addView(
+            block("Unggah", R.drawable.ic_arrow_upward, txText, txSub, true),
+            LinearLayout.LayoutParams(0, -2, 1f)
+        )
+        card.addView(top)
+
+        card.addView(
+            rule(),
+            LinearLayout.LayoutParams(-1, Face.linePx(this, 1f).toInt()).apply { topMargin = dp(10) }
+        )
+
+        // Baris bawah: titik status + durasi di kiri, globe + ping di kanan.
+        // Seluruh baris tetap target sentuh 48dp untuk ping manual.
+        val foot = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            minimumHeight = dp(48)
+            isClickable = true
+            isFocusable = true
+            contentDescription = "Ping sekarang"
+            background = ripple()
+            setOnClickListener { sendPing() }
+        }
+        metricsDot = View(this).apply { background = box(FAINT, 4) }
+        foot.addView(
+            metricsDot,
+            LinearLayout.LayoutParams(dp(8), dp(8)).apply { rightMargin = dp(8) }
+        )
+        foot.addView(uiText("Durasi", 11f, MUTED).apply { letterSpacing = 0.06f })
+        foot.addView(
+            upText,
+            LinearLayout.LayoutParams(-2, -2).apply { leftMargin = dp(8) }
+        )
+        foot.addView(View(this), LinearLayout.LayoutParams(0, 0, 1f))
+        foot.addView(
+            ImageView(this).apply {
+                setImageResource(R.drawable.ic_public)
+                imageTintList = ColorStateList.valueOf(FAINT)
+                scaleType = ImageView.ScaleType.FIT_CENTER
+            },
+            LinearLayout.LayoutParams(dp(14), dp(14)).apply { rightMargin = dp(6) }
+        )
+        foot.addView(upSub)
+        card.addView(foot, LinearLayout.LayoutParams(-1, dp(48)))
+        return card
     }
 
     // -------------------------------------------------------------- tab LOG
@@ -1031,6 +1099,7 @@ class MainActivity : InkActivity() {
 
     private fun renderMetrics() {
         val active = TunnelService.running && TunnelService.connectedAt > 0L
+        (metricsDot.background as? GradientDrawable)?.setColor(if (active) OK else HAIR)
         if (!active) {
             lastRx = 0L
             lastTx = 0L
@@ -1042,7 +1111,8 @@ class MainActivity : InkActivity() {
             upText.setTextColor(FAINT)
             rxSub.text = "belum ada"
             txSub.text = "belum ada"
-            upSub.text = "belum berjalan"
+            upSub.text = "ping belum diuji"
+            upSub.setTextColor(FAINT)
             return
         }
         rxText.setTextColor(INK)
@@ -1058,6 +1128,7 @@ class MainActivity : InkActivity() {
         else "%02d:%02d".format(mm, ss)
         upSub.text = if (TunnelService.pingMs >= 0) "ping ${TunnelService.pingMs} ms"
         else "ping belum diuji"
+        upSub.setTextColor(if (TunnelService.pingMs >= 0) MUTED else FAINT)
 
         val rx = TunnelService.sessionRx()
         val tx = TunnelService.sessionTx()

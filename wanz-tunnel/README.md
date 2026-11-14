@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.13
+# Wanz Tunnel 2.9.14
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -16,7 +16,8 @@ tanpa tombol tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   internal oleh tun2socks (port 1080 tetap)
 - UI mengikuti HTTP Custom: bilah atas hanya menu dan judul, tab
   **SSH** dan **LOG**, isian `ip:port@user:pass`, sembilan centang dua kolom,
-  tombol sambung bergaris, dan bacaan Unduh/Unggah/Aktif. Laci kiri hanya
+  tombol sambung bergaris, serta kartu statistik Unduh/Unggah dengan durasi
+  dan ping. Laci kiri hanya
   **Utilitas** (Profil, Payload, Proxy, SlowDNS, Tema) dan **Alat** (Tentang).
   Tidak ada
   menu tiga titik, tombol tambah mengambang, atau layar Pengaturan terpisah;
@@ -222,6 +223,15 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 ## Status uji
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
+
+- v2.9.14 (kartu statistik baru): blok Unduh/Unggah/Aktif yang berupa tabel
+  tiga kolom diganti kartu bergaris tipis mengikuti kartu statistik HTTP
+  Custom terbaru — panah ↓/↑, angka total 20sp Roboto Mono, kecepatan sesaat,
+  lalu satu baris berisi titik status, durasi, globe, dan ping. Seluruh baris
+  bawah tetap target sentuh 48dp untuk ping manual. Ikon panah dan globe
+  dibuat sebagai vektor Material (Apache 2.0). `testDebugUnitTest lintDebug
+  assembleRelease`, `go test ./...`, dan `design_gate.py --strict` (0 galat,
+  0 peringatan) lulus.
 
 - v2.9.13 (perbaikan crash saat Sambung): `SetSocketProtector(nil)`
   yang dipanggil setiap `Stop()` menyimpan nilai kosong ke `atomic.Value`

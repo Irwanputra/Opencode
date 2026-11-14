@@ -117,7 +117,10 @@ terlihat seperti template dengan font lain.
    - tombol sambung bergaris tepi 1,5dp, tinggi 56dp, label berubah
      `HUBUNGKAN` → `MENYAMBUNG…` → `PUTUSKAN` / `COBA LAGI`;
    - baris status satu sampai dua baris;
-   - tiga bacaan sejajar: Unduh, Unggah, Aktif. Kolom Aktif juga memicu ping.
+   - kartu statistik bergaris tipis: panah ↓ Unduh dan ↑ Unggah dengan angka
+     total besar dan kecepatan sesaat di bawahnya; baris bawah berisi titik
+     status, durasi, dan globe + ping. Seluruh baris bawah memicu ping manual.
+     Susunan ini mengikuti kartu statistik HTTP Custom terbaru.
 4. **Tab LOG**: baris "Ikuti" + salin + bersihkan, lalu daftar log
    `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
    INFO tinta, PING hijau, WARN kuning, ERROR merah muda.

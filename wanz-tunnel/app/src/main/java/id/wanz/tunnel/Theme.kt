@@ -12,7 +12,8 @@ import android.os.Bundle
  *
  * Yang diambil dari acuan, bukan ditebak:
  * - kanvas abu gelap netral (#1E1E1E) untuk seluruh layar, termasuk bilah atas
- *   dan tab — tanpa kartu, tanpa gradien, tanpa bayangan;
+ *   dan tab — tanpa gradien dan tanpa bayangan; satu-satunya kartu adalah
+ *   ringkasan trafik bergaris tipis di bawah tombol sambung;
  * - hijau tunggal (#4CAF50) untuk identitas dan status hidup: judul, garis tab
  *   aktif, kotak centang terpilih, tepi tombol utama, tombol tambah;
  * - judul "Wanz Tunnel" dengan kata pertama hijau dan kata kedua putih;
