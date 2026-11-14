@@ -73,8 +73,6 @@ class MainActivity : InkActivity() {
     private lateinit var transportLabel: TextView
     private lateinit var compactField: EditText
     private lateinit var connectButton: TextView
-    private lateinit var statusText: TextView
-    private lateinit var statusDot: View
     private lateinit var livePill: TextView
     private lateinit var rxText: TextView
     private lateinit var txText: TextView
@@ -97,7 +95,6 @@ class MainActivity : InkActivity() {
     private var lastTx = 0L
     private var logPending = false
     private var lastButtonLabel: String? = null
-    private var lastStatus: String? = null
 
     /**
      * Jendela log yang sedang terpasang di layar. Dipakai untuk menambah baris
@@ -382,12 +379,6 @@ class MainActivity : InkActivity() {
         }
         card.addView(compactField, LinearLayout.LayoutParams(-1, dp(52)))
 
-        card.addView(
-            uiText("Port dan akun boleh menyusul di baris ini.", 11.5f, FAINT).apply {
-                setPadding(0, dp(6), 0, 0)
-            }
-        )
-
         // Kisi centang dua kolom, delapan opsi yang semuanya tersambung ke profil.
         card.addView(
             monoText("Opsi", 10.5f, FAINT).apply {
@@ -416,28 +407,8 @@ class MainActivity : InkActivity() {
         Anim.pressScale(connectButton)
         card.addView(connectButton, LinearLayout.LayoutParams(-1, dp(56)).apply { topMargin = dp(20) })
 
-        statusText = uiText("Belum tersambung.", 12f, MUTED).apply {
-            maxLines = 2
-            gravity = Gravity.CENTER
-            setLineSpacing(dp(2).toFloat(), 1f)
-        }
-        // Baris status di tengah dengan titik warna status, seperti mockup.
-        statusDot = View(this).apply {
-            background = GradientDrawable().apply {
-                shape = GradientDrawable.OVAL
-                setColor(MUTED)
-            }
-        }
-        val statusRow = horizontal().apply { gravity = Gravity.CENTER }
-        statusRow.addView(
-            statusDot,
-            LinearLayout.LayoutParams(dp(8), dp(8)).apply {
-                rightMargin = dp(8)
-                topMargin = dp(3)
-            }
-        )
-        statusRow.addView(statusText, LinearLayout.LayoutParams(-2, -2))
-        body.addView(statusRow, lp(10))
+        // v2.9.19: baris status di bawah tombol dihapus — status kini tampil
+        // pada label tombol itu sendiri (termasuk "Menyambung ulang (n)…").
 
         body.addView(metricsRow(), lp(14))
 
@@ -1175,12 +1146,16 @@ class MainActivity : InkActivity() {
             TunnelService.running -> Conn.CONNECTING
             else -> Conn.IDLE
         }
-        val noInternet = state == Conn.CONNECTED && raw.contains("internet gagal")
 
-        val label = when (state) {
-            Conn.CONNECTED -> "PUTUSKAN"
-            Conn.CONNECTING -> "MENYAMBUNG…"
-            Conn.ERROR -> "COBA LAGI"
+        // v2.9.19: status kini tampil pada tombol. Saat koneksi putus dan
+        // disambung ulang otomatis, tombol menampilkan penghitung percobaan.
+        val reconnectMatch = Regex("Menyambung ulang \\((\\d+)").find(raw)
+        val label = when {
+            state == Conn.CONNECTED -> "PUTUSKAN"
+            reconnectMatch != null ->
+                "MENYAMBUNG ULANG (${reconnectMatch.groupValues[1]})…"
+            state == Conn.CONNECTING -> "MENYAMBUNG…"
+            state == Conn.ERROR -> "COBA LAGI"
             else -> "HUBUNGKAN"
         }
         connectButton.text = label
@@ -1210,36 +1185,10 @@ class MainActivity : InkActivity() {
                     .start()
             }
         }
-        // Denyut lembut selagi menyambung; berhenti pada keadaan lain.
+        // Denyut lembut selagi menyambung/menyambung ulang; berhenti pada
+        // keadaan lain.
         if (state == Conn.CONNECTING) Anim.pulse(connectButton) else Anim.stopPulse(connectButton)
 
-        val message = when {
-            noInternet -> "Tunnel aktif, tetapi uji internet gagal. Periksa server atau payload."
-            state == Conn.ERROR -> friendlyError(raw)
-            state == Conn.CONNECTED ->
-                raw.removePrefix("Terhubung").trim(' ', '·', '•')
-                    .ifBlank { "Tunnel aktif · semua trafik lewat VPN." }
-            state == Conn.CONNECTING -> raw
-            else -> "Belum tersambung. Isi server lalu ketuk HUBUNGKAN."
-        }
-        if (message != lastStatus) {
-            lastStatus = message
-            statusText.text = message
-            // Status baru memudar masuk, tidak muncul mendadak.
-            if (Anim.on(this)) {
-                statusText.animate().cancel()
-                statusText.alpha = 0f
-                statusText.animate().alpha(1f).setDuration(160L).start()
-            }
-        }
-        val statusColor = when {
-            noInternet -> WARN
-            state == Conn.ERROR -> ERR
-            state == Conn.CONNECTED -> OK
-            else -> MUTED
-        }
-        statusText.setTextColor(statusColor)
-        (statusDot.background as? GradientDrawable)?.setColor(statusColor)
         renderMetrics()
     }
 
@@ -1300,21 +1249,6 @@ class MainActivity : InkActivity() {
 
     private fun fmtOne(v: Double): String =
         String.format(Locale.US, if (v >= 10) "%.0f" else "%.1f", v)
-
-    private fun friendlyError(raw: String): String {
-        val message = raw.removePrefix("Gagal:").trim()
-        return when {
-            message.contains("Auth cancel", true) || message.contains("Auth fail", true) ->
-                "Autentikasi ditolak server. Periksa username dan password."
-            message.contains("Connection refused", true) ->
-                "Server menolak koneksi. Periksa host dan port."
-            message.contains("UnknownHost", true) ->
-                "Host tidak ditemukan. Periksa alamat server."
-            message.contains("timeout", true) ->
-                "Waktu koneksi habis. Coba lagi atau ganti server."
-            else -> message.ifBlank { raw }
-        }
-    }
 
     private fun sendPing() {
         if (!TunnelService.running) {

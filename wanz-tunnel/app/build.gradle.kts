@@ -10,8 +10,8 @@ android {
         applicationId = "id.wanz.tunnel"
         minSdk = 29
         targetSdk = 34
-        versionCode = 32
-        versionName = "2.9.18"
+        versionCode = 33
+        versionName = "2.9.19"
     }
     buildTypes {
         release {

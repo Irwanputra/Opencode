@@ -131,11 +131,9 @@ sudut, dan bentuk kontrol, bukan dari font.
      tiap sel tinggi 48dp dengan kotak centang membulat;
    - tombol sambung **terisi penuh** hijau, membulat 28dp, tinggi 56dp,
      ikon gembok + label `HUBUNGKAN` → `MENYAMBUNG…` (abu) → `PUTUSKAN` /
-     `COBA LAGI` (merah);
-   - di luar kartu: baris status di tengah dengan titik warna status
-     (hijau Terhubung, kuning peringatan, merah gagal); saat koneksi putus
-     dan disambung ulang otomatis, status menampilkan progres
-     `Menyambung ulang (n) dalam X detik…` (v2.9.18);
+     `COBA LAGI` (merah); sejak v2.9.19 label tombol juga menampilkan
+     progres sambung ulang `MENYAMBUNG ULANG (n)…` (abu, berdenyut) —
+     baris status terpisah di bawah tombol dihapus agar tampilan bersih;
    - kartu statistik dengan kepala label mikro `TRANSFER DATA` dan pil
      `LIVE` saat tunnel aktif; panah ↓ Unduh dan ↑ Unggah dengan angka
      total besar dan kecepatan sesaat di bawahnya; baris bawah berisi titik

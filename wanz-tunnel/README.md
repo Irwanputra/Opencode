@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.18
+# Wanz Tunnel 2.9.19
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -227,6 +227,13 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.19 (permintaan pengguna: bersihkan kartu SSH): teks bantuan
+  "Port dan akun boleh menyusul di baris ini." dan baris status di bawah
+  tombol dihapus. Status kini tampil pada label tombol itu sendiri —
+  saat koneksi putus dan disambung ulang otomatis, tombol berubah menjadi
+  `MENYAMBUNG ULANG (n)…` (abu, berdenyut) dengan penghitung percobaan,
+  lalu kembali `PUTUSKAN` saat terhubung. Rincian galat tetap terlihat
+  di tab LOG.
 - v2.9.18 (perbaikan fungsi koneksi dari bedah HTTP Custom 8.0.22): hasil
   reverse engineering HTTP Custom - AIO Tunnel VPN 8.0.22 - Patch 2
   (versionCode 934, SHA-1 `9bafb854…` — XAPK asli dari katalog APK20)
