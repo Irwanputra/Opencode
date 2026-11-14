@@ -124,7 +124,7 @@ terlihat seperti template dengan font lain.
 4. **Tab LOG**: baris "Ikuti" + salin + bersihkan, lalu daftar log
    `[jam:menit:detik] pesan` dengan garis pemisah tipis. Warna pesan per level:
    INFO tinta, PING hijau, WARN kuning, ERROR merah muda.
-5. **Laci kiri**: logo heksagon "WT", nama dan versi, lalu grup
+5. **Laci kiri**: ubin merek W, nama dan versi, lalu grup
    **Utilitas** (Profil, Payload, Proxy, SlowDNS, Tema) dan **Alat** (Tentang).
    Laci
    bisa digulir pada layar pendek. Tidak ada entri menu yang hanya membuka
@@ -164,13 +164,33 @@ Sembilan centang dan field yang diubahnya:
 - `FieldUnderline`: garis bawah digambar dari bounds (1dp biasa, 2dp saat fokus),
   bukan `LayerDrawable` yang di-inset; inset itu melebar jadi blok tinta pada
   field multi-baris.
-- `HexLogoView`: heksagon putih dengan "W" tinta dan "T" hijau.
+- `brandTile()`: ubin charcoal dengan monogram W hijau; dipakai di laci dan
+  dialog Tentang. Sumber asetnya ada di `brand/`.
 - `DNSPacketConn` (SlowDNS): pembungkus `net.PacketConn` untuk query DNS.
   `Close() error` menutup kanal `done` sekali (aman berulang) sehingga loop
   kirim/terima berhenti; `Stop()` memanggilnya sebelum menutup socket UDP
   dan membungkam `net.ErrClosed`, jadi instance yang sudah berhenti tidak
   meninggalkan goroutine yang menulis ke socket tertutup.
 - Semua kontrol sentuh berlabel `contentDescription` dan minimal 48dp.
+
+## Identitas merek & aset AI
+
+Aset identitas dibuat khusus untuk Wanz Tunnel, bukan diambil dari aplikasi
+acuan:
+
+- **Monogram W**: kandidat AI Seedream 5.5 dirotasi 180° agar terbaca sebagai
+  W, lalu diratakan ke hijau `#4CAF50` dan ditebalkan secara deterministik
+  dengan filter maksimum alpha. Bentuk dasarnya dua lengkung terowongan yang
+  tersusun seperti W.
+- **Ikon launcher adaptif**: latar `#15171A`, foreground W hijau pada 40%
+  kanvas 108dp agar aman untuk mask bulat/squircle, dan layer monokrom putih
+  untuk ikon bertema Android 13+.
+- **Ubin merek**: `wanz_tile.png` (charcoal, sudut membulat) dipakai di laci
+  dan dialog Tentang agar identitasnya konsisten dengan launcher.
+- **Ilustrasi terowongan**: banner flat pada dialog Tentang memakai perspektif
+  lengkung abu dengan jalur hijau; dikompres WebP agar APK tetap ringan.
+
+Prompt, langkah pengolahan, dan berkas sumber dicatat di `brand/PROMPTS.md`.
 
 ## Gerak
 

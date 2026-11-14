@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.14
+# Wanz Tunnel 2.9.15
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -224,6 +224,14 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.15 (identitas merek & aset AI): logo heksagon "WT" diganti monogram
+  **W** khusus Wanz Tunnel. Mark dibuat dengan AI (Seedream 5.5), lalu
+  diratakan ke dua warna palet dan ditebalkan agar tetap terbaca di ukuran
+  kecil. Ikon adaptif kini memakai latar charcoal `#15171A`, foreground W
+  hijau, dan layer monokrom putih untuk ikon bertema Android 13+. Laci dan
+  Tentang memakai ubin merek yang sama; dialog Tentang mendapat ilustrasi
+  terowongan. Detail prompt ada di `brand/PROMPTS.md`. `testDebugUnitTest
+  lintDebug assembleRelease` dan `design_gate.py --strict` lulus.
 - v2.9.14 (kartu statistik baru): blok Unduh/Unggah/Aktif yang berupa tabel
   tiga kolom diganti kartu bergaris tipis mengikuti kartu statistik HTTP
   Custom terbaru — panah ↓/↑, angka total 20sp Roboto Mono, kecepatan sesaat,

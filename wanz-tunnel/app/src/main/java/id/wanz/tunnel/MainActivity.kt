@@ -693,7 +693,7 @@ class MainActivity : InkActivity() {
         }
 
         val head = horizontal().apply { setPadding(dp(20), 0, dp(20), 0) }
-        head.addView(HexLogoView(this), LinearLayout.LayoutParams(dp(64), dp(64)))
+        head.addView(brandTile(), LinearLayout.LayoutParams(dp(64), dp(64)))
         val names = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(14), 0, 0, 0)
@@ -737,6 +737,18 @@ class MainActivity : InkActivity() {
             isFillViewport = true
             addView(panel, ViewGroup.LayoutParams(-1, -2))
         }
+    }
+
+    /**
+     * Tanda merek: ubin charcoal dengan monogram W hijau. Aset dibuat khusus
+     * untuk Wanz Tunnel (Seedream 5.5, prompt di `brand/PROMPTS.md`), lalu
+     * diratakan ke dua warna dan dipertajam agar tetap terbaca di 64dp.
+     */
+    private fun brandTile(): ImageView = ImageView(this).apply {
+        setImageResource(R.drawable.wanz_tile)
+        scaleType = ImageView.ScaleType.FIT_CENTER
+        contentDescription = null
+        importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
     }
 
     private fun groupLabel(text: String) = monoText(text, 10.5f, FAINT).apply {
@@ -1512,13 +1524,56 @@ class MainActivity : InkActivity() {
     }
 
     private fun aboutDialog() {
-        val message = "Wanz Tunnel " + BuildConfig.VERSION_NAME + "\n\n" +
-            "Klien SSH + VPN untuk Android. Semua trafik aplikasi masuk lewat " +
-            "terowongan SSH, lalu diteruskan oleh tun2socks di dalam perangkat.\n\n" +
-            "Lisensi: Roboto dan Roboto Mono (Apache 2.0), Material Icons " +
-            "(Apache 2.0), JSch (BSD), hev-socks5-tunnel (Apache 2.0)."
+        val banner = ImageView(this).apply {
+            setImageResource(R.drawable.about_tunnel)
+            scaleType = ImageView.ScaleType.CENTER_CROP
+            contentDescription = null
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+            background = box(PANEL, R_PANEL)
+            clipToOutline = true
+        }
+        val brand = horizontal().apply { setPadding(0, dp(14), 0, 0) }
+        brand.addView(brandTile(), LinearLayout.LayoutParams(dp(42), dp(42)))
+        val names = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            addView(uiText("Wanz Tunnel", 17f, INK, medium = true))
+            addView(
+                monoText("v" + BuildConfig.VERSION_NAME + " · koneksi pribadi", 10f, FAINT)
+                    .apply { setPadding(0, dp(3), 0, 0) }
+            )
+        }
+        brand.addView(
+            names,
+            LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(12) }
+        )
+
+        val content = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(20), dp(14), dp(20), dp(0))
+            addView(banner, LinearLayout.LayoutParams(-1, dp(118)))
+            addView(brand, LinearLayout.LayoutParams(-1, -2))
+            addView(
+                uiText(
+                    "Klien SSH + VPN untuk Android. Semua trafik aplikasi masuk " +
+                        "lewat terowongan SSH, lalu diteruskan oleh tun2socks di " +
+                        "dalam perangkat.",
+                    12.5f, MUTED
+                ).apply { setLineSpacing(dp(2).toFloat(), 1f) },
+                lp(12)
+            )
+            addView(
+                uiText(
+                    "Lisensi: Roboto dan Roboto Mono (Apache 2.0), Material Icons " +
+                        "(Apache 2.0), JSch (BSD), hev-socks5-tunnel (Apache 2.0). " +
+                        "Monogram W dan ilustrasi terowongan dibuat khusus untuk " +
+                        "Wanz Tunnel.",
+                    10.5f, FAINT
+                ).apply { setLineSpacing(dp(2).toFloat(), 1f) },
+                lp(10)
+            )
+        }
         themedBuilder("Tentang")
-            .setMessage(message)
+            .setView(content)
             .setNeutralButton("Reset kunci host") { _, _ ->
                 File(filesDir, "known_hosts").delete()
                 Toast.makeText(this, "Kunci host direset", Toast.LENGTH_SHORT).show()

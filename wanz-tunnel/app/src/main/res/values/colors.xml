@@ -3,7 +3,7 @@
 <resources>
     <color name="wanz_bg">#FFFFFF</color>
     <color name="wanz_field">#FFFFFF</color>
-    <color name="wanz_icon_bg">#FFFFFF</color>
+    <color name="wanz_icon_bg">#15171A</color>
     <!-- Dialog memakai palet eksplisit, bukan mode sistem: pilihan tema
          aplikasi tidak selalu sama dengan mode sistem. -->
     <color name="dlg_light_bg">#FFFFFF</color>
