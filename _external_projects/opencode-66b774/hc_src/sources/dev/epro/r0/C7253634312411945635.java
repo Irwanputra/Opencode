@@ -1,0 +1,62 @@
+package dev.epro.r0;
+
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.RemoteException;
+import java.util.Objects;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class C7253634312411945635 extends L3120623210002840329 {
+    public final /* synthetic */ F2666344450883603512 c;
+    public final /* synthetic */ long d;
+    public final /* synthetic */ long e;
+    public final /* synthetic */ M17133811648581684718 f;
+    public final /* synthetic */ S8093187219740136623 g;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public C7253634312411945635(S8093187219740136623 s8093187219740136623, M17133811648581684718 m17133811648581684718, F2666344450883603512 f2666344450883603512, long j, long j2, M17133811648581684718 m171338116485816847182) {
+        super(s8093187219740136623, m17133811648581684718);
+        this.c = f2666344450883603512;
+        this.d = j;
+        this.e = j2;
+        this.f = m171338116485816847182;
+        Objects.requireNonNull(s8093187219740136623);
+        this.g = s8093187219740136623;
+    }
+
+    @Override // dev.epro.r0.N3901745123707141715
+    public final void b() {
+        M17133811648581684718 m17133811648581684718 = this.f;
+        S8093187219740136623 s8093187219740136623 = this.g;
+        if (S8093187219740136623.d(s8093187219740136623)) {
+            a(new L1893317219943000644(-2, null));
+            return;
+        }
+        if (S8093187219740136623.c(s8093187219740136623)) {
+            a(new L1893317219943000644(-14, null));
+            return;
+        }
+        try {
+            E17780051485341276699 e17780051485341276699 = s8093187219740136623.e.n;
+            Bundle a = S8093187219740136623.a(s8093187219740136623, this.c, this.d, this.e);
+            F7345429099619087968 f7345429099619087968 = new F7345429099619087968(s8093187219740136623, m17133811648581684718, (byte) 0);
+            J16132835055968791970 j16132835055968791970 = (J16132835055968791970) e17780051485341276699;
+            j16132835055968791970.getClass();
+            Parcel obtain = Parcel.obtain();
+            obtain.writeInterfaceToken("com.google.android.play.core.integrity.protocol.IExpressIntegrityService");
+            int i = K14793979556917953798.a;
+            obtain.writeInt(1);
+            a.writeToParcel(obtain, 0);
+            obtain.writeStrongBinder(f7345429099619087968);
+            try {
+                j16132835055968791970.a.transact(3, obtain, null, 1);
+            } finally {
+                obtain.recycle();
+            }
+        } catch (RemoteException e) {
+            s8093187219740136623.a.getClass();
+            m17133811648581684718.a(new L1893317219943000644(-100, e));
+        }
+    }
+}

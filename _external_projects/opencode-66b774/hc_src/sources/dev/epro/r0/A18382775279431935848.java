@@ -1,0 +1,42 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class A18382775279431935848 extends M458157582077333589 {
+    public final float c;
+    public final float d;
+    public final float e;
+    public final float f;
+
+    public A18382775279431935848(float f, float f2, float f3, float f4) {
+        super(2);
+        this.c = f;
+        this.d = f2;
+        this.e = f3;
+        this.f = f4;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof A18382775279431935848)) {
+            return false;
+        }
+        A18382775279431935848 a18382775279431935848 = (A18382775279431935848) obj;
+        return Float.compare(this.c, a18382775279431935848.c) == 0 && Float.compare(this.d, a18382775279431935848.d) == 0 && Float.compare(this.e, a18382775279431935848.e) == 0 && Float.compare(this.f, a18382775279431935848.f) == 0;
+    }
+
+    public final int hashCode() {
+        return Float.hashCode(this.f) + E12098517352909843120.e(this.e, E12098517352909843120.e(this.d, Float.hashCode(this.c) * 31, 31), 31);
+    }
+
+    public final String toString() {
+        StringBuilder k = G11450220448113054352.k("RelativeReflectiveCurveTo(dx1=", this.c, ", dy1=", this.d, ", dx2=");
+        k.append(this.e);
+        k.append(", dy2=");
+        k.append(this.f);
+        k.append(")");
+        return k.toString();
+    }
+}

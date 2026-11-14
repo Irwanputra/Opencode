@@ -1,0 +1,29 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes2.dex */
+public final class H17876720004835654210 extends J14024120050125738337 {
+    public final G11629126727305865218 b;
+    public final S705323397128503595 c;
+    public final S17255966974483065294 d;
+    public final S14249227312368728278 e;
+    public final H17686692708284905246 f;
+    public final Y421220047597273239 g;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(1104);
+    }
+
+    private native void nciclndimcbg(G11629126727305865218 g11629126727305865218, S705323397128503595 s705323397128503595);
+
+    public final native void e(H6912164555617033089 h6912164555617033089);
+
+    public final native void f(boolean z);
+
+    public H17876720004835654210(G11629126727305865218 g11629126727305865218, S705323397128503595 s705323397128503595) {
+        g11629126727305865218.getClass();
+        s705323397128503595.getClass();
+        nciclndimcbg(g11629126727305865218, s705323397128503595);
+    }
+}

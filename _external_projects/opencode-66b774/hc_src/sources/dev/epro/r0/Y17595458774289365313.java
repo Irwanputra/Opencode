@@ -1,0 +1,41 @@
+package dev.epro.r0;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class Y17595458774289365313 {
+    public final I2076339260272013590 a;
+    public final L9852841107405549527 b;
+    public final F13241018602672925865 c;
+    public final boolean d;
+    public final boolean e;
+    public final Z10216649008126070808 f;
+    public final R17143752899285419206 g;
+    public final C1808610572029789795 h;
+    public final B7031457345664936219 i;
+    public final F4096073349764486348 j;
+    public final int k;
+
+    public Y17595458774289365313(I2076339260272013590 i2076339260272013590, L9852841107405549527 l9852841107405549527, F13241018602672925865 f13241018602672925865, boolean z, boolean z2, Z10216649008126070808 z10216649008126070808, R17143752899285419206 r17143752899285419206, C1808610572029789795 c1808610572029789795, B7031457345664936219 b7031457345664936219, F4096073349764486348 f4096073349764486348, int i) {
+        this.a = i2076339260272013590;
+        this.b = l9852841107405549527;
+        this.c = f13241018602672925865;
+        this.d = z;
+        this.e = z2;
+        this.f = z10216649008126070808;
+        this.g = r17143752899285419206;
+        this.h = c1808610572029789795;
+        this.i = b7031457345664936219;
+        this.j = f4096073349764486348;
+        this.k = i;
+    }
+
+    public final void a(List list) {
+        W8455343525638953052 w8455343525638953052 = this.a.d;
+        ArrayList arrayList = new ArrayList(list);
+        arrayList.add(0, new S1181215782212915507());
+        this.j.invoke(w8455343525638953052.h(arrayList));
+    }
+}

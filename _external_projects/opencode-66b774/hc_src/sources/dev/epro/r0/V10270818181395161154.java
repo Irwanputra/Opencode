@@ -1,0 +1,30 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes3.dex */
+public final class V10270818181395161154 implements S7864201625552763331 {
+    public final /* synthetic */ G2190230421268324049 a;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ W1972671267364756056 c;
+    public final /* synthetic */ H1324395956925527186 d;
+
+    static {
+        izmyclvb.qgayjvbiagej2(1325);
+    }
+
+    private native void dqhoceseedeh(G2190230421268324049 g2190230421268324049, String str, W1972671267364756056 w1972671267364756056, H1324395956925527186 h1324395956925527186);
+
+    public final native Object a(M4837800702744174484 m4837800702744174484, R4833348786910499294 r4833348786910499294);
+
+    @Override // dev.epro.r0.S7864201625552763331
+    public final native /* bridge */ /* synthetic */ Object emit(Object obj, R4833348786910499294 r4833348786910499294);
+
+    public V10270818181395161154(G2190230421268324049 g2190230421268324049, String str, W1972671267364756056 w1972671267364756056, H1324395956925527186 h1324395956925527186) {
+        this.a = g2190230421268324049;
+        this.b = str;
+        this.c = w1972671267364756056;
+        this.d = h1324395956925527186;
+        dqhoceseedeh(g2190230421268324049, str, w1972671267364756056, h1324395956925527186);
+    }
+}

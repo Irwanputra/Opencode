@@ -1,0 +1,19 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class V5304935804128802104 extends R15896830329318850690 implements F10302678904745754545 {
+
+    /* renamed from: o, reason: collision with root package name */
+    public A4300800680137755387 f546o;
+
+    @Override // dev.epro.r0.F10302678904745754545
+    public final Object i(R8540738700654750557 r8540738700654750557, Object obj) {
+        X1840570513157370182 x1840570513157370182 = obj instanceof X1840570513157370182 ? (X1840570513157370182) obj : null;
+        if (x1840570513157370182 == null) {
+            x1840570513157370182 = new X1840570513157370182();
+        }
+        x1840570513157370182.c = new U6655663618873729831(this.f546o);
+        return x1840570513157370182;
+    }
+}

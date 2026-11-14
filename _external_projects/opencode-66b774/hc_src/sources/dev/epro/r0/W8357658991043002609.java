@@ -1,0 +1,29 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class W8357658991043002609 {
+    public static final W8357658991043002609 b = new W8357658991043002609(new E17149812035295265804(10));
+    public static final W8357658991043002609 c = new W8357658991043002609(new E17149812035295265804(11));
+    public static final W8357658991043002609 d = new W8357658991043002609(new M10846389789027735899(12));
+    public static final W8357658991043002609 e = new W8357658991043002609(new J3301701597851028733(11));
+    public static final W8357658991043002609 f;
+    public final L509554291772586163 a;
+
+    static {
+        new W8357658991043002609(new J3301701597851028733((byte) 10));
+        byte b2 = 11;
+        new W8357658991043002609(new T15504973625601650233(b2));
+        f = new W8357658991043002609(new M10846389789027735899(b2));
+    }
+
+    public W8357658991043002609(P14632082186738269386 p14632082186738269386) {
+        if (I7816358627352036208.a()) {
+            this.a = new L509554291772586163(p14632082186738269386, (byte) 2);
+        } else if ("The Android Project".equals(System.getProperty("java.vendor"))) {
+            this.a = new L509554291772586163(p14632082186738269386, (byte) 0);
+        } else {
+            this.a = new L509554291772586163(p14632082186738269386, (byte) 1);
+        }
+    }
+}

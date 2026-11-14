@@ -1,0 +1,45 @@
+package dev.epro.r0;
+
+import dev.epro.r0.B7315281944712594725;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes3.dex */
+public final /* synthetic */ class R16902898076259359200 implements B13729205492206812220 {
+    public final /* synthetic */ byte a = 2;
+    public final /* synthetic */ long b;
+    public final /* synthetic */ Object c;
+    public final /* synthetic */ Object d;
+    public final /* synthetic */ Object e;
+    public final /* synthetic */ Object f;
+
+    static {
+        izmyclvb.qgayjvbiagej2(259);
+    }
+
+    public /* synthetic */ R16902898076259359200(K13763486024898229291 k13763486024898229291, B13729205492206812220 b13729205492206812220, R14415661131438974095 r14415661131438974095, long j, F10342546226345611902 f10342546226345611902) {
+        this.d = k13763486024898229291;
+        this.c = b13729205492206812220;
+        this.e = r14415661131438974095;
+        this.b = j;
+        this.f = f10342546226345611902;
+    }
+
+    @Override // dev.epro.r0.B13729205492206812220
+    public final native Object invoke();
+
+    public /* synthetic */ R16902898076259359200(F2652319623815706820 f2652319623815706820, long j, B13729205492206812220 b13729205492206812220, B13729205492206812220 b137292054922068122202, D16513696335383100591 d16513696335383100591) {
+        this.d = f2652319623815706820;
+        this.b = j;
+        this.c = b13729205492206812220;
+        this.e = b137292054922068122202;
+        this.f = d16513696335383100591;
+    }
+
+    public /* synthetic */ R16902898076259359200(B7315281944712594725.Z11244019023321623390 z11244019023321623390, X8178024650992698151 x8178024650992698151, long j, I11492088171899515263 i11492088171899515263, F2170640016238248049 f2170640016238248049) {
+        this.d = z11244019023321623390;
+        this.c = x8178024650992698151;
+        this.b = j;
+        this.e = i11492088171899515263;
+        this.f = f2170640016238248049;
+    }
+}

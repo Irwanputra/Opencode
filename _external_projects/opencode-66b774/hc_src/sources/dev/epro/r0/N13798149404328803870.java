@@ -1,0 +1,21 @@
+package dev.epro.r0;
+
+import java.util.concurrent.TimeUnit;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public enum N13798149404328803870 {
+    NANOSECONDS(TimeUnit.NANOSECONDS),
+    MICROSECONDS(TimeUnit.MICROSECONDS),
+    MILLISECONDS(TimeUnit.MILLISECONDS),
+    SECONDS(TimeUnit.SECONDS),
+    MINUTES(TimeUnit.MINUTES),
+    HOURS(TimeUnit.HOURS),
+    DAYS(TimeUnit.DAYS);
+
+    public final TimeUnit a;
+
+    N13798149404328803870(TimeUnit timeUnit) {
+        this.a = timeUnit;
+    }
+}

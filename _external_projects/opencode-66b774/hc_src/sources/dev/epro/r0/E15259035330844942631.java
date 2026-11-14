@@ -1,0 +1,31 @@
+package dev.epro.r0;
+
+import java.util.Map;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes.dex */
+public final class E15259035330844942631 extends K14749510448791472029 {
+    public Map t;
+    public String u;
+    public int v;
+    public int w;
+    public /* synthetic */ Object x;
+    public final /* synthetic */ O14224444921942744471 y;
+    public int z;
+
+    static {
+        izmyclvb.oeynnivvrnts0(812);
+    }
+
+    private native void coabixlrpqfc(O14224444921942744471 o14224444921942744471, R4833348786910499294 r4833348786910499294);
+
+    @Override // dev.epro.r0.B401944902727389462
+    public final native Object invokeSuspend(Object obj);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public E15259035330844942631(O14224444921942744471 o14224444921942744471, R4833348786910499294 r4833348786910499294) {
+        super(r4833348786910499294);
+        this.y = o14224444921942744471;
+        coabixlrpqfc(o14224444921942744471, r4833348786910499294);
+    }
+}

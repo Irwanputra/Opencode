@@ -1,0 +1,9 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public interface B8669154544800329371 {
+    Object b(long j, R14062301455140331524 r14062301455140331524);
+
+    Object d(long j, R14062301455140331524 r14062301455140331524);
+}

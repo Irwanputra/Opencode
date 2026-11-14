@@ -1,0 +1,29 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class E8491669934080931073 implements J12078565427869724451 {
+    public final /* synthetic */ int a;
+
+    public E8491669934080931073(int i) {
+        this.a = i;
+    }
+
+    @Override // dev.epro.r0.J12078565427869724451
+    public final Object invoke(Object obj, Object obj2, Object obj3) {
+        H8673207839164499646 h8673207839164499646 = (H8673207839164499646) obj;
+        M3727281027331139839 m3727281027331139839 = (M3727281027331139839) obj2;
+        int intValue = ((Number) obj3).intValue();
+        if ((intValue & 6) == 0) {
+            intValue |= (intValue & 8) == 0 ? m3727281027331139839.f(h8673207839164499646) : m3727281027331139839.h(h8673207839164499646) ? 4 : 2;
+        }
+        if (m3727281027331139839.R(intValue & 1, (intValue & 19) != 18)) {
+            T13350664027331345869 t13350664027331345869 = T13350664027331345869.E;
+            h8673207839164499646.getClass();
+            t13350664027331345869.j(new V17032896535665530457(h8673207839164499646.a, this.a, h8673207839164499646.b), 0.0f, 0L, m3727281027331139839, 3072, 6);
+        } else {
+            m3727281027331139839.U();
+        }
+        return O9245300239821758723.a;
+    }
+}

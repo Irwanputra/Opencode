@@ -1,0 +1,182 @@
+package ads_mobile_sdk;
+
+import dev.epro.r0.E17093345031926825464;
+import dev.epro.r0.E17149812035295265804;
+import dev.epro.r0.E1738554508920355622;
+import dev.epro.r0.H15186625828076266306;
+import dev.epro.r0.I3826119971291161142;
+import dev.epro.r0.M9216324016624295870;
+import dev.epro.r0.N13798149404328803870;
+import dev.epro.r0.O5378677881740157249;
+import dev.epro.r0.O9245300239821758723;
+import dev.epro.r0.P7598478828797568949;
+import dev.epro.r0.R7033599853981556291;
+import dev.epro.r0.W5797197595347441198;
+import dev.epro.r0.X7175349259954592591;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class ni2 implements E1738554508920355622 {
+    public final fl2 a;
+    public final W5797197595347441198 b;
+    public final qw2 c;
+    public final jr0 d;
+    public final AtomicBoolean e;
+    public final H15186625828076266306 f;
+    public X7175349259954592591 g;
+    public final boolean h;
+
+    public ni2(fl2 fl2Var, W5797197595347441198 w5797197595347441198, qw2 qw2Var, jr0 jr0Var, kz2 kz2Var) {
+        fl2Var.getClass();
+        w5797197595347441198.getClass();
+        qw2Var.getClass();
+        jr0Var.getClass();
+        kz2Var.getClass();
+        this.a = fl2Var;
+        this.b = w5797197595347441198;
+        this.c = qw2Var;
+        this.d = jr0Var;
+        boolean z = false;
+        this.e = new AtomicBoolean(false);
+        this.f = new H15186625828076266306();
+        if (((Boolean) jr0Var.a("gads:ad_close_listener:enabled", Boolean.FALSE, ao.a$11)).booleanValue() && O5378677881740157249.V0(new qw2[]{qw2.h, qw2.j, qw2.k, qw2.e}).contains(qw2Var)) {
+            z = true;
+        }
+        this.h = z;
+    }
+
+    @Override // dev.epro.r0.E1738554508920355622
+    public final O9245300239821758723 e() {
+        long j;
+        ao aoVar = ao.a;
+        boolean z = this.h;
+        O9245300239821758723 o9245300239821758723 = O9245300239821758723.a;
+        if (!z) {
+            return o9245300239821758723;
+        }
+        int ordinal = this.c.ordinal();
+        N13798149404328803870 n13798149404328803870 = N13798149404328803870.MINUTES;
+        jr0 jr0Var = this.d;
+        if (ordinal == 1) {
+            jr0Var.getClass();
+            E17149812035295265804 e17149812035295265804 = E17093345031926825464.b;
+            j = ((E17093345031926825464) jr0Var.a("gads:app_open_ad_close_timeout", new E17093345031926825464(M9216324016624295870.Z(3, n13798149404328803870)), aoVar)).a;
+        } else if (ordinal == 4) {
+            jr0Var.getClass();
+            E17149812035295265804 e171498120352952658042 = E17093345031926825464.b;
+            j = ((E17093345031926825464) jr0Var.a("gads:interstitial_ad_close_timeout", new E17093345031926825464(M9216324016624295870.Z(3, n13798149404328803870)), aoVar)).a;
+        } else if (ordinal == 6) {
+            jr0Var.getClass();
+            E17149812035295265804 e171498120352952658043 = E17093345031926825464.b;
+            j = ((E17093345031926825464) jr0Var.a("gads:rewarded_ad_close_timeout", new E17093345031926825464(M9216324016624295870.Z(3, n13798149404328803870)), aoVar)).a;
+        } else if (ordinal != 7) {
+            E17149812035295265804 e171498120352952658044 = E17093345031926825464.b;
+            j = 0;
+        } else {
+            jr0Var.getClass();
+            E17149812035295265804 e171498120352952658045 = E17093345031926825464.b;
+            j = ((E17093345031926825464) jr0Var.a("gads:rewarded_interstitial_ad_close_timeout", new E17093345031926825464(M9216324016624295870.Z(3, n13798149404328803870)), aoVar)).a;
+        }
+        if (j > 0) {
+            mi2 mi2Var = new mi2(j, this, null);
+            W5797197595347441198 w5797197595347441198 = this.b;
+            w5797197595347441198.getClass();
+            R7033599853981556291.E(w5797197595347441198, I3826119971291161142.a, null, new P7598478828797568949(mi2Var, null, (byte) 1), 2);
+        }
+        return o9245300239821758723;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:13:0x005c A[Catch: all -> 0x0060, TryCatch #0 {all -> 0x0060, blocks: (B:11:0x0058, B:13:0x005c, B:14:0x0062), top: B:10:0x0058 }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0024  */
+    @Override // dev.epro.r0.E1738554508920355622
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+        To view partially-correct add '--show-bad-code' argument
+    */
+    public final java.lang.Object g(dev.epro.r0.R4833348786910499294 r6) {
+        /*
+            r5 = this;
+            boolean r0 = r6 instanceof ads_mobile_sdk.ji2
+            if (r0 == 0) goto L13
+            r0 = r6
+            ads_mobile_sdk.ji2 r0 = (ads_mobile_sdk.ji2) r0
+            int r1 = r0.e
+            r2 = -2147483648(0xffffffff80000000, float:-0.0)
+            r3 = r1 & r2
+            if (r3 == 0) goto L13
+            int r1 = r1 - r2
+            r0.e = r1
+            goto L1a
+        L13:
+            ads_mobile_sdk.ji2 r0 = new ads_mobile_sdk.ji2
+            dev.epro.r0.K14749510448791472029 r6 = (dev.epro.r0.K14749510448791472029) r6
+            r0.<init>(r5, r6)
+        L1a:
+            java.lang.Object r6 = r0.c
+            int r1 = r0.e
+            dev.epro.r0.O9245300239821758723 r2 = dev.epro.r0.O9245300239821758723.a
+            r3 = 1
+            r4 = 0
+            if (r1 == 0) goto L36
+            if (r1 != r3) goto L30
+            dev.epro.r0.H15186625828076266306 r5 = r0.b
+            ads_mobile_sdk.ni2 r0 = r0.a
+            dev.epro.r0.E17665849472693074628.k(r6)
+            r6 = r5
+            r5 = r0
+            goto L58
+        L30:
+            java.lang.String r5 = "call to 'resume' before 'invoke' with coroutine"
+            dev.epro.r0.S10973172697741180971.m(r5)
+            return r4
+        L36:
+            dev.epro.r0.E17665849472693074628.k(r6)
+            boolean r6 = r5.h
+            if (r6 != 0) goto L3e
+            goto L83
+        L3e:
+            java.util.concurrent.atomic.AtomicBoolean r6 = r5.e
+            r1 = 0
+            boolean r6 = r6.compareAndSet(r1, r3)
+            if (r6 == 0) goto L83
+            r0.a = r5
+            dev.epro.r0.H15186625828076266306 r6 = r5.f
+            r0.b = r6
+            r0.e = r3
+            java.lang.Object r0 = r6.c(r0)
+            dev.epro.r0.Z3437138737604933638 r1 = dev.epro.r0.Z3437138737604933638.a
+            if (r0 != r1) goto L58
+            return r1
+        L58:
+            dev.epro.r0.X7175349259954592591 r0 = r5.g     // Catch: java.lang.Throwable -> L60
+            if (r0 == 0) goto L62
+            r0.c(r4)     // Catch: java.lang.Throwable -> L60
+            goto L62
+        L60:
+            r5 = move-exception
+            goto L7f
+        L62:
+            r5.g = r4     // Catch: java.lang.Throwable -> L60
+            r6.b(r4)
+            dev.epro.r0.W5797197595347441198 r6 = r5.b
+            dev.epro.r0.N4024785987441166868 r0 = new dev.epro.r0.N4024785987441166868
+            r1 = 15
+            r0.<init>(r5, r4, r1)
+            r6.getClass()
+            dev.epro.r0.P7598478828797568949 r5 = new dev.epro.r0.P7598478828797568949
+            r5.<init>(r0, r4, r3)
+            r0 = 2
+            dev.epro.r0.I3826119971291161142 r1 = dev.epro.r0.I3826119971291161142.a
+            dev.epro.r0.R7033599853981556291.E(r6, r1, r4, r5, r0)
+            return r2
+        L7f:
+            r6.b(r4)
+            throw r5
+        L83:
+            return r2
+        */
+        throw new UnsupportedOperationException("Method not decompiled: ads_mobile_sdk.ni2.g(dev.epro.r0.R4833348786910499294):java.lang.Object");
+    }
+}

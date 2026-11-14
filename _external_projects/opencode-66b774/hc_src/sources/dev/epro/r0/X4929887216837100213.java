@@ -1,0 +1,580 @@
+package dev.epro.r0;
+
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class X4929887216837100213 extends F3160751278268780235 {
+    public final L626102241925478440 c;
+    public final byte[] d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j = Integer.MAX_VALUE;
+
+    public X4929887216837100213(L626102241925478440 l626102241925478440) {
+        Charset charset = X10245771154555039797.a;
+        this.c = l626102241925478440;
+        this.d = new byte[4096];
+        this.e = 0;
+        this.g = 0;
+        this.i = 0;
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final int A() {
+        if (c()) {
+            this.h = 0;
+            return 0;
+        }
+        int K = K();
+        this.h = K;
+        if ((K >>> 3) != 0) {
+            return K;
+        }
+        throw new F10620977331851870088("Protocol message contained an invalid tag (zero).");
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final boolean D(int i) {
+        int A;
+        int i2 = i & 7;
+        int i3 = 0;
+        if (i2 == 0) {
+            int i4 = this.e - this.g;
+            byte[] bArr = this.d;
+            if (i4 >= 10) {
+                while (i3 < 10) {
+                    int i5 = this.g;
+                    this.g = i5 + 1;
+                    if (bArr[i5] < 0) {
+                        i3++;
+                    }
+                }
+                throw F10620977331851870088.c();
+            }
+            while (i3 < 10) {
+                if (this.g == this.e) {
+                    O(1);
+                }
+                int i6 = this.g;
+                this.g = i6 + 1;
+                if (bArr[i6] < 0) {
+                    i3++;
+                }
+            }
+            throw F10620977331851870088.c();
+            return true;
+        }
+        if (i2 == 1) {
+            P(8);
+            return true;
+        }
+        if (i2 == 2) {
+            P(K());
+            return true;
+        }
+        if (i2 != 3) {
+            if (i2 == 4) {
+                return false;
+            }
+            if (i2 != 5) {
+                throw F10620977331851870088.b();
+            }
+            P(4);
+            return true;
+        }
+        do {
+            A = A();
+            if (A == 0) {
+                break;
+            }
+        } while (D(A));
+        a(((i >>> 3) << 3) | 4);
+        return true;
+    }
+
+    public final byte[] F(int i) {
+        byte[] G = G(i);
+        if (G != null) {
+            return G;
+        }
+        int i2 = this.g;
+        int i3 = this.e;
+        int i4 = i3 - i2;
+        this.i += i3;
+        this.g = 0;
+        this.e = 0;
+        ArrayList H = H(i - i4);
+        byte[] bArr = new byte[i];
+        System.arraycopy(this.d, i2, bArr, 0, i4);
+        int size = H.size();
+        int i5 = 0;
+        while (i5 < size) {
+            Object obj = H.get(i5);
+            i5++;
+            byte[] bArr2 = (byte[]) obj;
+            System.arraycopy(bArr2, 0, bArr, i4, bArr2.length);
+            i4 += bArr2.length;
+        }
+        return bArr;
+    }
+
+    public final byte[] G(int i) {
+        if (i == 0) {
+            return X10245771154555039797.b;
+        }
+        if (i < 0) {
+            throw F10620977331851870088.d();
+        }
+        int i2 = this.i;
+        int i3 = this.g;
+        int i4 = i2 + i3 + i;
+        if (i4 - Integer.MAX_VALUE > 0) {
+            throw new F10620977331851870088("Protocol message was too large.  May be malicious.  Use CodedInputStream.setSizeLimit() to increase the size limit.");
+        }
+        int i5 = this.j;
+        if (i4 > i5) {
+            P((i5 - i2) - i3);
+            throw F10620977331851870088.e();
+        }
+        int i6 = this.e - i3;
+        int i7 = i - i6;
+        L626102241925478440 l626102241925478440 = this.c;
+        if (i7 >= 4096) {
+            try {
+                if (i7 > l626102241925478440.available()) {
+                    return null;
+                }
+            } catch (F10620977331851870088 e) {
+                e.a = true;
+                throw e;
+            }
+        }
+        byte[] bArr = new byte[i];
+        System.arraycopy(this.d, this.g, bArr, 0, i6);
+        this.i += this.e;
+        this.g = 0;
+        this.e = 0;
+        while (i6 < i) {
+            try {
+                int read = l626102241925478440.read(bArr, i6, i - i6);
+                if (read == -1) {
+                    throw F10620977331851870088.e();
+                }
+                this.i += read;
+                i6 += read;
+            } catch (F10620977331851870088 e2) {
+                e2.a = true;
+                throw e2;
+            }
+        }
+        return bArr;
+    }
+
+    public final ArrayList H(int i) {
+        ArrayList arrayList = new ArrayList();
+        while (i > 0) {
+            int min = Math.min(i, 4096);
+            byte[] bArr = new byte[min];
+            int i2 = 0;
+            while (i2 < min) {
+                int read = this.c.read(bArr, i2, min - i2);
+                if (read == -1) {
+                    throw F10620977331851870088.e();
+                }
+                this.i += read;
+                i2 += read;
+            }
+            i -= min;
+            arrayList.add(bArr);
+        }
+        return arrayList;
+    }
+
+    public final int I() {
+        int i = this.g;
+        if (this.e - i < 4) {
+            O(4);
+            i = this.g;
+        }
+        this.g = i + 4;
+        byte[] bArr = this.d;
+        return ((bArr[i + 3] & 255) << 24) | (bArr[i] & 255) | ((bArr[i + 1] & 255) << 8) | ((bArr[i + 2] & 255) << 16);
+    }
+
+    public final long J() {
+        int i = this.g;
+        if (this.e - i < 8) {
+            O(8);
+            i = this.g;
+        }
+        this.g = i + 8;
+        byte[] bArr = this.d;
+        return ((bArr[i + 1] & 255) << 8) | (bArr[i] & 255) | ((bArr[i + 2] & 255) << 16) | ((bArr[i + 3] & 255) << 24) | ((bArr[i + 4] & 255) << 32) | ((bArr[i + 5] & 255) << 40) | ((bArr[i + 6] & 255) << 48) | ((bArr[i + 7] & 255) << 56);
+    }
+
+    public final int K() {
+        int i;
+        int i2 = this.g;
+        int i3 = this.e;
+        if (i3 != i2) {
+            int i4 = i2 + 1;
+            byte[] bArr = this.d;
+            byte b = bArr[i2];
+            if (b >= 0) {
+                this.g = i4;
+                return b;
+            }
+            if (i3 - i4 >= 9) {
+                int i5 = i2 + 2;
+                int i6 = (bArr[i4] << 7) ^ b;
+                if (i6 < 0) {
+                    i = i6 ^ (-128);
+                } else {
+                    int i7 = i2 + 3;
+                    int i8 = (bArr[i5] << 14) ^ i6;
+                    if (i8 >= 0) {
+                        i = i8 ^ 16256;
+                    } else {
+                        int i9 = i2 + 4;
+                        int i10 = i8 ^ (bArr[i7] << 21);
+                        if (i10 < 0) {
+                            i = (-2080896) ^ i10;
+                        } else {
+                            i7 = i2 + 5;
+                            byte b2 = bArr[i9];
+                            int i11 = (i10 ^ (b2 << 28)) ^ 266354560;
+                            if (b2 < 0) {
+                                i9 = i2 + 6;
+                                if (bArr[i7] < 0) {
+                                    i7 = i2 + 7;
+                                    if (bArr[i9] < 0) {
+                                        i9 = i2 + 8;
+                                        if (bArr[i7] < 0) {
+                                            i7 = i2 + 9;
+                                            if (bArr[i9] < 0) {
+                                                int i12 = i2 + 10;
+                                                if (bArr[i7] >= 0) {
+                                                    i5 = i12;
+                                                    i = i11;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                i = i11;
+                            }
+                            i = i11;
+                        }
+                        i5 = i9;
+                    }
+                    i5 = i7;
+                }
+                this.g = i5;
+                return i;
+            }
+        }
+        return (int) M();
+    }
+
+    public final long L() {
+        long j;
+        long j2;
+        long j3;
+        long j4;
+        int i = this.g;
+        int i2 = this.e;
+        if (i2 != i) {
+            int i3 = i + 1;
+            byte[] bArr = this.d;
+            byte b = bArr[i];
+            if (b >= 0) {
+                this.g = i3;
+                return b;
+            }
+            if (i2 - i3 >= 9) {
+                int i4 = i + 2;
+                int i5 = (bArr[i3] << 7) ^ b;
+                if (i5 < 0) {
+                    j = i5 ^ (-128);
+                } else {
+                    int i6 = i + 3;
+                    int i7 = (bArr[i4] << 14) ^ i5;
+                    if (i7 >= 0) {
+                        j = i7 ^ 16256;
+                        i4 = i6;
+                    } else {
+                        int i8 = i + 4;
+                        int i9 = i7 ^ (bArr[i6] << 21);
+                        if (i9 < 0) {
+                            j4 = (-2080896) ^ i9;
+                        } else {
+                            long j5 = i9;
+                            i4 = i + 5;
+                            long j6 = j5 ^ (bArr[i8] << 28);
+                            if (j6 >= 0) {
+                                j3 = 266354560;
+                            } else {
+                                i8 = i + 6;
+                                long j7 = j6 ^ (bArr[i4] << 35);
+                                if (j7 < 0) {
+                                    j2 = -34093383808L;
+                                } else {
+                                    i4 = i + 7;
+                                    j6 = j7 ^ (bArr[i8] << 42);
+                                    if (j6 >= 0) {
+                                        j3 = 4363953127296L;
+                                    } else {
+                                        i8 = i + 8;
+                                        j7 = j6 ^ (bArr[i4] << 49);
+                                        if (j7 < 0) {
+                                            j2 = -558586000294016L;
+                                        } else {
+                                            i4 = i + 9;
+                                            long j8 = (j7 ^ (bArr[i8] << 56)) ^ 71499008037633920L;
+                                            if (j8 < 0) {
+                                                int i10 = i + 10;
+                                                if (bArr[i4] >= 0) {
+                                                    i4 = i10;
+                                                }
+                                            }
+                                            j = j8;
+                                        }
+                                    }
+                                }
+                                j4 = j2 ^ j7;
+                            }
+                            j = j3 ^ j6;
+                        }
+                        i4 = i8;
+                        j = j4;
+                    }
+                }
+                this.g = i4;
+                return j;
+            }
+        }
+        return M();
+    }
+
+    public final long M() {
+        long j = 0;
+        for (int i = 0; i < 64; i += 7) {
+            if (this.g == this.e) {
+                O(1);
+            }
+            int i2 = this.g;
+            this.g = i2 + 1;
+            j |= (r3 & Byte.MAX_VALUE) << i;
+            if ((this.d[i2] & 128) == 0) {
+                return j;
+            }
+        }
+        throw F10620977331851870088.c();
+    }
+
+    public final void N() {
+        int i = this.e + this.f;
+        this.e = i;
+        int i2 = this.i + i;
+        int i3 = this.j;
+        if (i2 <= i3) {
+            this.f = 0;
+            return;
+        }
+        int i4 = i2 - i3;
+        this.f = i4;
+        this.e = i - i4;
+    }
+
+    public final void O(int i) {
+        if (Q(i)) {
+            return;
+        }
+        if (i <= (Integer.MAX_VALUE - this.i) - this.g) {
+            throw F10620977331851870088.e();
+        }
+        throw new F10620977331851870088("Protocol message was too large.  May be malicious.  Use CodedInputStream.setSizeLimit() to increase the size limit.");
+    }
+
+    public final void P(int i) {
+        int i2 = this.e;
+        int i3 = this.g;
+        int i4 = i2 - i3;
+        if (i <= i4 && i >= 0) {
+            this.g = i3 + i;
+            return;
+        }
+        L626102241925478440 l626102241925478440 = this.c;
+        if (i < 0) {
+            throw F10620977331851870088.d();
+        }
+        int i5 = this.i;
+        int i6 = i5 + i3;
+        int i7 = i6 + i;
+        int i8 = this.j;
+        if (i7 > i8) {
+            P((i8 - i5) - i3);
+            throw F10620977331851870088.e();
+        }
+        this.i = i6;
+        this.e = 0;
+        this.g = 0;
+        while (i4 < i) {
+            long j = i - i4;
+            try {
+                try {
+                    long skip = l626102241925478440.skip(j);
+                    if (skip < 0 || skip > j) {
+                        throw new IllegalStateException(L626102241925478440.class + "#skip returned invalid result: " + skip + "\nThe InputStream implementation is buggy.");
+                    }
+                    if (skip == 0) {
+                        break;
+                    } else {
+                        i4 += (int) skip;
+                    }
+                } catch (F10620977331851870088 e) {
+                    e.a = true;
+                    throw e;
+                }
+            } catch (Throwable th) {
+                this.i += i4;
+                N();
+                throw th;
+            }
+        }
+        this.i += i4;
+        N();
+        if (i4 >= i) {
+            return;
+        }
+        int i9 = this.e;
+        int i10 = i9 - this.g;
+        this.g = i9;
+        O(1);
+        while (true) {
+            int i11 = i - i10;
+            int i12 = this.e;
+            if (i11 <= i12) {
+                this.g = i11;
+                return;
+            } else {
+                i10 += i12;
+                this.g = i12;
+                O(1);
+            }
+        }
+    }
+
+    public final boolean Q(int i) {
+        L626102241925478440 l626102241925478440 = this.c;
+        int i2 = this.g;
+        int i3 = i2 + i;
+        int i4 = this.e;
+        if (i3 <= i4) {
+            S10973172697741180971.m(G6547577305291411977.o(i, "refillBuffer() called when ", " bytes were already available in buffer"));
+            return false;
+        }
+        int i5 = this.i;
+        if (i <= (Integer.MAX_VALUE - i5) - i2 && i5 + i2 + i <= this.j) {
+            byte[] bArr = this.d;
+            if (i2 > 0) {
+                if (i4 > i2) {
+                    System.arraycopy(bArr, i2, bArr, 0, i4 - i2);
+                }
+                i5 = this.i + i2;
+                this.i = i5;
+                i4 = this.e - i2;
+                this.e = i4;
+                this.g = 0;
+            }
+            try {
+                int read = l626102241925478440.read(bArr, i4, Math.min(bArr.length - i4, (Integer.MAX_VALUE - i5) - i4));
+                if (read == 0 || read < -1 || read > bArr.length) {
+                    throw new IllegalStateException(L626102241925478440.class + "#read(byte[]) returned invalid result: " + read + "\nThe InputStream implementation is buggy.");
+                }
+                if (read > 0) {
+                    this.e += read;
+                    N();
+                    if (this.e >= i) {
+                        return true;
+                    }
+                    return Q(i);
+                }
+            } catch (F10620977331851870088 e) {
+                e.a = true;
+                throw e;
+            }
+        }
+        return false;
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final void a(int i) {
+        if (this.h != i) {
+            throw new F10620977331851870088("Protocol message end-group tag did not match expected tag.");
+        }
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final int b() {
+        return this.i + this.g;
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final boolean c() {
+        return this.g == this.e && !Q(1);
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final void i(int i) {
+        this.j = i;
+        N();
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final int j(int i) {
+        if (i < 0) {
+            throw F10620977331851870088.d();
+        }
+        int i2 = this.i + this.g + i;
+        int i3 = this.j;
+        if (i2 > i3) {
+            throw F10620977331851870088.e();
+        }
+        this.j = i2;
+        N();
+        return i3;
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final boolean k() {
+        return L() != 0;
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final double m() {
+        return Double.longBitsToDouble(J());
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final float q() {
+        return Float.intBitsToFloat(I());
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final int w() {
+        int K = K();
+        return (-(K & 1)) ^ (K >>> 1);
+    }
+
+    @Override // dev.epro.r0.F3160751278268780235
+    public final long x() {
+        long L = L();
+        return (-(L & 1)) ^ (L >>> 1);
+    }
+}

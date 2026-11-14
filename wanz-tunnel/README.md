@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.17
+# Wanz Tunnel 2.9.18
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -227,6 +227,29 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.18 (perbaikan fungsi koneksi dari bedah HTTP Custom 8.0.22): hasil
+  reverse engineering HTTP Custom - AIO Tunnel VPN 8.0.22 - Patch 2
+  (versionCode 934, SHA-1 `9bafb854…` — XAPK asli dari katalog APK20)
+  menunjukkan mekanisme penjaga koneksi berikut: **auto ping** berfungsi
+  sebagai watchdog ("Pings X every N s. Reconnects after N consecutive
+  failures"), ada **URL ping** lewat tunnel sebagai uji internet sejati,
+  **SSH keep-alive interval** yang bisa diatur, sambung ulang dengan
+  `reconnect_delay_ms` + `max_reconnect_attempts` (0 = tanpa batas), notifikasi
+  "Batas percobaan sambung ulang tercapai", serta `VpnWatchdogJobService`.
+  Wanz Tunnel kini meniru mekanisme itu: (1) loop ping menghitung gagal
+  berturut-turut (default 3) lalu mereset koneksi; (2) watchdog sesi
+  memeriksa `isConnected` tiap siklus sehingga sesi mati diam-diam tetap
+  terdeteksi; (3) SSH keep-alive default 30 detik (sebelumnya 120 detik);
+  (4) sambung ulang berjeda (default 5 dtk) dengan penghitung percobaan dan
+  status "Menyambung ulang (n)…", batas percobaan bisa diatur (0 = tanpa
+  batas, default); (5) perbaikan bug `busy` yang membuat sambung ulang mati
+  setelah sesi pertama putus; (6) perubahan jaringan Wi-Fi↔seluler langsung
+  mereset koneksi; (7) VPN yang dicabut sistem dipasang ulang otomatis;
+  (8) kegagalan memasang VPN memicu percobaan ulang, bukan berhenti;
+  (9) service memakai START_STICKY agar proses yang dibunuh sistem tetap
+  tersambung kembali. Opsi baru tersimpan di profil: `pingTimeoutSec`,
+  `pingFailReset`, `pingUrl` (uji internet lewat tunnel), `reconnectDelaySec`,
+  `maxReconnect`, `sshKeepAliveSec`.
 - v2.9.17 (rampungan desain dialog dari mockup AI): lima mockup Seedream 5.5
   baru — dialog Profil, dialog SlowDNS, dialog Payload, dialog Tema, dan
   beranda saat terhubung. Dialog Profil kini berupa daftar kartu membulat

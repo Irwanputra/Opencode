@@ -1,0 +1,54 @@
+package dev.epro.r0;
+
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import java.util.Iterator;
+import java.util.List;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class G12560109050374543140 extends S3042446963888448441 {
+    @Override // dev.epro.r0.P18365730431407653976, dev.epro.r0.S6755585031191421201, dev.epro.r0.P11057046163214509468
+    public void b(C4825768887677330761 c4825768887677330761, C4825768887677330761 c48257688876773307612, Window window, View view, boolean z, boolean z2) {
+        c4825768887677330761.getClass();
+        c48257688876773307612.getClass();
+        window.getClass();
+        view.getClass();
+        E17665849472693074628.i(window, false);
+        window.setStatusBarColor(0);
+        window.setNavigationBarColor(0);
+        ViewGroup viewGroup = view instanceof ViewGroup ? (ViewGroup) view : null;
+        if (viewGroup != null) {
+            int i = 0;
+            while (true) {
+                if (!(i < viewGroup.getChildCount())) {
+                    break;
+                }
+                int i2 = i + 1;
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt == null) {
+                    throw new IndexOutOfBoundsException();
+                }
+                Object tag = childAt.getTag();
+                if (tag instanceof List) {
+                    List list = (List) tag;
+                    if (list.size() == 4 && (list.get(0) instanceof O9395036784818950661)) {
+                        Iterator it = ((Iterable) tag).iterator();
+                        while (it.hasNext()) {
+                            it.next();
+                        }
+                    }
+                }
+                i = i2;
+            }
+        }
+        window.setNavigationBarContrastEnforced(c48257688876773307612.a == 0);
+        M9197813449740923653 m9197813449740923653 = new M9197813449740923653(view);
+        int i3 = Build.VERSION.SDK_INT;
+        H4776669175763245653 s7186231212856355878 = i3 >= 35 ? new S7186231212856355878(window, m9197813449740923653) : i3 >= 30 ? new S3454875417302688768(window, m9197813449740923653) : i3 >= 26 ? new N17192714187392118750(window, m9197813449740923653) : new Z5540756766699434826(window, m9197813449740923653);
+        s7186231212856355878.n(!z);
+        s7186231212856355878.m(!z2);
+    }
+}

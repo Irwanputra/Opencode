@@ -1,0 +1,53 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class O7815787575694254021 implements T2522066354810598363, M348373972359692355, S10427662877350613711, F1721213344303279917 {
+    public final O15378179187853170099 a;
+    public final T9166720469304402137 b;
+
+    public O7815787575694254021(O15378179187853170099 o15378179187853170099, T9166720469304402137 t9166720469304402137) {
+        this.a = o15378179187853170099;
+        this.b = t9166720469304402137;
+    }
+
+    public final H4368712076085988621 a() {
+        N12245111110189169079 a = A13981518004556070623.a(34);
+        Boolean bool = Boolean.TRUE;
+        a.n("dev.epro.r0.C6515963532425910530", bool);
+        a.n("dev.epro.r0.V1619459738679112388", bool);
+        a.n("dev.epro.r0.Y1142897021974398355", bool);
+        a.n("dev.epro.r0.I14358966747693701253", bool);
+        a.n("dev.epro.r0.U16548636291741673721", bool);
+        a.n("dev.epro.r0.H17876720004835654210", bool);
+        a.n("dev.epro.r0.K13211986169097943562", bool);
+        a.n("dev.epro.r0.G5908860263237596133", bool);
+        a.n("dev.epro.r0.D4152726041595990957", bool);
+        a.n("dev.epro.r0.D8493537635694953818", bool);
+        a.n("dev.epro.r0.O4983306041176967465", bool);
+        a.n("dev.epro.r0.A9686630263571354636", bool);
+        a.n("dev.epro.r0.A10277406359234889470", bool);
+        a.n("dev.epro.r0.O14970126286626299582", bool);
+        a.n("dev.epro.r0.D16513696335383100591", bool);
+        a.n("dev.epro.r0.U4233993299345232277", bool);
+        a.n("dev.epro.r0.F2652319623815706820", bool);
+        a.n("dev.epro.r0.O11564590683434789347", bool);
+        a.n("dev.epro.r0.N1174624271152536908", bool);
+        a.n("dev.epro.r0.F12564710596933425514", bool);
+        a.n("dev.epro.r0.G1637473734787386109", bool);
+        a.n("dev.epro.r0.A14297323445478321382", bool);
+        a.n("dev.epro.r0.V9622388302629328265", bool);
+        a.n("dev.epro.r0.F328346499417384150", bool);
+        a.n("dev.epro.r0.Y9416241668876796225", bool);
+        a.n("dev.epro.r0.L17748092722616038835", bool);
+        a.n("dev.epro.r0.F16705069398168805061", bool);
+        a.n("dev.epro.r0.J8992107831457905250", bool);
+        a.n("dev.epro.r0.D11565319094408363238", bool);
+        a.n("dev.epro.r0.E16738326561887457683", bool);
+        a.n("dev.epro.r0.N13504813974193578250", bool);
+        a.n("dev.epro.r0.I10046508557652721488", bool);
+        a.n("dev.epro.r0.S13912776033159381943", bool);
+        a.n("dev.epro.r0.T12100831175298321930", bool);
+        return new H4368712076085988621(a.d());
+    }
+}

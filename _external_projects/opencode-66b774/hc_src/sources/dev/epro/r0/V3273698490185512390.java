@@ -1,0 +1,24 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes3.dex */
+public final class V3273698490185512390 implements S7864201625552763331 {
+    public final /* synthetic */ L13148442655056575112 a;
+    public final /* synthetic */ L13148442655056575112 b;
+
+    static {
+        izmyclvb.qgayjvbiagej2(1033);
+    }
+
+    private native void rdffnshcdarm(L13148442655056575112 l13148442655056575112, L13148442655056575112 l131484426550565751122);
+
+    @Override // dev.epro.r0.S7864201625552763331
+    public final native Object emit(Object obj, R4833348786910499294 r4833348786910499294);
+
+    public V3273698490185512390(L13148442655056575112 l13148442655056575112, L13148442655056575112 l131484426550565751122) {
+        this.a = l13148442655056575112;
+        this.b = l131484426550565751122;
+        rdffnshcdarm(l13148442655056575112, l131484426550565751122);
+    }
+}

@@ -1,0 +1,16 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class L17223171236090219140 {
+    public final V12908042545285672970 a;
+    public final S464754454553842217 b;
+    public final Object c = new Object();
+    public final D389890677992184566 d = new D389890677992184566(0, new D3072230964632682649[16]);
+    public boolean e;
+
+    public L17223171236090219140(V12908042545285672970 v12908042545285672970, S464754454553842217 s464754454553842217) {
+        this.a = v12908042545285672970;
+        this.b = s464754454553842217;
+    }
+}

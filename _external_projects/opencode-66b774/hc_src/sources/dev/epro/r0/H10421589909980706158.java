@@ -1,0 +1,28 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class H10421589909980706158 extends E3422549137300678133 implements B321559534056331132 {
+    public final boolean p;
+
+    public H10421589909980706158(boolean z) {
+        this.p = z;
+    }
+
+    public final boolean equals(Object obj) {
+        H10421589909980706158 h10421589909980706158 = obj instanceof H10421589909980706158 ? (H10421589909980706158) obj : null;
+        return h10421589909980706158 != null && this.p == h10421589909980706158.p;
+    }
+
+    @Override // dev.epro.r0.B321559534056331132
+    public final H11646813293457574213 h(I5164649337253478959 i5164649337253478959, G17613326942144185441 g17613326942144185441, long j) {
+        Z17471428274427141949 d = g17613326942144185441.d(j);
+        boolean z = this.p;
+        X9852054718446117252 x9852054718446117252 = X9852054718446117252.a;
+        return !z ? i5164649337253478959.m(0, 0, x9852054718446117252, new L905776418423859032((byte) 23)) : i5164649337253478959.m(d.a, d.b, x9852054718446117252, new Y17164194448930251553(d, (byte) 20));
+    }
+
+    public final int hashCode() {
+        return Boolean.hashCode(this.p);
+    }
+}

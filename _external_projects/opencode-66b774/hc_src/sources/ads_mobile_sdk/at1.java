@@ -1,0 +1,162 @@
+package ads_mobile_sdk;
+
+import dev.epro.r0.I9096980162579903974;
+import dev.epro.r0.J14094762838860758899;
+import dev.epro.r0.L11183620890713466612;
+import dev.epro.r0.L11610354117192841236;
+import dev.epro.r0.O14838623545224379975;
+import dev.epro.r0.P16188089657974175786;
+import dev.epro.r0.S3216761178606715008;
+import dev.epro.r0.U4857089234315512256;
+import dev.epro.r0.V2597580950516131749;
+import dev.epro.r0.W8569349710638169802;
+import dev.epro.r0.Z14316276734425062790;
+import java.util.LinkedHashMap;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class at1 implements W8569349710638169802 {
+    public final im a;
+    public final i12 b;
+    public final V2597580950516131749 c;
+    public final mi3 d;
+    public final U4857089234315512256 e;
+    public final P16188089657974175786 f;
+    public final long g;
+    public final int h;
+    public final String i;
+    public final qw2 j;
+    public final int k;
+    public final boolean l;
+    public final b71 m;
+    public final boolean n;
+
+    /* renamed from: o, reason: collision with root package name */
+    public final S3216761178606715008 f8o;
+    public final x02 p;
+    public final i8 q;
+
+    public at1(im imVar, i12 i12Var, bb0 bb0Var, mi3 mi3Var, U4857089234315512256 u4857089234315512256, P16188089657974175786 p16188089657974175786, long j, int i, String str, qw2 qw2Var, int i2, boolean z, b71 b71Var, boolean z2, S3216761178606715008 s3216761178606715008, x02 x02Var, i8 i8Var) {
+        imVar.getClass();
+        i12Var.getClass();
+        bb0Var.getClass();
+        mi3Var.getClass();
+        u4857089234315512256.getClass();
+        p16188089657974175786.getClass();
+        str.getClass();
+        qw2Var.getClass();
+        b71Var.getClass();
+        s3216761178606715008.getClass();
+        x02Var.getClass();
+        i8Var.getClass();
+        this.a = imVar;
+        this.b = i12Var;
+        this.c = bb0Var;
+        this.d = mi3Var;
+        this.e = u4857089234315512256;
+        this.f = p16188089657974175786;
+        this.g = j;
+        this.h = i;
+        this.i = str;
+        this.j = qw2Var;
+        this.k = i2;
+        this.l = z;
+        this.m = b71Var;
+        this.n = z2;
+        this.f8o = s3216761178606715008;
+        this.p = x02Var;
+        this.q = i8Var;
+    }
+
+    @Override // dev.epro.r0.W8569349710638169802
+    public final J14094762838860758899 a(d33 d33Var, z1 z1Var) {
+        d33Var.getClass();
+        z1Var.getClass();
+        oc0 oc0Var = (oc0) this.c.get();
+        oc0Var.getClass();
+        U4857089234315512256 u4857089234315512256 = this.e;
+        u4857089234315512256.getClass();
+        oc0Var.g = u4857089234315512256;
+        P16188089657974175786 p16188089657974175786 = this.f;
+        p16188089657974175786.getClass();
+        oc0Var.p = p16188089657974175786;
+        oc0Var.c = z1Var;
+        oc0Var.b = d33Var.b.b;
+        oc0Var.d = d33Var;
+        qw2 qw2Var = this.j;
+        qw2Var.getClass();
+        oc0Var.h = qw2Var;
+        mi3 mi3Var = this.d;
+        ur2 ur2Var = mi3Var.a;
+        ur2Var.getClass();
+        oc0Var.j = ur2Var;
+        fh1 fh1Var = mi3Var.b;
+        fh1Var.getClass();
+        oc0Var.k = fh1Var;
+        String str = this.i;
+        str.getClass();
+        oc0Var.i = str;
+        oc0Var.e = Long.valueOf(this.g);
+        oc0Var.f = Integer.valueOf(this.h);
+        oc0Var.f84o = Integer.valueOf(this.k);
+        oc0Var.l = Boolean.valueOf(this.l);
+        b71 b71Var = this.m;
+        b71Var.getClass();
+        oc0Var.m = b71Var;
+        oc0Var.q = Boolean.valueOf(this.n);
+        S3216761178606715008 s3216761178606715008 = this.f8o;
+        s3216761178606715008.getClass();
+        oc0Var.r = s3216761178606715008;
+        x02 x02Var = this.p;
+        x02Var.getClass();
+        oc0Var.s = x02Var;
+        i8 i8Var = this.q;
+        i8Var.getClass();
+        oc0Var.n = i8Var;
+        Z14316276734425062790.d(oc0Var.b, hv.class);
+        Z14316276734425062790.d(oc0Var.c, z1.class);
+        Z14316276734425062790.d(oc0Var.d, d33.class);
+        Z14316276734425062790.d(oc0Var.e, Long.class);
+        Z14316276734425062790.d(oc0Var.f, Integer.class);
+        Z14316276734425062790.d(oc0Var.g, U4857089234315512256.class);
+        Z14316276734425062790.d(oc0Var.h, qw2.class);
+        Z14316276734425062790.d(oc0Var.i, String.class);
+        Z14316276734425062790.d(oc0Var.j, ur2.class);
+        Z14316276734425062790.d(oc0Var.k, fh1.class);
+        Z14316276734425062790.d(oc0Var.l, Boolean.class);
+        Z14316276734425062790.d(oc0Var.m, b71.class);
+        Z14316276734425062790.d(oc0Var.n, i8.class);
+        Z14316276734425062790.d(oc0Var.f84o, Integer.class);
+        Z14316276734425062790.d(oc0Var.p, P16188089657974175786.class);
+        Z14316276734425062790.d(oc0Var.q, Boolean.class);
+        Z14316276734425062790.d(oc0Var.r, S3216761178606715008.class);
+        Z14316276734425062790.d(oc0Var.s, x02.class);
+        db0 db0Var = oc0Var.a;
+        hv hvVar = oc0Var.b;
+        z1 z1Var2 = oc0Var.c;
+        d33 d33Var2 = oc0Var.d;
+        Long l = oc0Var.e;
+        Integer num = oc0Var.f;
+        U4857089234315512256 u48570892343155122562 = oc0Var.g;
+        qw2 qw2Var2 = oc0Var.h;
+        ur2 ur2Var2 = oc0Var.j;
+        fh1 fh1Var2 = oc0Var.k;
+        Boolean bool = oc0Var.l;
+        b71 b71Var2 = oc0Var.m;
+        i8 i8Var2 = oc0Var.n;
+        Integer num2 = oc0Var.f84o;
+        P16188089657974175786 p161880896579741757862 = oc0Var.p;
+        Boolean bool2 = oc0Var.q;
+        S3216761178606715008 s32167611786067150082 = oc0Var.r;
+        hb1 a = hb1.a(oc0Var.s);
+        gj0 gj0Var = new gj0(new jv(new v80(hb1.a(ur2Var2)), new v80(hb1.a(fh1Var2)), (byte) 0));
+        hb1 a2 = hb1.a(u48570892343155122562);
+        dm dmVar = new dm(new gj0(new ct2(a, gj0Var, a2, hb1.a(qw2Var2), hb1.a(l), hb1.a(num), hb1.a(z1Var2), hb1.a(hvVar), hb1.a(d33Var2), new gj0(new gf(db0Var.u0, (byte) 27)), hb1.a(bool), hb1.a(b71Var2), hb1.a(p161880896579741757862), hb1.a(num2), hb1.a(bool2), hb1.a(s32167611786067150082), hb1.a(i8Var2), new dm(a2, (byte) 25), (byte) 1)), (byte) 20);
+        hb1 hb1Var = fn1.b;
+        LinkedHashMap h = O14838623545224379975.h(1);
+        h.put("RecursiveRendererNative", dmVar);
+        J14094762838860758899 j14094762838860758899 = (J14094762838860758899) new gj0(new m(new fn1(h), (byte) 8)).get();
+        int A = L11610354117192841236.A(z1Var.l);
+        return A != 1 ? A != 3 ? new L11183620890713466612() : new I9096980162579903974(j14094762838860758899, this.b.a(d33Var, z1Var), ao.a$24) : new I9096980162579903974(j14094762838860758899, this.a.a(d33Var, z1Var), ao.a$20);
+    }
+}

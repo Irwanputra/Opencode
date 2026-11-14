@@ -1,0 +1,41 @@
+package dev.epro.r0;
+
+import android.os.Build;
+import java.util.ArrayList;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class A3977949523195115163 extends R7033599853981556291 {
+    public final /* synthetic */ N16333696292855081967 u;
+
+    public A3977949523195115163(N16333696292855081967 n16333696292855081967) {
+        this.u = n16333696292855081967;
+    }
+
+    @Override // dev.epro.r0.R7033599853981556291
+    public final void G(Throwable th) {
+        this.u.a.f(th);
+    }
+
+    @Override // dev.epro.r0.R7033599853981556291
+    public final void H(J15730374346044043770 j15730374346044043770) {
+        N16333696292855081967 n16333696292855081967 = this.u;
+        n16333696292855081967.c = j15730374346044043770;
+        J15730374346044043770 j157303743460440437702 = n16333696292855081967.c;
+        D3638978315442423989 d3638978315442423989 = n16333696292855081967.a;
+        n16333696292855081967.b = new Q7316561721656982910(j157303743460440437702, d3638978315442423989.g, d3638978315442423989.i, Build.VERSION.SDK_INT >= 34 ? E5787395939262799002.a() : O5354877807466160604.S());
+        D3638978315442423989 d36389783154424239892 = n16333696292855081967.a;
+        ArrayList arrayList = new ArrayList();
+        d36389783154424239892.a.writeLock().lock();
+        try {
+            d36389783154424239892.c = (byte) 1;
+            arrayList.addAll(d36389783154424239892.b);
+            d36389783154424239892.b.clear();
+            d36389783154424239892.a.writeLock().unlock();
+            d36389783154424239892.d.post(new B2550074485188857304(arrayList, d36389783154424239892.c, null));
+        } catch (Throwable th) {
+            d36389783154424239892.a.writeLock().unlock();
+            throw th;
+        }
+    }
+}

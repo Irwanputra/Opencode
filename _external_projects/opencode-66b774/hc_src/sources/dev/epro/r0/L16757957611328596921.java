@@ -1,0 +1,21 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public interface L16757957611328596921 {
+    void a(Object obj, M204440408817344908 m204440408817344908);
+
+    void b(Object obj);
+
+    boolean c(Object obj);
+
+    void d(Object obj, Object obj2);
+
+    int e(I10827619964430248728 i10827619964430248728);
+
+    int f(L17990604304028499756 l17990604304028499756);
+
+    boolean g(I10827619964430248728 i10827619964430248728, I10827619964430248728 i108276199644302487282);
+
+    I10827619964430248728 h();
+}

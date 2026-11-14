@@ -1,0 +1,31 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+final class L10701284727341413572 extends A8269341136279542501 {
+    @Override // dev.epro.r0.A8269341136279542501
+    public final R15896830329318850690 a() {
+        K7479518811373909962 k7479518811373909962 = new K7479518811373909962();
+        k7479518811373909962.q = null;
+        return k7479518811373909962;
+    }
+
+    @Override // dev.epro.r0.A8269341136279542501
+    public final void c(R15896830329318850690 r15896830329318850690) {
+        K7479518811373909962 k7479518811373909962 = (K7479518811373909962) r15896830329318850690;
+        R16749699847173633337 r16749699847173633337 = k7479518811373909962.q;
+        if (r16749699847173633337 != null) {
+            k7479518811373909962.i1(r16749699847173633337);
+        }
+        k7479518811373909962.q = null;
+        k7479518811373909962.q = null;
+    }
+
+    public final boolean equals(Object obj) {
+        return this == obj || (obj instanceof L10701284727341413572);
+    }
+
+    public final int hashCode() {
+        return 0;
+    }
+}

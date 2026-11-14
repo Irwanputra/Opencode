@@ -1,0 +1,11 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class V8456276107310882316 implements C3125267566254703773 {
+    public final N4459031729035016230 a;
+
+    public V8456276107310882316(N4459031729035016230 n4459031729035016230) {
+        this.a = n4459031729035016230;
+    }
+}

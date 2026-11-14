@@ -1,0 +1,54 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class G9301606066247153606 extends M458157582077333589 {
+    public final float c;
+    public final float d;
+    public final float e;
+    public final boolean f;
+    public final boolean g;
+    public final float h;
+    public final float i;
+
+    public G9301606066247153606(float f, float f2, float f3, boolean z, boolean z2, float f4, float f5) {
+        super(3);
+        this.c = f;
+        this.d = f2;
+        this.e = f3;
+        this.f = z;
+        this.g = z2;
+        this.h = f4;
+        this.i = f5;
+    }
+
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof G9301606066247153606)) {
+            return false;
+        }
+        G9301606066247153606 g9301606066247153606 = (G9301606066247153606) obj;
+        return Float.compare(this.c, g9301606066247153606.c) == 0 && Float.compare(this.d, g9301606066247153606.d) == 0 && Float.compare(this.e, g9301606066247153606.e) == 0 && this.f == g9301606066247153606.f && this.g == g9301606066247153606.g && Float.compare(this.h, g9301606066247153606.h) == 0 && Float.compare(this.i, g9301606066247153606.i) == 0;
+    }
+
+    public final int hashCode() {
+        return Float.hashCode(this.i) + E12098517352909843120.e(this.h, G6547577305291411977.i(G6547577305291411977.i(E12098517352909843120.e(this.e, E12098517352909843120.e(this.d, Float.hashCode(this.c) * 31, 31), 31), 31, this.f), 31, this.g), 31);
+    }
+
+    public final String toString() {
+        StringBuilder k = G11450220448113054352.k("RelativeArcTo(horizontalEllipseRadius=", this.c, ", verticalEllipseRadius=", this.d, ", theta=");
+        k.append(this.e);
+        k.append(", isMoreThanHalf=");
+        k.append(this.f);
+        k.append(", isPositiveArc=");
+        k.append(this.g);
+        k.append(", arcStartDx=");
+        k.append(this.h);
+        k.append(", arcStartDy=");
+        k.append(this.i);
+        k.append(")");
+        return k.toString();
+    }
+}

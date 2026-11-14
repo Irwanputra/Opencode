@@ -1,0 +1,630 @@
+package org.chromium.net;
+
+import android.content.Context;
+import android.os.Process;
+import android.os.SystemClock;
+import android.os.Trace;
+import dev.epro.r0.B16519083408801598463;
+import dev.epro.r0.D11988991656201568495;
+import dev.epro.r0.G6547577305291411977;
+import dev.epro.r0.K17906237317018138803;
+import dev.epro.r0.K2042933864045806308;
+import dev.epro.r0.M69217867917312856;
+import dev.epro.r0.O4077903568229246;
+import dev.epro.r0.S10973172697741180971;
+import dev.epro.r0.U10534498473358193554;
+import dev.epro.r0.U1748733558996603759;
+import dev.epro.r0.Z1953481206310471956;
+import dev.epro.r0.Z3383101362411723454;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLStreamHandlerFactory;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.Executor;
+import org.chromium.net.BidirectionalStream;
+import org.chromium.net.ConnectionMigrationOptions;
+import org.chromium.net.DnsOptions;
+import org.chromium.net.QuicOptions;
+import org.chromium.net.RequestFinishedInfo;
+import org.chromium.net.UrlRequest;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes4.dex */
+public abstract class CronetEngine {
+    public static final int ACTIVE_REQUEST_COUNT_UNKNOWN = -1;
+    public static final int CONNECTION_METRIC_UNKNOWN = -1;
+    public static final int EFFECTIVE_CONNECTION_TYPE_2G = 3;
+    public static final int EFFECTIVE_CONNECTION_TYPE_3G = 4;
+    public static final int EFFECTIVE_CONNECTION_TYPE_4G = 5;
+    public static final int EFFECTIVE_CONNECTION_TYPE_OFFLINE = 1;
+    public static final int EFFECTIVE_CONNECTION_TYPE_SLOW_2G = 2;
+    public static final int EFFECTIVE_CONNECTION_TYPE_UNKNOWN = 0;
+    private static final String TAG = "CronetEngine";
+    public static final long UNBIND_NETWORK_HANDLE = -1;
+
+    public abstract URLStreamHandlerFactory createURLStreamHandlerFactory();
+
+    public int getActiveRequestCount() {
+        return -1;
+    }
+
+    public int getDownstreamThroughputKbps() {
+        return -1;
+    }
+
+    public int getEffectiveConnectionType() {
+        return 0;
+    }
+
+    @Deprecated
+    public abstract byte[] getGlobalMetricsDeltas();
+
+    public int getHttpRttMs() {
+        return -1;
+    }
+
+    public int getTransportRttMs() {
+        return -1;
+    }
+
+    public abstract String getVersionString();
+
+    public BidirectionalStream.Builder newBidirectionalStreamBuilder(String str, BidirectionalStream.Callback callback, Executor executor) {
+        throw new UnsupportedOperationException("Not implemented.");
+    }
+
+    public abstract UrlRequest.Builder newUrlRequestBuilder(String str, UrlRequest.Callback callback, Executor executor);
+
+    public abstract URLConnection openConnection(URL url);
+
+    public abstract void shutdown();
+
+    public abstract void startNetLogToFile(String str, boolean z);
+
+    public abstract void stopNetLog();
+
+    /* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+    public static class Builder {
+        public static final int HTTP_CACHE_DISABLED = 0;
+        public static final int HTTP_CACHE_DISK = 3;
+        public static final int HTTP_CACHE_DISK_NO_HTTP = 2;
+        public static final int HTTP_CACHE_IN_MEMORY = 1;
+        private static final String TAG = "CronetEngine.Builder";
+        protected final ICronetEngineBuilder mBuilderDelegate;
+        private final List<B16519083408801598463> mExperimentalOptionsPatches;
+        protected JSONObject mParsedExperimentalOptions;
+
+        /* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+        public static abstract class LibraryLoader {
+            public abstract void loadLibrary(String str);
+        }
+
+        public Builder(ICronetEngineBuilder iCronetEngineBuilder) {
+            this.mExperimentalOptionsPatches = new ArrayList();
+            this.mBuilderDelegate = iCronetEngineBuilder;
+        }
+
+        public static int compareVersions(String str, String str2) {
+            if (str == null || str2 == null) {
+                S10973172697741180971.j("The input values cannot be null");
+                return 0;
+            }
+            String[] split = str.split("\\.");
+            String[] split2 = str2.split("\\.");
+            for (int i = 0; i < split.length && i < split2.length; i++) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    if (parseInt != parseInt2) {
+                        return Integer.signum(parseInt - parseInt2);
+                    }
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException(G6547577305291411977.t("Unable to convert version segments into integers: ", split[i], " & ", split2[i]), e);
+                }
+            }
+            return Integer.signum(split.length - split2.length);
+        }
+
+        private static ICronetEngineBuilder createBuilderDelegate(Context context) {
+            U1748733558996603759.b("CronetEngine#createBuilderDelegate");
+            try {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                M69217867917312856 m69217867917312856 = getEnabledCronetProviders(context, new ArrayList(CronetProvider.getAllProviderInfos(context))).get(0);
+                O4077903568229246 C = Z1953481206310471956.C(context, m69217867917312856.b);
+                U10534498473358193554 u10534498473358193554 = new U10534498473358193554();
+                try {
+                    u10534498473358193554.e = Boolean.FALSE;
+                    u10534498473358193554.b = 1;
+                    u10534498473358193554.d = m69217867917312856.b;
+                    u10534498473358193554.h = Process.myUid();
+                    u10534498473358193554.f = new K17906237317018138803(ApiVersion.getCronetVersion());
+                    ICronetEngineBuilder iCronetEngineBuilder = m69217867917312856.a.createBuilder().mBuilderDelegate;
+                    String implCronetVersion = getImplCronetVersion(iCronetEngineBuilder);
+                    if (implCronetVersion != null) {
+                        u10534498473358193554.g = new K17906237317018138803(implCronetVersion);
+                    }
+                    u10534498473358193554.a = iCronetEngineBuilder.getLogCronetInitializationRef();
+                    u10534498473358193554.e = Boolean.TRUE;
+                    u10534498473358193554.c = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                    C.A(u10534498473358193554);
+                    Trace.endSection();
+                    return iCronetEngineBuilder;
+                } catch (Throwable th) {
+                    u10534498473358193554.c = (int) (SystemClock.uptimeMillis() - uptimeMillis);
+                    C.A(u10534498473358193554);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                try {
+                    Trace.endSection();
+                } catch (Throwable th3) {
+                    th2.addSuppressed(th3);
+                }
+                throw th2;
+            }
+        }
+
+        public static List<M69217867917312856> getEnabledCronetProviders(Context context, List<M69217867917312856> list) {
+            if (list.isEmpty()) {
+                K2042933864045806308.i("Unable to find any Cronet provider. Have you included all necessary jars?");
+                return null;
+            }
+            Iterator<M69217867917312856> it = list.iterator();
+            while (it.hasNext()) {
+                if (!it.next().a.isEnabled()) {
+                    it.remove();
+                }
+            }
+            if (list.isEmpty()) {
+                K2042933864045806308.i("All available Cronet providers are disabled. A provider should be enabled before it can be used.");
+                return null;
+            }
+            Collections.sort(list, new Z11244019023321623390());
+            return list;
+        }
+
+        private static int getImplApiLevel(ICronetEngineBuilder iCronetEngineBuilder) {
+            try {
+                Method implVersionMethod = getImplVersionMethod(iCronetEngineBuilder, "getApiLevel");
+                if (implVersionMethod == null) {
+                    return -1;
+                }
+                return ((Integer) implVersionMethod.invoke(null, null)).intValue();
+            } catch (ReflectiveOperationException e) {
+                Z3383101362411723454.m("Failed to retrieve Cronet impl API level", e);
+                return 0;
+            }
+        }
+
+        private static String getImplCronetVersion(ICronetEngineBuilder iCronetEngineBuilder) {
+            try {
+                Method implVersionMethod = getImplVersionMethod(iCronetEngineBuilder, "getCronetVersion");
+                if (implVersionMethod == null) {
+                    return null;
+                }
+                return (String) implVersionMethod.invoke(null, null);
+            } catch (ReflectiveOperationException e) {
+                Z3383101362411723454.m("Failed to retrieve Cronet impl version", e);
+                return null;
+            }
+        }
+
+        private static Method getImplVersionMethod(ICronetEngineBuilder iCronetEngineBuilder, String str) {
+            try {
+                return iCronetEngineBuilder.getClass().getClassLoader().loadClass("org.chromium.net.impl.ImplVersion").getMethod(str, null);
+            } catch (ClassNotFoundException | NoSuchMethodException unused) {
+                return null;
+            }
+        }
+
+        private int getMaximumApiLevel() {
+            return ApiVersion.getMaximumAvailableApiLevel();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public static void lambda$setConnectionMigrationOptions$2(ConnectionMigrationOptions connectionMigrationOptions, JSONObject jSONObject) {
+            JSONObject a = Y6921797927338498306.a("QUIC", jSONObject);
+            if (connectionMigrationOptions.getEnableDefaultNetworkMigration() != null) {
+                a.put("migrate_sessions_on_network_change_v2", connectionMigrationOptions.getEnableDefaultNetworkMigration());
+            }
+            if (connectionMigrationOptions.getAllowServerMigration() != null) {
+                a.put("allow_server_migration", connectionMigrationOptions.getAllowServerMigration());
+            }
+            if (connectionMigrationOptions.getMigrateIdleConnections() != null) {
+                a.put("migrate_idle_sessions", connectionMigrationOptions.getMigrateIdleConnections());
+            }
+            if (connectionMigrationOptions.getIdleMigrationPeriodSeconds() != null) {
+                a.put("idle_session_migration_period_seconds", connectionMigrationOptions.getIdleMigrationPeriodSeconds());
+            }
+            if (connectionMigrationOptions.getRetryPreHandshakeErrorsOnAlternateNetwork() != null) {
+                a.put("retry_on_alternate_network_before_handshake", connectionMigrationOptions.getRetryPreHandshakeErrorsOnAlternateNetwork());
+            }
+            if (connectionMigrationOptions.getMaxTimeOnNonDefaultNetworkSeconds() != null) {
+                a.put("max_time_on_non_default_network_seconds", connectionMigrationOptions.getMaxTimeOnNonDefaultNetworkSeconds());
+            }
+            if (connectionMigrationOptions.getMaxPathDegradingEagerMigrationsCount() != null) {
+                a.put("max_migrations_to_non_default_network_on_path_degrading", connectionMigrationOptions.getMaxPathDegradingEagerMigrationsCount());
+            }
+            if (connectionMigrationOptions.getMaxWriteErrorEagerMigrationsCount() != null) {
+                a.put("max_migrations_to_non_default_network_on_write_error", connectionMigrationOptions.getMaxWriteErrorEagerMigrationsCount());
+            }
+            if (connectionMigrationOptions.getEnablePathDegradationMigration() != null) {
+                boolean booleanValue = connectionMigrationOptions.getEnablePathDegradationMigration().booleanValue();
+                a.put("allow_port_migration", booleanValue);
+                if (connectionMigrationOptions.getAllowNonDefaultNetworkUsage() != null) {
+                    boolean booleanValue2 = connectionMigrationOptions.getAllowNonDefaultNetworkUsage().booleanValue();
+                    if (!booleanValue && booleanValue2) {
+                        S10973172697741180971.j("Unable to turn on non-default network usage without path degradation migration!");
+                    } else if (!booleanValue || !booleanValue2) {
+                        a.put("migrate_sessions_early_v2", false);
+                    } else {
+                        a.put("migrate_sessions_early_v2", true);
+                        a.put("migrate_sessions_on_network_change_v2", true);
+                    }
+                }
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public static void lambda$setDnsOptions$1(DnsOptions dnsOptions, JSONObject jSONObject) {
+            JSONObject a = Y6921797927338498306.a("AsyncDNS", jSONObject);
+            if (dnsOptions.getUseBuiltInDnsResolver() != null) {
+                a.put("enable", dnsOptions.getUseBuiltInDnsResolver());
+            }
+            JSONObject a2 = Y6921797927338498306.a("StaleDNS", jSONObject);
+            if (dnsOptions.getEnableStaleDns() != null) {
+                a2.put("enable", dnsOptions.getEnableStaleDns());
+            }
+            if (dnsOptions.getPersistHostCache() != null) {
+                a2.put("persist_to_disk", dnsOptions.getPersistHostCache());
+            }
+            if (dnsOptions.getPersistHostCachePeriodMillis() != null) {
+                a2.put("persist_delay_ms", dnsOptions.getPersistHostCachePeriodMillis());
+            }
+            if (dnsOptions.getStaleDnsOptions() != null) {
+                DnsOptions.StaleDnsOptions staleDnsOptions = dnsOptions.getStaleDnsOptions();
+                if (staleDnsOptions.getAllowCrossNetworkUsage() != null) {
+                    a2.put("allow_other_network", staleDnsOptions.getAllowCrossNetworkUsage());
+                }
+                if (staleDnsOptions.getFreshLookupTimeoutMillis() != null) {
+                    a2.put("delay_ms", staleDnsOptions.getFreshLookupTimeoutMillis());
+                }
+                if (staleDnsOptions.getUseStaleOnNameNotResolved() != null) {
+                    a2.put("use_stale_on_name_not_resolved", staleDnsOptions.getUseStaleOnNameNotResolved());
+                }
+                if (staleDnsOptions.getMaxExpiredDelayMillis() != null) {
+                    a2.put("max_expired_time_ms", staleDnsOptions.getMaxExpiredDelayMillis());
+                }
+            }
+            JSONObject a3 = Y6921797927338498306.a("QUIC", jSONObject);
+            if (dnsOptions.getPreestablishConnectionsToStaleDnsResults() != null) {
+                a3.put("race_stale_dns_on_connection", dnsOptions.getPreestablishConnectionsToStaleDnsResults());
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public static void lambda$setQuicOptions$0(QuicOptions quicOptions, JSONObject jSONObject) {
+            JSONObject a = Y6921797927338498306.a("QUIC", jSONObject);
+            if (!quicOptions.getQuicHostAllowlist().isEmpty()) {
+                Set<String> quicHostAllowlist = quicOptions.getQuicHostAllowlist();
+                StringBuilder sb = new StringBuilder();
+                Iterator<T> it = quicHostAllowlist.iterator();
+                if (it.hasNext()) {
+                    while (true) {
+                        sb.append((CharSequence) it.next());
+                        if (!it.hasNext()) {
+                            break;
+                        } else {
+                            sb.append((CharSequence) ",");
+                        }
+                    }
+                }
+                a.put("host_whitelist", sb.toString());
+            }
+            if (!quicOptions.getEnabledQuicVersions().isEmpty()) {
+                Set<String> enabledQuicVersions = quicOptions.getEnabledQuicVersions();
+                StringBuilder sb2 = new StringBuilder();
+                Iterator<T> it2 = enabledQuicVersions.iterator();
+                if (it2.hasNext()) {
+                    while (true) {
+                        sb2.append((CharSequence) it2.next());
+                        if (!it2.hasNext()) {
+                            break;
+                        } else {
+                            sb2.append((CharSequence) ",");
+                        }
+                    }
+                }
+                a.put("quic_version", sb2.toString());
+            }
+            if (!quicOptions.getConnectionOptions().isEmpty()) {
+                Set<String> connectionOptions = quicOptions.getConnectionOptions();
+                StringBuilder sb3 = new StringBuilder();
+                Iterator<T> it3 = connectionOptions.iterator();
+                if (it3.hasNext()) {
+                    while (true) {
+                        sb3.append((CharSequence) it3.next());
+                        if (!it3.hasNext()) {
+                            break;
+                        } else {
+                            sb3.append((CharSequence) ",");
+                        }
+                    }
+                }
+                a.put("connection_options", sb3.toString());
+            }
+            if (!quicOptions.getClientConnectionOptions().isEmpty()) {
+                Set<String> clientConnectionOptions = quicOptions.getClientConnectionOptions();
+                StringBuilder sb4 = new StringBuilder();
+                Iterator<T> it4 = clientConnectionOptions.iterator();
+                if (it4.hasNext()) {
+                    while (true) {
+                        sb4.append((CharSequence) it4.next());
+                        if (!it4.hasNext()) {
+                            break;
+                        } else {
+                            sb4.append((CharSequence) ",");
+                        }
+                    }
+                }
+                a.put("client_connection_options", sb4.toString());
+            }
+            if (!quicOptions.getExtraQuicheFlags().isEmpty()) {
+                Set<String> extraQuicheFlags = quicOptions.getExtraQuicheFlags();
+                StringBuilder sb5 = new StringBuilder();
+                Iterator<T> it5 = extraQuicheFlags.iterator();
+                if (it5.hasNext()) {
+                    while (true) {
+                        sb5.append((CharSequence) it5.next());
+                        if (!it5.hasNext()) {
+                            break;
+                        } else {
+                            sb5.append((CharSequence) ",");
+                        }
+                    }
+                }
+                a.put("set_quic_flags", sb5.toString());
+            }
+            if (quicOptions.getInMemoryServerConfigsCacheSize() != null) {
+                a.put("max_server_configs_stored_in_properties", quicOptions.getInMemoryServerConfigsCacheSize());
+            }
+            if (quicOptions.getHandshakeUserAgent() != null) {
+                a.put("user_agent_id", quicOptions.getHandshakeUserAgent());
+            }
+            if (quicOptions.getRetryWithoutAltSvcOnQuicErrors() != null) {
+                a.put("retry_without_alt_svc_on_quic_errors", quicOptions.getRetryWithoutAltSvcOnQuicErrors());
+            }
+            if (quicOptions.getEnableTlsZeroRtt() != null) {
+                a.put("disable_tls_zero_rtt", !quicOptions.getEnableTlsZeroRtt().booleanValue());
+            }
+            if (quicOptions.getPreCryptoHandshakeIdleTimeoutSeconds() != null) {
+                a.put("max_idle_time_before_crypto_handshake_seconds", quicOptions.getPreCryptoHandshakeIdleTimeoutSeconds());
+            }
+            if (quicOptions.getCryptoHandshakeTimeoutSeconds() != null) {
+                a.put("max_time_before_crypto_handshake_seconds", quicOptions.getCryptoHandshakeTimeoutSeconds());
+            }
+            if (quicOptions.getIdleConnectionTimeoutSeconds() != null) {
+                a.put("idle_connection_timeout_seconds", quicOptions.getIdleConnectionTimeoutSeconds());
+            }
+            if (quicOptions.getRetransmittableOnWireTimeoutMillis() != null) {
+                a.put("retransmittable_on_wire_timeout_milliseconds", quicOptions.getRetransmittableOnWireTimeoutMillis());
+            }
+            if (quicOptions.getCloseSessionsOnIpChange() != null) {
+                a.put("close_sessions_on_ip_change", quicOptions.getCloseSessionsOnIpChange());
+            }
+            if (quicOptions.getGoawaySessionsOnIpChange() != null) {
+                a.put("goaway_sessions_on_ip_change", quicOptions.getGoawaySessionsOnIpChange());
+            }
+            if (quicOptions.getInitialBrokenServicePeriodSeconds() != null) {
+                a.put("initial_delay_for_broken_alternative_service_seconds", quicOptions.getInitialBrokenServicePeriodSeconds());
+            }
+            if (quicOptions.getIncreaseBrokenServicePeriodExponentially() != null) {
+                a.put("exponential_backoff_on_initial_delay", quicOptions.getIncreaseBrokenServicePeriodExponentially());
+            }
+            if (quicOptions.getDelayJobsWithAvailableSpdySession() != null) {
+                a.put("delay_main_job_with_available_spdy_session", quicOptions.getDelayJobsWithAvailableSpdySession());
+            }
+        }
+
+        private void maybeSetExperimentalOptions() {
+            JSONObject jSONObject = this.mParsedExperimentalOptions;
+            List<B16519083408801598463> list = this.mExperimentalOptionsPatches;
+            if (jSONObject != null || !list.isEmpty()) {
+                if (jSONObject == null) {
+                    jSONObject = new JSONObject();
+                }
+                for (B16519083408801598463 b16519083408801598463 : list) {
+                    try {
+                        switch (b16519083408801598463.a) {
+                            case 0:
+                                lambda$setQuicOptions$0((QuicOptions) b16519083408801598463.b, jSONObject);
+                                continue;
+                            case 1:
+                                lambda$setConnectionMigrationOptions$2((ConnectionMigrationOptions) b16519083408801598463.b, jSONObject);
+                                continue;
+                            default:
+                                lambda$setDnsOptions$1((DnsOptions) b16519083408801598463.b, jSONObject);
+                                continue;
+                        }
+                    } catch (JSONException e) {
+                        throw new IllegalStateException("Unable to apply JSON patch!", e);
+                    }
+                    throw new IllegalStateException("Unable to apply JSON patch!", e);
+                }
+            }
+            jSONObject = null;
+            if (jSONObject != null) {
+                this.mBuilderDelegate.setExperimentalOptions(jSONObject.toString());
+            }
+        }
+
+        public Builder addPublicKeyPins(String str, Set<byte[]> set, boolean z, Date date) {
+            this.mBuilderDelegate.addPublicKeyPins(str, set, z, date);
+            return this;
+        }
+
+        public Builder addQuicHint(String str, int i, int i2) {
+            this.mBuilderDelegate.addQuicHint(str, i, i2);
+            return this;
+        }
+
+        public CronetEngine build() {
+            return buildExperimental();
+        }
+
+        public ExperimentalCronetEngine buildExperimental() {
+            if (getImplApiLevel(this.mBuilderDelegate) != -1) {
+                getMaximumApiLevel();
+            }
+            maybeSetExperimentalOptions();
+            return this.mBuilderDelegate.build();
+        }
+
+        public Builder enableBrotli(boolean z) {
+            this.mBuilderDelegate.enableBrotli(z);
+            return this;
+        }
+
+        public Builder enableHttp2(boolean z) {
+            this.mBuilderDelegate.enableHttp2(z);
+            return this;
+        }
+
+        public Builder enableHttpCache(int i, long j) {
+            this.mBuilderDelegate.enableHttpCache(i, j);
+            return this;
+        }
+
+        public Builder enableNetworkQualityEstimator(boolean z) {
+            this.mBuilderDelegate.enableNetworkQualityEstimator(z);
+            return this;
+        }
+
+        public Builder enablePublicKeyPinningBypassForLocalTrustAnchors(boolean z) {
+            this.mBuilderDelegate.enablePublicKeyPinningBypassForLocalTrustAnchors(z);
+            return this;
+        }
+
+        public Builder enableQuic(boolean z) {
+            this.mBuilderDelegate.enableQuic(z);
+            return this;
+        }
+
+        public String getDefaultUserAgent() {
+            return this.mBuilderDelegate.getDefaultUserAgent();
+        }
+
+        public Builder setConnectionMigrationOptions(ConnectionMigrationOptions connectionMigrationOptions) {
+            if (this.mBuilderDelegate.getSupportedConfigOptions().contains(1)) {
+                this.mBuilderDelegate.setConnectionMigrationOptions(connectionMigrationOptions);
+                return this;
+            }
+            this.mExperimentalOptionsPatches.add(new B16519083408801598463(connectionMigrationOptions, (byte) 1));
+            return this;
+        }
+
+        public Builder setDnsOptions(DnsOptions dnsOptions) {
+            if (this.mBuilderDelegate.getSupportedConfigOptions().contains(2)) {
+                this.mBuilderDelegate.setDnsOptions(dnsOptions);
+                return this;
+            }
+            this.mExperimentalOptionsPatches.add(new B16519083408801598463(dnsOptions, (byte) 2));
+            return this;
+        }
+
+        public Builder setLibraryLoader(LibraryLoader libraryLoader) {
+            this.mBuilderDelegate.setLibraryLoader(libraryLoader);
+            return this;
+        }
+
+        public Builder setProxyOptions(ProxyOptions proxyOptions) {
+            if (this.mBuilderDelegate.getSupportedConfigOptions().contains(4)) {
+                this.mBuilderDelegate.setProxyOptions(proxyOptions);
+                return this;
+            }
+            D11988991656201568495.j("This Cronet implementation does not support ProxyOptions");
+            return null;
+        }
+
+        public Builder setQuicOptions(QuicOptions quicOptions) {
+            if (this.mBuilderDelegate.getSupportedConfigOptions().contains(3)) {
+                this.mBuilderDelegate.setQuicOptions(quicOptions);
+                return this;
+            }
+            this.mExperimentalOptionsPatches.add(new B16519083408801598463(quicOptions, (byte) 0));
+            return this;
+        }
+
+        public Builder setStoragePath(String str) {
+            this.mBuilderDelegate.setStoragePath(str);
+            return this;
+        }
+
+        @Deprecated
+        public Builder setThreadPriority(int i) {
+            this.mBuilderDelegate.setThreadPriority(i);
+            return this;
+        }
+
+        public Builder setUserAgent(String str) {
+            this.mBuilderDelegate.setUserAgent(str);
+            return this;
+        }
+
+        public Builder(Context context) {
+            this(createBuilderDelegate(context));
+        }
+
+        public Builder setConnectionMigrationOptions(ConnectionMigrationOptions.Builder builder) {
+            return setConnectionMigrationOptions(builder.build());
+        }
+
+        public Builder setDnsOptions(DnsOptions.Builder builder) {
+            return setDnsOptions(builder.build());
+        }
+
+        public Builder setQuicOptions(QuicOptions.Builder builder) {
+            return setQuicOptions(builder.build());
+        }
+
+        @Deprecated
+        public Builder enableSdch(boolean z) {
+            return this;
+        }
+    }
+
+    public void addRequestFinishedListener(RequestFinishedInfo.Listener listener) {
+    }
+
+    public void addRttListener(NetworkQualityRttListener networkQualityRttListener) {
+    }
+
+    public void addThroughputListener(NetworkQualityThroughputListener networkQualityThroughputListener) {
+    }
+
+    public void bindToNetwork(long j) {
+    }
+
+    public void removeRequestFinishedListener(RequestFinishedInfo.Listener listener) {
+    }
+
+    public void removeRttListener(NetworkQualityRttListener networkQualityRttListener) {
+    }
+
+    public void removeThroughputListener(NetworkQualityThroughputListener networkQualityThroughputListener) {
+    }
+
+    public void configureNetworkQualityEstimatorForTesting(boolean z, boolean z2, boolean z3) {
+    }
+
+    public void startNetLogToDisk(String str, boolean z, int i) {
+    }
+}

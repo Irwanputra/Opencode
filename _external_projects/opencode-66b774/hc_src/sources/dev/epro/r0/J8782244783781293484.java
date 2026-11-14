@@ -1,0 +1,16 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class J8782244783781293484 {
+    public static A10696933611341011168 a(long j, Object obj) {
+        A10696933611341011168 a10696933611341011168 = (A10696933611341011168) Z3287610729711297369.j(j, obj);
+        if (((F4350745041554760175) a10696933611341011168).a) {
+            return a10696933611341011168;
+        }
+        int size = a10696933611341011168.size();
+        A10696933611341011168 h = a10696933611341011168.h(size == 0 ? 10 : size * 2);
+        Z3287610729711297369.q(j, obj, h);
+        return h;
+    }
+}

@@ -14,7 +14,7 @@ set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%..
 
 @rem Add default JVM options here. You can also use JAVA_OPTS and JADX_GUI_OPTS to pass JVM options to this script.
-set DEFAULT_JVM_OPTS="-Xms128M" "-XX:MaxRAMPercentage=70.0" "-Dawt.useSystemAAFontSettings=lcd" "-Dswing.aatext=true" "-Djava.util.Arrays.useLegacyMergeSort=true" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true" "-XX:+IgnoreUnrecognizedVMOptions" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--enable-native-access=ALL-UNNAMED" "-Dsun.java2d.noddraw=true" "-Dsun.java2d.d3d=false" "-Dsun.java2d.ddforcevram=true" "-Dsun.java2d.ddblit=false" "-Dswing.useflipBufferStrategy=true"
+set DEFAULT_JVM_OPTS="-Xms128M" "-XX:MaxRAMPercentage=70.0" "-Dawt.useSystemAAFontSettings=lcd" "-Dswing.aatext=true" "-Djava.util.Arrays.useLegacyMergeSort=true" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true" "-XX:+IgnoreUnrecognizedVMOptions" "--add-opens=java.base/java.lang=ALL-UNNAMED" "-Dsun.java2d.noddraw=true" "-Dsun.java2d.d3d=false" "-Dsun.java2d.ddforcevram=true" "-Dsun.java2d.ddblit=false" "-Dswing.useflipBufferStrategy=True"
 
 @rem Find javaw.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\jadx-1.5.4-all.jar
+set CLASSPATH=%APP_HOME%\lib\jadx-1.5.1-all.jar
 
 @rem Execute jadx-gui
 start "jadx-gui" /B "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %JADX_GUI_OPTS%  -jar "%CLASSPATH%" %CMD_LINE_ARGS%

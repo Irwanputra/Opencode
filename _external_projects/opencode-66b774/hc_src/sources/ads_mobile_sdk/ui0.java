@@ -1,0 +1,55 @@
+package ads_mobile_sdk;
+
+import dev.epro.r0.A8094652504661216977;
+import dev.epro.r0.O16637889491137121389;
+import dev.epro.r0.Y5459655644324746057;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class ui0 implements Y5459655644324746057 {
+    public final A8094652504661216977 a;
+    public final vi3 b;
+    public final O16637889491137121389 c;
+    public final long d;
+
+    public ui0(A8094652504661216977 a8094652504661216977, vi3 vi3Var, O16637889491137121389 o16637889491137121389, long j) {
+        this.a = a8094652504661216977;
+        this.b = vi3Var;
+        this.c = o16637889491137121389;
+        this.d = j;
+    }
+
+    @Override // dev.epro.r0.Y5459655644324746057
+    public final boolean a(rm2 rm2Var) {
+        vi3 vi3Var = this.b;
+        if (rm2Var == null || rm2Var.equals(rm2.q())) {
+            vi3Var.b(yk0.EVENT_ID_DG_VALIDATOR_UPDATE_METADATA_NOT_FOUND);
+            return true;
+        }
+        if (rm2Var.p() != this.a.get()) {
+            vi3Var.b(yk0.EVENT_ID_DG_VALIDATOR_UPDATE_METADATA_ARCH_MISMATCH);
+            return true;
+        }
+        long q = rm2Var.r().q() * 1000;
+        this.c.getClass();
+        boolean z = q - System.currentTimeMillis() <= this.d;
+        if (z) {
+            vi3Var.b(yk0.EVENT_ID_DG_VALIDATOR_UPDATE_PROGRAM_ALMOST_EXPIRED);
+        }
+        return z;
+    }
+
+    @Override // dev.epro.r0.Y5459655644324746057
+    public final boolean b(rm2 rm2Var) {
+        vi3 vi3Var = this.b;
+        if (rm2Var == null || rm2Var.equals(rm2.q())) {
+            vi3Var.b(yk0.EVENT_ID_DG_VALIDATOR_INIT_METADATA_NOT_FOUND);
+            return false;
+        }
+        if (rm2Var.p() == this.a.get()) {
+            return true;
+        }
+        vi3Var.b(yk0.EVENT_ID_DG_VALIDATOR_INIT_METADATA_ARCH_MISMATCH);
+        return false;
+    }
+}

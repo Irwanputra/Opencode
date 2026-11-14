@@ -1,0 +1,16 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class M732917612736502422 extends K17275736824900228431 {
+    public static final M732917612736502422 f;
+    public static volatile C12371267504993118269 g;
+    public final A16630659125393700025 e = A16630659125393700025.d;
+
+    static {
+        M732917612736502422 m732917612736502422 = new M732917612736502422();
+        f = m732917612736502422;
+        m732917612736502422.b &= Integer.MAX_VALUE;
+        K17275736824900228431.d.put(M732917612736502422.class, m732917612736502422);
+    }
+}

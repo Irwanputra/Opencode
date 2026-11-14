@@ -1,0 +1,77 @@
+package ads_mobile_sdk;
+
+import ads_mobile_sdk.ym3;
+import ads_mobile_sdk.zm3;
+import dev.epro.r0.A14169635274474290551;
+import dev.epro.r0.B11509606741455062017;
+import dev.epro.r0.D17661665633033485461;
+import dev.epro.r0.I13152720973475179368;
+import dev.epro.r0.J8856184873186011997;
+import dev.epro.r0.L7743116545240101509;
+import dev.epro.r0.M15292376008478569006;
+import dev.epro.r0.P17493338506140929634;
+import dev.epro.r0.T11567659380858569563;
+import dev.epro.r0.V14017774250067683447;
+import dev.epro.r0.W11349799793478038591;
+import dev.epro.r0.W6764693637816104089;
+import dev.epro.r0.Y5459655644324746057;
+import dev.epro.r0.Y6811711242656246422;
+import dev.epro.r0.Z15337348271744322997;
+import dev.epro.r0.Z886113521968091188;
+import java.util.Objects;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class zm3 {
+    public final Y5459655644324746057 a;
+    public final W11349799793478038591 b;
+    public final Z15337348271744322997 c;
+    public final vi3 d;
+    public final P17493338506140929634 e;
+    public final boolean f;
+    public final long g;
+    public final long h;
+
+    public zm3(Y5459655644324746057 y5459655644324746057, W11349799793478038591 w11349799793478038591, Z15337348271744322997 z15337348271744322997, vi3 vi3Var, P17493338506140929634 p17493338506140929634, boolean z, long j, long j2) {
+        this.a = y5459655644324746057;
+        this.b = w11349799793478038591;
+        this.c = z15337348271744322997;
+        this.d = vi3Var;
+        this.e = p17493338506140929634;
+        this.f = z;
+        this.g = j;
+        this.h = j2;
+    }
+
+    public final I13152720973475179368 a() {
+        I13152720973475179368 q = I13152720973475179368.q(this.c.a());
+        A14169635274474290551 a14169635274474290551 = new A14169635274474290551((byte) 9);
+        Z886113521968091188 z886113521968091188 = Z886113521968091188.a;
+        J8856184873186011997 p = q.p(Throwable.class, a14169635274474290551, z886113521968091188);
+        Y5459655644324746057 y5459655644324746057 = this.a;
+        Objects.requireNonNull(y5459655644324746057);
+        return B11509606741455062017.r(B11509606741455062017.s(p, new M15292376008478569006(y5459655644324746057, (byte) 3), z886113521968091188), new Y6811711242656246422(this, (byte) 0), z886113521968091188);
+    }
+
+    public final J8856184873186011997 c(final int i) {
+        yk0 yk0Var = yk0.EVENT_ID_PRIMARY_UPDATE_PROGRAM;
+        I13152720973475179368 q = I13152720973475179368.q(this.b.a());
+        M15292376008478569006 m15292376008478569006 = new M15292376008478569006(this, (byte) 4);
+        Z886113521968091188 z886113521968091188 = Z886113521968091188.a;
+        J8856184873186011997 p = B11509606741455062017.s(B11509606741455062017.r(B11509606741455062017.s(q, m15292376008478569006, z886113521968091188), new Y6811711242656246422(this, (byte) 1), z886113521968091188), new A14169635274474290551((byte) 10), z886113521968091188).p(V14017774250067683447.class, new A14169635274474290551((byte) 11), z886113521968091188).p(D17661665633033485461.class, new A14169635274474290551((byte) 12), z886113521968091188).p(T11567659380858569563.class, new W6764693637816104089() { // from class: dev.epro.r0.X5003637268597368417
+            @Override // dev.epro.r0.W6764693637816104089
+            public final Object apply(Object obj) {
+                zm3 zm3Var = zm3.this;
+                if (zm3Var.f) {
+                    int i2 = i;
+                    if (i2 < zm3Var.g) {
+                        zm3Var.e.a(new G7890783101991176815(zm3Var, i2, (byte) 1), zm3Var.h * ((long) Math.pow(2.0d, i2)));
+                    }
+                }
+                return ym3.f;
+            }
+        }, z886113521968091188);
+        this.d.a(yk0Var, (L7743116545240101509) p);
+        return p;
+    }
+}

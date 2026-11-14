@@ -1,0 +1,40 @@
+package dev.epro.r0;
+
+import java.util.Arrays;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes3.dex */
+public final class V16538704027610684546 {
+    public static final V16538704027610684546 a;
+
+    static {
+        int nnaglzvjgjdx;
+        izmyclvb.qgayjvbiagej2(575);
+        Object[] objArr = new Object[3];
+        while (true) {
+            try {
+                nnaglzvjgjdx = nnaglzvjgjdx(objArr);
+            } finally {
+                Arrays.fill(objArr, (Object) null);
+            }
+            if (nnaglzvjgjdx != 0) {
+                switch (nnaglzvjgjdx) {
+                    case 1:
+                        a = (V16538704027610684546) objArr[1];
+                    default:
+                        throw null;
+                }
+                Arrays.fill(objArr, (Object) null);
+            }
+            return;
+        }
+    }
+
+    private native void cksnjxvhvmyy();
+
+    private static native int nnaglzvjgjdx(Object[] objArr);
+
+    private V16538704027610684546() {
+        cksnjxvhvmyy();
+    }
+}

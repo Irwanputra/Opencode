@@ -1,0 +1,32 @@
+package dev.epro.r0;
+
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class Q4387574467995849280 {
+    public static final Q4387574467995849280 a;
+    public static final Q4387574467995849280 b;
+    public static final Q4387574467995849280 c;
+    public static final /* synthetic */ Q4387574467995849280[] d;
+
+    static {
+        Q4387574467995849280 q4387574467995849280 = new Q4387574467995849280("UNIVERSAL", 0);
+        a = q4387574467995849280;
+        Q4387574467995849280 q43875744679958492802 = new Q4387574467995849280("APPLICATION", 1);
+        Q4387574467995849280 q43875744679958492803 = new Q4387574467995849280("CONTEXT_SPECIFIC", 2);
+        b = q43875744679958492803;
+        Q4387574467995849280 q43875744679958492804 = new Q4387574467995849280("PRIVATE", 3);
+        Q4387574467995849280 q43875744679958492805 = new Q4387574467995849280("AUTOMATIC", 4);
+        c = q43875744679958492805;
+        d = new Q4387574467995849280[]{q4387574467995849280, q43875744679958492802, q43875744679958492803, q43875744679958492804, q43875744679958492805};
+    }
+
+    public static Q4387574467995849280 valueOf(String str) {
+        return (Q4387574467995849280) Enum.valueOf(Q4387574467995849280.class, str);
+    }
+
+    public static Q4387574467995849280[] values() {
+        return (Q4387574467995849280[]) d.clone();
+    }
+}

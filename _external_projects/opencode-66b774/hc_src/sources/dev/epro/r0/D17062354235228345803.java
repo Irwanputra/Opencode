@@ -1,0 +1,20 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes.dex */
+public final /* synthetic */ class D17062354235228345803 extends H4611829575853284164 implements F4096073349764486348 {
+    static {
+        izmyclvb.oeynnivvrnts0(885);
+    }
+
+    private native void hlhbdqfkkpxe();
+
+    @Override // dev.epro.r0.F4096073349764486348
+    public final native Object invoke(Object obj);
+
+    public D17062354235228345803(Object obj) {
+        super(1, obj, E16738326561887457683.class, izmyclvb.sb250e956f549(174), izmyclvb.sb250e956f549(175), 0);
+        hlhbdqfkkpxe();
+    }
+}

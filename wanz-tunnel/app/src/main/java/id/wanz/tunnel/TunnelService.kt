@@ -36,6 +36,7 @@ import java.util.Base64
 import java.util.Locale
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Menjalankan SSH tunnel, SOCKS5 lokal, dan (opsional) VpnService + tun2socks.
@@ -96,6 +97,12 @@ class TunnelService : VpnService() {
     }
 
     private val busy = AtomicBoolean(false)
+    /** Pin reset terkendali (watchdog/ping) agar hanya satu jalur reconnect. */
+    private val resetRequested = AtomicBoolean(false)
+    /** Penghitung ping gagal berturut-turut. */
+    private val pingFail = AtomicInteger(0)
+    /** Penghitung percobaan sambung ulang sejak sesi sehat terakhir. */
+    private val reconnectAttempt = AtomicInteger(0)
     @Volatile private var session: Session? = null
     @Volatile private var server: ServerSocket? = null
     @Volatile private var profile: Profile? = null
@@ -140,8 +147,19 @@ class TunnelService : VpnService() {
     private val cb = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(n: Network) {
             if (isVpnNetwork(n)) return
+            val switched = underlyingNetwork != null && n != underlyingNetwork
             underlyingNetwork = n
-            if (running) connect()
+            if (!running) return
+            if (switched) {
+                // Jaringan fisik berganti (Wi-Fi ↔ seluler): socket lama pasti
+                // mati. Reset segera, jangan tunggu keep-alive/ping mendeteksi.
+                TunnelLog.add("INFO", "Jaringan fisik berganti → koneksi direset")
+                val hadSession = server != null
+                requestReset("Jaringan fisik berganti")
+                if (!hadSession) profile?.let { handleDrop(it) }
+            } else {
+                connect()
+            }
         }
 
         override fun onLost(n: Network) {
@@ -223,6 +241,8 @@ class TunnelService : VpnService() {
             pingMs = -1
             pingAt = 0L
             connectedAt = 0L
+            reconnectAttempt.set(0)
+            pingFail.set(0)
             running = true
             foreground()
             set("Menunggu jaringan…")
@@ -231,13 +251,28 @@ class TunnelService : VpnService() {
         } else {
             foreground()
         }
-        return START_NOT_STICKY
+        // START_STICKY: bila proses dibunuh sistem, service dihidupkan ulang
+        // dan menyambung kembali otomatis dengan profil aktif.
+        return START_STICKY
     }
 
     override fun onRevoke() {
-        set("VPN dicabut")
-        releaseWakeLock()
-        stopSelf()
+        // VPN dicabut sistem (aplikasi VPN lain, toggle VPN, dsb.). Selagi
+        // service diminta berjalan, pasang ulang seperti putus biasa —
+        // "apa pun yang terjadi harus tersambung kembali otomatis".
+        stopVpn()
+        if (running) {
+            TunnelLog.add("WARN", "VPN dicabut sistem → dipasang ulang otomatis")
+            if (server != null) {
+                requestReset("VPN dicabut sistem")
+            } else {
+                profile?.let { handleDrop(it) }
+            }
+        } else {
+            set("VPN dicabut")
+            releaseWakeLock()
+            stopSelf()
+        }
         super.onRevoke()
     }
 
@@ -342,33 +377,42 @@ class TunnelService : VpnService() {
                 srv = ServerSocket(port, 64, InetAddress.getByName("127.0.0.1"))
                 session = s
                 server = srv
-                busy.set(false)
+                // Sesi baru sehat: nol-kan penghitung gagal/putus.
+                reconnectAttempt.set(0)
+                pingFail.set(0)
                 TunnelLog.add(TunnelLog.OK, "SOCKS5 lokal siap • 127.0.0.1:$port")
 
-                val mode = "VPN"
                 set("Menyiapkan VPN…")
                 main.post { startVpn(p) }
                 startPing(p)
 
-                while (true) {
+                // busy sengaja tetap ditahan selama sesi hidup agar connect()
+                // lain (perubahan jaringan, jadwal sambung ulang) tidak membuat
+                // sesi kedua; busy dilepas di finally ketika sesi tamat.
+                while (running) {
                     val c = srv.accept()
                     pool.execute { socks(c, s) }
                 }
             } catch (e: Exception) {
-                if (srv == null) busy.set(false)
+                if (running && srv == null) {
+                    // Gagal sebelum SOCKS siap (dial/auth). Reset terkendali
+                    // dari ping/watchdog tidak dilaporkan sebagai "Gagal".
+                    set("Gagal: ${e.message ?: e.javaClass.simpleName}")
+                }
+            } finally {
                 try { s?.disconnect() } catch (_: Exception) {}
-                // Jangan tinggalkan terowongan DNS berjalan saat SSH gagal:
-                // instance lama akan terus melakukan polling dan (sebelum
-                // v2.9.11) membanjiri log dengan galat socket tertutup.
+                try { srv?.close() } catch (_: Exception) {}
+                // Jangan tinggalkan terowongan DNS berjalan saat SSH mati.
                 SlowDnsTunnel.stop()
                 // TUN tanpa SOCKS hidup = semua trafik aplikasi mati. Tutup
                 // agar internet kembali normal saat koneksi gagal.
                 stopVpn()
-                if (running && srv?.isClosed != true) {
-                    set("Gagal: ${e.message ?: e.javaClass.simpleName}")
-                    if (p.autoReconnect) scheduleRetry() else set("Terputus")
-                }
+                stopPing()
+                busy.set(false)
             }
+            // Satu jalur keputusan sambung ulang untuk SEMUA penyebab putus:
+            // gagal dial, sesi mati (watchdog/ping), atau server socket tutup.
+            if (running) handleDrop(p)
         }.start()
     }
 
@@ -464,21 +508,72 @@ class TunnelService : VpnService() {
         }
     }
 
-    private fun scheduleRetry() {
-        TunnelLog.add("STATUS", "Mencoba ulang dalam 5 detik…")
+    /**
+     * Reset terkendali ala "Auto Ping: resetting connection" HTTP Custom:
+     * tutup sesi & server socket supaya loop penerima keluar, lalu jalur
+     * [handleDrop] yang memutuskan sambung ulang. Idempoten — hanya sesi
+     * pertama yang memicu log/penutupan.
+     */
+    private fun requestReset(reason: String) {
+        if (!running) return
+        val srv = server ?: return
+        server = null
+        try { srv.close() } catch (_: Exception) {}
+        TunnelLog.add("WARN", reason)
+        try { session?.disconnect() } catch (_: Exception) {}
+    }
+
+    /**
+     * Dipanggil satu jalur setiap sesi berakhir selagi service masih diminta
+     * berjalan: naikkan penghitung percobaan, cek batas, lalu jadwalkan
+     * sambung ulang dengan jeda tetap (padanan reconnect_delay_ms HTTP Custom).
+     */
+    private fun handleDrop(p: Profile) {
+        if (!running) return
+        if (!p.autoReconnect) {
+            set("Terputus")
+            TunnelLog.add("STATUS", "Sambung ulang otomatis nonaktif")
+            return
+        }
+        val attempt = reconnectAttempt.incrementAndGet()
+        val max = p.maxReconnect
+        if (max in 1..(attempt - 1)) {
+            TunnelLog.add(
+                "WARN",
+                "Batas percobaan sambung ulang tercapai ($max). Coba hubungkan kembali secara manual."
+            )
+            set("Gagal: Batas percobaan sambung ulang tercapai")
+            running = false
+            releaseWakeLock()
+            stopSelf()
+            return
+        }
+        val delaySec = p.reconnectDelaySec.coerceIn(1, 300)
+        val label = if (max > 0) "$attempt/$max" else "$attempt"
+        set("Menyambung ulang ($label) dalam $delaySec detik…")
         main.postDelayed({
-            if (running) connect()
-        }, 5_000)
+            // Lewati bila sesi sudah sehat lagi (mis. sambung ulang dari
+            // perubahan jaringan lebih dulu).
+            if (running && session?.isConnected != true) connect()
+        }, delaySec * 1000L)
     }
 
     // ---------------------------------------------------------------- ping
 
     private fun startPing(p: Profile) {
-        if (!p.autoPing) return
+        if (!p.autoPing) {
+            TunnelLog.add("PING", "Ping otomatis nonaktif: koneksi tidak diawasi")
+            return
+        }
         stopPing()
         pingStop.set(false)
         val intervalMs = p.pingInterval.coerceIn(5, 300) * 1000L
-        TunnelLog.add("PING", "Auto ping aktif tiap ${p.pingInterval.coerceIn(5, 300)} dtk → ${p.pingTarget}")
+        val via = if (p.pingUrl.isNotBlank()) "URL ${p.pingUrl}" else "TCP ${p.pingTarget}"
+        TunnelLog.add(
+            "PING",
+            "Auto ping tiap ${p.pingInterval.coerceIn(5, 300)} dtk → $via • " +
+                "reset setelah ${p.pingFailReset.coerceIn(1, 20)} gagal"
+        )
         pingThread = Thread {
             // Ping pertama langsung agar angkanya cepat muncul.
             if (!pingStop.get() && running) doPing(manual = false)
@@ -489,6 +584,13 @@ class TunnelService : VpnService() {
                     break
                 }
                 if (pingStop.get() || !running) break
+                // Watchdog sesi: deteksi koneksi mati walau tidak ada trafik
+                // (sebelumnya sesi mati diam-diam tidak pernah diputus).
+                val ses = session
+                if (ses != null && !ses.isConnected) {
+                    requestReset("Sesi SSH terputus (watchdog)")
+                    continue
+                }
                 doPing(manual = false)
             }
         }.apply {
@@ -508,19 +610,83 @@ class TunnelService : VpnService() {
         val p = profile ?: return
         if (!running) return
         val s = session ?: return
-        val (host, port) = parsePingTarget(p.pingTarget.ifBlank { "1.1.1.1:443" })
-        val ms = channelPing(s, host, port)
+        val timeoutMs = p.pingTimeoutSec.coerceIn(1, 60) * 1000
+        val ms = if (p.pingUrl.isNotBlank()) {
+            urlPing(p.pingUrl, timeoutMs)
+        } else {
+            val (host, port) = parsePingTarget(p.pingTarget.ifBlank { "1.1.1.1:443" })
+            channelPing(s, host, port, timeoutMs)
+        }
         if (!running) return
         if (ms >= 0) {
             pingMs = ms
             pingAt = System.currentTimeMillis()
+            pingFail.set(0)
             TunnelLog.add("PING", "$ms ms" + if (manual) " (manual)" else "")
         } else {
             pingMs = -1
             pingAt = System.currentTimeMillis()
-            TunnelLog.add("PING", "timeout" + if (manual) " (manual)" else "")
+            if (manual) {
+                TunnelLog.add("PING", "timeout (manual)")
+            } else {
+                // Penghitung kegagalan bergaya HTTP Custom: setelah batas,
+                // koneksi direset dan disambung ulang otomatis.
+                val fails = pingFail.incrementAndGet()
+                val limit = p.pingFailReset.coerceIn(1, 20)
+                TunnelLog.add("PING", "timeout ($fails/$limit)")
+                if (fails >= limit) {
+                    pingFail.set(0)
+                    requestReset("Auto ping gagal $limit kali berturut-turut → koneksi direset")
+                }
+            }
         }
         onStatus?.invoke()
+    }
+
+    /**
+     * Uji internet lewat jalur tunnel sungguhan: HTTP GET ke [url] dari
+     * socket yang diikat ke jaringan VPN. Berhasil bila ada respons HTTP.
+     * Ini yang mendeteksi kondisi "ping SSH hidup tetapi internet mati".
+     */
+    private fun urlPing(url: String, timeoutMs: Int): Int {
+        val start = System.nanoTime()
+        var sock: Socket? = null
+        return try {
+            val u = java.net.URI(url.trim())
+            val host = u.host ?: return -1
+            val https = u.scheme.equals("https", ignoreCase = true)
+            val port = if (u.port > 0) u.port else if (https) 443 else 80
+            val path = u.rawPath?.takeIf { it.isNotEmpty() } ?: "/"
+            // Ikat ke jaringan VPN supaya uji benar-benar lewat tunnel; VPN
+            // belum terpasang dianggap gagal (jalur belum terlindungi).
+            val cm = getSystemService(ConnectivityManager::class.java)
+            val vpnNet = cm.allNetworks.firstOrNull { isVpnNetwork(it) } ?: return -1
+            val s: Socket = if (https) {
+                javax.net.ssl.SSLSocketFactory.getDefault().createSocket()
+            } else {
+                Socket()
+            }
+            sock = s
+            vpnNet.bindSocket(s)
+            s.tcpNoDelay = true
+            s.connect(InetSocketAddress(host, port), timeoutMs)
+            s.soTimeout = timeoutMs
+            val req = "GET $path HTTP/1.1\r\nHost: $host\r\n" +
+                "User-Agent: WanzTunnel/${BuildConfig.VERSION_NAME}\r\n" +
+                "Connection: close\r\n\r\n"
+            s.getOutputStream().write(req.toByteArray(Charsets.UTF_8))
+            s.getOutputStream().flush()
+            val status = s.getInputStream().bufferedReader().readLine() ?: return -1
+            if (status.startsWith("HTTP/")) {
+                ((System.nanoTime() - start) / 1_000_000L).toInt()
+            } else {
+                -1
+            }
+        } catch (_: Exception) {
+            -1
+        } finally {
+            try { sock?.close() } catch (_: Exception) {}
+        }
     }
 
     /**
@@ -528,14 +694,14 @@ class TunnelService : VpnService() {
      * tutup lagi. Ini mengukur jalur server SSH sebenarnya (bukan ICMP lokal)
      * tanpa mengotori log dengan entri SOCKS.
      */
-    private fun channelPing(s: Session, host: String, port: Int): Int {
+    private fun channelPing(s: Session, host: String, port: Int, timeoutMs: Int = 8_000): Int {
         var ch: ChannelDirectTCPIP? = null
         return try {
             val start = System.nanoTime()
             ch = s.openChannel("direct-tcpip") as ChannelDirectTCPIP
             ch.setHost(host)
             ch.setPort(port)
-            ch.connect(8_000)
+            ch.connect(timeoutMs)
             ((System.nanoTime() - start) / 1_000_000L).toInt()
         } catch (_: Exception) {
             -1
@@ -569,8 +735,15 @@ class TunnelService : VpnService() {
         s.userInfo = ui
         s.setConfig("StrictHostKeyChecking", "ask")
         s.setConfig("PreferredAuthentications", "password,keyboard-interactive")
-        s.setServerAliveInterval(120_000)
-        s.setServerAliveCountMax(3)
+        // Keep-alive SSH bisa diatur (gaya "SSH keep-alive interval" HTTP
+        // Custom). 30 dtk × 3 gagal = sesi mati terdeteksi ≤ 90 dtk, jauh
+        // lebih cepat daripada 120 dtk × 3 sebelumnya.
+        val kaSec = p.sshKeepAliveSec.coerceIn(0, 600)
+        if (kaSec > 0) {
+            s.setServerAliveInterval(kaSec * 1000)
+            s.setServerAliveCountMax(3)
+            TunnelLog.add("SSH", "Keep-alive SSH tiap $kaSec dtk (3 kali gagal → sesi putus)")
+        }
         if (slowDnsPort > 0) {
             // SSH berjalan di atas terowongan SlowDNS (loopback → DNS).
             // Socket loopback tidak masuk TUN, jadi tidak perlu protect().
@@ -726,8 +899,10 @@ class TunnelService : VpnService() {
             try { channel?.disconnect() } catch (_: Exception) {}
             try { c.close() } catch (_: Exception) {}
             if (running && s === session && !s.isConnected) {
-                set("Terputus, menyambung ulang…")
-                connect()
+                // Sesi benar-benar mati: reset terkendali → satu jalur
+                // sambung ulang lewat handleDrop (bukan connect() langsung,
+                // yang dulu bisa menumpuk sesi).
+                requestReset("Sesi SSH terputus saat menangani koneksi")
             }
         }
     }
@@ -796,8 +971,15 @@ class TunnelService : VpnService() {
         } catch (t: Throwable) {
             Log.e(TAG, "Gagal VPN", t)
             stopVpn()
-            set("Gagal VPN: ${t.message ?: t.javaClass.simpleName}")
-            stopSelf()
+            if (running) {
+                // Kegagalan memasang VPN bukan akhir: reset sesi agar loop
+                // koneksi mencoba lagi (sambung ulang otomatis).
+                set("Gagal VPN: ${t.message ?: t.javaClass.simpleName} • mencoba ulang")
+                requestReset("Gagal memasang VPN (${t.message ?: t.javaClass.simpleName})")
+            } else {
+                set("Gagal VPN: ${t.message ?: t.javaClass.simpleName}")
+                stopSelf()
+            }
         }
     }
 

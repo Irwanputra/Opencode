@@ -133,7 +133,9 @@ sudut, dan bentuk kontrol, bukan dari font.
      ikon gembok + label `HUBUNGKAN` → `MENYAMBUNG…` (abu) → `PUTUSKAN` /
      `COBA LAGI` (merah);
    - di luar kartu: baris status di tengah dengan titik warna status
-     (hijau Terhubung, kuning peringatan, merah gagal);
+     (hijau Terhubung, kuning peringatan, merah gagal); saat koneksi putus
+     dan disambung ulang otomatis, status menampilkan progres
+     `Menyambung ulang (n) dalam X detik…` (v2.9.18);
    - kartu statistik dengan kepala label mikro `TRANSFER DATA` dan pil
      `LIVE` saat tunnel aktif; panah ↓ Unduh dan ↑ Unggah dengan angka
      total besar dan kecepatan sesaat di bawahnya; baris bawah berisi titik

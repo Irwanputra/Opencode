@@ -1,0 +1,29 @@
+package dev.epro.r0;
+
+import android.os.Build;
+import android.view.autofill.AutofillValue;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class E4498958144884678646 extends U3171922415799673643 {
+    public Y16443381041276641359 M;
+
+    @Override // dev.epro.r0.E10177778682618078576
+    public final void k1(S2460821117650695638 s2460821117650695638) {
+        R1411039272204519728 r1411039272204519728;
+        AutofillValue forToggle;
+        U4676709778812953726.p(s2460821117650695638, this.M);
+        U4676709778812953726.f(s2460821117650695638, N5158094851646208854.f);
+        boolean z = this.M != Y16443381041276641359.c;
+        if (Build.VERSION.SDK_INT >= 26) {
+            forToggle = AutofillValue.forToggle(z);
+            r1411039272204519728 = new R1411039272204519728(forToggle);
+        } else {
+            r1411039272204519728 = null;
+        }
+        if (r1411039272204519728 != null) {
+            U4676709778812953726.i(s2460821117650695638, r1411039272204519728);
+        }
+        U4676709778812953726.c(s2460821117650695638, new T4015880614313284322(s2460821117650695638, (byte) 2));
+    }
+}

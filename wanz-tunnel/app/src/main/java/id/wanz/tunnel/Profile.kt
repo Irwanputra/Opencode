@@ -42,6 +42,20 @@ data class Profile(
     var pingInterval: Int = 10,
     var pingTarget: String = "1.1.1.1:443",
     var autoReconnect: Boolean = true,
+    // Pengawas koneksi gaya HTTP Custom 8.x: ping gagal beruntun → koneksi
+    // direset, lalu disambung ulang dengan jeda tetap sampai batas percobaan.
+    /** Batas waktu tiap ping (detik). */
+    var pingTimeoutSec: Int = 5,
+    /** Ping gagal berturut sebanyak ini → koneksi direset. */
+    var pingFailReset: Int = 3,
+    /** URL uji internet lewat tunnel; kosong = ping TCP ke pingTarget. */
+    var pingUrl: String = "",
+    /** Jeda sebelum tiap percobaan sambung ulang (detik). */
+    var reconnectDelaySec: Int = 5,
+    /** Batas percobaan sambung ulang; 0 = tanpa batas. */
+    var maxReconnect: Int = 0,
+    /** Interval SSH keep-alive (detik); 0 = nonaktif. */
+    var sshKeepAliveSec: Int = 30,
     var onlyMobileData: Boolean = false,
     var blockRoot: Boolean = false,
     var mappedDns: Boolean = true,
@@ -146,6 +160,12 @@ class ProfileStore(context: Context) {
             put("pingInterval", p.pingInterval)
             put("pingTarget", p.pingTarget)
             put("autoReconnect", p.autoReconnect)
+            put("pingTimeoutSec", p.pingTimeoutSec)
+            put("pingFailReset", p.pingFailReset)
+            put("pingUrl", p.pingUrl)
+            put("reconnectDelaySec", p.reconnectDelaySec)
+            put("maxReconnect", p.maxReconnect)
+            put("sshKeepAliveSec", p.sshKeepAliveSec)
             put("onlyMobileData", p.onlyMobileData)
             put("blockRoot", p.blockRoot)
             put("mappedDns", p.mappedDns)
@@ -187,6 +207,12 @@ class ProfileStore(context: Context) {
             pingInterval = o.optInt("pingInterval", 10),
             pingTarget = o.optString("pingTarget", "1.1.1.1:443"),
             autoReconnect = o.optBoolean("autoReconnect", true),
+            pingTimeoutSec = o.optInt("pingTimeoutSec", 5).coerceIn(1, 60),
+            pingFailReset = o.optInt("pingFailReset", 3).coerceIn(1, 20),
+            pingUrl = o.optString("pingUrl", ""),
+            reconnectDelaySec = o.optInt("reconnectDelaySec", 5).coerceIn(1, 300),
+            maxReconnect = o.optInt("maxReconnect", 0).coerceAtLeast(0),
+            sshKeepAliveSec = o.optInt("sshKeepAliveSec", 30).coerceIn(0, 600),
             onlyMobileData = o.optBoolean("onlyMobileData", false),
             blockRoot = o.optBoolean("blockRoot", false),
             mappedDns = o.optBoolean("mappedDns", true),

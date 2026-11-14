@@ -1,0 +1,8 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class W15770782626803742669 implements N4285382858303960736 {
+    public final V697849047308847220 a = V4416135141588678913.t(new Q13254524308163418711(0));
+    public final V15405126878164315789 b = new V15405126878164315789();
+}

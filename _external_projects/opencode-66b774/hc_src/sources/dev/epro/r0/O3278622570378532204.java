@@ -1,0 +1,35 @@
+package dev.epro.r0;
+
+import java.util.List;
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes2.dex */
+public final class O3278622570378532204 implements G13792465322404021864 {
+    public final /* synthetic */ List a;
+    public final /* synthetic */ L13148442655056575112 b;
+    public final /* synthetic */ F4096073349764486348 c;
+    public final /* synthetic */ boolean d;
+    public final /* synthetic */ W1972671267364756056 e;
+    public final /* synthetic */ W1972671267364756056 f;
+    public final /* synthetic */ L13148442655056575112 g;
+
+    static {
+        izmyclvb.dpqpjfpoanwt1(2212);
+    }
+
+    private native void plykgmxhzcqc(List list, L13148442655056575112 l13148442655056575112, F4096073349764486348 f4096073349764486348, boolean z, W1972671267364756056 w1972671267364756056, W1972671267364756056 w19726712673647560562, L13148442655056575112 l131484426550565751122);
+
+    @Override // dev.epro.r0.G13792465322404021864
+    public final native Object i(Object obj, Object obj2, Object obj3, Object obj4);
+
+    public O3278622570378532204(List list, L13148442655056575112 l13148442655056575112, F4096073349764486348 f4096073349764486348, boolean z, W1972671267364756056 w1972671267364756056, W1972671267364756056 w19726712673647560562, L13148442655056575112 l131484426550565751122) {
+        this.a = list;
+        this.b = l13148442655056575112;
+        this.c = f4096073349764486348;
+        this.d = z;
+        this.e = w1972671267364756056;
+        this.f = w19726712673647560562;
+        this.g = l131484426550565751122;
+        plykgmxhzcqc(list, l13148442655056575112, f4096073349764486348, z, w1972671267364756056, w19726712673647560562, l131484426550565751122);
+    }
+}

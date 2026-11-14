@@ -1,0 +1,29 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes3.dex */
+public final class X14100932881094993566 {
+    public final B13710558311212348614 a;
+    public final B13710558311212348614 b;
+    public final B13710558311212348614 c;
+
+    static {
+        izmyclvb.qgayjvbiagej2(415);
+    }
+
+    private native void znmydqwgjivn(B13710558311212348614 b13710558311212348614, B13710558311212348614 b137105583112123486142, B13710558311212348614 b137105583112123486143);
+
+    public final native boolean equals(Object obj);
+
+    public final native int hashCode();
+
+    public final native String toString();
+
+    public X14100932881094993566(B13710558311212348614 b13710558311212348614, B13710558311212348614 b137105583112123486142, B13710558311212348614 b137105583112123486143) {
+        b13710558311212348614.getClass();
+        b137105583112123486142.getClass();
+        b137105583112123486143.getClass();
+        znmydqwgjivn(b13710558311212348614, b137105583112123486142, b137105583112123486143);
+    }
+}

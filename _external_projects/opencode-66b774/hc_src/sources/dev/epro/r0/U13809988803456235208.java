@@ -1,0 +1,13 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class U13809988803456235208 {
+    public final M11181104712105445833 a;
+    public M11181104712105445833 b;
+
+    public U13809988803456235208(M11181104712105445833 m11181104712105445833) {
+        this.a = m11181104712105445833;
+        this.b = m11181104712105445833;
+    }
+}

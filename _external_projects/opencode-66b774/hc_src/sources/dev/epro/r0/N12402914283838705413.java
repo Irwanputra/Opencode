@@ -1,0 +1,8 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public interface N12402914283838705413 extends A10693687560045094360 {
+    @Override // dev.epro.r0.M15459437176959963354
+    H3517214926285464793 a(R3937090736490516115 r3937090736490516115);
+}

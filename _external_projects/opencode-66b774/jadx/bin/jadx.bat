@@ -14,7 +14,7 @@ set APP_BASE_NAME=%~n0
 set APP_HOME=%DIRNAME%..
 
 @rem Add default JVM options here. You can also use JAVA_OPTS and JADX_OPTS to pass JVM options to this script.
-set DEFAULT_JVM_OPTS="-XX:+IgnoreUnrecognizedVMOptions" "-Xms256M" "-XX:MaxRAMPercentage=70.0" "-XX:ParallelGCThreads=3" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true" "--enable-native-access=ALL-UNNAMED"
+set DEFAULT_JVM_OPTS="-Xms256M" "-XX:MaxRAMPercentage=70.0" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true"
 
 @rem Find java.exe
 if defined JAVA_HOME goto findJavaFromJavaHome
@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\jadx-1.5.4-all.jar
+set CLASSPATH=%APP_HOME%\lib\jadx-1.5.1-all.jar
 
 @rem Execute jadx
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %JADX_OPTS%  -cp "%CLASSPATH%" jadx.cli.JadxCLI %CMD_LINE_ARGS%

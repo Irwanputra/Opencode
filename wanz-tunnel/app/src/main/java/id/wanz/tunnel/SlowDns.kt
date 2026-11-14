@@ -130,6 +130,31 @@ object SlowDns {
  */
 object SlowDnsTunnel {
 
+    /** Hasil probe pustaka native; null = belum dicek. */
+    @Volatile private var nativeProbe: Boolean? = null
+
+    /**
+     * true bila pustaka native SlowDNS (libgojni.so, gomobile) tersedia untuk
+     * ABI perangkat. Dicek dengan memuat pustakanya langsung supaya perangkat
+     * atau emulator tanpa ABI tersebut tidak crash saat menyentuh kelas
+     * binding.
+     */
+    fun nativeAvailable(): Boolean {
+        nativeProbe?.let { return it }
+        val ok = try {
+            System.loadLibrary("gojni")
+            true
+        } catch (t: Throwable) {
+            TunnelLog.add(
+                TunnelLog.WARN,
+                "SlowDNS tidak tersedia: pustaka native tidak ada untuk ABI ini"
+            )
+            false
+        }
+        nativeProbe = ok
+        return ok
+    }
+
     /** Penerima log dari pustaka native → TunnelLog. */
     private val logger = object : Logger {
         override fun log(msg: String?) {
@@ -156,6 +181,11 @@ object SlowDnsTunnel {
      * @throws IOException bila konfigurasi/sesi gagal.
      */
     fun startAndWait(p: Profile, timeoutMs: Int, protect: ((Int) -> Boolean)? = null): Int {
+        if (!nativeAvailable()) {
+            throw IOException(
+                "SlowDNS tidak tersedia: pustaka native tidak ada untuk ABI perangkat ini"
+            )
+        }
         TunnelLog.add(
             SlowDns.TAG,
             "Menyalakan SlowDNS • ${SlowDns.normalizeResolver(p.slowdnsResolver)} • " +
@@ -207,13 +237,15 @@ object SlowDnsTunnel {
 
     /** Matikan terowongan bila berjalan; aman dipanggil berkali-kali. */
     fun stop() {
+        if (!nativeAvailable()) return
         try {
             NativeSlowDns.stop()
-        } catch (_: Exception) {
+        } catch (_: Throwable) {
+            // Pustaka native bisa saja tidak ada (ABI lain); biarkan senyap.
         }
         try {
             NativeSlowDns.setSocketProtector(null)
-        } catch (_: Exception) {
+        } catch (_: Throwable) {
         }
     }
 }

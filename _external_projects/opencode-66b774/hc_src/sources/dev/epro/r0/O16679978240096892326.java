@@ -1,0 +1,12 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes2.dex */
+public abstract class O16679978240096892326 {
+    static {
+        izmyclvb.dpqpjfpoanwt1(1341);
+    }
+
+    public static final native Object a(F16625700751214468455 f16625700751214468455, C10188006961897293350 c10188006961897293350, K17615185513885186329 k17615185513885186329, K14749510448791472029 k14749510448791472029);
+}

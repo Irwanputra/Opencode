@@ -1,0 +1,35 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class K8392039229322454374 extends J2215566372910931965 implements T11401768751197276141 {
+    public H7844982194660002900 q;
+    public float r;
+    public H10765568533039107979 s;
+    public I5573661370475160895 t;
+    public final Q686808008070211503 u;
+
+    public K8392039229322454374(float f, H10765568533039107979 h10765568533039107979, I5573661370475160895 i5573661370475160895) {
+        this.r = f;
+        this.s = h10765568533039107979;
+        this.t = i5573661370475160895;
+        Q686808008070211503 q686808008070211503 = new Q686808008070211503(new W15170032298606046665(), new A6662317080022852970(this, (byte) 15));
+        h1(q686808008070211503);
+        this.u = q686808008070211503;
+    }
+
+    @Override // dev.epro.r0.T11401768751197276141
+    public final void V(S2460821117650695638 s2460821117650695638) {
+        U4676709778812953726.o(s2460821117650695638, this.t);
+    }
+
+    @Override // dev.epro.r0.R15896830329318850690
+    public final boolean W0() {
+        return false;
+    }
+
+    @Override // dev.epro.r0.T11401768751197276141
+    public final boolean k() {
+        return false;
+    }
+}

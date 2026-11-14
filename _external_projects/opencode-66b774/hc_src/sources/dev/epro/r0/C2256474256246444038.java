@@ -1,0 +1,68 @@
+package dev.epro.r0;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes.dex */
+public final class C2256474256246444038 {
+    public static final C2256474256246444038 c = new C2256474256246444038();
+    public final ConcurrentHashMap b = new ConcurrentHashMap();
+    public final H12843822278061842084 a = new H12843822278061842084((byte) 3);
+
+    public final Y3341182438442346389 a(Class cls) {
+        N11883436969612056524 n11883436969612056524;
+        Y3341182438442346389 z;
+        S15638288480382345131.a("messageType", cls);
+        ConcurrentHashMap concurrentHashMap = this.b;
+        Y3341182438442346389 y3341182438442346389 = (Y3341182438442346389) concurrentHashMap.get(cls);
+        if (y3341182438442346389 != null) {
+            return y3341182438442346389;
+        }
+        Class cls2 = W3646014350333091735.a;
+        if (!Z14368087615735085238.class.isAssignableFrom(cls)) {
+            Class cls3 = E6993330184355272251.a;
+            Class cls4 = W3646014350333091735.a;
+            if (cls4 != null && !cls4.isAssignableFrom(cls)) {
+                S10973172697741180971.j("Message classes must extend GeneratedMessage or GeneratedMessageLite");
+                return null;
+            }
+        }
+        J14415172299974100388 a = ((Z17811827500574349708) this.a.b).a(cls);
+        if ((a.d & 2) == 2) {
+            Class cls5 = E6993330184355272251.a;
+            if (Z14368087615735085238.class.isAssignableFrom(cls)) {
+                z = new C16454110057029070726(W3646014350333091735.c, V9657943390133166886.a, a.a);
+            } else {
+                R1604357493379982192 r1604357493379982192 = W3646014350333091735.b;
+                N11883436969612056524 n118834369696120565242 = V9657943390133166886.b;
+                if (n118834369696120565242 == null) {
+                    S10973172697741180971.m("Protobuf runtime is not correctly loaded.");
+                    return null;
+                }
+                z = new C16454110057029070726(r1604357493379982192, n118834369696120565242, a.a);
+            }
+        } else {
+            Class cls6 = E6993330184355272251.a;
+            if (Z14368087615735085238.class.isAssignableFrom(cls)) {
+                z = O6762602046924520025.z(a, W13506957901810483762.b, N2059931192635908863.b, W3646014350333091735.c, L11610354117192841236.A(a.a()) != 1 ? V9657943390133166886.a : null, G7531848148988854188.b);
+            } else {
+                J11813598540494406709 j11813598540494406709 = W13506957901810483762.a;
+                J8782244783781293484 j8782244783781293484 = N2059931192635908863.a;
+                R1604357493379982192 r16043574933799821922 = W3646014350333091735.b;
+                if (L11610354117192841236.A(a.a()) != 1) {
+                    N11883436969612056524 n118834369696120565243 = V9657943390133166886.b;
+                    if (n118834369696120565243 == null) {
+                        S10973172697741180971.m("Protobuf runtime is not correctly loaded.");
+                        return null;
+                    }
+                    n11883436969612056524 = n118834369696120565243;
+                } else {
+                    n11883436969612056524 = null;
+                }
+                z = O6762602046924520025.z(a, j11813598540494406709, j8782244783781293484, r16043574933799821922, n11883436969612056524, G7531848148988854188.a);
+            }
+        }
+        Y3341182438442346389 y33411824384423463892 = (Y3341182438442346389) concurrentHashMap.putIfAbsent(cls, z);
+        return y33411824384423463892 != null ? y33411824384423463892 : z;
+    }
+}

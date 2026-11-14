@@ -1,0 +1,29 @@
+package dev.epro.r0;
+
+import o.bwmna.gdrqkg.izmyclvb;
+
+/* loaded from: classes3.dex */
+public final class W3865959712057546824 extends K14749510448791472029 {
+    public long t;
+    public R14062301455140331524 u;
+    public R8015591507171738907 v;
+    public /* synthetic */ Object w;
+    public final /* synthetic */ Y12768803950665009635 x;
+    public int y;
+
+    static {
+        izmyclvb.qgayjvbiagej2(2149);
+    }
+
+    private native void enhbewqtmyjz(Y12768803950665009635 y12768803950665009635, R4833348786910499294 r4833348786910499294);
+
+    @Override // dev.epro.r0.B401944902727389462
+    public final native Object invokeSuspend(Object obj);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public W3865959712057546824(Y12768803950665009635 y12768803950665009635, R4833348786910499294 r4833348786910499294) {
+        super(r4833348786910499294);
+        this.x = y12768803950665009635;
+        enhbewqtmyjz(y12768803950665009635, r4833348786910499294);
+    }
+}

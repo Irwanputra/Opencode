@@ -1,0 +1,163 @@
+package dev.epro.r0;
+
+import androidx.webkit.WebViewFeature;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public abstract class Q6344330807969154194 {
+    public static final B5488833628674465193 A;
+    public static final B5488833628674465193 B;
+    public static final B5488833628674465193 C;
+    public static final B5488833628674465193 D;
+    public static final B5488833628674465193 E;
+    public static final B5488833628674465193 a;
+    public static final B5488833628674465193 b;
+    public static final B5488833628674465193 c;
+    public static final B5488833628674465193 d;
+    public static final B5488833628674465193 e;
+    public static final B5488833628674465193 f;
+    public static final B5488833628674465193 g;
+    public static final B5488833628674465193 h;
+    public static final B5488833628674465193 i;
+    public static final B5488833628674465193 j;
+    public static final B5488833628674465193 k;
+    public static final B5488833628674465193 l;
+    public static final B5488833628674465193 m;
+    public static final B5488833628674465193 n;
+
+    /* renamed from: o, reason: collision with root package name */
+    public static final T14941726711530066562 f456o;
+    public static final B5488833628674465193 p;
+    public static final T14941726711530066562 q;
+    public static final B5488833628674465193 r;
+    public static final B5488833628674465193 s;
+    public static final B5488833628674465193 t;
+    public static final B5488833628674465193 u;
+    public static final B5488833628674465193 v;
+    public static final B5488833628674465193 w;
+    public static final B5488833628674465193 x;
+    public static final B5488833628674465193 y;
+    public static final B5488833628674465193 z;
+
+    static {
+        new B5488833628674465193(WebViewFeature.VISUAL_STATE_CALLBACK, WebViewFeature.VISUAL_STATE_CALLBACK, (byte) 0);
+        new B5488833628674465193(WebViewFeature.OFF_SCREEN_PRERASTER, WebViewFeature.OFF_SCREEN_PRERASTER, (byte) 0);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_ENABLE, WebViewFeature.SAFE_BROWSING_ENABLE, (byte) 3);
+        new B5488833628674465193(WebViewFeature.DISABLED_ACTION_MODE_MENU_ITEMS, WebViewFeature.DISABLED_ACTION_MODE_MENU_ITEMS, (byte) 1);
+        a = new B5488833628674465193(WebViewFeature.START_SAFE_BROWSING, WebViewFeature.START_SAFE_BROWSING, (byte) 4);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_WHITELIST, WebViewFeature.SAFE_BROWSING_WHITELIST, (byte) 4);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_WHITELIST, WebViewFeature.SAFE_BROWSING_ALLOWLIST, (byte) 4);
+        b = new B5488833628674465193(WebViewFeature.SAFE_BROWSING_ALLOWLIST, WebViewFeature.SAFE_BROWSING_WHITELIST, (byte) 4);
+        c = new B5488833628674465193(WebViewFeature.SAFE_BROWSING_ALLOWLIST, WebViewFeature.SAFE_BROWSING_ALLOWLIST, (byte) 4);
+        d = new B5488833628674465193(WebViewFeature.SAFE_BROWSING_PRIVACY_POLICY_URL, WebViewFeature.SAFE_BROWSING_PRIVACY_POLICY_URL, (byte) 4);
+        new B5488833628674465193(WebViewFeature.SERVICE_WORKER_BASIC_USAGE, WebViewFeature.SERVICE_WORKER_BASIC_USAGE, (byte) 1);
+        new B5488833628674465193(WebViewFeature.SERVICE_WORKER_CACHE_MODE, WebViewFeature.SERVICE_WORKER_CACHE_MODE, (byte) 1);
+        new B5488833628674465193(WebViewFeature.SERVICE_WORKER_CONTENT_ACCESS, WebViewFeature.SERVICE_WORKER_CONTENT_ACCESS, (byte) 1);
+        new B5488833628674465193(WebViewFeature.SERVICE_WORKER_FILE_ACCESS, WebViewFeature.SERVICE_WORKER_FILE_ACCESS, (byte) 1);
+        new B5488833628674465193(WebViewFeature.SERVICE_WORKER_BLOCK_NETWORK_LOADS, WebViewFeature.SERVICE_WORKER_BLOCK_NETWORK_LOADS, (byte) 1);
+        new B5488833628674465193(WebViewFeature.SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST, WebViewFeature.SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST, (byte) 1);
+        new B5488833628674465193(WebViewFeature.RECEIVE_WEB_RESOURCE_ERROR, WebViewFeature.RECEIVE_WEB_RESOURCE_ERROR, (byte) 0);
+        new B5488833628674465193(WebViewFeature.RECEIVE_HTTP_ERROR, WebViewFeature.RECEIVE_HTTP_ERROR, (byte) 0);
+        new B5488833628674465193(WebViewFeature.SHOULD_OVERRIDE_WITH_REDIRECTS, WebViewFeature.SHOULD_OVERRIDE_WITH_REDIRECTS, (byte) 1);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_HIT, WebViewFeature.SAFE_BROWSING_HIT, (byte) 4);
+        new B5488833628674465193(WebViewFeature.WEB_RESOURCE_REQUEST_IS_REDIRECT, WebViewFeature.WEB_RESOURCE_REQUEST_IS_REDIRECT, (byte) 1);
+        new B5488833628674465193(WebViewFeature.WEB_RESOURCE_ERROR_GET_DESCRIPTION, WebViewFeature.WEB_RESOURCE_ERROR_GET_DESCRIPTION, (byte) 0);
+        new B5488833628674465193(WebViewFeature.WEB_RESOURCE_ERROR_GET_CODE, WebViewFeature.WEB_RESOURCE_ERROR_GET_CODE, (byte) 0);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_RESPONSE_BACK_TO_SAFETY, WebViewFeature.SAFE_BROWSING_RESPONSE_BACK_TO_SAFETY, (byte) 4);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_RESPONSE_PROCEED, WebViewFeature.SAFE_BROWSING_RESPONSE_PROCEED, (byte) 4);
+        new B5488833628674465193(WebViewFeature.SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL, WebViewFeature.SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL, (byte) 4);
+        new B5488833628674465193(WebViewFeature.WEB_MESSAGE_PORT_POST_MESSAGE, WebViewFeature.WEB_MESSAGE_PORT_POST_MESSAGE, (byte) 0);
+        new B5488833628674465193(WebViewFeature.WEB_MESSAGE_PORT_CLOSE, WebViewFeature.WEB_MESSAGE_PORT_CLOSE, (byte) 0);
+        e = new B5488833628674465193(WebViewFeature.WEB_MESSAGE_ARRAY_BUFFER, WebViewFeature.WEB_MESSAGE_ARRAY_BUFFER, (byte) 2);
+        new B5488833628674465193(WebViewFeature.WEB_MESSAGE_PORT_SET_MESSAGE_CALLBACK, WebViewFeature.WEB_MESSAGE_PORT_SET_MESSAGE_CALLBACK, (byte) 0);
+        new B5488833628674465193(WebViewFeature.CREATE_WEB_MESSAGE_CHANNEL, WebViewFeature.CREATE_WEB_MESSAGE_CHANNEL, (byte) 0);
+        f = new B5488833628674465193(WebViewFeature.POST_WEB_MESSAGE, WebViewFeature.POST_WEB_MESSAGE, (byte) 0);
+        new B5488833628674465193(WebViewFeature.WEB_MESSAGE_CALLBACK_ON_MESSAGE, WebViewFeature.WEB_MESSAGE_CALLBACK_ON_MESSAGE, (byte) 0);
+        g = new B5488833628674465193(WebViewFeature.GET_WEB_VIEW_CLIENT, WebViewFeature.GET_WEB_VIEW_CLIENT, (byte) 3);
+        h = new B5488833628674465193(WebViewFeature.GET_WEB_CHROME_CLIENT, WebViewFeature.GET_WEB_CHROME_CLIENT, (byte) 3);
+        i = new B5488833628674465193(WebViewFeature.GET_WEB_VIEW_RENDERER, WebViewFeature.GET_WEB_VIEW_RENDERER, (byte) 6);
+        new B5488833628674465193(WebViewFeature.WEB_VIEW_RENDERER_TERMINATE, WebViewFeature.WEB_VIEW_RENDERER_TERMINATE, (byte) 6);
+        new B5488833628674465193(WebViewFeature.TRACING_CONTROLLER_BASIC_USAGE, WebViewFeature.TRACING_CONTROLLER_BASIC_USAGE, (byte) 5);
+        new T17185628898100426619();
+        new T17185628898100426619();
+        new T17185628898100426619();
+        j = new B5488833628674465193(WebViewFeature.WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE, WebViewFeature.WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE, (byte) 6);
+        new K14920477250390931902();
+        new B5488833628674465193(WebViewFeature.PROXY_OVERRIDE, "PROXY_OVERRIDE:3", (byte) 2);
+        k = new B5488833628674465193(WebViewFeature.MULTI_PROCESS, "MULTI_PROCESS_QUERY", (byte) 2);
+        new B5488833628674465193(WebViewFeature.FORCE_DARK, WebViewFeature.FORCE_DARK, (byte) 6);
+        new B5488833628674465193(WebViewFeature.FORCE_DARK_STRATEGY, "FORCE_DARK_BEHAVIOR", (byte) 2);
+        l = new B5488833628674465193(WebViewFeature.WEB_MESSAGE_LISTENER, WebViewFeature.WEB_MESSAGE_LISTENER, (byte) 2);
+        m = new B5488833628674465193(WebViewFeature.DOCUMENT_START_SCRIPT, "DOCUMENT_START_SCRIPT:1", (byte) 2);
+        new B5488833628674465193(WebViewFeature.PROXY_OVERRIDE_REVERSE_BYPASS, WebViewFeature.PROXY_OVERRIDE_REVERSE_BYPASS, (byte) 2);
+        n = new B5488833628674465193(WebViewFeature.GET_VARIATIONS_HEADER, WebViewFeature.GET_VARIATIONS_HEADER, (byte) 2);
+        new B5488833628674465193(WebViewFeature.ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY, WebViewFeature.ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY, (byte) 2);
+        new B5488833628674465193(WebViewFeature.GET_COOKIE_INFO, WebViewFeature.GET_COOKIE_INFO, (byte) 2);
+        new B5488833628674465193(WebViewFeature.REQUESTED_WITH_HEADER_ALLOW_LIST, WebViewFeature.REQUESTED_WITH_HEADER_ALLOW_LIST, (byte) 2);
+        String str = WebViewFeature.USER_AGENT_METADATA;
+        new B5488833628674465193(WebViewFeature.USER_AGENT_METADATA, WebViewFeature.USER_AGENT_METADATA, (byte) 2);
+        new T14941726711530066562(WebViewFeature.USER_AGENT_METADATA_FORM_FACTORS, str, (byte) 0);
+        f456o = new T14941726711530066562(WebViewFeature.MULTI_PROFILE, WebViewFeature.MULTI_PROFILE, (byte) 1);
+        new B5488833628674465193(WebViewFeature.ATTRIBUTION_REGISTRATION_BEHAVIOR, "ATTRIBUTION_BEHAVIOR", (byte) 2);
+        new B5488833628674465193(WebViewFeature.WEBVIEW_MEDIA_INTEGRITY_API_STATUS, "WEBVIEW_INTEGRITY_API_STATUS", (byte) 2);
+        p = new B5488833628674465193(WebViewFeature.MUTE_AUDIO, WebViewFeature.MUTE_AUDIO, (byte) 2);
+        new B5488833628674465193(WebViewFeature.WEB_AUTHENTICATION, WebViewFeature.WEB_AUTHENTICATION, (byte) 2);
+        new B5488833628674465193(WebViewFeature.SPECULATIVE_LOADING, "SPECULATIVE_LOADING", (byte) 2);
+        new B5488833628674465193(WebViewFeature.BACK_FORWARD_CACHE, WebViewFeature.BACK_FORWARD_CACHE, (byte) 2);
+        new B5488833628674465193(WebViewFeature.BACK_FORWARD_CACHE_SETTINGS, WebViewFeature.BACK_FORWARD_CACHE_SETTINGS, (byte) 2);
+        new B5488833628674465193(WebViewFeature.DELETE_BROWSING_DATA, "WEB_STORAGE_DELETE_BROWSING_DATA", (byte) 2);
+        String str2 = WebViewFeature.PROFILE_URL_PREFETCH;
+        q = new T14941726711530066562(WebViewFeature.PROFILE_URL_PREFETCH, str2, (byte) 2);
+        r = new B5488833628674465193("IMPLEMENTATION_ONLY_FEATURE", "ASYNC_WEBVIEW_STARTUP", (byte) 2);
+        s = new B5488833628674465193("IMPLEMENTATION_ONLY_FEATURE", "ASYNC_WEBVIEW_STARTUP_ASYNC_STARTUP_LOCATIONS", (byte) 2);
+        t = new B5488833628674465193(WebViewFeature.DEFAULT_TRAFFICSTATS_TAGGING, WebViewFeature.DEFAULT_TRAFFICSTATS_TAGGING, (byte) 2);
+        u = new B5488833628674465193(WebViewFeature.PRERENDER_WITH_URL, "PRERENDER_URL_V3", (byte) 2);
+        v = new B5488833628674465193(WebViewFeature.SPECULATIVE_LOADING_CONFIG, WebViewFeature.SPECULATIVE_LOADING_CONFIG, (byte) 2);
+        w = new B5488833628674465193(WebViewFeature.SAVE_STATE, WebViewFeature.SAVE_STATE, (byte) 2);
+        x = new B5488833628674465193(WebViewFeature.NAVIGATION_CALLBACK_BASIC, WebViewFeature.NAVIGATION_CALLBACK_BASIC, (byte) 2);
+        y = new B5488833628674465193(WebViewFeature.NAVIGATION_LISTENER_V1, "WEB_VIEW_NAVIGATION_LISTENER_V1", (byte) 2);
+        z = new B5488833628674465193(WebViewFeature.PROVIDER_WEAKLY_REF_WEBVIEW, WebViewFeature.PROVIDER_WEAKLY_REF_WEBVIEW, (byte) 2);
+        new B5488833628674465193(WebViewFeature.PAYMENT_REQUEST, WebViewFeature.PAYMENT_REQUEST, (byte) 2);
+        new B5488833628674465193(WebViewFeature.WEBVIEW_BUILDER_EXPERIMENTAL_V1, "WEBVIEW_BUILDER_V1", (byte) 2);
+        new B5488833628674465193(WebViewFeature.COOKIE_INTERCEPT, WebViewFeature.COOKIE_INTERCEPT, (byte) 2);
+        A = new B5488833628674465193(WebViewFeature.WARM_UP_RENDERER_PROCESS, WebViewFeature.WARM_UP_RENDERER_PROCESS, (byte) 2);
+        B = new B5488833628674465193(WebViewFeature.ORIGIN_MATCHED_HEADERS, "EXTRA_HEADER_FOR_ORIGINS", (byte) 2);
+        C = new B5488833628674465193(WebViewFeature.CUSTOM_REQUEST_HEADERS, WebViewFeature.CUSTOM_REQUEST_HEADERS, (byte) 2);
+        new T17185628898100426619();
+        new T17185628898100426619();
+        new T17185628898100426619();
+        D = new B5488833628674465193(WebViewFeature.PRECONNECT, WebViewFeature.PRECONNECT, (byte) 2);
+        E = new B5488833628674465193(WebViewFeature.ADD_QUIC_HINTS_V1, "ADD_QUIC_HINTS_V1", (byte) 2);
+        new B5488833628674465193(WebViewFeature.HYPERLINK_CONTEXT_MENU_ITEMS, WebViewFeature.HYPERLINK_CONTEXT_MENU_ITEMS, (byte) 2);
+    }
+
+    public static UnsupportedOperationException a() {
+        return new UnsupportedOperationException("This method is not supported by the current version of the framework and the current WebView APK");
+    }
+
+    public static boolean b(String str) {
+        Set<G8935082882695009405> unmodifiableSet = Collections.unmodifiableSet(G8935082882695009405.c);
+        HashSet hashSet = new HashSet();
+        for (G8935082882695009405 g8935082882695009405 : unmodifiableSet) {
+            if (g8935082882695009405.a.equals(str)) {
+                hashSet.add(g8935082882695009405);
+            }
+        }
+        if (hashSet.isEmpty()) {
+            K2042933864045806308.i("Unknown feature ".concat(str));
+            return false;
+        }
+        Iterator it = hashSet.iterator();
+        while (it.hasNext()) {
+            G8935082882695009405 g89350828826950094052 = (G8935082882695009405) it.next();
+            if (g89350828826950094052.a() || g89350828826950094052.b()) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

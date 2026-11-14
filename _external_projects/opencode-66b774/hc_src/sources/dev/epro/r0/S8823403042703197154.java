@@ -1,0 +1,31 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public final class S8823403042703197154 {
+    public final D10236220797215130727 a;
+    public final S7974369370986781936 b;
+    public final E13273723708836014930 c;
+    public final E13273723708836014930 d;
+    public boolean e;
+
+    public S8823403042703197154(D10236220797215130727 d10236220797215130727, S7974369370986781936 s7974369370986781936) {
+        this.a = d10236220797215130727;
+        this.b = s7974369370986781936;
+        E13273723708836014930 e13273723708836014930 = L12621230156277355451.a;
+        this.c = new E13273723708836014930();
+        this.d = new E13273723708836014930();
+    }
+
+    public final void a() {
+        if (this.e) {
+            return;
+        }
+        A307398149131398783 a307398149131398783 = new A307398149131398783(0, this, S8823403042703197154.class, "invalidateNodes", "invalidateNodes()V", 0, (byte) 3);
+        U9803441765912152712 u9803441765912152712 = this.b.q0;
+        if (u9803441765912152712.g(a307398149131398783) < 0) {
+            u9803441765912152712.a(a307398149131398783);
+        }
+        this.e = true;
+    }
+}

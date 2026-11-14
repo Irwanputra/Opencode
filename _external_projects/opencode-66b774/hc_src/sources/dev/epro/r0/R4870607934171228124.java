@@ -1,0 +1,59 @@
+package dev.epro.r0;
+
+import java.security.GeneralSecurityException;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes3.dex */
+public abstract class R4870607934171228124 {
+    public static final K12477491117444883648 a;
+    public static final B6440366792515411106 b;
+    public static final L12293142626931145046 c;
+    public static final X18244299380549586254 d;
+    public static final X17873598080297061904 e;
+
+    static {
+        A1960181136934585864 a2 = K12477491117444883648.a();
+        a2.a(S11983430735376301043.SHA1, K18164101509571580779.b);
+        a2.a(S11983430735376301043.SHA224, K18164101509571580779.c);
+        a2.a(S11983430735376301043.SHA256, K18164101509571580779.d);
+        a2.a(S11983430735376301043.SHA384, K18164101509571580779.e);
+        a2.a(S11983430735376301043.SHA512, K18164101509571580779.f);
+        a = a2.b();
+        b = new B6440366792515411106(N13917601494741667358.class, new Q11088980322693754445((byte) 24));
+        c = new L12293142626931145046("type.googleapis.com/google.crypto.tink.HmacKey", new Q11088980322693754445((byte) 25));
+        d = new X18244299380549586254(W13640341017465735251.class, new Q11088980322693754445((byte) 26));
+        e = new X17873598080297061904("type.googleapis.com/google.crypto.tink.HmacKey", new Q11088980322693754445((byte) 27));
+    }
+
+    public static D14731132657808549702 a(D14731132657808549702 d14731132657808549702) {
+        if (d14731132657808549702 == D14731132657808549702.Q) {
+            return D14731132657808549702.m0;
+        }
+        if (d14731132657808549702 == D14731132657808549702.N) {
+            return D14731132657808549702.k0;
+        }
+        if (d14731132657808549702 == D14731132657808549702.P) {
+            return D14731132657808549702.l0;
+        }
+        if (d14731132657808549702 == D14731132657808549702.O) {
+            return D14731132657808549702.n0;
+        }
+        throw new GeneralSecurityException("unknown variant: ".concat(String.valueOf(d14731132657808549702)));
+    }
+
+    public static D14731132657808549702 b(D14731132657808549702 d14731132657808549702) {
+        if (d14731132657808549702 == D14731132657808549702.m0) {
+            return D14731132657808549702.Q;
+        }
+        if (d14731132657808549702 == D14731132657808549702.k0) {
+            return D14731132657808549702.N;
+        }
+        if (d14731132657808549702 == D14731132657808549702.l0) {
+            return D14731132657808549702.P;
+        }
+        if (d14731132657808549702 == D14731132657808549702.n0) {
+            return D14731132657808549702.O;
+        }
+        throw new GeneralSecurityException("unknown OutputPrefixType: ".concat(String.valueOf(d14731132657808549702)));
+    }
+}

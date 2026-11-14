@@ -1,0 +1,12 @@
+package dev.epro.r0;
+
+/* compiled from: r8-map-id-6bf0880be0990946ef6071c139e5f128082c1a163aa6cd250c50c9e3ae8e7eca */
+/* loaded from: classes2.dex */
+public final class O16069943227202361206 extends Z4431149477876260063 {
+    public D5719685721490174593 q;
+
+    @Override // dev.epro.r0.Z4431149477876260063
+    public final B9345618057833789735 h1(B9345618057833789735 b9345618057833789735) {
+        return new M5587809855622537475(b9345618057833789735, this.q);
+    }
+}

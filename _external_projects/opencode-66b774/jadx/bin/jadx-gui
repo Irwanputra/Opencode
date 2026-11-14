@@ -44,7 +44,7 @@ APP_NAME="jadx-gui"
 APP_BASE_NAME=`basename "$0"`
 
 # Add default JVM options here. You can also use JAVA_OPTS and JADX_GUI_OPTS to pass JVM options to this script.
-DEFAULT_JVM_OPTS='"-Xms128M" "-XX:MaxRAMPercentage=70.0" "-Dawt.useSystemAAFontSettings=lcd" "-Dswing.aatext=true" "-Djava.util.Arrays.useLegacyMergeSort=true" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true" "-XX:+IgnoreUnrecognizedVMOptions" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--enable-native-access=ALL-UNNAMED" "-Dsun.java2d.noddraw=true" "-Dsun.java2d.d3d=false" "-Dsun.java2d.ddforcevram=true" "-Dsun.java2d.ddblit=false" "-Dswing.useflipBufferStrategy=true"'" \"-Djadx.launchScript.path=$(realpath $0)\""
+DEFAULT_JVM_OPTS='"-Xms128M" "-XX:MaxRAMPercentage=70.0" "-Dawt.useSystemAAFontSettings=lcd" "-Dswing.aatext=true" "-Djava.util.Arrays.useLegacyMergeSort=true" "-Djdk.util.zip.disableZip64ExtraFieldValidation=true" "-XX:+IgnoreUnrecognizedVMOptions" "--add-opens=java.base/java.lang=ALL-UNNAMED" "-Dsun.java2d.noddraw=true" "-Dsun.java2d.d3d=false" "-Dsun.java2d.ddforcevram=true" "-Dsun.java2d.ddblit=false" "-Dswing.useflipBufferStrategy=True"'
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
@@ -80,7 +80,7 @@ case "`uname`" in
     ;;
 esac
 
-CLASSPATH=$APP_HOME/lib/jadx-1.5.4-all.jar
+CLASSPATH=$APP_HOME/lib/jadx-1.5.1-all.jar
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
