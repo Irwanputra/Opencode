@@ -1,0 +1,1810 @@
+{
+ "alifetimeClaimBonus": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ld6/a;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "checkNumberSimReplace": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/FormUrlEncoded;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/Headers;",
+   "elements": [
+    [
+     "value",
+     [
+      "Content-Type: application/x-www-form-urlencoded"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "claimBonus": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LA8/a;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "claimVoucher": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/FormUrlEncoded;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/Headers;",
+   "elements": [
+    [
+     "value",
+     [
+      "Content-Type: application/x-www-form-urlencoded",
+      "User-Agent: okhttp"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "getAlifetimeBonus": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "getAlifetimeBonusDetail": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "getAlifetimeBonusProfiling": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "getAlifetimeMembership": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "getAlifetimeVoucher": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "getCoinWordingLevel": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/FormUrlEncoded;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/Headers;",
+   "elements": [
+    [
+     "value",
+     [
+      "Content-Type: application/x-www-form-urlencoded"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "getLevelAlifetime": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "getOtp": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lcom/axis/net/ui/homePage/home/models/OtpPayload;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "getOtpLogin": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Lsc/c;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "getPointProfile": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/GET;",
+   "elements": []
+  }
+ ],
+ "levelUpAlifetime": [
+  {
+   "type": "Lcom/axis/net/helper/HMACHeader;",
+   "elements": []
+  },
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "purchaseTicketFlashWar": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/FormUrlEncoded;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "redeemBonusFlashWar": [
+  {
+   "type": "Ldalvik/annotation/Signature;",
+   "elements": [
+    [
+     "value",
+     [
+      "(",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "Ljava/lang/String;",
+      "LYk/b<",
+      "-",
+      "Lretrofit2/Response<",
+      "Lfb/s;",
+      ">;>;)",
+      "Ljava/lang/Object;"
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "Lorg/jetbrains/annotations/Nullable;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/FormUrlEncoded;",
+   "elements": []
+  },
+  {
+   "type": "Lretrofit2/http/POST;",
+   "elements": []
+  }
+ ],
+ "alifetimeClaimBonus__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-handshake"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-signature"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Body;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "checkNumberSimReplace__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "X-Api-Key"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Field;",
+    "elements": [
+     [
+      "value",
+      "content"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "claimBonus__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Body;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "claimVoucher__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Field;",
+    "elements": [
+     [
+      "value",
+      "content"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getAlifetimeBonus__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Query;",
+    "elements": [
+     [
+      "value",
+      "level"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Query;",
+    "elements": [
+     [
+      "value",
+      "from"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getAlifetimeBonusDetail__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getAlifetimeBonusProfiling__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Query;",
+    "elements": [
+     [
+      "value",
+      "level"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Query;",
+    "elements": [
+     [
+      "value",
+      "from"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getAlifetimeMembership__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getAlifetimeVoucher__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getCoinWordingLevel__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Field;",
+    "elements": [
+     [
+      "value",
+      "content"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getLevelAlifetime__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getOtp__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Content-Type"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Connection"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "X-API-KEY"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-signature"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Body;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getOtpLogin__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Content-Type"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Connection"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "X-API-KEY"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-signature"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Body;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "getPointProfile__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Query;",
+    "elements": [
+     [
+      "value",
+      "level"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "levelUpAlifetime__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "purchaseTicketFlashWar__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-handshake"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-signature"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Field;",
+    "elements": [
+     [
+      "value",
+      "content"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ],
+ "redeemBonusFlashWar__params": [
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-handshake"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-signature"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "Authorization"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Header;",
+    "elements": [
+     [
+      "value",
+      "x-app-version"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Field;",
+    "elements": [
+     [
+      "value",
+      "content"
+     ]
+    ]
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   },
+   {
+    "type": "Lretrofit2/http/Url;",
+    "elements": []
+   }
+  ],
+  [
+   {
+    "type": "Lorg/jetbrains/annotations/NotNull;",
+    "elements": []
+   }
+  ]
+ ]
+}

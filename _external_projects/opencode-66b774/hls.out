@@ -1,0 +1,36 @@
+
+===== Masyaliong havenfile
+https://havenfile.cc/e/yQJenhh2LwjcwXRj
+  status 200 | text/html | 23311 B
+  file langsung: tidak ada
+  cfg block: tidak ada
+  id/hash unik: //sstatic1.histats.com/0.gif?4651107&101 , plyr-shell-yQJenhh2LwjcwXRj , plyr-loading-yQJenhh2LwjcwXRj , plyr-player-yQJenhh2LwjcwXRj , plyr-source-yQJenhh2LwjcwXRj , https://cdn.plyr.io/3.7.8/plyr.polyfilled.js , embed-banners , havsub-embed-config
+  js: https://cdn.plyr.io/3.7.8/plyr.polyfilled.js
+  unpacked? 0 eval, 23311 B
+
+===== Syaliong Imut havenfile
+https://havenfile.cc/e/54D77NF6BYm0aoAF
+  status 200 | text/html | 23324 B
+  file langsung: tidak ada
+  cfg block: tidak ada
+  id/hash unik: //sstatic1.histats.com/0.gif?4651107&101 , plyr-shell-54D77NF6BYm0aoAF , plyr-loading-54D77NF6BYm0aoAF , plyr-player-54D77NF6BYm0aoAF , plyr-source-54D77NF6BYm0aoAF , https://cdn.plyr.io/3.7.8/plyr.polyfilled.js , embed-banners , havsub-embed-config
+  js: https://cdn.plyr.io/3.7.8/plyr.polyfilled.js
+  unpacked? 0 eval, 23324 B
+
+===== Syaliong Imut m3u8
+https://fragment-cdn01.drstream.cc/92bd7158-4fdd-4f8d-a59f-e6b5bd23d57b/index.m3u8
+  status 200 | application/x-mpegURL | 99 B
+  MASTER=true varian=1 :: 720x1280@5000000
+  media: 4 segmen, durasi 1:00 (60.0 dtk), enkripsi=false
+  segmen[0]: https://fragment-cdn01.drstream.cc/92bd7158-4fdd-4f8d-a59f-e6b5bd23d57b/master_000.ts
+  target pemutar: https://fragment-cdn01.drstream.cc/92bd7158-4fdd-4f8d-a59f-e6b5bd23d57b/master_1280p.m3u8
+  segmen pertama: 200 application/octet-stream 3108 KB
+
+===== Syaliong Imut playmogo
+https://playmogo.com/e/kthc5tlz3u9b
+  status 403 | text/html; charset=UTF-8 | 5690 B
+  file langsung: tidak ada
+  cfg block: tidak ada
+  id/hash unik: challenge-error-text
+  js: 
+  unpacked? 0 eval, 5690 B

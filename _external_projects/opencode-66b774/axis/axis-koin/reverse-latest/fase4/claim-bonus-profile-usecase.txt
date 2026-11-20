@@ -1,0 +1,106 @@
+# Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1; in tmp14169616706995394833.dex
+super: Lkotlin/coroutines/jvm/internal/SuspendLambda;
+## fields
+  $appVersion : Ljava/lang/String;
+  $callback : Lcom/axis/net/core/w;
+  $content : Ld6/a;
+  $contentSignature : Ljava/lang/String;
+  $token : Ljava/lang/String;
+  label : I
+  this$0 : Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;
+## methods
+
+### <init> (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase; Ljava/lang/String; Ld6/a; Lcom/axis/net/core/w; LYk/b;)V access=public constructor
+  iput-object                  v1, v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$token Ljava/lang/String;
+  iput-object                  v2, v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$contentSignature Ljava/lang/String;
+  iput-object                  v3, v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->this$0 Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;
+  iput-object                  v4, v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$appVersion Ljava/lang/String;
+  iput-object                  v5, v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$content Ld6/a;
+  iput-object                  v6, v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$callback Lcom/axis/net/core/w;
+  const/4                      v1, 2
+  invoke-direct                v0, v1, v7, Lkotlin/coroutines/jvm/internal/SuspendLambda;-><init>(I LYk/b;)V
+  return-void                  
+
+### create (Ljava/lang/Object; LYk/b;)LYk/b; access=public final
+  new-instance                 v0, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;
+  iget-object                  v1, v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$token Ljava/lang/String;
+  iget-object                  v2, v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$contentSignature Ljava/lang/String;
+  iget-object                  v3, v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->this$0 Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;
+  iget-object                  v4, v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$appVersion Ljava/lang/String;
+  iget-object                  v5, v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$content Ld6/a;
+  iget-object                  v6, v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$callback Lcom/axis/net/core/w;
+  move-object                  v7, v10
+  invoke-direct/range          v0 ... v7, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;-><init>(Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase; Ljava/lang/String; Ld6/a; Lcom/axis/net/core/w; LYk/b;)V
+  return-object                v0
+
+### invoke (Ljava/lang/Object; Ljava/lang/Object;)Ljava/lang/Object; access=public bridge synthetic
+  check-cast                   v1, Lkotlinx/coroutines/CoroutineScope;
+  check-cast                   v2, LYk/b;
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->invoke(Lkotlinx/coroutines/CoroutineScope; LYk/b;)Ljava/lang/Object;
+  move-result-object           v1
+  return-object                v1
+
+### invoke (Lkotlinx/coroutines/CoroutineScope; LYk/b;)Ljava/lang/Object; access=public final
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->create(Ljava/lang/Object; LYk/b;)LYk/b;
+  move-result-object           v1
+  check-cast                   v1, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;
+  sget-object                  v2, Lkotlin/Unit;->a Lkotlin/Unit;
+  invoke-virtual               v1, v2, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+  move-result-object           v1
+  return-object                v1
+
+### invokeSuspend (Ljava/lang/Object;)Ljava/lang/Object; access=public final
+  invoke-static                LZk/a;->f()Ljava/lang/Object;
+  move-result-object           v0
+  iget                         v1, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->label I
+  const/4                      v2, 1
+  if-eqz                       v1, +013h
+  if-ne                        v1, v2, +009h
+  invoke-static                v11, Lkotlin/c;->b(Ljava/lang/Object;)V
+  move-object                  v9, v10
+  goto                         +32h
+  move-object                  v9, v10
+  goto                         +46h
+  new-instance                 v11, Ljava/lang/IllegalStateException;
+  const-string                 v0, "call to 'resume' before 'invoke' with coroutine"
+  invoke-direct                v11, v0, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+  throw                        v11
+  invoke-static                v11, Lkotlin/c;->b(Ljava/lang/Object;)V
+  sget-object                  v11, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v11, Lcom/axis/net/config/Signature;->i()Ljava/lang/String;
+  move-result-object           v4
+  iget-object                  v1, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$token Ljava/lang/String;
+  iget-object                  v3, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$contentSignature Ljava/lang/String;
+  invoke-virtual               v11, v1, v3, v4, Lcom/axis/net/config/Signature;->e(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v5
+  iget-object                  v11, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->this$0 Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;
+  invoke-static                v11, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;->access$getRepository$p(Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;)Lcom/axis/net/features/alifetime/general/repositories/ProfileSectionRepository;
+  move-result-object           v3
+  iget-object                  v6, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$appVersion Ljava/lang/String;
+  iget-object                  v7, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$token Ljava/lang/String;
+  iget-object                  v8, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$content Ld6/a;
+  iput                         v2, v10, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->label I
+  move-object                  v9, v10
+  invoke-virtual/range         v3 ... v9, Lcom/axis/net/features/alifetime/general/repositories/ProfileSectionRepository;->alifetimeClaimBonus(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ld6/a; LYk/b;)Ljava/lang/Object;
+  move-result-object           v11
+  if-ne                        v11, v0, +003h
+  return-object                v0
+  move-object                  v1, v11
+  check-cast                   v1, Lretrofit2/Response;
+  iget-object                  v0, v9, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->this$0 Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase;
+  new-instance                 v3, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1$a;
+  iget-object                  v11, v9, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$callback Lcom/axis/net/core/w;
+  invoke-direct                v3, v11, v1, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1$a;-><init>(Lcom/axis/net/core/w; Lretrofit2/Response;)V
+  const/16                     v6, 24
+  const/4                      v7, 0
+  const/4                      v2, 0
+  const/4                      v4, 0
+  const/4                      v5, 0
+  invoke-static/range          v0 ... v7, Lcom/axis/net/core/e;->handleApi$default(Lcom/axis/net/core/e; Lretrofit2/Response; Z Lcom/axis/net/core/e$a; Z Z I Ljava/lang/Object;)V
+  goto                         +ah
+  iget-object                  v11, v9, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeProfileSectionUseCase$alifetimeClaimBonus$1;->$callback Lcom/axis/net/core/w;
+  const-string                 v0, "Sepertinya ada kesalahan koneksi, yuk dicoba lagi!"
+  const/16                     v1, 999
+  invoke-interface             v11, v0, v1, Lcom/axis/net/core/w;->onError(Ljava/lang/String; I)V
+  sget-object                  v11, Lkotlin/Unit;->a Lkotlin/Unit;
+  return-object                v11

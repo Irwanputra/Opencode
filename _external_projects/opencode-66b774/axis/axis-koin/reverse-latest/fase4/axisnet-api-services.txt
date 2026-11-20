@@ -1,0 +1,601 @@
+# Lcom/axis/net/api/AxisnetApiServices; in tmp14169616706995394833.dex
+super: Ljava/lang/Object;  interfaces: []
+## fields
+## methods
+
+### WishlishCustomPackage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### WishlishDelete (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### activateDigitalVoucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### activateGemini (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### addFavoritePackage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### alifetimeClaimBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ld6/a; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### applyVoucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### biometricLogin (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LEc/c; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### byopPaymentCCDC (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### byopValidationName (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/byop/confirmation/models/ByopValidationNameRequest; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### cancelGemini (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### changeLockStatus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### checkDisclaimer (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### checkGiftNumber (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### checkMigrationAlifetime (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### checkNumberPrefix (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### checkNumberSimReplace (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### claimAigoUmb (Ljava/lang/String; Ljava/lang/String; LB8/b; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### claimBonus (Ljava/lang/String; Ljava/lang/String; LA8/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### claimMccmParadeBonus (Ljava/lang/String; Ljava/lang/String; LJb/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### claimSureprize (Ljava/lang/String; Ljava/lang/String; Ll9/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### claimTopUp (Ljava/lang/String; Ljava/lang/String; LA8/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### claimVoucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### clearCache (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### createByopTrx (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/byop/confirmation/models/ByopTrxRequest; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### createGameTokenTrx (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/payment/models/confirmation/request/OrderTrxRequest; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### createOrderTrx (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/payment/models/confirmation/request/OrderTrxRequest; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### deleteFavoritePackage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### detailTransferQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### donateQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### entertainmentSub (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### forgotMsisdn (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### gameFavorit (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### gameTokenPaymentCCDC (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeBonusDetail (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeBonusProfiling (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeMembership (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeMultipleTnc (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeTnc (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAlifetimeVoucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getAutoRepurchaseList (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBalance (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBalanceConvert (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBalancePulse (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBanner (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBenefitSeru (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBonusListFlashWar (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBonusProfile (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBonuses (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBonusesLocalQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getBundlingProduct (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopAddOnApi (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopAddOnDetailApi (Ljava/lang/String; Ljava/lang/String; LA6/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopBundleByCategories (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopCategories (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopHistory (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopHistoryPredefined (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopMainQuotaApi (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopPredefined (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getByopSummary (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/byop/confirmation/models/ByopSummaryRequest; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getCheckAigo (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getCoinWordingLevel (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getContextualInfo (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getCrossSell (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getDataLoan (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getDataLoanSummary (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getDetailQuotaDonation (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getDigitalMutant (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getDigitalVouchers (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getDynamicUI (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getEWalletLinked (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getEntertainmentById (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getEntertainmentList (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getFirstLoginCheck (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getFlashWarInfo (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getFreeQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getGameTokenDetail (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getGeminiHome (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getGeminiStatus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getHistoryBuy (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getHistoryProduct (Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getHistoryProductHome (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getHomeJustForYou (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getHomepage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getInquiry (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getInquiryMethodPayment (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getInterposePromo (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getLevelAlifetime (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getListAvatar (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getListBonusStamp (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getListFavorite (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getListStamp (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getLocationPayRo (Ljava/lang/String; Ljava/lang/String; D D Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getLocationPayro (Ljava/lang/String; Ljava/lang/String; D D Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getMiniProgramAuth (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getMyQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getMyQuotaBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getMyQuotaHomepage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getMyQuotaInfoCity (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getNotificationInbox (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getOTPBalanceGT (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getOTPBalanceGifting (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getOfferMccm (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getOfferProduct5G (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getOtp (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/ui/homePage/home/models/OtpPayload; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getOtpLogin (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lsc/c; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPDP (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPackageFavorites (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPackageProductDetail (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPageBannerImage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getParadeBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPointHistory (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/Integer; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPointProfile (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getProductCategories (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getProductFilter (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getProductsRecommended (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPromo (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getPromoTnc (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getQuotaDonationList (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getRedeemAigo (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getRekreaxis (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getRepurchase (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getSendQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getServiceFee (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getSingleDeliveryVoucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getStampMissions (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getTokenAutoLogin (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LEc/g; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getTopUpListUnipinTimwe (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getUserProfile (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getUserValidation (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getVoucherListUnipinTimwe (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getVoucherProfile (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### getXLSatuConfig (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### insertDisclaimer (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### iouDenom (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### iouHistory (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### iouPaymentCheckEligibility (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### iouTnc (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### iouTransaction (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### levelUpAlifetime (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### linkEWallet (Ljava/lang/String; Ljava/lang/String; LKa/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### logout (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### mccmPaymentCCDC (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### newOtpTransferQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### newTransferQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### orderStatus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### otpTransferBalance (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### packagaClaimMccm (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### packagePaymentCCDC (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### payGameTokenBalance (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### payRoCancel (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### paymentMethod (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### payroCancel (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### payroOrder (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### payroStatus (Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### postAutoLogin (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### postRegistrationValidation (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### postStopPackage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### preRegistrationValidation (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### proceedBalanceConvert (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lr6/c; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### proceedBalanceGifting (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### proceedPayment (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### purchaseTicketFlashWar (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### quitQuotaAkrab (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### quitXLSatuMember (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### reactivationProvisioning (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### reactivationValidateMsisdn (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### redeemBonusFlashWar (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### redeemStampBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lc9/a; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### registrationValidation (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### reloadBonusList (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### requestOTPBiometric (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### resetStampBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### saveInquiry (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### sendEvent (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ll6/a; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### sentIccidSimReplace (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### sentNikSimReplace (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### setFreeQuota (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### stopAutoRepurchase (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### topUpBalanceCCDC (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### topUpBalancePackages (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### topUpValidUserWithResponse (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### transactionRefundPackage (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### transferBalance (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### transferCheckCredit (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### unlinkEWallet (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### updateFcmToken (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### updatePlayPause (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### updateUserProfile (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### userLockStatus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### validateIccid (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### validateImei (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### validateNik (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### validateSubscription (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### verifyOTPBiometric (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LEc/d; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### voucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)
+
+### voucherDetail (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Z LYk/b;)Ljava/lang/Object;  access=public abstract
+  (no code - abstract/native)

@@ -1,0 +1,500 @@
+# Lcom/axis/net/config/Signature; in tmp14169616706995394833.dex
+super: Ljava/lang/Object;  interfaces: []
+## fields
+  a : Lcom/axis/net/config/Signature;  access=public static final
+## methods
+
+### <clinit> ()V  access=static constructor
+  new-instance                 v0, Lcom/axis/net/config/Signature;
+  invoke-direct                v0, Lcom/axis/net/config/Signature;-><init>()V
+  sput-object                  v0, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  return-void                  
+
+### <init> ()V  access=public constructor
+  invoke-direct                v0, Ljava/lang/Object;-><init>()V
+  return-void                  
+
+### k (Lcom/axis/net/config/Signature; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/Object;)Ljava/lang/String;  access=public static synthetic
+  and-int/lit8                 v12, v11, 2
+  const/4                      v0, 0
+  if-eqz                       v12, +003h
+  move-object                  v3, v0
+  and-int/lit8                 v12, v11, 4
+  if-eqz                       v12, +003h
+  move-object                  v4, v0
+  and-int/lit8                 v12, v11, 8
+  if-eqz                       v12, +003h
+  move-object                  v5, v0
+  and-int/lit8                 v12, v11, 16
+  if-eqz                       v12, +003h
+  move-object                  v6, v0
+  and-int/lit8                 v12, v11, 32
+  if-eqz                       v12, +003h
+  move-object                  v7, v0
+  and-int/lit8                 v12, v11, 64
+  if-eqz                       v12, +003h
+  move-object                  v8, v0
+  and-int/lit16                v12, v11, 128
+  if-eqz                       v12, +003h
+  move-object                  v9, v0
+  and-int/lit16                v11, v11, 256
+  if-eqz                       v11, +003h
+  move-object                  v10, v0
+  invoke-virtual/range         v1 ... v10, Lcom/axis/net/config/Signature;->j(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v1
+  return-object                v1
+
+### keyTempest ()Ljava/lang/String;  access=private final native
+  (no code - abstract/native)
+
+### keyTempestCapital ()Ljava/lang/String;  access=private final native
+  (no code - abstract/native)
+
+### keyTempestGuardian ()Ljava/lang/String;  access=private final native
+  (no code - abstract/native)
+
+### keyTempestMarket ()Ljava/lang/String;  access=private final native
+  (no code - abstract/native)
+
+### keyTempestMarketCapital ()Ljava/lang/String;  access=private final native
+  (no code - abstract/native)
+
+### w (Lcom/axis/net/config/Signature; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/Object;)Ljava/lang/String;  access=public static synthetic
+  and-int/lit8                 v12, v11, 2
+  const/4                      v0, 0
+  if-eqz                       v12, +003h
+  move-object                  v3, v0
+  and-int/lit8                 v12, v11, 4
+  if-eqz                       v12, +003h
+  move-object                  v4, v0
+  and-int/lit8                 v12, v11, 8
+  if-eqz                       v12, +003h
+  move-object                  v5, v0
+  and-int/lit8                 v12, v11, 16
+  if-eqz                       v12, +003h
+  move-object                  v6, v0
+  and-int/lit8                 v12, v11, 32
+  if-eqz                       v12, +003h
+  move-object                  v7, v0
+  and-int/lit8                 v12, v11, 64
+  if-eqz                       v12, +003h
+  move-object                  v8, v0
+  and-int/lit16                v12, v11, 128
+  if-eqz                       v12, +003h
+  move-object                  v9, v0
+  and-int/lit16                v11, v11, 256
+  if-eqz                       v11, +003h
+  move-object                  v10, v0
+  invoke-virtual/range         v1 ... v10, Lcom/axis/net/config/Signature;->v(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v1
+  return-object                v1
+
+### a (Ljava/lang/String;)Ljava/lang/String;  access=public final
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  new-instance                 v1, Lcom/axis/net/helper/AxisnetHelpers;
+  invoke-direct                v1, Lcom/axis/net/helper/AxisnetHelpers;-><init>()V
+  invoke-virtual               v1, Lcom/axis/net/helper/AxisnetHelpers;->getSaltKey()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v0, v3, v1, Lcom/axis/net/helper/CryptoTool$Companion;->decryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v3
+  if-nez                       v3, +004h
+  const-string                 v3, ""
+  return-object                v3
+
+### apiKey ()Ljava/lang/String;  access=public final native
+  (no code - abstract/native)
+
+### b (Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "key"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  new-instance                 v1, Lcom/axis/net/helper/AxisnetHelpers;
+  invoke-direct                v1, Lcom/axis/net/helper/AxisnetHelpers;-><init>()V
+  invoke-virtual               v1, Lcom/axis/net/helper/AxisnetHelpers;->getSaltKey()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v0, v3, v1, Lcom/axis/net/helper/CryptoTool$Companion;->encryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v3
+  if-nez                       v3, +004h
+  const-string                 v3, ""
+  return-object                v3
+
+### c ([B)Ljava/lang/String;  access=public final
+  new-instance                 v0, Ljava/util/Formatter;
+  invoke-direct                v0, Ljava/util/Formatter;-><init>()V
+  array-length                 v1, v6
+  const/4                      v2, 0
+  if-ge                        v2, v1, +014h
+  aget-byte                    v3, v6, v2
+  const-string                 v4, "%02x"
+  invoke-static                v3, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+  move-result-object           v3
+  filled-new-array             v3, [Ljava/lang/Object;
+  move-result-object           v3
+  invoke-virtual               v0, v4, v3, Ljava/util/Formatter;->format(Ljava/lang/String; [Ljava/lang/Object;)Ljava/util/Formatter;
+  add-int/lit8                 v2, v2, 1
+  goto                         -13h
+  invoke-virtual               v0, Ljava/util/Formatter;->toString()Ljava/lang/String;
+  move-result-object           v6
+  invoke-static                v6, Lkotlin/jvm/internal/Intrinsics;->e(Ljava/lang/Object;)V
+  return-object                v6
+  const-string                 v6, ""
+  return-object                v6
+
+### d (Ljava/lang/String;)Ljava/lang/String;  access=public final
+  invoke-virtual               v0, v1, Lcom/axis/net/config/Signature;->a(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v1
+  return-object                v1
+
+### e (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "token"
+  invoke-static                v8, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "json"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "POST"
+  const-string                 v3, "/v1/transaction/redeem/alifetime"
+  move-object                  v1, v7
+  move-object                  v5, v8
+  move-object                  v4, v9
+  move-object                  v6, v10
+  invoke-virtual/range         v1 ... v6, Lcom/axis/net/config/Signature;->h(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v8
+  return-object                v8
+
+### f (Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "HmacSHA256"
+  invoke-static                v0, Ljavax/crypto/Mac;->getInstance(Ljava/lang/String;)Ljavax/crypto/Mac;
+  move-result-object           v1
+  new-instance                 v2, Ljavax/crypto/spec/SecretKeySpec;
+  sget-object                  v3, Lkotlin/text/Charsets;->UTF_8 Ljava/nio/charset/Charset;
+  invoke-virtual               v7, v3, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+  move-result-object           v7
+  const-string                 v4, "getBytes(...)"
+  invoke-static                v7, v4, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-direct                v2, v7, v0, Ljavax/crypto/spec/SecretKeySpec;-><init>([B Ljava/lang/String;)V
+  invoke-virtual               v1, v2, Ljavax/crypto/Mac;->init(Ljava/security/Key;)V
+  invoke-virtual               v6, v3, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
+  move-result-object           v6
+  invoke-static                v6, v4, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-virtual               v1, v6, Ljavax/crypto/Mac;->doFinal([B)[B
+  move-result-object           v6
+  const-string                 v7, "doFinal(...)"
+  invoke-static                v6, v7, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-virtual               v5, v6, Lcom/axis/net/config/Signature;->c([B)Ljava/lang/String;
+  move-result-object           v6
+  return-object                v6
+
+### g ()Ljava/lang/String;  access=public final
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->x()Z
+  move-result                  v0
+  if-eqz                       v0, +007h
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->r()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->s()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### h (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "method"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "path"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "json"
+  invoke-static                v4, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "token"
+  invoke-static                v5, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v6, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  new-instance                 v0, Ljava/lang/StringBuilder;
+  invoke-direct                v0, Ljava/lang/StringBuilder;-><init>()V
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v2, ";"
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->g()Ljava/lang/String;
+  move-result-object           v3
+  invoke-virtual               v1, v2, v3, Lcom/axis/net/config/Signature;->f(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v2
+  return-object                v2
+
+### i ()Ljava/lang/String;  access=public final
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  sget-object                  v1, Lcom/axis/net/helper/DateHelper;->INSTANCE Lcom/axis/net/helper/DateHelper;
+  invoke-virtual               v1, Lcom/axis/net/helper/DateHelper;->getTodayTimeStamp()J
+  move-result-wide             v1
+  invoke-static                v1, v2, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v0, v1, Lcom/axis/net/helper/CryptoTool$Companion;->encryptSSO(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +004h
+  const-string                 v0, ""
+  move-object                  v1, v0
+  const/4                      v5, 4
+  const/4                      v6, 0
+  const-string                 v2, "
+"
+  const-string                 v3, ""
+  const/4                      v4, 0
+  invoke-static/range          v1 ... v6, Lkotlin/text/u;->J(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Z I Ljava/lang/Object;)Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### j (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "path"
+  invoke-static                v4, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, ""
+  if-nez                       v5, +003h
+  move-object                  v5, v0
+  if-nez                       v6, +003h
+  move-object                  v6, v0
+  if-nez                       v7, +003h
+  move-object                  v7, v0
+  if-nez                       v8, +003h
+  move-object                  v8, v0
+  if-nez                       v9, +003h
+  move-object                  v9, v0
+  if-nez                       v10, +003h
+  move-object                  v10, v0
+  if-nez                       v11, +003h
+  move-object                  v11, v0
+  if-nez                       v12, +003h
+  move-object                  v12, v0
+  invoke-virtual               v3, Lcom/axis/net/config/Signature;->apiKey()Ljava/lang/String;
+  move-result-object           v0
+  new-instance                 v1, Ljava/lang/StringBuilder;
+  invoke-direct                v1, Ljava/lang/StringBuilder;-><init>()V
+  const-string                 v2, "POST;"
+  invoke-virtual               v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v4, ";"
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+  move-result-object           v4
+  invoke-virtual               v3, Lcom/axis/net/config/Signature;->u()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v3, v4, v5, Lcom/axis/net/config/Signature;->f(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v4
+  return-object                v4
+
+### l (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "token"
+  invoke-static                v8, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "path"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "json"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v11, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "GET"
+  move-object                  v1, v7
+  move-object                  v5, v8
+  move-object                  v3, v9
+  move-object                  v4, v10
+  move-object                  v6, v11
+  invoke-virtual/range         v1 ... v6, Lcom/axis/net/config/Signature;->h(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v8
+  return-object                v8
+
+### m (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "method"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "path"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "json"
+  invoke-static                v4, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v5, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  new-instance                 v0, Ljava/lang/StringBuilder;
+  invoke-direct                v0, Ljava/lang/StringBuilder;-><init>()V
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v2, ";"
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->u()Ljava/lang/String;
+  move-result-object           v3
+  invoke-virtual               v1, v2, v3, Lcom/axis/net/config/Signature;->f(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v2
+  return-object                v2
+
+### n (Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "json"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v4, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "POST"
+  const-string                 v1, "/prefix"
+  invoke-virtual               v2, v0, v1, v3, v4, Lcom/axis/net/config/Signature;->m(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v3
+  return-object                v3
+
+### o (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "token"
+  invoke-static                v8, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "json"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "POST"
+  const-string                 v3, "/v1/purchase-ticket"
+  move-object                  v1, v7
+  move-object                  v5, v8
+  move-object                  v4, v9
+  move-object                  v6, v10
+  invoke-virtual/range         v1 ... v6, Lcom/axis/net/config/Signature;->h(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v8
+  return-object                v8
+
+### p (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "token"
+  invoke-static                v8, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "json"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "handShake"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "POST"
+  const-string                 v3, "/v1/claim-bonus"
+  move-object                  v1, v7
+  move-object                  v5, v8
+  move-object                  v4, v9
+  move-object                  v6, v10
+  invoke-virtual/range         v1 ... v6, Lcom/axis/net/config/Signature;->h(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v8
+  return-object                v8
+
+### q ()Ljava/lang/String;  access=public final
+  invoke-direct                v1, Lcom/axis/net/config/Signature;->keyTempestCapital()Ljava/lang/String;
+  move-result-object           v0
+  invoke-virtual               v1, v0, Lcom/axis/net/config/Signature;->d(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### r ()Ljava/lang/String;  access=public final
+  invoke-direct                v1, Lcom/axis/net/config/Signature;->keyTempestMarket()Ljava/lang/String;
+  move-result-object           v0
+  invoke-virtual               v1, v0, Lcom/axis/net/config/Signature;->d(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### s ()Ljava/lang/String;  access=public final
+  invoke-direct                v1, Lcom/axis/net/config/Signature;->keyTempestMarketCapital()Ljava/lang/String;
+  move-result-object           v0
+  invoke-virtual               v1, v0, Lcom/axis/net/config/Signature;->d(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### t ()Ljava/lang/String;  access=public final
+  invoke-direct                v1, Lcom/axis/net/config/Signature;->keyTempest()Ljava/lang/String;
+  move-result-object           v0
+  invoke-virtual               v1, v0, Lcom/axis/net/config/Signature;->d(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### u ()Ljava/lang/String;  access=public final
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->x()Z
+  move-result                  v0
+  if-eqz                       v0, +007h
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->t()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->q()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### v (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;  access=public final
+  const-string                 v0, "path"
+  invoke-static                v4, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, ""
+  if-nez                       v5, +003h
+  move-object                  v5, v0
+  if-nez                       v6, +003h
+  move-object                  v6, v0
+  if-nez                       v7, +003h
+  move-object                  v7, v0
+  if-nez                       v8, +003h
+  move-object                  v8, v0
+  if-nez                       v9, +003h
+  move-object                  v9, v0
+  if-nez                       v10, +003h
+  move-object                  v10, v0
+  if-nez                       v11, +003h
+  move-object                  v11, v0
+  if-nez                       v12, +003h
+  move-object                  v12, v0
+  invoke-virtual               v3, Lcom/axis/net/config/Signature;->apiKey()Ljava/lang/String;
+  move-result-object           v0
+  new-instance                 v1, Ljava/lang/StringBuilder;
+  invoke-direct                v1, Ljava/lang/StringBuilder;-><init>()V
+  const-string                 v2, "POST;"
+  invoke-virtual               v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v4, ";"
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+  move-result-object           v4
+  invoke-virtual               v3, Lcom/axis/net/config/Signature;->u()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v3, v4, v5, Lcom/axis/net/config/Signature;->f(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v4
+  return-object                v4
+
+### x ()Z  access=public final
+  sget-object                  v0, Lcom/axis/net/config/ServerEnv;->STAGING Lcom/axis/net/config/ServerEnv;
+  invoke-virtual               v0, Lcom/axis/net/config/ServerEnv;->getKey()Ljava/lang/String;
+  move-result-object           v0
+  sget-object                  v1, LM5/b;->a LM5/b;
+  invoke-virtual               v1, LM5/b;->c()Ljava/lang/String;
+  move-result-object           v1
+  const/4                      v2, 1
+  invoke-static                v0, v1, v2, Lkotlin/text/u;->A(Ljava/lang/String; Ljava/lang/String; Z)Z
+  move-result                  v0
+  return                       v0

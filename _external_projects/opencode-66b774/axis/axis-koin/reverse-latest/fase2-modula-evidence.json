@@ -1,0 +1,20 @@
+{
+ "nonce_fn": "function l(e,t){var n=e.brandCode.toLowerCase()+e.brandSecret+e.deviceId+t,i=r.default.hmac.create();return i.start(\"sha256\",e.brandSecret),i.update(n),i.digest().toHex()}",
+ "nonce_fn_offset": 1165192,
+ "gateway_hosts": [
+  "https://gateway.modula.xlsmart.co.id",
+  "https://gateway.pre-modula.xlsmart.co.id",
+  "https://gateway.sit-modula.xlsmart.co.id",
+  "https://gateway.uat-modula.xlsmart.co.id"
+ ],
+ "modula_sdk_version": "1.0.58",
+ "init_endpoint": "/api/data/sdk/init",
+ "init_body": "{brandCode, env}",
+ "init_response_keys": [
+  "wrapKey/wrap_key",
+  "signature",
+  "uiUrl/ui_url",
+  "dataUrl/data_url"
+ ],
+ "envelope_decrypt": "AES with aesKey from RSA-decrypted wrapKey (node-forge pki.rsa.decrypt), fallback base64 JSON, gunzip supported"
+}

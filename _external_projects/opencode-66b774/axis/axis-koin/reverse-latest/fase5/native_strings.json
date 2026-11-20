@@ -1,0 +1,2955 @@
+{
+ "Java_com_axis_net_config_RequestInterceptor_hostNameNew": {
+  "src": "0x1fe66",
+  "raw_len": 18,
+  "patches": [
+   [
+    "-0x1",
+    "24"
+   ],
+   [
+    "0x10",
+    "6964"
+   ]
+  ],
+  "value": "new-api.axis.co.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameProduction": {
+  "src": "0x20ec3",
+  "raw_len": 14,
+  "patches": [
+   [
+    "-0x1",
+    "1c"
+   ]
+  ],
+  "value": "api.axis.co.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameStaging": {
+  "src": "0x1f21c",
+  "raw_len": 22,
+  "patches": [
+   [
+    "-0x1",
+    "2c"
+   ]
+  ],
+  "value": "staging-api.axis.co.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameUat": {
+  "src": "0x2059c",
+  "raw_len": 18,
+  "patches": [
+   [
+    "-0x1",
+    "24"
+   ],
+   [
+    "0x10",
+    "6964"
+   ]
+  ],
+  "value": "uat-api.axis.co.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_Signature_apiKey": {
+  "src": "0x22050",
+  "raw_len": 44,
+  "patches": [],
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_Signature_keyTempest": {
+  "src": "0x1fa3d",
+  "raw_len": 56,
+  "patches": [],
+  "value": "hOc36lLcbQ8JLLGvhekVMVGy0w9hTM9EazVL1Z2aF9BiUG5Ov88rQg==",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_Signature_keyTempestCapital": {
+  "src": "0x1f3f9",
+  "raw_len": 96,
+  "patches": [],
+  "value": "d9kKoBWgOltACb1_e7kjkYxD6HaX1eVQ9Ap0xh3xcetx__gFYyStSRw2x5t54y9VBl7xZ5dIDZqcEtYpxTzLHyuQaBvNrPkl",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_Signature_keyTempestGuardian": {
+  "src": "0x2146b",
+  "raw_len": 32,
+  "patches": [],
+  "value": "C6EwP6Rw4OeYajoNm7imW9LUWlQll0A=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarket": {
+  "src": "0x20a89",
+  "raw_len": 24,
+  "patches": [],
+  "value": "VEOXH8EAnFARSFDtbNnvxA==",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarketCapital": {
+  "src": "0x20aa2",
+  "raw_len": 96,
+  "patches": [],
+  "value": "bA7mQfB73531XTWqAt4ItWgEARlLPqrLNOiuznUg0QZ3kO4I8beMwgQT066-ulysRzQTvflCIPsr52R9E4iNbq3IXUNwP9wp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_dagger_modules_FirebaseApiModule_registerTokenFcmEncrypt": {
+  "src": "0x21396",
+  "raw_len": 124,
+  "patches": [],
+  "value": "Ad3d37X71777c6e63C6a7433645Ma40X583470307W33053705b6f483U16845397279637d2J8523f694b483O9507579476738p61324b645332513q83a52S5",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_alifetimeMultipleTncUrl": {
+  "src": "0x20b58",
+  "raw_len": 35,
+  "patches": [
+   [
+    "0x1f",
+    "632f7632"
+   ]
+  ],
+  "value": "https://promo.api.axis.co.id/tnc/v2",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_claimBonusAlifetimeUrl": {
+  "src": "0x1fc14",
+  "raw_len": 60,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_flashWarInfoUrl": {
+  "src": "0x207ec",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://flashwar.api.axis.co.id/v1/info",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getAlifetimeMembershipUrl": {
+  "src": "0x21fa7",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://points.api.axis.co.id/v2/alifetime/point",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeProfilingUrl": {
+  "src": "0x226c1",
+  "raw_len": 59,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/profiling",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeUrl": {
+  "src": "0x20617",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "7300"
+   ]
+  ],
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getCoinProfileUrl": {
+  "src": "0x1eb8b",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://points.api.axis.co.id/v1/alifetime",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getLevelProfileUrl": {
+  "src": "0x21682",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/alifetime",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getMigrationAlifetimeUrl": {
+  "src": "0x1e96e",
+  "raw_len": 53,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/migration",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getRewardAlifetimeUrl": {
+  "src": "0x21aef",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "7300"
+   ]
+  ],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeUrl": {
+  "src": "0x20bb3",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus/voucher",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeV2Url": {
+  "src": "0x21743",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/voucher",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_putLevelUpUrl": {
+  "src": "0x216ae",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "6c2d7570"
+   ]
+  ],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/level-up",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_alifetimeClaimBonusUrl": {
+  "src": "0x1fc14",
+  "raw_len": 60,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_flashWarInfoUrl": {
+  "src": "0x207ec",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://flashwar.api.axis.co.id/v1/info",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_getPointHistoryUrl": {
+  "src": "0x22384",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "7279"
+   ]
+  ],
+  "value": "https://points.api.axis.co.id/v1/alifetime/history",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_analytics_repository_AnalyticRepository_sendEventUrl": {
+  "src": "0x1efe0",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://analytics.api.axis.co.id/v1/event",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_autorepurchase_repository_AutoRepurchaseRepository_autoRepurchaseListUrl": {
+  "src": "0x21438",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "7374"
+   ]
+  ],
+  "value": "https://trxpayments.api.axis.co.id/repurchase/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_autorepurchase_repository_AutoRepurchaseRepository_autoRepurchaseRemoveUrl": {
+  "src": "0x1fa76",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "6e63656c"
+   ]
+  ],
+  "value": "https://trxpayments.api.axis.co.id/repurchase/cancel",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_autorepurchase_repository_AutoRepurchaseRepository_autoRepurchaseStatusUrl": {
+  "src": "0x22197",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "7400"
+   ]
+  ],
+  "value": "https://trxpayments.api.axis.co.id/repurchase/get",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_balanceConvert_api_BalanceConvertApiImplKt_urlGetBalanceConvert": {
+  "src": "0x1e538",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "6365"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/convert-balance",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_balanceConvert_api_BalanceConvertApiImplKt_urlProceedBalanceConvert": {
+  "src": "0x1fcbb",
+  "raw_len": 59,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/convert-balance",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_byop_confirmation_services_ByopConfirmationRepository_byopValidationUrl": {
+  "src": "0x205af",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "62796f70"
+   ]
+  ],
+  "value": "https://persona.api.axis.co.id/validation-name-byop",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_byop_confirmation_services_ByopConfirmationRepository_getByopSummaryNewUrl": {
+  "src": "0x202df",
+  "raw_len": 56,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/summary-byop",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_byop_recommendation_services_ByopRecommendationRepository_byopCategoriesUrl": {
+  "src": "0x1f86f",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "6573"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/byop/categories",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_byop_recommendation_services_ByopRecommendationRepository_byopRecommendationUrl": {
+  "src": "0x20b7c",
+  "raw_len": 54,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v2/byop/recommendation",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_buyPackageCCDCUrl": {
+  "src": "0x20567",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "63636463"
+   ]
+  ],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_buyPackageMccmCCDCUrl": {
+  "src": "0x1e69e",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/mccm",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_byopCCDCUrl": {
+  "src": "0x1f699",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/byop",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_gameTokenCCDCUrl": {
+  "src": "0x1e6d8",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/gt",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_topUpBalanceCCDCUrl": {
+  "src": "0x1edea",
+  "raw_len": 60,
+  "patches": [],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/balance",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_dataLoan_api_DataLoanApiImpl_getDataLoanUrl": {
+  "src": "0x2090b",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "6c6f616e"
+   ]
+  ],
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/data/loan",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_digitalVoucher_services_DigitalVoucherRepository_activateDigitalVoucherUrl": {
+  "src": "0x1e8ba",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://digital-voucher.api.axis.co.id/v1/redeem",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_digitalVoucher_services_DigitalVoucherRepository_getDigitalVoucherUrl": {
+  "src": "0x1fc51",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://digital-voucher.api.axis.co.id/v1/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_favorite_repository_FavoriteRepository_addFavoritePackageUrl": {
+  "src": "0x1f379",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://custom-packages.api.axis.co.id/favorite",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_favorite_repository_FavoriteRepository_deleteFavoritePackageUrl": {
+  "src": "0x22322",
+  "raw_len": 63,
+  "patches": [],
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/delete/",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_favorite_repository_FavoriteRepository_getFavoritePackagesUrl": {
+  "src": "0x1fdfb",
+  "raw_len": 60,
+  "patches": [],
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_flashwar_services_FWRepository_flashWarListBonusUrl": {
+  "src": "0x1f6d3",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://flashwar.api.axis.co.id/v1/list-bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_flashwar_services_FWRepository_flashWarPurchaseTicketUrl": {
+  "src": "0x1faab",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "6574"
+   ]
+  ],
+  "value": "https://flashwar.api.axis.co.id/v1/purchase-ticket",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_flashwar_services_FWRepository_flashWarRedeemBonusUrl": {
+  "src": "0x2148c",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://flashwar.api.axis.co.id/v1/claim-bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_lockUnlock_repository_LockUnlockApiService_lock": {
+  "src": "0x1f7eb",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://lockunlock.api.axis.co.id/lock/sdp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_lockUnlock_repository_LockUnlockApiService_lockStatus": {
+  "src": "0x20705",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://lockunlock.api.axis.co.id/lockstatus/sdp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_newQuotaBonusUrl": {
+  "src": "0x1e891",
+  "raw_len": 40,
+  "patches": [],
+  "value": "https://nq.api.axis.co.id/v1/quota/bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_newQuotaInfoCityUrl": {
+  "src": "0x21209",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/location",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_newQuotaUrl": {
+  "src": "0x225d4",
+  "raw_len": 34,
+  "patches": [
+   [
+    "0x20",
+    "7461"
+   ]
+  ],
+  "value": "https://nq.api.axis.co.id/v1/quota",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quitQuotaAkrabUrl": {
+  "src": "0x2161c",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://nq.api.axis.co.id/v1/quota/akrab/exit",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quitXLSatuMemberUrl": {
+  "src": "0x208dc",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://nq.api.axis.co.id/v1/quota/xlsatu/exit",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quotaHomePage": {
+  "src": "0x225f7",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://nq.api.axis.co.id/v1/quota/homepage",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quotaPlayPause": {
+  "src": "0x1e3db",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://nq.api.axis.co.id/v1/quota/playpause",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_stopPackageUrl": {
+  "src": "0x204fe",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://trxpackages.api.axis.co.id/package/stop",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_order_services_OrderApiService_orderStatusUrl": {
+  "src": "0x1f1c3",
+  "raw_len": 38,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/status",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_BalanceRefundableRepository_clearCacheUrl": {
+  "src": "0x2264f",
+  "raw_len": 40,
+  "patches": [],
+  "value": "https://nq.api.axis.co.id/v1/cache/clear",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_checkGiftNumber": {
+  "src": "0x1e710",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/check-gift",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_getInquiry": {
+  "src": "0x1f3d1",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/inquiry",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_newProductDetail": {
+  "src": "0x1f1ea",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "6c00"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/product-detail",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_productDetail": {
+  "src": "0x1ecc8",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "6c2f7633"
+   ]
+  ],
+  "value": "https://packages.api.axis.co.id/getproductdetail/v3",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_urlUnipinTopupValidUser": {
+  "src": "0x2075d",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://trxunipin.api.axis.co.id/timwe/validuser",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_validateSubscription": {
+  "src": "0x1e665",
+  "raw_len": 56,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/validate-subscription",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PaymentRepository_paymentMethod": {
+  "src": "0x21156",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://trxpayments.api.axis.co.id/method/v5",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_payment_services_PayroRepository_urlPayroOrder": {
+  "src": "0x21ecb",
+  "raw_len": 62,
+  "patches": [],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/payro/order/v1",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_getListStampBonusUrl": {
+  "src": "0x22455",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://stamp.api.axis.co.id/v1/stamp/bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_getListStampUrl": {
+  "src": "0x1e9f1",
+  "raw_len": 37,
+  "patches": [],
+  "value": "https://stamp.api.axis.co.id/v1/stamp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_getStampMissionsUrl": {
+  "src": "0x20d83",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://stamp.api.axis.co.id/v1/stamp/mission",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_redeemStampBonusUrl": {
+  "src": "0x20ffd",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://stamp.api.axis.co.id/v1/stamp/redeem",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_resetStampBonusUrl": {
+  "src": "0x1ebdf",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://stamp.api.axis.co.id/v1/stamp/reset",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_bundlingProduct": {
+  "src": "0x20ceb",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "6c696e67"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/special-bundling",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_historyBuyUrl": {
+  "src": "0x1e430",
+  "raw_len": 72,
+  "patches": [],
+  "value": "https://trxhistory.api.axis.co.id/v4?Jenis_Transaksi=&Metode_Pembayaran=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_packageRecommendedUrl": {
+  "src": "0x1f66d",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://sureprize.api.axis.co.id/best-offer",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productBannersUrl": {
+  "src": "0x1e408",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://promo.api.axis.co.id/v2/banners",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productCategoriesUrl": {
+  "src": "0x1f45a",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/categories",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productFilterUrl": {
+  "src": "0x1e9c7",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/filter",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productHistoryUrl": {
+  "src": "0x22678",
+  "raw_len": 72,
+  "patches": [],
+  "value": "https://trxhistory.api.axis.co.id/v3?Jenis_Transaksi=&Metode_Pembayaran=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productsUrl": {
+  "src": "0x1eb52",
+  "raw_len": 56,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/product-by-categories",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_recommendedProductUrl": {
+  "src": "0x21c93",
+  "raw_len": 40,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/promo",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userDigitalMutant": {
+  "src": "0x202b9",
+  "raw_len": 37,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/mutant",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileFirstLogin": {
+  "src": "0x20352",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "6f67696e"
+   ]
+  ],
+  "value": "https://profile.api.axis.co.id/v1/check-first-login",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileGet": {
+  "src": "0x1f9ca",
+  "raw_len": 38,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/getuser",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileListAvatar": {
+  "src": "0x2216c",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/list/avatar",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileUpdate": {
+  "src": "0x1ecfc",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/updateuser",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_promo_services_PromoApiService_pageBannerImageUrl": {
+  "src": "0x21e9f",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://promo.api.axis.co.id/v1/page-banner",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_promo_services_PromoApiService_promoUrl": {
+  "src": "0x1eb06",
+  "raw_len": 36,
+  "patches": [
+   [
+    "0x20",
+    "6e657273"
+   ]
+  ],
+  "value": "https://promo.api.axis.co.id/banners",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_promo_services_PromoApiService_tncUrl": {
+  "src": "0x20b58",
+  "raw_len": 35,
+  "patches": [
+   [
+    "0x1f",
+    "632f7632"
+   ]
+  ],
+  "value": "https://promo.api.axis.co.id/tnc/v2",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_quotaDonation_repositories_QuotaDonationRepository_donationListUrl": {
+  "src": "0x22623",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/donation",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_quotaDonation_repositories_QuotaDonationRepository_postDonationUrl": {
+  "src": "0x2052e",
+  "raw_len": 56,
+  "patches": [],
+  "value": "https://sendquota.api.axis.co.id/transfer-quota/donation",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_checkIccidUrl": {
+  "src": "0x1f488",
+  "raw_len": 54,
+  "patches": [],
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/iccid",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_checkNumberReactivation": {
+  "src": "0x21f6f",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/msisdn",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_provisioning": {
+  "src": "0x221c9",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "6e696e67"
+   ]
+  ],
+  "value": "https://ns.api.axis.co.id/v1/reactivate/provisioning",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_validateImei": {
+  "src": "0x223ed",
+  "raw_len": 53,
+  "patches": [],
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/imei",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_validateNik": {
+  "src": "0x21901",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "2f6e696b"
+   ]
+  ],
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/nik",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getCheckNumberPrefixUrl": {
+  "src": "0x1e9a4",
+  "raw_len": 34,
+  "patches": [
+   [
+    "0x20",
+    "6978"
+   ]
+  ],
+  "value": "https://user.api.axis.co.id/prefix",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getPostRegisterNumberUrl": {
+  "src": "0x22423",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "7300"
+   ]
+  ],
+  "value": "https://user.api.axis.co.id/registration-liveness",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getPreRegisterNumberUrl": {
+  "src": "0x1fe79",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "6e657373"
+   ]
+  ],
+  "value": "https://user.api.axis.co.id/preregistration-liveness",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getRegisterNumberUrl": {
+  "src": "0x1ebb6",
+  "raw_len": 40,
+  "patches": [],
+  "value": "https://user.api.axis.co.id/registration",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_rekreaxis_repository_RekreaxisRepository_urlAxisSantai": {
+  "src": "0x1f60c",
+  "raw_len": 53,
+  "patches": [],
+  "value": "https://packages.api.axis.co.id/packages/entertaiment",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_simReplacement_data_api_SimReplaceApiImpl_checkNumberForSimReplacementUrl": {
+  "src": "0x21b21",
+  "raw_len": 56,
+  "patches": [],
+  "value": "https://user.api.axis.co.id/sim-replacement/check-number",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_simReplacement_data_api_SimReplaceApiImpl_sentIccidSimReplacementUrl": {
+  "src": "0x1fb18",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "6400"
+   ]
+  ],
+  "value": "https://user.api.axis.co.id/sim-replacement/iccid",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_simReplacement_data_api_SimReplaceApiImpl_sentNikSimReplacementUrl": {
+  "src": "0x2102a",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://user.api.axis.co.id/sim-replacement/nik",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_tokenisasi_services_TokenisasiApiService_getUrleWalletLinked": {
+  "src": "0x20a52",
+  "raw_len": 54,
+  "patches": [],
+  "value": "https://trxpayments.api.axis.co.id/account/linked/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_transferBalance_services_TransferBalanceRepository_otpTransferBalanceUrl": {
+  "src": "0x1f642",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://pkgbalance.api.axis.co.id/send-otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_transferBalance_services_TransferBalanceRepository_transferBalanceUrl": {
+  "src": "0x2078e",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://pkgbalance.api.axis.co.id/send-credit",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_transferBalance_services_TransferBalanceRepository_transferCheckCreditUrl": {
+  "src": "0x214bb",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://pkgbalance.api.axis.co.id/check-credit",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_transferQuota_services_TransferQuotaRepository_otpTransferQuotaUrl": {
+  "src": "0x1e93e",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://sendquota.api.axis.co.id/send-quota/otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_features_transferQuota_services_TransferQuotaRepository_transferQuotaUrl": {
+  "src": "0x207bc",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://sendquota.api.axis.co.id/transfer-quota",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisNetApplication_getMedalliaKey": {
+  "src": "0x1ffd3",
+  "raw_len": 696,
+  "patches": [],
+  "value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhcGlUb2tlblYyIiwiYXV0aFVybCI6Imh0dHBzOi8veGxheGlhdGEyLm1kLWFwaXMubWVkYWxsaWEuY29tL21vYmlsZVNESy92MS9hY2Nlc3NUb2tlbiIsImVudmlyb25tZW50IjoiZGlnaXRhbC1jbG91ZC1zaW4xIiwiY3JlYXRlVGltZSI6MTYxODkzMzg3OTcwNywiZG9tYWluIjoiaHR0cHM6Ly94bGF4aWF0YTIubWQtYXBpcy5tZWRhbGxpYS5jb20vIiwiYXBpVG9rZW5WMlZlcnNpb24iOjIsInByb3BlcnR5SWQiOjg2MzN9.C0LncKmvnSbnlzMsaJR-7IPQIsaY04hKHQ4BVFWsJtR6_xIWni15DtsCd1b6mEaiyzOQx-7qbyF_chOpI9mtgc6-7PSb05WfLw4v3VolopURzL0lO7P_ZHZNyXGDrtL2C7q-H9DAZf6PKo4zf0BucVpG-aBUqXykifZqb_PPax0qnuNGP27_tUIQ0umo64r5T0dwiG3Ni4lG5kFF26Y3O4pWb6nBqzG-iJrby6kqbqAfeV27xK0vra8tdgbpZ7Ic64P6Mf8Gdoc0VZenEh0jLS3TT1m5hxnpKe1eFXJWNyoWW0Ow6E6kJHy3E4BJrJYwBjj7qgp4T2zVf_BicIyvxA",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisNetApplication_getMoengageKey": {
+  "src": "0x20744",
+  "raw_len": 24,
+  "patches": [],
+  "value": "N62T4KPKXUSNAHEQCVJXEJP8",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAppsFlayerKey": {
+  "src": "0x1e64e",
+  "raw_len": 22,
+  "patches": [
+   [
+    "-0x1",
+    "2c"
+   ]
+  ],
+  "value": "ru953xhEQTEVtzP3bGWBDG",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAutorepurchaseKey": {
+  "src": "0x1e3b6",
+  "raw_len": 36,
+  "patches": [
+   [
+    "0x20",
+    "66513d3d"
+   ]
+  ],
+  "value": "eyJzZXJ2aWNlX2lkIjogIjMyMTMxNzcifQ==",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getDriveBaseUrl": {
+  "src": "0x1fbf7",
+  "raw_len": 28,
+  "patches": [],
+  "value": "https://drive.google.com/uc?",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getHostname": {
+  "src": "0x20736",
+  "raw_len": 13,
+  "patches": [
+   [
+    "-0x1",
+    "1a"
+   ]
+  ],
+  "value": "my.axisnet.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getMsisdnSaltKey": {
+  "src": "0x1e603",
+  "raw_len": 16,
+  "patches": [
+   [
+    "-0x1",
+    "20"
+   ]
+  ],
+  "value": "ae432353a4eb4eb9",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewAccessToken": {
+  "src": "0x1f600",
+  "raw_len": 11,
+  "patches": [
+   [
+    "-0x1",
+    "16"
+   ],
+   [
+    "0x7",
+    "6f6b656e"
+   ]
+  ],
+  "value": "accesstoken",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewHostname": {
+  "src": "0x211b4",
+  "raw_len": 18,
+  "patches": [
+   [
+    "-0x1",
+    "24"
+   ],
+   [
+    "0x10",
+    "6964"
+   ]
+  ],
+  "value": "my-test.axisnet.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewSaltKey": {
+  "src": null,
+  "raw_len": 7,
+  "patches": [],
+  "value": "saltkey",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getOtpCode": {
+  "src": "0x1fdca",
+  "raw_len": 14,
+  "patches": [
+   [
+    "-0x1",
+    "1c"
+   ]
+  ],
+  "value": "CaCS1KEquqk=\\n",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPassword": {
+  "src": "0x20c99",
+  "raw_len": 32,
+  "patches": [],
+  "value": "52c9abe3bcc73193282995ba27c3d30c",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos1": {
+  "src": "0x21e26",
+  "raw_len": 67,
+  "patches": [
+   [
+    "0x3f",
+    "7a333637"
+   ]
+  ],
+  "value": "AgdC3Dd37i69h355m15B656St5d4s252pZ6462l7z37fk4b675a4v7784x87134z367",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos10": {
+  "src": "0x1eaef",
+  "raw_len": 22,
+  "patches": [
+   [
+    "-0x1",
+    "2c"
+   ]
+  ],
+  "value": "2FtEyF43DKoJzD45SzS4TA",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos11": {
+  "src": "0x21413",
+  "raw_len": 36,
+  "patches": [
+   [
+    "0x20",
+    "7a65346b"
+   ]
+  ],
+  "value": "7r6tEe6EGgD9pS64E6h46z1A6r0t5Cf6ze4k",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos12": {
+  "src": "0x220b2",
+  "raw_len": 185,
+  "patches": [],
+  "value": "Ad3d31413r27e44367739534a71333d4fk475073347a55725d2d44744t146535967354e603f4a7b4d4144453c6879A4f6974375K357563c6a6d416a794842777Ff67566457705157564b6474G65643d6f4f566Ld633c62556a78624e4",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos2": {
+  "src": "0x222bc",
+  "raw_len": 101,
+  "patches": [],
+  "value": "Ad395f533t1587d21j393579n51X6a44C3f654Z17b64376642G327377D394160737F54c493d6178W485a744e6Re42453b4y37",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos3": {
+  "src": "0x225b3",
+  "raw_len": 32,
+  "patches": [],
+  "value": "Ad3t555s767re6Z7314x3636G15f536J",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos4": {
+  "src": "0x1eab2",
+  "raw_len": 60,
+  "patches": [],
+  "value": "Ad3td314as595a5r55076v5a413dx6449y75C407D56dt456669s4A8454e4",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos5": {
+  "src": "0x20f98",
+  "raw_len": 60,
+  "patches": [],
+  "value": "Ad3td3764s6a654rd6d29v3d463x24a6y64Cf455Db4t4475a6s7A566f6e4",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos6": {
+  "src": "0x1f143",
+  "raw_len": 127,
+  "patches": [],
+  "value": "Ad3d3X15c45355dz60536v6517d413m44d673J6553a775b6K9E35576a61T7b443Uc63307468y426e4b686i975537273p3f543q73a61324b6453R3251383a525",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos7": {
+  "src": "0x21a63",
+  "raw_len": 127,
+  "patches": [],
+  "value": "Ad3d3X76665745u97f5556435461p375145r3549H3a65485e4JE56078765V2633d2a71N7379724e40j323544585f484av547b6861324mb64533251w383a52z5",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos9": {
+  "src": "0x1fdd9",
+  "raw_len": 33,
+  "patches": [
+   [
+    "0x20",
+    "3400"
+   ]
+  ],
+  "value": "5LuLv64KzyK656HwtHJ35GxG54S4tACA4",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSaltKey": {
+  "src": "0x1e603",
+  "raw_len": 16,
+  "patches": [
+   [
+    "-0x1",
+    "20"
+   ]
+  ],
+  "value": "ae432353a4eb4eb9",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSecretKey": {
+  "src": "0x20f87",
+  "raw_len": 16,
+  "patches": [
+   [
+    "-0x1",
+    "20"
+   ]
+  ],
+  "value": "2eb9362dd64b1e56",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStatusTestingNewCluster": {
+  "src": null,
+  "raw_len": 5,
+  "patches": [],
+  "value": "false",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxis": {
+  "src": null,
+  "raw_len": 4,
+  "patches": [],
+  "value": "axis",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxisnet": {
+  "src": null,
+  "raw_len": 7,
+  "patches": [],
+  "value": "axisnet",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringDecrypt": {
+  "src": null,
+  "raw_len": 7,
+  "patches": [],
+  "value": "decrypt",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringHash": {
+  "src": null,
+  "raw_len": 3,
+  "patches": [],
+  "value": "MD5",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringMsisdn": {
+  "src": null,
+  "raw_len": 6,
+  "patches": [],
+  "value": "msisdn",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringXl": {
+  "src": null,
+  "raw_len": 2,
+  "patches": [],
+  "value": "xl",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getUrlDrawable": {
+  "src": "0x1f35a",
+  "raw_len": 30,
+  "patches": [],
+  "value": "https://drive.google.com/open?",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getUrlQrCode": {
+  "src": "0x1ef5e",
+  "raw_len": 65,
+  "patches": [
+   [
+    "0x40",
+    "3d00"
+   ]
+  ],
+  "value": "https://image-charts.com/chart?cht=qr&chs=420x420&choe=UTF-8&chl=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getXenditProductionKey": {
+  "src": "0x20b03",
+  "raw_len": 84,
+  "patches": [
+   [
+    "0x50",
+    "7475493a"
+   ]
+  ],
+  "value": "xnd_public_production_JHs7lBxKLamMtjjlVPDsREAHACQtPrUyYUt4N7Fc33fbNQA4S59jdR2JWDtuI:",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getXenditStagingKey": {
+  "src": "0x1ed6a",
+  "raw_len": 86,
+  "patches": [],
+  "value": "xnd_public_development_qR214GRZORiVp7CmaF9y52JXnBWY8b3p3mgaRfpMfQnpsI9uy4R9nvtODKoOxy:",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_Client_awsKeyOne": {
+  "src": "0x1e34e",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "3353493d"
+   ]
+  ],
+  "value": "sha256/QUlGXRV6J4rA7eCYgyrMXC1wBAsqidpTKSAHsndh3SI=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_Client_awsKeyThree": {
+  "src": "0x1e382",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "4135453d"
+   ]
+  ],
+  "value": "sha256/r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_Client_awsKeyTwo": {
+  "src": "0x209f6",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "3931773d"
+   ]
+  ],
+  "value": "sha256/5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_Client_getHostName": {
+  "src": "0x20ec3",
+  "raw_len": 14,
+  "patches": [
+   [
+    "-0x1",
+    "1c"
+   ]
+  ],
+  "value": "api.axis.co.id",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_awsKeyOne": {
+  "src": "0x1e34e",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "3353493d"
+   ]
+  ],
+  "value": "sha256/QUlGXRV6J4rA7eCYgyrMXC1wBAsqidpTKSAHsndh3SI=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_awsKeyThree": {
+  "src": "0x1e382",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "4135453d"
+   ]
+  ],
+  "value": "sha256/r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_awsKeyTwo": {
+  "src": "0x209f6",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "3931773d"
+   ]
+  ],
+  "value": "sha256/5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_keyOne": {
+  "src": "0x1f816",
+  "raw_len": 11,
+  "patches": [
+   [
+    "-0x1",
+    "16"
+   ],
+   [
+    "0x7",
+    "5f6f6e65"
+   ]
+  ],
+  "value": "aws_key_one",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_keyThree": {
+  "src": "0x220a4",
+  "raw_len": 13,
+  "patches": [
+   [
+    "-0x1",
+    "1a"
+   ]
+  ],
+  "value": "aws_key_three",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_keyTwo": {
+  "src": "0x1ed26",
+  "raw_len": 11,
+  "patches": [
+   [
+    "-0x1",
+    "16"
+   ],
+   [
+    "0x7",
+    "5f74776f"
+   ]
+  ],
+  "value": "aws_key_two",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameAdAppId": {
+  "src": "0x1f8a2",
+  "raw_len": 19,
+  "patches": [
+   [
+    "-0x1",
+    "26"
+   ],
+   [
+    "0xf",
+    "39383732"
+   ]
+  ],
+  "value": "2037459711200079872",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameAppId": {
+  "src": "0x1f261",
+  "raw_len": 18,
+  "patches": [
+   [
+    "-0x1",
+    "24"
+   ],
+   [
+    "0x10",
+    "3631"
+   ]
+  ],
+  "value": "wx230566bef801e661",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameIlinkAppId": {
+  "src": "0x20386",
+  "raw_len": 23,
+  "patches": [],
+  "value": "ilinkapp_0600002d0f8c67",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameIlinkScene": {
+  "error": "no static string source (adrp+add) found",
+  "notes": []
+ },
+ "Java_com_axis_net_initializer_helper_MoeFirebaseIntegration_getMoengageKey": {
+  "src": "0x20744",
+  "raw_len": 24,
+  "patches": [],
+  "value": "N62T4KPKXUSNAHEQCVJXEJP8",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_initializer_helper_MoeFirebaseIntegration_getSenderIdKey": {
+  "src": "0x21ae3",
+  "raw_len": 11,
+  "patches": [
+   [
+    "-0x1",
+    "16"
+   ],
+   [
+    "0x7",
+    "37303230"
+   ]
+  ],
+  "value": "61196017020",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getAlgorithmKey": {
+  "src": "0x1fdd9",
+  "raw_len": 33,
+  "patches": [
+   [
+    "0x20",
+    "3400"
+   ]
+  ],
+  "value": "5LuLv64KzyK656HwtHJ35GxG54S4tACA4",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getModeKey": {
+  "src": "0x1eaef",
+  "raw_len": 22,
+  "patches": [
+   [
+    "-0x1",
+    "2c"
+   ]
+  ],
+  "value": "2FtEyF43DKoJzD45SzS4TA",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getPaddingKey": {
+  "src": "0x21413",
+  "raw_len": 36,
+  "patches": [
+   [
+    "0x20",
+    "7a65346b"
+   ]
+  ],
+  "value": "7r6tEe6EGgD9pS64E6h46z1A6r0t5Cf6ze4k",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getSaltKey": {
+  "src": "0x1e603",
+  "raw_len": 16,
+  "patches": [
+   [
+    "-0x1",
+    "20"
+   ]
+  ],
+  "value": "ae432353a4eb4eb9",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_bonusLocalQuotaUrl": {
+  "src": "0x21273",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "666f"
+   ]
+  ],
+  "value": "https://voucher.api.axis.co.id/v3/bonus/quota-info",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_bonusesUrl": {
+  "src": "0x20a2a",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://voucher.api.axis.co.id/v3/bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_claimBonusUrl": {
+  "src": "0x205e3",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "73746f70"
+   ]
+  ],
+  "value": "https://order.api.axis.co.id/v1/claim/bonus-nonstop",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_mccmParadeBonusUrl": {
+  "src": "0x21710",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "7573"
+   ]
+  ],
+  "value": "https://order.api.axis.co.id/v1/claim/parade-bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_paradeBonusUrl": {
+  "src": "0x2039e",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://voucher.api.axis.co.id/v1/bonus-parade",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_gemini_GeminiApiImpl_geminiActivateUrl": {
+  "src": "0x2222f",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "7465"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/gemini/activate",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_gemini_GeminiApiImpl_geminiCancelUrl": {
+  "src": "0x221fe",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/gemini/cancel",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_gemini_GeminiApiImpl_geminiStatusUrl": {
+  "src": "0x22481",
+  "raw_len": 54,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/gemini/landing-page",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getDataLoanSummaryUrl": {
+  "src": "0x1f00a",
+  "raw_len": 62,
+  "patches": [
+   [
+    "0x4f",
+    "18"
+   ],
+   [
+    "0x58",
+    "6e646f6d"
+   ],
+   [
+    "0x0",
+    "20"
+   ]
+  ],
+  "value": " ttps://paylater-iou.api.axis.co.id/v1/iou/loan-data/repayment",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouDenomUrl": {
+  "src": "0x2189d",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "61676573"
+   ]
+  ],
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/packages",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouHistoryUrl": {
+  "src": "0x1e4df",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "6c65"
+   ]
+  ],
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/profile",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouPaymentCheckUrl": {
+  "src": "0x21f0a",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/payment/info",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouTncUrl": {
+  "src": "0x1fade",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/term-condition",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_miniProgram_MiniProgramApiImpl_miniProgramAuthUrl": {
+  "src": "0x21524",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://identity.api.axis.co.id/v1/auth-code/super-apps",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_notification_NotificationApiImpl_getNotificationApiUrl": {
+  "src": "0x206db",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://notification.api.axis.co.id/inbox",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_packagebalance_PackageBalanceApiImpl_getTopUpBalancePackageApi": {
+  "src": "0x1e479",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://pkgbalance.api.axis.co.id/packages",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_product_ProductApiImpl_getByopAddOnApiUrl": {
+  "src": "0x223b7",
+  "raw_len": 53,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/product-byop/addon",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_product_ProductApiImpl_getByopMainQuotaApiUrl": {
+  "src": "0x1e4a4",
+  "raw_len": 58,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/product-byop/main-quota",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_product_ProductApiImpl_getByopPredefinedApiUrl": {
+  "src": "0x21234",
+  "raw_len": 62,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/byop/recommendation/details",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_sureprize_SureprizeApiImpl_getClaimSureprizeApi": {
+  "src": "0x1f701",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/claim/sureprize",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_sureprize_SureprizeApiImpl_getOfferMccmApi": {
+  "src": "0x1e320",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://sureprize.api.axis.co.id/getoffermccm",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_topupsureprize_TopUpSureprizeApiImpl_getBonusReloadApi": {
+  "src": "0x218d1",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/bonus-reload",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_topupsureprize_TopUpSureprizeApiImpl_getClaimTopUpApi": {
+  "src": "0x216e3",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/claim/reload",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_topupsureprize_TopUpSureprizeApiImpl_getClaimUmbApi": {
+  "src": "0x1e8eb",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/claim/umb",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_trxHistory_TrxHistoryApiImpl_getHistoryDetailUrl": {
+  "src": "0x21f42",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://trxhistory.api.axis.co.id/v1/detail/",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_nativelib_api_trxHistory_TrxHistoryApiImpl_getListHistoryUrl": {
+  "src": "0x1e512",
+  "raw_len": 37,
+  "patches": [],
+  "value": "https://trxhistory.api.axis.co.id/v1/",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_balanceUrl": {
+  "src": "0x204d4",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://balance.api.axis.co.id/getbalance",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getInquiry": {
+  "src": "0x1f3d1",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/inquiry",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getOTPBalanceGT": {
+  "src": "0x2164a",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://trxunipin.api.axis.co.id/timwe/paymentpulsa/otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getOTPBalanceGifting": {
+  "src": "0x1edc1",
+  "raw_len": 40,
+  "patches": [],
+  "value": "https://trxgift.api.axis.co.id/giftcheck",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getServiceFee": {
+  "src": "0x20d1f",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/fee/",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_paymentMethod": {
+  "src": "0x21156",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://trxpayments.api.axis.co.id/method/v5",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_postBalanceGifting": {
+  "src": "0x20cba",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://trxgift.api.axis.co.id/giftvalidation/v3",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_productDetail": {
+  "src": "0x1ecc8",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "6c2f7633"
+   ]
+  ],
+  "value": "https://packages.api.axis.co.id/getproductdetail/v3",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_payment_repository_CrossSellRepository_getCrossSellUrl": {
+  "src": "0x1fe38",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/cross-sell",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_aigo_components_AigoApiService_checkAigo": {
+  "src": "0x21a07",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://new-aigo.api.axis.co.id/v1/checkaigo",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_aigo_components_AigoApiService_checkRedeemAigo": {
+  "src": "0x21367",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://new-aigo.api.axis.co.id/v1/checkredeem",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_aigo_components_AigoApiService_redeemAigo": {
+  "src": "0x1f0eb",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://new-aigo.api.axis.co.id/v1/redeemaigo",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_contactUs_componens_ContactApiService_inquiry": {
+  "src": "0x1e840",
+  "raw_len": 31,
+  "patches": [],
+  "value": "https://inquiry.api.axis.co.id/",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_gameToken_repository_GameTokenDetailRepository_getGameTokenDetailUrl": {
+  "src": "0x1f844",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://unipin.api.axis.co.id/timwe/detail",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_gameToken_repository_GameTokenDetailRepository_getUserValidationUrl": {
+  "src": "0x2075d",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://trxunipin.api.axis.co.id/timwe/validuser",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_components_PackagesApiService_claimSureprizeUrl": {
+  "src": "0x1f701",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/claim/sureprize",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_components_PackagesApiService_packageRefund": {
+  "src": "0x1f5ce",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "6400"
+   ]
+  ],
+  "value": "https://trxpackages.api.axis.co.id/package/refund",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_payro_PayRoApiService_urlPayRoCancel": {
+  "src": "0x1efa0",
+  "raw_len": 63,
+  "patches": [],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/payro/cancel/v1",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_payro_PayRoApiService_urlPayRoLocation": {
+  "src": "0x211c7",
+  "raw_len": 65,
+  "patches": [
+   [
+    "0x40",
+    "3100"
+   ]
+  ],
+  "value": "https://trxmultipayments.api.axis.co.id/payment/payro/location/v1",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_byop_components_CustomPackageApiService_getUrlListFavorite": {
+  "src": "0x1fdfb",
+  "raw_len": 60,
+  "patches": [],
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_byop_components_CustomPackageApiService_getUrlWishlistCustomPackage": {
+  "src": "0x1f379",
+  "raw_len": 47,
+  "patches": [],
+  "value": "https://custom-packages.api.axis.co.id/favorite",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_byop_components_CustomPackageApiService_getUrlWishlistDelete": {
+  "src": "0x22322",
+  "raw_len": 63,
+  "patches": [],
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/delete/",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_api_GameTokenApiImplKt_urlUnipinFlashTopUpList": {
+  "src": "0x21a34",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://unipin.api.axis.co.id/timwe/topup/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_api_GameTokenApiImplKt_urlUnipinGameFavorit": {
+  "src": "0x215c4",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://unipin.api.axis.co.id/timwe/favorit",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_api_GameTokenApiImplKt_urlUnipinVocherList": {
+  "src": "0x21183",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://unipin.api.axis.co.id/timwe/voucher/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlEntertainment": {
+  "src": "0x1feae",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/entertainment/detail",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlEntertainmentList": {
+  "src": "0x20318",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/entertainment/category",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlEntertainmentSubcription": {
+  "src": "0x1e614",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://packages.api.axis.co.id/entertainment/category/v2",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlGetFreeQuota": {
+  "src": "0x1fa18",
+  "raw_len": 36,
+  "patches": [
+   [
+    "0x20",
+    "67676c65"
+   ]
+  ],
+  "value": "https://toggle.api.axis.co.id/toggle",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_components_MainApiService_DynamicUi": {
+  "src": "0x21dfb",
+  "raw_len": 42,
+  "patches": [],
+  "value": "https://promo.api.axis.co.id/dynamic-ui/v2",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_components_MainApiService_uQuota": {
+  "src": "0x1f305",
+  "raw_len": 34,
+  "patches": [
+   [
+    "0x20",
+    "7461"
+   ]
+  ],
+  "value": "https://quota.api.axis.co.id/quota",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_components_MainApiService_urlFcmToken": {
+  "src": "0x22594",
+  "raw_len": 30,
+  "patches": [],
+  "value": "https://otp.api.axis.co.id/fcm",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getBalanceUrl": {
+  "src": "0x204d4",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://balance.api.axis.co.id/getbalance",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getBannerFeatureUrl": {
+  "src": "0x203cd",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "7300"
+   ]
+  ],
+  "value": "https://promo.api.axis.co.id/v1/highlight/banners",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getBenefitSeruUrl": {
+  "src": "0x1e73e",
+  "raw_len": 59,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/benefit-partner/homepage",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getContextualInfoUrl": {
+  "src": "0x20efa",
+  "raw_len": 59,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/contextual-info/homepage",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHistoryHomeProductUrl": {
+  "src": "0x203ff",
+  "raw_len": 81,
+  "patches": [
+   [
+    "0x50",
+    "3d00"
+   ]
+  ],
+  "value": "https://trxhistory.api.axis.co.id/v4/homepage?Jenis_Transaksi=&Metode_Pembayaran=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHomeGeminiUrl": {
+  "src": "0x1f8b6",
+  "raw_len": 51,
+  "patches": [
+   [
+    "0x2f",
+    "6f617264"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/gemini/dashboard",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHomeJustForYouUrl": {
+  "src": "0x20ed2",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://products.api.axis.co.id/v1/home",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHomepageUrl": {
+  "src": "0x21127",
+  "raw_len": 46,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/bff/homepage",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_offerProduct5GUrl": {
+  "src": "0x20d50",
+  "raw_len": 50,
+  "patches": [
+   [
+    "0x30",
+    "3567"
+   ]
+  ],
+  "value": "https://products.api.axis.co.id/v1/home/product/5g",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_uPromo": {
+  "src": "0x1e818",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://promo.api.axis.co.id/v3/banners",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_updateFcmKey": {
+  "src": "0x22050",
+  "raw_len": 44,
+  "patches": [],
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_updateFcmTokenUrl": {
+  "src": "0x22594",
+  "raw_len": 30,
+  "patches": [],
+  "value": "https://otp.api.axis.co.id/fcm",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_sureprize_components_SurepriseApiService_offerMccm": {
+  "src": "0x1e320",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://sureprize.api.axis.co.id/getoffermccm",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_singleDeliveryVoucher": {
+  "src": "0x1ed32",
+  "raw_len": 55,
+  "patches": [],
+  "value": "https://packages.api.axis.co.id/single-delivery-voucher",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_unseenPremiumVoucherUrl": {
+  "src": "0x21e6a",
+  "raw_len": 52,
+  "patches": [
+   [
+    "0x30",
+    "63686572"
+   ]
+  ],
+  "value": "https://packages.api.axis.co.id/unseen/notif/voucher",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherApplyUrl": {
+  "src": "0x1f3a9",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://voucher.api.axis.co.id/v1/apply",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherBonusUrl": {
+  "src": "0x20a2a",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://voucher.api.axis.co.id/v3/bonus",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherClaimUrl": {
+  "src": "0x20fd5",
+  "raw_len": 39,
+  "patches": [],
+  "value": "https://voucher.api.axis.co.id/v1/claim",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherDetailUrl": {
+  "src": "0x22362",
+  "raw_len": 33,
+  "patches": [
+   [
+    "0x20",
+    "3100"
+   ]
+  ],
+  "value": "https://voucher.api.axis.co.id/v1",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherUrl": {
+  "src": "0x1f9f1",
+  "raw_len": 38,
+  "patches": [],
+  "value": "https://voucher.api.axis.co.id/v1/list",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_notification_components_NotificationApiService_notificationAcceptOffer": {
+  "src": "0x21c56",
+  "raw_len": 60,
+  "patches": [],
+  "value": "https://trxpackages.api.axis.co.id/package/user/accept-offer",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_notification_components_NotificationApiService_notificationInbox": {
+  "src": "0x206db",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://notification.api.axis.co.id/inbox",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_notification_components_NotificationApiService_notificationInboxDetail": {
+  "src": "0x1f328",
+  "raw_len": 49,
+  "patches": [
+   [
+    "0x30",
+    "7300"
+   ]
+  ],
+  "value": "https://notification.api.axis.co.id/inbox/details",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_SplashActivity_stringFromJNI": {
+  "src": null,
+  "raw_len": 0,
+  "patches": [],
+  "value": "",
+  "notes": [
+   "stack-constructed"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_biometricLoginUrl": {
+  "src": "0x1f233",
+  "raw_len": 45,
+  "patches": [],
+  "value": "https://otp.api.axis.co.id/v1/login/biometric",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_biometricRequestOTPUrl": {
+  "src": "0x214ea",
+  "raw_len": 57,
+  "patches": [],
+  "value": "https://otp.api.axis.co.id/v1/login/biometric/request-otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_biometricValidateOTPUrl": {
+  "src": "0x1fc80",
+  "raw_len": 58,
+  "patches": [],
+  "value": "https://otp.api.axis.co.id/v1/login/biometric/validate-otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_createTokenAutoLoginUrl": {
+  "src": "0x2028c",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://ns.api.axis.co.id/v1/al/create-token",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_logoutUrl": {
+  "src": "0x1f822",
+  "raw_len": 33,
+  "patches": [
+   [
+    "0x20",
+    "7400"
+   ]
+  ],
+  "value": "https://otp.api.axis.co.id/logout",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_otpLoginUrl": {
+  "src": "0x1eb2b",
+  "raw_len": 38,
+  "patches": [],
+  "value": "https://otp.api.axis.co.id/otplogin/v2",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_otpUrl": {
+  "src": "0x21c34",
+  "raw_len": 33,
+  "patches": [
+   [
+    "0x20",
+    "7000"
+   ]
+  ],
+  "value": "https://otp.api.axis.co.id/v1/otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_xApiKey": {
+  "src": "0x22050",
+  "raw_len": 44,
+  "patches": [],
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_DisclaimerService_disclaimerCheck": {
+  "src": "0x1fd9d",
+  "raw_len": 44,
+  "patches": [],
+  "value": "https://user.api.axis.co.id/disclaimer/check",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_DisclaimerService_disclaimerInsert": {
+  "src": "0x2207d",
+  "raw_len": 38,
+  "patches": [],
+  "value": "https://user.api.axis.co.id/disclaimer",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_ForgotMsisdnApiServices_urlForgotMsisdn": {
+  "src": "0x1f119",
+  "raw_len": 41,
+  "patches": [],
+  "value": "https://user.api.axis.co.id/forgot-msisdn",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_clientID": {
+  "src": "0x1f0d6",
+  "raw_len": 20,
+  "patches": [
+   [
+    "-0x1",
+    "28"
+   ],
+   [
+    "0x10",
+    "77555649"
+   ]
+  ],
+  "value": "26NLLzLEZaLwngG0wUVI",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_clientSecret": {
+  "src": "0x20c7a",
+  "raw_len": 30,
+  "patches": [],
+  "value": "gU8ya9VoMTFa0LYF3xkjVYpXAAGRwz",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_grantType": {
+  "src": "0x222a9",
+  "raw_len": 18,
+  "patches": [
+   [
+    "-0x1",
+    "24"
+   ],
+   [
+    "0x10",
+    "6c73"
+   ]
+  ],
+  "value": "client_credentials",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_randomKey": {
+  "src": "0x1e603",
+  "raw_len": 16,
+  "patches": [
+   [
+    "0x20",
+    "4158537c"
+   ],
+   [
+    "0x7",
+    "20"
+   ]
+  ],
+  "value": "ae43235 a4eb4eb9",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_saltKey": {
+  "src": "0x1e603",
+  "raw_len": 16,
+  "patches": [
+   [
+    "-0x1",
+    "20"
+   ]
+  ],
+  "value": "ae432353a4eb4eb9",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_uOtp": {
+  "src": "0x21c34",
+  "raw_len": 33,
+  "patches": [
+   [
+    "0x20",
+    "7000"
+   ]
+  ],
+  "value": "https://otp.api.axis.co.id/v1/otp",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_xApikey": {
+  "src": "0x22050",
+  "raw_len": 44,
+  "patches": [],
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I=",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_transferQuota_components_TransferQuotaApiService_detailTransferQuota": {
+  "src": "0x1e860",
+  "raw_len": 48,
+  "patches": [],
+  "value": "https://sendquota.api.axis.co.id/detail-transfer",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_ui_transferQuota_components_TransferQuotaApiService_getSendQuota": {
+  "src": "0x215f0",
+  "raw_len": 43,
+  "patches": [],
+  "value": "https://sendquota.api.axis.co.id/send-quota",
+  "notes": [
+   "blr"
+  ]
+ },
+ "Java_com_axis_net_utility_DeeplinkHandler_productDeeplinkKey": {
+  "src": "0x2146b",
+  "raw_len": 32,
+  "patches": [],
+  "value": "C6EwP6Rw4OeYajoNm7imW9LUWlQll0A=",
+  "notes": [
+   "blr"
+  ]
+ }
+}

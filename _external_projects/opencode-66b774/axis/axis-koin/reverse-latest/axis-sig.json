@@ -1,0 +1,50 @@
+{
+ "Java_com_axis_net_config_Signature_keyTempest": {
+  "addr": "0x365f0",
+  "blob": "0x1fa3d",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "hOc36lLcbQ8JLLGvhekVMVGy0w9hTM9EazVL1Z2aF9BiUG5Ov88rQg=="
+ },
+ "Java_com_axis_net_config_Signature_apiKey": {
+  "addr": "0x36674",
+  "blob": "0x22050",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_config_Signature_keyTempestCapital": {
+  "addr": "0x36774",
+  "blob": "0x1f3f9",
+  "len": 96,
+  "malloc": 104,
+  "n_blobs": 1,
+  "value": "d9kKoBWgOltACb1_e7kjkYxD6HaX1eVQ9Ap0xh3xcetx__gFYyStSRw2x5t54y9VBl7xZ5dIDZqcEtYpxTzLHyuQaBvNrPkl"
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarket": {
+  "addr": "0x367f8",
+  "blob": "0x20a89",
+  "len": 24,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "VEOXH8EAnFARSFDtbNnvxA=="
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarketCapital": {
+  "addr": "0x36874",
+  "blob": "0x20aa2",
+  "len": 96,
+  "malloc": 104,
+  "n_blobs": 1,
+  "value": "bA7mQfB73531XTWqAt4ItWgEARlLPqrLNOiuznUg0QZ3kO4I8beMwgQT066-ulysRzQTvflCIPsr52R9E4iNbq3IXUNwP9wp"
+ },
+ "Java_com_axis_net_config_Signature_keyTempestGuardian": {
+  "addr": "0x38dac",
+  "blob": "0x2146b",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "C6EwP6Rw4OeYajoNm7imW9LUWlQll0A="
+ }
+}

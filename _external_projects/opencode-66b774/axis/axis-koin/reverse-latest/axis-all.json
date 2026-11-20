@@ -1,0 +1,2186 @@
+{
+ "Java_com_axis_net_ui_splashLogin_SplashActivity_stringFromJNI": {
+  "addr": "0x32c10",
+  "blob": "0x51cfb",
+  "len": 15,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "f909413fd13fc53fb128010054f403"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_uOtp": {
+  "addr": "0x32cd0",
+  "blob": "0x21c34",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/v1/otp\u0000ht"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_xApikey": {
+  "addr": "0x32d48",
+  "blob": "0x22050",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getBalanceUrl": {
+  "addr": "0x32dc4",
+  "blob": "0x204d4",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://balance.api.axis.co.id/getbalance"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHomepageUrl": {
+  "addr": "0x32e40",
+  "blob": "0x21127",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/bff/homepage"
+ },
+ "Java_com_axis_net_ui_homePage_home_components_MainApiService_urlFcmToken": {
+  "addr": "0x32ebc",
+  "blob": "0x22594",
+  "len": 30,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/fcm"
+ },
+ "Java_com_axis_net_ui_homePage_home_components_MainApiService_uQuota": {
+  "addr": "0x32f38",
+  "blob": "0x1f305",
+  "len": 34,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://quota.api.axis.co.id/quota"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_uPromo": {
+  "addr": "0x32fb4",
+  "blob": "0x1e818",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/v3/banners"
+ },
+ "Java_com_axis_net_ui_homePage_home_components_MainApiService_DynamicUi": {
+  "addr": "0x33030",
+  "blob": "0x21dfb",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/dynamic-ui/v2"
+ },
+ "Java_com_axis_net_ui_notification_components_NotificationApiService_notificationInbox": {
+  "addr": "0x330ac",
+  "blob": "0x206db",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://notification.api.axis.co.id/inbox"
+ },
+ "Java_com_axis_net_ui_notification_components_NotificationApiService_notificationInboxDetail": {
+  "addr": "0x33128",
+  "blob": "0x1f328",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://notification.api.axis.co.id/inbox/details\u0000ht"
+ },
+ "Java_com_axis_net_ui_notification_components_NotificationApiService_notificationAcceptOffer": {
+  "addr": "0x331a8",
+  "blob": "0x21c56",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://trxpackages.api.axis.co.id/package/user/accept-offer"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_productDetail": {
+  "addr": "0x3322c",
+  "blob": "0x1ecc8",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://packages.api.axis.co.id/getproductdetail/v3"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_paymentMethod": {
+  "addr": "0x332b4",
+  "blob": "0x21156",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://trxpayments.api.axis.co.id/method/v5"
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_components_PackagesApiService_packageRefund": {
+  "addr": "0x33330",
+  "blob": "0x1f5ce",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxpackages.api.axis.co.id/package/refund\u0000ac"
+ },
+ "Java_com_axis_net_ui_aigo_components_AigoApiService_checkAigo": {
+  "addr": "0x333b0",
+  "blob": "0x21a07",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://new-aigo.api.axis.co.id/v1/checkaigo"
+ },
+ "Java_com_axis_net_ui_aigo_components_AigoApiService_checkRedeemAigo": {
+  "addr": "0x3342c",
+  "blob": "0x21367",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://new-aigo.api.axis.co.id/v1/checkredeem"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_randomKey": {
+  "addr": "0x334a8",
+  "blob": "0x1e603",
+  "len": 25,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000https://"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_clientID": {
+  "addr": "0x335c8",
+  "blob": "0x1f0d6",
+  "len": 21,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "26NLLzLEZaLwngG0wUVI\u0000"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_clientSecret": {
+  "addr": "0x3368c",
+  "blob": "0x20c7a",
+  "len": 30,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "gU8ya9VoMTFa0LYF3xkjVYpXAAGRwz"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_grantType": {
+  "addr": "0x33708",
+  "blob": "0x222a9",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "client_credentials\u0000"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_saltKey": {
+  "addr": "0x337c8",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ },
+ "Java_com_axis_net_ui_homePage_sureprize_components_SurepriseApiService_offerMccm": {
+  "addr": "0x33880",
+  "blob": "0x1e320",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://sureprize.api.axis.co.id/getoffermccm"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_DisclaimerService_disclaimerCheck": {
+  "addr": "0x338fc",
+  "blob": "0x1fd9d",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/disclaimer/check"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_DisclaimerService_disclaimerInsert": {
+  "addr": "0x33978",
+  "blob": "0x2207d",
+  "len": 38,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/disclaimer"
+ },
+ "Java_com_axis_net_features_lockUnlock_repository_LockUnlockApiService_lockStatus": {
+  "addr": "0x339f4",
+  "blob": "0x20705",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://lockunlock.api.axis.co.id/lockstatus/sdp"
+ },
+ "Java_com_axis_net_features_lockUnlock_repository_LockUnlockApiService_lock": {
+  "addr": "0x33a70",
+  "blob": "0x1f7eb",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://lockunlock.api.axis.co.id/lock/sdp"
+ },
+ "Java_com_axis_net_ui_contactUs_componens_ContactApiService_inquiry": {
+  "addr": "0x33aec",
+  "blob": "0x1e840",
+  "len": 31,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://inquiry.api.axis.co.id/"
+ },
+ "Java_com_axis_net_ui_aigo_components_AigoApiService_redeemAigo": {
+  "addr": "0x33b68",
+  "blob": "0x1f0eb",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://new-aigo.api.axis.co.id/v1/redeemaigo"
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileGet": {
+  "addr": "0x33be4",
+  "blob": "0x1f9ca",
+  "len": 38,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/getuser"
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileUpdate": {
+  "addr": "0x33c60",
+  "blob": "0x1ecfc",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/updateuser"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_api_GameTokenApiImplKt_urlUnipinVocherList": {
+  "addr": "0x33cdc",
+  "blob": "0x21183",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://unipin.api.axis.co.id/timwe/voucher/list"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_api_GameTokenApiImplKt_urlUnipinFlashTopUpList": {
+  "addr": "0x33d58",
+  "blob": "0x21a34",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://unipin.api.axis.co.id/timwe/topup/list"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_api_GameTokenApiImplKt_urlUnipinGameFavorit": {
+  "addr": "0x33dd4",
+  "blob": "0x215c4",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://unipin.api.axis.co.id/timwe/favorit"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlEntertainmentSubcription": {
+  "addr": "0x33e50",
+  "blob": "0x1e614",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://packages.api.axis.co.id/entertainment/category/v2"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_ForgotMsisdnApiServices_urlForgotMsisdn": {
+  "addr": "0x33ed4",
+  "blob": "0x1f119",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/forgot-msisdn"
+ },
+ "Java_com_axis_net_dagger_modules_FirebaseApiModule_registerTokenFcmEncrypt": {
+  "addr": "0x33f50",
+  "blob": "0x21396",
+  "len": 124,
+  "malloc": 128,
+  "n_blobs": 1,
+  "value": "Ad3d37X71777c6e63C6a7433645Ma40X583470307W33053705b6f483U16845397279637d2J8523f694b483O9507579476738p61324b645332513q83a52S5"
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_awsKeyOne": {
+  "addr": "0x33fe4",
+  "blob": "0x1e34e",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "sha256/QUlGXRV6J4rA7eCYgyrMXC1wBAsqidpTKSAHsndh3SI="
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_awsKeyTwo": {
+  "addr": "0x3406c",
+  "blob": "0x209f6",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "sha256/5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w="
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_awsKeyThree": {
+  "addr": "0x340f4",
+  "blob": "0x1e382",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "sha256/r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E="
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_keyOne": {
+  "addr": "0x3417c",
+  "blob": "0x1f816",
+  "len": 12,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "aws_key_one\u0000"
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_keyTwo": {
+  "addr": "0x34240",
+  "blob": "0x1ed26",
+  "len": 12,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "aws_key_two\u0000"
+ },
+ "Java_com_axis_net_helper_SharedPreferencesHelper_keyThree": {
+  "addr": "0x34304",
+  "blob": "0x220a4",
+  "len": 14,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "aws_key_three\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSaltKey": {
+  "addr": "0x343c4",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getMsisdnSaltKey": {
+  "addr": "0x3447c",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSecretKey": {
+  "addr": "0x34534",
+  "blob": "0x20f87",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "2eb9362dd64b1e56\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getOtpCode": {
+  "addr": "0x345ec",
+  "blob": "0x1fdca",
+  "len": 15,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "CaCS1KEquqk=\\n\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos1": {
+  "addr": "0x346ac",
+  "blob": "0x21e26",
+  "len": 67,
+  "malloc": 72,
+  "n_blobs": 1,
+  "value": "AgdC3Dd37i69h355m15B656St5d4s252pZ6462l7z37fk4b675a4v7784x87134z367"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos2": {
+  "addr": "0x34734",
+  "blob": "0x222bc",
+  "len": 101,
+  "malloc": 104,
+  "n_blobs": 1,
+  "value": "Ad395f533t1587d21j393579n51X6a44C3f654Z17b64376642G327377D394160737F54c493d6178W485a744e6Re42453b4y37"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos3": {
+  "addr": "0x347c0",
+  "blob": "0x225b3",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "Ad3t555s767re6Z7314x3636G15f536J"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos4": {
+  "addr": "0x34834",
+  "blob": "0x1eab2",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "Ad3td314as595a5r55076v5a413dx6449y75C407D56dt456669s4A8454e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos5": {
+  "addr": "0x348b8",
+  "blob": "0x20f98",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "Ad3td3764s6a654rd6d29v3d463x24a6y64Cf455Db4t4475a6s7A566f6e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos6": {
+  "addr": "0x3493c",
+  "blob": "0x1f143",
+  "len": 127,
+  "malloc": 128,
+  "n_blobs": 1,
+  "value": "Ad3d3X15c45355dz60536v6517d413m44d673J6553a775b6K9E35576a61T7b443Uc63307468y426e4b686i975537273p3f543q73a61324b6453R3251383a525"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos7": {
+  "addr": "0x349d0",
+  "blob": "0x21a63",
+  "len": 127,
+  "malloc": 128,
+  "n_blobs": 1,
+  "value": "Ad3d3X76665745u97f5556435461p375145r3549H3a65485e4JE56078765V2633d2a71N7379724e40j323544585f484av547b6861324mb64533251w383a52z5"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos9": {
+  "addr": "0x34a64",
+  "blob": "0x1fdd9",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "5LuLv64KzyK656HwtHJ35GxG54S4tACA4\u0000ht"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos10": {
+  "addr": "0x34adc",
+  "blob": "0x1eaef",
+  "len": 23,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "2FtEyF43DKoJzD45SzS4TA\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos11": {
+  "addr": "0x34b9c",
+  "blob": "0x21413",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "7r6tEe6EGgD9pS64E6h46z1A6r0t5Cf6ze4k"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos12": {
+  "addr": "0x34c1c",
+  "blob": "0x220b2",
+  "len": 185,
+  "malloc": 192,
+  "n_blobs": 1,
+  "value": "Ad3d31413r27e44367739534a71333d4fk475073347a55725d2d44744t146535967354e603f4a7b4d4144453c6879A4f6974375K357563c6a6d416a794842777Ff67566457705157564b6474G65643d6f4f566Ld633c62556a78624e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringDecrypt": {
+  "addr": "0x34cc0",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringXl": {
+  "addr": "0x34d80",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxis": {
+  "addr": "0x34e30",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringHash": {
+  "addr": "0x34ee4",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAppsFlayerKey": {
+  "addr": "0x34f94",
+  "blob": "0x1e64e",
+  "len": 23,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ru953xhEQTEVtzP3bGWBDG\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPassword": {
+  "addr": "0x35054",
+  "blob": "0x20c99",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "52c9abe3bcc73193282995ba27c3d30c"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxisnet": {
+  "addr": "0x350c8",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringMsisdn": {
+  "addr": "0x35188",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getUrlQrCode": {
+  "addr": "0x35244",
+  "blob": "0x1ef5e",
+  "len": 68,
+  "malloc": 72,
+  "n_blobs": 1,
+  "value": "https://image-charts.com/chart?cht=qr&chs=420x420&choe=UTF-8&chl=\u0000ht"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getDriveBaseUrl": {
+  "addr": "0x352c4",
+  "blob": "0x1fbf7",
+  "len": 28,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://drive.google.com/uc?"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getUrlDrawable": {
+  "addr": "0x35340",
+  "blob": "0x1f35a",
+  "len": 30,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://drive.google.com/open?"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getHostname": {
+  "addr": "0x353bc",
+  "blob": "0x20736",
+  "len": 14,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "my.axisnet.id\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewHostname": {
+  "addr": "0x3547c",
+  "blob": "0x211b4",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "my-test.axisnet.id\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewSaltKey": {
+  "addr": "0x3553c",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewAccessToken": {
+  "addr": "0x355fc",
+  "blob": "0x1f600",
+  "len": 12,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "accesstoken\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAutorepurchaseKey": {
+  "addr": "0x356c0",
+  "blob": "0x1e3b6",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "eyJzZXJ2aWNlX2lkIjogIjMyMTMxNzcifQ=="
+ },
+ "Java_com_axis_net_ui_homePage_byop_components_CustomPackageApiService_getUrlWishlistCustomPackage": {
+  "addr": "0x35740",
+  "blob": "0x1f379",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://custom-packages.api.axis.co.id/favorite"
+ },
+ "Java_com_axis_net_ui_homePage_byop_components_CustomPackageApiService_getUrlWishlistDelete": {
+  "addr": "0x357bc",
+  "blob": "0x22322",
+  "len": 63,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/delete/"
+ },
+ "Java_com_axis_net_ui_homePage_byop_components_CustomPackageApiService_getUrlListFavorite": {
+  "addr": "0x35840",
+  "blob": "0x1fdfb",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/list"
+ },
+ "Java_com_axis_net_helper_Client_getHostName": {
+  "addr": "0x358c4",
+  "blob": "0x20ec3",
+  "len": 15,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "api.axis.co.id\u0000"
+ },
+ "Java_com_axis_net_helper_Client_awsKeyOne": {
+  "addr": "0x35984",
+  "blob": "0x1e34e",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "sha256/QUlGXRV6J4rA7eCYgyrMXC1wBAsqidpTKSAHsndh3SI="
+ },
+ "Java_com_axis_net_helper_Client_awsKeyTwo": {
+  "addr": "0x35a0c",
+  "blob": "0x209f6",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "sha256/5kJvNEMw0KjrCAu7eXY5HZdvyCS13BbA0VJG1RSP91w="
+ },
+ "Java_com_axis_net_helper_Client_awsKeyThree": {
+  "addr": "0x35a94",
+  "blob": "0x1e382",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "sha256/r/mIkG3eEpVdm+u/ko/cwxzOMo1bk4TyHIlByibiA5E="
+ },
+ "Java_com_axis_net_helper_AxisNetApplication_getMedalliaKey": {
+  "addr": "0x35b1c",
+  "blob": "0x1ffd3",
+  "len": 696,
+  "malloc": 704,
+  "n_blobs": 1,
+  "value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhcGlUb2tlblYyIiwiYXV0aFVybCI6Imh0dHBzOi8veGxheGlhdGEyLm1kLWFwaXMubWVkYWxsaWEuY29tL21vYmlsZVNESy92MS9hY2Nlc3NUb2tlbiIsImVudmlyb25tZW50IjoiZGlnaXRhbC1jbG91ZC1zaW4xIiwiY3JlYXRlVGltZSI6MTYxODkzMzg3OTcwNywiZG9tYWluIjoiaHR0cHM6Ly94bGF4aWF0YTIubWQtYXBpcy5tZWRhbGxpYS5jb20vIiwiYXBpVG9rZW5WMlZlcnNpb24iOjIsInByb3BlcnR5SWQiOjg2MzN9.C0LncKmvnSbnlzMsaJR-7IPQIsaY04hKHQ4BVFWsJtR6_xIWni15DtsCd1b6mEaiyzOQx-7qbyF_chOpI9mtgc6-7PSb05WfLw4v3VolopURzL0lO7P_ZHZNyXGDrtL2C7q-H9DAZf6PKo4zf0BucVpG-aBUqXykifZqb_PPax0qnuNGP27_tUIQ0umo64r5T0dwiG3Ni4lG5kFF26Y3O4pWb6nBqzG-iJrby6kqbqAfeV27xK0vra8tdgbpZ7Ic64P6Mf8Gdoc0VZenEh0jLS3TT1m5hxnpKe1eFXJWNyoWW0Ow6E6kJHy3E4BJrJYwBjj7qgp4T2zVf_BicIyvxA"
+ },
+ "Java_com_axis_net_helper_AxisNetApplication_getMoengageKey": {
+  "addr": "0x35b90",
+  "blob": "0x20744",
+  "len": 24,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "N62T4KPKXUSNAHEQCVJXEJP8"
+ },
+ "Java_com_axis_net_initializer_helper_MoeFirebaseIntegration_getMoengageKey": {
+  "addr": "0x35c0c",
+  "blob": "0x20744",
+  "len": 24,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "N62T4KPKXUSNAHEQCVJXEJP8"
+ },
+ "Java_com_axis_net_initializer_helper_MoeFirebaseIntegration_getSenderIdKey": {
+  "addr": "0x35c88",
+  "blob": "0x21ae3",
+  "len": 12,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "61196017020\u0000"
+ },
+ "Java_com_axis_net_ui_transferQuota_components_TransferQuotaApiService_getSendQuota": {
+  "addr": "0x35d4c",
+  "blob": "0x215f0",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://sendquota.api.axis.co.id/send-quota"
+ },
+ "Java_com_axis_net_ui_transferQuota_components_TransferQuotaApiService_detailTransferQuota": {
+  "addr": "0x35dc8",
+  "blob": "0x1e860",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://sendquota.api.axis.co.id/detail-transfer"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStatusTestingNewCluster": {
+  "addr": "0x35e44",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_features_rekreaxis_repository_RekreaxisRepository_urlAxisSantai": {
+  "addr": "0x35efc",
+  "blob": "0x1f60c",
+  "len": 53,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://packages.api.axis.co.id/packages/entertaiment"
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_payro_PayRoApiService_urlPayRoCancel": {
+  "addr": "0x35f80",
+  "blob": "0x1efa0",
+  "len": 63,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/payro/cancel/v1"
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_payro_PayRoApiService_urlPayRoLocation": {
+  "addr": "0x36004",
+  "blob": "0x211c7",
+  "len": 68,
+  "malloc": 72,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/payro/location/v1\u0000ht"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_singleDeliveryVoucher": {
+  "addr": "0x36084",
+  "blob": "0x1ed32",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://packages.api.axis.co.id/single-delivery-voucher"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_unseenPremiumVoucherUrl": {
+  "addr": "0x36108",
+  "blob": "0x21e6a",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://packages.api.axis.co.id/unseen/notif/voucher"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherUrl": {
+  "addr": "0x36190",
+  "blob": "0x1f9f1",
+  "len": 38,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v1/list"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherDetailUrl": {
+  "addr": "0x3620c",
+  "blob": "0x22362",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v1\u0000ht"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherApplyUrl": {
+  "addr": "0x36284",
+  "blob": "0x1f3a9",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v1/apply"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlGetFreeQuota": {
+  "addr": "0x36300",
+  "blob": "0x1fa18",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://toggle.api.axis.co.id/toggle"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherBonusUrl": {
+  "addr": "0x36380",
+  "blob": "0x20a2a",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v3/bonus"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getInquiry": {
+  "addr": "0x363fc",
+  "blob": "0x1f3d1",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/inquiry"
+ },
+ "Java_com_axis_net_features_order_services_OrderApiService_orderStatusUrl": {
+  "addr": "0x36478",
+  "blob": "0x1f1c3",
+  "len": 38,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/status"
+ },
+ "Java_com_axis_net_ui_homePage_voucherku_components_VoucherkuApiServices_voucherClaimUrl": {
+  "addr": "0x364f4",
+  "blob": "0x20fd5",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v1/claim"
+ },
+ "Java_com_axis_net_features_promo_services_PromoApiService_promoUrl": {
+  "addr": "0x36570",
+  "blob": "0x1eb06",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/banners"
+ },
+ "Java_com_axis_net_config_Signature_keyTempest": {
+  "addr": "0x365f0",
+  "blob": "0x1fa3d",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "hOc36lLcbQ8JLLGvhekVMVGy0w9hTM9EazVL1Z2aF9BiUG5Ov88rQg=="
+ },
+ "Java_com_axis_net_config_Signature_apiKey": {
+  "addr": "0x36674",
+  "blob": "0x22050",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_features_tokenisasi_services_TokenisasiApiService_getUrleWalletLinked": {
+  "addr": "0x366f0",
+  "blob": "0x20a52",
+  "len": 54,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxpayments.api.axis.co.id/account/linked/list"
+ },
+ "Java_com_axis_net_config_Signature_keyTempestCapital": {
+  "addr": "0x36774",
+  "blob": "0x1f3f9",
+  "len": 96,
+  "malloc": 104,
+  "n_blobs": 1,
+  "value": "d9kKoBWgOltACb1_e7kjkYxD6HaX1eVQ9Ap0xh3xcetx__gFYyStSRw2x5t54y9VBl7xZ5dIDZqcEtYpxTzLHyuQaBvNrPkl"
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarket": {
+  "addr": "0x367f8",
+  "blob": "0x20a89",
+  "len": 24,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "VEOXH8EAnFARSFDtbNnvxA=="
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarketCapital": {
+  "addr": "0x36874",
+  "blob": "0x20aa2",
+  "len": 96,
+  "malloc": 104,
+  "n_blobs": 1,
+  "value": "bA7mQfB73531XTWqAt4ItWgEARlLPqrLNOiuznUg0QZ3kO4I8beMwgQT066-ulysRzQTvflCIPsr52R9E4iNbq3IXUNwP9wp"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_createTokenAutoLoginUrl": {
+  "addr": "0x368f8",
+  "blob": "0x2028c",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://ns.api.axis.co.id/v1/al/create-token"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_otpLoginUrl": {
+  "addr": "0x36974",
+  "blob": "0x1eb2b",
+  "len": 38,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/otplogin/v2"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_otpUrl": {
+  "addr": "0x369f0",
+  "blob": "0x21c34",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/v1/otp\u0000ht"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_xApiKey": {
+  "addr": "0x36a68",
+  "blob": "0x22050",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_logoutUrl": {
+  "addr": "0x36ae4",
+  "blob": "0x1f822",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/logout\u0000ht"
+ },
+ "Java_com_axis_net_payment_repository_CrossSellRepository_getCrossSellUrl": {
+  "addr": "0x36b5c",
+  "blob": "0x1fe38",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/cross-sell"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getXenditStagingKey": {
+  "addr": "0x36bd8",
+  "blob": "0x1ed6a",
+  "len": 86,
+  "malloc": 88,
+  "n_blobs": 1,
+  "value": "xnd_public_development_qR214GRZORiVp7CmaF9y52JXnBWY8b3p3mgaRfpMfQnpsI9uy4R9nvtODKoOxy:"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getXenditProductionKey": {
+  "addr": "0x36c64",
+  "blob": "0x20b03",
+  "len": 84,
+  "malloc": 88,
+  "n_blobs": 1,
+  "value": "xnd_public_production_JHs7lBxKLamMtjjlVPDsREAHACQtPrUyYUt4N7Fc33fbNQA4S59jdR2JWDtuI:"
+ },
+ "Java_com_axis_net_ui_gameToken_repository_GameTokenDetailRepository_getUserValidationUrl": {
+  "addr": "0x36cf4",
+  "blob": "0x2075d",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxunipin.api.axis.co.id/timwe/validuser"
+ },
+ "Java_com_axis_net_ui_gameToken_repository_GameTokenDetailRepository_getGameTokenDetailUrl": {
+  "addr": "0x36d70",
+  "blob": "0x1f844",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://unipin.api.axis.co.id/timwe/detail"
+ },
+ "Java_com_axis_net_features_promo_services_PromoApiService_tncUrl": {
+  "addr": "0x36dec",
+  "blob": "0x20b58",
+  "len": 35,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/tnc/v2"
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_alifetimeClaimBonusUrl": {
+  "addr": "0x36e6c",
+  "blob": "0x1fc14",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_getPointHistoryUrl": {
+  "addr": "0x36ef0",
+  "blob": "0x22384",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://points.api.axis.co.id/v1/alifetime/history"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_newQuotaUrl": {
+  "addr": "0x36f74",
+  "blob": "0x225d4",
+  "len": 34,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/quota"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quotaHomePage": {
+  "addr": "0x36ff0",
+  "blob": "0x225f7",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/quota/homepage"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_newQuotaBonusUrl": {
+  "addr": "0x3706c",
+  "blob": "0x1e891",
+  "len": 40,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/quota/bonus"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_newQuotaInfoCityUrl": {
+  "addr": "0x370e8",
+  "blob": "0x21209",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/location"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_stopPackageUrl": {
+  "addr": "0x37164",
+  "blob": "0x204fe",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://trxpackages.api.axis.co.id/package/stop"
+ },
+ "Java_com_axis_net_features_digitalVoucher_services_DigitalVoucherRepository_getDigitalVoucherUrl": {
+  "addr": "0x371e0",
+  "blob": "0x1fc51",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://digital-voucher.api.axis.co.id/v1/list"
+ },
+ "Java_com_axis_net_features_digitalVoucher_services_DigitalVoucherRepository_activateDigitalVoucherUrl": {
+  "addr": "0x3725c",
+  "blob": "0x1e8ba",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://digital-voucher.api.axis.co.id/v1/redeem"
+ },
+ "Java_com_axis_net_features_analytics_repository_AnalyticRepository_sendEventUrl": {
+  "addr": "0x372d8",
+  "blob": "0x1efe0",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://analytics.api.axis.co.id/v1/event"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quitQuotaAkrabUrl": {
+  "addr": "0x37354",
+  "blob": "0x2161c",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/quota/akrab/exit"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quotaPlayPause": {
+  "addr": "0x373d0",
+  "blob": "0x1e3db",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/quota/playpause"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHomeJustForYouUrl": {
+  "addr": "0x3744c",
+  "blob": "0x20ed2",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/home"
+ },
+ "Java_com_axis_net_features_promo_services_PromoApiService_pageBannerImageUrl": {
+  "addr": "0x374c8",
+  "blob": "0x21e9f",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/v1/page-banner"
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileListAvatar": {
+  "addr": "0x37544",
+  "blob": "0x2216c",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/list/avatar"
+ },
+ "Java_com_axis_net_features_transferBalance_services_TransferBalanceRepository_transferBalanceUrl": {
+  "addr": "0x375c0",
+  "blob": "0x2078e",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://pkgbalance.api.axis.co.id/send-credit"
+ },
+ "Java_com_axis_net_features_transferBalance_services_TransferBalanceRepository_otpTransferBalanceUrl": {
+  "addr": "0x3763c",
+  "blob": "0x1f642",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://pkgbalance.api.axis.co.id/send-otp"
+ },
+ "Java_com_axis_net_features_transferQuota_services_TransferQuotaRepository_otpTransferQuotaUrl": {
+  "addr": "0x376b8",
+  "blob": "0x1e93e",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://sendquota.api.axis.co.id/send-quota/otp"
+ },
+ "Java_com_axis_net_features_transferQuota_services_TransferQuotaRepository_transferQuotaUrl": {
+  "addr": "0x37734",
+  "blob": "0x207bc",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://sendquota.api.axis.co.id/transfer-quota"
+ },
+ "Java_com_axis_net_features_myPackageDetail_services_MyPackageRepository_quitXLSatuMemberUrl": {
+  "addr": "0x377b0",
+  "blob": "0x208dc",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/quota/xlsatu/exit"
+ },
+ "Java_com_axis_net_features_quotaDonation_repositories_QuotaDonationRepository_donationListUrl": {
+  "addr": "0x3782c",
+  "blob": "0x22623",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/donation"
+ },
+ "Java_com_axis_net_features_quotaDonation_repositories_QuotaDonationRepository_postDonationUrl": {
+  "addr": "0x378a8",
+  "blob": "0x2052e",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://sendquota.api.axis.co.id/transfer-quota/donation"
+ },
+ "Java_com_axis_net_features_payment_services_PaymentRepository_paymentMethod": {
+  "addr": "0x3792c",
+  "blob": "0x21156",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://trxpayments.api.axis.co.id/method/v5"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productCategoriesUrl": {
+  "addr": "0x379a8",
+  "blob": "0x1f45a",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/categories"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productsUrl": {
+  "addr": "0x37a24",
+  "blob": "0x1eb52",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/product-by-categories"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productBannersUrl": {
+  "addr": "0x37aa8",
+  "blob": "0x1e408",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/v2/banners"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_historyBuyUrl": {
+  "addr": "0x37b24",
+  "blob": "0x1e430",
+  "len": 72,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "https://trxhistory.api.axis.co.id/v4?Jenis_Transaksi=&Metode_Pembayaran="
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_recommendedProductUrl": {
+  "addr": "0x37ba8",
+  "blob": "0x21c93",
+  "len": 40,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/promo"
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_productDetail": {
+  "addr": "0x37c24",
+  "blob": "0x1ecc8",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://packages.api.axis.co.id/getproductdetail/v3"
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_newProductDetail": {
+  "addr": "0x37cac",
+  "blob": "0x1f1ea",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/product-detail\u0000st"
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_getInquiry": {
+  "addr": "0x37d2c",
+  "blob": "0x1f3d1",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/inquiry"
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_validateSubscription": {
+  "addr": "0x37da8",
+  "blob": "0x1e665",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/validate-subscription"
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_urlUnipinTopupValidUser": {
+  "addr": "0x37e2c",
+  "blob": "0x2075d",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxunipin.api.axis.co.id/timwe/validuser"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_packageRecommendedUrl": {
+  "addr": "0x37ea8",
+  "blob": "0x1f66d",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://sureprize.api.axis.co.id/best-offer"
+ },
+ "Java_com_axis_net_features_autorepurchase_repository_AutoRepurchaseRepository_autoRepurchaseStatusUrl": {
+  "addr": "0x37f24",
+  "blob": "0x22197",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxpayments.api.axis.co.id/repurchase/get\u0000ht"
+ },
+ "Java_com_axis_net_features_autorepurchase_repository_AutoRepurchaseRepository_autoRepurchaseListUrl": {
+  "addr": "0x37fa4",
+  "blob": "0x21438",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxpayments.api.axis.co.id/repurchase/list"
+ },
+ "Java_com_axis_net_features_autorepurchase_repository_AutoRepurchaseRepository_autoRepurchaseRemoveUrl": {
+  "addr": "0x38028",
+  "blob": "0x1fa76",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxpayments.api.axis.co.id/repurchase/cancel"
+ },
+ "Java_com_axis_net_features_favorite_repository_FavoriteRepository_addFavoritePackageUrl": {
+  "addr": "0x380b0",
+  "blob": "0x1f379",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://custom-packages.api.axis.co.id/favorite"
+ },
+ "Java_com_axis_net_features_favorite_repository_FavoriteRepository_deleteFavoritePackageUrl": {
+  "addr": "0x3812c",
+  "blob": "0x22322",
+  "len": 63,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/delete/"
+ },
+ "Java_com_axis_net_features_favorite_repository_FavoriteRepository_getFavoritePackagesUrl": {
+  "addr": "0x381b0",
+  "blob": "0x1fdfb",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://custom-packages.api.axis.co.id/custom/favorites/list"
+ },
+ "Java_com_axis_net_features_payment_services_PayroRepository_urlPayroOrder": {
+  "addr": "0x38234",
+  "blob": "0x21ecb",
+  "len": 62,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/payro/order/v1"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getOTPBalanceGT": {
+  "addr": "0x382b8",
+  "blob": "0x2164a",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxunipin.api.axis.co.id/timwe/paymentpulsa/otp"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getOTPBalanceGifting": {
+  "addr": "0x3833c",
+  "blob": "0x1edc1",
+  "len": 40,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://trxgift.api.axis.co.id/giftcheck"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_postBalanceGifting": {
+  "addr": "0x383b8",
+  "blob": "0x20cba",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxgift.api.axis.co.id/giftvalidation/v3"
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_buyPackageCCDCUrl": {
+  "addr": "0x38434",
+  "blob": "0x20567",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc"
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_buyPackageMccmCCDCUrl": {
+  "addr": "0x384bc",
+  "blob": "0x1e69e",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/mccm"
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_topUpBalanceCCDCUrl": {
+  "addr": "0x38540",
+  "blob": "0x1edea",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/balance"
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_byopCCDCUrl": {
+  "addr": "0x385c4",
+  "blob": "0x1f699",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/byop"
+ },
+ "Java_com_axis_net_features_ccdc_services_CCDCRepository_gameTokenCCDCUrl": {
+  "addr": "0x38648",
+  "blob": "0x1e6d8",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://trxmultipayments.api.axis.co.id/payment/ccdc/gt"
+ },
+ "Java_com_axis_net_features_payment_services_BalanceRefundableRepository_clearCacheUrl": {
+  "addr": "0x386cc",
+  "blob": "0x2264f",
+  "len": 40,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://nq.api.axis.co.id/v1/cache/clear"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_balanceUrl": {
+  "addr": "0x38748",
+  "blob": "0x204d4",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://balance.api.axis.co.id/getbalance"
+ },
+ "Java_com_axis_net_utility_DeeplinkHandler_productDeeplinkKey": {
+  "addr": "0x387c4",
+  "blob": "0x2146b",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "C6EwP6Rw4OeYajoNm7imW9LUWlQll0A="
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_flashWarInfoUrl": {
+  "addr": "0x38838",
+  "blob": "0x207ec",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/info"
+ },
+ "Java_com_axis_net_features_flashwar_services_FWRepository_flashWarPurchaseTicketUrl": {
+  "addr": "0x388b4",
+  "blob": "0x1faab",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/purchase-ticket"
+ },
+ "Java_com_axis_net_features_flashwar_services_FWRepository_flashWarListBonusUrl": {
+  "addr": "0x38938",
+  "blob": "0x1f6d3",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/list-bonus"
+ },
+ "Java_com_axis_net_features_flashwar_services_FWRepository_flashWarRedeemBonusUrl": {
+  "addr": "0x389b4",
+  "blob": "0x2148c",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/claim-bonus"
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameProduction": {
+  "addr": "0x38a30",
+  "blob": "0x20ec3",
+  "len": 15,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "api.axis.co.id\u0000"
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameStaging": {
+  "addr": "0x38af0",
+  "blob": "0x1f21c",
+  "len": 23,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "staging-api.axis.co.id\u0000"
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameUat": {
+  "addr": "0x38bb0",
+  "blob": "0x2059c",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "uat-api.axis.co.id\u0000"
+ },
+ "Java_com_axis_net_config_RequestInterceptor_hostNameNew": {
+  "addr": "0x38c70",
+  "blob": "0x1fe66",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "new-api.axis.co.id\u0000"
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userDigitalMutant": {
+  "addr": "0x38d30",
+  "blob": "0x202b9",
+  "len": 37,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/mutant"
+ },
+ "Java_com_axis_net_config_Signature_keyTempestGuardian": {
+  "addr": "0x38dac",
+  "blob": "0x2146b",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "C6EwP6Rw4OeYajoNm7imW9LUWlQll0A="
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productHistoryUrl": {
+  "addr": "0x38e20",
+  "blob": "0x22678",
+  "len": 72,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "https://trxhistory.api.axis.co.id/v3?Jenis_Transaksi=&Metode_Pembayaran="
+ },
+ "Java_com_axis_net_ui_homePage_buyPackage_components_PackagesApiService_claimSureprizeUrl": {
+  "addr": "0x38ea4",
+  "blob": "0x1f701",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/claim/sureprize"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getLevelProfileUrl": {
+  "addr": "0x38f20",
+  "blob": "0x21682",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getMigrationAlifetimeUrl": {
+  "addr": "0x38f9c",
+  "blob": "0x1e96e",
+  "len": 53,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/migration"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getCoinProfileUrl": {
+  "addr": "0x39020",
+  "blob": "0x1eb8b",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://points.api.axis.co.id/v1/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_putLevelUpUrl": {
+  "addr": "0x3909c",
+  "blob": "0x216ae",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/level-up"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getRewardAlifetimeUrl": {
+  "addr": "0x39124",
+  "blob": "0x21aef",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus\u0000ht"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_flashWarInfoUrl": {
+  "addr": "0x391a4",
+  "blob": "0x207ec",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/info"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_claimBonusAlifetimeUrl": {
+  "addr": "0x39220",
+  "blob": "0x1fc14",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_bundlingProduct": {
+  "addr": "0x392a4",
+  "blob": "0x20ceb",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/special-bundling"
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getCheckNumberPrefixUrl": {
+  "addr": "0x3932c",
+  "blob": "0x1e9a4",
+  "len": 34,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/prefix"
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getRegisterNumberUrl": {
+  "addr": "0x393a8",
+  "blob": "0x1ebb6",
+  "len": 40,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/registration"
+ },
+ "Java_com_axis_net_features_transferBalance_services_TransferBalanceRepository_transferCheckCreditUrl": {
+  "addr": "0x39424",
+  "blob": "0x214bb",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://pkgbalance.api.axis.co.id/check-credit"
+ },
+ "Java_com_axis_net_features_products_services_ProductRepository_productFilterUrl": {
+  "addr": "0x394a0",
+  "blob": "0x1e9c7",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/filter"
+ },
+ "Java_com_axis_net_features_byop_recommendation_services_ByopRecommendationRepository_byopRecommendationUrl": {
+  "addr": "0x3951c",
+  "blob": "0x20b7c",
+  "len": 54,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v2/byop/recommendation"
+ },
+ "Java_com_axis_net_features_byop_recommendation_services_ByopRecommendationRepository_byopCategoriesUrl": {
+  "addr": "0x395a0",
+  "blob": "0x1f86f",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/byop/categories"
+ },
+ "Java_com_axis_net_features_byop_confirmation_services_ByopConfirmationRepository_getByopSummaryNewUrl": {
+  "addr": "0x39624",
+  "blob": "0x202df",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/summary-byop"
+ },
+ "Java_com_axis_net_features_byop_confirmation_services_ByopConfirmationRepository_byopValidationUrl": {
+  "addr": "0x396a8",
+  "blob": "0x205af",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://persona.api.axis.co.id/validation-name-byop"
+ },
+ "Java_com_axis_net_nativelib_api_packagebalance_PackageBalanceApiImpl_getTopUpBalancePackageApi": {
+  "addr": "0x39730",
+  "blob": "0x1e479",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://pkgbalance.api.axis.co.id/packages"
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getSaltKey": {
+  "addr": "0x397ac",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getAlgorithmKey": {
+  "addr": "0x39864",
+  "blob": "0x1fdd9",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "5LuLv64KzyK656HwtHJ35GxG54S4tACA4\u0000ht"
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getModeKey": {
+  "addr": "0x398dc",
+  "blob": "0x1eaef",
+  "len": 23,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "2FtEyF43DKoJzD45SzS4TA\u0000"
+ },
+ "Java_com_axis_net_nativelib_NativeLibImpl_getPaddingKey": {
+  "addr": "0x3999c",
+  "blob": "0x21413",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "7r6tEe6EGgD9pS64E6h46z1A6r0t5Cf6ze4k"
+ },
+ "Java_com_axis_net_payment_components_PaymentApiService_getServiceFee": {
+  "addr": "0x39a1c",
+  "blob": "0x20d1f",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/fee/"
+ },
+ "Java_com_axis_net_nativelib_api_product_ProductApiImpl_getByopMainQuotaApiUrl": {
+  "addr": "0x39a98",
+  "blob": "0x1e4a4",
+  "len": 58,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/product-byop/main-quota"
+ },
+ "Java_com_axis_net_nativelib_api_product_ProductApiImpl_getByopAddOnApiUrl": {
+  "addr": "0x39b1c",
+  "blob": "0x223b7",
+  "len": 53,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/product-byop/addon"
+ },
+ "Java_com_axis_net_nativelib_api_product_ProductApiImpl_getByopPredefinedApiUrl": {
+  "addr": "0x39ba0",
+  "blob": "0x21234",
+  "len": 62,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/byop/recommendation/details"
+ },
+ "Java_com_axis_net_nativelib_api_notification_NotificationApiImpl_getNotificationApiUrl": {
+  "addr": "0x39c24",
+  "blob": "0x206db",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://notification.api.axis.co.id/inbox"
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouTncUrl": {
+  "addr": "0x39ca0",
+  "blob": "0x1fade",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/term-condition"
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouHistoryUrl": {
+  "addr": "0x39d24",
+  "blob": "0x1e4df",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/profile"
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouDenomUrl": {
+  "addr": "0x39da8",
+  "blob": "0x2189d",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/packages"
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getIouPaymentCheckUrl": {
+  "addr": "0x39e30",
+  "blob": "0x21f0a",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/payment/info"
+ },
+ "Java_com_axis_net_features_dataLoan_api_DataLoanApiImpl_getDataLoanUrl": {
+  "addr": "0x39eb4",
+  "blob": "0x2090b",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/data/loan"
+ },
+ "Java_com_axis_net_nativelib_api_trxHistory_TrxHistoryApiImpl_getListHistoryUrl": {
+  "addr": "0x39f3c",
+  "blob": "0x1e512",
+  "len": 37,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://trxhistory.api.axis.co.id/v1/"
+ },
+ "Java_com_axis_net_nativelib_api_trxHistory_TrxHistoryApiImpl_getHistoryDetailUrl": {
+  "addr": "0x39fb8",
+  "blob": "0x21f42",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://trxhistory.api.axis.co.id/v1/detail/"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_alifetimeMultipleTncUrl": {
+  "addr": "0x3a034",
+  "blob": "0x20b58",
+  "len": 35,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/tnc/v2"
+ },
+ "Java_com_axis_net_nativelib_api_sureprize_SureprizeApiImpl_getOfferMccmApi": {
+  "addr": "0x3a0b4",
+  "blob": "0x1e320",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://sureprize.api.axis.co.id/getoffermccm"
+ },
+ "Java_com_axis_net_nativelib_api_sureprize_SureprizeApiImpl_getClaimSureprizeApi": {
+  "addr": "0x3a130",
+  "blob": "0x1f701",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/claim/sureprize"
+ },
+ "Java_com_axis_net_nativelib_api_topupsureprize_TopUpSureprizeApiImpl_getBonusReloadApi": {
+  "addr": "0x3a1ac",
+  "blob": "0x218d1",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/bonus-reload"
+ },
+ "Java_com_axis_net_nativelib_api_topupsureprize_TopUpSureprizeApiImpl_getClaimTopUpApi": {
+  "addr": "0x3a228",
+  "blob": "0x216e3",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/claim/reload"
+ },
+ "Java_com_axis_net_nativelib_api_topupsureprize_TopUpSureprizeApiImpl_getClaimUmbApi": {
+  "addr": "0x3a2a4",
+  "blob": "0x1e8eb",
+  "len": 41,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/claim/umb"
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_bonusesUrl": {
+  "addr": "0x3a320",
+  "blob": "0x20a2a",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v3/bonus"
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_bonusLocalQuotaUrl": {
+  "addr": "0x3a39c",
+  "blob": "0x21273",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v3/bonus/quota-info"
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_claimBonusUrl": {
+  "addr": "0x3a420",
+  "blob": "0x205e3",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/claim/bonus-nonstop"
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_checkIccidUrl": {
+  "addr": "0x3a4a8",
+  "blob": "0x1f488",
+  "len": 54,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/iccid"
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_validateImei": {
+  "addr": "0x3a52c",
+  "blob": "0x223ed",
+  "len": 53,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/imei"
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_validateNik": {
+  "addr": "0x3a5b0",
+  "blob": "0x21901",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/nik"
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_provisioning": {
+  "addr": "0x3a638",
+  "blob": "0x221c9",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://ns.api.axis.co.id/v1/reactivate/provisioning"
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getPreRegisterNumberUrl": {
+  "addr": "0x3a6c0",
+  "blob": "0x1fe79",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/preregistration-liveness"
+ },
+ "Java_com_axis_net_features_registrations_services_RegistrationService_getPostRegisterNumberUrl": {
+  "addr": "0x3a748",
+  "blob": "0x22423",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/registration-liveness\u0000ht"
+ },
+ "Java_com_axis_net_features_reactivations_api_ReactivationApiImpl_checkNumberReactivation": {
+  "addr": "0x3a7c8",
+  "blob": "0x21f6f",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://ns.api.axis.co.id/v1/reactivate/validate/msisdn"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_biometricRequestOTPUrl": {
+  "addr": "0x3a84c",
+  "blob": "0x214ea",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/v1/login/biometric/request-otp"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_biometricValidateOTPUrl": {
+  "addr": "0x3a8d0",
+  "blob": "0x1fc80",
+  "len": 58,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/v1/login/biometric/validate-otp"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_AuthApiService_biometricLoginUrl": {
+  "addr": "0x3a954",
+  "blob": "0x1f233",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/v1/login/biometric"
+ },
+ "Java_com_axis_net_features_balanceConvert_api_BalanceConvertApiImplKt_urlGetBalanceConvert": {
+  "addr": "0x3a9d0",
+  "blob": "0x1e538",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/convert-balance"
+ },
+ "Java_com_axis_net_features_balanceConvert_api_BalanceConvertApiImplKt_urlProceedBalanceConvert": {
+  "addr": "0x3aa54",
+  "blob": "0x1fcbb",
+  "len": 59,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/convert-balance"
+ },
+ "Java_com_axis_net_features_payment_services_PackageDetailRepository_checkGiftNumber": {
+  "addr": "0x3aad8",
+  "blob": "0x1e710",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/check-gift"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_offerProduct5GUrl": {
+  "addr": "0x3ab54",
+  "blob": "0x20d50",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/home/product/5g"
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_mccmParadeBonusUrl": {
+  "addr": "0x3abd8",
+  "blob": "0x21710",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/claim/parade-bonus"
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_getListStampUrl": {
+  "addr": "0x3ac5c",
+  "blob": "0x1e9f1",
+  "len": 37,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://stamp.api.axis.co.id/v1/stamp"
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_getListStampBonusUrl": {
+  "addr": "0x3acd8",
+  "blob": "0x22455",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://stamp.api.axis.co.id/v1/stamp/bonus"
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_redeemStampBonusUrl": {
+  "addr": "0x3ad54",
+  "blob": "0x20ffd",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://stamp.api.axis.co.id/v1/stamp/redeem"
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_getStampMissionsUrl": {
+  "addr": "0x3add0",
+  "blob": "0x20d83",
+  "len": 45,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://stamp.api.axis.co.id/v1/stamp/mission"
+ },
+ "Java_com_axis_net_features_playground_stamp_data_api_StampApiImpl_resetStampBonusUrl": {
+  "addr": "0x3ae4c",
+  "blob": "0x1ebdf",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://stamp.api.axis.co.id/v1/stamp/reset"
+ },
+ "Java_com_axis_net_features_simReplacement_data_api_SimReplaceApiImpl_checkNumberForSimReplacementUrl": {
+  "addr": "0x3aec8",
+  "blob": "0x21b21",
+  "len": 56,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/sim-replacement/check-number"
+ },
+ "Java_com_axis_net_features_simReplacement_data_api_SimReplaceApiImpl_sentIccidSimReplacementUrl": {
+  "addr": "0x3af4c",
+  "blob": "0x1fb18",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/sim-replacement/iccid\u0000ra"
+ },
+ "Java_com_axis_net_features_simReplacement_data_api_SimReplaceApiImpl_sentNikSimReplacementUrl": {
+  "addr": "0x3afcc",
+  "blob": "0x2102a",
+  "len": 47,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://user.api.axis.co.id/sim-replacement/nik"
+ },
+ "Java_com_axis_net_nativelib_api_miniProgram_MiniProgramApiImpl_miniProgramAuthUrl": {
+  "addr": "0x3b048",
+  "blob": "0x21524",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://identity.api.axis.co.id/v1/auth-code/super-apps"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlEntertainment": {
+  "addr": "0x3b0cc",
+  "blob": "0x1feae",
+  "len": 55,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/entertainment/detail"
+ },
+ "Java_com_axis_net_ui_homePage_entertainment_components_EntertainmentApiService_urlEntertainmentList": {
+  "addr": "0x3b150",
+  "blob": "0x20318",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/entertainment/category"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeUrl": {
+  "addr": "0x3b1d4",
+  "blob": "0x20bb3",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus/voucher"
+ },
+ "Java_com_axis_net_features_profile_services_ProfileRepository_userProfileFirstLogin": {
+  "addr": "0x3b258",
+  "blob": "0x20352",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/check-first-login"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeUrl": {
+  "addr": "0x3b2e0",
+  "blob": "0x20617",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus\u0000te"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeProfilingUrl": {
+  "addr": "0x3b360",
+  "blob": "0x226c1",
+  "len": 59,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/profiling"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeV2Url": {
+  "addr": "0x3b3e4",
+  "blob": "0x21743",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/voucher"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getAlifetimeMembershipUrl": {
+  "addr": "0x3b468",
+  "blob": "0x21fa7",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://points.api.axis.co.id/v2/alifetime/point"
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameIlinkAppId": {
+  "addr": "0x3b4e4",
+  "blob": "0x20386",
+  "len": 23,
+  "malloc": 25,
+  "n_blobs": 1,
+  "value": "ilinkapp_0600002d0f8c67"
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameIlinkScene": {
+  "addr": "0x3b560",
+  "blob": null,
+  "len": 11,
+  "malloc": 15,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameAppId": {
+  "addr": "0x3b568",
+  "blob": "0x1f261",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "wx230566bef801e661\u0000"
+ },
+ "Java_com_axis_net_helper_miniProgram_utils_MiniGameIdKt_miniGameAdAppId": {
+  "addr": "0x3b628",
+  "blob": "0x1f8a2",
+  "len": 20,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "2037459711200079872\u0000"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHomeGeminiUrl": {
+  "addr": "0x3b6ec",
+  "blob": "0x1f8b6",
+  "len": 51,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/gemini/dashboard"
+ },
+ "Java_com_axis_net_nativelib_api_gemini_GeminiApiImpl_geminiStatusUrl": {
+  "addr": "0x3b774",
+  "blob": "0x22481",
+  "len": 54,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/gemini/landing-page"
+ },
+ "Java_com_axis_net_nativelib_api_gemini_GeminiApiImpl_geminiCancelUrl": {
+  "addr": "0x3b7f8",
+  "blob": "0x221fe",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/gemini/cancel"
+ },
+ "Java_com_axis_net_nativelib_api_gemini_GeminiApiImpl_geminiActivateUrl": {
+  "addr": "0x3b874",
+  "blob": "0x2222f",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/gemini/activate"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getBenefitSeruUrl": {
+  "addr": "0x3b8f8",
+  "blob": "0x1e73e",
+  "len": 59,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/benefit-partner/homepage"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getContextualInfoUrl": {
+  "addr": "0x3b97c",
+  "blob": "0x20efa",
+  "len": 59,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://products.api.axis.co.id/v1/contextual-info/homepage"
+ },
+ "Java_com_axis_net_nativelib_api_bonus_BonusesApiImpl_paradeBonusUrl": {
+  "addr": "0x3ba00",
+  "blob": "0x2039e",
+  "len": 46,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://voucher.api.axis.co.id/v1/bonus-parade"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getBannerFeatureUrl": {
+  "addr": "0x3ba7c",
+  "blob": "0x203cd",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/v1/highlight/banners\u0000ht"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_updateFcmTokenUrl": {
+  "addr": "0x3bafc",
+  "blob": "0x22594",
+  "len": 30,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/fcm"
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_updateFcmKey": {
+  "addr": "0x3bb78",
+  "blob": "0x22050",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_ui_homePage_home_data_api_HomeApiImpl_getHistoryHomeProductUrl": {
+  "addr": "0x3bbf4",
+  "blob": "0x203ff",
+  "len": 84,
+  "malloc": 88,
+  "n_blobs": 1,
+  "value": "https://trxhistory.api.axis.co.id/v4/homepage?Jenis_Transaksi=&Metode_Pembayaran=\u0000%L"
+ },
+ "Java_com_axis_net_nativelib_api_iou_IouApiImpl_getDataLoanSummaryUrl": {
+  "addr": "0x3bc7c",
+  "blob": "0x1f00a",
+  "len": 62,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://paylater-iou.api.axis.co.id/v1/iou/loan-data/repayment"
+ }
+}

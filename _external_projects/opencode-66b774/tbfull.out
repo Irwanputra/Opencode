@@ -1,0 +1,35 @@
+fid=984900635322113 path="/Mei 2025/Syaliong masyaliong new update/01.mp4" size=38.1MB shareid=6978680139 uk=4400558381646
+
+=== A. /api/streaming (berbasis path, tanpa sign) ===
+  M3U8_AUTO_360     vip=0 200 {"errno":-6,"request_id":8668778163961654894}
+  M3U8_AUTO_360     vip=1 200 {"errno":-6,"request_id":8668778204167600062}
+  M3U8_AUTO_720     vip=0 200 {"errno":-6,"request_id":8668778243597420687}
+  M3U8_AUTO_720     vip=1 200 {"errno":-6,"request_id":8668778283052789134}
+  M3U8_AUTO_1080    vip=0 200 {"errno":-6,"request_id":8668778330383954197}
+  M3U8_AUTO_1080    vip=1 200 {"errno":-6,"request_id":8668778368316817652}
+  M3U8_FLV_264_480  vip=0 200 {"errno":-6,"request_id":8668778404829089228}
+  M3U8_FLV_264_480  vip=1 200 {"errno":-6,"request_id":8668778444212664048}
+
+=== B. /share/streaming + varian parameter ===
+  esl=0 isplayer=0     200 20s/2seg
+  tanpa esl/ehps       200 20s/2seg
+  esl=2                200 20s/2seg
+  vip=1                200 20s/2seg
+  web=0                200 20s/2seg
+  clienttype=5         200 20s/2seg
+  start=0&limit        200 20s/2seg
+  M3U8_AUTO            200 {"errno":31023,"newno":"","request_id":8668779201381318259,"show_msg":"some error happends
+  M3U8_AUTO_264_360    200 {"errno":31023,"newno":"","request_id":8668779330431013169,"show_msg":"some error happends
+  FLV_264_360          200 20s/2seg
+  MP4_AUTO_360         200 {"errno":31023,"newno":"","request_id":8668779548019543341,"show_msg":"some error happends
+
+=== C. /api/list (path-based) ===
+  200 {"errno":-6,"request_id":8668779652162574743}
+  200 {"errno":-6,"request_id":8668779688085114104}
+
+=== D. apakah segmen bisa di-request manual (range berikutnya)? ===
+  segmen di playlist: 2
+  parameter segmen: ts_size,region,ccn,from_type,fsid,iv,ouk,sta_cs,to,vuk,app_id,dp-logid,fn,hit_sl,isplayer,logid,r,raw_appid,size,sta_dt,sta_dx,start_ply,time,tot,ts_sl,uo,uva,csl,dtime,etag,fid,idchost,len,path,range,resv4,sign,xcode,xv,ogr,rrg,need_suf,pmk,by
+  range=0-344603 len=344604
+  range=1723020-2067623        -> 200   344604B application/octet-stream
+  range=0-999999               -> 200  1000000B application/octet-stream

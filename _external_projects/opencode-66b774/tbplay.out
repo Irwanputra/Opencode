@@ -1,0 +1,23 @@
+shareid=6978680139 uk=4400558381646 folder="/Mei 2025/Syaliong masyaliong new update" shareSign=e6c7485c8ad1b47b… shareTs=1795195502
+file=30 — terbesar: 01.mp4(38MB), 02.mp4(36MB), 03.mp4(22MB)
+
+pcoba pada: 01.mp4 fs_id=984900635322113 size=38.1MB md5=d7fe79e0ae0cd3a5d0d89be8e10ab8d8
+
+--- A. /share/streaming (HLS) ---
+  M3U8_AUTO_720   hmac baru   200 application/json; ch   {"errno":130,"newno":"","request_id":8668766040638378193,"show_msg":""} 
+  M3U8_AUTO_720   share sign  200 application/json; ch   {"errno":130,"newno":"","request_id":8668766137906860519,"show_msg":""} 
+  M3U8_AUTO_360   hmac baru   200 application/x-mpegUR   #EXTM3U #EXT-X-TARGETDURATION:15 #EXT-X-DISCONTINUITY #EXTINF:10, https://v4.freeterabox.com/video/netdisk-videotran-tky/d7fe79e0ae0cd3a5d0d89be8e10ab
+  M3U8_AUTO_360   share sign  200 application/x-mpegUR   #EXTM3U #EXT-X-TARGETDURATION:15 #EXT-X-DISCONTINUITY #EXTINF:10, https://v4.freeterabox.com/video/netdisk-videotran-tky/d7fe79e0ae0cd3a5d0d89be8e10ab
+  M3U8_AUTO_1080  hmac baru   200 application/json; ch   {"errno":130,"newno":"","request_id":8668766373462414355,"show_msg":""} 
+  M3U8_AUTO_1080  share sign  200 application/json; ch   {"errno":130,"newno":"","request_id":8668766460235554286,"show_msg":""} 
+
+--- B. /share/download (dlink) ---
+  GET  share sign  200 {"errno":2,"request_id":8668766549428140738}
+  POST share sign  200 {"errno":2,"request_id":8668766590277201163}
+  GET  hmac baru   200 {"errno":2,"request_id":8668766632287711287}
+  POST hmac baru   200 {"errno":2,"request_id":8668766670595584062}
+
+--- C. /share/mediameta ---
+  tanpa sign  200 {"duration":103,"errno":0,"height":1280,"newno":"","real_md5":"d7fe79e0ae0cd3a5d0d89be8e10ab8d8","request_id":8668766706883220335,"rotate":0,"show_msg":"","width":720} 
+  share sign  200 {"duration":103,"errno":0,"height":1280,"newno":"","real_md5":"d7fe79e0ae0cd3a5d0d89be8e10ab8d8","request_id":8668766740388985556,"rotate":0,"show_msg":"","width":720} 
+  hmac        200 {"duration":103,"errno":0,"height":1280,"newno":"","real_md5":"d7fe79e0ae0cd3a5d0d89be8e10ab8d8","request_id":8668766777383922578,"rotate":0,"show_msg":"","width":720} 

@@ -1,0 +1,8 @@
+
+##### Lcom/axis/net/nativelib/NativeLib;  [tmp3065699920606524921.dex]  super=Ljava/lang/Object;
+
+### decryptResponse (Z Ljava/lang/String;)Ljava/lang/String; access=public abstract
+  (no code - abstract/native)
+
+### encryptResponse (Z Ljava/lang/String;)Ljava/lang/String; access=public abstract
+  (no code - abstract/native)

@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Syaliong Player — pack Terabox, tinggal play</title>
+<style>
+  :root{--bg:#0e1014;--panel:#161a22;--panel2:#1d2330;--line:#2a3345;--tx:#e8ecf4;--dim:#8b97ad;--acc:#4da3ff;--ok:#3ecf8e;--err:#ff6b6b;--warn:#ffb454}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:1140px;margin:0 auto;padding:20px 15px 70px}
+  header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  h1{font-size:19px;margin:0}
+  .badge{font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--dim)}
+  .badge.on{border-color:#20523a;color:#57e39b}
+  .sub{color:var(--dim);font-size:13px;margin:0 0 18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px;margin-bottom:13px}
+  .h{font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);margin:0 0 9px;font-weight:650;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .h small{font-weight:400;letter-spacing:0;text-transform:none;color:var(--dim)}
+  video{width:100%;background:#000;border-radius:10px;display:block;aspect-ratio:9/16;max-height:62vh;margin:0 auto}
+  iframe{width:100%;height:430px;border:1px solid var(--line);border-radius:10px;background:#000;display:none}
+  input{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--tx);padding:9px 11px;font:inherit;font-size:13px}
+  input:focus{outline:none;border-color:var(--acc)}
+  .row{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:center}
+  label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);margin-bottom:5px}
+  .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+  button{background:var(--acc);border:0;border-radius:8px;color:#04121f;font-weight:650;padding:9px 13px;font-size:13.5px;cursor:pointer}
+  button.ghost{background:transparent;border:1px solid var(--line);color:var(--tx);font-weight:500}
+  button:disabled{opacity:.45;cursor:progress}
+  .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:13px}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}video{aspect-ratio:16/9}}
+  .list{max-height:460px;overflow:auto;margin-right:-6px;padding-right:6px}
+  .f{display:flex;align-items:center;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:6px;cursor:pointer}
+  .f:hover{border-color:var(--acc)}
+  .f.act{border-color:var(--acc);background:#18263a}
+  .f .n{width:26px;text-align:center;font-size:12px;color:var(--dim);flex-shrink:0}
+  .f .nm{flex:1;min-width:0;font-size:13.5px;font-weight:550;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .f .mt{font-size:11.5px;color:var(--dim);white-space:nowrap;flex-shrink:0}
+  .f .du{color:var(--ok);font-weight:600;font-variant-numeric:tabular-nums}
+  .item{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin-bottom:6px}
+  .item b{display:block;font-size:13.5px;font-weight:600;line-height:1.35}
+  .item small{color:var(--dim);font-size:11.5px}
+  .item .tag{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--warn)}
+  .item .tag.mp4{color:var(--ok)}.item .tag.hls{color:var(--acc)}
+  .item button{white-space:nowrap;flex-shrink:0;font-size:12.5px;padding:7px 11px}
+  .log{background:#0a0d12;border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;max-height:150px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+  .ok{color:var(--ok)}.err{color:var(--err)}.warn{color:var(--warn)}.dim{color:var(--dim)}
+  .tabs{display:flex;gap:6px;margin-bottom:10px}
+  .tabs button{background:var(--panel2);border:1px solid var(--line);color:var(--dim);font-weight:500}
+  .tabs button.on{border-color:var(--acc);color:var(--tx);background:#18263a}
+  a{color:var(--acc);word-break:break-all}
+  .kbd{font-family:ui-monospace,monospace;background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:11.5px}
+  .status{font-size:12.5px;color:var(--dim);margin-top:8px;word-break:break-all}
+  .spin{display:inline-block;width:11px;height:11px;border:2px solid var(--line);border-top-color:var(--acc);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-1px;margin-right:6px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Syaliong Player</h1>
+    <span class="badge on" id="badge">pack TeraBox</span>
+    <span class="badge">tanpa download</span>
+    <span class="badge">tanpa app</span>
+    <span class="badge">Cloudflare Tunnel</span>
+  </header>
+  <p class="sub">Folder TeraBox <b id="src"></b> dibuka server lewat API resminya (jsToken + tanda tangan HMAC), mode tamu tanpa login. Pratinjau 10 detik di-bypass dengan menggeser jendela baca segmen. Tinggal klik.</p>
+
+  <div class="card">
+    <div class="tabs">
+      <button id="tabV" class="on">Video langsung</button>
+      <button id="tabF">Embed halaman sumber</button>
+    </div>
+    <video id="video" controls playsinline preload="metadata"></video>
+    <iframe id="frame" src="about:blank" allow="autoplay; fullscreen; encrypted-media"></iframe>
+    <div class="status" id="now">Memuat pack Terabox…</div>
+    <div class="btns">
+      <button class="ghost" id="prev">← Sebelumnya</button>
+      <button class="ghost" id="next">Berikutnya →</button>
+      <button class="ghost" id="full">Layar penuh</button>
+      <button class="ghost" id="reload">Coba ulang</button>
+      <a id="srcLink" target="_blank" rel="noreferrer" style="margin-left:auto;font-size:12px;text-decoration:none"></a>
+    </div>
+    <div class="sub" style="margin:10px 0 0"><span class="kbd">spasi</span> play/pause · <span class="kbd">←</span><span class="kbd">→</span> 5 detik · <span class="kbd">f</span> penuh · <span class="kbd">n</span>/<span class="kbd">p</span> ganti file</div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="h">Pack TeraBox <small id="tbmeta"></small></div>
+      <div class="row" style="margin-bottom:10px">
+        <div>
+          <label for="link">Link TeraBox lain</label>
+          <input id="link" placeholder="https://terabox.com/s/1… atau …/filelist?surl=…">
+        </div>
+        <button id="tbGo">Muat</button>
+      </div>
+      <div class="row" style="margin-bottom:10px">
+        <div>
+          <label for="qual">Kualitas HLS</label>
+          <select id="qual" style="width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--tx);padding:9px 11px;font:inherit;font-size:13px">
+            <option value="M3U8_AUTO_360" selected>360p — paling panjang (2 MB TS per file)</option>
+            <option value="M3U8_AUTO_480">480p</option>
+            <option value="M3U8_FLV_264_480">480p FLV</option>
+          </select>
+        </div>
+        <button id="repl" class="ghost">Playlist baru</button>
+      </div>
+      <div class="sub" id="tbnote" style="margin:0 0 10px"></div>
+      <div class="list" id="tb"><span class="spin"></span>Menghubungi TeraBox…</div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="h">Katalog sumber lain <small>durasi terukur</small></div>
+        <div id="catalog">Memuat…</div>
+      </div>
+      <div class="card">
+        <div class="h">Log</div>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js" defer></script>
+<script>
+const $ = (id) => document.getElementById(id);
+let tbFiles = [], otherFiles = [], queue = [], idx = -1, hls = null, current = null, tbLink = "", tbLogin = false;
+
+function log(m, c = "") {
+  const el = $("log");
+  const d = document.createElement("div");
+  if (c) d.className = c;
+  d.textContent = "[" + new Date().toLocaleTimeString("id-ID") + "] " + m;
+  el.appendChild(d);
+  el.scrollTop = el.scrollHeight;
+}
+const dur = (s) => (s ? `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}` : "-");
+const mb = (b) => (b ? (b / 1048576).toFixed(1) + " MB" : "-");
+
+function setTab(which) {
+  $("video").style.display = which === "video" ? "block" : "none";
+  $("frame").style.display = which === "video" ? "none" : "block";
+  $("tabV").classList.toggle("on", which === "video");
+  $("tabF").classList.toggle("on", which !== "video");
+}
+
+function mount(url, kind) {
+  const v = $("video");
+  if (hls) { hls.destroy(); hls = null; }
+  v.removeAttribute("src");
+  if (kind === "hls") {
+    if (v.canPlayType("application/vnd.apple.mpegurl")) {
+      v.src = url;
+      log("HLS native", "ok");
+    } else if (window.Hls && Hls.isSupported()) {
+      hls = new Hls({ maxBufferLength: 30 });
+      hls.loadSource(url);
+      hls.attachMedia(v);
+      let pulih = 0;
+      hls.on(Hls.Events.ERROR, (_, d) => {
+        if (!d.fatal) return;
+        const kedaluarsa = d.response && d.response.code === 410;
+        if (kedaluarsa && pulih < 2) {
+          pulih++;
+          log("tanda tangan segmen kedaluwarsa — minta playlist baru (" + pulih + "/2)", "warn");
+          hls.startLoad();
+          return;
+        }
+        log("HLS fatal: " + d.details, "err");
+      });
+      log("HLS via hls.js", "ok");
+    } else return log("Browser ini tidak bisa putar HLS", "err");
+  } else {
+    v.src = url;
+  }
+  v.load();
+  const p = v.play();
+  if (p && p.catch) p.catch(() => log("Autoplay diblokir — tekan tombol play", "warn"));
+}
+
+function showEmbed(url, note) {
+  setTab("embed");
+  $("frame").src = url;
+  if (note) log(note, "warn");
+}
+
+function paint() {
+  document.querySelectorAll(".f").forEach((n, k) => n.classList.toggle("act", k === idx && queue === tbFiles));
+  document.querySelectorAll("#catalog .item").forEach((n, k) => n.classList.toggle("act", k === idx && queue === otherFiles));
+}
+
+async function play(i) {
+  if (!queue.length) return;
+  idx = (i + queue.length) % queue.length;
+  const it = queue[idx];
+  current = it;
+  paint();
+  $("now").textContent = it.t + (it.d ? " — " + it.d : "");
+  $("srcLink").textContent = "sumber ↗";
+  $("srcLink").href = it.src || "#";
+
+  if (it.kind === "tb") {
+    setTab("video");
+    $("frame").src = "about:blank";
+    const url = `/tb/pl?link=${encodeURIComponent(it.surl)}&fid=${encodeURIComponent(it.fid)}&type=${encodeURIComponent($("qual").value)}`;
+    let span = 0,
+      real = it.dur || 0;
+    try {
+      const r = await fetch(url);
+      span = Number(r.headers.get("x-playlist-span")) || 0;
+      real = Number(r.headers.get("x-real-duration")) || real;
+    } catch {}
+    const ql = $("qual").selectedOptions[0].textContent.split(" —")[0];
+    mount(url, "hls");
+    const kurang = span && real && span + 4 < real;
+    log(`Putar ${it.name} — playlist ${dur(span)} dari ${dur(real)}`, kurang ? "warn" : "ok");
+    $("now").textContent = `${it.name} — ${dur(real)} · ${ql}${kurang ? ` (yang kesampaian ${dur(span)})` : ""}`;
+    return;
+  }
+  if (it.kind === "mp4") {
+    setTab("video");
+    $("frame").src = "about:blank";
+    mount("/p?url=" + encodeURIComponent(it.u), "mp4");
+    return log("Putar mp4: " + it.t, "ok");
+  }
+  if (it.kind === "hls") {
+    setTab("video");
+    $("frame").src = "about:blank";
+    mount("/hls?url=" + encodeURIComponent(it.u), "hls");
+    return log("Putar HLS: " + it.t, "ok");
+  }
+  if (it.kind === "embed") return showEmbed(it.u, "Entri ini cuma bisa lewat embed: host-nya menolak bot.");
+  if (it.kind === "haven") {
+    $("now").textContent = it.t + " — mengambil token…";
+    try {
+      const r = await (await fetch("/api/haven?id=" + encodeURIComponent(it.u))).json();
+      if (r.ok) {
+        setTab("video");
+        $("frame").src = "about:blank";
+        mount((r.kind === "hls" ? "/hls?url=" : "/p?url=") + encodeURIComponent(r.url), r.kind);
+        log("havenfile OK · " + r.kind.toUpperCase(), "ok");
+      } else {
+        showEmbed(it.page, "havenfile tidak memberi URL — pindah ke embed halaman sumber.");
+      }
+    } catch (e) {
+      showEmbed(it.page, "havenfile gagal: " + e.message);
+    }
+  }
+}
+
+function renderTb() {
+  const box = $("tb");
+  box.innerHTML = "";
+  tbFiles.forEach((it, i) => {
+    const row = document.createElement("div");
+    row.className = "f";
+    row.onclick = () => {
+      queue = tbFiles;
+      play(i);
+    };
+    const n = document.createElement("div");
+    n.className = "n";
+    n.textContent = i + 1;
+    const nm = document.createElement("div");
+    nm.className = "nm";
+    nm.textContent = it.name;
+    const mt = document.createElement("div");
+    mt.className = "mt";
+    mt.innerHTML = `<span class="du">${dur(it.dur)}</span> · ${mb(it.size)}${it.w ? " · " + it.w + "×" + it.h : ""}`;
+    row.append(n, nm, mt);
+    box.appendChild(row);
+  });
+}
+
+async function loadTb(link, percobaan = 1) {
+  $("tbGo").disabled = true;
+  const box = $("tb");
+  const t0 = Date.now();
+  const jam = () => ((Date.now() - t0) / 1000).toFixed(0);
+  box.innerHTML = '<span class="spin"></span>Menghubungi TeraBox… <span class="dim" id="tbt">0s</span>';
+  const ticks = setInterval(() => {
+    const el = $("tbt");
+    if (!el) return clearInterval(ticks);
+    el.textContent = jam() + "s";
+    if (Number(jam()) > 6) el.textContent += " — 6 domain lagi disodorin paralel…";
+  }, 1000);
+  try {
+    const r = await (await fetch("/api/tb?link=" + encodeURIComponent(link || ""))).json();
+    clearInterval(ticks);
+    if (!r.ok) {
+      if (percobaan < 3) {
+        box.innerHTML = `<span class="spin"></span>${r.error} — nyoba lagi (${percobaan}/2)…`;
+        log("Terabox nolak, coba lagi (" + percobaan + "/2) · " + jam() + "s", "warn");
+        await new Promise((k) => setTimeout(k, 1500));
+        return loadTb(link, percobaan + 1);
+      }
+      box.innerHTML =
+        "<div class='sub' style='margin:0'>" + (r.error || "gagal") + "</div>" +
+        "<button class='ghost' style='margin-top:8px' id='tbRetry'>Coba lagi</button>";
+      $("tbRetry").onclick = () => loadTb(link);
+      return log("Terabox: " + (r.error || "gagal") + " (" + jam() + "s)", "err");
+    }
+    tbLink = r.surl;
+    tbLogin = !!r.login;
+    $("src").textContent = "› " + r.title + " (" + r.surl + ")";
+    $("badge").textContent = r.count + " file dari pack TeraBox";
+    $("tbmeta").textContent = `${r.count} video · ${dur(r.total)} total · via ${r.host.replace("https://", "")}`;
+    $("tbnote").innerHTML = "Mode tamu, tanpa login. Jendela baca segmen digeser sampai <code>ts_size</code> (TeraBox nggak ngunci <code>len</code>/<code>range</code>), jadi video utuh keputer di 360p. File paling panjang bisa kelewat ±10 detik di ujung karena kuota tamu dipatok ±2 MB per file.";
+    tbFiles = r.files.map((f) => ({
+      kind: "tb", name: f.name, t: f.name, d: `${dur(f.dur)} · ${mb(f.size)}`, fid: f.fid, surl: r.surl, dur: f.dur, src: `https://www.terabox.com/s/${r.surl}`,
+    }));
+    renderTb();
+    log(`Terabox: ${r.count} file, ${dur(r.total)} total${tbLogin ? " (login)" : " (pratinjau)"}`, tbLogin ? "ok" : "warn");
+    if (!queue.length || queue === otherFiles) {
+      queue = tbFiles;
+      play(0);
+    }
+  } catch (e) {
+    clearInterval(ticks);
+    if (percobaan < 3) {
+      box.innerHTML = `<span class="spin"></span>Koneksi putus — nyoba lagi (${percobaan}/2)…`;
+      await new Promise((k) => setTimeout(k, 1500));
+      return loadTb(link, percobaan + 1);
+    }
+    box.innerHTML =
+      "<div class='sub' style='margin:0'>Gagal: " + e.message + "</div>" +
+      "<button class='ghost' style='margin-top:8px' id='tbRetry'>Coba lagi</button>";
+    $("tbRetry").onclick = () => loadTb(link, 1);
+    log("Terabox gagal: " + e.message + " (" + jam() + "s)", "err");
+  }
+  $("tbGo").disabled = false;
+}
+
+function renderCatalog(list) {
+  const box = $("catalog");
+  box.innerHTML = "";
+  const order = { mp4: 0, hls: 1, haven: 2, embed: 3 };
+  list.sort((a, b) => (order[a.kind] ?? 9) - (order[b.kind] ?? 9));
+  otherFiles = list;
+  list.forEach((it, i) => {
+    const row = document.createElement("div");
+    row.className = "item";
+    const left = document.createElement("div");
+    const tag = document.createElement("div");
+    tag.className = "tag " + it.kind;
+    tag.textContent = it.kind === "mp4" ? "mp4 langsung" : it.kind === "hls" ? "hls" : it.kind === "haven" ? "havenfile" : "embed saja";
+    const b = document.createElement("b");
+    b.textContent = it.t;
+    const s = document.createElement("small");
+    s.textContent = it.d;
+    left.append(tag, b, s);
+    const btn = document.createElement("button");
+    btn.textContent = it.kind === "embed" ? "Buka" : "Putar";
+    btn.className = it.kind === "embed" ? "ghost" : "";
+    btn.onclick = () => {
+      queue = otherFiles;
+      play(i);
+    };
+    row.append(left, btn);
+    box.appendChild(row);
+  });
+  log(list.length + " entri katalog lain dimuat", "ok");
+}
+
+$("tabV").onclick = () => idx >= 0 && play(idx);
+$("tabF").onclick = () => {
+  if (!current) return;
+  setTab("embed");
+  $("frame").src = current.page || (current.kind === "embed" ? current.u : current.src || "about:blank");
+};
+$("next").onclick = () => play(idx + 1);
+$("prev").onclick = () => play(idx - 1);
+$("full").onclick = () => $("video").requestFullscreen && $("video").requestFullscreen();
+$("reload").onclick = () => idx >= 0 && play(idx);
+$("qual").onchange = () => idx >= 0 && play(idx);
+$("repl").onclick = () => idx >= 0 && current && current.kind === "tb" && play(idx);
+$("tbGo").onclick = () => loadTb($("link").value.trim());
+$("link").addEventListener("keydown", (e) => e.key === "Enter" && loadTb($("link").value.trim()));
+document.addEventListener("keydown", (e) => {
+  if ("INPUT".includes(e.target.tagName)) return;
+  const v = $("video");
+  if (e.code === "Space") { e.preventDefault(); v.paused ? v.play() : v.pause(); }
+  if (e.key === "ArrowRight") v.currentTime += 5;
+  if (e.key === "ArrowLeft") v.currentTime -= 5;
+  if (e.key === "f") $("full").click();
+  if (e.key === "n") play(idx + 1);
+  if (e.key === "p") play(idx - 1);
+});
+
+queue = tbFiles;
+loadTb("");
+fetch("/api/catalog").then((r) => r.json()).then(renderCatalog).catch((e) => log("Katalog gagal: " + e.message, "err"));
+</script>
+</body>
+</html>

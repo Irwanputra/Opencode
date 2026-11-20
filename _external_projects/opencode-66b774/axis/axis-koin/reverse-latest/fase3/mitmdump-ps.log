@@ -1,0 +1,737 @@
+Proxy server listening at *:8080
+127.0.0.1:38118: client connect
+127.0.0.1:38118: server connect example.com:80 (172.66.147.243:80)
+127.0.0.1:38118: GET http://example.com/
+              << 200 OK 577b
+127.0.0.1:38118: client disconnect
+127.0.0.1:38118: server disconnect example.com:80 (172.66.147.243:80)
+127.0.0.1:59408: client connect
+127.0.0.1:59424: client connect
+127.0.0.1:59424: server connect youtubei.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:59408: server connect gmscompliance-pa.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:59424: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59424: client disconnect
+127.0.0.1:59424: server disconnect youtubei.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:59408: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59408: client disconnect
+127.0.0.1:59408: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:59426: client connect
+127.0.0.1:59426: server connect gmscompliance-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59426: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59426: client disconnect
+127.0.0.1:59426: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59434: client connect
+127.0.0.1:59434: server connect gmscompliance-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:59434: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59434: client disconnect
+127.0.0.1:59434: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:59448: client connect
+127.0.0.1:59448: server connect www.youtube.com:443 (142.251.154.4:443)
+127.0.0.1:59448: Client TLS handshake failed. The client does not trust the proxy's certificate for www.youtube.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59448: client disconnect
+127.0.0.1:59448: server disconnect www.youtube.com:443 (142.251.154.4:443)
+127.0.0.1:59450: client connect
+127.0.0.1:59450: server connect safebrowsing.googleapis.com:443 (142.250.102.95:443)
+127.0.0.1:59454: client connect
+127.0.0.1:59454: server connect firebaseinstallations.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:59450: Client TLS handshake failed. The client does not trust the proxy's certificate for safebrowsing.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59450: client disconnect
+127.0.0.1:59450: server disconnect safebrowsing.googleapis.com:443 (142.250.102.95:443)
+127.0.0.1:59462: client connect
+127.0.0.1:59462: server connect sdkock.cdn-settings.appsflyersdk.com:443 (18.239.105.2:443)
+127.0.0.1:59454: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaseinstallations.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59454: client disconnect
+127.0.0.1:59454: server disconnect firebaseinstallations.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:59462: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.cdn-settings.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59462: client disconnect
+127.0.0.1:59462: server disconnect sdkock.cdn-settings.appsflyersdk.com:443 (18.239.105.2:443)
+127.0.0.1:59478: client connect
+127.0.0.1:59488: client connect
+127.0.0.1:59488: server connect firebase-settings.crashlytics.com:443 (142.251.209.227:443)
+127.0.0.1:59478: server connect xlaxiata2.md-apis.medallia.com:443 (147.75.176.16:443)
+127.0.0.1:59488: Client TLS handshake failed. The client does not trust the proxy's certificate for firebase-settings.crashlytics.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59488: client disconnect
+127.0.0.1:59488: server disconnect firebase-settings.crashlytics.com:443 (142.251.209.227:443)
+127.0.0.1:59478: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata2.md-apis.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59478: client disconnect
+127.0.0.1:59478: server disconnect xlaxiata2.md-apis.medallia.com:443 (147.75.176.16:443)
+127.0.0.1:59504: client connect
+127.0.0.1:59504: server connect gmscompliance-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59510: client connect
+127.0.0.1:59504: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59504: client disconnect
+127.0.0.1:59504: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59510: server connect sdk-01.moengage.com:443 (54.192.138.25:443)
+127.0.0.1:59522: client connect
+127.0.0.1:59522: server connect sdk-01.moengage.com:443 (54.192.138.30:443)
+127.0.0.1:59510: Client TLS handshake failed. The client does not trust the proxy's certificate for sdk-01.moengage.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59510: client disconnect
+127.0.0.1:59510: server disconnect sdk-01.moengage.com:443 (54.192.138.25:443)
+127.0.0.1:59522: Client TLS handshake failed. The client does not trust the proxy's certificate for sdk-01.moengage.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59522: client disconnect
+127.0.0.1:59522: server disconnect sdk-01.moengage.com:443 (54.192.138.30:443)
+127.0.0.1:59524: client connect
+127.0.0.1:59524: server connect sdk-01.moengage.com:443 (54.192.138.30:443)
+127.0.0.1:59524: Client TLS handshake failed. The client does not trust the proxy's certificate for sdk-01.moengage.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59524: client disconnect
+127.0.0.1:59524: server disconnect sdk-01.moengage.com:443 (54.192.138.30:443)
+127.0.0.1:59488: client connect
+127.0.0.1:59488: server connect firebaseremoteconfigrealtime.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:59496: client connect
+127.0.0.1:59496: server connect www.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:59488: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaseremoteconfigrealtime.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59488: client disconnect
+127.0.0.1:59488: server disconnect firebaseremoteconfigrealtime.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:59504: client connect
+127.0.0.1:59504: server connect youtubei.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:59510: client connect
+127.0.0.1:59496: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59496: client disconnect
+127.0.0.1:59496: server disconnect www.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:59510: server connect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:59504: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59504: client disconnect
+127.0.0.1:59504: server disconnect youtubei.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:59510: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59510: client disconnect
+127.0.0.1:59510: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:59526: client connect
+127.0.0.1:59526: server connect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59536: client connect
+127.0.0.1:59526: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59526: client disconnect
+127.0.0.1:59526: server disconnect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59536: server connect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:59536: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59536: client disconnect
+127.0.0.1:59536: server disconnect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:59540: client connect
+127.0.0.1:59548: client connect
+127.0.0.1:59540: server connect www.google.com:443 (142.251.157.119:443)
+127.0.0.1:59548: server connect youtubei.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:59548: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59548: client disconnect
+127.0.0.1:59548: server disconnect youtubei.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:59540: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59540: client disconnect
+127.0.0.1:59540: server disconnect www.google.com:443 (142.251.157.119:443)
+127.0.0.1:59554: client connect
+127.0.0.1:59554: server connect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:59554: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59554: client disconnect
+127.0.0.1:59554: server disconnect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:59568: client connect
+127.0.0.1:59570: client connect
+127.0.0.1:59568: server connect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.121.230:443)
+127.0.0.1:59570: server connect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.117.230:443)
+127.0.0.1:59568: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata-resources.digital-cloud-sin1.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59568: client disconnect
+127.0.0.1:59568: server disconnect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.121.230:443)
+127.0.0.1:59570: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata-resources.digital-cloud-sin1.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59570: client disconnect
+127.0.0.1:59570: server disconnect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.117.230:443)
+127.0.0.1:59586: client connect
+127.0.0.1:59586: server connect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59586: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59586: client disconnect
+127.0.0.1:59586: server disconnect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59592: client connect
+127.0.0.1:59606: client connect
+127.0.0.1:59606: server connect gmscompliance-pa.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:59592: server connect imgs-ac.alipay.com:443 (47.235.24.195:443)
+127.0.0.1:59606: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59606: client disconnect
+127.0.0.1:59606: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:59592: Client TLS handshake failed. The client does not trust the proxy's certificate for imgs-ac.alipay.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59592: client disconnect
+127.0.0.1:59592: server disconnect imgs-ac.alipay.com:443 (47.235.24.195:443)
+127.0.0.1:49784: client connect
+127.0.0.1:49784: server connect gw.zamcs.com:443 (47.235.24.195:443)
+127.0.0.1:49786: client connect
+127.0.0.1:49786: server connect sdkock.conversions.appsflyersdk.com:443 (18.65.39.61:443)
+127.0.0.1:49788: client connect
+127.0.0.1:49786: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.conversions.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49798: client connect
+127.0.0.1:49786: client disconnect
+127.0.0.1:49786: server disconnect sdkock.conversions.appsflyersdk.com:443 (18.65.39.61:443)
+127.0.0.1:49788: server connect firebaseremoteconfig.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:49788: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaseremoteconfig.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49788: client disconnect
+127.0.0.1:49788: server disconnect firebaseremoteconfig.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:49798: server connect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:49798: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49798: client disconnect
+127.0.0.1:49798: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:49784: Client TLS handshake failed. The client does not trust the proxy's certificate for gw.zamcs.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49784: client disconnect
+127.0.0.1:49784: server disconnect gw.zamcs.com:443 (47.235.24.195:443)
+127.0.0.1:49804: client connect
+127.0.0.1:49804: server connect www.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:49812: client connect
+127.0.0.1:49804: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49804: client disconnect
+127.0.0.1:49804: server disconnect www.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:49812: server connect gmscompliance-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:49828: client connect
+127.0.0.1:49828: server connect sdkock.register.appsflyersdk.com:443 (3.173.161.20:443)
+127.0.0.1:49812: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49812: client disconnect
+127.0.0.1:49812: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:49828: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.register.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49828: client disconnect
+127.0.0.1:49828: server disconnect sdkock.register.appsflyersdk.com:443 (3.173.161.20:443)
+127.0.0.1:49836: client connect
+127.0.0.1:49836: server connect update.googleapis.com:443 (172.217.17.206:443)
+127.0.0.1:49836: Client TLS handshake failed. The client does not trust the proxy's certificate for update.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49836: client disconnect
+127.0.0.1:49836: server disconnect update.googleapis.com:443 (172.217.17.206:443)
+127.0.0.1:49840: client connect
+127.0.0.1:49844: client connect
+127.0.0.1:49840: server connect youtubei.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:49844: server connect www.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:49840: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49840: client disconnect
+127.0.0.1:49840: server disconnect youtubei.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:49844: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49844: client disconnect
+127.0.0.1:49844: server disconnect www.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:49854: client connect
+127.0.0.1:49854: server connect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:49854: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49854: client disconnect
+127.0.0.1:49854: server disconnect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:49868: client connect
+127.0.0.1:49880: client connect
+127.0.0.1:49894: client connect
+127.0.0.1:49894: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:49904: client connect
+127.0.0.1:49880: server connect gmscompliance-pa.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:49904: server connect sdkock.gcdsdk.appsflyersdk.com:443 (108.156.60.12:443)
+127.0.0.1:49880: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49880: client disconnect
+127.0.0.1:49880: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:49894: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49894: client disconnect
+127.0.0.1:49894: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:49904: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.gcdsdk.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49904: client disconnect
+127.0.0.1:49904: server disconnect sdkock.gcdsdk.appsflyersdk.com:443 (108.156.60.12:443)
+127.0.0.1:49914: client connect
+127.0.0.1:49914: server connect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:49918: client connect
+127.0.0.1:49914: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49914: client disconnect
+127.0.0.1:49914: server disconnect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:49918: server connect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:49868: server connect game.wechat.com:443 (43.169.32.137:443)
+127.0.0.1:49918: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49918: client disconnect
+127.0.0.1:49918: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:49868: Client TLS handshake failed. The client does not trust the proxy's certificate for game.wechat.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49868: client disconnect
+127.0.0.1:49868: server disconnect game.wechat.com:443 (43.169.32.137:443)
+127.0.0.1:49926: client connect
+127.0.0.1:49926: server connect www.google.com:443 (142.251.150.119:443)
+127.0.0.1:49930: client connect
+127.0.0.1:49926: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49926: client disconnect
+127.0.0.1:49926: server disconnect www.google.com:443 (142.251.150.119:443)
+127.0.0.1:49930: server connect imgs-ac.alipay.com:443 (47.235.21.45:443)
+127.0.0.1:49932: client connect
+127.0.0.1:49932: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:49932: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49932: client disconnect
+127.0.0.1:49932: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:49938: client connect
+127.0.0.1:49954: client connect
+127.0.0.1:49954: server connect sdkock.pia.appsflyersdk.com:443 (18.239.69.66:443)
+127.0.0.1:49968: client connect
+127.0.0.1:49954: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.pia.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49954: client disconnect
+127.0.0.1:49954: server disconnect sdkock.pia.appsflyersdk.com:443 (18.239.69.66:443)
+127.0.0.1:49968: server connect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:49972: client connect
+127.0.0.1:49938: error establishing server connection: [Errno -2] Name or service not known
+127.0.0.1:49938: CONNECT miniprogram.alipay-eco.com:443
+              << 502 Bad Gateway 86b
+127.0.0.1:49938: client disconnect
+127.0.0.1:49972: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:49968: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49968: client disconnect
+127.0.0.1:49968: server disconnect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:49982: client connect
+127.0.0.1:49982: server connect sdkock.attr.appsflyersdk.com:443 (18.65.39.3:443)
+127.0.0.1:49972: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49972: client disconnect
+127.0.0.1:49972: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:49982: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.attr.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49982: client disconnect
+127.0.0.1:49982: server disconnect sdkock.attr.appsflyersdk.com:443 (18.65.39.3:443)
+127.0.0.1:49930: Client TLS handshake failed. The client does not trust the proxy's certificate for imgs-ac.alipay.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49930: client disconnect
+127.0.0.1:49930: server disconnect imgs-ac.alipay.com:443 (47.235.21.45:443)
+127.0.0.1:49988: client connect
+127.0.0.1:49988: server connect youtubei.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:49988: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:49988: client disconnect
+127.0.0.1:49988: server disconnect youtubei.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:49996: client connect
+127.0.0.1:49996: server connect gw.zamcs.com:443 (47.235.24.194:443)
+127.0.0.1:49996: client disconnect
+127.0.0.1:49996: server disconnect gw.zamcs.com:443 (47.235.24.194:443)
+127.0.0.1:50006: client connect
+127.0.0.1:50006: server connect www.google.com:443 (142.251.150.119:443)
+127.0.0.1:50008: client connect
+127.0.0.1:50006: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:50006: client disconnect
+127.0.0.1:50006: server disconnect www.google.com:443 (142.251.150.119:443)
+127.0.0.1:50008: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:50008: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:50008: client disconnect
+127.0.0.1:50008: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:50010: client connect
+127.0.0.1:50010: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:50014: client connect
+127.0.0.1:50010: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:50010: client disconnect
+127.0.0.1:50010: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:50014: server connect gmscompliance-pa.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:50014: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:50014: client disconnect
+127.0.0.1:50014: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:41230: client connect
+127.0.0.1:41230: server connect android.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:41230: Client TLS handshake failed. The client does not trust the proxy's certificate for android.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:41230: client disconnect
+127.0.0.1:41230: server disconnect android.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:41240: client connect
+127.0.0.1:41240: server connect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:41240: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:41240: client disconnect
+127.0.0.1:41240: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:41252: client connect
+127.0.0.1:41252: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:41252: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:41252: client disconnect
+127.0.0.1:41252: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:41262: client connect
+127.0.0.1:41262: server connect gmscompliance-pa.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:41262: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:41262: client disconnect
+127.0.0.1:41262: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:54132: client connect
+127.0.0.1:54132: server connect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:54132: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:54132: client disconnect
+127.0.0.1:54132: server disconnect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:54144: client connect
+127.0.0.1:54144: server connect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:54150: client connect
+127.0.0.1:54144: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:54144: client disconnect
+127.0.0.1:54144: server disconnect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:54150: server connect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:54150: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:54150: client disconnect
+127.0.0.1:54150: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:54160: client connect
+127.0.0.1:54160: server connect gmscompliance-pa.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:54160: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:54160: client disconnect
+127.0.0.1:54160: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:54170: client connect
+127.0.0.1:54170: server connect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:54170: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:54170: client disconnect
+127.0.0.1:54170: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:57810: client connect
+127.0.0.1:57810: server connect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:57820: client connect
+127.0.0.1:57810: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:57810: client disconnect
+127.0.0.1:57810: server disconnect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:57820: server connect play.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:57820: Client TLS handshake failed. The client does not trust the proxy's certificate for play.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:57820: client disconnect
+127.0.0.1:57820: server disconnect play.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:57826: client connect
+127.0.0.1:57826: error establishing server connection: Multiple exceptions: [Errno 111] Connect call failed ('::1', 8843, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 8843)
+127.0.0.1:57826: CONNECT localhost:8843
+              << 502 Bad Gateway 159b
+127.0.0.1:57826: client disconnect
+127.0.0.1:45752: client connect
+127.0.0.1:45752: server connect firebase-settings.crashlytics.com:443 (142.251.209.227:443)
+127.0.0.1:45758: client connect
+127.0.0.1:45752: Client TLS handshake failed. The client does not trust the proxy's certificate for firebase-settings.crashlytics.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45752: client disconnect
+127.0.0.1:45758: server connect firebaselogging-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:45752: server disconnect firebase-settings.crashlytics.com:443 (142.251.209.227:443)
+127.0.0.1:45768: client connect
+127.0.0.1:45758: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaselogging-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45758: client disconnect
+127.0.0.1:45758: server disconnect firebaselogging-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:45770: client connect
+127.0.0.1:45776: client connect
+127.0.0.1:45770: server connect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.121.230:443)
+127.0.0.1:45776: server connect firebaseremoteconfig.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:45770: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata-resources.digital-cloud-sin1.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45770: client disconnect
+127.0.0.1:45770: server disconnect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.121.230:443)
+127.0.0.1:45782: client connect
+127.0.0.1:45776: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaseremoteconfig.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45776: client disconnect
+127.0.0.1:45776: server disconnect firebaseremoteconfig.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:45782: server connect sdk-01.moengage.com:443 (54.192.138.10:443)
+127.0.0.1:45782: Client TLS handshake failed. The client does not trust the proxy's certificate for sdk-01.moengage.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45782: client disconnect
+127.0.0.1:45782: server disconnect sdk-01.moengage.com:443 (54.192.138.10:443)
+127.0.0.1:45768: server connect sdkock.cdn-settings.appsflyersdk.com:443 (18.239.105.2:443)
+127.0.0.1:45768: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.cdn-settings.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45768: client disconnect
+127.0.0.1:45768: server disconnect sdkock.cdn-settings.appsflyersdk.com:443 (18.239.105.2:443)
+127.0.0.1:45786: client connect
+127.0.0.1:45786: server connect xlaxiata2.md-apis.medallia.com:443 (147.75.176.16:443)
+127.0.0.1:45792: client connect
+127.0.0.1:45792: server connect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:45786: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata2.md-apis.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45786: client disconnect
+127.0.0.1:45786: server disconnect xlaxiata2.md-apis.medallia.com:443 (147.75.176.16:443)
+127.0.0.1:45792: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45792: client disconnect
+127.0.0.1:45792: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:45798: client connect
+127.0.0.1:45798: server connect gmscompliance-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:45800: client connect
+127.0.0.1:45802: client connect
+127.0.0.1:45798: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45798: client disconnect
+127.0.0.1:45798: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:45800: server connect www.gstatic.com:443 (142.251.150.120:443)
+127.0.0.1:45802: server connect www.gstatic.com:443 (142.251.157.120:443)
+127.0.0.1:45800: Client TLS handshake failed. The client does not trust the proxy's certificate for www.gstatic.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45800: client disconnect
+127.0.0.1:45800: server disconnect www.gstatic.com:443 (142.251.150.120:443)
+127.0.0.1:45814: client connect
+127.0.0.1:45802: Client TLS handshake failed. The client does not trust the proxy's certificate for www.gstatic.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45802: client disconnect
+127.0.0.1:45828: client connect
+127.0.0.1:45802: server disconnect www.gstatic.com:443 (142.251.157.120:443)
+127.0.0.1:45814: server connect dl.google.com:443 (142.250.102.91:443)
+127.0.0.1:45814: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45814: client disconnect
+127.0.0.1:45814: server disconnect dl.google.com:443 (142.250.102.91:443)
+127.0.0.1:45828: server connect dl.google.com:443 (142.250.102.91:443)
+127.0.0.1:45840: client connect
+127.0.0.1:45828: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45828: client disconnect
+127.0.0.1:45828: server disconnect dl.google.com:443 (142.250.102.91:443)
+127.0.0.1:45848: client connect
+127.0.0.1:45840: server connect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:45840: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45840: client disconnect
+127.0.0.1:45840: server disconnect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:45848: server connect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:45848: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45848: client disconnect
+127.0.0.1:45848: server disconnect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:45856: client connect
+127.0.0.1:45856: server connect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:45856: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:45856: client disconnect
+127.0.0.1:45856: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:56534: client connect
+127.0.0.1:56534: server connect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:56534: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:56534: client disconnect
+127.0.0.1:56534: server disconnect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:56536: client connect
+127.0.0.1:56536: server connect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:56536: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:56536: client disconnect
+127.0.0.1:56536: server disconnect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:56548: client connect
+127.0.0.1:56548: server connect www.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:56548: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:56548: client disconnect
+127.0.0.1:56548: server disconnect www.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:56562: client connect
+127.0.0.1:56562: server connect www.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:56562: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:56562: client disconnect
+127.0.0.1:56562: server disconnect www.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:56578: client connect
+127.0.0.1:56578: server connect www.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:56578: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:56578: client disconnect
+127.0.0.1:56578: server disconnect www.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:56586: client connect
+127.0.0.1:56586: server connect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:56586: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:56586: client disconnect
+127.0.0.1:56586: server disconnect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:33322: client connect
+127.0.0.1:33338: client connect
+127.0.0.1:33354: client connect
+127.0.0.1:33322: server connect www.google.com:443 (142.251.152.119:443)
+127.0.0.1:33362: client connect
+127.0.0.1:33338: server connect youtubei.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:33322: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33322: client disconnect
+127.0.0.1:33322: server disconnect www.google.com:443 (142.251.152.119:443)
+127.0.0.1:33370: client connect
+127.0.0.1:33354: server connect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:33338: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33338: client disconnect
+127.0.0.1:33338: server disconnect youtubei.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:33362: server connect www.google.com:443 (142.251.155.119:443)
+127.0.0.1:33354: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33354: client disconnect
+127.0.0.1:33354: server disconnect dl.google.com:443 (142.250.102.136:443)
+127.0.0.1:33370: server connect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33362: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33362: client disconnect
+127.0.0.1:33362: server disconnect www.google.com:443 (142.251.155.119:443)
+127.0.0.1:33370: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33370: client disconnect
+127.0.0.1:33370: server disconnect youtubei.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33374: client connect
+127.0.0.1:33378: client connect
+127.0.0.1:33390: client connect
+127.0.0.1:33378: server connect geller-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33390: server connect geller-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:33374: server connect geller-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33378: Client TLS handshake failed. The client does not trust the proxy's certificate for geller-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33378: client disconnect
+127.0.0.1:33378: server disconnect geller-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33374: Client TLS handshake failed. The client does not trust the proxy's certificate for geller-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33374: client disconnect
+127.0.0.1:33374: server disconnect geller-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33390: Client TLS handshake failed. The client does not trust the proxy's certificate for geller-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33390: client disconnect
+127.0.0.1:33390: server disconnect geller-pa.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:33394: client connect
+127.0.0.1:33394: server connect geller-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:33408: client connect
+127.0.0.1:33416: client connect
+127.0.0.1:33394: Client TLS handshake failed. The client does not trust the proxy's certificate for geller-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33394: client disconnect
+127.0.0.1:33394: server disconnect geller-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:33408: server connect geller-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:33416: server connect geller-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33408: Client TLS handshake failed. The client does not trust the proxy's certificate for geller-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33408: client disconnect
+127.0.0.1:33408: server disconnect geller-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:33416: Client TLS handshake failed. The client does not trust the proxy's certificate for geller-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33416: client disconnect
+127.0.0.1:33416: server disconnect geller-pa.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:33428: client connect
+127.0.0.1:33430: client connect
+127.0.0.1:33428: server connect www.gstatic.com:443 (142.251.155.120:443)
+127.0.0.1:33430: server connect www.gstatic.com:443 (142.251.151.120:443)
+127.0.0.1:33428: Client TLS handshake failed. The client does not trust the proxy's certificate for www.gstatic.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33428: client disconnect
+127.0.0.1:33428: server disconnect www.gstatic.com:443 (142.251.155.120:443)
+127.0.0.1:33442: client connect
+127.0.0.1:33430: Client TLS handshake failed. The client does not trust the proxy's certificate for www.gstatic.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33430: client disconnect
+127.0.0.1:33430: server disconnect www.gstatic.com:443 (142.251.151.120:443)
+127.0.0.1:33458: client connect
+127.0.0.1:33442: server connect dl.google.com:443 (142.250.102.93:443)
+127.0.0.1:33458: server connect dl.google.com:443 (142.250.102.91:443)
+127.0.0.1:33442: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33442: client disconnect
+127.0.0.1:33442: server disconnect dl.google.com:443 (142.250.102.93:443)
+127.0.0.1:33464: client connect
+127.0.0.1:33458: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33466: client connect
+127.0.0.1:33458: client disconnect
+127.0.0.1:33458: server disconnect dl.google.com:443 (142.250.102.91:443)
+127.0.0.1:33464: server connect dl.google.com:443 (142.250.102.190:443)
+127.0.0.1:33466: server connect dl.google.com:443 (142.250.102.93:443)
+127.0.0.1:33464: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33464: client disconnect
+127.0.0.1:33464: server disconnect dl.google.com:443 (142.250.102.190:443)
+127.0.0.1:33466: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33466: client disconnect
+127.0.0.1:33466: server disconnect dl.google.com:443 (142.250.102.93:443)
+127.0.0.1:33476: client connect
+127.0.0.1:33476: server connect youtubei.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:33488: client connect
+127.0.0.1:33476: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33476: client disconnect
+127.0.0.1:33476: server disconnect youtubei.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:33488: server connect youtubei.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:33488: Client TLS handshake failed. The client does not trust the proxy's certificate for youtubei.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33488: client disconnect
+127.0.0.1:33488: server disconnect youtubei.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:33502: client connect
+127.0.0.1:33502: server connect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:33502: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:33502: client disconnect
+127.0.0.1:33502: server disconnect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:36578: client connect
+127.0.0.1:36578: server connect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:36578: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:36578: client disconnect
+127.0.0.1:36578: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:36584: client connect
+127.0.0.1:36584: server connect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:36584: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:36584: client disconnect
+127.0.0.1:36584: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:36590: client connect
+127.0.0.1:36590: server connect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:36590: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:36590: client disconnect
+127.0.0.1:36590: server disconnect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:36602: client connect
+127.0.0.1:36602: server connect youtubei.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:40818: client connect
+127.0.0.1:40818: server connect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:40818: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:40818: client disconnect
+127.0.0.1:40818: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:50894: client connect
+127.0.0.1:50894: server connect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:50894: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:50894: client disconnect
+127.0.0.1:50894: server disconnect www.googleapis.com:443 (172.217.118.4:443)
+127.0.0.1:51468: client connect
+127.0.0.1:51468: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:51468: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:51468: client disconnect
+127.0.0.1:51468: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:51484: client connect
+127.0.0.1:51484: error establishing server connection: Multiple exceptions: [Errno 111] Connect call failed ('::1', 8843, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 8843)
+127.0.0.1:51484: CONNECT localhost:8843
+              << 502 Bad Gateway 159b
+127.0.0.1:51484: client disconnect
+127.0.0.1:51488: client connect
+127.0.0.1:51488: server connect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:51488: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:51488: client disconnect
+127.0.0.1:51488: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:51502: client connect
+127.0.0.1:51502: server connect www.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:51502: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:51502: client disconnect
+127.0.0.1:51502: server disconnect www.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:52736: client connect
+127.0.0.1:52736: server connect play.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:52736: Client TLS handshake failed. The client does not trust the proxy's certificate for play.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:52736: client disconnect
+127.0.0.1:52736: server disconnect play.googleapis.com:443 (172.217.113.4:443)
+127.0.0.1:53768: client connect
+127.0.0.1:53768: server connect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:53768: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:53768: client disconnect
+127.0.0.1:53768: server disconnect www.googleapis.com:443 (172.217.112.4:443)
+127.0.0.1:46132: client connect
+127.0.0.1:46132: server connect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:46132: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:46132: client disconnect
+127.0.0.1:46132: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:46144: client connect
+127.0.0.1:46158: client connect
+127.0.0.1:46144: server connect dl.google.com:443 (142.250.102.190:443)
+127.0.0.1:46158: server connect www.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:46144: Client TLS handshake failed. The client does not trust the proxy's certificate for dl.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:46144: client disconnect
+127.0.0.1:46144: server disconnect dl.google.com:443 (142.250.102.190:443)
+127.0.0.1:46158: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:46158: client disconnect
+127.0.0.1:46158: server disconnect www.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:46172: client connect
+127.0.0.1:46172: server connect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:46172: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:46172: client disconnect
+127.0.0.1:46172: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.115.4:443)
+127.0.0.1:55512: client connect
+127.0.0.1:55518: client connect
+127.0.0.1:55512: server connect www.google.com:443 (142.251.153.119:443)
+127.0.0.1:55512: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:55512: client disconnect
+127.0.0.1:55512: server disconnect www.google.com:443 (142.251.153.119:443)
+127.0.0.1:55518: server connect www.google.com:443 (142.251.157.119:443)
+127.0.0.1:55518: Client TLS handshake failed. The client does not trust the proxy's certificate for www.google.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:55518: client disconnect
+127.0.0.1:55518: server disconnect www.google.com:443 (142.251.157.119:443)
+127.0.0.1:41176: client connect
+127.0.0.1:41176: server connect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:41176: Client TLS handshake failed. The client does not trust the proxy's certificate for gmscompliance-pa.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:41176: client disconnect
+127.0.0.1:41176: server disconnect gmscompliance-pa.googleapis.com:443 (172.217.119.4:443)
+127.0.0.1:41192: client connect
+127.0.0.1:41192: server connect www.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:41192: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:41192: client disconnect
+127.0.0.1:41192: server disconnect www.googleapis.com:443 (172.217.117.4:443)
+127.0.0.1:59472: client connect
+127.0.0.1:59472: server connect firebase-settings.crashlytics.com:443 (142.251.209.227:443)
+127.0.0.1:59482: client connect
+127.0.0.1:59492: client connect
+127.0.0.1:59502: client connect
+127.0.0.1:59472: Client TLS handshake failed. The client does not trust the proxy's certificate for firebase-settings.crashlytics.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59472: client disconnect
+127.0.0.1:59472: server disconnect firebase-settings.crashlytics.com:443 (142.251.209.227:443)
+127.0.0.1:59492: server connect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.121.230:443)
+127.0.0.1:59482: server connect sdkock.cdn-settings.appsflyersdk.com:443 (18.239.105.94:443)
+127.0.0.1:59502: server connect sdk-01.moengage.com:443 (54.192.138.30:443)
+127.0.0.1:59492: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata-resources.digital-cloud-sin1.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59492: client disconnect
+127.0.0.1:59516: client connect
+127.0.0.1:59492: server disconnect xlaxiata-resources.digital-cloud-sin1.medallia.com:443 (146.75.121.230:443)
+127.0.0.1:59502: Client TLS handshake failed. The client does not trust the proxy's certificate for sdk-01.moengage.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59502: client disconnect
+127.0.0.1:59502: server disconnect sdk-01.moengage.com:443 (54.192.138.30:443)
+127.0.0.1:59516: server connect sdk-01.moengage.com:443 (54.192.138.118:443)
+127.0.0.1:59482: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.cdn-settings.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59482: client disconnect
+127.0.0.1:59482: server disconnect sdkock.cdn-settings.appsflyersdk.com:443 (18.239.105.94:443)
+127.0.0.1:59516: Client TLS handshake failed. The client does not trust the proxy's certificate for sdk-01.moengage.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59516: client disconnect
+127.0.0.1:59516: server disconnect sdk-01.moengage.com:443 (54.192.138.118:443)
+127.0.0.1:59522: client connect
+127.0.0.1:59522: server connect firebaseremoteconfigrealtime.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59522: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaseremoteconfigrealtime.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59522: client disconnect
+127.0.0.1:59522: server disconnect firebaseremoteconfigrealtime.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59530: client connect
+127.0.0.1:59530: server connect sdkock.launches.appsflyersdk.com:443 (18.65.39.73:443)
+127.0.0.1:59530: Client TLS handshake failed. The client does not trust the proxy's certificate for sdkock.launches.appsflyersdk.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59530: client disconnect
+127.0.0.1:59530: server disconnect sdkock.launches.appsflyersdk.com:443 (18.65.39.73:443)
+127.0.0.1:59300: client connect
+127.0.0.1:59300: server connect xlaxiata2.md-apis.medallia.com:443 (147.75.176.16:443)
+127.0.0.1:59300: Client TLS handshake failed. The client does not trust the proxy's certificate for xlaxiata2.md-apis.medallia.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59300: client disconnect
+127.0.0.1:59300: server disconnect xlaxiata2.md-apis.medallia.com:443 (147.75.176.16:443)
+127.0.0.1:59316: client connect
+127.0.0.1:59316: server connect firebaseremoteconfig.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59318: client connect
+127.0.0.1:59316: Client TLS handshake failed. The client does not trust the proxy's certificate for firebaseremoteconfig.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59316: client disconnect
+127.0.0.1:59316: server disconnect firebaseremoteconfig.googleapis.com:443 (172.217.116.4:443)
+127.0.0.1:59318: server connect gw.zamcs.com:443 (47.235.24.194:443)
+127.0.0.1:59318: Client TLS handshake failed. The client does not trust the proxy's certificate for gw.zamcs.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59318: client disconnect
+127.0.0.1:59318: server disconnect gw.zamcs.com:443 (47.235.24.194:443)
+127.0.0.1:59328: client connect
+127.0.0.1:59328: server connect game.wechat.com:443 (43.169.32.137:443)
+127.0.0.1:59338: client connect
+127.0.0.1:59338: error establishing server connection: [Errno -2] Name or service not known
+127.0.0.1:59338: CONNECT miniprogram.alipay-eco.com:443
+              << 502 Bad Gateway 86b
+127.0.0.1:59338: client disconnect
+127.0.0.1:59328: Client TLS handshake failed. The client does not trust the proxy's certificate for game.wechat.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:59328: client disconnect
+127.0.0.1:59328: server disconnect game.wechat.com:443 (43.169.32.137:443)
+127.0.0.1:58164: client connect
+127.0.0.1:58164: server connect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:58164: Client TLS handshake failed. The client does not trust the proxy's certificate for www.googleapis.com (OpenSSL Error([('SSL routines', '', 'sslv3 alert certificate unknown')]))
+127.0.0.1:58164: client disconnect
+127.0.0.1:58164: server disconnect www.googleapis.com:443 (172.217.114.4:443)
+127.0.0.1:54946: client connect
+127.0.0.1:54946: error establishing server connection: Multiple exceptions: [Errno 111] Connect call failed ('::1', 8843, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 8843)
+127.0.0.1:54946: CONNECT localhost:8843
+              << 502 Bad Gateway 159b

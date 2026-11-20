@@ -1,0 +1,13 @@
+HTTP/2 200 
+date: Fri, 20 Nov 2026 17:51:25 GMT
+content-type: application/x-mpegURL
+cf-ray: a5d94d743ed1cf16-SJC
+cf-cache-status: DYNAMIC
+access-control-allow-origin: *
+server: cloudflare
+x-robots-tag: none
+x-robots-tag: none
+x-playlist-span: 89
+x-real-duration: 103
+x-seg-count: 9
+

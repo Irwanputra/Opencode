@@ -1,0 +1,294 @@
+# Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel; in tmp14169616706995394833.dex
+super: Ljava/lang/Object;
+## fields
+  $stable : I
+  CREATOR : Landroid/os/Parcelable$Creator;
+  flowSuccessModel : Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  icon : Ljava/lang/String;
+  point : I
+  subtitle : Ljava/lang/String;
+  title : Ljava/lang/String;
+  transactionId : Ljava/lang/String;
+## methods
+
+### <clinit> ()V access=static constructor
+  new-instance                 v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel$a;
+  invoke-direct                v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel$a;-><init>()V
+  sput-object                  v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->CREATOR Landroid/os/Parcelable$Creator;
+  return-void                  
+
+### <init> (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;)V access=public constructor
+  const-string                 v0, "transactionId"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "title"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "subtitle"
+  invoke-static                v4, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "icon"
+  invoke-static                v5, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "flowSuccessModel"
+  invoke-static                v7, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-direct                v1, Ljava/lang/Object;-><init>()V
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  iput-object                  v3, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  iput-object                  v4, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  iput-object                  v5, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  iput                         v6, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  iput-object                  v7, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  return-void                  
+
+### <init> (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel; I Lkotlin/jvm/internal/DefaultConstructorMarker;)V access=public synthetic constructor
+  and-int/lit8                 v9, v8, 1
+  const-string                 v0, ""
+  if-eqz                       v9, +003h
+  move-object                  v2, v0
+  and-int/lit8                 v9, v8, 2
+  if-eqz                       v9, +003h
+  move-object                  v3, v0
+  and-int/lit8                 v9, v8, 4
+  if-eqz                       v9, +003h
+  move-object                  v4, v0
+  and-int/lit8                 v9, v8, 8
+  if-eqz                       v9, +003h
+  move-object                  v5, v0
+  and-int/lit8                 v8, v8, 16
+  if-eqz                       v8, +003h
+  const/4                      v6, 0
+  move-object                  v8, v7
+  move                         v7, v6
+  move-object                  v6, v5
+  move-object                  v5, v4
+  move-object                  v4, v3
+  move-object                  v3, v2
+  move-object                  v2, v1
+  invoke-direct/range          v2 ... v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;-><init>(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;)V
+  return-void                  
+
+### copy$default (Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel; I Ljava/lang/Object;)Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel; access=public static synthetic
+  and-int/lit8                 v8, v7, 1
+  if-eqz                       v8, +004h
+  iget-object                  v1, v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  and-int/lit8                 v8, v7, 2
+  if-eqz                       v8, +004h
+  iget-object                  v2, v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  and-int/lit8                 v8, v7, 4
+  if-eqz                       v8, +004h
+  iget-object                  v3, v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  and-int/lit8                 v8, v7, 8
+  if-eqz                       v8, +004h
+  iget-object                  v4, v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  and-int/lit8                 v8, v7, 16
+  if-eqz                       v8, +004h
+  iget                         v5, v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  and-int/lit8                 v7, v7, 32
+  if-eqz                       v7, +004h
+  iget-object                  v6, v0, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  move                         v7, v5
+  move-object                  v8, v6
+  move-object                  v5, v3
+  move-object                  v6, v4
+  move-object                  v3, v1
+  move-object                  v4, v2
+  move-object                  v2, v0
+  invoke-virtual/range         v2 ... v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->copy(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;)Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;
+  move-result-object           v0
+  return-object                v0
+
+### component1 ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  return-object                v0
+
+### component2 ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  return-object                v0
+
+### component3 ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  return-object                v0
+
+### component4 ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  return-object                v0
+
+### component5 ()I access=public final
+  iget                         v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  return                       v0
+
+### component6 ()Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  return-object                v0
+
+### copy (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;)Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel; access=public final
+  const-string                 v0, "transactionId"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "title"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "subtitle"
+  invoke-static                v11, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "icon"
+  invoke-static                v12, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "flowSuccessModel"
+  invoke-static                v14, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  new-instance                 v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;
+  move-object                  v2, v9
+  move-object                  v3, v10
+  move-object                  v4, v11
+  move-object                  v5, v12
+  move                         v6, v13
+  move-object                  v7, v14
+  invoke-direct/range          v1 ... v7, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;-><init>(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;)V
+  return-object                v1
+
+### describeContents ()I access=public final
+  const/4                      v0, 0
+  return                       v0
+
+### equals (Ljava/lang/Object;)Z access=public
+  const/4                      v0, 1
+  if-ne                        v4, v5, +003h
+  return                       v0
+  instance-of                  v1, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;
+  const/4                      v2, 0
+  if-nez                       v1, +003h
+  return                       v2
+  check-cast                   v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget                         v1, v4, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  iget                         v3, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  if-eq                        v1, v3, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  iget-object                  v5, v5, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  invoke-static                v1, v5, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v5
+  if-nez                       v5, +003h
+  return                       v2
+  return                       v0
+
+### getFlowSuccessModel ()Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  return-object                v0
+
+### getIcon ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  return-object                v0
+
+### getPoint ()I access=public final
+  iget                         v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  return                       v0
+
+### getSubtitle ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  return-object                v0
+
+### getTitle ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  return-object                v0
+
+### getTransactionId ()Ljava/lang/String; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  return-object                v0
+
+### hashCode ()I access=public
+  iget-object                  v0, v2, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  invoke-virtual               v0, Ljava/lang/String;->hashCode()I
+  move-result                  v0
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v1, v2, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  invoke-virtual               v1, Ljava/lang/String;->hashCode()I
+  move-result                  v1
+  add-int/2addr                v0, v1
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v1, v2, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  invoke-virtual               v1, Ljava/lang/String;->hashCode()I
+  move-result                  v1
+  add-int/2addr                v0, v1
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v1, v2, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  invoke-virtual               v1, Ljava/lang/String;->hashCode()I
+  move-result                  v1
+  add-int/2addr                v0, v1
+  mul-int/lit8                 v0, v0, 31
+  iget                         v1, v2, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  invoke-static                v1, Ljava/lang/Integer;->hashCode(I)I
+  move-result                  v1
+  add-int/2addr                v0, v1
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v1, v2, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  invoke-virtual               v1, Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;->hashCode()I
+  move-result                  v1
+  add-int/2addr                v0, v1
+  return                       v0
+
+### toString ()Ljava/lang/String; access=public
+  iget-object                  v0, v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  iget-object                  v1, v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  iget-object                  v2, v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  iget-object                  v3, v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  iget                         v4, v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  iget-object                  v5, v8, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  new-instance                 v6, Ljava/lang/StringBuilder;
+  invoke-direct                v6, Ljava/lang/StringBuilder;-><init>()V
+  const-string                 v7, "AlifetimeClaimBonusModel(transactionId="
+  invoke-virtual               v6, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", title="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", subtitle="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", icon="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", point="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v4, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+  const-string                 v0, ", flowSuccessModel="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+  const-string                 v0, ")"
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### writeToParcel (Landroid/os/Parcel; I)V access=public final
+  const-string                 v0, "dest"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->transactionId Ljava/lang/String;
+  invoke-virtual               v2, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->title Ljava/lang/String;
+  invoke-virtual               v2, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->subtitle Ljava/lang/String;
+  invoke-virtual               v2, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->icon Ljava/lang/String;
+  invoke-virtual               v2, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+  iget                         v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->point I
+  invoke-virtual               v2, v0, Landroid/os/Parcel;->writeInt(I)V
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/AlifetimeClaimBonusModel;->flowSuccessModel Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;
+  invoke-virtual               v0, v2, v3, Lcom/axis/net/features/alifetime/general/models/FlowSuccessModel;->writeToParcel(Landroid/os/Parcel; I)V
+  return-void                  

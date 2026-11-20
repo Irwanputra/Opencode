@@ -1,0 +1,165 @@
+# Lcom/axis/net/helper/AxisnetHelpers; in tmp3065699920606524921.dex
+super: Ljava/lang/Object;
+## fields
+  $stable : I
+## methods
+
+### <clinit> ()V access=static constructor
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  return-void                  
+
+### <init> ()V access=public constructor
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  invoke-direct                v1, Ljava/lang/Object;-><init>()V
+  sget-object                  v0, Lcom/axis/net/helper/NativeLib;->INSTANCE Lcom/axis/net/helper/NativeLib;
+  invoke-virtual               v0, Lcom/axis/net/helper/NativeLib;->load()V
+  return-void                  
+
+### getXenditProductionKey ()Ljava/lang/String; access=private final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getXenditStagingKey ()Ljava/lang/String; access=private final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getAppsFlayerKey ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getAutorepurchaseKey ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getDriveBaseUrl ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getHostname ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getMsisdnSaltKey ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getNewAccessToken ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getNewHostname ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getNewSaltKey ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getOtpCode ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPassword ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos1 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos10 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos11 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos12 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos2 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos3 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos4 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos5 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos6 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos7 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getPos9 ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getSaltKey ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getSecretKey ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStatusTestingNewCluster ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStringAxis ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStringAxisnet ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStringDecrypt ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStringHash ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStringMsisdn ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getStringXl ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getUrlDrawable ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getUrlQrCode ()Ljava/lang/String; access=public final native
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  (no code)
+
+### getXenditKey ()Ljava/lang/String; access=public final
+  (ann err 'EncodedMethod' object has no attribute 'get_annotations')
+  sget-object                  v0, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v0, Lcom/axis/net/config/Signature;->x()Z
+  move-result                  v0
+  if-eqz                       v0, +007h
+  invoke-direct                v1, Lcom/axis/net/helper/AxisnetHelpers;->getXenditStagingKey()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+  invoke-direct                v1, Lcom/axis/net/helper/AxisnetHelpers;->getXenditProductionKey()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0

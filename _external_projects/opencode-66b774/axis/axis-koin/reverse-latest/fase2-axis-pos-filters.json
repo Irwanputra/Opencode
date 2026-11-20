@@ -1,0 +1,158 @@
+{
+ "getAppsFlayerKey": {
+  "len": 23,
+  "letters_A_Zg_z": "ruxhEQTEVtzPGWBDG",
+  "digits_only": "9533",
+  "letters_all": "ruxhEQTEVtzPbGWBDG"
+ },
+ "getAutorepurchaseKey": {
+  "len": 36,
+  "letters_A_Zg_z": "yJzZXJWNlXlkIjogIjMyMTMxNziQ",
+  "digits_only": "22",
+  "letters_all": "eyJzZXJaWNlXlkIjogIjMyMTMxNzcifQ"
+ },
+ "getDriveBaseUrl": {
+  "len": 28,
+  "letters_A_Zg_z": "httpsrivgooglomu",
+  "digits_only": "",
+  "letters_all": "httpsdrivegooglecomuc"
+ },
+ "getHostname": {
+  "len": 14,
+  "letters_A_Zg_z": "myxisnti",
+  "digits_only": "",
+  "letters_all": "myaxisnetid"
+ },
+ "getMsisdnSaltKey": {
+  "len": 17,
+  "letters_A_Zg_z": "",
+  "digits_only": "432353449",
+  "letters_all": "aeaebeb"
+ },
+ "getNewAccessToken": {
+  "len": 12,
+  "letters_A_Zg_z": "sstokn",
+  "digits_only": "",
+  "letters_all": "accesstoken"
+ },
+ "getNewHostname": {
+  "len": 19,
+  "letters_A_Zg_z": "mytstxisnti",
+  "digits_only": "",
+  "letters_all": "mytestaxisnetid"
+ },
+ "getOtpCode": {
+  "len": 13,
+  "letters_A_Zg_z": "CCSKEquqk",
+  "digits_only": "1",
+  "letters_all": "CaCSKEquqk"
+ },
+ "getPassword": {
+  "len": 32,
+  "letters_A_Zg_z": "",
+  "digits_only": "52937319328299527330",
+  "letters_all": "cabebccbacdc"
+ },
+ "getPos1": {
+  "len": 67,
+  "letters_A_Zg_z": "AgCDihmBStspZlzkvxz",
+  "digits_only": "337693551565654252646273746754778487134367",
+  "letters_all": "AgdCDdihmBStdspZlzfkbavxz"
+ },
+ "getPos10": {
+  "len": 23,
+  "letters_A_Zg_z": "FtEyFDKoJzDSzSTA",
+  "digits_only": "243454",
+  "letters_all": "FtEyFDKoJzDSzSTA"
+ },
+ "getPos11": {
+  "len": 36,
+  "letters_A_Zg_z": "rtEEGgDpSEhzArtCzk",
+  "digits_only": "766964646160564",
+  "letters_all": "rtEeEGgDpSEhzArtCfzek"
+ },
+ "getPos12": {
+  "len": 185,
+  "letters_A_Zg_z": "ArktAKFGL",
+  "digits_only": "331413274436773953471333447507334755725244744146535967354603474414445368794697437535756366416794842777675664577051575646474656436456663362556786244",
+  "letters_all": "AddreadfkaddtefabdcAfKcadaFfbGdffLdcae"
+ },
+ "getPos2": {
+  "len": 101,
+  "letters_A_Zg_z": "AtjnXCZGDFWRy",
+  "digits_only": "3955331587213935795164436541764376642327377394160737544936178485744642453437",
+  "letters_all": "AdftdjnXaCfZbGDFcdWaeReby"
+ },
+ "getPos3": {
+  "len": 32,
+  "letters_A_Zg_z": "AtsrZxGJ",
+  "digits_only": "355576767314363615536",
+  "letters_all": "AdtsreZxGfJ"
+ },
+ "getPos4": {
+  "len": 60,
+  "letters_A_Zg_z": "AtsrvxyCDtsA",
+  "digits_only": "3314595555076541364497540756456669484544",
+  "letters_all": "AdtdasarvadxyCDdtsAe"
+ },
+ "getPos5": {
+  "len": 60,
+  "letters_A_Zg_z": "AtsrvxyCDtsA",
+  "digits_only": "337646654629346324664455444756756664",
+  "letters_all": "AdtdsarddvdxayCfDbtasAfe"
+ },
+ "getPos6": {
+  "len": 127,
+  "letters_A_Zg_z": "AXzvmJKETUyipqR",
+  "digits_only": "33154535560536651741344673655377569355766174436330746842646869755372733543736132464533251383525",
+  "letters_all": "AddXcdzvdmdJabKEaTbUcyebipfqabRa"
+ },
+ "getPos7": {
+  "len": 127,
+  "letters_A_Zg_z": "AXuprHJEVNjvmwz",
+  "digits_only": "337666574597555643546137514535493654854560787652633271737972440323544585484547686132464533251383525",
+  "letters_all": "AddXufprHaeJEVdaNejfavbmbwaz"
+ },
+ "getPos9": {
+  "len": 36,
+  "letters_A_Zg_z": "LuLvKzyKHwtHJGxGStACAht",
+  "digits_only": "564656355444",
+  "letters_all": "LuLvKzyKHwtHJGxGStACAht"
+ },
+ "getSaltKey": {
+  "len": 17,
+  "letters_A_Zg_z": "",
+  "digits_only": "432353449",
+  "letters_all": "aeaebeb"
+ },
+ "getSecretKey": {
+  "len": 17,
+  "letters_A_Zg_z": "",
+  "digits_only": "2936264156",
+  "letters_all": "ebddbe"
+ },
+ "getUrlDrawable": {
+  "len": 30,
+  "letters_A_Zg_z": "httpsrivgooglomopn",
+  "digits_only": "",
+  "letters_all": "httpsdrivegooglecomopen"
+ },
+ "getUrlQrCode": {
+  "len": 68,
+  "letters_A_Zg_z": "httpsimghrtsomhrthtqrhsxhoUTFhlht",
+  "digits_only": "4204208",
+  "letters_all": "httpsimagechartscomchartchtqrchsxchoeUTFchlht"
+ },
+ "getXenditProductionKey": {
+  "len": 84,
+  "letters_A_Zg_z": "xnpuliproutionJHslBxKLmMtjjlVPDsREAHACQtPrUyYUtNFNQASjRJWDtuI",
+  "digits_only": "747334592",
+  "letters_all": "xndpublicproductionJHslBxKLamMtjjlVPDsREAHACQtPrUyYUtNFcfbNQASjdRJWDtuI"
+ },
+ "getXenditStagingKey": {
+  "len": 86,
+  "letters_A_Zg_z": "xnpulivlopmntqRGRZORiVpCmFyJXnBWYpmgRpMQnpsIuyRnvtODKoOxy",
+  "digits_only": "2147952833949",
+  "letters_all": "xndpublicdevelopmentqRGRZORiVpCmaFyJXnBWYbpmgaRfpMfQnpsIuyRnvtODKoOxy"
+ }
+}

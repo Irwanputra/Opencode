@@ -1,0 +1,18 @@
+alifetimeClaimBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ld6/a; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+claimBonus (Ljava/lang/String; Ljava/lang/String; LA8/a; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+claimVoucher (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+getAlifetimeBonus (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+getCoinWordingLevel (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+getLevelAlifetime (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+getPointProfile (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+purchaseTicketFlashWar (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'
+redeemBonusFlashWar (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  annotations=ERR 'EncodedMethod' object has no attribute 'get_annotations'

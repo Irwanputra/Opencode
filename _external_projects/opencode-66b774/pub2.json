@@ -1,0 +1,1 @@
+{"object": "list", "data": [{"id": "swift-1.5-iq3_s", "object": "model", "status": {"value": "loaded"}, "max_model_len": 262144, "context_length": 262144, "max_context_length": 262144, "meta": {"n_ctx": 262144}, "architecture": {"input_modalities": ["text", "image"], "output_modalities": ["text"]}}]}

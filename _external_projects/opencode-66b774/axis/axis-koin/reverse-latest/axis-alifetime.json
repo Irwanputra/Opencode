@@ -1,0 +1,130 @@
+{
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_alifetimeClaimBonusUrl": {
+  "addr": "0x36e6c",
+  "blob": "0x1fc14",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_getPointHistoryUrl": {
+  "addr": "0x36ef0",
+  "blob": "0x22384",
+  "len": 50,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://points.api.axis.co.id/v1/alifetime/history"
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_flashWarInfoUrl": {
+  "addr": "0x38838",
+  "blob": "0x207ec",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/info"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getLevelProfileUrl": {
+  "addr": "0x38f20",
+  "blob": "0x21682",
+  "len": 43,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getMigrationAlifetimeUrl": {
+  "addr": "0x38f9c",
+  "blob": "0x1e96e",
+  "len": 53,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/migration"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getCoinProfileUrl": {
+  "addr": "0x39020",
+  "blob": "0x1eb8b",
+  "len": 42,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "https://points.api.axis.co.id/v1/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_putLevelUpUrl": {
+  "addr": "0x3909c",
+  "blob": "0x216ae",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/level-up"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getRewardAlifetimeUrl": {
+  "addr": "0x39124",
+  "blob": "0x21aef",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus\u0000ht"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_flashWarInfoUrl": {
+  "addr": "0x391a4",
+  "blob": "0x207ec",
+  "len": 39,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://flashwar.api.axis.co.id/v1/info"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_claimBonusAlifetimeUrl": {
+  "addr": "0x39220",
+  "blob": "0x1fc14",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_alifetimeMultipleTncUrl": {
+  "addr": "0x3a034",
+  "blob": "0x20b58",
+  "len": 35,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://promo.api.axis.co.id/tnc/v2"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeUrl": {
+  "addr": "0x3b1d4",
+  "blob": "0x20bb3",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus/voucher"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeUrl": {
+  "addr": "0x3b2e0",
+  "blob": "0x20617",
+  "len": 52,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus\u0000te"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeProfilingUrl": {
+  "addr": "0x3b360",
+  "blob": "0x226c1",
+  "len": 59,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/profiling"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeV2Url": {
+  "addr": "0x3b3e4",
+  "blob": "0x21743",
+  "len": 57,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/voucher"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getAlifetimeMembershipUrl": {
+  "addr": "0x3b468",
+  "blob": "0x21fa7",
+  "len": 48,
+  "malloc": 56,
+  "n_blobs": 1,
+  "value": "https://points.api.axis.co.id/v2/alifetime/point"
+ }
+}

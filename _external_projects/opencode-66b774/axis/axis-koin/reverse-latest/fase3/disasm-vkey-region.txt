@@ -1,0 +1,1738 @@
+0001a970: bti      c
+0001a974: adrp     x0, #0x42000
+0001a978: add      x0, x0, #0x660   ; -> 0x42660
+0001a97c: b        #0x3dea0
+0001a980: bti      c
+0001a984: ret      
+0001a988: bti      c
+0001a98c: b        #0x39e14
+0001a990: bti      c
+0001a994: cbz      x0, #0x1a9a0
+0001a998: mov      x16, x0
+0001a99c: br       x16
+0001a9a0: ret      
+0001a9a4: bti      c
+0001a9a8: mov      x1, x0
+0001a9ac: adrp     x0, #0x1a000
+0001a9b0: adrp     x2, #0x42000
+0001a9b4: add      x0, x0, #0x990   ; -> 0x1a990
+0001a9b8: add      x2, x2, #0x660   ; -> 0x42660
+0001a9bc: b        #0x3deb0
+0001a9c0: sub      sp, sp, #0x30   <== FUNCTION START [JNI_OnLoad]
+0001a9c4: stp      x29, x30, [sp, #0x10]   <== FUNCTION START
+0001a9c8: add      x29, sp, #0x10
+0001a9cc: stp      x20, x19, [sp, #0x20]
+0001a9d0: mrs      x19, tpidr_el0
+0001a9d4: mov      w2, #6
+0001a9d8: ldr      x8, [x19, #0x28]
+0001a9dc: mov      x1, sp
+0001a9e0: movk     w2, #1, lsl #16
+0001a9e4: mov      w20, #6
+0001a9e8: movk     w20, #1, lsl #16
+0001a9ec: str      x8, [sp, #8]
+0001a9f0: ldr      x8, [x0]
+0001a9f4: str      xzr, [sp]
+0001a9f8: ldr      x8, [x8, #0x30]
+0001a9fc: blr      x8
+0001aa00: cbz      w0, #0x1aa0c
+0001aa04: mov      w0, #-1
+0001aa08: b        #0x1aa3c
+0001aa0c: adrp     x1, #0x10000
+0001aa10: adrp     x2, #0xf000
+0001aa14: adrp     x3, #0xf000
+0001aa18: add      x1, x1, #0x2d9   ; -> 0x102d9 'VKEYObfuscation'
+0001aa1c: add      x2, x2, #0xfa0   ; -> 0xffa0 '********** V-Key DexObfuscator version: %s **********'
+0001aa20: add      x3, x3, #0xd6f   ; -> 0xfd6f '0.2.4'
+0001aa24: mov      w0, #4
+0001aa28: bl       #0x3dec0   ; call __android_log_print
+0001aa2c: ldr      x0, [sp]
+0001aa30: bl       #0x1aa60
+0001aa34: cmp      w0, #0
+0001aa38: csel     w0, w20, w0, eq
+0001aa3c: ldr      x8, [x19, #0x28]
+0001aa40: ldr      x9, [sp, #8]
+0001aa44: cmp      x8, x9
+0001aa48: b.ne     #0x1aa5c
+0001aa4c: ldp      x20, x19, [sp, #0x20]
+0001aa50: ldp      x29, x30, [sp, #0x10]
+0001aa54: add      sp, sp, #0x30
+0001aa58: ret      
+0001aa5c: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001aa60: stp      x29, x30, [sp, #-0x20]!   <== FUNCTION START
+0001aa64: str      x19, [sp, #0x10]
+0001aa68: mov      x29, sp
+0001aa6c: ldr      x8, [x0]
+0001aa70: adrp     x1, #0x10000
+0001aa74: add      x1, x1, #0xe32   ; -> 0x10e32 'kyaks/snmzj'
+0001aa78: mov      x19, x0
+0001aa7c: ldr      x8, [x8, #0x30]
+0001aa80: blr      x8
+0001aa84: cbz      x0, #0x1aab0
+0001aa88: ldr      x8, [x19]
+0001aa8c: mov      x1, x0
+0001aa90: mov      x0, x19
+0001aa94: ldr      x19, [sp, #0x10]
+0001aa98: adrp     x2, #0x42000
+0001aa9c: mov      w3, #2
+0001aaa0: ldr      x4, [x8, #0x6b8]
+0001aaa4: add      x2, x2, #0x668   ; -> 0x42668
+0001aaa8: ldp      x29, x30, [sp], #0x20
+0001aaac: br       x4
+0001aab0: ldr      x19, [sp, #0x10]
+0001aab4: mov      w0, #-1
+0001aab8: ldp      x29, x30, [sp], #0x20
+0001aabc: ret      
+0001aac0: stp      x29, x30, [sp, #-0x60]!   <== FUNCTION START
+0001aac4: stp      x28, x27, [sp, #0x10]
+0001aac8: mov      x29, sp
+0001aacc: stp      x26, x25, [sp, #0x20]
+0001aad0: stp      x24, x23, [sp, #0x30]
+0001aad4: stp      x22, x21, [sp, #0x40]
+0001aad8: stp      x20, x19, [sp, #0x50]
+0001aadc: sub      sp, sp, #0x260
+0001aae0: mrs      x24, tpidr_el0
+0001aae4: mov      x27, x1
+0001aae8: ldr      x8, [x24, #0x28]
+0001aaec: mov      x19, x0
+0001aaf0: stur     x8, [x29, #-0x10]
+0001aaf4: bl       #0x3dee0   ; call getuid@LIBC
+0001aaf8: mov      w8, #0x5ac5
+0001aafc: lsr      w9, w0, #5
+0001ab00: movk     w8, #0xa7c, lsl #16
+0001ab04: umull    x8, w9, w8
+0001ab08: mov      w9, #0x86a0
+0001ab0c: movk     w9, #1, lsl #16
+0001ab10: lsr      x8, x8, #0x27
+0001ab14: msub     w8, w8, w9, w0
+0001ab18: mov      w9, #0x5f8f
+0001ab1c: movk     w9, #1, lsl #16
+0001ab20: cmp      w8, w9
+0001ab24: b.hi     #0x1b8d8
+0001ab28: ldr      x8, [x19]
+0001ab2c: adrp     x1, #0x10000
+0001ab30: add      x1, x1, #0x782   ; -> 0x10782 'android/content/Context'
+0001ab34: mov      x0, x19
+0001ab38: ldr      x8, [x8, #0x30]
+0001ab3c: blr      x8
+0001ab40: ldr      x8, [x19]
+0001ab44: adrp     x20, #0x10000
+0001ab48: mov      x21, x0
+0001ab4c: adrp     x2, #0x11000
+0001ab50: add      x20, x20, #0x8e4   ; -> 0x108e4 bytes 4900284c6a6176612f7574696c2f4c69
+0001ab54: add      x2, x2, #0x421   ; -> 0x11421 'MODE_PRIVATE'
+0001ab58: ldr      x8, [x8, #0x480]
+0001ab5c: mov      x0, x19
+0001ab60: mov      x1, x21
+0001ab64: mov      x3, x20
+0001ab68: blr      x8
+0001ab6c: ldr      x8, [x19]
+0001ab70: mov      x2, x0
+0001ab74: mov      x0, x19
+0001ab78: mov      x1, x21
+0001ab7c: ldr      x8, [x8, #0x4b0]
+0001ab80: blr      x8
+0001ab84: ldr      x8, [x19]
+0001ab88: adrp     x1, #0x10000
+0001ab8c: mov      w21, w0
+0001ab90: add      x1, x1, #0x3d5   ; -> 0x103d5 'Dev'
+0001ab94: mov      x0, x19
+0001ab98: ldr      x8, [x8, #0x538]
+0001ab9c: blr      x8
+0001aba0: ldr      x8, [x19]
+0001aba4: mov      x22, x0
+0001aba8: mov      x0, x19
+0001abac: mov      x1, x27
+0001abb0: ldr      x8, [x8, #0xf8]
+0001abb4: blr      x8
+0001abb8: ldr      x8, [x19]
+0001abbc: adrp     x2, #0x10000
+0001abc0: adrp     x3, #0x10000
+0001abc4: mov      x1, x0
+0001abc8: add      x2, x2, #0xe3e   ; -> 0x10e3e 'getDir'
+0001abcc: add      x3, x3, #0xdb5   ; -> 0x10db5 '(Ljava/lang/String;I)Ljava/io/File;'
+0001abd0: ldr      x8, [x8, #0x108]
+0001abd4: mov      x0, x19
+0001abd8: blr      x8
+0001abdc: mov      x2, x0
+0001abe0: mov      x0, x19
+0001abe4: mov      x1, x27
+0001abe8: mov      x3, x22
+0001abec: mov      w4, w21
+0001abf0: bl       #0x1bfa8
+0001abf4: ldr      x8, [x19]
+0001abf8: mov      x23, x0
+0001abfc: mov      x0, x19
+0001ac00: mov      x1, x27
+0001ac04: ldr      x8, [x8, #0xf8]
+0001ac08: blr      x8
+0001ac0c: ldr      x8, [x19]
+0001ac10: adrp     x2, #0x11000
+0001ac14: adrp     x3, #0x10000
+0001ac18: mov      x1, x0
+0001ac1c: add      x2, x2, #0x2e   ; -> 0x1102e 'getClassLoader'
+0001ac20: add      x3, x3, #0xf95   ; -> 0x10f95 '()Ljava/lang/ClassLoader;'
+0001ac24: ldr      x8, [x8, #0x108]
+0001ac28: mov      x0, x19
+0001ac2c: blr      x8
+0001ac30: mov      x2, x0
+0001ac34: mov      x0, x19
+0001ac38: mov      x1, x27
+0001ac3c: bl       #0x1bfa8
+0001ac40: ldr      x8, [x19]
+0001ac44: mov      x21, x0
+0001ac48: mov      x0, x19
+0001ac4c: mov      x1, x21
+0001ac50: ldr      x8, [x8, #0xf8]
+0001ac54: blr      x8
+0001ac58: ldr      x8, [x19]
+0001ac5c: adrp     x2, #0x10000
+0001ac60: adrp     x3, #0x11000
+0001ac64: mov      x1, x0
+0001ac68: add      x2, x2, #0x69c   ; -> 0x1069c 'pathList'
+0001ac6c: add      x3, x3, #0x223   ; -> 0x11223 'Ldalvik/system/DexPathList;'
+0001ac70: ldr      x8, [x8, #0x2f0]
+0001ac74: mov      x0, x19
+0001ac78: blr      x8
+0001ac7c: ldr      x8, [x19]
+0001ac80: mov      x2, x0
+0001ac84: mov      x0, x19
+0001ac88: mov      x1, x21
+0001ac8c: ldr      x8, [x8, #0x2f8]
+0001ac90: blr      x8
+0001ac94: ldr      x8, [x19]
+0001ac98: adrp     x1, #0xf000
+0001ac9c: mov      x22, x0
+0001aca0: add      x1, x1, #0xb7a   ; -> 0xfb7a 'java/util/ArrayList'
+0001aca4: mov      x0, x19
+0001aca8: ldr      x8, [x8, #0x30]
+0001acac: blr      x8
+0001acb0: ldr      x8, [x19]
+0001acb4: mov      x21, x0
+0001acb8: adrp     x2, #0x10000
+0001acbc: adrp     x3, #0x10000
+0001acc0: add      x2, x2, #0xe8   ; -> 0x100e8 '<init>'
+0001acc4: add      x3, x3, #0x698   ; -> 0x10698 '()V'
+0001acc8: ldr      x8, [x8, #0x108]
+0001accc: mov      x0, x19
+0001acd0: mov      x1, x21
+0001acd4: blr      x8
+0001acd8: mov      x2, x0
+0001acdc: mov      x0, x19
+0001ace0: mov      x1, x21
+0001ace4: bl       #0x1c044
+0001ace8: ldr      x8, [x19]
+0001acec: str      x0, [sp, #0x20]
+0001acf0: mov      x0, x19
+0001acf4: mov      x1, x22
+0001acf8: str      x22, [sp, #0x38]
+0001acfc: ldr      x8, [x8, #0xf8]
+0001ad00: blr      x8
+0001ad04: ldr      x8, [x19]
+0001ad08: adrp     x1, #0x10000
+0001ad0c: mov      x22, x0
+0001ad10: add      x1, x1, #0x7fb   ; -> 0x107fb 'android/os/Build$VERSION'
+0001ad14: mov      x0, x19
+0001ad18: ldr      x8, [x8, #0x30]
+0001ad1c: blr      x8
+0001ad20: ldr      x8, [x19]
+0001ad24: mov      x21, x0
+0001ad28: adrp     x2, #0xf000
+0001ad2c: mov      x0, x19
+0001ad30: add      x2, x2, #0xe9b   ; -> 0xfe9b 'SDK_INT'
+0001ad34: mov      x1, x21
+0001ad38: ldr      x8, [x8, #0x480]
+0001ad3c: mov      x3, x20
+0001ad40: blr      x8
+0001ad44: ldr      x8, [x19]
+0001ad48: mov      x2, x0
+0001ad4c: mov      x0, x19
+0001ad50: mov      x1, x21
+0001ad54: ldr      x8, [x8, #0x4b0]
+0001ad58: blr      x8
+0001ad5c: cmp      w0, #0x19
+0001ad60: str      x24, [sp, #0x40]
+0001ad64: str      x22, [sp, #0x30]
+0001ad68: str      w0, [sp, #0x2c]
+0001ad6c: b.gt     #0x1ad9c
+0001ad70: ldr      x8, [x19]
+0001ad74: sub      w9, w0, #0x15
+0001ad78: cmp      w9, #1
+0001ad7c: str      x23, [sp, #0x18]
+0001ad80: ldr      x8, [x8, #0x388]
+0001ad84: b.hi     #0x1b0fc
+0001ad88: adrp     x2, #0xf000
+0001ad8c: adrp     x3, #0x11000
+0001ad90: add      x2, x2, #0xd75   ; -> 0xfd75 'makeDexElements'
+0001ad94: add      x3, x3, #0x612   ; -> 0x11612 '(Ljava/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;'
+0001ad98: b        #0x1b10c
+0001ad9c: ldr      x8, [x19]
+0001ada0: adrp     x2, #0x10000
+0001ada4: adrp     x3, #0x11000
+0001ada8: add      x2, x2, #0xe45   ; -> 0x10e45 'makeInMemoryDexElements'
+0001adac: add      x3, x3, #0x23f   ; -> 0x1123f '([Ljava/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;'
+0001adb0: mov      x0, x19
+0001adb4: ldr      x8, [x8, #0x388]
+0001adb8: mov      x1, x22
+0001adbc: blr      x8
+0001adc0: ldr      x8, [x19]
+0001adc4: str      x0, [sp, #0x70]
+0001adc8: mov      x0, x19
+0001adcc: mov      x1, x27
+0001add0: ldr      x8, [x8, #0xf8]
+0001add4: blr      x8
+0001add8: ldr      x8, [x19]
+0001addc: adrp     x2, #0x10000
+0001ade0: adrp     x3, #0x10000
+0001ade4: mov      x1, x0
+0001ade8: add      x2, x2, #0xc85   ; -> 0x10c85 'getAssets'
+0001adec: add      x3, x3, #0x93b   ; -> 0x1093b '()Landroid/content/res/AssetManager;'
+0001adf0: ldr      x8, [x8, #0x108]
+0001adf4: mov      x0, x19
+0001adf8: blr      x8
+0001adfc: mov      x2, x0
+0001ae00: mov      x0, x19
+0001ae04: mov      x1, x27
+0001ae08: bl       #0x1bfa8
+0001ae0c: ldr      x8, [x19]
+0001ae10: adrp     x1, #0x10000
+0001ae14: mov      x20, x0
+0001ae18: add      x1, x1, #0xc93   ; -> 0x10c93 'java/nio/ByteBuffer'
+0001ae1c: mov      x0, x19
+0001ae20: ldr      x8, [x8, #0x30]
+0001ae24: blr      x8
+0001ae28: ldr      x8, [x19]
+0001ae2c: mov      x21, x0
+0001ae30: mov      x0, x19
+0001ae34: mov      w1, #7
+0001ae38: mov      x2, x21
+0001ae3c: mov      x3, xzr
+0001ae40: ldr      x8, [x8, #0x560]
+0001ae44: blr      x8
+0001ae48: ldr      x8, [x19]
+0001ae4c: adrp     x2, #0xf000
+0001ae50: adrp     x3, #0x10000
+0001ae54: stp      x21, x0, [sp, #0x88]
+0001ae58: add      x2, x2, #0xd85   ; -> 0xfd85 'wrap'
+0001ae5c: add      x3, x3, #0x87   ; -> 0x10087 '([B)Ljava/nio/ByteBuffer;'
+0001ae60: ldr      x8, [x8, #0x388]
+0001ae64: mov      x0, x19
+0001ae68: mov      x1, x21
+0001ae6c: blr      x8
+0001ae70: str      x0, [sp, #0x80]
+0001ae74: mov      x0, x19
+0001ae78: mov      x1, x20
+0001ae7c: bl       #0x3def0   ; call AAssetManager_fromJava
+0001ae80: mov      x25, xzr
+0001ae84: str      x0, [sp, #0x78]
+0001ae88: b        #0x1b000
+0001ae8c: ldr      q0, [x23]
+0001ae90: ldr      q1, [x24]
+0001ae94: eor      v0.16b, v1.16b, v0.16b
+0001ae98: str      q0, [x20]
+0001ae9c: ldr      q0, [x23, #0x10]
+0001aea0: ldr      q1, [x24, #0x10]
+0001aea4: eor      v0.16b, v1.16b, v0.16b
+0001aea8: str      q0, [x20, #0x10]
+0001aeac: add      x8, x22, x21
+0001aeb0: add      x0, sp, #0xa8
+0001aeb4: sub      x21, x8, #0x10
+0001aeb8: mov      w8, #0x3130
+0001aebc: add      x23, x22, #0xc
+0001aec0: strh     w8, [sp, #0xa4]
+0001aec4: mov      w8, #0x6b76
+0001aec8: movk     w8, #0x7965, lsl #16
+0001aecc: str      w8, [sp, #0xa0]
+0001aed0: bl       #0x3df00   ; call mbedtls_gcm_init
+0001aed4: add      x0, sp, #0xa8
+0001aed8: mov      w1, #2
+0001aedc: mov      x2, x20
+0001aee0: mov      w3, #0x100
+0001aee4: bl       #0x3df10   ; call mbedtls_gcm_setkey
+0001aee8: mov      x5, xzr
+0001aeec: add      x0, sp, #0xa8
+0001aef0: add      x4, sp, #0xa0
+0001aef4: mov      x1, x27
+0001aef8: mov      x2, x22
+0001aefc: mov      w3, #0xc
+0001af00: mov      x6, x21
+0001af04: mov      w7, #0x10
+0001af08: stp      x23, x26, [sp]
+0001af0c: bl       #0x3df20   ; call mbedtls_gcm_auth_[...]
+0001af10: add      x0, sp, #0xa8
+0001af14: bl       #0x3df30   ; call mbedtls_gcm_free
+0001af18: mov      x0, x20
+0001af1c: bl       #0x3df40   ; call free@LIBC
+0001af20: add      x2, sp, #0xa8
+0001af24: add      x3, sp, #0xa0
+0001af28: mov      x0, x26
+0001af2c: mov      x1, x27
+0001af30: bl       #0x1c218
+0001af34: adrp     x1, #0xf000
+0001af38: adrp     x2, #0x10000
+0001af3c: mov      w3, w0
+0001af40: mov      w0, #4
+0001af44: add      x1, x1, #0xd8a   ; -> 0xfd8a 'ClassEncryption'
+0001af48: add      x2, x2, #0xddf   ; -> 0x10ddf '[dex_buffer] decompress: %d'
+0001af4c: bl       #0x3dec0   ; call __android_log_print
+0001af50: mov      x0, x26
+0001af54: bl       #0x3df40   ; call free@LIBC
+0001af58: ldr      x8, [x19]
+0001af5c: mov      x0, x19
+0001af60: ldr      w20, [sp, #0xa0]
+0001af64: ldr      x8, [x8, #0x580]
+0001af68: mov      w1, w20
+0001af6c: blr      x8
+0001af70: ldr      x8, [x19]
+0001af74: mov      x21, x0
+0001af78: ldr      x26, [sp, #0xa8]
+0001af7c: mov      x0, x19
+0001af80: mov      x1, x21
+0001af84: mov      w2, wzr
+0001af88: ldr      x8, [x8, #0x680]
+0001af8c: mov      w3, w20
+0001af90: mov      x4, x26
+0001af94: blr      x8
+0001af98: ldp      x2, x1, [sp, #0x80]
+0001af9c: mov      x0, x19
+0001afa0: mov      x3, x21
+0001afa4: bl       #0x1c0e0
+0001afa8: ldr      x8, [x19]
+0001afac: mov      x20, x0
+0001afb0: mov      x0, x19
+0001afb4: ldr      x1, [sp, #0x90]
+0001afb8: mov      w2, w25
+0001afbc: mov      x3, x20
+0001afc0: ldr      x8, [x8, #0x570]
+0001afc4: blr      x8
+0001afc8: ldr      x8, [x19]
+0001afcc: mov      x0, x19
+0001afd0: mov      x1, x20
+0001afd4: ldr      x8, [x8, #0xb8]
+0001afd8: blr      x8
+0001afdc: mov      x0, x26
+0001afe0: bl       #0x3df40   ; call free@LIBC
+0001afe4: mov      x0, x22
+0001afe8: bl       #0x3df40   ; call free@LIBC
+0001afec: mov      x0, x28
+0001aff0: bl       #0x3df50   ; call AAsset_close
+0001aff4: add      x25, x25, #1
+0001aff8: cmp      x25, #7
+0001affc: b.eq     #0x1b0d8
+0001b000: lsl      x20, x25, #3
+0001b004: adrp     x8, #0x4a000
+0001b008: add      x8, x8, #0x1b0   ; -> 0x4a1b0
+0001b00c: ldr      x0, [sp, #0x78]
+0001b010: mov      w2, #3
+0001b014: ldr      x1, [x8, x20]
+0001b018: bl       #0x3df60   ; call AAssetManager_open
+0001b01c: mov      x28, x0
+0001b020: bl       #0x3df70   ; call AAsset_getLength
+0001b024: sub      x27, x0, #0x1c
+0001b028: mov      x21, x0
+0001b02c: mov      x0, x27
+0001b030: bl       #0x3df80   ; call _Znam
+0001b034: mov      x26, x0
+0001b038: mov      x0, x21
+0001b03c: bl       #0x3df80   ; call _Znam
+0001b040: mov      x22, x0
+0001b044: mov      x0, x28
+0001b048: mov      x1, x22
+0001b04c: mov      x2, x21
+0001b050: bl       #0x3df90   ; call AAsset_read
+0001b054: adrp     x8, #0x4a000
+0001b058: mov      w0, #0x20
+0001b05c: add      x8, x8, #0x1e8   ; -> 0x4a1e8
+0001b060: ldr      x23, [x8, x20]
+0001b064: adrp     x8, #0x4a000
+0001b068: add      x8, x8, #0x220   ; -> 0x4a220
+0001b06c: ldr      x24, [x8, x20]
+0001b070: bl       #0x3dfa0   ; call malloc@LIBC
+0001b074: add      x8, x23, #0x20
+0001b078: add      x9, x0, #0x20
+0001b07c: cmp      x0, x8
+0001b080: add      x10, x24, #0x20
+0001b084: cset     w8, lo
+0001b088: cmp      x23, x9
+0001b08c: cset     w11, lo
+0001b090: cmp      x0, x10
+0001b094: and      w10, w8, w11
+0001b098: cset     w8, lo
+0001b09c: cmp      x24, x9
+0001b0a0: mov      x20, x0
+0001b0a4: cset     w9, lo
+0001b0a8: tbnz     w10, #0, #0x1b0b4
+0001b0ac: and      w8, w8, w9
+0001b0b0: cbz      w8, #0x1ae8c
+0001b0b4: mov      x8, xzr
+0001b0b8: ldrb     w9, [x23, x8]
+0001b0bc: ldrb     w10, [x24, x8]
+0001b0c0: eor      w9, w10, w9
+0001b0c4: strb     w9, [x20, x8]
+0001b0c8: add      x8, x8, #1
+0001b0cc: cmp      x8, #0x20
+0001b0d0: b.ne     #0x1b0b8
+0001b0d4: b        #0x1aeac
+0001b0d8: ldr      x28, [sp, #0x30]
+0001b0dc: mov      x0, x19
+0001b0e0: ldr      x2, [sp, #0x70]
+0001b0e4: ldr      x3, [sp, #0x90]
+0001b0e8: mov      x1, x28
+0001b0ec: ldr      x4, [sp, #0x20]
+0001b0f0: bl       #0x1c0e0
+0001b0f4: mov      x20, x0
+0001b0f8: b        #0x1b66c
+0001b0fc: adrp     x2, #0x11000
+0001b100: adrp     x3, #0x10000
+0001b104: add      x2, x2, #0x34a   ; -> 0x1134a 'makePathElements'
+0001b108: add      x3, x3, #0x8e6   ; -> 0x108e6 '(Ljava/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;'
+0001b10c: mov      x0, x19
+0001b110: mov      x1, x22
+0001b114: blr      x8
+0001b118: ldr      x8, [x19]
+0001b11c: str      x0, [sp, #0x10]
+0001b120: mov      x0, x19
+0001b124: mov      x1, x27
+0001b128: ldr      x8, [x8, #0xf8]
+0001b12c: blr      x8
+0001b130: ldr      x8, [x19]
+0001b134: adrp     x2, #0x10000
+0001b138: adrp     x3, #0x10000
+0001b13c: mov      x1, x0
+0001b140: add      x2, x2, #0xc85   ; -> 0x10c85 'getAssets'
+0001b144: add      x3, x3, #0x93b   ; -> 0x1093b '()Landroid/content/res/AssetManager;'
+0001b148: ldr      x8, [x8, #0x108]
+0001b14c: mov      x0, x19
+0001b150: blr      x8
+0001b154: mov      x2, x0
+0001b158: mov      x0, x19
+0001b15c: mov      x1, x27
+0001b160: bl       #0x1bfa8
+0001b164: ldr      x8, [x19]
+0001b168: adrp     x21, #0xf000
+0001b16c: add      x21, x21, #0xb7a   ; -> 0xfb7a 'java/util/ArrayList'
+0001b170: mov      x20, x0
+0001b174: mov      x0, x19
+0001b178: mov      x1, x21
+0001b17c: ldr      x8, [x8, #0x30]
+0001b180: blr      x8
+0001b184: ldr      x8, [x19]
+0001b188: adrp     x23, #0x10000
+0001b18c: mov      x22, x0
+0001b190: add      x23, x23, #0xe8   ; -> 0x100e8 '<init>'
+0001b194: adrp     x3, #0x10000
+0001b198: mov      x0, x19
+0001b19c: ldr      x8, [x8, #0x108]
+0001b1a0: add      x3, x3, #0x698   ; -> 0x10698 '()V'
+0001b1a4: mov      x1, x22
+0001b1a8: mov      x2, x23
+0001b1ac: blr      x8
+0001b1b0: mov      x2, x0
+0001b1b4: mov      x0, x19
+0001b1b8: mov      x1, x22
+0001b1bc: bl       #0x1c044
+0001b1c0: ldr      x8, [x19]
+0001b1c4: adrp     x1, #0xf000
+0001b1c8: str      x0, [sp, #0x88]
+0001b1cc: add      x1, x1, #0xea3   ; -> 0xfea3 'java/io/File'
+0001b1d0: mov      x0, x19
+0001b1d4: ldr      x8, [x8, #0x30]
+0001b1d8: blr      x8
+0001b1dc: ldr      x8, [x19]
+0001b1e0: mov      x22, x0
+0001b1e4: adrp     x3, #0xf000
+0001b1e8: mov      x0, x19
+0001b1ec: add      x3, x3, #0xeb0   ; -> 0xfeb0 '(Ljava/lang/String;)V'
+0001b1f0: mov      x1, x22
+0001b1f4: ldr      x8, [x8, #0x108]
+0001b1f8: mov      x2, x23
+0001b1fc: blr      x8
+0001b200: ldr      x8, [x19]
+0001b204: adrp     x2, #0x10000
+0001b208: adrp     x3, #0x10000
+0001b20c: str      x0, [sp, #0x78]
+0001b210: add      x2, x2, #0x301   ; -> 0x10301 'setReadOnly'
+0001b214: add      x3, x3, #0xc0f   ; -> 0x10c0f '()Z'
+0001b218: ldr      x8, [x8, #0x108]
+0001b21c: mov      x0, x19
+0001b220: mov      x1, x22
+0001b224: blr      x8
+0001b228: ldr      x8, [x19]
+0001b22c: adrp     x2, #0x10000
+0001b230: adrp     x3, #0x10000
+0001b234: str      x0, [sp, #0x70]
+0001b238: add      x2, x2, #0xef   ; -> 0x100ef 'setWritable'
+0001b23c: add      x3, x3, #0xdd9   ; -> 0x10dd9 '(ZZ)Z'
+0001b240: ldr      x8, [x8, #0x108]
+0001b244: mov      x0, x19
+0001b248: mov      x1, x22
+0001b24c: str      x22, [sp, #0x80]
+0001b250: blr      x8
+0001b254: ldr      x8, [x19]
+0001b258: str      x0, [sp, #0x68]
+0001b25c: mov      x0, x19
+0001b260: mov      x1, x21
+0001b264: ldr      x8, [x8, #0x30]
+0001b268: blr      x8
+0001b26c: ldr      x8, [x19]
+0001b270: adrp     x2, #0x10000
+0001b274: adrp     x3, #0x10000
+0001b278: mov      x1, x0
+0001b27c: add      x2, x2, #0xc8f   ; -> 0x10c8f 'add'
+0001b280: add      x3, x3, #0xa47   ; -> 0x10a47 '(Ljava/lang/Object;)Z'
+0001b284: ldr      x8, [x8, #0x108]
+0001b288: mov      x0, x19
+0001b28c: blr      x8
+0001b290: ldr      x8, [x19]
+0001b294: str      x0, [sp, #0x60]
+0001b298: mov      x0, x19
+0001b29c: mov      x1, x27
+0001b2a0: ldr      x8, [x8, #0xf8]
+0001b2a4: blr      x8
+0001b2a8: ldr      x8, [x19]
+0001b2ac: adrp     x2, #0x10000
+0001b2b0: adrp     x3, #0x10000
+0001b2b4: mov      x1, x0
+0001b2b8: add      x2, x2, #0x5f1   ; -> 0x105f1 'getFilesDir'
+0001b2bc: add      x3, x3, #0x511   ; -> 0x10511 '()Ljava/io/File;'
+0001b2c0: ldr      x8, [x8, #0x108]
+0001b2c4: mov      x0, x19
+0001b2c8: blr      x8
+0001b2cc: mov      x2, x0
+0001b2d0: mov      x0, x19
+0001b2d4: mov      x1, x27
+0001b2d8: bl       #0x1bfa8
+0001b2dc: ldr      x8, [x19]
+0001b2e0: mov      x21, x0
+0001b2e4: mov      x0, x19
+0001b2e8: mov      x1, x21
+0001b2ec: ldr      x8, [x8, #0xf8]
+0001b2f0: blr      x8
+0001b2f4: ldr      x8, [x19]
+0001b2f8: adrp     x2, #0x10000
+0001b2fc: adrp     x3, #0x10000
+0001b300: mov      x1, x0
+0001b304: add      x2, x2, #0x1f9   ; -> 0x101f9 'toString'
+0001b308: add      x3, x3, #0xfb   ; -> 0x100fb '()Ljava/lang/String;'
+0001b30c: ldr      x8, [x8, #0x108]
+0001b310: mov      x0, x19
+0001b314: blr      x8
+0001b318: mov      x2, x0
+0001b31c: mov      x0, x19
+0001b320: mov      x1, x21
+0001b324: bl       #0x1bfa8
+0001b328: ldr      x8, [x19]
+0001b32c: mov      x21, x0
+0001b330: mov      x0, x19
+0001b334: mov      x1, x21
+0001b338: ldr      x8, [x8, #0x520]
+0001b33c: blr      x8
+0001b340: ldr      x8, [x19]
+0001b344: mov      w22, w0
+0001b348: mov      x0, x19
+0001b34c: mov      x1, x21
+0001b350: mov      x2, xzr
+0001b354: ldr      x8, [x8, #0x548]
+0001b358: blr      x8
+0001b35c: str      x0, [sp, #0x58]
+0001b360: mov      x0, x19
+0001b364: mov      x1, x20
+0001b368: bl       #0x3def0   ; call AAssetManager_fromJava
+0001b36c: mov      x21, xzr
+0001b370: sxtw     x8, w22
+0001b374: stp      x8, x0, [sp, #0x48]
+0001b378: b        #0x1b4ec
+0001b37c: ldr      q0, [x26]
+0001b380: ldr      q1, [x24]
+0001b384: eor      v0.16b, v1.16b, v0.16b
+0001b388: str      q0, [x22]
+0001b38c: ldr      q0, [x26, #0x10]
+0001b390: ldr      q1, [x24, #0x10]
+0001b394: eor      v0.16b, v1.16b, v0.16b
+0001b398: str      q0, [x22, #0x10]
+0001b39c: add      x8, x23, x27
+0001b3a0: add      x0, sp, #0xa8
+0001b3a4: sub      x27, x8, #0x10
+0001b3a8: mov      w8, #0x3130
+0001b3ac: add      x24, x23, #0xc
+0001b3b0: strh     w8, [sp, #0xa4]
+0001b3b4: mov      w8, #0x6b76
+0001b3b8: movk     w8, #0x7965, lsl #16
+0001b3bc: str      w8, [sp, #0xa0]
+0001b3c0: bl       #0x3df00   ; call mbedtls_gcm_init
+0001b3c4: add      x0, sp, #0xa8
+0001b3c8: mov      w1, #2
+0001b3cc: mov      x2, x22
+0001b3d0: mov      w3, #0x100
+0001b3d4: bl       #0x3df10   ; call mbedtls_gcm_setkey
+0001b3d8: mov      x5, xzr
+0001b3dc: add      x0, sp, #0xa8
+0001b3e0: add      x4, sp, #0xa0
+0001b3e4: mov      x1, x25
+0001b3e8: mov      x2, x23
+0001b3ec: mov      w3, #0xc
+0001b3f0: mov      x6, x27
+0001b3f4: mov      w7, #0x10
+0001b3f8: stp      x24, x28, [sp]
+0001b3fc: bl       #0x3df20   ; call mbedtls_gcm_auth_[...]
+0001b400: add      x0, sp, #0xa8
+0001b404: bl       #0x3df30   ; call mbedtls_gcm_free
+0001b408: mov      x0, x22
+0001b40c: bl       #0x3df40   ; call free@LIBC
+0001b410: add      x2, sp, #0xa8
+0001b414: add      x3, sp, #0xa0
+0001b418: mov      x0, x28
+0001b41c: mov      x1, x25
+0001b420: bl       #0x1c218
+0001b424: mov      x0, x28
+0001b428: bl       #0x3df40   ; call free@LIBC
+0001b42c: ldr      x8, [x19]
+0001b430: mov      x0, x19
+0001b434: mov      x1, x20
+0001b438: ldr      x8, [x8, #0x538]
+0001b43c: blr      x8
+0001b440: ldp      x2, x1, [sp, #0x78]
+0001b444: mov      x3, x0
+0001b448: mov      x0, x19
+0001b44c: bl       #0x1c044
+0001b450: mov      x22, x0
+0001b454: mov      x0, x19
+0001b458: mov      x1, x22
+0001b45c: ldr      x2, [sp, #0x68]
+0001b460: mov      w3, #1
+0001b464: mov      w4, #1
+0001b468: bl       #0x1c17c
+0001b46c: adrp     x1, #0x11000
+0001b470: mov      x0, x20
+0001b474: add      x1, x1, #0x2a2   ; -> 0x112a2 bytes 776200636f6d2e617869732e6e65742e
+0001b478: bl       #0x3dfb0   ; call fopen@LIBC
+0001b47c: ldp      x2, x27, [sp, #0xa0]
+0001b480: mov      x25, x0
+0001b484: mov      w1, #1
+0001b488: mov      x3, x25
+0001b48c: mov      x0, x27
+0001b490: bl       #0x3dfc0   ; call fwrite@LIBC
+0001b494: mov      x0, x25
+0001b498: bl       #0x3dfd0   ; call fclose@LIBC
+0001b49c: mov      x0, x19
+0001b4a0: mov      x1, x22
+0001b4a4: ldr      x2, [sp, #0x70]
+0001b4a8: bl       #0x1c17c
+0001b4ac: mov      x0, x19
+0001b4b0: ldr      x1, [sp, #0x88]
+0001b4b4: ldr      x2, [sp, #0x60]
+0001b4b8: mov      x3, x22
+0001b4bc: bl       #0x1c17c
+0001b4c0: mov      x0, x27
+0001b4c4: bl       #0x3df40   ; call free@LIBC
+0001b4c8: mov      x0, x20
+0001b4cc: bl       #0x3df40   ; call free@LIBC
+0001b4d0: mov      x0, x23
+0001b4d4: bl       #0x3df40   ; call free@LIBC
+0001b4d8: ldr      x0, [sp, #0x90]
+0001b4dc: bl       #0x3df50   ; call AAsset_close
+0001b4e0: add      x21, x21, #1
+0001b4e4: cmp      x21, #7
+0001b4e8: b.eq     #0x1b64c
+0001b4ec: lsl      x24, x21, #3
+0001b4f0: adrp     x8, #0x4a000
+0001b4f4: add      x8, x8, #0x1b0   ; -> 0x4a1b0
+0001b4f8: add      x0, sp, #0x98
+0001b4fc: mov      w1, #6
+0001b500: ldr      x22, [x8, x24]
+0001b504: mov      w8, #0x79
+0001b508: strh     w8, [sp, #0x9c]
+0001b50c: mov      w8, #0x762f
+0001b510: movk     w8, #0x656b, lsl #16
+0001b514: str      w8, [sp, #0x98]
+0001b518: bl       #0x3dfe0   ; call __strlen_chk@LIBC
+0001b51c: ldr      x27, [sp, #0x48]
+0001b520: add      w25, w27, w0
+0001b524: add      w8, w25, #6
+0001b528: add      w26, w25, #2
+0001b52c: sxtw     x23, w8
+0001b530: mov      x0, x23
+0001b534: bl       #0x3dfa0   ; call malloc@LIBC
+0001b538: ldr      x1, [sp, #0x58]
+0001b53c: mov      x20, x0
+0001b540: bl       #0x3dff0   ; call strcpy@LIBC
+0001b544: add      x0, x0, x27
+0001b548: add      x1, sp, #0x98
+0001b54c: bl       #0x3dff0   ; call strcpy@LIBC
+0001b550: add      w8, w25, #1
+0001b554: add      w9, w21, #0x30
+0001b558: add      x10, x20, w26, sxtw
+0001b55c: ldr      x0, [sp, #0x50]
+0001b560: mov      x1, x22
+0001b564: mov      w2, #3
+0001b568: strb     w9, [x20, w8, sxtw]
+0001b56c: mov      w8, #0x642e
+0001b570: movk     w8, #0x7865, lsl #16
+0001b574: mov      w11, #0x30
+0001b578: strb     w11, [x20, w25, sxtw]
+0001b57c: strb     wzr, [x10, #4]
+0001b580: str      w8, [x10]
+0001b584: strb     wzr, [x20, x23]
+0001b588: bl       #0x3df60   ; call AAssetManager_open
+0001b58c: mov      x22, x0
+0001b590: bl       #0x3df70   ; call AAsset_getLength
+0001b594: sub      x25, x0, #0x1c
+0001b598: mov      x27, x0
+0001b59c: mov      x0, x25
+0001b5a0: bl       #0x3df80   ; call _Znam
+0001b5a4: mov      x28, x0
+0001b5a8: mov      x0, x27
+0001b5ac: bl       #0x3df80   ; call _Znam
+0001b5b0: mov      x23, x0
+0001b5b4: mov      x0, x22
+0001b5b8: mov      x1, x23
+0001b5bc: mov      x2, x27
+0001b5c0: str      x22, [sp, #0x90]
+0001b5c4: bl       #0x3df90   ; call AAsset_read
+0001b5c8: adrp     x8, #0x4a000
+0001b5cc: mov      w0, #0x20
+0001b5d0: add      x8, x8, #0x1e8   ; -> 0x4a1e8
+0001b5d4: ldr      x26, [x8, x24]
+0001b5d8: adrp     x8, #0x4a000
+0001b5dc: add      x8, x8, #0x220   ; -> 0x4a220
+0001b5e0: ldr      x24, [x8, x24]
+0001b5e4: bl       #0x3dfa0   ; call malloc@LIBC
+0001b5e8: add      x8, x26, #0x20
+0001b5ec: add      x9, x0, #0x20
+0001b5f0: cmp      x0, x8
+0001b5f4: add      x10, x24, #0x20
+0001b5f8: cset     w8, lo
+0001b5fc: cmp      x26, x9
+0001b600: cset     w11, lo
+0001b604: cmp      x0, x10
+0001b608: and      w10, w8, w11
+0001b60c: cset     w8, lo
+0001b610: cmp      x24, x9
+0001b614: mov      x22, x0
+0001b618: cset     w9, lo
+0001b61c: tbnz     w10, #0, #0x1b628
+0001b620: and      w8, w8, w9
+0001b624: cbz      w8, #0x1b37c
+0001b628: mov      x8, xzr
+0001b62c: ldrb     w9, [x26, x8]
+0001b630: ldrb     w10, [x24, x8]
+0001b634: eor      w9, w10, w9
+0001b638: strb     w9, [x22, x8]
+0001b63c: add      x8, x8, #1
+0001b640: cmp      x8, #0x20
+0001b644: b.ne     #0x1b62c
+0001b648: b        #0x1b39c
+0001b64c: ldr      x28, [sp, #0x30]
+0001b650: mov      x0, x19
+0001b654: ldp      x2, x4, [sp, #0x10]
+0001b658: mov      x1, x28
+0001b65c: ldr      x3, [sp, #0x88]
+0001b660: ldr      x5, [sp, #0x20]
+0001b664: bl       #0x1c0e0
+0001b668: mov      x20, x0
+0001b66c: ldr      x8, [x19]
+0001b670: adrp     x1, #0x10000
+0001b674: add      x1, x1, #0x1d0   ; -> 0x101d0 'dalvik/system/DexPathList$Element'
+0001b678: mov      x0, x19
+0001b67c: ldr      x8, [x8, #0x30]
+0001b680: blr      x8
+0001b684: ldr      x8, [x19]
+0001b688: mov      x22, x0
+0001b68c: ldr      x27, [sp, #0x38]
+0001b690: mov      x0, x19
+0001b694: ldr      x8, [x8, #0xf8]
+0001b698: mov      x1, x27
+0001b69c: blr      x8
+0001b6a0: ldr      x8, [x19]
+0001b6a4: adrp     x2, #0x11000
+0001b6a8: adrp     x3, #0xf000
+0001b6ac: mov      x1, x0
+0001b6b0: add      x2, x2, #0x42e   ; -> 0x1142e 'dexElements'
+0001b6b4: add      x3, x3, #0xc89   ; -> 0xfc89 '[Ldalvik/system/DexPathList$Element;'
+0001b6b8: ldr      x8, [x8, #0x2f0]
+0001b6bc: mov      x0, x19
+0001b6c0: blr      x8
+0001b6c4: ldr      x8, [x19]
+0001b6c8: mov      x2, x0
+0001b6cc: mov      x0, x19
+0001b6d0: mov      x1, x27
+0001b6d4: ldr      x8, [x8, #0x2f8]
+0001b6d8: blr      x8
+0001b6dc: ldr      x8, [x19]
+0001b6e0: mov      x25, x0
+0001b6e4: mov      x0, x19
+0001b6e8: mov      x1, x25
+0001b6ec: ldr      x8, [x8, #0x558]
+0001b6f0: blr      x8
+0001b6f4: ldr      x8, [x19]
+0001b6f8: mov      w21, w0
+0001b6fc: mov      x0, x19
+0001b700: mov      x1, x20
+0001b704: ldr      x8, [x8, #0x558]
+0001b708: blr      x8
+0001b70c: ldr      x8, [x19]
+0001b710: mov      w23, w0
+0001b714: add      w1, w0, w21
+0001b718: mov      x0, x19
+0001b71c: mov      x2, x22
+0001b720: mov      x3, xzr
+0001b724: ldr      x8, [x8, #0x560]
+0001b728: blr      x8
+0001b72c: mov      x22, x0
+0001b730: ldr      x24, [sp, #0x40]
+0001b734: cmp      w21, #1
+0001b738: b.lt     #0x1b780
+0001b73c: mov      w26, wzr
+0001b740: ldr      x8, [x19]
+0001b744: mov      x0, x19
+0001b748: mov      x1, x25
+0001b74c: mov      w2, w26
+0001b750: ldr      x8, [x8, #0x568]
+0001b754: blr      x8
+0001b758: ldr      x8, [x19]
+0001b75c: mov      x3, x0
+0001b760: mov      x0, x19
+0001b764: mov      x1, x22
+0001b768: mov      w2, w26
+0001b76c: ldr      x8, [x8, #0x570]
+0001b770: blr      x8
+0001b774: add      w26, w26, #1
+0001b778: cmp      w21, w26
+0001b77c: b.ne     #0x1b740
+0001b780: cmp      w23, #1
+0001b784: b.lt     #0x1b7d0
+0001b788: mov      w25, wzr
+0001b78c: ldr      x8, [x19]
+0001b790: mov      x0, x19
+0001b794: mov      x1, x20
+0001b798: mov      w2, w25
+0001b79c: add      w26, w21, w25
+0001b7a0: ldr      x8, [x8, #0x568]
+0001b7a4: blr      x8
+0001b7a8: ldr      x8, [x19]
+0001b7ac: mov      x3, x0
+0001b7b0: mov      x0, x19
+0001b7b4: mov      x1, x22
+0001b7b8: mov      w2, w26
+0001b7bc: ldr      x8, [x8, #0x570]
+0001b7c0: blr      x8
+0001b7c4: add      w25, w25, #1
+0001b7c8: cmp      w23, w25
+0001b7cc: b.ne     #0x1b78c
+0001b7d0: ldr      x8, [x19]
+0001b7d4: adrp     x2, #0x11000
+0001b7d8: adrp     x3, #0xf000
+0001b7dc: add      x2, x2, #0x42e   ; -> 0x1142e 'dexElements'
+0001b7e0: add      x3, x3, #0xc89   ; -> 0xfc89 '[Ldalvik/system/DexPathList$Element;'
+0001b7e4: mov      x0, x19
+0001b7e8: ldr      x8, [x8, #0x2f0]
+0001b7ec: mov      x1, x28
+0001b7f0: blr      x8
+0001b7f4: ldr      x8, [x19]
+0001b7f8: mov      x2, x0
+0001b7fc: mov      x0, x19
+0001b800: mov      x1, x27
+0001b804: mov      x3, x22
+0001b808: ldr      x8, [x8, #0x340]
+0001b80c: blr      x8
+0001b810: ldr      w8, [sp, #0x2c]
+0001b814: ldr      x27, [sp, #0x88]
+0001b818: cmp      w8, #0x19
+0001b81c: b.gt     #0x1b8d8
+0001b820: adrp     x21, #0xf000
+0001b824: adrp     x22, #0x11000
+0001b828: adrp     x23, #0x10000
+0001b82c: adrp     x25, #0x10000
+0001b830: mov      w20, wzr
+0001b834: add      x21, x21, #0xe97   ; -> 0xfe97 'get'
+0001b838: add      x22, x22, #0x28c   ; -> 0x1128c '(I)Ljava/lang/Object;'
+0001b83c: add      x23, x23, #0x1f2   ; -> 0x101f2 'delete'
+0001b840: add      x25, x25, #0xc0f   ; -> 0x10c0f '()Z'
+0001b844: ldr      x8, [x19]
+0001b848: mov      x0, x19
+0001b84c: mov      x1, x27
+0001b850: ldr      x8, [x8, #0xf8]
+0001b854: blr      x8
+0001b858: ldr      x8, [x19]
+0001b85c: mov      x1, x0
+0001b860: mov      x0, x19
+0001b864: mov      x2, x21
+0001b868: mov      x3, x22
+0001b86c: ldr      x8, [x8, #0x108]
+0001b870: blr      x8
+0001b874: mov      x2, x0
+0001b878: mov      x0, x19
+0001b87c: mov      x1, x27
+0001b880: mov      w3, w20
+0001b884: bl       #0x1bfa8
+0001b888: ldr      x8, [x19]
+0001b88c: mov      x26, x0
+0001b890: mov      x0, x19
+0001b894: mov      x1, x26
+0001b898: ldr      x8, [x8, #0xf8]
+0001b89c: blr      x8
+0001b8a0: ldr      x8, [x19]
+0001b8a4: mov      x1, x0
+0001b8a8: mov      x0, x19
+0001b8ac: mov      x2, x23
+0001b8b0: mov      x3, x25
+0001b8b4: ldr      x8, [x8, #0x108]
+0001b8b8: blr      x8
+0001b8bc: mov      x2, x0
+0001b8c0: mov      x0, x19
+0001b8c4: mov      x1, x26
+0001b8c8: bl       #0x1c17c
+0001b8cc: add      w20, w20, #1
+0001b8d0: cmp      w20, #7
+0001b8d4: b.ne     #0x1b844
+0001b8d8: ldr      x8, [x24, #0x28]
+0001b8dc: ldur     x9, [x29, #-0x10]
+0001b8e0: cmp      x8, x9
+0001b8e4: b.ne     #0x1b908
+0001b8e8: add      sp, sp, #0x260
+0001b8ec: ldp      x20, x19, [sp, #0x50]
+0001b8f0: ldp      x22, x21, [sp, #0x40]
+0001b8f4: ldp      x24, x23, [sp, #0x30]
+0001b8f8: ldp      x26, x25, [sp, #0x20]
+0001b8fc: ldp      x28, x27, [sp, #0x10]
+0001b900: ldp      x29, x30, [sp], #0x60
+0001b904: ret      
+0001b908: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001b90c: stp      x29, x30, [sp, #-0x60]!   <== FUNCTION START
+0001b910: str      x27, [sp, #0x10]
+0001b914: mov      x29, sp
+0001b918: stp      x26, x25, [sp, #0x20]
+0001b91c: stp      x24, x23, [sp, #0x30]
+0001b920: stp      x22, x21, [sp, #0x40]
+0001b924: stp      x20, x19, [sp, #0x50]
+0001b928: mov      x20, x1
+0001b92c: mov      x19, x0
+0001b930: bl       #0x3dee0   ; call getuid@LIBC
+0001b934: mov      w8, #0x5ac5
+0001b938: lsr      w9, w0, #5
+0001b93c: movk     w8, #0xa7c, lsl #16
+0001b940: umull    x8, w9, w8
+0001b944: mov      w9, #0x86a0
+0001b948: movk     w9, #1, lsl #16
+0001b94c: lsr      x8, x8, #0x27
+0001b950: msub     w8, w8, w9, w0
+0001b954: mov      w9, #0x5f8f
+0001b958: movk     w9, #1, lsl #16
+0001b95c: cmp      w8, w9
+0001b960: b.ls     #0x1b980
+0001b964: ldp      x20, x19, [sp, #0x50]
+0001b968: ldp      x22, x21, [sp, #0x40]
+0001b96c: ldp      x24, x23, [sp, #0x30]
+0001b970: ldp      x26, x25, [sp, #0x20]
+0001b974: ldr      x27, [sp, #0x10]
+0001b978: ldp      x29, x30, [sp], #0x60
+0001b97c: ret      
+0001b980: ldr      x8, [x19]
+0001b984: adrp     x1, #0x10000
+0001b988: add      x1, x1, #0x603   ; -> 0x10603 'android/app/ContextImpl'
+0001b98c: mov      x0, x19
+0001b990: ldr      x8, [x8, #0x30]
+0001b994: blr      x8
+0001b998: ldr      x8, [x19]
+0001b99c: mov      x24, x0
+0001b9a0: mov      x0, x19
+0001b9a4: mov      x1, x20
+0001b9a8: ldr      x8, [x8, #0xf8]
+0001b9ac: blr      x8
+0001b9b0: ldr      x8, [x19]
+0001b9b4: adrp     x2, #0x10000
+0001b9b8: adrp     x3, #0x11000
+0001b9bc: mov      x1, x0
+0001b9c0: add      x2, x2, #0xa5d   ; -> 0x10a5d 'getBaseContext'
+0001b9c4: add      x3, x3, #0x724   ; -> 0x11724 '()Landroid/content/Context;'
+0001b9c8: ldr      x8, [x8, #0x108]
+0001b9cc: mov      x0, x19
+0001b9d0: blr      x8
+0001b9d4: mov      x2, x0
+0001b9d8: mov      x0, x19
+0001b9dc: mov      x1, x20
+0001b9e0: bl       #0x1bfa8
+0001b9e4: ldr      x8, [x19]
+0001b9e8: adrp     x2, #0x10000
+0001b9ec: adrp     x3, #0x10000
+0001b9f0: mov      x21, x0
+0001b9f4: add      x2, x2, #0xb78   ; -> 0x10b78 'getImpl'
+0001b9f8: add      x3, x3, #0x814   ; -> 0x10814 '(Landroid/content/Context;)Landroid/app/ContextImpl;'
+0001b9fc: ldr      x8, [x8, #0x388]
+0001ba00: mov      x0, x19
+0001ba04: mov      x1, x24
+0001ba08: blr      x8
+0001ba0c: mov      x2, x0
+0001ba10: mov      x0, x19
+0001ba14: mov      x1, x24
+0001ba18: mov      x3, x21
+0001ba1c: bl       #0x1c0e0
+0001ba20: ldr      x8, [x19]
+0001ba24: adrp     x1, #0x11000
+0001ba28: mov      x23, x0
+0001ba2c: add      x1, x1, #0x35b   ; -> 0x1135b 'com/axis/net/helper/AxisNetApplication'
+0001ba30: mov      x0, x19
+0001ba34: ldr      x8, [x8, #0x30]
+0001ba38: blr      x8
+0001ba3c: ldr      x8, [x19]
+0001ba40: mov      x21, x0
+0001ba44: adrp     x2, #0x10000
+0001ba48: adrp     x3, #0x10000
+0001ba4c: add      x2, x2, #0xe8   ; -> 0x100e8 '<init>'
+0001ba50: add      x3, x3, #0x698   ; -> 0x10698 '()V'
+0001ba54: ldr      x8, [x8, #0x108]
+0001ba58: mov      x0, x19
+0001ba5c: mov      x1, x21
+0001ba60: blr      x8
+0001ba64: mov      x2, x0
+0001ba68: mov      x0, x19
+0001ba6c: mov      x1, x21
+0001ba70: bl       #0x1c044
+0001ba74: ldr      x8, [x19]
+0001ba78: adrp     x1, #0xf000
+0001ba7c: mov      x21, x0
+0001ba80: add      x1, x1, #0xb8e   ; -> 0xfb8e 'android/app/Application'
+0001ba84: mov      x0, x19
+0001ba88: ldr      x8, [x8, #0x30]
+0001ba8c: blr      x8
+0001ba90: ldr      x8, [x19]
+0001ba94: mov      x22, x0
+0001ba98: adrp     x2, #0x11000
+0001ba9c: adrp     x3, #0xf000
+0001baa0: add      x2, x2, #0x43a   ; -> 0x1143a 'attach'
+0001baa4: add      x3, x3, #0xec6   ; -> 0xfec6 '(Landroid/content/Context;)V'
+0001baa8: ldr      x8, [x8, #0x108]
+0001baac: mov      x0, x19
+0001bab0: mov      x1, x22
+0001bab4: blr      x8
+0001bab8: mov      x2, x0
+0001babc: mov      x0, x19
+0001bac0: mov      x1, x21
+0001bac4: mov      x3, x23
+0001bac8: bl       #0x1c360
+0001bacc: ldr      x8, [x19]
+0001bad0: adrp     x2, #0x10000
+0001bad4: adrp     x3, #0x10000
+0001bad8: add      x2, x2, #0x3d9   ; -> 0x103d9 'mOuterContext'
+0001badc: add      x3, x3, #0xe5d   ; -> 0x10e5d 'Landroid/content/Context;'
+0001bae0: mov      x0, x19
+0001bae4: ldr      x8, [x8, #0x2f0]
+0001bae8: mov      x1, x24
+0001baec: blr      x8
+0001baf0: ldr      x8, [x19]
+0001baf4: mov      x2, x0
+0001baf8: mov      x0, x19
+0001bafc: mov      x1, x23
+0001bb00: mov      x3, x20
+0001bb04: ldr      x8, [x8, #0x340]
+0001bb08: blr      x8
+0001bb0c: ldr      x8, [x19]
+0001bb10: adrp     x2, #0xf000
+0001bb14: adrp     x3, #0xf000
+0001bb18: add      x2, x2, #0xcae   ; -> 0xfcae 'mMainThread'
+0001bb1c: add      x3, x3, #0xcba   ; -> 0xfcba 'Landroid/app/ActivityThread;'
+0001bb20: mov      x0, x19
+0001bb24: ldr      x8, [x8, #0x2f0]
+0001bb28: mov      x1, x24
+0001bb2c: blr      x8
+0001bb30: ldr      x8, [x19]
+0001bb34: mov      x2, x0
+0001bb38: mov      x0, x19
+0001bb3c: mov      x1, x23
+0001bb40: ldr      x8, [x8, #0x2f8]
+0001bb44: blr      x8
+0001bb48: ldr      x8, [x19]
+0001bb4c: mov      x26, x0
+0001bb50: mov      x0, x19
+0001bb54: mov      x1, x26
+0001bb58: ldr      x8, [x8, #0xf8]
+0001bb5c: blr      x8
+0001bb60: ldr      x8, [x19]
+0001bb64: adrp     x25, #0x10000
+0001bb68: adrp     x2, #0x10000
+0001bb6c: add      x25, x25, #0x974   ; -> 0x10974 'Landroid/app/Application;'
+0001bb70: mov      x1, x0
+0001bb74: add      x2, x2, #0x960   ; -> 0x10960 'mInitialApplication'
+0001bb78: ldr      x8, [x8, #0x2f0]
+0001bb7c: mov      x0, x19
+0001bb80: mov      x3, x25
+0001bb84: blr      x8
+0001bb88: ldr      x8, [x19]
+0001bb8c: mov      x2, x0
+0001bb90: mov      x0, x19
+0001bb94: mov      x1, x26
+0001bb98: mov      x3, x20
+0001bb9c: ldr      x8, [x8, #0x340]
+0001bba0: blr      x8
+0001bba4: ldr      x8, [x19]
+0001bba8: mov      x0, x19
+0001bbac: mov      x1, x26
+0001bbb0: ldr      x8, [x8, #0xf8]
+0001bbb4: blr      x8
+0001bbb8: ldr      x8, [x19]
+0001bbbc: adrp     x24, #0x10000
+0001bbc0: adrp     x2, #0x10000
+0001bbc4: add      x24, x24, #0x202   ; -> 0x10202 'Ljava/util/ArrayList;'
+0001bbc8: mov      x1, x0
+0001bbcc: add      x2, x2, #0xb80   ; -> 0x10b80 'mAllApplications'
+0001bbd0: ldr      x8, [x8, #0x2f0]
+0001bbd4: mov      x0, x19
+0001bbd8: mov      x3, x24
+0001bbdc: blr      x8
+0001bbe0: ldr      x8, [x19]
+0001bbe4: mov      x2, x0
+0001bbe8: mov      x0, x19
+0001bbec: mov      x1, x26
+0001bbf0: ldr      x8, [x8, #0x2f8]
+0001bbf4: blr      x8
+0001bbf8: ldr      x8, [x19]
+0001bbfc: mov      x26, x0
+0001bc00: mov      x0, x19
+0001bc04: mov      x1, x26
+0001bc08: ldr      x8, [x8, #0xf8]
+0001bc0c: blr      x8
+0001bc10: ldr      x8, [x19]
+0001bc14: adrp     x27, #0x10000
+0001bc18: adrp     x2, #0x11000
+0001bc1c: add      x27, x27, #0xa47   ; -> 0x10a47 '(Ljava/lang/Object;)Z'
+0001bc20: mov      x1, x0
+0001bc24: add      x2, x2, #0x153   ; -> 0x11153 'remove'
+0001bc28: ldr      x8, [x8, #0x108]
+0001bc2c: mov      x0, x19
+0001bc30: mov      x3, x27
+0001bc34: blr      x8
+0001bc38: mov      x2, x0
+0001bc3c: mov      x0, x19
+0001bc40: mov      x1, x26
+0001bc44: mov      x3, x20
+0001bc48: bl       #0x1c17c
+0001bc4c: ldr      x8, [x19]
+0001bc50: mov      x0, x19
+0001bc54: mov      x1, x26
+0001bc58: ldr      x8, [x8, #0xf8]
+0001bc5c: blr      x8
+0001bc60: ldr      x8, [x19]
+0001bc64: adrp     x2, #0x10000
+0001bc68: mov      x1, x0
+0001bc6c: add      x2, x2, #0xc8f   ; -> 0x10c8f 'add'
+0001bc70: mov      x0, x19
+0001bc74: mov      x3, x27
+0001bc78: ldr      x8, [x8, #0x108]
+0001bc7c: blr      x8
+0001bc80: mov      x2, x0
+0001bc84: mov      x0, x19
+0001bc88: mov      x1, x26
+0001bc8c: mov      x3, x21
+0001bc90: bl       #0x1c17c
+0001bc94: ldr      x8, [x19]
+0001bc98: mov      x0, x19
+0001bc9c: mov      x1, x23
+0001bca0: ldr      x8, [x8, #0xf8]
+0001bca4: blr      x8
+0001bca8: ldr      x8, [x19]
+0001bcac: adrp     x2, #0xf000
+0001bcb0: adrp     x3, #0x10000
+0001bcb4: mov      x1, x0
+0001bcb8: add      x2, x2, #0xd9a   ; -> 0xfd9a 'mPackageInfo'
+0001bcbc: add      x3, x3, #0xb91   ; -> 0x10b91 'Landroid/app/LoadedApk;'
+0001bcc0: ldr      x8, [x8, #0x2f0]
+0001bcc4: mov      x0, x19
+0001bcc8: blr      x8
+0001bccc: ldr      x8, [x19]
+0001bcd0: mov      x2, x0
+0001bcd4: mov      x0, x19
+0001bcd8: mov      x1, x23
+0001bcdc: ldr      x8, [x8, #0x2f8]
+0001bce0: blr      x8
+0001bce4: ldr      x8, [x19]
+0001bce8: mov      x23, x0
+0001bcec: mov      x0, x19
+0001bcf0: mov      x1, x23
+0001bcf4: ldr      x8, [x8, #0xf8]
+0001bcf8: blr      x8
+0001bcfc: ldr      x8, [x19]
+0001bd00: adrp     x2, #0x11000
+0001bd04: mov      x1, x0
+0001bd08: add      x2, x2, #0x3d   ; -> 0x1103d 'mApplication'
+0001bd0c: mov      x0, x19
+0001bd10: mov      x3, x25
+0001bd14: ldr      x8, [x8, #0x2f0]
+0001bd18: blr      x8
+0001bd1c: ldr      x8, [x19]
+0001bd20: mov      x25, x0
+0001bd24: mov      x0, x19
+0001bd28: mov      x1, x23
+0001bd2c: mov      x2, x25
+0001bd30: ldr      x8, [x8, #0x2f8]
+0001bd34: blr      x8
+0001bd38: ldr      x8, [x19]
+0001bd3c: mov      x0, x19
+0001bd40: mov      x1, x23
+0001bd44: mov      x2, x25
+0001bd48: mov      x3, x21
+0001bd4c: ldr      x8, [x8, #0x340]
+0001bd50: blr      x8
+0001bd54: ldr      x8, [x19]
+0001bd58: mov      x0, x19
+0001bd5c: mov      x1, x23
+0001bd60: ldr      x8, [x8, #0xf8]
+0001bd64: blr      x8
+0001bd68: ldr      x8, [x19]
+0001bd6c: adrp     x2, #0xf000
+0001bd70: adrp     x3, #0x10000
+0001bd74: mov      x1, x0
+0001bd78: add      x2, x2, #0xee3   ; -> 0xfee3 'mApplicationInfo'
+0001bd7c: add      x3, x3, #0x6a5   ; -> 0x106a5 'Landroid/content/pm/ApplicationInfo;'
+0001bd80: ldr      x8, [x8, #0x2f0]
+0001bd84: mov      x0, x19
+0001bd88: blr      x8
+0001bd8c: ldr      x8, [x19]
+0001bd90: mov      x2, x0
+0001bd94: mov      x0, x19
+0001bd98: mov      x1, x23
+0001bd9c: ldr      x8, [x8, #0x2f8]
+0001bda0: blr      x8
+0001bda4: ldr      x8, [x19]
+0001bda8: mov      x23, x0
+0001bdac: mov      x0, x19
+0001bdb0: mov      x1, x23
+0001bdb4: ldr      x8, [x8, #0xf8]
+0001bdb8: blr      x8
+0001bdbc: ldr      x8, [x19]
+0001bdc0: adrp     x2, #0x10000
+0001bdc4: adrp     x3, #0x11000
+0001bdc8: mov      x1, x0
+0001bdcc: add      x2, x2, #0x522   ; -> 0x10522 'className'
+0001bdd0: add      x3, x3, #0x15a   ; -> 0x1115a 'Ljava/lang/String;'
+0001bdd4: ldr      x8, [x8, #0x2f0]
+0001bdd8: mov      x0, x19
+0001bddc: blr      x8
+0001bde0: ldr      x8, [x19]
+0001bde4: adrp     x1, #0x11000
+0001bde8: mov      x25, x0
+0001bdec: add      x1, x1, #0x2a5   ; -> 0x112a5 'com.axis.net.helper.AxisNetApplication'
+0001bdf0: mov      x0, x19
+0001bdf4: ldr      x8, [x8, #0x538]
+0001bdf8: blr      x8
+0001bdfc: ldr      x8, [x19]
+0001be00: mov      x3, x0
+0001be04: mov      x0, x19
+0001be08: mov      x1, x23
+0001be0c: mov      x2, x25
+0001be10: ldr      x8, [x8, #0x340]
+0001be14: blr      x8
+0001be18: ldr      x8, [x19]
+0001be1c: adrp     x2, #0x10000
+0001be20: adrp     x3, #0x11000
+0001be24: add      x2, x2, #0xfaf   ; -> 0x10faf 'registerActivityLifecycleCallbacks'
+0001be28: add      x3, x3, #0x441   ; -> 0x11441 '(Landroid/app/Application$ActivityLifecycleCallbacks;)V'
+0001be2c: mov      x0, x19
+0001be30: ldr      x8, [x8, #0x108]
+0001be34: mov      x1, x22
+0001be38: blr      x8
+0001be3c: ldr      x8, [x19]
+0001be40: mov      x23, x0
+0001be44: mov      x0, x19
+0001be48: mov      x1, x20
+0001be4c: ldr      x8, [x8, #0xf8]
+0001be50: blr      x8
+0001be54: ldr      x8, [x19]
+0001be58: adrp     x2, #0x10000
+0001be5c: mov      x1, x0
+0001be60: add      x2, x2, #0xba9   ; -> 0x10ba9 'mActivityLifecycleCallbacks'
+0001be64: mov      x0, x19
+0001be68: mov      x3, x24
+0001be6c: ldr      x8, [x8, #0x2f0]
+0001be70: blr      x8
+0001be74: ldr      x8, [x19]
+0001be78: mov      x2, x0
+0001be7c: mov      x0, x19
+0001be80: mov      x1, x20
+0001be84: ldr      x8, [x8, #0x2f8]
+0001be88: blr      x8
+0001be8c: ldr      x8, [x19]
+0001be90: mov      x20, x0
+0001be94: mov      x0, x19
+0001be98: mov      x1, x20
+0001be9c: ldr      x8, [x8, #0xf8]
+0001bea0: blr      x8
+0001bea4: ldr      x8, [x19]
+0001bea8: adrp     x2, #0x10000
+0001beac: adrp     x3, #0x11000
+0001beb0: mov      x1, x0
+0001beb4: add      x2, x2, #0x79a   ; -> 0x1079a 'size'
+0001beb8: add      x3, x3, #0x4bc   ; -> 0x114bc '()I'
+0001bebc: ldr      x8, [x8, #0x108]
+0001bec0: mov      x0, x19
+0001bec4: blr      x8
+0001bec8: mov      x2, x0
+0001becc: mov      x0, x19
+0001bed0: mov      x1, x20
+0001bed4: bl       #0x1c3fc
+0001bed8: cmp      w0, #1
+0001bedc: b.lt     #0x1bf5c
+0001bee0: adrp     x26, #0xf000
+0001bee4: adrp     x27, #0x11000
+0001bee8: mov      w24, w0
+0001beec: mov      w25, wzr
+0001bef0: add      x26, x26, #0xe97   ; -> 0xfe97 'get'
+0001bef4: add      x27, x27, #0x28c   ; -> 0x1128c '(I)Ljava/lang/Object;'
+0001bef8: ldr      x8, [x19]
+0001befc: mov      x0, x19
+0001bf00: mov      x1, x20
+0001bf04: ldr      x8, [x8, #0xf8]
+0001bf08: blr      x8
+0001bf0c: ldr      x8, [x19]
+0001bf10: mov      x1, x0
+0001bf14: mov      x0, x19
+0001bf18: mov      x2, x26
+0001bf1c: mov      x3, x27
+0001bf20: ldr      x8, [x8, #0x108]
+0001bf24: blr      x8
+0001bf28: mov      x2, x0
+0001bf2c: mov      x0, x19
+0001bf30: mov      x1, x20
+0001bf34: mov      w3, w25
+0001bf38: bl       #0x1bfa8
+0001bf3c: mov      x3, x0
+0001bf40: mov      x0, x19
+0001bf44: mov      x1, x21
+0001bf48: mov      x2, x23
+0001bf4c: bl       #0x1c360
+0001bf50: add      w25, w25, #1
+0001bf54: cmp      w24, w25
+0001bf58: b.ne     #0x1bef8
+0001bf5c: ldr      x8, [x19]
+0001bf60: adrp     x2, #0x10000
+0001bf64: adrp     x3, #0x10000
+0001bf68: add      x2, x2, #0x79f   ; -> 0x1079f 'onCreate'
+0001bf6c: add      x3, x3, #0x698   ; -> 0x10698 '()V'
+0001bf70: mov      x0, x19
+0001bf74: ldr      x8, [x8, #0x108]
+0001bf78: mov      x1, x22
+0001bf7c: blr      x8
+0001bf80: mov      x2, x0
+0001bf84: mov      x0, x19
+0001bf88: mov      x1, x21
+0001bf8c: ldr      x27, [sp, #0x10]
+0001bf90: ldp      x20, x19, [sp, #0x50]
+0001bf94: ldp      x22, x21, [sp, #0x40]
+0001bf98: ldp      x24, x23, [sp, #0x30]
+0001bf9c: ldp      x26, x25, [sp, #0x20]
+0001bfa0: ldp      x29, x30, [sp], #0x60
+0001bfa4: b        #0x1c360
+0001bfa8: sub      sp, sp, #0x120   <== FUNCTION START
+0001bfac: stp      x29, x30, [sp, #0x100]   <== FUNCTION START
+0001bfb0: add      x29, sp, #0x100
+0001bfb4: stp      x28, x19, [sp, #0x110]
+0001bfb8: stp      x3, x4, [x29, #-0x78]
+0001bfbc: sub      x9, x29, #0x78
+0001bfc0: stp      x5, x6, [x29, #-0x68]
+0001bfc4: mov      x11, #-0x28
+0001bfc8: stur     x7, [x29, #-0x58]
+0001bfcc: mov      x12, sp
+0001bfd0: stp      q0, q1, [sp]
+0001bfd4: add      x9, x9, #0x28
+0001bfd8: stp      q2, q3, [sp, #0x20]
+0001bfdc: movk     x11, #0xff80, lsl #32
+0001bfe0: stp      q4, q5, [sp, #0x40]
+0001bfe4: add      x12, x12, #0x80
+0001bfe8: stp      q6, q7, [sp, #0x60]
+0001bfec: mrs      x19, tpidr_el0
+0001bff0: ldr      x8, [x19, #0x28]
+0001bff4: sub      x10, x29, #0x28
+0001bff8: sub      x3, x29, #0x50
+0001bffc: stur     x8, [x29, #-8]
+0001c000: add      x8, x29, #0x20
+0001c004: stp      x12, x11, [x29, #-0x18]
+0001c008: stp      x8, x9, [x29, #-0x28]
+0001c00c: ldr      x8, [x0]
+0001c010: ldp      q0, q1, [x10]
+0001c014: ldr      x8, [x8, #0x118]
+0001c018: stp      q0, q1, [x29, #-0x50]
+0001c01c: blr      x8
+0001c020: ldr      x8, [x19, #0x28]
+0001c024: ldur     x9, [x29, #-8]
+0001c028: cmp      x8, x9
+0001c02c: b.ne     #0x1c040
+0001c030: ldp      x28, x19, [sp, #0x110]
+0001c034: ldp      x29, x30, [sp, #0x100]
+0001c038: add      sp, sp, #0x120
+0001c03c: ret      
+0001c040: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001c044: sub      sp, sp, #0x120   <== FUNCTION START
+0001c048: stp      x29, x30, [sp, #0x100]   <== FUNCTION START
+0001c04c: add      x29, sp, #0x100
+0001c050: stp      x28, x19, [sp, #0x110]
+0001c054: stp      x3, x4, [x29, #-0x78]
+0001c058: sub      x9, x29, #0x78
+0001c05c: stp      x5, x6, [x29, #-0x68]
+0001c060: mov      x11, #-0x28
+0001c064: stur     x7, [x29, #-0x58]
+0001c068: mov      x12, sp
+0001c06c: stp      q0, q1, [sp]
+0001c070: add      x9, x9, #0x28
+0001c074: stp      q2, q3, [sp, #0x20]
+0001c078: movk     x11, #0xff80, lsl #32
+0001c07c: stp      q4, q5, [sp, #0x40]
+0001c080: add      x12, x12, #0x80
+0001c084: stp      q6, q7, [sp, #0x60]
+0001c088: mrs      x19, tpidr_el0
+0001c08c: ldr      x8, [x19, #0x28]
+0001c090: sub      x10, x29, #0x28
+0001c094: sub      x3, x29, #0x50
+0001c098: stur     x8, [x29, #-8]
+0001c09c: add      x8, x29, #0x20
+0001c0a0: stp      x12, x11, [x29, #-0x18]
+0001c0a4: stp      x8, x9, [x29, #-0x28]
+0001c0a8: ldr      x8, [x0]
+0001c0ac: ldp      q0, q1, [x10]
+0001c0b0: ldr      x8, [x8, #0xe8]
+0001c0b4: stp      q0, q1, [x29, #-0x50]
+0001c0b8: blr      x8
+0001c0bc: ldr      x8, [x19, #0x28]
+0001c0c0: ldur     x9, [x29, #-8]
+0001c0c4: cmp      x8, x9
+0001c0c8: b.ne     #0x1c0dc
+0001c0cc: ldp      x28, x19, [sp, #0x110]
+0001c0d0: ldp      x29, x30, [sp, #0x100]
+0001c0d4: add      sp, sp, #0x120
+0001c0d8: ret      
+0001c0dc: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001c0e0: sub      sp, sp, #0x120   <== FUNCTION START
+0001c0e4: stp      x29, x30, [sp, #0x100]   <== FUNCTION START
+0001c0e8: add      x29, sp, #0x100
+0001c0ec: stp      x28, x19, [sp, #0x110]
+0001c0f0: stp      x3, x4, [x29, #-0x78]
+0001c0f4: sub      x9, x29, #0x78
+0001c0f8: stp      x5, x6, [x29, #-0x68]
+0001c0fc: mov      x11, #-0x28
+0001c100: stur     x7, [x29, #-0x58]
+0001c104: mov      x12, sp
+0001c108: stp      q0, q1, [sp]
+0001c10c: add      x9, x9, #0x28
+0001c110: stp      q2, q3, [sp, #0x20]
+0001c114: movk     x11, #0xff80, lsl #32
+0001c118: stp      q4, q5, [sp, #0x40]
+0001c11c: add      x12, x12, #0x80
+0001c120: stp      q6, q7, [sp, #0x60]
+0001c124: mrs      x19, tpidr_el0
+0001c128: ldr      x8, [x19, #0x28]
+0001c12c: sub      x10, x29, #0x28
+0001c130: sub      x3, x29, #0x50
+0001c134: stur     x8, [x29, #-8]
+0001c138: add      x8, x29, #0x20
+0001c13c: stp      x12, x11, [x29, #-0x18]
+0001c140: stp      x8, x9, [x29, #-0x28]
+0001c144: ldr      x8, [x0]
+0001c148: ldp      q0, q1, [x10]
+0001c14c: ldr      x8, [x8, #0x398]
+0001c150: stp      q0, q1, [x29, #-0x50]
+0001c154: blr      x8
+0001c158: ldr      x8, [x19, #0x28]
+0001c15c: ldur     x9, [x29, #-8]
+0001c160: cmp      x8, x9
+0001c164: b.ne     #0x1c178
+0001c168: ldp      x28, x19, [sp, #0x110]
+0001c16c: ldp      x29, x30, [sp, #0x100]
+0001c170: add      sp, sp, #0x120
+0001c174: ret      
+0001c178: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001c17c: sub      sp, sp, #0x120   <== FUNCTION START
+0001c180: stp      x29, x30, [sp, #0x100]   <== FUNCTION START
+0001c184: add      x29, sp, #0x100
+0001c188: stp      x28, x19, [sp, #0x110]
+0001c18c: stp      x3, x4, [x29, #-0x78]
+0001c190: sub      x9, x29, #0x78
+0001c194: stp      x5, x6, [x29, #-0x68]
+0001c198: mov      x11, #-0x28
+0001c19c: stur     x7, [x29, #-0x58]
+0001c1a0: mov      x12, sp
+0001c1a4: stp      q0, q1, [sp]
+0001c1a8: add      x9, x9, #0x28
+0001c1ac: stp      q2, q3, [sp, #0x20]
+0001c1b0: movk     x11, #0xff80, lsl #32
+0001c1b4: stp      q4, q5, [sp, #0x40]
+0001c1b8: add      x12, x12, #0x80
+0001c1bc: stp      q6, q7, [sp, #0x60]
+0001c1c0: mrs      x19, tpidr_el0
+0001c1c4: ldr      x8, [x19, #0x28]
+0001c1c8: sub      x10, x29, #0x28
+0001c1cc: sub      x3, x29, #0x50
+0001c1d0: stur     x8, [x29, #-8]
+0001c1d4: add      x8, x29, #0x20
+0001c1d8: stp      x12, x11, [x29, #-0x18]
+0001c1dc: stp      x8, x9, [x29, #-0x28]
+0001c1e0: ldr      x8, [x0]
+0001c1e4: ldp      q0, q1, [x10]
+0001c1e8: ldr      x8, [x8, #0x130]
+0001c1ec: stp      q0, q1, [x29, #-0x50]
+0001c1f0: blr      x8
+0001c1f4: ldr      x8, [x19, #0x28]
+0001c1f8: ldur     x9, [x29, #-8]
+0001c1fc: cmp      x8, x9
+0001c200: b.ne     #0x1c214
+0001c204: ldp      x28, x19, [sp, #0x110]
+0001c208: ldp      x29, x30, [sp, #0x100]
+0001c20c: add      sp, sp, #0x120
+0001c210: ret      
+0001c214: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001c218: sub      sp, sp, #0xc0   <== FUNCTION START
+0001c21c: stp      x29, x30, [sp, #0x80]   <== FUNCTION START
+0001c220: add      x29, sp, #0x80
+0001c224: str      x23, [sp, #0x90]
+0001c228: stp      x22, x21, [sp, #0xa0]
+0001c22c: stp      x20, x19, [sp, #0xb0]
+0001c230: mrs      x23, tpidr_el0
+0001c234: mov      x19, x3
+0001c238: ldr      x8, [x23, #0x28]
+0001c23c: mov      x20, x2
+0001c240: movi     v0.2d, #0000000000000000
+0001c244: mov      w21, #0x400
+0001c248: stur     x8, [x29, #-8]
+0001c24c: and      x8, x1, #0xffffffff
+0001c250: str      x0, [sp, #8]
+0001c254: mov      w0, #0x400
+0001c258: stp      q0, q0, [sp, #0x10]
+0001c25c: str      xzr, [sp, #0x70]
+0001c260: stp      q0, q0, [sp, #0x50]
+0001c264: stp      q0, q0, [sp, #0x30]
+0001c268: str      w1, [sp, #0x10]
+0001c26c: str      x8, [sp, #0x18]
+0001c270: bl       #0x3dfa0   ; call malloc@LIBC
+0001c274: str      x0, [x20]
+0001c278: cbz      x0, #0x1c330
+0001c27c: adrp     x2, #0x10000
+0001c280: str      x0, [sp, #0x20]
+0001c284: add      x2, x2, #0x5fd   ; -> 0x105fd '1.3.1'
+0001c288: add      x0, sp, #8
+0001c28c: mov      w1, #0x1f
+0001c290: mov      w3, #0x70
+0001c294: str      w21, [sp, #0x28]
+0001c298: str      x21, [sp, #0x30]
+0001c29c: bl       #0x3e000   ; call inflateInit2_
+0001c2a0: cbnz     w0, #0x1c328
+0001c2a4: add      x0, sp, #8
+0001c2a8: mov      w1, wzr
+0001c2ac: bl       #0x3e010   ; call inflate
+0001c2b0: mov      w22, w0
+0001c2b4: cbnz     w0, #0x1c308
+0001c2b8: mov      w21, #0x400
+0001c2bc: b        #0x1c2d0
+0001c2c0: add      x0, sp, #8
+0001c2c4: mov      w1, wzr
+0001c2c8: bl       #0x3e010   ; call inflate
+0001c2cc: cbnz     w0, #0x1c304
+0001c2d0: ldr      w8, [sp, #0x28]
+0001c2d4: cbnz     w8, #0x1c2c0
+0001c2d8: lsl      x21, x21, #1
+0001c2dc: ldr      x0, [x20]
+0001c2e0: mov      x1, x21
+0001c2e4: bl       #0x3e020   ; call realloc@LIBC
+0001c2e8: ldr      x8, [sp, #0x30]
+0001c2ec: str      x0, [x20]
+0001c2f0: sub      w9, w21, w8
+0001c2f4: add      x8, x0, x8
+0001c2f8: str      w9, [sp, #0x28]
+0001c2fc: str      x8, [sp, #0x20]
+0001c300: b        #0x1c2c0
+0001c304: mov      w22, w0
+0001c308: add      x0, sp, #8
+0001c30c: bl       #0x3e030   ; call inflateEnd
+0001c310: cmp      w22, #1
+0001c314: b.ne     #0x1c328
+0001c318: ldr      x8, [sp, #0x30]
+0001c31c: mov      w0, wzr
+0001c320: str      x8, [x19]
+0001c324: b        #0x1c334
+0001c328: ldr      x0, [x20]
+0001c32c: bl       #0x3df40   ; call free@LIBC
+0001c330: mov      w0, #-1
+0001c334: ldr      x8, [x23, #0x28]
+0001c338: ldur     x9, [x29, #-8]
+0001c33c: cmp      x8, x9
+0001c340: b.ne     #0x1c35c
+0001c344: ldp      x20, x19, [sp, #0xb0]
+0001c348: ldp      x22, x21, [sp, #0xa0]
+0001c34c: ldp      x29, x30, [sp, #0x80]
+0001c350: ldr      x23, [sp, #0x90]
+0001c354: add      sp, sp, #0xc0
+0001c358: ret      
+0001c35c: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001c360: sub      sp, sp, #0x120   <== FUNCTION START
+0001c364: stp      x29, x30, [sp, #0x100]   <== FUNCTION START
+0001c368: add      x29, sp, #0x100
+0001c36c: stp      x28, x19, [sp, #0x110]
+0001c370: stp      x3, x4, [x29, #-0x78]
+0001c374: sub      x9, x29, #0x78
+0001c378: stp      x5, x6, [x29, #-0x68]
+0001c37c: mov      x11, #-0x28
+0001c380: stur     x7, [x29, #-0x58]
+0001c384: mov      x12, sp
+0001c388: stp      q0, q1, [sp]
+0001c38c: add      x9, x9, #0x28
+0001c390: stp      q2, q3, [sp, #0x20]
+0001c394: movk     x11, #0xff80, lsl #32
+0001c398: stp      q4, q5, [sp, #0x40]
+0001c39c: add      x12, x12, #0x80
+0001c3a0: stp      q6, q7, [sp, #0x60]
+0001c3a4: mrs      x19, tpidr_el0
+0001c3a8: ldr      x8, [x19, #0x28]
+0001c3ac: sub      x10, x29, #0x28
+0001c3b0: sub      x3, x29, #0x50
+0001c3b4: stur     x8, [x29, #-8]
+0001c3b8: add      x8, x29, #0x20
+0001c3bc: stp      x12, x11, [x29, #-0x18]
+0001c3c0: stp      x8, x9, [x29, #-0x28]
+0001c3c4: ldr      x8, [x0]
+0001c3c8: ldp      q0, q1, [x10]
+0001c3cc: ldr      x8, [x8, #0x1f0]
+0001c3d0: stp      q0, q1, [x29, #-0x50]
+0001c3d4: blr      x8
+0001c3d8: ldr      x8, [x19, #0x28]
+0001c3dc: ldur     x9, [x29, #-8]
+0001c3e0: cmp      x8, x9
+0001c3e4: b.ne     #0x1c3f8
+0001c3e8: ldp      x28, x19, [sp, #0x110]
+0001c3ec: ldp      x29, x30, [sp, #0x100]
+0001c3f0: add      sp, sp, #0x120
+0001c3f4: ret      
+0001c3f8: bl       #0x3ded0   ; call __stack_chk_fail@LIBC
+0001c3fc: sub      sp, sp, #0x120   <== FUNCTION START
+0001c400: stp      x29, x30, [sp, #0x100]   <== FUNCTION START
+0001c404: add      x29, sp, #0x100
+0001c408: stp      x28, x19, [sp, #0x110]
+0001c40c: stp      x3, x4, [x29, #-0x78]
+0001c410: sub      x9, x29, #0x78
+0001c414: stp      x5, x6, [x29, #-0x68]
+0001c418: mov      x11, #-0x28
+0001c41c: stur     x7, [x29, #-0x58]
+0001c420: mov      x12, sp
+0001c424: stp      q0, q1, [sp]
+0001c428: add      x9, x9, #0x28
+0001c42c: stp      q2, q3, [sp, #0x20]
+0001c430: movk     x11, #0xff80, lsl #32
+0001c434: stp      q4, q5, [sp, #0x40]
+0001c438: add      x12, x12, #0x80
+0001c43c: stp      q6, q7, [sp, #0x60]
+0001c440: mrs      x19, tpidr_el0
+0001c444: ldr      x8, [x19, #0x28]
+0001c448: sub      x10, x29, #0x28
+0001c44c: sub      x3, x29, #0x50
+0001c450: stur     x8, [x29, #-8]
+0001c454: add      x8, x29, #0x20
+0001c458: stp      x12, x11, [x29, #-0x18]
+0001c45c: stp      x8, x9, [x29, #-0x28]
+0001c460: ldr      x8, [x0]
+0001c464: ldp      q0, q1, [x10]
+0001c468: ldr      x8, [x8, #0x190]
+0001c46c: stp      q0, q1, [x29, #-0x50]
+0001c470: blr      x8
+0001c474: ldr      x8, [x19, #0x28]
+0001c478: ldur     x9, [x29, #-8]
+0001c47c: cmp      x8, x9
+0001c480: b.ne     #0x1c494
+0001c484: ldp      x28, x19, [sp, #0x110]
+0001c488: ldp      x29, x30, [sp, #0x100]
+0001c48c: add      sp, sp, #0x120
+0001c490: ret      
+0001c494: bl       #0x3ded0   ; call __stack_chk_fail@LIBC

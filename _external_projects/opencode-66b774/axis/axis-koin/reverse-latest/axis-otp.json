@@ -1,0 +1,58 @@
+{
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_uOtp": {
+  "addr": "0x32cd0",
+  "blob": "0x21c34",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "https://otp.api.axis.co.id/v1/otp\u0000ht"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_xApikey": {
+  "addr": "0x32d48",
+  "blob": "0x22050",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_randomKey": {
+  "addr": "0x334a8",
+  "blob": "0x1e603",
+  "len": 25,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000https://"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_clientID": {
+  "addr": "0x335c8",
+  "blob": "0x1f0d6",
+  "len": 21,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "26NLLzLEZaLwngG0wUVI\u0000"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_clientSecret": {
+  "addr": "0x3368c",
+  "blob": "0x20c7a",
+  "len": 30,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "gU8ya9VoMTFa0LYF3xkjVYpXAAGRwz"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_grantType": {
+  "addr": "0x33708",
+  "blob": "0x222a9",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "client_credentials\u0000"
+ },
+ "Java_com_axis_net_ui_splashLogin_componens_OtpApiService_saltKey": {
+  "addr": "0x337c8",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ }
+}

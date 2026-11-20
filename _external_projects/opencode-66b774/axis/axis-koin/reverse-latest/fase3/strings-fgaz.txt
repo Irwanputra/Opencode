@@ -1,0 +1,1090 @@
+    244 Android
+    290 8937393
+   37a6 fdBUYb4
+   4791 __cxa_finalize
+   47a0 __cxa_atexit
+   47ad JNI_OnLoad
+   47b8 __android_log_print
+   47cc __stack_chk_fail
+   47dd getuid
+   47e4 AAssetManager_fromJava
+   47fb mbedtls_gcm_init
+   480c mbedtls_gcm_setkey
+   481f mbedtls_gcm_auth_decrypt
+   4838 mbedtls_gcm_free
+   484e AAsset_close
+   485b AAssetManager_open
+   486e AAsset_getLength
+   487f _Znam
+   4885 AAsset_read
+   4891 malloc
+   4898 fopen
+   489e fwrite
+   48a5 fclose
+   48ac __strlen_chk
+   48b9 strcpy
+   48c0 inflateInit2_
+   48ce inflate
+   48d6 realloc
+   48de inflateEnd
+   48e9 mbedtls_aes_init
+   48fa mbedtls_aes_free
+   490b mbedtls_aes_xts_init
+   4920 mbedtls_aes_xts_free
+   4935 mbedtls_aes_setkey_enc
+   494c mbedtls_aes_setkey_dec
+   4963 mbedtls_aes_xts_setkey_enc
+   497e mbedtls_aes_xts_setkey_dec
+   4999 mbedtls_internal_aes_encrypt
+   49b6 mbedtls_internal_aes_decrypt
+   49d3 mbedtls_aes_crypt_ecb
+   49e9 mbedtls_aes_crypt_cbc
+   49ff mbedtls_aes_crypt_xts
+   4a15 mbedtls_aes_crypt_cfb128
+   4a2e mbedtls_aes_crypt_cfb8
+   4a45 mbedtls_aes_crypt_ofb
+   4a5b mbedtls_aes_crypt_ctr
+   4a71 mbedtls_aes_self_test
+   4a87 mbedtls_cipher_list
+   4a9b mbedtls_cipher_info_from_type
+   4ab9 mbedtls_cipher_info_from_string
+   4ad9 mbedtls_cipher_info_from_values
+   4af9 mbedtls_cipher_init
+   4b0d mbedtls_cipher_free
+   4b21 mbedtls_cipher_setup
+   4b36 mbedtls_cipher_setkey
+   4b4c mbedtls_cipher_set_iv
+   4b62 mbedtls_cipher_reset
+   4b77 mbedtls_cipher_update_ad
+   4b90 mbedtls_cipher_update
+   4ba6 mbedtls_cipher_finish
+   4bbc mbedtls_cipher_set_padding_mode
+   4bdc mbedtls_cipher_write_tag
+   4bf5 mbedtls_cipher_check_tag
+   4c0e mbedtls_cipher_crypt
+   4c23 mbedtls_cipher_auth_encrypt_ext
+   4c43 mbedtls_cipher_auth_decrypt_ext
+   4c63 mbedtls_cipher_definitions
+   4c7e mbedtls_cipher_base_lookup_table
+   4c9f mbedtls_cipher_supported
+   4cb8 mbedtls_ct_memcmp
+   4cca mbedtls_ct_memmove_left
+   4ce2 mbedtls_ct_zero
+   4cf2 mbedtls_ct_memcpy_if
+   4d07 mbedtls_ct_memcpy_offset
+   4d20 mbedtls_ct_zeroize_if
+   4d36 mbedtls_gcm_starts
+   4d49 mbedtls_gcm_update_ad
+   4d5f mbedtls_gcm_update
+   4d72 mbedtls_platform_zeroize
+   4d8b mbedtls_gcm_finish
+   4d9e memcpy
+   4da5 mbedtls_gcm_crypt_and_tag
+   4dbf mbedtls_gcm_self_test
+   4dda printf
+   4de1 memcmp
+   4de8 putchar
+   4df0 strcmp
+   4df7 mbedtls_zeroize_and_free
+   4e10 memset
+   4e17 calloc
+   4e1e __memcpy_chk
+   4e2b mbedtls_platform_gmtime_r
+   4e45 gmtime_r
+   4e4e mbedtls_xor
+   4e5a mbedtls_get_unaligned_uint16
+   4e77 mbedtls_put_unaligned_uint16
+   4e94 mbedtls_get_unaligned_uint32
+   4eb1 mbedtls_put_unaligned_uint32
+   4ece mbedtls_get_unaligned_uint64
+   4eeb mbedtls_put_unaligned_uint64
+   4f08 mbedtls_ms_time
+   4f18 clock_gettime
+   4f2b _ZSt17__throw_bad_allocv
+   4f44 _Znwm
+   4f4a _ZnwmRKSt9nothrow_t
+   4f5e __cxa_allocate_exception
+   4f77 _ZNSt9bad_allocC1Ev
+   4f8b _ZTISt9bad_alloc
+   4f9c _ZNSt9bad_allocD1Ev
+   4fb0 __cxa_throw
+   4fbc _ZSt15get_new_handlerv
+   4fd3 __cxa_begin_catch
+   4fe5 __cxa_end_catch
+   4ff5 _ZSt9terminatev
+   5005 _ZnamRKSt9nothrow_t
+   5019 _ZdlPv
+   5020 _ZdlPvRKSt9nothrow_t
+   5035 _ZdlPvm
+   503d _ZdaPv
+   5044 _ZdaPvRKSt9nothrow_t
+   5059 _ZdaPvm
+   5061 _ZnwmSt11align_val_t
+   5076 posix_memalign
+   5085 _ZnwmSt11align_val_tRKSt9nothrow_t
+   50a8 _ZnamSt11align_val_t
+   50bd _ZnamSt11align_val_tRKSt9nothrow_t
+   50e0 _ZdlPvSt11align_val_t
+   50f6 _ZdlPvSt11align_val_tRKSt9nothrow_t
+   511a _ZdlPvmSt11align_val_t
+   5131 _ZdaPvSt11align_val_t
+   5147 _ZdaPvSt11align_val_tRKSt9nothrow_t
+   516b _ZdaPvmSt11align_val_t
+   5182 _ZSt7nothrow
+   518f __gxx_personality_v0
+   51a4 _ZSt14set_unexpectedPFvvE
+   51be __cxa_unexpected_handler
+   51d7 _ZSt13set_terminatePFvvE
+   51f0 __cxa_terminate_handler
+   5208 __cxa_demangle
+   5217 __cxa_call_unexpected
+   522d __cxa_free_exception
+   5242 __cxa_allocate_dependent_exception
+   5265 __cxa_free_dependent_exception
+   5284 __cxa_get_globals
+   5296 _ZSt14get_unexpectedv
+   52ac _ZSt13get_terminatev
+   52c1 __cxa_get_exception_ptr
+   52d9 __cxa_get_globals_fast
+   52f0 __cxa_decrement_exception_refcount
+   5313 __cxa_current_exception_type
+   5330 __cxa_rethrow
+   533e __cxa_increment_exception_refcount
+   5361 __cxa_current_primary_exception
+   5381 __cxa_rethrow_primary_exception
+   53a1 __cxa_uncaught_exception
+   53ba __cxa_uncaught_exceptions
+   53d4 __emutls_get_address
+   53e9 _ZSt10unexpectedv
+   53fb _ZSt15set_new_handlerPFvvE
+   5416 __cxa_new_handler
+   5428 _ZTISt9exception
+   543e vfprintf
+   5447 fputc
+   544d vasprintf
+   5457 android_set_abort_message
+   5471 openlog
+   5479 syslog
+   5480 closelog
+   5489 abort
+   548f strlen
+   5496 memmove
+   549e __memmove_chk
+   54ac memchr
+   54b3 __vsnprintf_chk
+   54c3 _ZTVN10__cxxabiv117__class_type_infoE
+   54e9 _ZTVN10__cxxabiv120__si_class_type_infoE
+   5512 _ZTVSt13bad_exception
+   5528 _ZTISt13bad_exception
+   553e _ZNSt13bad_exceptionD1Ev
+   5557 __cxa_pure_virtual
+   556a __cxa_deleted_virtual
+   5580 pthread_mutex_lock
+   5593 pthread_mutex_unlock
+   55a8 _ZTIN10__cxxabiv116__shim_type_infoE
+   55cd _ZTIN10__cxxabiv117__class_type_infoE
+   55f3 __dynamic_cast
+   5602 _ZTIN10__cxxabiv117__pbase_type_infoE
+   5628 _ZTSDn
+   562f _ZTIN10__cxxabiv119__pointer_type_infoE
+   5657 _ZTSv
+   565d _ZTIN10__cxxabiv120__function_type_infoE
+   5686 _ZTIN10__cxxabiv129__pointer_to_member_type_infoE
+   56b8 _ZTSN10__cxxabiv116__shim_type_infoE
+   56dd _ZNSt9type_infoD2Ev
+   56f1 _ZTISt9type_info
+   5702 _ZTSN10__cxxabiv117__class_type_infoE
+   5728 _ZTSN10__cxxabiv117__pbase_type_infoE
+   574e _ZTSN10__cxxabiv119__pointer_type_infoE
+   5776 _ZTSN10__cxxabiv120__function_type_infoE
+   579f _ZTSN10__cxxabiv129__pointer_to_member_type_infoE
+   57d1 _ZTVN10__cxxabiv116__shim_type_infoE
+   57f6 _ZTVN10__cxxabiv123__fundamental_type_infoE
+   5822 _ZTIN10__cxxabiv123__fundamental_type_infoE
+   584e _ZTSN10__cxxabiv123__fundamental_type_infoE
+   587a _ZTIv
+   5880 _ZTSPv
+   5887 _ZTIPv
+   588e _ZTVN10__cxxabiv119__pointer_type_infoE
+   58b6 _ZTSPKv
+   58be _ZTIPKv
+   58c6 _ZTIDn
+   58cd _ZTSPDn
+   58d5 _ZTIPDn
+   58dd _ZTSPKDn
+   58e6 _ZTIPKDn
+   58ef _ZTSb
+   58f5 _ZTIb
+   58fb _ZTSPb
+   5902 _ZTIPb
+   5909 _ZTSPKb
+   5911 _ZTIPKb
+   5919 _ZTSw
+   591f _ZTIw
+   5925 _ZTSPw
+   592c _ZTIPw
+   5933 _ZTSPKw
+   593b _ZTIPKw
+   5943 _ZTSc
+   5949 _ZTIc
+   594f _ZTSPc
+   5956 _ZTIPc
+   595d _ZTSPKc
+   5965 _ZTIPKc
+   596d _ZTSh
+   5973 _ZTIh
+   5979 _ZTSPh
+   5980 _ZTIPh
+   5987 _ZTSPKh
+   598f _ZTIPKh
+   5997 _ZTSa
+   599d _ZTIa
+   59a3 _ZTSPa
+   59aa _ZTIPa
+   59b1 _ZTSPKa
+   59b9 _ZTIPKa
+   59c1 _ZTSs
+   59c7 _ZTIs
+   59cd _ZTSPs
+   59d4 _ZTIPs
+   59db _ZTSPKs
+   59e3 _ZTIPKs
+   59eb _ZTSt
+   59f1 _ZTIt
+   59f7 _ZTSPt
+   59fe _ZTIPt
+   5a05 _ZTSPKt
+   5a0d _ZTIPKt
+   5a15 _ZTSi
+   5a1b _ZTIi
+   5a21 _ZTSPi
+   5a28 _ZTIPi
+   5a2f _ZTSPKi
+   5a37 _ZTIPKi
+   5a3f _ZTSj
+   5a45 _ZTIj
+   5a4b _ZTSPj
+   5a52 _ZTIPj
+   5a59 _ZTSPKj
+   5a61 _ZTIPKj
+   5a69 _ZTSl
+   5a6f _ZTIl
+   5a75 _ZTSPl
+   5a7c _ZTIPl
+   5a83 _ZTSPKl
+   5a8b _ZTIPKl
+   5a93 _ZTSm
+   5a99 _ZTIm
+   5a9f _ZTSPm
+   5aa6 _ZTIPm
+   5aad _ZTSPKm
+   5ab5 _ZTIPKm
+   5abd _ZTSx
+   5ac3 _ZTIx
+   5ac9 _ZTSPx
+   5ad0 _ZTIPx
+   5ad7 _ZTSPKx
+   5adf _ZTIPKx
+   5ae7 _ZTSy
+   5aed _ZTIy
+   5af3 _ZTSPy
+   5afa _ZTIPy
+   5b01 _ZTSPKy
+   5b09 _ZTIPKy
+   5b11 _ZTSn
+   5b17 _ZTIn
+   5b1d _ZTSPn
+   5b24 _ZTIPn
+   5b2b _ZTSPKn
+   5b33 _ZTIPKn
+   5b3b _ZTSo
+   5b41 _ZTIo
+   5b47 _ZTSPo
+   5b4e _ZTIPo
+   5b55 _ZTSPKo
+   5b5d _ZTIPKo
+   5b65 _ZTSDh
+   5b6c _ZTIDh
+   5b73 _ZTSPDh
+   5b7b _ZTIPDh
+   5b83 _ZTSPKDh
+   5b8c _ZTIPKDh
+   5b95 _ZTSf
+   5b9b _ZTIf
+   5ba1 _ZTSPf
+   5ba8 _ZTIPf
+   5baf _ZTSPKf
+   5bb7 _ZTIPKf
+   5bbf _ZTSd
+   5bc5 _ZTId
+   5bcb _ZTSPd
+   5bd2 _ZTIPd
+   5bd9 _ZTSPKd
+   5be1 _ZTIPKd
+   5be9 _ZTSe
+   5bef _ZTIe
+   5bf5 _ZTSPe
+   5bfc _ZTIPe
+   5c03 _ZTSPKe
+   5c0b _ZTIPKe
+   5c13 _ZTSg
+   5c19 _ZTIg
+   5c1f _ZTSPg
+   5c26 _ZTIPg
+   5c2d _ZTSPKg
+   5c35 _ZTIPKg
+   5c3d _ZTSDu
+   5c44 _ZTIDu
+   5c4b _ZTSPDu
+   5c53 _ZTIPDu
+   5c5b _ZTSPKDu
+   5c64 _ZTIPKDu
+   5c6d _ZTSDs
+   5c74 _ZTIDs
+   5c7b _ZTSPDs
+   5c83 _ZTIPDs
+   5c8b _ZTSPKDs
+   5c94 _ZTIPKDs
+   5c9d _ZTSDi
+   5ca4 _ZTIDi
+   5cab _ZTSPDi
+   5cb3 _ZTIPDi
+   5cbb _ZTSPKDi
+   5cc4 _ZTIPKDi
+   5ccd _ZTVN10__cxxabiv117__array_type_infoE
+   5cf3 _ZTIN10__cxxabiv117__array_type_infoE
+   5d19 _ZTSN10__cxxabiv117__array_type_infoE
+   5d3f _ZTVN10__cxxabiv120__function_type_infoE
+   5d68 _ZTVN10__cxxabiv116__enum_type_infoE
+   5d8d _ZTIN10__cxxabiv116__enum_type_infoE
+   5db2 _ZTSN10__cxxabiv116__enum_type_infoE
+   5dd7 _ZTIN10__cxxabiv120__si_class_type_infoE
+   5e00 _ZTSN10__cxxabiv120__si_class_type_infoE
+   5e29 _ZTVN10__cxxabiv121__vmi_class_type_infoE
+   5e53 _ZTIN10__cxxabiv121__vmi_class_type_infoE
+   5e7d _ZTSN10__cxxabiv121__vmi_class_type_infoE
+   5ea7 _ZTVN10__cxxabiv117__pbase_type_infoE
+   5ecd _ZTVN10__cxxabiv129__pointer_to_member_type_infoE
+   5eff _ZNSt9exceptionD2Ev
+   5f13 _ZNSt9exceptionD0Ev
+   5f27 _ZNKSt9exception4whatEv
+   5f3f _ZNSt13bad_exceptionD0Ev
+   5f58 _ZNKSt13bad_exception4whatEv
+   5f75 _ZNSt9bad_allocC2Ev
+   5f89 _ZTVSt9bad_alloc
+   5f9a _ZNSt9bad_allocD0Ev
+   5fae _ZNKSt9bad_alloc4whatEv
+   5fc6 _ZNSt20bad_array_new_lengthC2Ev
+   5fe6 _ZTVSt20bad_array_new_length
+   6003 _ZNSt20bad_array_new_lengthD0Ev
+   6023 _ZNKSt20bad_array_new_length4whatEv
+   6047 _ZTISt20bad_array_new_length
+   6064 _ZTVSt9exception
+   6075 _ZTSSt9exception
+   6086 _ZTSSt13bad_exception
+   609c _ZTSSt9bad_alloc
+   60ad _ZTSSt20bad_array_new_length
+   60ca _ZNSt9exceptionD1Ev
+   60de _ZNSt13bad_exceptionD2Ev
+   60f7 _ZNSt9bad_allocD2Ev
+   610b _ZNSt20bad_array_new_lengthC1Ev
+   612b _ZNSt20bad_array_new_lengthD2Ev
+   614b _ZNSt20bad_array_new_lengthD1Ev
+   616b _ZNSt9type_infoD0Ev
+   617f _ZNSt8bad_castC2Ev
+   6192 _ZTVSt8bad_cast
+   61a2 _ZNSt8bad_castD2Ev
+   61b5 _ZNSt8bad_castD0Ev
+   61c8 _ZNKSt8bad_cast4whatEv
+   61df _ZNSt10bad_typeidC2Ev
+   61f5 _ZTVSt10bad_typeid
+   6208 _ZNSt10bad_typeidD2Ev
+   621e _ZNSt10bad_typeidD0Ev
+   6234 _ZNKSt10bad_typeid4whatEv
+   624e _ZTISt8bad_cast
+   625e _ZTISt10bad_typeid
+   6271 _ZTVSt9type_info
+   6282 _ZTSSt9type_info
+   6293 _ZTSSt8bad_cast
+   62a3 _ZTSSt10bad_typeid
+   62b6 _ZNSt9type_infoD1Ev
+   62ca _ZNSt8bad_castC1Ev
+   62dd _ZNSt8bad_castD1Ev
+   62f0 _ZNSt10bad_typeidC1Ev
+   6306 _ZNSt10bad_typeidD1Ev
+   631c pthread_getspecific
+   6330 pthread_once
+   633d pthread_setspecific
+   6351 pthread_key_delete
+   6364 pthread_key_create
+   6377 getauxval
+   6381 __system_property_get
+   6397 strncmp
+   639f fprintf
+   63a7 fflush
+   63ae pthread_rwlock_wrlock
+   63c4 pthread_rwlock_unlock
+   63da dl_iterate_phdr
+   63ea pthread_rwlock_rdlock
+   6400 libdl.so
+   640e libc.so
+   6416 libandroid.so
+   6424 liblog.so
+   642e libz.so
+   6436 libm.so
+   643e libnativelib.so
+   fad0 AES-192-CTR
+   fadc   AES-ECB-%3u (%s): 
+   faf1 covariant return thunk to 
+   fb11 operator^=
+   fb1c operator<=
+   fb27 unknown pointer encoding
+   fb40 unsupported restore location for float register
+   fb7a java/util/ArrayList
+   fb8e android/app/Application
+   fba6 AES-128-CBC
+   fbb2   AES-XTS-128 (%s): 
+   fbc7 decltype(
+   fbd4 typeid (
+   fbdd operator>>=
+   fbe9 operator<=>
+   fbfa char32_t
+   fc03 libunwind: malformed DW_CFA_register DWARF unwind, reg2 too big
+   fc44 libunwind: malformed DW_CFA_val_offset_sf DWARF unwind, reg too big
+   fc89 [Ldalvik/system/DexPathList$Element;
+   fcae mMainThread
+   fcba Landroid/app/ActivityThread;
+   fcd7   AES-GCM-%3d #%d split (%s): 
+   fcfa throw
+   fd00 wchar_t
+   fd08 operator~
+   fd12 operator"" 
+   fd1e std::basic_string
+   fd30 decltype(auto)
+   fd3f Deleted virtual function called!
+   fd60 std::exception
+   fd6f 0.2.4
+   fd75 makeDexElements
+   fd8a ClassEncryption
+   fd9a mPackageInfo
+   fda7 terminating with %s exception of type %s
+   fdd0 const_cast
+   fdde unsigned __int128
+   fdf0 operator delete
+   fe00 operator>=
+   fe0b unwind_phase2
+   fe19 unsupported arm64 register
+   fe34 libunwind: malformed DW_CFA_def_cfa DWARF unwind, reg too big
+   fe73 getSLEB128
+   fe7e getSavedRegister
+   fe9b SDK_INT
+   fea3 java/io/File
+   feb0 (Ljava/lang/String;)V
+   fec6 (Landroid/content/Context;)V
+   fee3 mApplicationInfo
+   fef4   AES-GCM-%3d #%d (%s): 
+   ff11   AES-CBC-%3u (%s): 
+   ff26 typeinfo name for 
+   ff39 operator new
+   ff46  [enable_if:
+   ff53 std::nullptr_t
+   ff62 objc_object
+   ff6e std::bad_alloc
+   ff7d std::bad_typeid
+   ff8d getEncodedP
+   ffa0 ********** V-Key DexObfuscator version: %s **********
+   ffd9 typeinfo for 
+   ffe7 reference temporary for 
+  10000 unsigned char
+  10010 operator&=
+  1001b operator*=
+  10026 std::basic_string<char, std::char_traits<char>, std::allocator<char> >
+  1006d getSavedFloatRegister
+  10087 ([B)Ljava/nio/ByteBuffer;
+  100ab operator delete[]
+  100bd std::string
+  100d0 tmp13997699941173334308
+  100e8 <init>
+  100ef setWritable
+  100fb ()Ljava/lang/String;
+  10117 unsigned short
+  10126 false
+  10131 operator/
+  1013b operator|
+  10145 exynos9810
+  10150 libunwind: malformed DW_CFA_val_offset DWARF unwind, reg (%lu) out of range
+  101a2 FDE has zero length
+  101b6 FDE is really a CIE
+  101ca hqore
+  101d0 dalvik/system/DexPathList$Element
+  101f2 delete
+  101f9 toString
+  10202 Ljava/util/ArrayList;
+  10218 AES-256-GCM
+  10224 operator&
+  1022e operator%
+  10238 operator>>
+  10247 libunwind: malformed DW_CFA_same_value DWARF unwind, reg too big
+  10289 DW_EH_PE_aligned pointer encoding not supported
+  102b9 truncated sleb128 expression
+  102d9 VKEYObfuscation
+  102e9 tmp17680616876221785051
+  10301 setReadOnly
+  10311 AES-128-XTS
+  1031d terminate_handler unexpectedly returned
+  10347 signed char
+  10356 sizeof...(
+  10361 basic_ostream
+  1036f std::ostream
+  1037c std::iostream
+  1038a long long
+  10394 noexcept(
+  1039e unsupported restore location for register
+  103d9 mOuterContext
+  103ec operator new[]
+  103fb operator!
+  10405 std::basic_ostream<char, std::char_traits<char> >
+  10437 __float128
+  10442 char16_t
+  1044b during phase1 personality function said it would stop here, but now in phase2 it did not stop here
+  104ae libunwind: malformed DW_CFA_GNU_negative_offset_extended DWARF unwind, reg too big
+  10511 ()Ljava/io/File;
+  10522 className
+  10533 typename 
+  1053d operator()
+  10548 operator>
+  10552 operator[]
+  1055d operator->
+  10568 unsigned long
+  10576 std::bad_cast
+  10584 setRegister
+  10590 libunwind: malformed DW_CFA_offset_extended DWARF unwind, reg too big
+  105da tmp3065699920606524921
+  105f1 getFilesDir
+  105fd 1.3.1
+  10603 android/app/ContextImpl
+  1061b AES-192-OFB
+  10627 > typename 
+  10633 (anonymous namespace)
+  10649 operator==
+  10654  complex
+  10665 CIE start does not match
+  1067e CIE version is not 1 or 3
+  1069c pathList
+  106a5 Landroid/content/pm/ApplicationInfo;
+  106ca vtable for 
+  106d6 VTT for 
+  106df alignof (
+  106eb noexcept (
+  106fd operator<
+  10707 operator->*
+  10713 unsigned int
+  10720 DW_EH_PE_funcrel pointer encoding not supported
+  10750 libunwind: Unsupported .eh_frame_hdr version
+  10782 android/content/Context
+  1079f onCreate
+  107a8 AES-256-XTS
+  107b4 libc++abi
+  107be dynamic_cast
+  107d3 short
+  107d9 string
+  107e0 ostream
+  107e8 long double
+  107fb android/os/Build$VERSION
+  10814 (Landroid/content/Context;)Landroid/app/ContextImpl;
+  10849   GCM note: built-in implementation.
+  1086e   AES-OFB-%3u (%s): 
+  10883 unexpected
+  1088e guard variable for 
+  108aa operator?
+  108b4 bad_array_new_length
+  108c9 libunwind: %s - %s
+  108e6 (Ljava/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;
+  1093b ()Landroid/content/res/AssetManager;
+  10960 mInitialApplication
+  10974 Landroid/app/Application;
+  1098e AES-128-OFB
+  1099a virtual thunk to 
+  109ba operator*
+  109c4 operator||
+  109cf istream
+  109d7 char8_t
+  109df DW_OP_deref_size with bad size
+  109fe Unknown DWARF encoding for search table.
+  10a2f tmp14169616706995394833
+  10a47 (Ljava/lang/Object;)Z
+  10a5d getBaseContext
+  10a6c AES-256-OFB
+  10a78 unexpected_handler unexpectedly returned
+  10aa1 construction vtable for 
+  10abf __int128
+  10ac8 template<
+  10ad2 operator<<
+  10add operator+
+  10ae7 operator+=
+  10af2 operator++
+  10afd string literal
+  10b0c unsigned long long
+  10b1f  imaginary
+  10b2a libunwind: malformed DW_CFA_expression DWARF unwind, reg too big
+  10b78 getImpl
+  10b80 mAllApplications
+  10b91 Landroid/app/LoadedApk;
+  10ba9 mActivityLifecycleCallbacks
+  10bc5 AES-192-CBC
+  10bdb operator=
+  10be5 operator/=
+  10bf5 evaluateExpression
+  10c17 operator^
+  10c21  restrict
+  10c2b decimal64
+  10c35 libunwind: malformed DW_CFA_undefined DWARF unwind, reg too big
+  10c85 getAssets
+  10c93 java/nio/ByteBuffer
+  10ca7 skipped
+  10caf AES-192-CFB128
+  10cbe terminating with %s exception of type %s: %s
+  10ceb non-virtual thunk to 
+  10d08 std::basic_istream<char, std::char_traits<char> >
+  10d3a iostream
+  10d43 pixel vector[
+  10d51 union
+  10d57 _Unwind_Resume() can't return
+  10d75 libunwind: malformed DW_CFA_register DWARF unwind, reg too big
+  10db5 (Ljava/lang/String;I)Ljava/io/File;
+  10dd9 (ZZ)Z
+  10ddf [dex_buffer] decompress: %d
+  10e03 operator%=
+  10e0e DW_OP_fbreg not implemented
+  10e32 kyaks/snmzj
+  10e3e getDir
+  10e45 makeInMemoryDexElements
+  10e5d Landroid/content/Context;
+  10e77 AES-192-ECB
+  10e83 AES-256-ECB
+  10e8f AES-256-CBC
+  10e9b AES-128-GCM
+  10ea7 terminating with %s foreign exception
+  10ecd uncaught
+  10ed9 operator--
+  10ee4 operator|=
+  10eef std::basic_iostream<char, std::char_traits<char> >
+  10f22 _Unwind_Resume
+  10f31 libunwind: malformed DW_CFA_def_cfa_sf DWARF unwind, reg too big
+  10f7d tmp12794277964480025953
+  10f95 ()Ljava/lang/ClassLoader;
+  10faf registerActivityLifecycleCallbacks
+  10fd8 'block-literal'
+  10fe8 operator-
+  10ff2 basic_istream
+  11000 std::istream
+  1100d double
+  11017 tmp7028462203480471573
+  1102e getClassLoader
+  1103d mApplication
+  1104a AES-256-CFB128
+  11059 AES-128-CTR
+  11065 AES-256-CTR
+  11071 invocation function for block in 
+  11093 static_cast
+  1109f sizeof... (
+  110b1 operator-=
+  110bc libunwind: malformed DW_CFA_offset_extended_sf DWARF unwind, reg too big
+  11106 getULEB128
+  11111 malformed uleb128 expression
+  1112e DWARF opcode not implemented
+  11153 remove
+  1115a Ljava/lang/String;
+  1116d AES-128-ECB
+  11179   AES-CTR-128 (%s): 
+  11193 nullptr
+  1119b operator<<=
+  111a7 ::operator 
+  111b8 libunwind: malformed DW_CFA_val_expression DWARF unwind, reg too big
+  1120b tmp13784499609711825650
+  11223 Ldalvik/system/DexPathList;
+  1123f ([Ljava/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;
+  1128c (I)Ljava/lang/Object;
+  112a5 com.axis.net.helper.AxisNetApplication
+  112cc passed
+  112d3 terminating
+  112e3 reinterpret_cast
+  112f9 DW_EH_PE_textrel pointer encoding not supported
+  11329 truncated uleb128 expression
+  1134a makePathElements
+  1135b com/axis/net/helper/AxisNetApplication
+  11383 operator 
+  1138d basic_string
+  1139f float
+  113a5 decimal128
+  113b0 ro.arch
+  113b8 libunwind: malformed DW_CFA_restore_extended DWARF unwind, reg too big
+  11400 getTableEntrySize
+  11421 MODE_PRIVATE
+  1142e dexElements
+  1143a attach
+  11441 (Landroid/app/Application$ActivityLifecycleCallbacks;)V
+  11479 AES-192-GCM
+  1148c operator&&
+  11497 decimal32
+  114a9 CIE ID is not zero
+  114c0 failed
+  114c7   AES-CFB128-%3u (%s): 
+  114df   AES note: built-in implementation.
+  11504 thread-local wrapper routine for 
+  11526 thread-local initialization routine for 
+  1154f sizeof (
+  11558 operator!=
+  11563 __uuidof(
+  1156d std::allocator
+  1157c allocator
+  11586 struct
+  1158d libunwind: malformed DW_CFA_def_cfa_register DWARF unwind, reg too big
+  115d5 Can't binary search on variable length encoded data.
+  11612 (Ljava/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;
+  11671 terminate_handler unexpectedly threw an exception
+  116a6 operator,
+  116b0 decimal16
+  116ba noexcept
+  116c3 getRegister
+  116cf DW_EH_PE_datarel is invalid with a datarelBase of 0
+  1170d unknown register
+  1171e vkjhn
+  11724 ()Landroid/content/Context;
+  11740 AES-128-CFB128
+  11751 basic_iostream
+  11760  volatile
+  1176a Pure virtual function called!
+  11788 std::bad_exception
+  1179b DW_OP_piece not implemented
+  119fd b:$	O
+  11c5c !wt$Kr!
+  11c9c !wt$Kr!
+  11cd8 a5;L(
+  11cf4 {lt#s
+  11f1a @=M`kn
+  12159 <Se>/E
+  12220  1b=U
+  12404 """"""""""""""""
+  12424 """"""""""""""""
+  1245b n93@8
+  124b4 DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD+~
+  12644 Single block msg
+  126e4 33333
+  126f4 33333
+  12c1b <Pcjv
+  12c4a ""i""""""""""""""""""""""""""""{""m
+  12c6e 66666666666666666
+  12c80 6666666666666tx
+  12c95 rrrrrrrrrrrrr
+  12ca3 rrrrrrrrrrrr
+  12d8d 	6												
+  12ec8  (N12_GLOBAL__N_116itanium_demangle11SpecialNameE
+  12efa N12_GLOBAL__N_116itanium_demangle4NodeE
+  12f22 N12_GLOBAL__N_116itanium_demangle21CtorVtableSpecialNameE
+  12f5c N12_GLOBAL__N_116itanium_demangle8NameTypeE
+  12f88 N12_GLOBAL__N_116itanium_demangle10NestedNameE
+  12fb7 N12_GLOBAL__N_116itanium_demangle24ForwardTemplateReferenceE
+  12ff4 N12_GLOBAL__N_116itanium_demangle14IntegerLiteralE
+  13027 N12_GLOBAL__N_116itanium_demangle8BoolExprE
+  13053 N12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIfEE
+  1308b N12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIdEE
+  130c3 N12_GLOBAL__N_116itanium_demangle16FloatLiteralImplIeEE
+  130fb N12_GLOBAL__N_116itanium_demangle13StringLiteralE
+  1312d N12_GLOBAL__N_116itanium_demangle15UnnamedTypeNameE
+  13161 N12_GLOBAL__N_116itanium_demangle26SyntheticTemplateParamNameE
+  131a0 N12_GLOBAL__N_116itanium_demangle21TypeTemplateParamDeclE
+  131da N12_GLOBAL__N_116itanium_demangle24NonTypeTemplateParamDeclE
+  13217 N12_GLOBAL__N_116itanium_demangle25TemplateTemplateParamDeclE
+  13255 N12_GLOBAL__N_116itanium_demangle21TemplateParamPackDeclE
+  1328f N12_GLOBAL__N_116itanium_demangle15ClosureTypeNameE
+  132c3 N12_GLOBAL__N_116itanium_demangle10LambdaExprE
+  132f2 N12_GLOBAL__N_116itanium_demangle15IntegerCastExprE
+  13326 N12_GLOBAL__N_116itanium_demangle13FunctionParamE
+  13358 N12_GLOBAL__N_116itanium_demangle8FoldExprE
+  13384 N12_GLOBAL__N_116itanium_demangle22ParameterPackExpansionE
+  133bf N12_GLOBAL__N_116itanium_demangle10BinaryExprE
+  133ee N12_GLOBAL__N_116itanium_demangle10PrefixExprE
+  1341d N12_GLOBAL__N_116itanium_demangle8CastExprE
+  13449 N12_GLOBAL__N_116itanium_demangle8CallExprE
+  13475 N12_GLOBAL__N_116itanium_demangle14ConversionExprE
+  134a8 N12_GLOBAL__N_116itanium_demangle10DeleteExprE
+  134d7 N12_GLOBAL__N_116itanium_demangle13QualifiedNameE
+  13509 N12_GLOBAL__N_116itanium_demangle8DtorNameE
+  13535 N12_GLOBAL__N_116itanium_demangle22ConversionOperatorTypeE
+  13570 N12_GLOBAL__N_116itanium_demangle15LiteralOperatorE
+  135a4 N12_GLOBAL__N_116itanium_demangle19GlobalQualifiedNameE
+  135dc N12_GLOBAL__N_116itanium_demangle10MemberExprE
+  1360b N12_GLOBAL__N_116itanium_demangle18ArraySubscriptExprE
+  13642 N12_GLOBAL__N_116itanium_demangle10BracedExprE
+  13671 N12_GLOBAL__N_116itanium_demangle15BracedRangeExprE
+  136a5 N12_GLOBAL__N_116itanium_demangle12InitListExprE
+  136d6 N12_GLOBAL__N_116itanium_demangle11PostfixExprE
+  13706 N12_GLOBAL__N_116itanium_demangle7NewExprE
+  13731 N12_GLOBAL__N_116itanium_demangle13EnclosingExprE
+  13763 N12_GLOBAL__N_116itanium_demangle15ConditionalExprE
+  13797 N12_GLOBAL__N_116itanium_demangle19SizeofParamPackExprE
+  137cf N12_GLOBAL__N_116itanium_demangle13NodeArrayNodeE
+  13801 N12_GLOBAL__N_116itanium_demangle9ThrowExprE
+  1382e N12_GLOBAL__N_116itanium_demangle10UUIDOfExprE
+  1385d N12_GLOBAL__N_116itanium_demangle27ExpandedSpecialSubstitutionE
+  1389d N12_GLOBAL__N_116itanium_demangle12CtorDtorNameE
+  138ce N12_GLOBAL__N_116itanium_demangle10AbiTagAttrE
+  138fd N12_GLOBAL__N_116itanium_demangle21StructuredBindingNameE
+  13937 N12_GLOBAL__N_116itanium_demangle9LocalNameE
+  13964 N12_GLOBAL__N_116itanium_demangle19SpecialSubstitutionE
+  1399c N12_GLOBAL__N_116itanium_demangle13ParameterPackE
+  139ce N12_GLOBAL__N_116itanium_demangle12TemplateArgsE
+  139ff N12_GLOBAL__N_116itanium_demangle20NameWithTemplateArgsE
+  13a38 N12_GLOBAL__N_116itanium_demangle16StdQualifiedNameE
+  13a6d N12_GLOBAL__N_116itanium_demangle20TemplateArgumentPackE
+  13aa6 N12_GLOBAL__N_116itanium_demangle12EnableIfAttrE
+  13ad7 N12_GLOBAL__N_116itanium_demangle16FunctionEncodingE
+  13b0c N12_GLOBAL__N_116itanium_demangle9DotSuffixE
+  13b39 N12_GLOBAL__N_116itanium_demangle12NoexceptSpecE
+  13b6a N12_GLOBAL__N_116itanium_demangle20DynamicExceptionSpecE
+  13ba3 N12_GLOBAL__N_116itanium_demangle12FunctionTypeE
+  13bd4 N12_GLOBAL__N_116itanium_demangle13ObjCProtoNameE
+  13c06 N12_GLOBAL__N_116itanium_demangle17VendorExtQualTypeE
+  13c3c N12_GLOBAL__N_116itanium_demangle8QualTypeE
+  13c68 N12_GLOBAL__N_116itanium_demangle15PixelVectorTypeE
+  13c9c N12_GLOBAL__N_116itanium_demangle10VectorTypeE
+  13ccb N12_GLOBAL__N_116itanium_demangle9ArrayTypeE
+  13cf8 N12_GLOBAL__N_116itanium_demangle19PointerToMemberTypeE
+  13d30 N12_GLOBAL__N_116itanium_demangle22ElaboratedTypeSpefTypeE
+  13d6b N12_GLOBAL__N_116itanium_demangle11PointerTypeE
+  13d9b N12_GLOBAL__N_116itanium_demangle13ReferenceTypeE
+  13dcd N12_GLOBAL__N_116itanium_demangle20PostfixQualifiedTypeE
+  13e6d KKKK6
+  13ee0 N10__cxxabiv116__shim_type_infoE
+  13f01 N10__cxxabiv117__class_type_infoE
+  13f23 N10__cxxabiv117__pbase_type_infoE
+  13f45 N10__cxxabiv119__pointer_type_infoE
+  13f69 N10__cxxabiv120__function_type_infoE
+  13f8e N10__cxxabiv129__pointer_to_member_type_infoE
+  13fd8 N10__cxxabiv123__fundamental_type_infoE
+  140f0 N10__cxxabiv117__array_type_infoE
+  14112 N10__cxxabiv116__enum_type_infoE
+  14133 N10__cxxabiv120__si_class_type_infoE
+  14158 N10__cxxabiv121__vmi_class_type_infoE
+  1417e St9exception
+  1418b St13bad_exception
+  1419d St9bad_alloc
+  141aa St20bad_array_new_length
+  141c3 St9type_info
+  141d0 St8bad_cast
+  141dc St10bad_typeid
+  1c8bc *<@9	
+  1c958 oyqx1in
+  1e2d8 	AK9)
+  1e784 Lii8k	
+  1ea70 ?	@qa
+  1ecf8 Hi)8)
+  1f8d9 jq8#~
+  1f9c1 im8~h:
+  1fa0b S)!	K
+  20120 ),@),@A)
+  20186 @)QYq
+  20201 UA)PYp
+  202d5 ]C)UYu
+  2045d he81^P
+  20485 hd8)=H
+  2049d hf8	hi8
+  204bf Ji!	J
+  20560 ),@),<A)
+  205c6 @)@Y`
+  20843 J@ie8
+  2084b JOio8Cic8
+  2086c Eie8Pip8
+  20887 JAia8i
+  20896 	*Mif8
+  208ad YB)Tit8)
+  208cf JCig8
+  208d7 JIii8
+  208dd !C)Lil8
+  208eb JFif8
+  208f3 JOid8Jiq8
+  20c61 jh8Kkh8j
+  20c6b J*i(8
+  20c84 Jky8)
+  20c8e 	J	i989
+  21de6 BNB(!
+  220fa BNB(!
+  22113 Toif8
+  2373b TI	@9?
+  23783 TI!@9?
+  2378f TI%@9?
+  2379b TI)@9?
+  237a7 TI-@9?
+  237b3 TI1@9?
+  23ccf T*	@9_
+  23d17 T*!@9_
+  23d23 T*%@9_}
+  23d2f T*)@9_
+  23d3b T*-@9_
+  23d47 T*1@9_%
+  249c4 Lyixk	
+  25517 TH	@9
+  25871 kh8)	
+  26cdc ,ih8k	
+  27300 J%@9_
+  275e8 j&L9h
+  279bc k.@9I
+  27e18 	h(xh
+  28368 Lyixk	
+  283ac Lyixk	
+  28414 Lyixk	
+  28458 Lyixk	
+  285b0 Lyixk	
+  285f4 Lyixk	
+  28634 Lyixk	
+  287f0 Lyixk	
+  28833 T		@9?}
+  2887b T	!@9?
+  28887 T	%@9?
+  28893 T	)@9?
+  28f47 T	!@9?
+  28f53 T	%@9?
+  28f5f T	)@9?
+  2947f T		@9?
+  2951b T		@9?i
+  29583 T		@9?
+  29fb4 Lii8k	
+  29ff0 Lii8k	
+  2a0e0 Lii8k	
+  2a130 Lii8k	
+  2a214 Lii8k	
+  2aab9 	@9_9
+  2ca9f R	h(8h
+  2cb53 R	h(8h
+  2cbcf R	h(8
+  2d3db 9hi)8
+  2d52c 	h(xh
+  2d5af R	h(xh
+  2d648 Lii8k	
+  2dccc 	h(8h
+  2e1bf R	h(8h
+  2e7bb R	h(8h
+  2e867 R	h(8h
+  2e8e3 R	h(x
+  2e9ec 	h(8h
+  2ea6f R	h(8h
+  2eb5f R	h(xh
+  2f563 R	h(8h
+  2f5b8 	h(8h
+  2f63b R	h(xh
+  2f6f4 	h(xh
+  2f777 R	h(8
+  2f807 R	h(8h
+  2f900 	h(8h
+  2f988 	h(8h
+  2fa7c 	h(8h
+  2fae0 	h(xh
+  2fb44 	h(8h
+  2fc60 	h(8h
+  2fdbc 	h(8h
+  2fea0 	h(8h
+  2fee4 	`@9(
+  2ff2f R	h(xh
+  304ff TJ%@9_}
+  306d4 	h(xh
+  307ec Lyixk	
+  3090c Lyixk	
+  30958 Lyixk	
+  30aa0 Lyixk	
+  30aec Lii8k	
+  30bf8 Lyixk	
+  30c44 Lyixk	
+  30d58 Lii8k	
+  311a8 	h(8h
+  318c0 	h(xh
+  31abc 	h(8h
+  31b44 	h(xh
+  31bcc 	h(8h
+  3221c 	h(8h
+  3229f R	h(8h
+  32467 R	h(xh
+  32567 R	h(8h
+  32653 R	h(8h
+  32820 	h(8h
+  329d8 	h(8h
+  32aff R	h(8h
+  32d27 R	h(8h
+  32d80 +ih8J	
+  330b3 R	h(8h
+  3328c 	h(8h
+  33570 	h(xh
+  33610 +ih8J	
+  33bb3 R	h(8h
+  33c03 R	h(8h
+  33f9b R	h(8h
+  340b7 R	h(8h
+  343d3 R	h(xh
+  3448c 	h(8h
+  3531b 9*%@9
+  35577 R	h(8h
+  3570b R	h(8h
+  357e8 	h(8h
+  35b4b R	h(8h
+  35c04 	h(8h
+  35cbf R	h(8h
+  3621b R	h(8h
+  36374 	h(8h
+  364db R	h(8h
+  3652b R	h(8h
+  365c0 	h(8h
+  367c7 R	h(8
+  36927 R	h(8h
+  36bdf R	h(8h
+  36c7f R	h(8h
+  36cd3 R	h(8
+  36eff R	h(8h
+  37221 p@9h	
+  37e30 H%@x,
+  38d53 ThB@9
+  39153 Th:A9h
+  391e7 5h6A9H
+  391ef 4h2A9(
+  39273 Th:A9h
+  392d7 Th:A9H
+  39447 4h2A9i
+  396f7 Ty2A9|6A9
+  3974f qi6A9
+  397b3 Tj:A9J
+  3abf8 +ih8J	
+  3ad14 +ih8J	
+  3b7f5 zjxk	
+  3c270 Lii8k	
+  3c37c Lii8k	
+  3c3c8 Lii8k	
+  3c574 +ih8J	
+  3c670 Lii8k	
+  3d060 Lyixk	
+  3d0c0 Lyixk	
+  3daa2 @9Y@#
+  3dc60 +ih8J	
+  421a2 stP3Zt
+  422c8 Android (8490178, based on r450784d) clang version 14.0.6 (https://android.googlesource.com/toolchain/llvm-project 4c603efb0cca074e9238af8b4106c30add4418f6)
+  42365 Linker: LLD 14.0.6
+  4237a .init_array
+  42386 .fini_array
+  42392 .text
+  4239d .comment
+  423a6 .note.android.ident
+  423ba .got.plt
+  423c3 .rela.plt
+  423d2 .dynstr
+  423da .eh_frame_hdr
+  423e8 .gnu.version_r
+  423f7 .data.rel.ro
+  42404 .rela.dyn
+  4240e .gnu.version
+  4241b .dynsym
+  42423 .gnu.hash
+  4242d .eh_frame
+  42437 .gcc_except_table
+  42449 .note.gnu.build-id
+  4245c .dynamic
+  42465 .shstrtab
+  4246f .rodata
+  42477 .data

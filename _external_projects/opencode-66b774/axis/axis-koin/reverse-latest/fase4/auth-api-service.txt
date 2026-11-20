@@ -1,0 +1,186 @@
+# Lcom/axis/net/ui/splashLogin/componens/AuthApiService;
+
+### <clinit> ()V
+  new-instance                 v0, Lcom/axis/net/ui/splashLogin/componens/AuthApiService$a;
+  const/4                      v1, 0
+  invoke-direct                v0, v1, Lcom/axis/net/ui/splashLogin/componens/AuthApiService$a;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+  sput-object                  v0, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->b Lcom/axis/net/ui/splashLogin/componens/AuthApiService$a;
+  const/16                     v0, 8
+  sput                         v0, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->c I
+  return-void                  
+
+### <init> ()V
+  invoke-direct                v1, Ljava/lang/Object;-><init>()V
+  invoke-static                LP5/c;->C()LP5/a;
+  move-result-object           v0
+  invoke-interface             v0, v1, LP5/a;->d(Lcom/axis/net/ui/splashLogin/componens/AuthApiService;)V
+  const-string                 v0, "native-lib"
+  invoke-static                v0, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+  return-void                  
+
+### otpUrl ()Ljava/lang/String;
+  (no code)
+
+### xApiKey ()Ljava/lang/String;
+  (no code)
+
+### a ()Lcom/axis/net/api/AxisnetApiServices;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a Lcom/axis/net/api/AxisnetApiServices;
+  if-eqz                       v0, +003h
+  return-object                v0
+  const-string                 v0, "apiService"
+  invoke-static                v0, Lkotlin/jvm/internal/Intrinsics;->x(Ljava/lang/String;)V
+  const/4                      v0, 0
+  return-object                v0
+
+### b (Lcom/axis/net/ui/homePage/home/models/OtpPayload; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v9, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-direct                v9, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->otpUrl()Ljava/lang/String;
+  move-result-object           v1
+  const-string                 v3, "keep-alive"
+  invoke-direct                v9, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->xApiKey()Ljava/lang/String;
+  move-result-object           v4
+  const-string                 v2, "application/json"
+  move-object                  v7, v10
+  move-object                  v5, v11
+  move-object                  v6, v12
+  move-object                  v8, v13
+  invoke-interface/range       v0 ... v8, Lcom/axis/net/api/AxisnetApiServices;->getOtp(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/ui/homePage/home/models/OtpPayload; LYk/b;)Ljava/lang/Object;
+  move-result-object           v10
+  return-object                v10
+
+### biometricLoginUrl ()Ljava/lang/String;
+  (no code)
+
+### biometricRequestOTPUrl ()Ljava/lang/String;
+  (no code)
+
+### biometricValidateOTPUrl ()Ljava/lang/String;
+  (no code)
+
+### c (Lsc/c; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v9, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-virtual               v9, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->otpLoginUrl()Ljava/lang/String;
+  move-result-object           v1
+  sget-object                  v2, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v2, Lcom/axis/net/config/Signature;->apiKey()Ljava/lang/String;
+  move-result-object           v4
+  const-string                 v2, "application/json"
+  const-string                 v3, "keep-alive"
+  move-object                  v7, v10
+  move-object                  v5, v11
+  move-object                  v6, v12
+  move-object                  v8, v13
+  invoke-interface/range       v0 ... v8, Lcom/axis/net/api/AxisnetApiServices;->getOtpLogin(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lsc/c; LYk/b;)Ljava/lang/Object;
+  move-result-object           v10
+  return-object                v10
+
+### createTokenAutoLoginUrl ()Ljava/lang/String;
+  (no code)
+
+### d (Ljava/lang/String; LEc/g; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v8, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-virtual               v8, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->createTokenAutoLoginUrl()Ljava/lang/String;
+  move-result-object           v1
+  invoke-direct                v8, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->xApiKey()Ljava/lang/String;
+  move-result-object           v4
+  const-string                 v2, "application/json"
+  move-object                  v3, v9
+  move-object                  v6, v10
+  move-object                  v5, v11
+  move-object                  v7, v12
+  invoke-interface/range       v0 ... v7, Lcom/axis/net/api/AxisnetApiServices;->getTokenAutoLogin(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LEc/g; LYk/b;)Ljava/lang/Object;
+  move-result-object           v9
+  return-object                v9
+
+### e (LEc/c; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v10, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-virtual               v10, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->biometricLoginUrl()Ljava/lang/String;
+  move-result-object           v7
+  invoke-direct                v10, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->xApiKey()Ljava/lang/String;
+  move-result-object           v3
+  sget-object                  v1, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v1, Lcom/axis/net/config/Signature;->i()Ljava/lang/String;
+  move-result-object           v6
+  const-string                 v2, "application/json"
+  const-string                 v4, "okhttp"
+  move-object                  v8, v11
+  move-object                  v5, v12
+  move-object                  v1, v13
+  move-object                  v9, v14
+  invoke-interface/range       v0 ... v9, Lcom/axis/net/api/AxisnetApiServices;->biometricLogin(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LEc/c; LYk/b;)Ljava/lang/Object;
+  move-result-object           v11
+  return-object                v11
+
+### f (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v10, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  sget-object                  v1, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getPhoneDeviceVersion()I
+  move-result                  v2
+  invoke-static                v2, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+  move-result-object           v4
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getManufacture()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getDeviceName()Ljava/lang/String;
+  move-result-object           v6
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getUuid()Ljava/lang/String;
+  move-result-object           v7
+  move-object                  v1, v11
+  move-object                  v8, v12
+  move-object                  v2, v13
+  move-object                  v3, v14
+  move-object                  v9, v15
+  invoke-interface/range       v0 ... v9, Lcom/axis/net/api/AxisnetApiServices;->postAutoLogin(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  move-result-object           v11
+  return-object                v11
+
+### g (Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v7, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-virtual               v7, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->biometricRequestOTPUrl()Ljava/lang/String;
+  move-result-object           v5
+  invoke-direct                v7, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->xApiKey()Ljava/lang/String;
+  move-result-object           v2
+  const-string                 v3, "application/json"
+  move-object                  v4, v8
+  move-object                  v1, v9
+  move-object                  v6, v10
+  invoke-interface/range       v0 ... v6, Lcom/axis/net/api/AxisnetApiServices;->requestOTPBiometric(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  move-result-object           v8
+  return-object                v8
+
+### h (Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v2, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-virtual               v2, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->logoutUrl()Ljava/lang/String;
+  move-result-object           v1
+  invoke-interface             v0, v1, v3, v4, v5, Lcom/axis/net/api/AxisnetApiServices;->logout(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  move-result-object           v3
+  return-object                v3
+
+### i (Ljava/lang/String; LEc/d; Ljava/lang/String; LYk/b;)Ljava/lang/Object;
+  invoke-virtual               v8, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->a()Lcom/axis/net/api/AxisnetApiServices;
+  move-result-object           v0
+  invoke-virtual               v8, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->biometricValidateOTPUrl()Ljava/lang/String;
+  move-result-object           v5
+  invoke-direct                v8, Lcom/axis/net/ui/splashLogin/componens/AuthApiService;->xApiKey()Ljava/lang/String;
+  move-result-object           v2
+  const-string                 v3, "application/json"
+  move-object                  v4, v9
+  move-object                  v6, v10
+  move-object                  v1, v11
+  move-object                  v7, v12
+  invoke-interface/range       v0 ... v7, Lcom/axis/net/api/AxisnetApiServices;->verifyOTPBiometric(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; LEc/d; LYk/b;)Ljava/lang/Object;
+  move-result-object           v9
+  return-object                v9
+
+### logoutUrl ()Ljava/lang/String;
+  (no code)
+
+### otpLoginUrl ()Ljava/lang/String;
+  (no code)

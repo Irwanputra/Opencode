@@ -1,0 +1,419 @@
+disassembled 36161 instructions, .text 0x1a970..0x3de74
+V-Key region function starts (19): 0x1a9c0, 0x1a9c4, 0x1aa60, 0x1aac0, 0x1b90c, 0x1bfa8, 0x1bfac, 0x1c044, 0x1c048, 0x1c0e0, 0x1c0e4, 0x1c17c, 0x1c180, 0x1c218, 0x1c21c, 0x1c360, 0x1c364, 0x1c3fc, 0x1c400
+
+=== XREFS to interesting .rodata strings ===
+0xfad0 'AES-192-CTR': direct refs [] in funcs []
+0xfadc '  AES-ECB-%3u (%s): ': direct refs [('0x2120c', 'add')] in funcs ['0x1c400']
+0xfadd ' AES-ECB-%3u (%s): ': direct refs [] in funcs []
+0xfade 'AES-ECB-%3u (%s): ': direct refs [] in funcs []
+0xfb8e 'android/app/Application': direct refs [('0x1ba80', 'add')] in funcs ['0x1b90c']
+0xfba6 'AES-128-CBC': direct refs [] in funcs []
+0xfbb2 '  AES-XTS-128 (%s): ': direct refs [('0x21900', 'add')] in funcs ['0x1c400']
+0xfbb3 ' AES-XTS-128 (%s): ': direct refs [] in funcs []
+0xfbb4 'AES-XTS-128 (%s): ': direct refs [] in funcs []
+0xfc89 '[Ldalvik/system/DexPathList$Element;': direct refs [('0x1b6b4', 'add'), ('0x1b7e0', 'add')] in funcs ['0x1aac0', '0x1aac0']
+0xfc8a 'Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc8b 'dalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc8c 'alvik/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc8d 'lvik/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc8e 'vik/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc8f 'ik/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc90 'k/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc91 '/system/DexPathList$Element;': direct refs [] in funcs []
+0xfc92 'system/DexPathList$Element;': direct refs [] in funcs []
+0xfc93 'ystem/DexPathList$Element;': direct refs [] in funcs []
+0xfc94 'stem/DexPathList$Element;': direct refs [] in funcs []
+0xfc95 'tem/DexPathList$Element;': direct refs [] in funcs []
+0xfc96 'em/DexPathList$Element;': direct refs [] in funcs []
+0xfc97 'm/DexPathList$Element;': direct refs [] in funcs []
+0xfc98 '/DexPathList$Element;': direct refs [] in funcs []
+0xfc99 'DexPathList$Element;': direct refs [] in funcs []
+0xfcd7 '  AES-GCM-%3d #%d split (%s): ': direct refs [('0x1dc98', 'add'), ('0x1df20', 'add')] in funcs ['0x1c400', '0x1c400']
+0xfcd8 ' AES-GCM-%3d #%d split (%s): ': direct refs [] in funcs []
+0xfcd9 'AES-GCM-%3d #%d split (%s): ': direct refs [] in funcs []
+0xfd75 'makeDexElements': direct refs [('0x1ad90', 'add')] in funcs ['0x1aac0']
+0xfd8a 'ClassEncryption': direct refs [('0x1af44', 'add')] in funcs ['0x1aac0']
+0xfee3 'mApplicationInfo': direct refs [('0x1bd78', 'add')] in funcs ['0x1b90c']
+0xfef4 '  AES-GCM-%3d #%d (%s): ': direct refs [('0x1d840', 'add'), ('0x1da88', 'add')] in funcs ['0x1c400', '0x1c400']
+0xfef5 ' AES-GCM-%3d #%d (%s): ': direct refs [] in funcs []
+0xfef6 'AES-GCM-%3d #%d (%s): ': direct refs [] in funcs []
+0xff11 '  AES-CBC-%3u (%s): ': direct refs [('0x21300', 'add')] in funcs ['0x1c400']
+0xff12 ' AES-CBC-%3u (%s): ': direct refs [] in funcs []
+0xff13 'AES-CBC-%3u (%s): ': direct refs [] in funcs []
+0xffa0 '********** V-Key DexObfuscator version: %s **********': direct refs [('0x1aa1c', 'add')] in funcs ['0x1a9c4']
+0x100d0 'tmp13997699941173334308': direct refs [] in funcs []
+0x101d0 'dalvik/system/DexPathList$Element': direct refs [('0x1b674', 'add')] in funcs ['0x1aac0']
+0x101d1 'alvik/system/DexPathList$Element': direct refs [] in funcs []
+0x101d2 'lvik/system/DexPathList$Element': direct refs [] in funcs []
+0x101d3 'vik/system/DexPathList$Element': direct refs [] in funcs []
+0x101d4 'ik/system/DexPathList$Element': direct refs [] in funcs []
+0x101d5 'k/system/DexPathList$Element': direct refs [] in funcs []
+0x101d6 '/system/DexPathList$Element': direct refs [] in funcs []
+0x101d7 'system/DexPathList$Element': direct refs [] in funcs []
+0x101d8 'ystem/DexPathList$Element': direct refs [] in funcs []
+0x101d9 'stem/DexPathList$Element': direct refs [] in funcs []
+0x101da 'tem/DexPathList$Element': direct refs [] in funcs []
+0x101db 'em/DexPathList$Element': direct refs [] in funcs []
+0x101dc 'm/DexPathList$Element': direct refs [] in funcs []
+0x101dd '/DexPathList$Element': direct refs [] in funcs []
+0x101de 'DexPathList$Element': direct refs [] in funcs []
+0x10218 'AES-256-GCM': direct refs [] in funcs []
+0x102d9 'VKEYObfuscation': direct refs [('0x1aa18', 'add')] in funcs ['0x1a9c4']
+0x102e9 'tmp17680616876221785051': direct refs [] in funcs []
+0x10311 'AES-128-XTS': direct refs [] in funcs []
+0x105da 'tmp3065699920606524921': direct refs [] in funcs []
+0x1061b 'AES-192-OFB': direct refs [] in funcs []
+0x106a5 'Landroid/content/pm/ApplicationInfo;': direct refs [('0x1bd7c', 'add')] in funcs ['0x1b90c']
+0x107a8 'AES-256-XTS': direct refs [] in funcs []
+0x107fb 'android/os/Build$VERSION': direct refs [('0x1ad10', 'add')] in funcs ['0x1aac0']
+0x1086e '  AES-OFB-%3u (%s): ': direct refs [('0x21654', 'add')] in funcs ['0x1c400']
+0x1086f ' AES-OFB-%3u (%s): ': direct refs [] in funcs []
+0x10870 'AES-OFB-%3u (%s): ': direct refs [] in funcs []
+0x108e6 '(Ljava/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [('0x1b108', 'add')] in funcs ['0x1aac0']
+0x108e7 'Ljava/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108e8 'java/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108e9 'ava/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108ea 'va/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108eb 'a/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108ec '/util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108ed 'util/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108ee 'til/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108ef 'il/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f0 'l/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f1 '/List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f2 'List;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f3 'ist;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f4 'st;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f5 't;Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f6 ';Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f7 'Ljava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f8 'java/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108f9 'ava/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108fa 'va/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108fb 'a/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108fc '/io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108fd 'io/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108fe 'o/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x108ff '/File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10900 'File;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10901 'ile;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10902 'le;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10903 'e;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10904 ';Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10905 'Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10906 'java/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10907 'ava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10908 'va/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10909 'a/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1090a '/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1090b 'util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1090c 'til/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1090d 'il/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1090e 'l/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1090f '/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10910 'List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10911 'ist;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10912 'st;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10913 't;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10914 ';)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10915 ')[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10916 '[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10917 'Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10918 'dalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x10919 'alvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1091a 'lvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1091b 'vik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1091c 'ik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1091d 'k/system/DexPathList$Element;': direct refs [] in funcs []
+0x1091e '/system/DexPathList$Element;': direct refs [] in funcs []
+0x1091f 'system/DexPathList$Element;': direct refs [] in funcs []
+0x10920 'ystem/DexPathList$Element;': direct refs [] in funcs []
+0x10921 'stem/DexPathList$Element;': direct refs [] in funcs []
+0x10922 'tem/DexPathList$Element;': direct refs [] in funcs []
+0x10923 'em/DexPathList$Element;': direct refs [] in funcs []
+0x10924 'm/DexPathList$Element;': direct refs [] in funcs []
+0x10925 '/DexPathList$Element;': direct refs [] in funcs []
+0x10926 'DexPathList$Element;': direct refs [] in funcs []
+0x10960 'mInitialApplication': direct refs [('0x1bb74', 'add')] in funcs ['0x1b90c']
+0x1098e 'AES-128-OFB': direct refs [] in funcs []
+0x10a2f 'tmp14169616706995394833': direct refs [] in funcs []
+0x10a6c 'AES-256-OFB': direct refs [] in funcs []
+0x10b80 'mAllApplications': direct refs [('0x1bbcc', 'add')] in funcs ['0x1b90c']
+0x10bc5 'AES-192-CBC': direct refs [] in funcs []
+0x10c85 'getAssets': direct refs [('0x1ade8', 'add'), ('0x1b140', 'add')] in funcs ['0x1aac0', '0x1aac0']
+0x10caf 'AES-192-CFB128': direct refs [] in funcs []
+0x10ddf '[dex_buffer] decompress: %d': direct refs [('0x1af48', 'add')] in funcs ['0x1aac0']
+0x10e45 'makeInMemoryDexElements': direct refs [('0x1ada8', 'add')] in funcs ['0x1aac0']
+0x10e77 'AES-192-ECB': direct refs [] in funcs []
+0x10e83 'AES-256-ECB': direct refs [] in funcs []
+0x10e8f 'AES-256-CBC': direct refs [] in funcs []
+0x10e9b 'AES-128-GCM': direct refs [] in funcs []
+0x10f7d 'tmp12794277964480025953': direct refs [] in funcs []
+0x11017 'tmp7028462203480471573': direct refs [] in funcs []
+0x1102e 'getClassLoader': direct refs [('0x1ac1c', 'add')] in funcs ['0x1aac0']
+0x1103d 'mApplication': direct refs [('0x1bd08', 'add')] in funcs ['0x1b90c']
+0x1104a 'AES-256-CFB128': direct refs [] in funcs []
+0x11059 'AES-128-CTR': direct refs [] in funcs []
+0x11065 'AES-256-CTR': direct refs [] in funcs []
+0x1116d 'AES-128-ECB': direct refs [] in funcs []
+0x11179 '  AES-CTR-128 (%s): ': direct refs [('0x217c0', 'add')] in funcs ['0x1c400']
+0x1117a ' AES-CTR-128 (%s): ': direct refs [] in funcs []
+0x1117b 'AES-CTR-128 (%s): ': direct refs [] in funcs []
+0x1120b 'tmp13784499609711825650': direct refs [] in funcs []
+0x11223 'Ldalvik/system/DexPathList;': direct refs [('0x1ac6c', 'add')] in funcs ['0x1aac0']
+0x11224 'dalvik/system/DexPathList;': direct refs [] in funcs []
+0x11225 'alvik/system/DexPathList;': direct refs [] in funcs []
+0x11226 'lvik/system/DexPathList;': direct refs [] in funcs []
+0x11227 'vik/system/DexPathList;': direct refs [] in funcs []
+0x11228 'ik/system/DexPathList;': direct refs [] in funcs []
+0x11229 'k/system/DexPathList;': direct refs [] in funcs []
+0x1122a '/system/DexPathList;': direct refs [] in funcs []
+0x1122b 'system/DexPathList;': direct refs [] in funcs []
+0x1122c 'ystem/DexPathList;': direct refs [] in funcs []
+0x1122d 'stem/DexPathList;': direct refs [] in funcs []
+0x1122e 'tem/DexPathList;': direct refs [] in funcs []
+0x1122f 'em/DexPathList;': direct refs [] in funcs []
+0x11230 'm/DexPathList;': direct refs [] in funcs []
+0x11231 '/DexPathList;': direct refs [] in funcs []
+0x11232 'DexPathList;': direct refs [] in funcs []
+0x1123f '([Ljava/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [('0x1adac', 'add')] in funcs ['0x1aac0']
+0x11240 '[Ljava/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11241 'Ljava/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11242 'java/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11243 'ava/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11244 'va/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11245 'a/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11246 '/nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11247 'nio/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11248 'io/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11249 'o/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1124a '/ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1124b 'ByteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1124c 'yteBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1124d 'teBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1124e 'eBuffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1124f 'Buffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11250 'uffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11251 'ffer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11252 'fer;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11253 'er;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11254 'r;Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11255 ';Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11256 'Ljava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11257 'java/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11258 'ava/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11259 'va/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1125a 'a/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1125b '/util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1125c 'util/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1125d 'til/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1125e 'il/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1125f 'l/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11260 '/List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11261 'List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11262 'ist;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11263 'st;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11264 't;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11265 ';)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11266 ')[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11267 '[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11268 'Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11269 'dalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1126a 'alvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1126b 'lvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1126c 'vik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1126d 'ik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1126e 'k/system/DexPathList$Element;': direct refs [] in funcs []
+0x1126f '/system/DexPathList$Element;': direct refs [] in funcs []
+0x11270 'system/DexPathList$Element;': direct refs [] in funcs []
+0x11271 'ystem/DexPathList$Element;': direct refs [] in funcs []
+0x11272 'stem/DexPathList$Element;': direct refs [] in funcs []
+0x11273 'tem/DexPathList$Element;': direct refs [] in funcs []
+0x11274 'em/DexPathList$Element;': direct refs [] in funcs []
+0x11275 'm/DexPathList$Element;': direct refs [] in funcs []
+0x11276 '/DexPathList$Element;': direct refs [] in funcs []
+0x11277 'DexPathList$Element;': direct refs [] in funcs []
+0x112a5 'com.axis.net.helper.AxisNetApplication': direct refs [('0x1bdec', 'add')] in funcs ['0x1b90c']
+0x1135b 'com/axis/net/helper/AxisNetApplication': direct refs [('0x1ba2c', 'add')] in funcs ['0x1b90c']
+0x1142e 'dexElements': direct refs [('0x1b6b0', 'add'), ('0x1b7dc', 'add')] in funcs ['0x1aac0', '0x1aac0']
+0x1143a 'attach': direct refs [('0x1baa0', 'add')] in funcs ['0x1b90c']
+0x11479 'AES-192-GCM': direct refs [] in funcs []
+0x114c7 '  AES-CFB128-%3u (%s): ': direct refs [('0x21460', 'add')] in funcs ['0x1c400']
+0x114c8 ' AES-CFB128-%3u (%s): ': direct refs [] in funcs []
+0x114c9 'AES-CFB128-%3u (%s): ': direct refs [] in funcs []
+0x114e1 'AES note: built-in implementation.': direct refs [] in funcs []
+0x11612 '(Ljava/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [('0x1ad94', 'add')] in funcs ['0x1aac0']
+0x11613 'Ljava/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11614 'java/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11615 'ava/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11616 'va/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11617 'a/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11618 '/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11619 'util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1161a 'til/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1161b 'il/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1161c 'l/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1161d '/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1161e 'ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1161f 'rrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11620 'rayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11621 'ayList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11622 'yList;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11623 'List;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11624 'ist;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11625 'st;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11626 't;Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11627 ';Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11628 'Ljava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11629 'java/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1162a 'ava/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1162b 'va/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1162c 'a/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1162d '/io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1162e 'io/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1162f 'o/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11630 '/File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11631 'File;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11632 'ile;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11633 'le;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11634 'e;Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11635 ';Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11636 'Ljava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11637 'java/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11638 'ava/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11639 'va/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1163a 'a/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1163b '/util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1163c 'util/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1163d 'til/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1163e 'il/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1163f 'l/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11640 '/ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11641 'ArrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11642 'rrayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11643 'rayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11644 'ayList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11645 'yList;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11646 'List;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11647 'ist;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11648 'st;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11649 't;)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1164a ';)[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1164b ')[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1164c '[Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1164d 'Ldalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1164e 'dalvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x1164f 'alvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11650 'lvik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11651 'vik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11652 'ik/system/DexPathList$Element;': direct refs [] in funcs []
+0x11653 'k/system/DexPathList$Element;': direct refs [] in funcs []
+0x11654 '/system/DexPathList$Element;': direct refs [] in funcs []
+0x11655 'system/DexPathList$Element;': direct refs [] in funcs []
+0x11656 'ystem/DexPathList$Element;': direct refs [] in funcs []
+0x11657 'stem/DexPathList$Element;': direct refs [] in funcs []
+0x11658 'tem/DexPathList$Element;': direct refs [] in funcs []
+0x11659 'em/DexPathList$Element;': direct refs [] in funcs []
+0x1165a 'm/DexPathList$Element;': direct refs [] in funcs []
+0x1165b '/DexPathList$Element;': direct refs [] in funcs []
+0x1165c 'DexPathList$Element;': direct refs [] in funcs []
+0x11740 'AES-128-CFB128': direct refs [] in funcs []
+
+=== BL calls from V-Key region (resolved) ===
+  0x1aa28 (func 0x1a9c4) -> __android_log_print (0x3dec0)
+  0x1aa30 (func 0x1a9c4) -> local_0x1aa60 (0x1aa60)
+  0x1aa5c (func 0x1a9c4) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1aaf4 (func 0x1aac0) -> getuid@LIBC (0x3dee0)
+  0x1abf0 (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1ac3c (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1ace4 (func 0x1aac0) -> local_0x1c044 (0x1c044)
+  0x1ae08 (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1ae7c (func 0x1aac0) -> AAssetManager_fromJava (0x3def0)
+  0x1aed0 (func 0x1aac0) -> mbedtls_gcm_init (0x3df00)
+  0x1aee4 (func 0x1aac0) -> mbedtls_gcm_setkey (0x3df10)
+  0x1af0c (func 0x1aac0) -> mbedtls_gcm_auth_[...] (0x3df20)
+  0x1af14 (func 0x1aac0) -> mbedtls_gcm_free (0x3df30)
+  0x1af1c (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1af30 (func 0x1aac0) -> local_0x1c218 (0x1c218)
+  0x1af4c (func 0x1aac0) -> __android_log_print (0x3dec0)
+  0x1af54 (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1afa4 (func 0x1aac0) -> local_0x1c0e0 (0x1c0e0)
+  0x1afe0 (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1afe8 (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1aff0 (func 0x1aac0) -> AAsset_close (0x3df50)
+  0x1b018 (func 0x1aac0) -> AAssetManager_open (0x3df60)
+  0x1b020 (func 0x1aac0) -> AAsset_getLength (0x3df70)
+  0x1b030 (func 0x1aac0) -> _Znam (0x3df80)
+  0x1b03c (func 0x1aac0) -> _Znam (0x3df80)
+  0x1b050 (func 0x1aac0) -> AAsset_read (0x3df90)
+  0x1b070 (func 0x1aac0) -> malloc@LIBC (0x3dfa0)
+  0x1b0f0 (func 0x1aac0) -> local_0x1c0e0 (0x1c0e0)
+  0x1b160 (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1b1bc (func 0x1aac0) -> local_0x1c044 (0x1c044)
+  0x1b2d8 (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1b324 (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1b368 (func 0x1aac0) -> AAssetManager_fromJava (0x3def0)
+  0x1b3c0 (func 0x1aac0) -> mbedtls_gcm_init (0x3df00)
+  0x1b3d4 (func 0x1aac0) -> mbedtls_gcm_setkey (0x3df10)
+  0x1b3fc (func 0x1aac0) -> mbedtls_gcm_auth_[...] (0x3df20)
+  0x1b404 (func 0x1aac0) -> mbedtls_gcm_free (0x3df30)
+  0x1b40c (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1b420 (func 0x1aac0) -> local_0x1c218 (0x1c218)
+  0x1b428 (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1b44c (func 0x1aac0) -> local_0x1c044 (0x1c044)
+  0x1b468 (func 0x1aac0) -> local_0x1c17c (0x1c17c)
+  0x1b478 (func 0x1aac0) -> fopen@LIBC (0x3dfb0)
+  0x1b490 (func 0x1aac0) -> fwrite@LIBC (0x3dfc0)
+  0x1b498 (func 0x1aac0) -> fclose@LIBC (0x3dfd0)
+  0x1b4a8 (func 0x1aac0) -> local_0x1c17c (0x1c17c)
+  0x1b4bc (func 0x1aac0) -> local_0x1c17c (0x1c17c)
+  0x1b4c4 (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1b4cc (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1b4d4 (func 0x1aac0) -> free@LIBC (0x3df40)
+  0x1b4dc (func 0x1aac0) -> AAsset_close (0x3df50)
+  0x1b518 (func 0x1aac0) -> __strlen_chk@LIBC (0x3dfe0)
+  0x1b534 (func 0x1aac0) -> malloc@LIBC (0x3dfa0)
+  0x1b540 (func 0x1aac0) -> strcpy@LIBC (0x3dff0)
+  0x1b54c (func 0x1aac0) -> strcpy@LIBC (0x3dff0)
+  0x1b588 (func 0x1aac0) -> AAssetManager_open (0x3df60)
+  0x1b590 (func 0x1aac0) -> AAsset_getLength (0x3df70)
+  0x1b5a0 (func 0x1aac0) -> _Znam (0x3df80)
+  0x1b5ac (func 0x1aac0) -> _Znam (0x3df80)
+  0x1b5c4 (func 0x1aac0) -> AAsset_read (0x3df90)
+  0x1b5e4 (func 0x1aac0) -> malloc@LIBC (0x3dfa0)
+  0x1b664 (func 0x1aac0) -> local_0x1c0e0 (0x1c0e0)
+  0x1b884 (func 0x1aac0) -> local_0x1bfa8 (0x1bfa8)
+  0x1b8c8 (func 0x1aac0) -> local_0x1c17c (0x1c17c)
+  0x1b908 (func 0x1aac0) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1b930 (func 0x1b90c) -> getuid@LIBC (0x3dee0)
+  0x1b9e0 (func 0x1b90c) -> local_0x1bfa8 (0x1bfa8)
+  0x1ba1c (func 0x1b90c) -> local_0x1c0e0 (0x1c0e0)
+  0x1ba70 (func 0x1b90c) -> local_0x1c044 (0x1c044)
+  0x1bac8 (func 0x1b90c) -> local_0x1c360 (0x1c360)
+  0x1bc48 (func 0x1b90c) -> local_0x1c17c (0x1c17c)
+  0x1bc90 (func 0x1b90c) -> local_0x1c17c (0x1c17c)
+  0x1bed4 (func 0x1b90c) -> local_0x1c3fc (0x1c3fc)
+  0x1bf38 (func 0x1b90c) -> local_0x1bfa8 (0x1bfa8)
+  0x1bf4c (func 0x1b90c) -> local_0x1c360 (0x1c360)
+  0x1c040 (func 0x1bfac) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1c0dc (func 0x1c048) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1c178 (func 0x1c0e4) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1c214 (func 0x1c180) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1c270 (func 0x1c21c) -> malloc@LIBC (0x3dfa0)
+  0x1c29c (func 0x1c21c) -> inflateInit2_ (0x3e000)
+  0x1c2ac (func 0x1c21c) -> inflate (0x3e010)
+  0x1c2c8 (func 0x1c21c) -> inflate (0x3e010)
+  0x1c2e4 (func 0x1c21c) -> realloc@LIBC (0x3e020)
+  0x1c30c (func 0x1c21c) -> inflateEnd (0x3e030)
+  0x1c32c (func 0x1c21c) -> free@LIBC (0x3df40)
+  0x1c35c (func 0x1c21c) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1c3f8 (func 0x1c364) -> __stack_chk_fail@LIBC (0x3ded0)
+  0x1c494 (func 0x1c400) -> __stack_chk_fail@LIBC (0x3ded0)
+
+wrote disasm-vkey-region.txt
+
+=== .data.rel.ro pointer scan (JNINativeMethod candidates) ===
+
+=== referenced .rodata addrs (non-string) in V-Key region ===
+  0x108e4 ref from 0x1ab50 (func 0x1aac0): first16=4900284c6a6176612f7574696c2f4c69 next32=73743b4c6a6176612f696f2f46696c653b4c6a6176612f7574696c2f4c697374
+  0x112a2 ref from 0x1b474 (func 0x1aac0): first16=776200636f6d2e617869732e6e65742e next32=68656c7065722e417869734e65744170706c69636174696f6e00706173736564

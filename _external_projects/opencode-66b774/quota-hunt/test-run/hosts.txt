@@ -1,0 +1,90 @@
+# ============================================================
+# A. Probe konektivitas / captive portal
+#    Biasanya dibypass gateway autentikasi -> jalur tercepat
+#    buat ngetes "ada bypass apa tidak" di network ini.
+# ============================================================
+connectivitycheck.gstatic.com
+connectivitycheck.android.com
+clients3.google.com
+clients1.google.com
+detectportal.firefox.com
+example.org
+httpforever.com
+www.google.com
+captive.apple.com
+www.apple.com
+play.googleapis.com
+
+# ============================================================
+# B. Host partner zero-rating (paling sering jadi bucket gratis)
+#    Comment/delikeman kalau paketmu tidak punya partner ini.
+# ============================================================
+free.facebook.com
+web.facebook.com
+graph.facebook.com
+graph.whatsapp.com
+g.whatsapp.net
+web.whatsapp.net
+web.whatsapp.com
+z-p-WhatsApp-g.whatsapp.net
+instagram.com
+b-api.instagram.com
+z-p-16-content.instagram.com
+twitter.com
+api.twitter.com
+*.fbcdn.net
+scontent-maa2-1.cdninstagram.com
+static.xx.fbcdn.net
+
+# ============================================================
+# C. Host kuota khusus yang KAMU PUNYA (edu / Ns / games / cloud)
+#    Cek halaman detail paket operatormu, tambahin yang relevan.
+# ============================================================
+www.telkomsel.com
+my.telkomsel.com
+www.indosatooredoo.com
+my.indosatooredoo.com
+www.xl.co.id
+www.myxl.co.id
+maxstream.tv
+cloudmaxstream.tv
+*.vidio.com
+vidio.com
+r.cn
+discord.com
+gateway.discord.gg
+stackoverflow.com
+github.com
+raw.githubusercontent.com
+gitlab.com
+shopee.co.id
+sfx-pic-sg.akamaized.net
+tiktok.com
+api16-normal-c-useast1a.tiktokv.com
+
+# ============================================================
+# D. Cloud / speedtest endpoints -> gerbang ke prefix cloud
+#    Ini incaran utama inject: di dalam prefix cloud kamu bisa
+#    sewa/pilih IP sendiri, bukan numpang host orang.
+# ============================================================
+checkip.cloudflare.com
+one.one.one.one
+speed.cloudflare.com
+cf-ns.speedtest.net
+speedtest.tele2.net
+speedtest.googlefiber.net
+speedtest-hkg.allotspeedtest.net
+ipinfo.io
+ifconfig.me
+ipapi.co
+
+# ============================================================
+# E. Host yang sudah kamu TAHU dihitung kuota WA/gratis.
+#    Tetangga IP-nya di prefix yang sama sering tidak terdaftar
+#    di rule DPI -> lolos tanpa meter.
+# ============================================================
+whatsapp.com
+lookaside.facebook.com
+edge-mqtt.facebook.com
+star.c10r.facebook.com
+external-maa2-1.xx.fbcdn.net

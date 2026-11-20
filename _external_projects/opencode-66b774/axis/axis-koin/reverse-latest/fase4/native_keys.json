@@ -1,0 +1,252 @@
+{
+ "Java_com_axis_net_config_Signature_apiKey": {
+  "src": "0x22050",
+  "len": 44,
+  "patches": [],
+  "value": "ipRsTxOLbgogxEiXj1P73JVWgQk9CEXMSuIsaFO8t6I="
+ },
+ "Java_com_axis_net_config_Signature_keyTempest": {
+  "src": "0x1fa3d",
+  "len": 56,
+  "patches": [],
+  "value": "hOc36lLcbQ8JLLGvhekVMVGy0w9hTM9EazVL1Z2aF9BiUG5Ov88rQg=="
+ },
+ "Java_com_axis_net_config_Signature_keyTempestCapital": {
+  "src": "0x1f3f9",
+  "len": 96,
+  "patches": [],
+  "value": "d9kKoBWgOltACb1_e7kjkYxD6HaX1eVQ9Ap0xh3xcetx__gFYyStSRw2x5t54y9VBl7xZ5dIDZqcEtYpxTzLHyuQaBvNrPkl"
+ },
+ "Java_com_axis_net_config_Signature_keyTempestGuardian": {
+  "src": "0x2146b",
+  "len": 32,
+  "patches": [],
+  "value": "C6EwP6Rw4OeYajoNm7imW9LUWlQll0A="
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarket": {
+  "src": "0x20a89",
+  "len": 24,
+  "patches": [],
+  "value": "VEOXH8EAnFARSFDtbNnvxA=="
+ },
+ "Java_com_axis_net_config_Signature_keyTempestMarketCapital": {
+  "src": "0x20aa2",
+  "len": 96,
+  "patches": [],
+  "value": "bA7mQfB73531XTWqAt4ItWgEARlLPqrLNOiuznUg0QZ3kO4I8beMwgQT066-ulysRzQTvflCIPsr52R9E4iNbq3IXUNwP9wp"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSaltKey": {
+  "src": "0x1e603",
+  "len": 16,
+  "patches": [],
+  "value": "ae432353a4eb4eb9"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getMsisdnSaltKey": {
+  "src": "0x1e603",
+  "len": 16,
+  "patches": [],
+  "value": "ae432353a4eb4eb9"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSecretKey": {
+  "src": "0x20f87",
+  "len": 16,
+  "patches": [],
+  "value": "2eb9362dd64b1e56"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getOtpCode": {
+  "src": "0x1fdca",
+  "len": 14,
+  "patches": [],
+  "value": "CaCS1KEquqk=\\n"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringDecrypt": {
+  "error": "no adrp/add found"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringXl": {
+  "error": "no adrp/add found"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxis": {
+  "error": "no adrp/add found"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringHash": {
+  "error": "no adrp/add found"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAppsFlayerKey": {
+  "src": "0x1e64e",
+  "len": 22,
+  "patches": [],
+  "value": "ru953xhEQTEVtzP3bGWBDG"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos1": {
+  "src": "0x21e26",
+  "len": 67,
+  "patches": [
+   [
+    "0x3f",
+    "0x3736337a"
+   ]
+  ],
+  "value": "AgdC3Dd37i69h355m15B656St5d4s252pZ6462l7z37fk4b675a4v7784x87134z367"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos2": {
+  "src": "0x222bc",
+  "len": 101,
+  "patches": [],
+  "value": "Ad395f533t1587d21j393579n51X6a44C3f654Z17b64376642G327377D394160737F54c493d6178W485a744e6Re42453b4y37"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos3": {
+  "src": "0x225b3",
+  "len": 32,
+  "patches": [],
+  "value": "Ad3t555s767re6Z7314x3636G15f536J"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos4": {
+  "src": "0x1eab2",
+  "len": 60,
+  "patches": [],
+  "value": "Ad3td314as595a5r55076v5a413dx6449y75C407D56dt456669s4A8454e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos5": {
+  "src": "0x20f98",
+  "len": 60,
+  "patches": [],
+  "value": "Ad3td3764s6a654rd6d29v3d463x24a6y64Cf455Db4t4475a6s7A566f6e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos6": {
+  "src": "0x1f143",
+  "len": 127,
+  "patches": [],
+  "value": "Ad3d3X15c45355dz60536v6517d413m44d673J6553a775b6K9E35576a61T7b443Uc63307468y426e4b686i975537273p3f543q73a61324b6453R3251383a525"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos7": {
+  "src": "0x21a63",
+  "len": 127,
+  "patches": [],
+  "value": "Ad3d3X76665745u97f5556435461p375145r3549H3a65485e4JE56078765V2633d2a71N7379724e40j323544585f484av547b6861324mb64533251w383a52z5"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos9": {
+  "src": "0x1fdd9",
+  "len": 33,
+  "patches": [
+   [
+    "0x20",
+    "0x34"
+   ]
+  ],
+  "value": "5LuLv64KzyK656HwtHJ35GxG54S4tACA4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos10": {
+  "src": "0x1eaef",
+  "len": 22,
+  "patches": [],
+  "value": "2FtEyF43DKoJzD45SzS4TA"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos11": {
+  "src": "0x21413",
+  "len": 36,
+  "patches": [],
+  "value": "7r6tEe6EGgD9pS64E6h46z1A6r0t5Cf6ze4k"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos12": {
+  "src": "0x220b2",
+  "len": 185,
+  "patches": [],
+  "value": "Ad3d31413r27e44367739534a71333d4fk475073347a55725d2d44744t146535967354e603f4a7b4d4144453c6879A4f6974375K357563c6a6d416a794842777Ff67566457705157564b6474G65643d6f4f566Ld633c62556a78624e4"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_claimBonusAlifetimeUrl": {
+  "src": "0x1fc14",
+  "len": 60,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getCoinProfileUrl": {
+  "src": "0x1eb8b",
+  "len": 42,
+  "patches": [],
+  "value": "https://points.api.axis.co.id/v1/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeUrl": {
+  "src": "0x20617",
+  "len": 49,
+  "patches": [
+   [
+    "0x30",
+    "0x73"
+   ]
+  ],
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getAlifetimeBonusUrl": {
+  "error": "symbol not found"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getAlifetimeMembershipUrl": {
+  "src": "0x21fa7",
+  "len": 48,
+  "patches": [],
+  "value": "https://points.api.axis.co.id/v2/alifetime/point"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getBonusAlifetimeProfilingUrl": {
+  "src": "0x226c1",
+  "len": 59,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/profiling"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeUrl": {
+  "src": "0x20bb3",
+  "len": 57,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus/voucher"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getVoucherAlifetimeV2Url": {
+  "src": "0x21743",
+  "len": 57,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v2/alifetime/bonus/voucher"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getRewardAlifetimeUrl": {
+  "src": "0x21aef",
+  "len": 49,
+  "patches": [
+   [
+    "0x30",
+    "0x73"
+   ]
+  ],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/bonus"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_getLevelProfileUrl": {
+  "src": "0x21682",
+  "len": 43,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_flashWarInfoUrl": {
+  "src": "0x207ec",
+  "len": 39,
+  "patches": [],
+  "value": "https://flashwar.api.axis.co.id/v1/info"
+ },
+ "Java_com_axis_net_features_alifetime_dashboard_repositories_AlifetimeDashboardRepository_putLevelUpUrl": {
+  "src": "0x216ae",
+  "len": 52,
+  "patches": [],
+  "value": "https://profile.api.axis.co.id/v1/alifetime/level-up"
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_alifetimeClaimBonusUrl": {
+  "src": "0x1fc14",
+  "len": 60,
+  "patches": [],
+  "value": "https://order.api.axis.co.id/v1/transaction/redeem/alifetime"
+ },
+ "Java_com_axis_net_features_alifetime_general_repositories_ProfileSectionRepository_getPointHistoryUrl": {
+  "src": "0x22384",
+  "len": 50,
+  "patches": [
+   [
+    "0x30",
+    "0x72"
+   ]
+  ],
+  "value": "https://points.api.axis.co.id/v1/alifetime/histor"
+ }
+}

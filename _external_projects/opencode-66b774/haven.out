@@ -1,0 +1,20 @@
+
+##### Syaliong Imut Suka Colmek  [54D77NF6BYm0aoAF]
+  nama file : ?
+  ukuran    : ?
+  streamTok : eyJmaWQiOiI1NEQ3N05GNkJZbTBhb0FGIiwicHVy...  downloadTok: eyJmaWQiOiI1NEQ3N05GNkJZbTBhb0FGIiwicHVy...
+  keys cfg  : fileId, embeddedData, hasBanners
+  keys emb  : fileId, deliveryToken, streamToken, downloadUrl, videoUrl, downloadUrlExpiresAt, videoUrlExpiresAt, playerPopUnderScript, downloadDirectLinks, downloadDirectLimits, bannerAds
+  /api/video-url/54D77NF6BYm0aoAF?dt=eyJmaWQiOiI1NEQ3N05GNkJZbTBhb0FGIiwicHVyIjoic3RyZWFtIiwiZXhwIjoxNzk0OTMzMDQzLCJub25jZSI6ImUxOTRiZTQ0MmRmZTlkZTIifQ.6109c097ae4f8058cf4562efe6e7aa4045e970b7502ecea6cda22a428b0d0f59 -> 502 {"type":"https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-502/","title":"Error 502: Bad gateway","status":502,"detail":"The origin web server returned an invalid or 
+  /api/video-url/54D77NF6BYm0aoAF?dt=eyJmaWQiOiI1NEQ3N05GNkJZbTBhb0FGIiwicHVyIjoic3RyZWFtIiwiZXhwIjoxNzk0OTMzMDQzLCJub25jZSI6ImUxOTRiZTQ0MmRmZTlkZTIifQ.6109c097ae4f8058cf4562efe6e7aa4045e970b7502ecea6cda22a428b0d0f59 ERR The operation was aborted due to timeout
+  STREAM URL: null
+
+##### Masyaliong Abg imut Sudah Berbakat Colmek  [yQJenhh2LwjcwXRj]
+  nama file : ?
+  ukuran    : ?
+  streamTok : eyJmaWQiOiJ5UUplbmhoMkx3amN3WFJqIiwicHVy...  downloadTok: eyJmaWQiOiJ5UUplbmhoMkx3amN3WFJqIiwicHVy...
+  keys cfg  : fileId, embeddedData, hasBanners
+  keys emb  : fileId, deliveryToken, streamToken, downloadUrl, videoUrl, downloadUrlExpiresAt, videoUrlExpiresAt, playerPopUnderScript, downloadDirectLinks, downloadDirectLimits, bannerAds
+  /api/video-url/yQJenhh2LwjcwXRj?dt=eyJmaWQiOiJ5UUplbmhoMkx3amN3WFJqIiwicHVyIjoic3RyZWFtIiwiZXhwIjoxNzk0ODk1ODc0LCJub25jZSI6IjlhYzA1MzkyODYwYTQ0ZTAifQ.494b70ceb825713f4979fbfe2d682ae6410acf93ed4d40f7206cf7c72c53e702 ERR The operation was aborted due to timeout
+  /api/video-url/yQJenhh2LwjcwXRj?dt=eyJmaWQiOiJ5UUplbmhoMkx3amN3WFJqIiwicHVyIjoic3RyZWFtIiwiZXhwIjoxNzk0ODk1ODc0LCJub25jZSI6IjlhYzA1MzkyODYwYTQ0ZTAifQ.494b70ceb825713f4979fbfe2d682ae6410acf93ed4d40f7206cf7c72c53e702 ERR The operation was aborted due to timeout
+  STREAM URL: null

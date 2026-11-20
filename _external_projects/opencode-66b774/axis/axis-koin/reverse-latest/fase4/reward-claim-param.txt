@@ -1,0 +1,287 @@
+# Lcom/axis/net/features/alifetime/general/models/RewardClaimParam; in tmp14169616706995394833.dex
+super: Ljava/lang/Object;  interfaces: ['Ljava/io/Serializable;']
+## fields
+  $stable : I  access=public static final
+  descPackage : Ljava/lang/String;  access=private final
+  merchantCode : Ljava/lang/String;  access=private final
+  position : Ljava/lang/Integer;  access=private final
+  product : Lcom/axis/net/features/alifetime/general/models/BonusProductModel;  access=private final
+  type : Ljava/lang/String;  access=private final
+  userId : Ljava/lang/String;  access=private final
+## methods
+
+### <clinit> ()V  access=static constructor
+  return-void                  
+
+### <init> ()V  access=public constructor
+  const/16                     v7, 63
+  const/4                      v8, 0
+  const/4                      v1, 0
+  const/4                      v2, 0
+  const/4                      v3, 0
+  const/4                      v4, 0
+  const/4                      v5, 0
+  const/4                      v6, 0
+  move-object                  v0, v9
+  invoke-direct/range          v0 ... v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;-><init>(Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String; I Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+  return-void                  
+
+### <init> (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String;)V  access=public constructor
+  invoke-direct                v0, Ljava/lang/Object;-><init>()V
+  iput-object                  v1, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  iput-object                  v2, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  iput-object                  v3, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  iput-object                  v4, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  iput-object                  v5, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  iput-object                  v6, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  return-void                  
+
+### <init> (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String; I Lkotlin/jvm/internal/DefaultConstructorMarker;)V  access=public synthetic constructor
+  and-int/lit8                 v9, v8, 1
+  const/4                      v0, 0
+  if-eqz                       v9, +003h
+  move-object                  v2, v0
+  and-int/lit8                 v9, v8, 2
+  if-eqz                       v9, +003h
+  move-object                  v3, v0
+  and-int/lit8                 v9, v8, 4
+  if-eqz                       v9, +003h
+  move-object                  v4, v0
+  and-int/lit8                 v9, v8, 8
+  if-eqz                       v9, +003h
+  move-object                  v5, v0
+  and-int/lit8                 v9, v8, 16
+  if-eqz                       v9, +003h
+  move-object                  v6, v0
+  and-int/lit8                 v8, v8, 32
+  if-eqz                       v8, +00ah
+  move-object                  v8, v0
+  move-object                  v7, v6
+  move-object                  v6, v5
+  move-object                  v5, v4
+  move-object                  v4, v3
+  move-object                  v3, v2
+  move-object                  v2, v1
+  goto                         +3h
+  move-object                  v8, v7
+  goto                         -8h
+  invoke-direct/range          v2 ... v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;-><init>(Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String;)V
+  return-void                  
+
+### copy$default (Lcom/axis/net/features/alifetime/general/models/RewardClaimParam; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/Object;)Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;  access=public static synthetic
+  and-int/lit8                 v8, v7, 1
+  if-eqz                       v8, +004h
+  iget-object                  v1, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  and-int/lit8                 v8, v7, 2
+  if-eqz                       v8, +004h
+  iget-object                  v2, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  and-int/lit8                 v8, v7, 4
+  if-eqz                       v8, +004h
+  iget-object                  v3, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  and-int/lit8                 v8, v7, 8
+  if-eqz                       v8, +004h
+  iget-object                  v4, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  and-int/lit8                 v8, v7, 16
+  if-eqz                       v8, +004h
+  iget-object                  v5, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  and-int/lit8                 v7, v7, 32
+  if-eqz                       v7, +004h
+  iget-object                  v6, v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  move-object                  v7, v5
+  move-object                  v8, v6
+  move-object                  v5, v3
+  move-object                  v6, v4
+  move-object                  v3, v1
+  move-object                  v4, v2
+  move-object                  v2, v0
+  invoke-virtual/range         v2 ... v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->copy(Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String;)Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;
+  move-result-object           v0
+  return-object                v0
+
+### component1 ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  return-object                v0
+
+### component2 ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  return-object                v0
+
+### component3 ()Lcom/axis/net/features/alifetime/general/models/BonusProductModel;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  return-object                v0
+
+### component4 ()Ljava/lang/Integer;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  return-object                v0
+
+### component5 ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  return-object                v0
+
+### component6 ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  return-object                v0
+
+### copy (Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String;)Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;  access=public final
+  new-instance                 v0, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;
+  move-object                  v1, v8
+  move-object                  v2, v9
+  move-object                  v3, v10
+  move-object                  v4, v11
+  move-object                  v5, v12
+  move-object                  v6, v13
+  invoke-direct/range          v0 ... v6, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;-><init>(Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/features/alifetime/general/models/BonusProductModel; Ljava/lang/Integer; Ljava/lang/String; Ljava/lang/String;)V
+  return-object                v0
+
+### equals (Ljava/lang/Object;)Z  access=public
+  const/4                      v0, 1
+  if-ne                        v4, v5, +003h
+  return                       v0
+  instance-of                  v1, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;
+  const/4                      v2, 0
+  if-nez                       v1, +003h
+  return                       v2
+  check-cast                   v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  iget-object                  v3, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  invoke-static                v1, v3, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v1
+  if-nez                       v1, +003h
+  return                       v2
+  iget-object                  v1, v4, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  iget-object                  v5, v5, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  invoke-static                v1, v5, Lkotlin/jvm/internal/Intrinsics;->d(Ljava/lang/Object; Ljava/lang/Object;)Z
+  move-result                  v5
+  if-nez                       v5, +003h
+  return                       v2
+  return                       v0
+
+### getDescPackage ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  return-object                v0
+
+### getMerchantCode ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  return-object                v0
+
+### getPosition ()Ljava/lang/Integer;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  return-object                v0
+
+### getProduct ()Lcom/axis/net/features/alifetime/general/models/BonusProductModel;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  return-object                v0
+
+### getType ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  return-object                v0
+
+### getUserId ()Ljava/lang/String;  access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  return-object                v0
+
+### hashCode ()I  access=public
+  iget-object                  v0, v3, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  const/4                      v1, 0
+  if-nez                       v0, +004h
+  move                         v0, v1
+  goto                         +5h
+  invoke-virtual               v0, Ljava/lang/String;->hashCode()I
+  move-result                  v0
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v2, v3, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  if-nez                       v2, +004h
+  move                         v2, v1
+  goto                         +5h
+  invoke-virtual               v2, Ljava/lang/String;->hashCode()I
+  move-result                  v2
+  add-int/2addr                v0, v2
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v2, v3, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  if-nez                       v2, +004h
+  move                         v2, v1
+  goto                         +5h
+  invoke-virtual               v2, Lcom/axis/net/features/alifetime/general/models/BonusProductModel;->hashCode()I
+  move-result                  v2
+  add-int/2addr                v0, v2
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v2, v3, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  if-nez                       v2, +004h
+  move                         v2, v1
+  goto                         +5h
+  invoke-virtual               v2, Ljava/lang/Object;->hashCode()I
+  move-result                  v2
+  add-int/2addr                v0, v2
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v2, v3, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  if-nez                       v2, +004h
+  move                         v2, v1
+  goto                         +5h
+  invoke-virtual               v2, Ljava/lang/String;->hashCode()I
+  move-result                  v2
+  add-int/2addr                v0, v2
+  mul-int/lit8                 v0, v0, 31
+  iget-object                  v2, v3, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  if-nez                       v2, +003h
+  goto                         +5h
+  invoke-virtual               v2, Ljava/lang/String;->hashCode()I
+  move-result                  v1
+  add-int/2addr                v0, v1
+  return                       v0
+
+### toString ()Ljava/lang/String;  access=public
+  iget-object                  v0, v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->descPackage Ljava/lang/String;
+  iget-object                  v1, v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->userId Ljava/lang/String;
+  iget-object                  v2, v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->product Lcom/axis/net/features/alifetime/general/models/BonusProductModel;
+  iget-object                  v3, v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->position Ljava/lang/Integer;
+  iget-object                  v4, v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->type Ljava/lang/String;
+  iget-object                  v5, v8, Lcom/axis/net/features/alifetime/general/models/RewardClaimParam;->merchantCode Ljava/lang/String;
+  new-instance                 v6, Ljava/lang/StringBuilder;
+  invoke-direct                v6, Ljava/lang/StringBuilder;-><init>()V
+  const-string                 v7, "RewardClaimParam(descPackage="
+  invoke-virtual               v6, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", userId="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", product="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", position="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", type="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ", merchantCode="
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  const-string                 v0, ")"
+  invoke-virtual               v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  invoke-virtual               v6, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0

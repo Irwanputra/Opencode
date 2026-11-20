@@ -1,0 +1,44 @@
+
+##### Lcom/axis/net/ui/homePage/home/models/OtpPayload;  [tmp13997699941173334308.dex]  super=Ljava/lang/Object;
+  field $stable : I @ ?
+  field deviceType : Ljava/lang/String; @ ?
+  field msisdn : Ljava/lang/String; @ ?
+
+### <clinit> ()V
+  (no code)
+
+### <init> ()V
+  (no code)
+
+### <init> (Ljava/lang/String; Ljava/lang/String;)V
+  (no code)
+
+### <init> (Ljava/lang/String; Ljava/lang/String; I Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+  (no code)
+
+### copy$default (Lcom/axis/net/ui/homePage/home/models/OtpPayload; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/Object;)Lcom/axis/net/ui/homePage/home/models/OtpPayload;
+  (no code)
+
+### component1 ()Ljava/lang/String;
+  (no code)
+
+### component2 ()Ljava/lang/String;
+  (no code)
+
+### copy (Ljava/lang/String; Ljava/lang/String;)Lcom/axis/net/ui/homePage/home/models/OtpPayload;
+  (no code)
+
+### equals (Ljava/lang/Object;)Z
+  (no code)
+
+### getDeviceType ()Ljava/lang/String;
+  (no code)
+
+### getMsisdn ()Ljava/lang/String;
+  (no code)
+
+### hashCode ()I
+  (no code)
+
+### toString ()Ljava/lang/String;
+  (no code)

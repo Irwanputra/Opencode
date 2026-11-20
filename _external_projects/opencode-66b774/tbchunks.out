@@ -1,0 +1,42 @@
+chunk terlihat di HTML: 20
+  https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js
+  https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js
+  https://static.line-scdn.net/liff/edge/2/sdk.js
+  https://connect.facebook.net/${locale}/sdk.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/shareLink.l4p64olz.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/share.ghw4jids.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/_plugin-vue_export-helper.ou69qqfo.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/index.yreolpq3.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/report.eq4qnip2.js
+  https://s5.teraboxcdn.com/assets/libs/dplogid-2.0.3.min.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/index.flb2gbhd.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/vue-vendor.bpl0tq5h.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/pinia.lqeqwt1m.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/vue-router.laa7dpkd.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/utils-vendor.lzmf529s.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/crypto-vendor.lxu4mxc8.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/ui-library.b3v0smce.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/vue-i18n.i68ktazx.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/polyfills-legacy.LKjgB3g7.js
+  https://s5.teraboxcdn.com/fe-static/fe-v5-web-share/js/index-legacy.ml9cckvk.js
+  200 42KB — appleid.auth.js
+  200 93KB — kakao.min.js
+  200 127KB ◆ timestamp sdk.js
+  200 12KB — sdk.js
+  200 212KB ◆ dlink,shareid,fs_id,md5,timestamp,/sharing/ shareLink.l4p64olz.js
+  200 16KB ◆ share/list,shareid,fs_id,timestamp share.ghw4jids.js
+  200 0KB — _plugin-vue_export-helper.ou69qqfo.js
+  200 28KB ◆ dlink,shareid,passcode,fs_id,md5,timestamp index.yreolpq3.js
+  200 6KB — report.eq4qnip2.js
+  200 1KB — dplogid-2.0.3.min.js
+  200 1892KB ◆ fs_id,md5,timestamp,/sharing/ index.flb2gbhd.js
+  200 83KB — vue-vendor.bpl0tq5h.js
+  200 31KB — pinia.lqeqwt1m.js
+  200 24KB — vue-router.laa7dpkd.js
+  200 145KB — utils-vendor.lzmf529s.js
+  200 510KB ◆ md5 crypto-vendor.lxu4mxc8.js
+  200 144KB — ui-library.b3v0smce.js
+  200 53KB ◆ timestamp vue-i18n.i68ktazx.js
+  200 183KB — polyfills-legacy.LKjgB3g7.js
+  200 2036KB ◆ fs_id,md5,timestamp,/sharing/ index-legacy.ml9cckvk.js
+SELESAI

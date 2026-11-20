@@ -1,0 +1,61 @@
+# Lcom/axis/net/ui/splashLogin/viewModel/x;
+
+### getOtpLoginSignature (Lsc/c;)Ljava/lang/String;
+  sget-object                  v0, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v11, Lsc/c;->getMsisdn()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v11, Lsc/c;->getOtp_code()Ljava/lang/String;
+  move-result-object           v3
+  invoke-virtual               v11, Lsc/c;->getFcm_token()Ljava/lang/String;
+  move-result-object           v4
+  invoke-virtual               v11, Lsc/c;->getFb_id()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v11, Lsc/c;->getModel()Ljava/lang/String;
+  move-result-object           v6
+  invoke-virtual               v11, Lsc/c;->getBrand()Ljava/lang/String;
+  move-result-object           v7
+  invoke-virtual               v11, Lsc/c;->getDevice_os()Ljava/lang/String;
+  move-result-object           v8
+  invoke-virtual               v11, Lsc/c;->getDevice_type()Ljava/lang/String;
+  move-result-object           v9
+  const-string                 v1, "/otplogin/v2"
+  invoke-virtual/range         v0 ... v9, Lcom/axis/net/config/Signature;->v(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v11
+  return-object                v11
+
+### getOtp ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->otp Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### validateOtpCode (Landroid/app/Activity; Ljava/lang/String; Ljava/lang/String;)V
+  const-string                 v0, "activity"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "otpValue"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "imei"
+  invoke-static                v11, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const/4                      v0, 0
+  iput                         v0, v8, Lcom/axis/net/ui/splashLogin/viewModel/x;->errorCode I
+  invoke-virtual               v8, Lcom/axis/net/ui/splashLogin/viewModel/x;->getLoading()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  sget-object                  v1, Ljava/lang/Boolean;->TRUE Ljava/lang/Boolean;
+  invoke-virtual               v0, v1, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
+  invoke-direct                v8, v10, v11, Lcom/axis/net/ui/splashLogin/viewModel/x;->getOtpLoginPayload(Ljava/lang/String; Ljava/lang/String;)Lsc/c;
+  move-result-object           v4
+  invoke-direct                v8, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->getOtpLoginSignature(Lsc/c;)Ljava/lang/String;
+  move-result-object           v5
+  iget-object                  v2, v8, Lcom/axis/net/ui/splashLogin/viewModel/x;->useCase Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  if-eqz                       v2, +01ch
+  invoke-static                v8, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v3
+  sget-object                  v10, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v8, Landroidx/lifecycle/AndroidViewModel;->getApplication()Landroid/app/Application;
+  move-result-object           v11
+  invoke-virtual               v11, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+  move-result-object           v11
+  invoke-virtual               v10, v11, Lcom/axis/net/helper/Utils$Companion;->getVersionName(Landroid/content/Context;)Ljava/lang/String;
+  move-result-object           v6
+  new-instance                 v7, Lcom/axis/net/ui/splashLogin/viewModel/x$e;
+  invoke-direct                v7, v8, v9, v4, Lcom/axis/net/ui/splashLogin/viewModel/x$e;-><init>(Lcom/axis/net/ui/splashLogin/viewModel/x; Landroid/app/Activity; Lsc/c;)V
+  invoke-virtual/range         v2 ... v7, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;->d(Lkotlinx/coroutines/CoroutineScope; Lsc/c; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/core/w;)V
+  return-void                  

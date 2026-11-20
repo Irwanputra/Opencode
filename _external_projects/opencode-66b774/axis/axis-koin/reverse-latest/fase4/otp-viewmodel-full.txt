@@ -1,0 +1,637 @@
+# Lcom/axis/net/ui/splashLogin/viewModel/x;
+
+### <clinit> ()V
+  return-void                  
+
+### <init> (Landroid/app/Application;)V
+  const-string                 v0, "application"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-direct                v2, v3, Lcom/axis/net/ui/p;-><init>(Landroid/app/Application;)V
+  new-instance                 v3, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v3, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->_biometricRequestResponse Landroidx/lifecycle/MutableLiveData;
+  invoke-static                v3, LF5/c;->i(Landroidx/lifecycle/MutableLiveData;)Landroidx/lifecycle/LiveData;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->biometricRequestResponse Landroidx/lifecycle/LiveData;
+  new-instance                 v3, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v3, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->_biometricValidationResponse Landroidx/lifecycle/MutableLiveData;
+  invoke-static                v3, LF5/c;->i(Landroidx/lifecycle/MutableLiveData;)Landroidx/lifecycle/LiveData;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->biometricValidationResponse Landroidx/lifecycle/LiveData;
+  new-instance                 v3, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v3, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->_biometricLoginResponse Landroidx/lifecycle/MutableLiveData;
+  invoke-static                v3, LF5/c;->i(Landroidx/lifecycle/MutableLiveData;)Landroidx/lifecycle/LiveData;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->biometricLoginResponse Landroidx/lifecycle/LiveData;
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/r;
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/r;-><init>()V
+  invoke-static                v3, Lkotlin/b;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->loading$delegate Lkotlin/Lazy;
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/s;
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/s;-><init>()V
+  invoke-static                v3, Lkotlin/b;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->error$delegate Lkotlin/Lazy;
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/t;
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/t;-><init>()V
+  invoke-static                v3, Lkotlin/b;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->response$delegate Lkotlin/Lazy;
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/u;
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/u;-><init>()V
+  invoke-static                v3, Lkotlin/b;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->throwableError$delegate Lkotlin/Lazy;
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/v;
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/v;-><init>()V
+  invoke-static                v3, Lkotlin/b;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->messageError$delegate Lkotlin/Lazy;
+  new-instance                 v3, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v3, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->timer Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v3, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v3, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->otp Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v3, Lcom/google/gson/Gson;
+  invoke-direct                v3, Lcom/google/gson/Gson;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->gson Lcom/google/gson/Gson;
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/w;
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/w;-><init>()V
+  invoke-static                v3, Lkotlin/b;->b(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+  move-result-object           v3
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->smsBroadcastReceiver$delegate Lkotlin/Lazy;
+  new-instance                 v3, Lcom/axis/net/helper/AxisnetHelpers;
+  invoke-direct                v3, Lcom/axis/net/helper/AxisnetHelpers;-><init>()V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->axisnetHelpers Lcom/axis/net/helper/AxisnetHelpers;
+  iget-boolean                 v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->injected Z
+  if-nez                       v3, +025h
+  invoke-static                LP5/k;->v()LP5/k$a;
+  move-result-object           v3
+  new-instance                 v0, LR5/a;
+  invoke-virtual               v2, Landroidx/lifecycle/AndroidViewModel;->getApplication()Landroid/app/Application;
+  move-result-object           v1
+  invoke-direct                v0, v1, LR5/a;-><init>(Landroid/app/Application;)V
+  invoke-virtual               v3, v0, LP5/k$a;->f(LR5/a;)LP5/k$a;
+  move-result-object           v3
+  invoke-virtual               v3, LP5/k$a;->g()LP5/o;
+  move-result-object           v3
+  invoke-interface             v3, v2, LP5/o;->b(Lcom/axis/net/ui/splashLogin/viewModel/x;)V
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  invoke-virtual               v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->getRepository()LFc/a;
+  move-result-object           v0
+  invoke-direct                v3, v0, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;-><init>(LFc/a;)V
+  iput-object                  v3, v2, Lcom/axis/net/ui/splashLogin/viewModel/x;->useCase Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  return-void                  
+
+### access$apiTrack (Lcom/axis/net/ui/splashLogin/viewModel/x; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/String;)V
+  invoke-direct                v0, v1, v2, v3, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->apiTrack(Ljava/lang/String; Ljava/lang/String; I Ljava/lang/String;)V
+  return-void                  
+
+### access$get_biometricLoginResponse$p (Lcom/axis/net/ui/splashLogin/viewModel/x;)Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->_biometricLoginResponse Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### access$get_biometricRequestResponse$p (Lcom/axis/net/ui/splashLogin/viewModel/x;)Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->_biometricRequestResponse Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### access$get_biometricValidationResponse$p (Lcom/axis/net/ui/splashLogin/viewModel/x;)Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->_biometricValidationResponse Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### access$setErrorCode$p (Lcom/axis/net/ui/splashLogin/viewModel/x; I)V
+  iput                         v1, v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->errorCode I
+  return-void                  
+
+### apiTrack (Ljava/lang/String; Ljava/lang/String; I Ljava/lang/String;)V
+  sget-object                  v0, Lqb/a;->a Lqb/a;
+  invoke-virtual               v0, v2, v3, v4, v5, Lqb/a;->a(Ljava/lang/String; Ljava/lang/String; I Ljava/lang/String;)V
+  return-void                  
+
+### apiTrack$default (Lcom/axis/net/ui/splashLogin/viewModel/x; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/String; I Ljava/lang/Object;)V
+  and-int/lit8                 v5, v5, 8
+  if-eqz                       v5, +004h
+  const-string                 v4, ""
+  invoke-direct                v0, v1, v2, v3, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->apiTrack(Ljava/lang/String; Ljava/lang/String; I Ljava/lang/String;)V
+  return-void                  
+
+### error_delegate$lambda$1 ()Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v0, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v0, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  return-object                v0
+
+### f ()Landroidx/lifecycle/MutableLiveData;
+  invoke-static                Lcom/axis/net/ui/splashLogin/viewModel/x;->throwableError_delegate$lambda$3()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  return-object                v0
+
+### g ()Landroidx/lifecycle/MutableLiveData;
+  invoke-static                Lcom/axis/net/ui/splashLogin/viewModel/x;->messageError_delegate$lambda$4()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  return-object                v0
+
+### getOtpLoginPayload (Ljava/lang/String; Ljava/lang/String;)Lsc/c;
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  invoke-virtual               v13, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v1
+  invoke-virtual               v1, Lcom/axis/net/helper/SharedPreferencesHelper;->getMsisdn()Ljava/lang/String;
+  move-result-object           v1
+  const-string                 v2, ""
+  if-nez                       v1, +003h
+  move-object                  v1, v2
+  invoke-virtual               v0, v1, Lcom/axis/net/helper/CryptoTool$Companion;->encryptSSO(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v1
+  invoke-direct                v13, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->removeEnterCharacter(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v4
+  sget-object                  v1, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v13, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v3
+  invoke-virtual               v3, Lcom/axis/net/helper/SharedPreferencesHelper;->getMsisdn()Ljava/lang/String;
+  move-result-object           v3
+  if-nez                       v3, +003h
+  move-object                  v3, v2
+  invoke-virtual               v1, v3, Lcom/axis/net/helper/Utils$Companion;->msisdnIDFormat(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v3
+  invoke-virtual               v0, v3, Lcom/axis/net/helper/CryptoTool$Companion;->encrypMsisdnMD5(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v3
+  if-nez                       v3, +004h
+  move-object                  v11, v2
+  goto                         +2h
+  move-object                  v11, v3
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getManufacture()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getDeviceName()Ljava/lang/String;
+  move-result-object           v6
+  invoke-virtual               v0, v14, Lcom/axis/net/helper/CryptoTool$Companion;->encryptSSO(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v14
+  invoke-direct                v13, v14, Lcom/axis/net/ui/splashLogin/viewModel/x;->removeEnterCharacter(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v7
+  sget-object                  v14, Lcom/axis/net/helper/Consta;->Companion Lcom/axis/net/helper/Consta$Companion;
+  invoke-virtual               v14, Lcom/axis/net/helper/Consta$Companion;->getCHANNEL_ANDROID()Ljava/lang/String;
+  move-result-object           v8
+  invoke-virtual               v1, Lcom/axis/net/helper/Utils$Companion;->getPhoneDeviceVersion()I
+  move-result                  v14
+  invoke-static                v14, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+  move-result-object           v9
+  invoke-virtual               v13, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v14
+  invoke-virtual               v14, Lcom/axis/net/helper/SharedPreferencesHelper;->getFCMToken()Ljava/lang/String;
+  move-result-object           v14
+  if-nez                       v14, +004h
+  move-object                  v10, v2
+  goto                         +2h
+  move-object                  v10, v14
+  new-instance                 v3, Lsc/c;
+  move-object                  v12, v15
+  invoke-direct/range          v3 ... v12, Lsc/c;-><init>(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+  return-object                v3
+
+### getOtpLoginSignature (Lsc/c;)Ljava/lang/String;
+  sget-object                  v0, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v11, Lsc/c;->getMsisdn()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v11, Lsc/c;->getOtp_code()Ljava/lang/String;
+  move-result-object           v3
+  invoke-virtual               v11, Lsc/c;->getFcm_token()Ljava/lang/String;
+  move-result-object           v4
+  invoke-virtual               v11, Lsc/c;->getFb_id()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v11, Lsc/c;->getModel()Ljava/lang/String;
+  move-result-object           v6
+  invoke-virtual               v11, Lsc/c;->getBrand()Ljava/lang/String;
+  move-result-object           v7
+  invoke-virtual               v11, Lsc/c;->getDevice_os()Ljava/lang/String;
+  move-result-object           v8
+  invoke-virtual               v11, Lsc/c;->getDevice_type()Ljava/lang/String;
+  move-result-object           v9
+  const-string                 v1, "/otplogin/v2"
+  invoke-virtual/range         v0 ... v9, Lcom/axis/net/config/Signature;->v(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v11
+  return-object                v11
+
+### getSmsBroadcastReceiver ()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->smsBroadcastReceiver$delegate Lkotlin/Lazy;
+  invoke-interface             v0, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+  move-result-object           v0
+  check-cast                   v0, Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  return-object                v0
+
+### h ()Landroidx/lifecycle/MutableLiveData;
+  invoke-static                Lcom/axis/net/ui/splashLogin/viewModel/x;->error_delegate$lambda$1()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  return-object                v0
+
+### i ()Landroidx/lifecycle/MutableLiveData;
+  invoke-static                Lcom/axis/net/ui/splashLogin/viewModel/x;->loading_delegate$lambda$0()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  return-object                v0
+
+### j ()Landroidx/lifecycle/MutableLiveData;
+  invoke-static                Lcom/axis/net/ui/splashLogin/viewModel/x;->response_delegate$lambda$2()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  return-object                v0
+
+### k ()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  invoke-static                Lcom/axis/net/ui/splashLogin/viewModel/x;->smsBroadcastReceiver_delegate$lambda$5()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  move-result-object           v0
+  return-object                v0
+
+### loading_delegate$lambda$0 ()Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v0, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v0, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  return-object                v0
+
+### messageError_delegate$lambda$4 ()Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v0, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v0, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  return-object                v0
+
+### removeEnterCharacter (Ljava/lang/String;)Ljava/lang/String;
+  if-nez                       v7, +004h
+  const-string                 v7, ""
+  move-object                  v0, v7
+  const/4                      v4, 4
+  const/4                      v5, 0
+  const-string                 v1, "
+"
+  const-string                 v2, ""
+  const/4                      v3, 0
+  invoke-static/range          v0 ... v5, Lkotlin/text/u;->J(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Z I Ljava/lang/Object;)Ljava/lang/String;
+  move-result-object           v7
+  return-object                v7
+
+### response_delegate$lambda$2 ()Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v0, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v0, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  return-object                v0
+
+### smsBroadcastReceiver_delegate$lambda$5 ()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  new-instance                 v0, Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  invoke-direct                v0, Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;-><init>()V
+  return-object                v0
+
+### stopTimer ()Lkotlin/Unit;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->_timer Landroid/os/CountDownTimer;
+  if-eqz                       v0, +008h
+  invoke-virtual               v0, Landroid/os/CountDownTimer;->cancel()V
+  sget-object                  v0, Lkotlin/Unit;->a Lkotlin/Unit;
+  return-object                v0
+  const/4                      v0, 0
+  return-object                v0
+
+### throwableError_delegate$lambda$3 ()Landroidx/lifecycle/MutableLiveData;
+  new-instance                 v0, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v0, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  return-object                v0
+
+### getAppsFlayerHelper ()Lcom/axis/net/helper/AxisnetAppsFlayerHelper;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->appsFlayerHelper Lcom/axis/net/helper/AxisnetAppsFlayerHelper;
+  if-eqz                       v0, +003h
+  return-object                v0
+  const-string                 v0, "appsFlayerHelper"
+  invoke-static                v0, Lkotlin/jvm/internal/Intrinsics;->x(Ljava/lang/String;)V
+  const/4                      v0, 0
+  return-object                v0
+
+### getAxisnetHelpers ()Lcom/axis/net/helper/AxisnetHelpers;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->axisnetHelpers Lcom/axis/net/helper/AxisnetHelpers;
+  return-object                v0
+
+### getBiometricLoginResponse ()Landroidx/lifecycle/LiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->biometricLoginResponse Landroidx/lifecycle/LiveData;
+  return-object                v0
+
+### getBiometricRequestResponse ()Landroidx/lifecycle/LiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->biometricRequestResponse Landroidx/lifecycle/LiveData;
+  return-object                v0
+
+### getBiometricValidationResponse ()Landroidx/lifecycle/LiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->biometricValidationResponse Landroidx/lifecycle/LiveData;
+  return-object                v0
+
+### getError ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->error$delegate Lkotlin/Lazy;
+  invoke-interface             v0, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+  move-result-object           v0
+  check-cast                   v0, Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### getErrorCode ()I
+  iget                         v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->errorCode I
+  return                       v0
+
+### getFirebaseHelper ()Lcom/axis/net/helper/AxisNetFirebaseHelper;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->firebaseHelper Lcom/axis/net/helper/AxisNetFirebaseHelper;
+  if-eqz                       v0, +003h
+  return-object                v0
+  const-string                 v0, "firebaseHelper"
+  invoke-static                v0, Lkotlin/jvm/internal/Intrinsics;->x(Ljava/lang/String;)V
+  const/4                      v0, 0
+  return-object                v0
+
+### getGson ()Lcom/google/gson/Gson;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->gson Lcom/google/gson/Gson;
+  return-object                v0
+
+### getInjected ()Z
+  iget-boolean                 v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->injected Z
+  return                       v0
+
+### getLoading ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->loading$delegate Lkotlin/Lazy;
+  invoke-interface             v0, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+  move-result-object           v0
+  check-cast                   v0, Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### getMessageError ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->messageError$delegate Lkotlin/Lazy;
+  invoke-interface             v0, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+  move-result-object           v0
+  check-cast                   v0, Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### getOtp ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->otp Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### getPrefs ()Lcom/axis/net/helper/SharedPreferencesHelper;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->prefs Lcom/axis/net/helper/SharedPreferencesHelper;
+  if-eqz                       v0, +003h
+  return-object                v0
+  const-string                 v0, "prefs"
+  invoke-static                v0, Lkotlin/jvm/internal/Intrinsics;->x(Ljava/lang/String;)V
+  const/4                      v0, 0
+  return-object                v0
+
+### getRepository ()LFc/a;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->repository LFc/a;
+  if-eqz                       v0, +003h
+  return-object                v0
+  const-string                 v0, "repository"
+  invoke-static                v0, Lkotlin/jvm/internal/Intrinsics;->x(Ljava/lang/String;)V
+  const/4                      v0, 0
+  return-object                v0
+
+### getResponse ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->response$delegate Lkotlin/Lazy;
+  invoke-interface             v0, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+  move-result-object           v0
+  check-cast                   v0, Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### getThrowableError ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->throwableError$delegate Lkotlin/Lazy;
+  invoke-interface             v0, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+  move-result-object           v0
+  check-cast                   v0, Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### getTimer ()Landroidx/lifecycle/MutableLiveData;
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->timer Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### listenSms (Landroid/content/Context;)V
+  const-string                 v0, "context"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-direct                v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->getSmsBroadcastReceiver()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  move-result-object           v0
+  invoke-virtual               v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;->setListener$com_axis_net11_1_0_prodRelease(Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew$b;)V
+  invoke-direct                v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->getSmsBroadcastReceiver()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  move-result-object           v0
+  invoke-virtual               v0, v2, Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;->register(Landroid/content/Context;)V
+  return-void                  
+
+### loginBiometric (Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+  move-object/from16           v0, v29
+  move-object/from16           v1, v32
+  const-string                 v2, "biometricToken"
+  move-object/from16           v12, v30
+  invoke-static                v12, v2, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "imei"
+  move-object/from16           v11, v31
+  invoke-static                v11, v2, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "msisdn"
+  invoke-static                v1, v2, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v2, "deviceId"
+  move-object/from16           v13, v33
+  invoke-static                v13, v2, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  new-instance                 v3, LEc/c;
+  sget-object                  v2, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  invoke-virtual               v2, v1, Lcom/axis/net/helper/CryptoTool$Companion;->encryptSSO(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v4
+  invoke-direct                v0, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->removeEnterCharacter(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v4
+  sget-object                  v14, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v14, Lcom/axis/net/helper/Utils$Companion;->getManufacture()Ljava/lang/String;
+  move-result-object           v5
+  invoke-virtual               v14, Lcom/axis/net/helper/Utils$Companion;->getDeviceName()Ljava/lang/String;
+  move-result-object           v6
+  sget-object                  v15, Lcom/axis/net/helper/Consta;->Companion Lcom/axis/net/helper/Consta$Companion;
+  invoke-virtual               v15, Lcom/axis/net/helper/Consta$Companion;->getCHANNEL_ANDROID()Ljava/lang/String;
+  move-result-object           v7
+  invoke-virtual               v14, Lcom/axis/net/helper/Utils$Companion;->getPhoneDeviceVersion()I
+  move-result                  v8
+  invoke-static                v8, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+  move-result-object           v8
+  invoke-virtual               v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v9
+  invoke-virtual               v9, Lcom/axis/net/helper/SharedPreferencesHelper;->getFCMToken()Ljava/lang/String;
+  move-result-object           v9
+  const-string                 v16, ""
+  if-nez                       v9, +004h
+  move-object/from16           v9, v16
+  invoke-virtual               v14, v1, Lcom/axis/net/helper/Utils$Companion;->msisdnIDFormat(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v10
+  invoke-virtual               v2, v10, Lcom/axis/net/helper/CryptoTool$Companion;->encrypMsisdnMD5(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v10
+  if-nez                       v10, +004h
+  move-object/from16           v10, v16
+  invoke-direct/range          v3 ... v13, LEc/c;-><init>(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+  sget-object                  v17, Lcom/axis/net/config/Signature;->a Lcom/axis/net/config/Signature;
+  invoke-virtual               v2, v1, Lcom/axis/net/helper/CryptoTool$Companion;->encryptSSO(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v4
+  invoke-direct                v0, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->removeEnterCharacter(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v19
+  invoke-virtual               v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v4
+  invoke-virtual               v4, Lcom/axis/net/helper/SharedPreferencesHelper;->getFCMToken()Ljava/lang/String;
+  move-result-object           v4
+  if-nez                       v4, +005h
+  move-object/from16           v21, v16
+  goto                         +3h
+  move-object/from16           v21, v4
+  invoke-virtual               v14, v1, Lcom/axis/net/helper/Utils$Companion;->msisdnIDFormat(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v2, v1, Lcom/axis/net/helper/CryptoTool$Companion;->encrypMsisdnMD5(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v1
+  if-nez                       v1, +005h
+  move-object/from16           v22, v16
+  goto                         +3h
+  move-object/from16           v22, v1
+  invoke-virtual               v14, Lcom/axis/net/helper/Utils$Companion;->getDeviceName()Ljava/lang/String;
+  move-result-object           v23
+  invoke-virtual               v14, Lcom/axis/net/helper/Utils$Companion;->getManufacture()Ljava/lang/String;
+  move-result-object           v24
+  invoke-virtual               v14, Lcom/axis/net/helper/Utils$Companion;->getPhoneDeviceVersion()I
+  move-result                  v1
+  invoke-static                v1, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+  move-result-object           v25
+  invoke-virtual               v15, Lcom/axis/net/helper/Consta$Companion;->getCHANNEL_ANDROID()Ljava/lang/String;
+  move-result-object           v26
+  const/16                     v27, 4
+  const/16                     v28, 0
+  const-string                 v18, "/v1/login/biometric"
+  const/16                     v20, 0
+  invoke-static/range          v17 ... v28, Lcom/axis/net/config/Signature;->k(Lcom/axis/net/config/Signature; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; I Ljava/lang/Object;)Ljava/lang/String;
+  move-result-object           v1
+  iget-object                  v2, v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->useCase Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  if-eqz                       v2, +00eh
+  invoke-static                v0, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v4
+  new-instance                 v5, Lcom/axis/net/ui/splashLogin/viewModel/x$a;
+  invoke-direct                v5, v0, Lcom/axis/net/ui/splashLogin/viewModel/x$a;-><init>(Lcom/axis/net/ui/splashLogin/viewModel/x;)V
+  invoke-virtual               v2, v4, v3, v1, v5, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;->f(Lkotlinx/coroutines/CoroutineScope; LEc/c; Ljava/lang/String; Lcom/axis/net/core/C;)V
+  return-void                  
+
+### onFailure ()V
+  return-void                  
+
+### onSuccess (Ljava/lang/String;)V
+  const-string                 v0, "text"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iget-object                  v0, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->otp Landroidx/lifecycle/MutableLiveData;
+  invoke-virtual               v0, v2, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
+  return-void                  
+
+### onTimeOut ()V
+  invoke-direct                v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->stopTimer()Lkotlin/Unit;
+  return-void                  
+
+### requestOTPBiometric ()V
+  iget-object                  v0, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->useCase Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  if-eqz                       v0, +01ah
+  invoke-static                v4, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v1
+  invoke-virtual               v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/SharedPreferencesHelper;->getToken()Ljava/lang/String;
+  move-result-object           v2
+  if-nez                       v2, +004h
+  const-string                 v2, ""
+  new-instance                 v3, Lcom/axis/net/ui/splashLogin/viewModel/x$b;
+  invoke-direct                v3, v4, Lcom/axis/net/ui/splashLogin/viewModel/x$b;-><init>(Lcom/axis/net/ui/splashLogin/viewModel/x;)V
+  invoke-virtual               v0, v1, v2, v3, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;->i(Lkotlinx/coroutines/CoroutineScope; Ljava/lang/String; Lcom/axis/net/core/C;)V
+  return-void                  
+
+### setAppsFlayerHelper (Lcom/axis/net/helper/AxisnetAppsFlayerHelper;)V
+  const-string                 v0, "<set-?>"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iput-object                  v2, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->appsFlayerHelper Lcom/axis/net/helper/AxisnetAppsFlayerHelper;
+  return-void                  
+
+### setFirebaseHelper (Lcom/axis/net/helper/AxisNetFirebaseHelper;)V
+  const-string                 v0, "<set-?>"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iput-object                  v2, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->firebaseHelper Lcom/axis/net/helper/AxisNetFirebaseHelper;
+  return-void                  
+
+### setInjected (Z)V
+  iput-boolean                 v1, v0, Lcom/axis/net/ui/splashLogin/viewModel/x;->injected Z
+  return-void                  
+
+### setPrefs (Lcom/axis/net/helper/SharedPreferencesHelper;)V
+  const-string                 v0, "<set-?>"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iput-object                  v2, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->prefs Lcom/axis/net/helper/SharedPreferencesHelper;
+  return-void                  
+
+### setRepository (LFc/a;)V
+  const-string                 v0, "<set-?>"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iput-object                  v2, v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->repository LFc/a;
+  return-void                  
+
+### startTimer ()V
+  iget-object                  v0, v3, Lcom/axis/net/ui/splashLogin/viewModel/x;->_timer Landroid/os/CountDownTimer;
+  if-eqz                       v0, +005h
+  invoke-direct                v3, Lcom/axis/net/ui/splashLogin/viewModel/x;->stopTimer()Lkotlin/Unit;
+  new-instance                 v0, Lcom/axis/net/ui/splashLogin/viewModel/x$c;
+  const-wide/32                v1, 60000
+  invoke-direct                v0, v1, v2, v3, Lcom/axis/net/ui/splashLogin/viewModel/x$c;-><init>(J Lcom/axis/net/ui/splashLogin/viewModel/x;)V
+  invoke-virtual               v0, Landroid/os/CountDownTimer;->start()Landroid/os/CountDownTimer;
+  move-result-object           v0
+  iput-object                  v0, v3, Lcom/axis/net/ui/splashLogin/viewModel/x;->_timer Landroid/os/CountDownTimer;
+  return-void                  
+
+### unRegSMS (Landroid/content/Context;)V
+  const-string                 v0, "context"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-direct                v1, Lcom/axis/net/ui/splashLogin/viewModel/x;->getSmsBroadcastReceiver()Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;
+  move-result-object           v0
+  invoke-virtual               v0, v2, Lcom/axis/net/ui/splashLogin/viewModel/SmsBroadCastRecieverNew;->unReg(Landroid/content/Context;)V
+  return-void                  
+
+### validateBiometricOtp (Ljava/lang/String; Ljava/lang/String;)V
+  const-string                 v0, "deviceId"
+  invoke-static                v5, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "otp"
+  invoke-static                v6, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  invoke-virtual               v0, v6, Lcom/axis/net/helper/CryptoTool$Companion;->encryptSSO(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v6
+  invoke-direct                v4, v6, Lcom/axis/net/ui/splashLogin/viewModel/x;->removeEnterCharacter(Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v6
+  iget-object                  v0, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->useCase Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  if-eqz                       v0, +01fh
+  invoke-static                v4, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v1
+  invoke-virtual               v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->getPrefs()Lcom/axis/net/helper/SharedPreferencesHelper;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/SharedPreferencesHelper;->getToken()Ljava/lang/String;
+  move-result-object           v2
+  if-nez                       v2, +004h
+  const-string                 v2, ""
+  new-instance                 v3, LEc/d;
+  invoke-direct                v3, v5, v6, LEc/d;-><init>(Ljava/lang/String; Ljava/lang/String;)V
+  new-instance                 v5, Lcom/axis/net/ui/splashLogin/viewModel/x$d;
+  invoke-direct                v5, v4, Lcom/axis/net/ui/splashLogin/viewModel/x$d;-><init>(Lcom/axis/net/ui/splashLogin/viewModel/x;)V
+  invoke-virtual               v0, v1, v2, v3, v5, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;->j(Lkotlinx/coroutines/CoroutineScope; Ljava/lang/String; LEc/d; Lcom/axis/net/core/C;)V
+  return-void                  
+
+### validateOtpCode (Landroid/app/Activity; Ljava/lang/String; Ljava/lang/String;)V
+  const-string                 v0, "activity"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "otpValue"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "imei"
+  invoke-static                v11, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const/4                      v0, 0
+  iput                         v0, v8, Lcom/axis/net/ui/splashLogin/viewModel/x;->errorCode I
+  invoke-virtual               v8, Lcom/axis/net/ui/splashLogin/viewModel/x;->getLoading()Landroidx/lifecycle/MutableLiveData;
+  move-result-object           v0
+  sget-object                  v1, Ljava/lang/Boolean;->TRUE Ljava/lang/Boolean;
+  invoke-virtual               v0, v1, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
+  invoke-direct                v8, v10, v11, Lcom/axis/net/ui/splashLogin/viewModel/x;->getOtpLoginPayload(Ljava/lang/String; Ljava/lang/String;)Lsc/c;
+  move-result-object           v4
+  invoke-direct                v8, v4, Lcom/axis/net/ui/splashLogin/viewModel/x;->getOtpLoginSignature(Lsc/c;)Ljava/lang/String;
+  move-result-object           v5
+  iget-object                  v2, v8, Lcom/axis/net/ui/splashLogin/viewModel/x;->useCase Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;
+  if-eqz                       v2, +01ch
+  invoke-static                v8, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v3
+  sget-object                  v10, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v8, Landroidx/lifecycle/AndroidViewModel;->getApplication()Landroid/app/Application;
+  move-result-object           v11
+  invoke-virtual               v11, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+  move-result-object           v11
+  invoke-virtual               v10, v11, Lcom/axis/net/helper/Utils$Companion;->getVersionName(Landroid/content/Context;)Ljava/lang/String;
+  move-result-object           v6
+  new-instance                 v7, Lcom/axis/net/ui/splashLogin/viewModel/x$e;
+  invoke-direct                v7, v8, v9, v4, Lcom/axis/net/ui/splashLogin/viewModel/x$e;-><init>(Lcom/axis/net/ui/splashLogin/viewModel/x; Landroid/app/Activity; Lsc/c;)V
+  invoke-virtual/range         v2 ... v7, Lcom/axis/net/ui/splashLogin/usecases/AuthUseCase;->d(Lkotlinx/coroutines/CoroutineScope; Lsc/c; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/core/w;)V
+  return-void                  

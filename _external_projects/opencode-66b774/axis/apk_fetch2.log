@@ -1,0 +1,48 @@
+URL bertoken: https://data.winudf.com/XAPK/Y29tLmF4aXMubmV0Xzg1OF80YWIxZjZjYg?filename=AXISnet+Cek+%26+Beli+Kuota+Data.xapk&...
+== hasil ==
+-rw-r--r-- 1 runner runner 83504120 Nov 20 16:53 axisnet-11.1.0.xapk
+c07ca053a22647916703282d29c11d2c1d1a42cbfd331721be98d50ec3b7cd5f  axisnet-11.1.0.xapk
+harapan : 83504120 byte, c07ca053a22647916703282d29c11d2c1d1a42cbfd331721be98d50ec3b7cd5f
+== isi XAPK ==
+Archive:  axisnet-11.1.0.xapk
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+ 77587739  1980-00-00 00:00   com.axis.net.apk
+ApkPure.com
+    79644  1980-00-00 00:00   icon.png
+ApkPure.com
+   313918  1980-00-00 00:00   config.xxhdpi.apk
+ApkPure.com
+  5334968  1980-00-00 00:00   config.arm64_v8a.apk
+ApkPure.com
+   184729  1980-00-00 00:00   config.en.apk
+ApkPure.com
+     2308  1980-00-00 00:00   manifest.json
+ApkPure.com
+---------                     -------
+ 83503306                     6 files
+== cari .so native + APK pembungkusnya ==
+xapk/config.xxhdpi.apk
+xapk/icon.png
+xapk/config.en.apk
+xapk/config.arm64_v8a.apk
+xapk/com.axis.net.apk
+xapk/manifest.json
+-- xapk/config.xxhdpi.apk
+     1024  1981-01-01 01:01   AndroidManifest.xml
+    80676  1981-01-01 01:01   resources.arsc
+-- xapk/config.en.apk
+      988  1981-01-01 01:01   AndroidManifest.xml
+   170932  1981-01-01 01:01   resources.arsc
+-- xapk/config.arm64_v8a.apk
+     1020  1981-01-01 01:01   AndroidManifest.xml
+    10096  1981-01-01 01:01   lib/arm64-v8a/libandroidx.graphics.path.so
+  1292896  1981-01-01 01:01   lib/arm64-v8a/libc++_shared.so
+    24832  1981-01-01 01:01   lib/arm64-v8a/libchecks.so
+     7112  1981-01-01 01:01   lib/arm64-v8a/libdatastore_shared_counter.so
+   177000  1981-01-01 01:01   lib/arm64-v8a/libfbjni.so
+   273216  1981-01-01 01:01   lib/arm64-v8a/libfgazvajhxc.so
+  2136264  1981-01-01 01:01   lib/arm64-v8a/libhermes.so
+-- xapk/com.axis.net.apk
+   130884  1981-01-01 01:01   AndroidManifest.xml
+  1570708  1981-01-01 01:01   resources.arsc

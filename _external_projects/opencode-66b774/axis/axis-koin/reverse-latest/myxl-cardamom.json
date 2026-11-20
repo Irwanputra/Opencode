@@ -1,0 +1,234 @@
+{
+ "Java_com_myxlultimate_core_spice_Cardamom_getMoEngageAppId": {
+  "addr": "0x257c0",
+  "blob": "0x3c317",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "918002c03d080c1ef8089040780a200039090800f9080d141208010b2a089000780080813cf44f42a9f65741"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getMedalliaAppId": {
+  "addr": "0x2583c",
+  "blob": "0x15f33",
+  "len": 940,
+  "malloc": 944,
+  "n_blobs": 1,
+  "value": "Imf7-c2cRFKeqhh2-yHmP4iMfn8q5SX4tBZWPher3C8W8D75vyxm7OR0CGtOaTsFTaH3-2TOLOefpNqmg9zr7rXL-Ba812XHFaYmhS5GAz-iLuEYNJo6ceYl1VsCmmP6Y4122Q7fFMkzNXvEsfICEVsgVGiDnoxkEV8-YJgoHwXoJEmVo7AI8xZJf_PUmU6vKC_IC58zmXFg36QlEPUkSaadj4qzR8X7gxshUhH68_XDtgd1KgQLPC_C5yW19A8ePO5EgkuqUDPDW_5fRzosQVAD4UTCumFF8iD10ej87qooqIkAvaf0H0oo-ROWU3IStKiQvcsOKJny-39tv-DShE2ykJpqbrOk5WZ3VCVQgbv0-ppY0rTAL02RdYltOADzNbZyzXH5F54jmiRVGNEMvlFnD-RNgMGcgu35PeW9lUbuL0EsdPJYC3ENS9OHTmfj6ZgmiCiaAHo87Ww4KBGcfzSIy10PD92ARE1POxXw4-CSpNLEhe8-iLRGbY5RUrAY-CbR9LDwc0fQhOHYceeB43m4tpF-EurnRNZwigv_k5dkyLf-vxTzTH5kHotCrsxE7pGyGEIgUX6R0x5n9B4-pGB2bM6GKEFFZQ9BuOe_QQHk4_jeZVjGrMuRxcxIy_PSQuBs5xvZ2N0euK47UNtSuXujQXCZEguf-jhyVjyXfyR5i95TLZK0dbc4XXP1yyQwWhxrQ0hkzD5L2wEiQtYaR0G0-j68ewqJlYXfmNU5xZvR3Xxg-EvXdiufq649LNTmTxy0rVUxJ9jc73nQan072LjdLW7g5b_CRomcK8rRtvpBe6A7A7EY0U3JDiHNELlC1sQTtLI9WyuZLpN1h1mGjbUaCX-fwVq8zn_Ne-Cww15DBLn3P5GNxlLxHHGSlvtruM4aO8emrPMjWIGX--oOrMesN2NELpzuL8neIw7Bs6Q="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getOptimizelyAppId": {
+  "addr": "0x258b0",
+  "blob": "0x176f5",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "on_9w8Uh_cGp17qDlX3eo1GyAO_pcuVG5APLbtyVtMc="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getSslCertKey": {
+  "addr": "0x2592c",
+  "blob": "0x15ce0",
+  "len": 88,
+  "malloc": 96,
+  "n_blobs": 1,
+  "value": "5QWvWV8dlu19Jk7jEVYhYM8ySJdjR3G7U5hjg6FKBcyqr8tycDtL8u7bi28-ydYh86Sdh_XXccwlk9Kq7wf28Q=="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getEncryptionKey": {
+  "addr": "0x259b8",
+  "blob": "0x17921",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "jPIvjdOJzofWIfEgT2QLqNjxKDoL6nVWsFLJURIQoaonfAEk-JclxqLES-gIvOcs"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getApiKey": {
+  "addr": "0x25a34",
+  "blob": "0x17f72",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "Y5HfxgZ2lusxkpRWNqepA0bKaXCoJSlWL6NWvNnCu48="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamSslCertKey": {
+  "addr": "0x25ab0",
+  "blob": "0x18297",
+  "len": 88,
+  "malloc": 96,
+  "n_blobs": 1,
+  "value": "V0C6UGlATEtqGf0SrFAx18eFSXBEoaqSf3oXlbCve8VJhoEY0OI7xuCudYWy0nFskTVJP4zphLDyfmUk0X8amA=="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getLiveChatAesEncryptionKey": {
+  "addr": "0x25b3c",
+  "blob": "0x188fd",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "kqT0F4XkQB9SXsS0IQrxtekiH1y6jo-QUKt2W1S5Nt8wLAdK_g0zkrkl9fTJh_me"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getXlPrepaidXenditKey": {
+  "addr": "0x25bb8",
+  "blob": "0x1865d",
+  "len": 128,
+  "malloc": 144,
+  "n_blobs": 1,
+  "value": "c91bb1tNs6S8HUweZt8mg6-dOLbANhqHhCj25pdSNu2t-8aNI_jK0pW-8FNwiKN0mTnroSTDmNfqyfEzpRI4CvyTQ_2hFDNlnkxO_PfAS-oPHNA7QOSKtD-POS3oybkU"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getXlAxisTrialXenditKey": {
+  "addr": "0x25c44",
+  "blob": "0x175eb",
+  "len": 128,
+  "malloc": 144,
+  "n_blobs": 1,
+  "value": "c91bb1tNs6S8HUweZt8mg1t0YzyxMJz4QEw3g1IQlB3evBPtkrJgI5QSo_gR-ziiirACDV0bQ1ByUYgpzHXGrQva_kV56WlZiL1mxzI6gXqAprqjkPBbTH4KV5_WAyfw"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getXlPrioXenditKey": {
+  "addr": "0x25cd0",
+  "blob": "0x16ed5",
+  "len": 128,
+  "malloc": 144,
+  "n_blobs": 1,
+  "value": "c91bb1tNs6S8HUweZt8mgzhY0ENUsWn9ikSMoEeAxfNsIBDVE06xJmJduu6Sa4pRQDm3MJ_KQhhVzMRZ34NWxAnEcyJ91JBa02vnE7-oC2SrqYx7k-f0BUrJhb552hkH"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getXlHomeXenditKey": {
+  "addr": "0x25d5c",
+  "blob": "0x18c68",
+  "len": 128,
+  "malloc": 144,
+  "n_blobs": 1,
+  "value": "c91bb1tNs6S8HUweZt8mg5IMhxGSMaltB6uCDOlPLgcTs-GFVsNkVnywuonhMNLMMLtO6CKxMQwwaYDrmxVHrMWHSGyVaSCmBW8tJiTXC0Osiz7gEcTdtTNhdAl4OVnA"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getXlEnterpriseXenditKey": {
+  "addr": "0x25de8",
+  "blob": "0x167e8",
+  "len": 128,
+  "malloc": 144,
+  "n_blobs": 1,
+  "value": "c91bb1tNs6S8HUweZt8mg7hEwxZdP-z9BBqMZODwIeibGmj-nNF1xQPer5GUUI2wsqGQbaamMeCqeDsWG-GWSYsls_i0bDuQ9zfDTfWmGHy2diseMBno33q8TJh8ssym"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getXlEnterpriseSelfPaidXenditKey": {
+  "addr": "0x25e74",
+  "blob": "0x167e8",
+  "len": 128,
+  "malloc": 144,
+  "n_blobs": 1,
+  "value": "c91bb1tNs6S8HUweZt8mg7hEwxZdP-z9BBqMZODwIeibGmj-nNF1xQPer5GUUI2wsqGQbaamMeCqeDsWG-GWSYsls_i0bDuQ9zfDTfWmGHy2diseMBno33q8TJh8ssym"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getAppsflyerAppId": {
+  "addr": "0x25f00",
+  "blob": "0x182f0",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "kfFxsrqHQQYQFN49Qj159FW1FQtcIWYN8Wo55RLrMS4="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getEncryptionKeyAESCustomPrepaidAndPrio": {
+  "addr": "0x25f7c",
+  "blob": "0x188fd",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "kqT0F4XkQB9SXsS0IQrxtekiH1y6jo-QUKt2W1S5Nt8wLAdK_g0zkrkl9fTJh_me"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getEncryptionKeyHmac512": {
+  "addr": "0x25ff8",
+  "blob": "0x186de",
+  "len": 192,
+  "malloc": 208,
+  "n_blobs": 1,
+  "value": "ZZhFCPFgNpKf3JGnmQ3-8dovYNlNyorsC9-9NV3lUUWrPDk9NNjAcdHHSEmZ9f4j6mVRj82Vdtrsy3trGewMmDGu6ZiOsB8OK00aM89QHJ2_pmN2sMHP-ASuABMdwUcV7-pysMYK9ULfalTlxdC1YynqVmO3QdUXDWsIRo91Z5UcB5obcjp_y3R06mVZ3HTn"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamClientId": {
+  "addr": "0x26094",
+  "blob": "0x17c4c",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "zSLSDj6aAjdrjpzUfLf1qSP13AXfOANlKPmQa_heA3hxX4V6IysXjA9qE28UTFA1"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamUrl": {
+  "addr": "0x26110",
+  "blob": "0x185a4",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "tC7DQnovEIYfigr_RbHHKcZg-Vb3MaquYT-IE1NqOwucMiGyCNXdyw2vMTDe4yOq"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamClientSecret": {
+  "addr": "0x2618c",
+  "blob": "0x172a1",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "2KM87fFA7JBqhYkE2GSjHNYs28dlnj-z-aYn1UJQr6d_65sHIXGGkataxjYo8gH_"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamClientIdSecond": {
+  "addr": "0x26208",
+  "blob": "0x162e0",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "TpwLRn3AKqGnyDwnX4gR3Y5Vht6MMJZtxKrWb-DYXBoY728hk_0mFGRkSFDGi23g"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamClientSecondSecret": {
+  "addr": "0x26284",
+  "blob": "0x180f1",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "u5FW-PS-9SQZADHUCNQEeO2l7TcnRXROhHtk0WATGkozlLHuBxftl3y-4g5U9Jsm"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getCiamHmacKey": {
+  "addr": "0x26300",
+  "blob": "0x166c1",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "jDaxHwocBR2jF9Rfzc_PQ34SH-sWsKas88CDxiue6-Kbes-z7C7DyRoBQD93Dleg"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getDataDogClientToken": {
+  "addr": "0x2637c",
+  "blob": "0x17722",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "-v3A9nnmblhk90cFom_ulJl-tRspc1z1ls93gS7sMl6b3h9jZvVOb6_XQmeAF7g0"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getDataDogAppId": {
+  "addr": "0x263f8",
+  "blob": "0x1831d",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "J0FvHs_A4FLPOZKHKZK2IxMvOgP3NXrUm0jR3EBlPYoOSOVj65suD0z4ICc4RXxz"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getDataDogEnvName": {
+  "addr": "0x26474",
+  "blob": "0x171a7",
+  "len": 24,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "ePyAWhBGQvh0R6wIi7s4ew=="
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getFirebaseAppCheckDebugToken": {
+  "addr": "0x264f0",
+  "blob": "0x17f9f",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "bPx5ns8Kp4IiX_8KKaAvrPqTgVEg2JrSrIbCcMlUFQhClaZCZg-5go-u9WZCFXhc"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getSatuEncryptionKey": {
+  "addr": "0x2656c",
+  "blob": "0x17db5",
+  "len": 64,
+  "malloc": 80,
+  "n_blobs": 1,
+  "value": "A6UcpKp-SZzj4McRUKRP2e9Sd6FLT6mn9I3EBHf_46uG1nmhzKW7RRIIY3BVw6Y0"
+ },
+ "Java_com_myxlultimate_core_spice_Cardamom_getSatuEncryptionIv": {
+  "addr": "0x265e8",
+  "blob": "0x1893e",
+  "len": 44,
+  "malloc": 48,
+  "n_blobs": 1,
+  "value": "3qID6bp9xMzUa5JVKnT33DxBDK_Ps4idhqwpDEjWzTI="
+ }
+}

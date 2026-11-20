@@ -1,0 +1,117 @@
+# Lcom/axis/net/features/alifetime/detail/viewModels/a; in tmp14169616706995394833.dex
+super: Landroidx/lifecycle/ViewModel;
+## fields
+  $stable : I
+  claimBonusAlifetimeState : Landroidx/lifecycle/LiveData;
+  claimBonusAlifetimeStateMutable : Landroidx/lifecycle/MutableLiveData;
+  getAlifetimeDetailState : Landroidx/lifecycle/LiveData;
+  getAlifetimeDetailStateMutable : Landroidx/lifecycle/MutableLiveData;
+  prefs : Lcom/axis/net/helper/SharedPreferencesHelper;
+  selectedBonusAlifetime : LZ5/h;
+  useCase : Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase;
+## methods
+
+### <clinit> ()V access=static constructor
+  return-void                  
+
+### <init> (Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase; Lcom/axis/net/helper/SharedPreferencesHelper;)V access=public constructor
+  const-string                 v0, "useCase"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  const-string                 v0, "prefs"
+  invoke-static                v3, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  invoke-direct                v1, Landroidx/lifecycle/ViewModel;-><init>()V
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->useCase Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase;
+  iput-object                  v3, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->prefs Lcom/axis/net/helper/SharedPreferencesHelper;
+  new-instance                 v2, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v2, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->getAlifetimeDetailStateMutable Landroidx/lifecycle/MutableLiveData;
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->getAlifetimeDetailState Landroidx/lifecycle/LiveData;
+  new-instance                 v2, Landroidx/lifecycle/MutableLiveData;
+  invoke-direct                v2, Landroidx/lifecycle/MutableLiveData;-><init>()V
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->claimBonusAlifetimeStateMutable Landroidx/lifecycle/MutableLiveData;
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->claimBonusAlifetimeState Landroidx/lifecycle/LiveData;
+  return-void                  
+
+### access$getClaimBonusAlifetimeStateMutable$p (Lcom/axis/net/features/alifetime/detail/viewModels/a;)Landroidx/lifecycle/MutableLiveData; access=public static final synthetic
+  iget-object                  v0, v0, Lcom/axis/net/features/alifetime/detail/viewModels/a;->claimBonusAlifetimeStateMutable Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### access$getGetAlifetimeDetailStateMutable$p (Lcom/axis/net/features/alifetime/detail/viewModels/a;)Landroidx/lifecycle/MutableLiveData; access=public static final synthetic
+  iget-object                  v0, v0, Lcom/axis/net/features/alifetime/detail/viewModels/a;->getAlifetimeDetailStateMutable Landroidx/lifecycle/MutableLiveData;
+  return-object                v0
+
+### claimBonusAlifetime (Ld6/a;)V access=public final
+  const-string                 v0, "bonusRequest"
+  invoke-static                v10, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iget-object                  v0, v9, Lcom/axis/net/features/alifetime/detail/viewModels/a;->claimBonusAlifetimeStateMutable Landroidx/lifecycle/MutableLiveData;
+  sget-object                  v1, LM5/c$b;->a LM5/c$b;
+  invoke-virtual               v0, v1, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
+  iget-object                  v2, v9, Lcom/axis/net/features/alifetime/detail/viewModels/a;->useCase Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase;
+  invoke-static                v9, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v3
+  sget-object                  v0, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v0, Lcom/axis/net/helper/Utils$Companion;->getVersionName()Ljava/lang/String;
+  move-result-object           v4
+  iget-object                  v0, v9, Lcom/axis/net/features/alifetime/detail/viewModels/a;->prefs Lcom/axis/net/helper/SharedPreferencesHelper;
+  invoke-virtual               v0, Lcom/axis/net/helper/SharedPreferencesHelper;->getToken()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +004h
+  const-string                 v0, ""
+  move-object                  v5, v0
+  new-instance                 v0, Lcom/google/gson/GsonBuilder;
+  invoke-direct                v0, Lcom/google/gson/GsonBuilder;-><init>()V
+  invoke-virtual               v0, Lcom/google/gson/GsonBuilder;->disableHtmlEscaping()Lcom/google/gson/GsonBuilder;
+  move-result-object           v0
+  invoke-virtual               v0, Lcom/google/gson/GsonBuilder;->create()Lcom/google/gson/Gson;
+  move-result-object           v0
+  invoke-virtual               v0, v10, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+  move-result-object           v6
+  const-string                 v0, "toJson(...)"
+  invoke-static                v6, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object; Ljava/lang/String;)V
+  new-instance                 v8, Lcom/axis/net/features/alifetime/detail/viewModels/a$a;
+  invoke-direct                v8, v9, Lcom/axis/net/features/alifetime/detail/viewModels/a$a;-><init>(Lcom/axis/net/features/alifetime/detail/viewModels/a;)V
+  move-object                  v7, v10
+  invoke-virtual/range         v2 ... v8, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase;->claimBonusAlifetime(Lkotlinx/coroutines/CoroutineScope; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Ld6/a; Lcom/axis/net/core/C;)V
+  return-void                  
+
+### getAlifetimeDetail (Ljava/lang/String;)V access=public final
+  const-string                 v0, "id"
+  invoke-static                v9, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iget-object                  v0, v8, Lcom/axis/net/features/alifetime/detail/viewModels/a;->getAlifetimeDetailStateMutable Landroidx/lifecycle/MutableLiveData;
+  sget-object                  v1, LM5/c$b;->a LM5/c$b;
+  invoke-virtual               v0, v1, Landroidx/lifecycle/MutableLiveData;->postValue(Ljava/lang/Object;)V
+  iget-object                  v2, v8, Lcom/axis/net/features/alifetime/detail/viewModels/a;->useCase Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase;
+  invoke-static                v8, Landroidx/lifecycle/ViewModelKt;->getViewModelScope(Landroidx/lifecycle/ViewModel;)Lkotlinx/coroutines/CoroutineScope;
+  move-result-object           v3
+  sget-object                  v0, Lcom/axis/net/helper/Utils;->Companion Lcom/axis/net/helper/Utils$Companion;
+  invoke-virtual               v0, Lcom/axis/net/helper/Utils$Companion;->getVersionName()Ljava/lang/String;
+  move-result-object           v5
+  iget-object                  v0, v8, Lcom/axis/net/features/alifetime/detail/viewModels/a;->prefs Lcom/axis/net/helper/SharedPreferencesHelper;
+  invoke-virtual               v0, Lcom/axis/net/helper/SharedPreferencesHelper;->getToken()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +004h
+  const-string                 v0, ""
+  move-object                  v4, v0
+  new-instance                 v7, Lcom/axis/net/features/alifetime/detail/viewModels/a$b;
+  invoke-direct                v7, v8, Lcom/axis/net/features/alifetime/detail/viewModels/a$b;-><init>(Lcom/axis/net/features/alifetime/detail/viewModels/a;)V
+  move-object                  v6, v9
+  invoke-virtual/range         v2 ... v7, Lcom/axis/net/features/alifetime/general/usecases/AlifetimeDashboardUseCase;->getAlifetimeBonusDetail(Lkotlinx/coroutines/CoroutineScope; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/axis/net/core/C;)V
+  return-void                  
+
+### getClaimBonusAlifetimeState ()Landroidx/lifecycle/LiveData; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->claimBonusAlifetimeState Landroidx/lifecycle/LiveData;
+  return-object                v0
+
+### getGetAlifetimeDetailState ()Landroidx/lifecycle/LiveData; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->getAlifetimeDetailState Landroidx/lifecycle/LiveData;
+  return-object                v0
+
+### getSelectedBonusAlifetime ()LZ5/h; access=public final
+  iget-object                  v0, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->selectedBonusAlifetime LZ5/h;
+  return-object                v0
+
+### setSelectedBonusAlifetime (LZ5/h;)V access=public final
+  const-string                 v0, "bonus"
+  invoke-static                v2, v0, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object; Ljava/lang/String;)V
+  iput-object                  v2, v1, Lcom/axis/net/features/alifetime/detail/viewModels/a;->selectedBonusAlifetime LZ5/h;
+  return-void                  

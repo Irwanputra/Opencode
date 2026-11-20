@@ -1,0 +1,274 @@
+{
+ "Java_com_axis_net_helper_AxisnetHelpers_getSaltKey": {
+  "addr": "0x343c4",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getMsisdnSaltKey": {
+  "addr": "0x3447c",
+  "blob": "0x1e603",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ae432353a4eb4eb9\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getSecretKey": {
+  "addr": "0x34534",
+  "blob": "0x20f87",
+  "len": 17,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "2eb9362dd64b1e56\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getOtpCode": {
+  "addr": "0x345ec",
+  "blob": "0x1fdca",
+  "len": 15,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "CaCS1KEquqk=\\n\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos1": {
+  "addr": "0x346ac",
+  "blob": "0x21e26",
+  "len": 67,
+  "malloc": 72,
+  "n_blobs": 1,
+  "value": "AgdC3Dd37i69h355m15B656St5d4s252pZ6462l7z37fk4b675a4v7784x87134z367"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos2": {
+  "addr": "0x34734",
+  "blob": "0x222bc",
+  "len": 101,
+  "malloc": 104,
+  "n_blobs": 1,
+  "value": "Ad395f533t1587d21j393579n51X6a44C3f654Z17b64376642G327377D394160737F54c493d6178W485a744e6Re42453b4y37"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos3": {
+  "addr": "0x347c0",
+  "blob": "0x225b3",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "Ad3t555s767re6Z7314x3636G15f536J"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos4": {
+  "addr": "0x34834",
+  "blob": "0x1eab2",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "Ad3td314as595a5r55076v5a413dx6449y75C407D56dt456669s4A8454e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos5": {
+  "addr": "0x348b8",
+  "blob": "0x20f98",
+  "len": 60,
+  "malloc": 64,
+  "n_blobs": 1,
+  "value": "Ad3td3764s6a654rd6d29v3d463x24a6y64Cf455Db4t4475a6s7A566f6e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos6": {
+  "addr": "0x3493c",
+  "blob": "0x1f143",
+  "len": 127,
+  "malloc": 128,
+  "n_blobs": 1,
+  "value": "Ad3d3X15c45355dz60536v6517d413m44d673J6553a775b6K9E35576a61T7b443Uc63307468y426e4b686i975537273p3f543q73a61324b6453R3251383a525"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos7": {
+  "addr": "0x349d0",
+  "blob": "0x21a63",
+  "len": 127,
+  "malloc": 128,
+  "n_blobs": 1,
+  "value": "Ad3d3X76665745u97f5556435461p375145r3549H3a65485e4JE56078765V2633d2a71N7379724e40j323544585f484av547b6861324mb64533251w383a52z5"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos9": {
+  "addr": "0x34a64",
+  "blob": "0x1fdd9",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "5LuLv64KzyK656HwtHJ35GxG54S4tACA4\u0000ht"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos10": {
+  "addr": "0x34adc",
+  "blob": "0x1eaef",
+  "len": 23,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "2FtEyF43DKoJzD45SzS4TA\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos11": {
+  "addr": "0x34b9c",
+  "blob": "0x21413",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "7r6tEe6EGgD9pS64E6h46z1A6r0t5Cf6ze4k"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPos12": {
+  "addr": "0x34c1c",
+  "blob": "0x220b2",
+  "len": 185,
+  "malloc": 192,
+  "n_blobs": 1,
+  "value": "Ad3d31413r27e44367739534a71333d4fk475073347a55725d2d44744t146535967354e603f4a7b4d4144453c6879A4f6974375K357563c6a6d416a794842777Ff67566457705157564b6474G65643d6f4f566Ld633c62556a78624e4"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringDecrypt": {
+  "addr": "0x34cc0",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringXl": {
+  "addr": "0x34d80",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxis": {
+  "addr": "0x34e30",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringHash": {
+  "addr": "0x34ee4",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAppsFlayerKey": {
+  "addr": "0x34f94",
+  "blob": "0x1e64e",
+  "len": 23,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "ru953xhEQTEVtzP3bGWBDG\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getPassword": {
+  "addr": "0x35054",
+  "blob": "0x20c99",
+  "len": 32,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "52c9abe3bcc73193282995ba27c3d30c"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringAxisnet": {
+  "addr": "0x350c8",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStringMsisdn": {
+  "addr": "0x35188",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getUrlQrCode": {
+  "addr": "0x35244",
+  "blob": "0x1ef5e",
+  "len": 68,
+  "malloc": 72,
+  "n_blobs": 1,
+  "value": "https://image-charts.com/chart?cht=qr&chs=420x420&choe=UTF-8&chl=\u0000ht"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getDriveBaseUrl": {
+  "addr": "0x352c4",
+  "blob": "0x1fbf7",
+  "len": 28,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://drive.google.com/uc?"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getUrlDrawable": {
+  "addr": "0x35340",
+  "blob": "0x1f35a",
+  "len": 30,
+  "malloc": 32,
+  "n_blobs": 1,
+  "value": "https://drive.google.com/open?"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getHostname": {
+  "addr": "0x353bc",
+  "blob": "0x20736",
+  "len": 14,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "my.axisnet.id\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewHostname": {
+  "addr": "0x3547c",
+  "blob": "0x211b4",
+  "len": 19,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "my-test.axisnet.id\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewSaltKey": {
+  "addr": "0x3553c",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getNewAccessToken": {
+  "addr": "0x355fc",
+  "blob": "0x1f600",
+  "len": 12,
+  "malloc": null,
+  "n_blobs": 1,
+  "value": "accesstoken\u0000"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getAutorepurchaseKey": {
+  "addr": "0x356c0",
+  "blob": "0x1e3b6",
+  "len": 36,
+  "malloc": 40,
+  "n_blobs": 1,
+  "value": "eyJzZXJ2aWNlX2lkIjogIjMyMTMxNzcifQ=="
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getStatusTestingNewCluster": {
+  "addr": "0x35e44",
+  "blob": null,
+  "len": null,
+  "malloc": null,
+  "n_blobs": 0,
+  "value": null
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getXenditStagingKey": {
+  "addr": "0x36bd8",
+  "blob": "0x1ed6a",
+  "len": 86,
+  "malloc": 88,
+  "n_blobs": 1,
+  "value": "xnd_public_development_qR214GRZORiVp7CmaF9y52JXnBWY8b3p3mgaRfpMfQnpsI9uy4R9nvtODKoOxy:"
+ },
+ "Java_com_axis_net_helper_AxisnetHelpers_getXenditProductionKey": {
+  "addr": "0x36c64",
+  "blob": "0x20b03",
+  "len": 84,
+  "malloc": 88,
+  "n_blobs": 1,
+  "value": "xnd_public_production_JHs7lBxKLamMtjjlVPDsREAHACQtPrUyYUt4N7Fc33fbNQA4S59jdR2JWDtuI:"
+ }
+}

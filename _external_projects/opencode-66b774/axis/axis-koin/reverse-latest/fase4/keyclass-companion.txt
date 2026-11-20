@@ -1,0 +1,183 @@
+# Lcom/axis/net/helper/KeyClass$Companion; in tmp3065699920606524921.dex
+super: Ljava/lang/Object;
+## fields
+## methods
+
+### <init> ()V access=private constructor
+  invoke-direct                v0, Ljava/lang/Object;-><init>()V
+  return-void                  
+
+### <init> (Lkotlin/jvm/internal/DefaultConstructorMarker;)V access=public synthetic constructor
+  invoke-direct                v0, Lcom/axis/net/helper/KeyClass$Companion;-><init>()V
+  return-void                  
+
+### getAlgorithm ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getAlgorithm$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +00bh
+  sget-object                  v0, Lcom/axis/net/helper/EnumCrypto;->ALGORITHM Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v0, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setAlgorithm$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getAlgorithm$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getAxisnetHelpers ()Lcom/axis/net/helper/AxisnetHelpers; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getAxisnetHelpers$cp()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v0
+  return-object                v0
+
+### getInstance ()Lcom/axis/net/helper/KeyClass; access=public final synchronized
+  monitor-enter                v1
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getInstance$cp()Lcom/axis/net/helper/KeyClass;
+  move-result-object           v0
+  if-nez                       v0, +00dh
+  new-instance                 v0, Lcom/axis/net/helper/KeyClass;
+  invoke-direct                v0, Lcom/axis/net/helper/KeyClass;-><init>()V
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setInstance$cp(Lcom/axis/net/helper/KeyClass;)V
+  goto                         +3h
+  move-exception               v0
+  goto                         +7h
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getInstance$cp()Lcom/axis/net/helper/KeyClass;
+  move-result-object           v0
+  monitor-exit                 v1
+  return-object                v0
+  monitor-exit                 v1
+  throw                        v0
+
+### getLinkPro ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getLinkPro$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +019h
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  sget-object                  v1, Lcom/axis/net/helper/EnumCrypto;->LINKPRO Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v1, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v3, Lcom/axis/net/helper/KeyClass$Companion;->getAxisnetHelpers()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/AxisnetHelpers;->getStringDecrypt()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/helper/CryptoTool$Companion;->decryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setLinkPro$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getLinkPro$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getMode ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getMode$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +00bh
+  sget-object                  v0, Lcom/axis/net/helper/EnumCrypto;->MODE Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v0, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setMode$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getMode$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getPadding ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getPadding$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +00bh
+  sget-object                  v0, Lcom/axis/net/helper/EnumCrypto;->PADDING Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v0, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setPadding$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getPadding$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getPassword ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getPassword$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +019h
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  sget-object                  v1, Lcom/axis/net/helper/EnumCrypto;->PASSWORD Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v1, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v3, Lcom/axis/net/helper/KeyClass$Companion;->getAxisnetHelpers()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/AxisnetHelpers;->getStringDecrypt()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/helper/CryptoTool$Companion;->decryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setPassword$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getPassword$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getSaltKey ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getSaltKey$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +019h
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  sget-object                  v1, Lcom/axis/net/helper/EnumCrypto;->SALT_KEY Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v1, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v3, Lcom/axis/net/helper/KeyClass$Companion;->getAxisnetHelpers()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/AxisnetHelpers;->getStringDecrypt()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/helper/CryptoTool$Companion;->decryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setSaltKey$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getSaltKey$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getSecretKey ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getSecretKey$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +019h
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  sget-object                  v1, Lcom/axis/net/helper/EnumCrypto;->SECRET_KEY_ANDROID Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v1, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v3, Lcom/axis/net/helper/KeyClass$Companion;->getAxisnetHelpers()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/AxisnetHelpers;->getStringDecrypt()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/helper/CryptoTool$Companion;->decryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setSecretKey$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getSecretKey$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getSharedKey ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getSharedKey$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +00dh
+  invoke-virtual               v1, Lcom/axis/net/helper/KeyClass$Companion;->getAxisnetHelpers()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v0
+  invoke-virtual               v0, Lcom/axis/net/helper/AxisnetHelpers;->getMsisdnSaltKey()Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setSharedKey$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getSharedKey$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### getUsername ()Ljava/lang/String; access=public final
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getUsername$cp()Ljava/lang/String;
+  move-result-object           v0
+  if-nez                       v0, +019h
+  sget-object                  v0, Lcom/axis/net/helper/CryptoTool;->Companion Lcom/axis/net/helper/CryptoTool$Companion;
+  sget-object                  v1, Lcom/axis/net/helper/EnumCrypto;->USERNAME Lcom/axis/net/helper/EnumCrypto;
+  invoke-virtual               v1, Lcom/axis/net/helper/EnumCrypto;->toString()Ljava/lang/String;
+  move-result-object           v1
+  invoke-virtual               v3, Lcom/axis/net/helper/KeyClass$Companion;->getAxisnetHelpers()Lcom/axis/net/helper/AxisnetHelpers;
+  move-result-object           v2
+  invoke-virtual               v2, Lcom/axis/net/helper/AxisnetHelpers;->getStringDecrypt()Ljava/lang/String;
+  move-result-object           v2
+  invoke-virtual               v0, v1, v2, Lcom/axis/net/helper/CryptoTool$Companion;->decryptString(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+  move-result-object           v0
+  invoke-static                v0, Lcom/axis/net/helper/KeyClass;->access$setUsername$cp(Ljava/lang/String;)V
+  invoke-static                Lcom/axis/net/helper/KeyClass;->access$getUsername$cp()Ljava/lang/String;
+  move-result-object           v0
+  return-object                v0
+
+### setInstance (Lcom/axis/net/helper/KeyClass;)V access=public final
+  invoke-static                v1, Lcom/axis/net/helper/KeyClass;->access$setInstance$cp(Lcom/axis/net/helper/KeyClass;)V
+  return-void                  
