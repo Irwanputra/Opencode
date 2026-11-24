@@ -222,6 +222,9 @@ func Start(resolver, domain, pubkeyHex, qtype, mode string, listenPort, kcpWindo
 			return errors.New("mode Compact hanya berlaku untuk tipe FT")
 		}
 		m.Compact = true
+	case "HC", "HC-BOND", "HC-PLAIN", "HC-TXTSHORT", "HC-LIMITS", "HC-CALIB", "HC-CALIBTXT":
+		// Handshake ala HTTP Custom 8.1.5 (payload hc-release/2:...).
+		m.HC = strings.ToUpper(strings.TrimSpace(mode))
 	default:
 		return fmt.Errorf("mode tidak dikenal: %q", mode)
 	}
@@ -538,7 +541,14 @@ func (t *tunnel) openSession(
 	// Kanal Noise di atas KCP: Noise_NK_25519_ChaChaPoly_BLAKE2s,
 	// prologue "dnstt 2020-04-13". Kegagalan handshake berarti kunci publik
 	// server tidak cocok — pesan ala HTTP Custom 8.1.5.
-	rw, err := noise.NewClient(conn, pubkey)
+	// Mode HC memakai payload pesan pertama hc-release/2:<varian>.
+	var rw io.ReadWriteCloser
+	if p := hcMsg1Payload(m.HC); p != nil {
+		logf("SlowDNS native: handshake HC %s", m.HC)
+		rw, err = noise.NewClientHC(conn, pubkey, p)
+	} else {
+		rw, err = noise.NewClient(conn, pubkey)
+	}
 	if err != nil {
 		conn.Close()
 		sc.pconn.Close()

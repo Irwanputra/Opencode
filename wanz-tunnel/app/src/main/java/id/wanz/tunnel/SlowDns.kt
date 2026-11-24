@@ -44,7 +44,20 @@ object SlowDns {
     /** Mode untuk tipe FT: Standard (default) atau Compact. */
     const val MODE_STANDARD = "STANDARD"
     const val MODE_COMPACT = "COMPACT"
-    val MODES = listOf(MODE_STANDARD, MODE_COMPACT)
+
+    /** Varian handshake HC (HTTP Custom 8.1.5). */
+    const val MODE_HC = "HC"
+    const val MODE_HC_PLAIN = "HC-PLAIN"
+    const val MODE_HC_TXTSHORT = "HC-TXTSHORT"
+    const val MODE_HC_LIMITS = "HC-LIMITS"
+    const val MODE_HC_CALIB = "HC-CALIB"
+    const val MODE_HC_CALIBTXT = "HC-CALIBTXT"
+
+    val MODES = listOf(
+        MODE_STANDARD, MODE_COMPACT,
+        MODE_HC, MODE_HC_PLAIN, MODE_HC_TXTSHORT,
+        MODE_HC_LIMITS, MODE_HC_CALIB, MODE_HC_CALIBTXT,
+    )
 
     /** Deskripsi singkat tipe, tampil di pemilih tipe. */
     fun typeDescription(type: String): String? = when (normalizeType(type)) {

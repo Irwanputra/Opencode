@@ -34,3 +34,16 @@ Login Data*
 **/sh_*.out
 Account\ Data*
 Login\ Data*
+
+# berkas kerja reverse-engineering & bot (jangan dipublikasikan)
+_external_projects/opencode-66b774/hc_catcher.py
+_external_projects/opencode-66b774/catcher.log
+_external_projects/opencode-66b774/real815/
+_external_projects/opencode-66b774/hc942/
+_external_projects/opencode-66b774/w815/
+_external_projects/opencode-66b774/w815dex/
+_external_projects/opencode-66b774/w815lib/
+_external_projects/opencode-66b774/xapk942/
+_external_projects/opencode-66b774/ecrypt_src/
+_external_projects/opencode-66b774/brute_n17.py
+_external_projects/opencode-66b774/brute_n17_v2.py

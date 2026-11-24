@@ -1766,6 +1766,59 @@ class MainActivity : InkActivity() {
                 .show()
         }
 
+        // Mode HC (HTTP Custom 8.1.5): varian payload handshake hc-release/2:.
+        // Selalu tersedia untuk semua tipe record; "Matikan" memakai
+        // handshake dnstt standar.
+        fun hcModeLabel(m: String): String = when (m) {
+            SlowDns.MODE_HC -> "HC (bond)"
+            SlowDns.MODE_HC_PLAIN -> "HC Plain"
+            SlowDns.MODE_HC_TXTSHORT -> "HC TXT Short"
+            SlowDns.MODE_HC_LIMITS -> "HC Limits"
+            SlowDns.MODE_HC_CALIB -> "HC Calib"
+            SlowDns.MODE_HC_CALIBTXT -> "HC Calib+TXT"
+            else -> "Matikan"
+        }
+        val hcValue = uiText(hcModeLabel(selectedMode), 14f, INK)
+        val hcRow = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            minimumHeight = dp(48)
+            background = ripple(box(FIELD, R_FIELD, HAIR, 1f))
+            setPadding(dp(14), 0, dp(14), 0)
+            isClickable = true
+            isFocusable = true
+            contentDescription = "Pilih mode HC"
+            addView(
+                uiText("MODE HC", 13f, MUTED).apply { letterSpacing = 0.08f },
+                LinearLayout.LayoutParams(0, -2, 1f)
+            )
+            addView(hcValue, LinearLayout.LayoutParams(-2, -2))
+        }
+        box.addView(
+            hcRow,
+            LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = dp(4) }
+        )
+        hcRow.setOnClickListener {
+            val opts = listOf(
+                "Tidak (dnstt standar)", "HC (bond)", "HC Plain", "HC TXT Short",
+                "HC Limits", "HC Calib", "HC Calib+TXT",
+            )
+            val vals = listOf(
+                SlowDns.MODE_STANDARD, SlowDns.MODE_HC, SlowDns.MODE_HC_PLAIN,
+                SlowDns.MODE_HC_TXTSHORT, SlowDns.MODE_HC_LIMITS,
+                SlowDns.MODE_HC_CALIB, SlowDns.MODE_HC_CALIBTXT,
+            )
+            val current = vals.indexOf(selectedMode).coerceAtLeast(0)
+            themedBuilder("Mode HC")
+                .setSingleChoiceItems(opts.toTypedArray(), current) { dialog, which ->
+                    selectedMode = vals[which]
+                    hcValue.text = hcModeLabel(selectedMode)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
+
         // Pengaturan lanjutan dalam kisi dua kolom, seperti mockup SlowDNS.
         box.addView(
             monoText("SETELAN LANJUTAN", 10.5f, FAINT).apply {

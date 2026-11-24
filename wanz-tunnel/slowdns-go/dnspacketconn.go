@@ -92,6 +92,35 @@ var base32Encoding = base32.StdEncoding.WithPadding(base32.NoPadding)
 type Mode struct {
 	Compact  bool
 	ShortTXT bool
+	// HC menyimpan varian handshake HTTP Custom 8.1.5 (kosong = non-HC).
+	// Nilainya berupa nama varian: "HC", "HC-PLAIN", "HC-TXTSHORT",
+	// "HC-LIMITS", "HC-CALIB", "HC-CALIBTXT".
+	HC string
+}
+
+// hcMsg1Payload mengembalikan payload pesan pertama Noise untuk varian
+// handshake HC. String-nya diambil dari biner HTTP Custom 8.1.5 (build 942):
+// prefiks "hc-release/2:" ditambah suffix sesuai jenis klien.
+func hcMsg1Payload(hc string) []byte {
+	const prefix = "hc-release/2:"
+	var suffix string
+	switch hc {
+	case "HC", "HC-BOND":
+		suffix = "dnstt-bond/1"
+	case "HC-PLAIN":
+		suffix = ""
+	case "HC-TXTSHORT":
+		suffix = "dnstt-txt-short/1"
+	case "HC-LIMITS":
+		suffix = "dnstt-limits/1:"
+	case "HC-CALIB":
+		suffix = "dnstt-calibration/1:"
+	case "HC-CALIBTXT":
+		suffix = "dnstt-calibration/1:dnstt-txt-short/1"
+	default:
+		return nil
+	}
+	return []byte(prefix + suffix)
 }
 
 // DNSPacketConn menyediakan antarmuka net.PacketConn di atas query DNS.

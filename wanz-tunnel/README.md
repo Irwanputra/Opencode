@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.20
+# Wanz Tunnel 2.9.21
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -217,12 +217,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.20.apk`** (11,9 MB, `versionCode 34`,
+Rilis siap pasang: **`WanzTunnel-2.9.21.apk`** (11,9 MB, `versionCode 35`,
 Android 10 ke atas), SHA-256
-`3c7789aa108e68222ee794c9f692779f436199571958fefee8eb83ccb9395754`, dan
-**`WanzTunnel-2.9.20-lite.apk`** (1,8 MB, tanpa pustaka native SlowDNS),
+`35b6af5217c34bbd21872a04a7203e9a3c12b9e75190e3d525bb63969b40dfd7`, dan
+**`WanzTunnel-2.9.21-lite.apk`** (1,8 MB, tanpa pustaka native SlowDNS),
 SHA-256
-`6ee49e7f7ace5251e3bf5bf525ff941ba799d647af1ff9c95a823745ae1bd1f3`.
+`c0b62fadf53807bed23d966b054235e3ea7d6cde8cb1b6588fb540a33b4aacf1`.
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -237,6 +237,24 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.21 (mode handshake HC): hasil lanjutan bedah HTTP Custom
+  8.1.5 (versionCode 942) di level biner native (`libaio.so`): pesan
+  pertama handshake Noise klien HC membawa payload `hc-release/2:` +
+  suffix varian (`dnstt-bond/1`, `dnstt-txt-short/1`, `dnstt-limits/1:`,
+  `dnstt-calibration/1:`, gabungan keduanya), balasan server diverifikasi
+  berawalan `dnstt-hc-only/1:`, dan setelah handshake klien mengirim satu
+  byte konfirmasi `0x01` terenkripsi (padanan
+  `writeHCOnlyConfirmation`, record 19 byte). Wanz Tunnel menambahkan
+  mode **HC** di panel SlowDNS (`HC`, `HC-PLAIN`, `HC-TXTSHORT`,
+  `HC-LIMITS`, `HC-CALIB`, `HC-CALIBTXT`) yang mengaktifkan handshake
+  tersebut lewat fungsi Go baru `noise.NewClientHC`; mode lain tetap
+  memakai handshake dnstt standar. Prologue (`dnstt 2020-04-13`), pola
+  NK, cipher ChaChaPoly/BLAKE2s, dan kunci publik config mentah
+  (`DecodeKey` tanpa derivasi) dikonfirmasi langsung dari biner. Unit
+  test Go dan Kotlin lulus; `design_gate --strict` 0/0. Catatan uji:
+  server HC publik menolak seluruh varian payload saat diuji dari IP
+  datacenter (hanya balasan ACK KCP), sehingga mode HC perlu diuji dari
+  jaringan seluler tempat config tersebut berlaku.
 - v2.9.20 (SlowDNS setara HTTP Custom 8.1.5): hasil bedah HTTP Custom
   8.1.5 (versionCode 942, SHA-1 `6a941065…` — XAPK dari katalog APK20)
   menunjukkan pembaruan SlowDNS berikut: tipe query baru **FT** (Full TXT,

@@ -156,7 +156,9 @@ sudut, dan bentuk kontrol, bukan dari font.
    - **SlowDNS** mengatur resolver (UDP/DoH/DoT), domain tunnel, public key
      server, tipe record query gaya HTTP Custom 8.1.5
      (Automatic/NULL/TXT/FT/ST/RX/VX, tipe lama CNAME/MX/NS/SRV tetap
-     diterima), mode FT Standard/Compact, serta pengaturan lanjutan QNAME
+     diterima), mode FT Standard/Compact, mode handshake HC
+     (HC/HC-PLAIN/HC-TXTSHORT/HC-LIMITS/HC-CALIB/HC-CALIBTXT), serta
+     pengaturan lanjutan QNAME
      limit, EDNS0 limit, KCP Window, Session, Multi login, dan Automatic
      calibration; centangnya ada di kisi beranda.
    - **Tema** memilih Ikuti sistem/Terang/Gelap.
@@ -188,11 +190,14 @@ Sembilan centang dan field yang diubahnya:
 - Dialog Profil (v2.9.17): daftar kartu membulat dengan titik radio hijau,
   alamat mono di bawah nama, aksi ubah/hapus per baris, dan tombol hijau
   penuh `TAMBAH PROFIL BARU`.
-- Dialog SlowDNS (v2.9.17, diperbarui v2.9.20): kontrol segmen resolver
+- Dialog SlowDNS (v2.9.17, diperbarui v2.9.21): kontrol segmen resolver
   UDP/DOH/DOT, pemilih tipe record (Automatic/NULL/TXT/FT/ST/RX/VX) dengan
   deskripsi singkat per tipe (ST memperingatkan butuh dukungan server),
   baris "MODE FT" (Standard/Compact) yang hanya tampil saat tipe FT
-  dipilih, saklar beraksen hijau (Aktifkan, Multi login, Kalibrasi), kisi
+  dipilih, baris "MODE HC" (Matikan/HC bond/HC Plain/HC TXT Short/
+  HC Limits/HC Calib/HC Calib+TXT) untuk memilih varian payload handshake
+  hc-release/2: ala HTTP Custom 8.1.5, saklar beraksen hijau (Aktifkan,
+  Multi login, Kalibrasi), kisi
   dua kolom untuk setelan lanjutan, dan tombol Terapkan berbentuk pil
   hijau.
 - Dialog Tema (v2.9.17): tiga kartu berpratinjau mini (Ikuti sistem/Gelap/

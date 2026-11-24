@@ -7,6 +7,7 @@ package noise
 
 import (
 	"bufio"
+	"bytes"
 	"crypto/rand"
 	"encoding/binary"
 	"encoding/hex"
@@ -171,6 +172,56 @@ func NewClient(rwc io.ReadWriteCloser, serverPubkey []byte) (io.ReadWriteCloser,
 	}
 
 	return newSocket(rwc, recvCipher, sendCipher), nil
+}
+
+// hcOnlyPrefix adalah awalan payload balasan server pada mode HC-only
+// (HTTP Custom 8.1.5).
+const hcOnlyPrefix = "dnstt-hc-only/1:"
+
+// NewClientHC adalah varian handshake ala HTTP Custom 8.1.5: pesan pertama
+// Noise membawa payload "hc-release/2:<varian>" (alih-alih kosong), dan
+// payload balasan server diharapkan berawalan "dnstt-hc-only/1:".
+// Setelah handshake berhasil, klien mengirim satu byte konfirmasi 0x01
+// terenkripsi (padanan writeHCOnlyConfirmation — record 19 byte).
+func NewClientHC(rwc io.ReadWriteCloser, serverPubkey, msg1Payload []byte) (io.ReadWriteCloser, error) {
+	config := newConfig()
+	config.Initiator = true
+	config.PeerStatic = serverPubkey
+	handshakeState, err := noise.NewHandshakeState(config)
+	if err != nil {
+		return nil, err
+	}
+
+	// -> e, es (dengan payload hc-release/2:...)
+	msg, _, _, err := handshakeState.WriteMessage(msg1Payload, nil)
+	if err != nil {
+		return nil, err
+	}
+	err = writeMessage(rwc, msg)
+	if err != nil {
+		return nil, err
+	}
+
+	// <- e, ee
+	msg, err = readMessage(rwc)
+	if err != nil {
+		return nil, err
+	}
+	payload, sendCipher, recvCipher, err := handshakeState.ReadMessage(nil, msg)
+	if err != nil {
+		return nil, err
+	}
+	if !bytes.HasPrefix(payload, []byte(hcOnlyPrefix)) {
+		return nil, errors.New("unexpected server payload")
+	}
+
+	sock := newSocket(rwc, recvCipher, sendCipher)
+	// Konfirmasi hc-only: satu byte 0x01 lewat kanal terenkripsi.
+	if _, err := sock.Write([]byte{0x01}); err != nil {
+		sock.Close()
+		return nil, err
+	}
+	return sock, nil
 }
 
 // NewClient wraps an io.ReadWriteCloser in a Noise protocol as a server, and
