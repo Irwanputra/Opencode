@@ -46,14 +46,17 @@ const (
 	rrTypeNULL  uint16 = 10 // RFC 1035 (usang, tapi justru "licin" di resolver)
 	rrTypeMX    uint16 = 15 // RFC 1035
 	rrTypeSRV   uint16 = 33 // RFC 2782
+	rrTypeSVCB  uint16 = 64 // RFC 9460 — "VX" pada HTTP Custom 8.1.5
+	rrTypeHTTPS uint16 = 65 // RFC 9460 — "RX" pada HTTP Custom 8.1.5
 )
 
 // autoCandidates urutan tipe yang dicoba saat mode AUTO. NULL didahulukan
 // karena paling tahan terhadap cache/rewrite resolver — sama seperti pilihan
-// "tipe NULL" di HTTP Custom.
-var autoCandidates = []uint16{rrTypeNULL, dns.RRTypeTXT, rrTypeCNAME, rrTypeMX, rrTypeNS, rrTypeSRV}
+// "tipe NULL" di HTTP Custom. Tipe baru 8.1.5 (RX/VX) dicoba sebelum tipe
+// lama CNAME/MX/NS/SRV.
+var autoCandidates = []uint16{rrTypeNULL, dns.RRTypeTXT, rrTypeHTTPS, rrTypeSVCB, rrTypeCNAME, rrTypeMX, rrTypeNS, rrTypeSRV}
 
-// typeName untuk log.
+// typeName untuk log. Nama mengikuti label HTTP Custom 8.1.5.
 func typeName(qt uint16) string {
 	switch qt {
 	case rrTypeNULL:
@@ -68,12 +71,28 @@ func typeName(qt uint16) string {
 		return "NS"
 	case rrTypeSRV:
 		return "SRV"
+	case rrTypeSVCB:
+		return "VX"
+	case rrTypeHTTPS:
+		return "RX"
 	}
 	return fmt.Sprintf("TYPE%d", qt)
 }
 
 // base32Encoding tanpa padding, huruf kecil, sesuai dnstt.
 var base32Encoding = base32.StdEncoding.WithPadding(base32.NoPadding)
+
+// Mode mengatur varian pengodean di luar tipe record, mengikuti opsi
+// HTTP Custom 8.1.5:
+//   - Compact  : "FT Compact" — padding data diperkecil agar payload per
+//     query lebih besar.
+//   - ShortTXT : "ST" (Short TXT) — polling TXT pendek yang menuntut
+//     dukungan server; server yang menjawab dengan record lain dianggap
+//     tidak mendukung dan start-up gagal dengan pesan jelas.
+type Mode struct {
+	Compact  bool
+	ShortTXT bool
+}
 
 // DNSPacketConn menyediakan antarmuka net.PacketConn di atas query DNS.
 // Paket dikodekan sebagai QNAME base32 (ClientID + padding + data) dan
@@ -83,6 +102,14 @@ type DNSPacketConn struct {
 	domain   dns.Name
 	// qtype: tipe record untuk query upstream.
 	qtype uint16
+	// mode: varian pengodean (FT Compact / ST).
+	mode Mode
+	// padData/padPoll: jumlah byte padding query data/poll.
+	padData int
+	padPoll int
+	// pollInit/pollMax: jeda poll awal dan maksimum.
+	pollInit time.Duration
+	pollMax  time.Duration
 	// ednsLimit: ukuran payload UDP maksimum di OPT record (0 = 4096).
 	ednsLimit int
 	logf      func(format string, args ...interface{})
@@ -91,8 +118,31 @@ type DNSPacketConn struct {
 	// done ditutup oleh Close untuk menghentikan loop kirim/terima.
 	done      chan struct{}
 	closeOnce sync.Once
+	// modeErr menyimpan galat mode (mis. server tidak mendukung ST) yang
+	// terdeteksi saat menerima jawaban; dibaca tunnel saat start-up.
+	modeErrMu sync.Mutex
+	modeErr   error
 	// QueuePacketConn penerima langsung ReadFrom/WriteTo.
 	*turbotunnel.QueuePacketConn
+}
+
+// setModeErr mencatat galat mode sekali (yang pertama menang).
+func (c *DNSPacketConn) setModeErr(err error) {
+	if err == nil {
+		return
+	}
+	c.modeErrMu.Lock()
+	if c.modeErr == nil {
+		c.modeErr = err
+	}
+	c.modeErrMu.Unlock()
+}
+
+// ModeError mengembalikan galat mode yang terdeteksi (atau nil).
+func (c *DNSPacketConn) ModeError() error {
+	c.modeErrMu.Lock()
+	defer c.modeErrMu.Unlock()
+	return c.modeErr
 }
 
 // Close menghentikan loop kirim/terima. Aman dipanggil berkali-kali.
@@ -102,13 +152,15 @@ func (c *DNSPacketConn) Close() error {
 }
 
 // NewDNSPacketConn membuat DNSPacketConn. transport mengirim/menerima pesan
-// DNS mentah (mis. *net.UDPConn). qtype dipakai untuk semua query upstream.
+// DNS mentah (mis. *net.UDPConn). qtype dipakai untuk semua query upstream;
+// mode memilih varian FT Compact / ST.
 func NewDNSPacketConn(
 	transport net.PacketConn,
 	addr net.Addr,
 	domain dns.Name,
 	qtype uint16,
 	ednsLimit int,
+	mode Mode,
 	logf func(format string, args ...interface{}),
 ) *DNSPacketConn {
 	if logf == nil {
@@ -120,10 +172,25 @@ func NewDNSPacketConn(
 		domain:          domain,
 		qtype:           qtype,
 		ednsLimit:       ednsLimit,
+		mode:            mode,
+		padData:         numPadding,
+		padPoll:         numPaddingForPoll,
+		pollInit:        initPollDelay,
+		pollMax:         maxPollDelay,
 		logf:            logf,
 		pollChan:        make(chan struct{}, pollLimit),
 		done:            make(chan struct{}),
 		QueuePacketConn: turbotunnel.NewQueuePacketConn(clientID, 0),
+	}
+	if mode.Compact {
+		// FT Compact: padding diperkecil — payload per query lebih besar.
+		c.padData = 0
+		c.padPoll = 4
+	}
+	if mode.ShortTXT {
+		// ST: polling lebih rapat karena tiap jawaban berisi potongan pendek.
+		c.pollInit = 250 * time.Millisecond
+		c.pollMax = 4 * time.Second
 	}
 	go func() {
 		err := c.recvLoop(transport)
@@ -143,7 +210,8 @@ func NewDNSPacketConn(
 
 // buildQuery menyusun pesan query DNS dari satu paket (p kosong = polling).
 // Isi QNAME sebelum base32: ClientID(8) ‖ 0xE0+n ‖ n byte acak ‖ [len ‖ data].
-func buildQuery(clientID turbotunnel.ClientID, domain dns.Name, qtype uint16, p []byte, ednsLimit int) ([]byte, error) {
+// padData/padPoll menentukan jumlah padding (FT Compact memperkecilnya).
+func buildQuery(clientID turbotunnel.ClientID, domain dns.Name, qtype uint16, p []byte, ednsLimit, padData, padPoll int) ([]byte, error) {
 	if len(p) >= 224 {
 		return nil, fmt.Errorf("paket terlalu panjang")
 	}
@@ -156,12 +224,18 @@ func buildQuery(clientID turbotunnel.ClientID, domain dns.Name, qtype uint16, p 
 	if ednsLimit > 4096 {
 		ednsLimit = 4096
 	}
+	if padData < 0 || padData > 31 {
+		padData = numPadding
+	}
+	if padPoll < 0 || padPoll > 31 {
+		padPoll = numPaddingForPoll
+	}
 	var buf bytes.Buffer
 	// ClientID
 	buf.Write(clientID[:])
-	n := numPadding
+	n := padData
 	if len(p) == 0 {
-		n = numPaddingForPoll
+		n = padPoll
 	}
 	// Padding / peredam cache
 	buf.WriteByte(byte(224 + n))
@@ -314,6 +388,22 @@ func decodeAnswerPackets(answer dns.RR, domain dns.Name, logf func(string, ...in
 		if len(answer.Data) > 6 {
 			return payloadFromName(answer.Data[6:], domain)
 		}
+	case rrTypeSVCB, rrTypeHTTPS:
+		// HTTPS/SVCB (RFC 9460) — tipe "RX"/"VX" HTTP Custom 8.1.5.
+		// Konvensi server: RDATA = priority (2 byte) + payload tunnel
+		// ber-prefiks panjang. Coba lewati priority lebih dulu, lalu
+		// RDATA mentah, lalu varian nama di dalam RDATA (ala CNAME).
+		var ps [][]byte
+		if len(answer.Data) > 2 {
+			ps = parsePackets(answer.Data[2:])
+		}
+		if len(ps) == 0 {
+			ps = parsePackets(answer.Data)
+		}
+		if len(ps) == 0 && len(answer.Data) > 2 {
+			ps = payloadFromName(answer.Data[2:], domain)
+		}
+		return ps
 	}
 	return nil
 }
@@ -334,6 +424,12 @@ func (c *DNSPacketConn) dnsResponsePackets(resp *dns.Message) [][]byte {
 	for _, answer := range resp.Answer {
 		if _, ok := answer.Name.TrimSuffix(c.domain); !ok {
 			// Bukan nama milik tunnel.
+			continue
+		}
+		if c.mode.ShortTXT && answer.Type != dns.RRTypeTXT {
+			// Mode ST menuntut server yang menjawab dengan TXT pendek;
+			// server yang menjawab dengan tipe lain tidak mendukung ST.
+			c.setModeErr(errors.New("server tidak mendukung mode ST (Short TXT)"))
 			continue
 		}
 		packets = append(packets, decodeAnswerPackets(answer, c.domain, c.logf)...)
@@ -399,7 +495,7 @@ func chunks(p []byte, n int) [][]byte {
 
 // send mengirim satu paket sebagai query DNS dengan QTYPE terpilih.
 func (c *DNSPacketConn) send(transport net.PacketConn, p []byte, addr net.Addr) error {
-	buf, err := buildQuery(c.clientID, c.domain, c.qtype, p, c.ednsLimit)
+	buf, err := buildQuery(c.clientID, c.domain, c.qtype, p, c.ednsLimit, c.padData, c.padPoll)
 	if err != nil {
 		return err
 	}
@@ -409,7 +505,7 @@ func (c *DNSPacketConn) send(transport net.PacketConn, p []byte, addr net.Addr) 
 
 // sendLoop mengirim paket keluar dan melakukan polling berkala.
 func (c *DNSPacketConn) sendLoop(transport net.PacketConn, addr net.Addr) error {
-	pollDelay := initPollDelay
+	pollDelay := c.pollInit
 	pollTimer := time.NewTimer(pollDelay)
 	for {
 		var p []byte
@@ -441,14 +537,14 @@ func (c *DNSPacketConn) sendLoop(transport net.PacketConn, addr net.Addr) error 
 
 		if pollTimerExpired {
 			pollDelay = time.Duration(float64(pollDelay) * pollDelayMultiplier)
-			if pollDelay > maxPollDelay {
-				pollDelay = maxPollDelay
+			if pollDelay > c.pollMax {
+				pollDelay = c.pollMax
 			}
 		} else {
 			if !pollTimer.Stop() {
 				<-pollTimer.C
 			}
-			pollDelay = initPollDelay
+			pollDelay = c.pollInit
 		}
 		pollTimer.Reset(pollDelay)
 
@@ -477,7 +573,7 @@ func probeQType(resolver *net.UDPAddr, domain dns.Name, qtype uint16, timeout ti
 	}
 	defer sock.Close()
 	clientID := turbotunnel.NewClientID()
-	buf, err := buildQuery(clientID, domain, qtype, nil, 0)
+	buf, err := buildQuery(clientID, domain, qtype, nil, 0, numPadding, numPaddingForPoll)
 	if err != nil {
 		return false
 	}
@@ -528,7 +624,7 @@ func probeQTypeSpec(spec resolverSpec, domain dns.Name, qtype uint16, timeout ti
 		return false
 	}
 	defer tr.Close()
-	buf, err := buildQuery(turbotunnel.NewClientID(), domain, qtype, nil, 0)
+	buf, err := buildQuery(turbotunnel.NewClientID(), domain, qtype, nil, 0, numPadding, numPaddingForPoll)
 	if err != nil {
 		return false
 	}

@@ -25,7 +25,7 @@ func TestBuildQueryCarriesPacketInQName(t *testing.T) {
 	clientID := turbotunnel.ClientID{1, 2, 3, 4, 5, 6, 7, 8}
 	packet := []byte("hello-tunnel")
 
-	wire, err := buildQuery(clientID, domain, rrTypeNULL, packet, 0)
+	wire, err := buildQuery(clientID, domain, rrTypeNULL, packet, 0, numPadding, numPaddingForPoll)
 	if err != nil {
 		t.Fatalf("buildQuery: %v", err)
 	}
@@ -112,6 +112,55 @@ func TestDecodeAnswerTXTAndNULL(t *testing.T) {
 	}
 }
 
+func TestDecodeAnswerSVCBAndHTTPS(t *testing.T) {
+	domain := testDomain(t)
+	logf := func(string, ...interface{}) {}
+
+	var body []byte
+	for _, p := range [][]byte{[]byte("rx1"), []byte("vx2")} {
+		var l [2]byte
+		binary.BigEndian.PutUint16(l[:], uint16(len(p)))
+		body = append(body, l[:]...)
+		body = append(body, p...)
+	}
+	name, err := dns.NewName(append([][]byte{[]byte("abcd1234")}, domain...))
+	if err != nil {
+		t.Fatalf("NewName: %v", err)
+	}
+
+	// RX (HTTPS): payload langsung di RDATA.
+	httpsRR := dns.RR{Name: name, Type: rrTypeHTTPS, Data: body}
+	if got := decodeAnswerPackets(httpsRR, domain, logf); len(got) != 2 || string(got[0]) != "rx1" {
+		t.Fatalf("HTTPS decode salah: %v", got)
+	}
+
+	// VX (SVCB): server menulis priority 2 byte sebelum payload.
+	svcb := append([]byte{0, 1}, body...)
+	svcbRR := dns.RR{Name: name, Type: rrTypeSVCB, Data: svcb}
+	if got := decodeAnswerPackets(svcbRR, domain, logf); len(got) != 2 || string(got[1]) != "vx2" {
+		t.Fatalf("SVCB decode salah: %v", got)
+	}
+}
+
+func TestBuildQueryCompactPadding(t *testing.T) {
+	domain := testDomain(t)
+	clientID := turbotunnel.ClientID{1, 2, 3, 4, 5, 6, 7, 8}
+	packet := bytes.Repeat([]byte{9}, 60)
+
+	stdWire, err := buildQuery(clientID, domain, dns.RRTypeTXT, packet, 0, numPadding, numPaddingForPoll)
+	if err != nil {
+		t.Fatalf("buildQuery standard: %v", err)
+	}
+	compactWire, err := buildQuery(clientID, domain, dns.RRTypeTXT, packet, 0, 0, 4)
+	if err != nil {
+		t.Fatalf("buildQuery compact: %v", err)
+	}
+	// Padding lebih kecil → query lebih pendek untuk payload yang sama.
+	if len(compactWire) >= len(stdWire) {
+		t.Fatalf("query compact (%d B) harus lebih pendek dari standard (%d B)", len(compactWire), len(stdWire))
+	}
+}
+
 func TestDecodeAnswerNameBearingTypes(t *testing.T) {
 	domain := testDomain(t)
 	logf := func(string, ...interface{}) {}
@@ -163,20 +212,67 @@ func nameRData(t *testing.T, name dns.Name) []byte {
 	return append(out, 0)
 }
 
-func TestParseQType(t *testing.T) {
-	if qt, _ := parseQType("null"); qt != rrTypeNULL {
+func TestParseTypeMode(t *testing.T) {
+	if qt, _, _ := parseTypeMode("null"); qt != rrTypeNULL {
 		t.Fatal("null harus 10")
 	}
-	if qt, _ := parseQType("txt"); qt != dns.RRTypeTXT {
+	if qt, _, _ := parseTypeMode("txt"); qt != dns.RRTypeTXT {
 		t.Fatal("txt harus 16")
 	}
+	// Tipe baru HTTP Custom 8.1.5.
+	if qt, _, _ := parseTypeMode("rx"); qt != rrTypeHTTPS {
+		t.Fatal("rx harus HTTPS(65)")
+	}
+	if qt, _, _ := parseTypeMode("vx"); qt != rrTypeSVCB {
+		t.Fatal("vx harus SVCB(64)")
+	}
+	if qt, m, _ := parseTypeMode("st"); qt != dns.RRTypeTXT || !m.ShortTXT {
+		t.Fatal("st harus TXT + ShortTXT")
+	}
+	if qt, _, _ := parseTypeMode("ft"); qt != dns.RRTypeTXT {
+		t.Fatal("ft harus TXT")
+	}
 	for _, s := range []string{"AUTO", "auto", "CNAME", "MX", "NS", "SRV"} {
-		if _, ok := parseQType(s); !ok {
+		if _, _, ok := parseTypeMode(s); !ok {
 			t.Fatalf("%s harus dikenali", s)
 		}
 	}
-	if _, ok := parseQType("AXFR"); ok {
+	if _, _, ok := parseTypeMode("AXFR"); ok {
 		t.Fatal("AXFR tidak boleh dikenali")
+	}
+}
+
+func TestDisplayType(t *testing.T) {
+	if got := displayType(dns.RRTypeTXT, Mode{Compact: true}); got != "FT Compact" {
+		t.Fatalf("displayType FT Compact = %s", got)
+	}
+	if got := displayType(dns.RRTypeTXT, Mode{ShortTXT: true}); got != "ST" {
+		t.Fatalf("displayType ST = %s", got)
+	}
+	if got := displayType(rrTypeHTTPS, Mode{}); got != "RX" {
+		t.Fatalf("displayType RX = %s", got)
+	}
+	if got := displayType(rrTypeSVCB, Mode{}); got != "VX" {
+		t.Fatalf("displayType VX = %s", got)
+	}
+}
+
+func TestCheckPublicResolver(t *testing.T) {
+	// Resolver publik lolos.
+	if err := checkPublicResolver(resolverSpec{kind: "udp", addr: "8.8.8.8:53"}); err != nil {
+		t.Fatalf("8.8.8.8 harus lolos: %v", err)
+	}
+	// Loopback ditolak keras.
+	if err := checkPublicResolver(resolverSpec{kind: "udp", addr: "127.0.0.1:53"}); err == nil {
+		t.Fatal("127.0.0.1 harus ditolak")
+	}
+	// Rentang privat (mis. router) hanya peringatan — tidak fatal.
+	if err := checkPublicResolver(resolverSpec{kind: "udp", addr: "192.168.1.1:53"}); err != nil {
+		t.Fatalf("192.168.1.1 tidak boleh fatal: %v", err)
+	}
+	// DoH/DoT tidak diperiksa.
+	if err := checkPublicResolver(resolverSpec{kind: "doh", addr: "https://dns.google/dns-query"}); err != nil {
+		t.Fatalf("DoH tidak boleh ditolak: %v", err)
 	}
 }
 
@@ -216,7 +312,7 @@ func TestParseResolverKinds(t *testing.T) {
 
 func TestBuildQueryEDNSLimit(t *testing.T) {
 	domain := testDomain(t)
-	wire, err := buildQuery(turbotunnel.ClientID{9}, domain, rrTypeNULL, []byte("x"), 1232)
+	wire, err := buildQuery(turbotunnel.ClientID{9}, domain, rrTypeNULL, []byte("x"), 1232, numPadding, numPaddingForPoll)
 	if err != nil {
 		t.Fatalf("buildQuery: %v", err)
 	}

@@ -27,6 +27,14 @@ import (
 // idleTimeout menutup sesi smux yang tidak aktif — sama dengan dnstt-client.
 const idleTimeout = 2 * time.Minute
 
+const (
+	// queryOverhead adalah ruang QNAME yang dipakai header paket query:
+	// clientID(8) + prefiks padding(1) + padding(3) + prefiks data(1).
+	queryOverhead = 13
+	// minPayloadBytes adalah payload efektif minimum agar KCP tetap layak.
+	minPayloadBytes = 32
+)
+
 // Logger menerima baris log tunnel; diimplementasikan di sisi Java/Kotlin
 // agar log muncul di tab LOG aplikasi.
 type Logger interface {
@@ -74,26 +82,81 @@ func logf(format string, args ...interface{}) {
 	}
 }
 
-// parseQType menerjemahkan nama tipe dari sisi Java: AUTO/NULL/TXT/CNAME/
-// MX/NS/SRV. Mengembalikan 0 untuk AUTO (kalibrasi).
-func parseQType(s string) (uint16, bool) {
+// parseTypeMode menerjemahkan nama tipe dari sisi Java ke tipe record DNS
+// dan varian pengodeannya. Nama mengikuti HTTP Custom 8.1.5: AUTO, NULL,
+// TXT, FT (Full TXT), ST (Short TXT), RX (HTTPS), VX (SVCB). Tipe lama
+// CNAME/MX/NS/SRV tetap diterima agar profil lama tetap jalan. Mengembalikan
+// qtype 0 untuk AUTO (kalibrasi).
+func parseTypeMode(s string) (uint16, Mode, bool) {
 	switch strings.ToUpper(strings.TrimSpace(s)) {
 	case "AUTO":
-		return 0, true
+		return 0, Mode{}, true
 	case "", "NULL":
-		return rrTypeNULL, true
+		return rrTypeNULL, Mode{}, true
 	case "TXT":
-		return dns.RRTypeTXT, true
+		return dns.RRTypeTXT, Mode{}, true
+	case "FT":
+		return dns.RRTypeTXT, Mode{}, true
+	case "ST":
+		return dns.RRTypeTXT, Mode{ShortTXT: true}, true
+	case "RX":
+		return rrTypeHTTPS, Mode{}, true
+	case "VX":
+		return rrTypeSVCB, Mode{}, true
 	case "CNAME":
-		return rrTypeCNAME, true
+		return rrTypeCNAME, Mode{}, true
 	case "MX":
-		return rrTypeMX, true
+		return rrTypeMX, Mode{}, true
 	case "NS":
-		return rrTypeNS, true
+		return rrTypeNS, Mode{}, true
 	case "SRV":
-		return rrTypeSRV, true
+		return rrTypeSRV, Mode{}, true
 	}
-	return 0, false
+	return 0, Mode{}, false
+}
+
+// displayType menampilkan pasangan tipe+mode seperti label HTTP Custom
+// (mis. "FT Compact", "ST", "RX").
+func displayType(qt uint16, m Mode) string {
+	if m.ShortTXT {
+		return "ST"
+	}
+	if m.Compact && qt == dns.RRTypeTXT {
+		return "FT Compact"
+	}
+	return typeName(qt)
+}
+
+// AllowPrivateResolver membolehkan resolver dengan alamat privat/loopback.
+// Hanya dipakai pengujian; pada aplikasi produksi resolver loopback tetap
+// ditolak dan resolver privat diberi peringatan.
+var AllowPrivateResolver = false
+
+// checkPublicResolver menegakkan aturan resolver publik ala HTTP Custom
+// 8.1.5 ("Use a public DNS resolver."). Loopback/link-local ditolak keras;
+// rentang privat (CGNAT/ISP) hanya diberi peringatan karena sebagian
+// jaringan seluler masih meloloskannya.
+func checkPublicResolver(spec resolverSpec) error {
+	if spec.kind != "udp" {
+		return nil // DoH/DoT memakai nama domain — tidak relevan.
+	}
+	host := spec.addr
+	if i := strings.LastIndex(host, ":"); i >= 0 {
+		host = host[:i]
+	}
+	host = strings.Trim(host, "[]")
+	ip := net.ParseIP(host)
+	if ip == nil {
+		return nil // Nama domain — biarkan resolver sistem menentukan.
+	}
+	if ip.IsLoopback() || ip.IsLinkLocalUnicast() || ip.IsLinkLocalMulticast() ||
+		ip.IsUnspecified() || ip.IsMulticast() {
+		return errors.New("Use a public DNS resolver.")
+	}
+	if ip.IsPrivate() {
+		logf("SlowDNS: Use a public DNS resolver.")
+	}
+	return nil
 }
 
 // normalizeResolver menampilkan alamat resolver dalam bentuk host:port/URL.
@@ -112,7 +175,10 @@ func normalizeResolver(resolver string) string {
 // "https://dns.google/dns-query" (DoH), atau "tls://1.1.1.1" (DoT).
 // domain   : domain tunnel, mis. "t.example.com" (harus di-host dnstt-server).
 // pubkeyHex: public key server (64 karakter hex) untuk Noise_NK.
-// qtype    : AUTO | NULL | TXT | CNAME | MX | NS | SRV.
+// qtype    : AUTO | NULL | TXT | FT | ST | RX | VX (tipe lama CNAME/MX/NS/SRV
+// masih diterima). ST menuntut server yang mendukung Short TXT.
+// mode     : "" / "STANDARD" / "COMPACT" — COMPACT hanya untuk FT
+// ("FT Compact": padding diperkecil, payload per query lebih besar).
 // listenPort: port TCP lokal; 0 = pilih otomatis.
 // kcpWindow: jendela KCP; 0 = default (64).
 // qnameLimit: panjang maksimum nama DNS (0/default = 255).
@@ -128,7 +194,7 @@ func normalizeResolver(resolver string) string {
 //
 // Fungsi ini sinkron sampai listener lokal siap. Gunakan WaitReady untuk
 // menunggu sesi smux ke server benar-benar terbentuk.
-func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow, qnameLimit, ednsLimit, sessions int, multiLogin, autoCalibrate bool, logger Logger) error {
+func Start(resolver, domain, pubkeyHex, qtype, mode string, listenPort, kcpWindow, qnameLimit, ednsLimit, sessions int, multiLogin, autoCalibrate bool, logger Logger) error {
 	mu.Lock()
 	defer mu.Unlock()
 	if active != nil {
@@ -143,9 +209,21 @@ func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow, qna
 	if err != nil {
 		return fmt.Errorf("domain tidak valid: %v", err)
 	}
-	qt, isAuto := parseQType(qtype)
-	if !isAuto {
+	typeNameUC := strings.ToUpper(strings.TrimSpace(qtype))
+	qt, m, ok := parseTypeMode(typeNameUC)
+	if !ok {
 		return fmt.Errorf("tipe record tidak dikenal: %q", qtype)
+	}
+	isAuto := typeNameUC == "AUTO"
+	switch strings.ToUpper(strings.TrimSpace(mode)) {
+	case "", "STANDARD":
+	case "COMPACT":
+		if typeNameUC != "FT" {
+			return errors.New("mode Compact hanya berlaku untuk tipe FT")
+		}
+		m.Compact = true
+	default:
+		return fmt.Errorf("mode tidak dikenal: %q", mode)
 	}
 	if kcpWindow <= 0 || kcpWindow > turbotunnel.QueueSize {
 		kcpWindow = turbotunnel.QueueSize / 2
@@ -171,6 +249,17 @@ func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow, qna
 	if err != nil {
 		return fmt.Errorf("resolver tidak valid: %v", err)
 	}
+	if !AllowPrivateResolver {
+		if err := checkPublicResolver(spec); err != nil {
+			return err
+		}
+	}
+	// Validasi batas QNAME ala HTTP Custom 8.1.5: nama server + tipe
+	// memakan ruang; bila sisa payload terlalu kecil, tolak sejak awal
+	// dengan pesan yang jelas.
+	if qnameLimit > 0 && dnsNameCapacity(d, qnameLimit)-queryOverhead < minPayloadBytes {
+		return errors.New("The QNAME limit is too small for this server name and type. Increase it in SlowDNS settings.")
+	}
 	ln, err := net.ListenTCP("tcp", &net.TCPAddr{IP: net.ParseIP("127.0.0.1"), Port: listenPort})
 	if err != nil {
 		return fmt.Errorf("membuka listener lokal: %v", err)
@@ -184,13 +273,13 @@ func Start(resolver, domain, pubkeyHex, qtype string, listenPort, kcpWindow, qna
 	}
 	active = t
 	setLogger(logger)
-	mode := "1 sesi"
+	modeTxt := "1 sesi"
 	if sessions > 1 {
-		mode = fmt.Sprintf("%d sesi • login terpisah", sessions)
+		modeTxt = fmt.Sprintf("%d sesi • login terpisah", sessions)
 	}
 	logf("SlowDNS: mulai • resolver %s (%s) • domain %s • tipe %s • %s • 127.0.0.1:%d",
-		normalizeResolver(resolver), spec.kind, domain, strings.ToUpper(strings.TrimSpace(qtype)), mode, t.port)
-	go t.run(pubkey, d, qt, isAuto, spec, kcpWindow, qnameLimit, ednsLimit, sessions, autoCalibrate)
+		normalizeResolver(resolver), spec.kind, domain, displayType(qt, m), modeTxt, t.port)
+	go t.run(pubkey, d, qt, m, isAuto, spec, kcpWindow, qnameLimit, ednsLimit, sessions, autoCalibrate)
 	return nil
 }
 
@@ -215,7 +304,9 @@ func WaitReady(timeoutMs int) error {
 		}
 		return errors.New("SlowDNS berhenti sebelum siap")
 	case <-time.After(timeout):
-		return fmt.Errorf("menunggu sesi SlowDNS lebih dari %s", timeout)
+		// Pesan ala HTTP Custom 8.1.5: start-up melewati batas waktu.
+		logf("SlowDNS: Timed out while opening a session")
+		return errors.New("Timed out while opening a session")
 	}
 }
 
@@ -296,7 +387,7 @@ func (t *tunnel) fail(err error) {
 }
 
 // run menjalankan seluruh rangkaian tunnel (meniru run() dnstt-client).
-func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, spec resolverSpec, kcpWindow, qnameLimit, ednsLimit, sessions int, autoCalibrate bool) (retErr error) {
+func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, m Mode, isAuto bool, spec resolverSpec, kcpWindow, qnameLimit, ednsLimit, sessions int, autoCalibrate bool) (retErr error) {
 	defer func() {
 		// Saat run berakhir — gagal awal maupun di-Stop — hentikan loop DNS
 		// lebih dulu lalu tutup socket supaya tidak ada goroutine yang
@@ -315,6 +406,8 @@ func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, 
 	if isAuto {
 		qtype = calibrateQType(spec, domain, 1200*time.Millisecond, logf)
 		logf("SlowDNS: kalibrasi selesai • tipe %s", typeName(qtype))
+		// Log gaya HTTP Custom 8.1.5: mode otomatis melaporkan tipe aktif.
+		logf("SlowDNS: Automatic - %s active", typeName(qtype))
 	}
 
 	// Kalibrasi batas QNAME/EDNS0 (gaya HTTP Custom): uji dari nilai
@@ -332,7 +425,7 @@ func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, 
 	ch := make(chan opened, sessions)
 	for i := 0; i < sessions; i++ {
 		go func(idx int) {
-			sc, err := t.openSession(pubkey, domain, qtype, spec, kcpWindow, qnameLimit, ednsLimit)
+			sc, err := t.openSession(pubkey, domain, qtype, m, spec, kcpWindow, qnameLimit, ednsLimit)
 			if err != nil && idx > 0 {
 				err = fmt.Errorf("sesi %d: %v", idx+1, err)
 			}
@@ -357,7 +450,8 @@ func (t *tunnel) run(pubkey []byte, domain dns.Name, qtype uint16, isAuto bool, 
 	}
 
 	close(t.ready)
-	logf("SlowDNS siap • 127.0.0.1:%d • tipe %s • %d sesi", t.port, typeName(qtype), len(t.sessions))
+	logf("SlowDNS siap • 127.0.0.1:%d • tipe %s • %d sesi", t.port, displayType(qtype, m), len(t.sessions))
+	logf("SlowDNS: %s active", displayType(qtype, m))
 
 	for {
 		local, err := t.ln.Accept()
@@ -394,6 +488,7 @@ func (t *tunnel) openSession(
 	pubkey []byte,
 	domain dns.Name,
 	qtype uint16,
+	m Mode,
 	spec resolverSpec,
 	kcpWindow, qnameLimit, ednsLimit int,
 ) (*sessionConn, error) {
@@ -409,13 +504,17 @@ func (t *tunnel) openSession(
 		}
 	}()
 
-	mtu := dnsNameCapacity(domain, qnameLimit) - 8 - 1 - numPadding - 1 // clientid + prefiks padding + padding + prefiks data
+	padData := numPadding
+	if m.Compact {
+		padData = 0
+	}
+	mtu := dnsNameCapacity(domain, qnameLimit) - 8 - 1 - padData - 1 // clientid + prefiks padding + padding + prefiks data
 	if mtu < 80 {
 		return nil, fmt.Errorf("domain %s hanya menyisakan %d byte untuk payload", domain, mtu)
 	}
 	logf("SlowDNS native: effective MTU %d", mtu)
 
-	sc.pconn = NewDNSPacketConn(sc.transport, sc.addr, domain, qtype, ednsLimit, logf)
+	sc.pconn = NewDNSPacketConn(sc.transport, sc.addr, domain, qtype, ednsLimit, m, logf)
 	conn, err := kcp.NewConn2(sc.addr, nil, 0, 0, sc.pconn)
 	if err != nil {
 		sc.pconn.Close()
@@ -437,12 +536,13 @@ func (t *tunnel) openSession(
 	}
 
 	// Kanal Noise di atas KCP: Noise_NK_25519_ChaChaPoly_BLAKE2s,
-	// prologue "dnstt 2020-04-13".
+	// prologue "dnstt 2020-04-13". Kegagalan handshake berarti kunci publik
+	// server tidak cocok — pesan ala HTTP Custom 8.1.5.
 	rw, err := noise.NewClient(conn, pubkey)
 	if err != nil {
 		conn.Close()
 		sc.pconn.Close()
-		return nil, err
+		return nil, fmt.Errorf("Could not verify the server. Update the app and the server package. (%v)", err)
 	}
 
 	// Sesi smux v2 di atas Noise.

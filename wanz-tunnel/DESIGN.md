@@ -154,10 +154,11 @@ sudut, dan bentuk kontrol, bukan dari font.
    - **Payload** dan **Proxy** mengubah dua field profil yang tidak muat di
      beranda; SSH (host/port/user/pass) diisi langsung di field ringkas.
    - **SlowDNS** mengatur resolver (UDP/DoH/DoT), domain tunnel, public key
-     server, tipe record query (Automatic/NULL/TXT/CNAME/MX/NS/SRV), serta
-     pengaturan lanjutan QNAME limit, EDNS0 limit, KCP Window, Session,
-     Multi login, dan Automatic calibration; centangnya ada di kisi
-     beranda.
+     server, tipe record query gaya HTTP Custom 8.1.5
+     (Automatic/NULL/TXT/FT/ST/RX/VX, tipe lama CNAME/MX/NS/SRV tetap
+     diterima), mode FT Standard/Compact, serta pengaturan lanjutan QNAME
+     limit, EDNS0 limit, KCP Window, Session, Multi login, dan Automatic
+     calibration; centangnya ada di kisi beranda.
    - **Tema** memilih Ikuti sistem/Terang/Gelap.
    - Ping manual cukup ketuk kolom
      Aktif; log dan salin/bersihkan cukup di tab LOG; reset kunci host ada di
@@ -187,9 +188,13 @@ Sembilan centang dan field yang diubahnya:
 - Dialog Profil (v2.9.17): daftar kartu membulat dengan titik radio hijau,
   alamat mono di bawah nama, aksi ubah/hapus per baris, dan tombol hijau
   penuh `TAMBAH PROFIL BARU`.
-- Dialog SlowDNS (v2.9.17): kontrol segmen resolver UDP/DOH/DOT, saklar
-  beraksen hijau (Aktifkan, Multi login, Kalibrasi), kisi dua kolom untuk
-  setelan lanjutan, dan tombol Terapkan berbentuk pil hijau.
+- Dialog SlowDNS (v2.9.17, diperbarui v2.9.20): kontrol segmen resolver
+  UDP/DOH/DOT, pemilih tipe record (Automatic/NULL/TXT/FT/ST/RX/VX) dengan
+  deskripsi singkat per tipe (ST memperingatkan butuh dukungan server),
+  baris "MODE FT" (Standard/Compact) yang hanya tampil saat tipe FT
+  dipilih, saklar beraksen hijau (Aktifkan, Multi login, Kalibrasi), kisi
+  dua kolom untuk setelan lanjutan, dan tombol Terapkan berbentuk pil
+  hijau.
 - Dialog Tema (v2.9.17): tiga kartu berpratinjau mini (Ikuti sistem/Gelap/
   Terang) dengan indikator radio; kartu terpilih bergaris hijau.
 - `brandTile()`: ubin charcoal dengan monogram W hijau; dipakai di laci dan

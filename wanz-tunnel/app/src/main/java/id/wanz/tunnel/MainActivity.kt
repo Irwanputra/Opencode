@@ -1679,7 +1679,7 @@ class MainActivity : InkActivity() {
         val domainInput = addField("DOMAIN TUNNEL", p.slowdnsDomain, "tunnel.domain.com")
         val pubkeyInput = addField("PUBLIC KEY SERVER", p.slowdnsPubkey, "64 karakter heksadesimal")
 
-        // Pilihan tipe record query: AUTO/NULL/TXT/CNAME/MX/NS/SRV.
+        // Pilihan tipe record query gaya HC 8.1.5: AUTO/NULL/TXT/FT/ST/RX/VX.
         box.addView(
             monoText("TIPE RECORD", 10.5f, FAINT).apply {
                 letterSpacing = 0.12f
@@ -1687,6 +1687,7 @@ class MainActivity : InkActivity() {
             }
         )
         var selectedType = SlowDns.normalizeType(p.slowdnsType)
+        var selectedMode = SlowDns.normalizeMode(p.slowdnsMode)
         val typeView = uiText(selectedType, 14f, INK).apply {
             background = ripple(box(FIELD, R_FIELD, HAIR, 1f))
             setPadding(dp(14), 0, dp(14), 0)
@@ -1695,19 +1696,75 @@ class MainActivity : InkActivity() {
             minimumHeight = dp(48)
             gravity = Gravity.CENTER_VERTICAL
             contentDescription = "Pilih tipe record SlowDNS"
-            setOnClickListener {
-                val current = SlowDns.TYPES.indexOf(selectedType).coerceAtLeast(0)
-                themedBuilder("Tipe SlowDNS")
-                    .setSingleChoiceItems(SlowDns.TYPES.toTypedArray(), current) { dialog, which ->
-                        selectedType = SlowDns.TYPES[which]
-                        text = selectedType
-                        dialog.dismiss()
-                    }
-                    .setNegativeButton("Batal", null)
-                    .show()
-            }
         }
         box.addView(typeView, LinearLayout.LayoutParams(-1, -2))
+
+        // Penjelasan tipe terpilih (mis. ST menuntut dukungan server).
+        val typeHint = uiText(SlowDns.typeDescription(selectedType) ?: "", 12f, MUTED).apply {
+            setPadding(0, dp(4), 0, 0)
+            visibility = if (selectedType == SlowDns.TYPE_ST) View.VISIBLE else View.GONE
+        }
+        box.addView(typeHint, LinearLayout.LayoutParams(-1, -2))
+
+        // Mode FT: Standard atau Compact (padding diperkecil, payload lebih
+        // besar per query) — hanya tampil saat tipe FT dipilih.
+        val modeValue = uiText(
+            if (selectedMode == SlowDns.MODE_COMPACT) "FT Compact" else "FT Standard",
+            14f, INK
+        )
+        val modeRow = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            minimumHeight = dp(48)
+            background = ripple(box(FIELD, R_FIELD, HAIR, 1f))
+            setPadding(dp(14), 0, dp(14), 0)
+            isClickable = true
+            isFocusable = true
+            contentDescription = "Pilih mode FT"
+            addView(
+                uiText("MODE FT", 13f, MUTED).apply { letterSpacing = 0.08f },
+                LinearLayout.LayoutParams(0, -2, 1f)
+            )
+            addView(modeValue, LinearLayout.LayoutParams(-2, -2))
+        }
+        box.addView(
+            modeRow,
+            LinearLayout.LayoutParams(-1, -2).apply {
+                topMargin = dp(8)
+                bottomMargin = dp(4)
+            }
+        )
+        modeRow.visibility = if (selectedType == SlowDns.TYPE_FT) View.VISIBLE else View.GONE
+
+        modeRow.setOnClickListener {
+            val opts = listOf("FT Standard", "FT Compact")
+            val current = if (selectedMode == SlowDns.MODE_COMPACT) 1 else 0
+            themedBuilder("Mode FT")
+                .setSingleChoiceItems(opts.toTypedArray(), current) { dialog, which ->
+                    selectedMode =
+                        if (which == 1) SlowDns.MODE_COMPACT else SlowDns.MODE_STANDARD
+                    modeValue.text = opts[which]
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
+        typeView.setOnClickListener {
+            val current = SlowDns.TYPES.indexOf(selectedType).coerceAtLeast(0)
+            themedBuilder("Tipe SlowDNS")
+                .setSingleChoiceItems(SlowDns.TYPES.toTypedArray(), current) { dialog, which ->
+                    selectedType = SlowDns.TYPES[which]
+                    typeView.text = selectedType
+                    typeHint.text = SlowDns.typeDescription(selectedType) ?: ""
+                    typeHint.visibility =
+                        if (selectedType == SlowDns.TYPE_ST) View.VISIBLE else View.GONE
+                    modeRow.visibility =
+                        if (selectedType == SlowDns.TYPE_FT) View.VISIBLE else View.GONE
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Batal", null)
+                .show()
+        }
 
         // Pengaturan lanjutan dalam kisi dua kolom, seperti mockup SlowDNS.
         box.addView(
@@ -1749,10 +1806,12 @@ class MainActivity : InkActivity() {
         box.addView(
             uiText(
                 "SSH disalurkan lewat terowongan DNS (dnstt). Resolver boleh UDP biasa, " +
-                    "DoH (https://), atau DoT (tls://). Tipe NULL paling tahan cache; " +
-                    "AUTO menguji sendiri tipe yang lolos. Batas QNAME/EDNS membantu " +
-                    "pada jaringan yang memotong DNS besar. Sesi >1 hanya dipakai saat " +
-                    "Multi login aktif; kalibrasi menguji batas sebelum menyambung.",
+                    "DoH (https://), atau DoT (tls://). Tipe: NULL paling tahan cache, " +
+                    "FT Full TXT (Standard/Compact), ST Short TXT (perlu dukungan " +
+                    "server), RX record HTTPS, VX record SVCB; AUTO menguji sendiri " +
+                    "tipe yang lolos. Batas QNAME/EDNS membantu pada jaringan yang " +
+                    "memotong DNS besar. Sesi >1 hanya dipakai saat Multi login aktif; " +
+                    "kalibrasi menguji batas sebelum menyambung.",
                 12f, MUTED
             ).apply { setPadding(0, dp(12), 0, 0) }
         )
@@ -1796,6 +1855,7 @@ class MainActivity : InkActivity() {
                 slowdnsDomain = domainInput.text.toString().trim(),
                 slowdnsPubkey = pubkeyInput.text.toString().trim(),
                 slowdnsType = selectedType,
+                slowdnsMode = selectedMode,
                 slowdnsQname = number(qnameInput),
                 slowdnsEdns = number(ednsInput),
                 slowdnsWindow = number(windowInput),

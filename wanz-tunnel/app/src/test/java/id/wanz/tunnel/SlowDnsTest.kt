@@ -10,10 +10,11 @@ class SlowDnsTest {
 
     @Test
     fun typesMatchHttpCustomOptions() {
-        // HTTP Custom 8.0.22-Patch 2 menawarkan pilihan tipe berikut
-        // (slowdns_mode_auto + slowdns_type_* di strings.xml).
+        // HTTP Custom 8.1.5 menawarkan pilihan tipe berikut
+        // (slowdns_type_* di strings.xml): FT/ST/RX/VX menggantikan
+        // CNAME/MX/NS/SRV.
         assertEquals(
-            listOf("AUTO", "NULL", "TXT", "CNAME", "MX", "NS", "SRV"),
+            listOf("AUTO", "NULL", "TXT", "FT", "ST", "RX", "VX"),
             SlowDns.TYPES
         )
     }
@@ -23,11 +24,38 @@ class SlowDnsTest {
         assertEquals("AUTO", SlowDns.normalizeType("auto"))
         assertEquals("NULL", SlowDns.normalizeType("null"))
         assertEquals("TXT", SlowDns.normalizeType(" txt "))
+        assertEquals("FT", SlowDns.normalizeType("ft"))
+        assertEquals("ST", SlowDns.normalizeType("st"))
+        assertEquals("RX", SlowDns.normalizeType("rx"))
+        assertEquals("VX", SlowDns.normalizeType("VX"))
+        // Tipe lama masih dikenali agar profil lama tidak rusak.
         assertEquals("SRV", SlowDns.normalizeType("SRV"))
         // Nilai tak dikenal dan kosong jatuh ke AUTO (kalibrasi).
         assertEquals("AUTO", SlowDns.normalizeType("AXFR"))
         assertEquals("AUTO", SlowDns.normalizeType(""))
         assertEquals("AUTO", SlowDns.normalizeType(null))
+    }
+
+    @Test
+    fun modeNormalizationAndValidation() {
+        assertEquals("STANDARD", SlowDns.normalizeMode("standard"))
+        assertEquals("COMPACT", SlowDns.normalizeMode(" compact "))
+        assertEquals("STANDARD", SlowDns.normalizeMode("ngawur"))
+        assertEquals("STANDARD", SlowDns.normalizeMode(null))
+        // Mode hanya boleh COMPACT untuk tipe FT.
+        val base = Profile(
+            id = 1,
+            slowdns = true,
+            slowdnsDomain = "t.example.com",
+            slowdnsPubkey = "ab".repeat(32),
+            slowdnsType = SlowDns.TYPE_FT,
+            slowdnsMode = SlowDns.MODE_COMPACT
+        )
+        assertNull(SlowDns.validate(base))
+        assertNotNull(
+            SlowDns.validate(base.copy(slowdnsType = SlowDns.TYPE_TXT))
+        )
+        assertNull(SlowDns.validate(base.copy(slowdnsMode = SlowDns.MODE_STANDARD)))
     }
 
     @Test

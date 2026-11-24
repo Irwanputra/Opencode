@@ -62,12 +62,14 @@ data class Profile(
     var dnsServer: String = "1.1.1.1",
     // SlowDNS (gaya HTTP Custom): SSH disalurkan lewat terowongan DNS
     // (dnstt). resolver/domain/pubkey milik server SlowDNS; type memilih
-    // tipe record query: AUTO, NULL, TXT, CNAME, MX, NS, atau SRV.
+    // tipe record query gaya HTTP Custom 8.1.5: AUTO, NULL, TXT, FT, ST,
+    // RX, atau VX; mode memilih varian FT (STANDARD/COMPACT).
     var slowdns: Boolean = false,
     var slowdnsResolver: String = "8.8.8.8",
     var slowdnsDomain: String = "",
     var slowdnsPubkey: String = "",
     var slowdnsType: String = SlowDns.TYPE_AUTO,
+    var slowdnsMode: String = SlowDns.MODE_STANDARD,
     // Pengaturan lanjutan (gaya HTTP Custom); 0 = default pustaka.
     // QNAME/EDNS membatasi ukuran nama & jawaban agar lolos jaringan;
     // window mengatur jendela KCP.
@@ -175,6 +177,7 @@ class ProfileStore(context: Context) {
             put("slowdnsDomain", p.slowdnsDomain)
             put("slowdnsPubkey", p.slowdnsPubkey)
             put("slowdnsType", p.slowdnsType)
+            put("slowdnsMode", p.slowdnsMode)
             put("slowdnsQname", p.slowdnsQname)
             put("slowdnsEdns", p.slowdnsEdns)
             put("slowdnsWindow", p.slowdnsWindow)
@@ -222,6 +225,7 @@ class ProfileStore(context: Context) {
             slowdnsDomain = o.optString("slowdnsDomain", ""),
             slowdnsPubkey = o.optString("slowdnsPubkey", ""),
             slowdnsType = SlowDns.normalizeType(o.optString("slowdnsType", SlowDns.TYPE_AUTO)),
+            slowdnsMode = SlowDns.normalizeMode(o.optString("slowdnsMode", SlowDns.MODE_STANDARD)),
             slowdnsQname = o.optInt("slowdnsQname", 0).coerceIn(0, 255),
             slowdnsEdns = o.optInt("slowdnsEdns", 0).coerceIn(0, 4096),
             slowdnsWindow = o.optInt("slowdnsWindow", 0).coerceIn(0, 128),

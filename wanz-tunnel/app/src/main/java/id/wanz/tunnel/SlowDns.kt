@@ -13,32 +13,64 @@ import java.net.Socket
 private typealias NativeSlowDns = id.wanz.slowdns.Slowdns
 
 /**
- * Konfigurasi & validasi SlowDNS, mengikuti pilihan pada HTTP Custom.
+ * Konfigurasi & validasi SlowDNS, mengikuti pilihan pada HTTP Custom 8.1.5.
  *
- * Tipe record query yang didukung pustaka native (slowdns-go, protokol
- * dnstt + varian ePro):
- * - AUTO  : kalibrasi otomatis, coba NULL → TXT → CNAME → MX → NS → SRV
- * - NULL  : tipe "licin", jarang disentuh resolver (favorit HTTP Custom)
- * - TXT   : cara klasik dnstt
- * - CNAME / MX / NS / SRV : data disisipkan pada nama di dalam RDATA
+ * Tipe record query (label HC 8.1.5):
+ * - AUTO : kalibrasi otomatis, coba NULL → TXT → RX → VX → tipe lama
+ * - NULL : tipe "licin", jarang disentuh resolver (favorit HTTP Custom)
+ * - TXT  : cara klasik dnstt
+ * - FT   : Full TXT — mode Standard atau Compact (padding diperkecil)
+ * - ST   : Short TXT — menuntut server yang mendukung mode ST
+ * - RX   : jawaban lewat record HTTPS (RFC 9460)
+ * - VX   : jawaban lewat record SVCB (RFC 9460)
+ * Tipe lama CNAME/MX/NS/SRV masih diterima native untuk profil lama.
  */
 object SlowDns {
     const val TYPE_AUTO = "AUTO"
     const val TYPE_NULL = "NULL"
     const val TYPE_TXT = "TXT"
+    const val TYPE_FT = "FT"
+    const val TYPE_ST = "ST"
+    const val TYPE_RX = "RX"
+    const val TYPE_VX = "VX"
+    // Tipe lama — tidak lagi tampil di UI, tetapi masih dinormalisasi.
     const val TYPE_CNAME = "CNAME"
     const val TYPE_MX = "MX"
     const val TYPE_NS = "NS"
     const val TYPE_SRV = "SRV"
 
-    val TYPES = listOf(TYPE_AUTO, TYPE_NULL, TYPE_TXT, TYPE_CNAME, TYPE_MX, TYPE_NS, TYPE_SRV)
+    val TYPES = listOf(TYPE_AUTO, TYPE_NULL, TYPE_TXT, TYPE_FT, TYPE_ST, TYPE_RX, TYPE_VX)
+
+    /** Mode untuk tipe FT: Standard (default) atau Compact. */
+    const val MODE_STANDARD = "STANDARD"
+    const val MODE_COMPACT = "COMPACT"
+    val MODES = listOf(MODE_STANDARD, MODE_COMPACT)
+
+    /** Deskripsi singkat tipe, tampil di pemilih tipe. */
+    fun typeDescription(type: String): String? = when (normalizeType(type)) {
+        TYPE_ST -> "Memerlukan server yang mendukung mode ST (Short TXT)."
+        TYPE_FT -> "Full TXT: pilih Standard atau Compact."
+        TYPE_RX -> "Jawaban lewat record HTTPS (RX)."
+        TYPE_VX -> "Jawaban lewat record SVCB (VX)."
+        TYPE_NULL -> "Tipe licin, paling tahan cache resolver."
+        TYPE_TXT -> "Cara klasik dnstt."
+        else -> null
+    }
 
     /** Tag log khusus SlowDNS. */
     const val TAG = "SLOWDNS"
 
     /** Terima nama tipe apa pun (huruf besar/kecil); default AUTO. */
     fun normalizeType(value: String?): String =
-        TYPES.firstOrNull { it.equals(value?.trim(), ignoreCase = true) } ?: TYPE_AUTO
+        TYPES.firstOrNull { it.equals(value?.trim(), ignoreCase = true) }
+            // Tipe lama tetap dikenali agar profil lama tidak rusak.
+            ?: listOf(TYPE_CNAME, TYPE_MX, TYPE_NS, TYPE_SRV)
+                .firstOrNull { it.equals(value?.trim(), ignoreCase = true) }
+            ?: TYPE_AUTO
+
+    /** Terima nama mode (STANDARD/COMPACT); default STANDARD. */
+    fun normalizeMode(value: String?): String =
+        MODES.firstOrNull { it.equals(value?.trim(), ignoreCase = true) } ?: MODE_STANDARD
 
     /**
      * Periksa konfigurasi sebelum dipakai menyambung.
@@ -63,6 +95,11 @@ object SlowDns {
         }
         if (p.slowdnsSessions !in 1..8) {
             return "Jumlah sesi SlowDNS harus 1–8"
+        }
+        // Mode FT Compact hanya berlaku untuk tipe FT.
+        val mode = normalizeMode(p.slowdnsMode)
+        if (mode == MODE_COMPACT && normalizeType(p.slowdnsType) != TYPE_FT) {
+            return "Mode FT Compact hanya berlaku untuk tipe FT"
         }
         return null
     }
@@ -173,6 +210,27 @@ object SlowDnsTunnel {
     }
 
     /**
+     * Menerjemahkan pesan galat native (Inggris, gaya HTTP Custom 8.1.5)
+     * menjadi pesan Indonesia yang konsisten dengan UI.
+     */
+    private fun mapNativeError(msg: String?): String {
+        val m = msg ?: return "SlowDNS gagal dimulai"
+        return when {
+            m.contains("Use a public DNS resolver", ignoreCase = true) ->
+                "Gunakan DNS resolver publik (mis. 8.8.8.8), bukan resolver lokal/privat"
+            m.contains("Could not verify the server", ignoreCase = true) ->
+                "Tidak bisa memverifikasi server SlowDNS. Perbarui aplikasi dan paket server"
+            m.contains("Timed out while opening a session", ignoreCase = true) ->
+                "Timeout membuka sesi SlowDNS"
+            m.contains("QNAME limit is too small", ignoreCase = true) ->
+                "Batas QNAME terlalu kecil untuk domain dan tipe ini. Naikkan di setelan SlowDNS"
+            m.contains("mode ST", ignoreCase = true) || m.contains("ST mode", ignoreCase = true) ->
+                "Server tidak mendukung mode ST (Short TXT)"
+            else -> m
+        }
+    }
+
+    /**
      * Nyalakan terowongan SlowDNS dan tunggu sesi terbentuk.
      * @param protect dipanggil dengan fd socket resolver agar tidak masuk
      *   kembali ke VPN (VpnService.protect) — tanpa ini query DNS akan
@@ -186,10 +244,13 @@ object SlowDnsTunnel {
                 "SlowDNS tidak tersedia: pustaka native tidak ada untuk ABI perangkat ini"
             )
         }
+        val type = SlowDns.normalizeType(p.slowdnsType)
+        val mode = SlowDns.normalizeMode(p.slowdnsMode)
         TunnelLog.add(
             SlowDns.TAG,
             "Menyalakan SlowDNS • ${SlowDns.normalizeResolver(p.slowdnsResolver)} • " +
-                "${p.slowdnsDomain.trim()} • tipe ${SlowDns.normalizeType(p.slowdnsType)}"
+                "${p.slowdnsDomain.trim()} • tipe $type" +
+                (if (type == SlowDns.TYPE_FT) " • mode $mode" else "")
         )
         try {
             NativeSlowDns.setSocketProtector(
@@ -208,7 +269,8 @@ object SlowDnsTunnel {
                 SlowDns.normalizeResolver(p.slowdnsResolver),
                 p.slowdnsDomain.trim(),
                 p.slowdnsPubkey.trim(),
-                SlowDns.normalizeType(p.slowdnsType),
+                type,
+                mode,
                 0L,
                 p.slowdnsWindow.toLong(),
                 p.slowdnsQname.toLong(),
@@ -220,7 +282,8 @@ object SlowDnsTunnel {
             )
         } catch (e: Exception) {
             throw IOException(
-                "SlowDNS gagal dimulai: ${e.message ?: e.javaClass.simpleName}", e
+                "SlowDNS gagal dimulai: ${mapNativeError(e.message ?: e.javaClass.simpleName)}",
+                e
             )
         }
         val port = NativeSlowDns.listenPort().toInt()
@@ -229,7 +292,8 @@ object SlowDnsTunnel {
         } catch (e: Exception) {
             stop()
             throw IOException(
-                "Sesi SlowDNS tidak siap: ${e.message ?: e.javaClass.simpleName}", e
+                "Sesi SlowDNS tidak siap: ${mapNativeError(e.message ?: e.javaClass.simpleName)}",
+                e
             )
         }
         return port

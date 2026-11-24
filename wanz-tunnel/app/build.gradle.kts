@@ -10,8 +10,8 @@ android {
         applicationId = "id.wanz.tunnel"
         minSdk = 29
         targetSdk = 34
-        versionCode = 33
-        versionName = "2.9.19"
+        versionCode = 34
+        versionName = "2.9.20"
     }
     buildTypes {
         release {
@@ -43,12 +43,18 @@ android {
 }
 
 // Varian lite tidak mengemas libgojni.so (pustaka native SlowDNS yang paling
-// besar). Penjaga nativeAvailable() di SlowDns.kt memastikan aplikasi tetap
-// berjalan normal tanpa pustaka itu.
+// besar). Rilis (full & lite) hanya mengemas arm64-v8a — sama seperti
+// distribusi HTTP Custom — agar APK tetap ringan; pustaka slowdns.aar juga
+// memuat x86_64 untuk pengujian di emulator, yang hanya diikutkan pada
+// build debug. Penjaga nativeAvailable() di SlowDns.kt memastikan aplikasi
+// tetap berjalan normal tanpa pustaka native.
 androidComponents {
     onVariants { v ->
         if (v.flavorName == "lite") {
             v.packaging.jniLibs.excludes.add("**/libgojni.so")
+        }
+        if (v.buildType == "release") {
+            v.packaging.jniLibs.excludes.add("lib/x86_64/**")
         }
     }
 }

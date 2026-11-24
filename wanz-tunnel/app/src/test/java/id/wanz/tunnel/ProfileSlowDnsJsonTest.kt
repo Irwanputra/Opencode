@@ -18,7 +18,8 @@ class ProfileSlowDnsJsonTest {
             slowdnsResolver = "1.1.1.1:53",
             slowdnsDomain = "t.example.com",
             slowdnsPubkey = "ab".repeat(32),
-            slowdnsType = "NULL"
+            slowdnsType = "NULL",
+            slowdnsMode = "COMPACT"
         )
         val back = ProfileStore.fromJson(JSONObject(ProfileStore.toJson(p).toString()))
         assertTrue(back.slowdns)
@@ -26,6 +27,7 @@ class ProfileSlowDnsJsonTest {
         assertEquals("t.example.com", back.slowdnsDomain)
         assertEquals("ab".repeat(32), back.slowdnsPubkey)
         assertEquals("NULL", back.slowdnsType)
+        assertEquals("COMPACT", back.slowdnsMode)
         // Field lama tetap ikut tersimpan.
         assertEquals(3L, back.id)
         assertEquals("Server DNS", back.name)
@@ -47,6 +49,7 @@ class ProfileSlowDnsJsonTest {
         assertEquals("", p.slowdnsDomain)
         assertEquals("", p.slowdnsPubkey)
         assertEquals("AUTO", p.slowdnsType)
+        assertEquals("STANDARD", p.slowdnsMode)
     }
 
     @Test
@@ -55,5 +58,13 @@ class ProfileSlowDnsJsonTest {
             .put("slowdns", true)
             .put("slowdnsType", "NGAWUR")
         assertEquals("AUTO", ProfileStore.fromJson(json).slowdnsType)
+    }
+
+    @Test
+    fun unknownModeFallsBackToStandard() {
+        val json = ProfileStore.toJson(Profile(id = 1))
+            .put("slowdns", true)
+            .put("slowdnsMode", "NGAWUR")
+        assertEquals("STANDARD", ProfileStore.fromJson(json).slowdnsMode)
     }
 }

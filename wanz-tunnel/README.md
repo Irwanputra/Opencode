@@ -1,4 +1,4 @@
-# Wanz Tunnel 2.9.19
+# Wanz Tunnel 2.9.20
 
 Aplikasi Android untuk SSH tunnel dengan mode VPN system-wide, payload/proxy,
 TLS/SNI, WebSocket, SlowDNS (terowongan DNS), dan multi-profil. Tampilan
@@ -51,13 +51,18 @@ tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   - TLS / SNI (mis. stunnel)
   - WebSocket (WS)
   - WebSocket + TLS (WSS)
-- **SlowDNS** (baru di v2.9.9, hasil reverse engineering HTTP Custom
-  8.0.22-Patch 2): SSH disalurkan lewat terowongan DNS protokol **dnstt**
-  (KCP → Noise_NK → smux di atas query DNS). Diatur lewat laci **SlowDNS**:
-  DNS resolver, domain tunnel, public key server (Noise), dan tipe record
-  query **Automatic / NULL / TXT / CNAME / MX / NS / SRV** — persis pilihan
-  HTTP Custom. Tipe `Automatic` mengkalibrasi sendiri tipe yang lolos
-  resolver/server; `NULL` adalah tipe favorit yang jarang disentuh resolver.
+- **SlowDNS** (baru di v2.9.9, hasil reverse engineering HTTP Custom;
+  diperbarui ke setara **HTTP Custom 8.1.5** di v2.9.20): SSH disalurkan
+  lewat terowongan DNS protokol **dnstt** (KCP → Noise_NK → smux di atas
+  query DNS). Diatur lewat laci **SlowDNS**: DNS resolver, domain tunnel,
+  public key server (Noise), dan tipe record query **Automatic / NULL /
+  TXT / FT / ST / RX / VX** — persis pilihan HTTP Custom 8.1.5 (tipe lama
+  CNAME/MX/NS/SRV masih diterima untuk profil lama). Tipe `Automatic`
+  mengkalibrasi sendiri tipe yang lolos resolver/server; `NULL` adalah tipe
+  favorit yang jarang disentuh resolver; `FT` (Full TXT) punya mode
+  **Standard** dan **Compact** (padding diperkecil agar payload per query
+  lebih besar); `ST` (Short TXT) menuntut server yang mendukung mode ST;
+  `RX` menjawab lewat record HTTPS dan `VX` lewat record SVCB (RFC 9460).
   Saat aktif, SSH masuk ke listener lokal `127.0.0.1:<port>` milik pustaka
   native (`slowdns.aar`, arm64) lalu diteruskan lewat DNS ke server.
   Resolver boleh UDP biasa, **DoH** (`https://…`), atau **DoT**
@@ -66,7 +71,12 @@ tambah mengambang. Font UI Roboto, data dan log Roboto Mono.
   (0/512–4096 byte), **KCP Window** (0/8–128), **Session** (1–8),
   **Multi login** (login/ClientID terpisah per sesi), dan
   **Automatic calibration** (uji QNAME/EDNS0 sebelum menyambung; nilai
-  manual tetap tersimpan). Sejak v2.9.12 setiap socket resolver diproteksi
+  manual tetap tersimpan). Mengikuti perilaku baru HC 8.1.5: kalibrasi
+  melaporkan **jawaban terbesar** yang diterima, **verifikasi server**
+  gagal dengan pesan jelas bila public key tidak cocok, **timeout membuka
+  sesi**, **penolakan resolver lokal/loopback** ("gunakan resolver
+  publik"), serta **validasi batas QNAME** yang terlalu kecil untuk domain
+  dan tipe terpilih. Sejak v2.9.12 setiap socket resolver diproteksi
   lewat `VpnService.protect` dan VPN dipasang sebelum terowongan DNS dimulai,
   jadi query DNS tidak masuk kembali ke TUN — penyebab tunnel diam dan
   `PING timeout` setelah status terhubung.
@@ -207,12 +217,12 @@ AGP 8.5.2, dan `app/libs/hev-socks5-tunnel.aar` sehingga tidak perlu NDK.
 APK release ditandatangani dengan debug key agar bisa langsung dipasang.
 Ganti `signingConfig` di `app/build.gradle.kts` untuk distribusi resmi.
 
-Rilis siap pasang: **`WanzTunnel-2.9.8.apk`** (1,9 MB, `versionCode 22`,
+Rilis siap pasang: **`WanzTunnel-2.9.20.apk`** (11,9 MB, `versionCode 34`,
 Android 10 ke atas), SHA-256
-`846e58ac6358559228871b018275cefa05fec9ad75084c2cbba54268ff2225c8`.
-Rilis sebelumnya, `WanzTunnel-2.9.7.apk` (`versionCode 21`, SHA-256
-`a0ade573dbdab3afbeed10c0f1adcd55b9ddb65431cf0b6bdf7af00af6335cd6`), masih
-menampilkan ikon impor config di bilah atas.
+`3c7789aa108e68222ee794c9f692779f436199571958fefee8eb83ccb9395754`, dan
+**`WanzTunnel-2.9.20-lite.apk`** (1,8 MB, tanpa pustaka native SlowDNS),
+SHA-256
+`6ee49e7f7ace5251e3bf5bf525ff941ba799d647af1ff9c95a823745ae1bd1f3`.
 Salinannya ada di akar repo dan di `_external_projects/opencode-66b774/deliverables/`.
 
 Gerbang desain dan pemeriksaan sebelum rilis:
@@ -227,6 +237,32 @@ python3 tools/wall_contrast.py          # kontras latar foto (fitur ditunda)
 
 Diuji pada emulator Android 14 (x86_64) dengan server SSH lokal:
 
+- v2.9.20 (SlowDNS setara HTTP Custom 8.1.5): hasil bedah HTTP Custom
+  8.1.5 (versionCode 942, SHA-1 `6a941065…` — XAPK dari katalog APK20)
+  menunjukkan pembaruan SlowDNS berikut: tipe query baru **FT** (Full TXT,
+  mode **Standard/Compact**), **ST** (Short TXT, `startAuthenticatedShortTXTPolling`
+  + probe `shortTXTProbeQuery` di lib native), **RX** (record HTTPS) dan
+  **VX** (record SVCB) menggantikan CNAME/MX/NS/SRV di UI, pesan galat baru
+  (verifikasi server, timeout sesi, resolver lokal, batas QNAME terlalu
+  kecil), serta log kalibrasi "largest reply". Wanz Tunnel mengadopsi
+  semuanya: tipe FT/ST/RX/VX di panel SlowDNS (mode FT Standard/Compact
+  tampil saat FT dipilih; deskripsi ST memperingatkan butuh dukungan
+  server), pustaka `slowdns-go` menambah tipe record HTTPS(65)/SVCB(64),
+  padding FT Compact, polling rapat ST dengan deteksi server tak mendukung,
+  penolakan resolver loopback + peringatan resolver privat, validasi batas
+  QNAME, timeout "Timed out while opening a session", verifikasi kunci
+  server dengan pesan HC, serta log kalibrasi jawaban terbesar. Unit test
+  Go (16 kasus) dan Kotlin (44 kasus) lulus; `design_gate --strict` 0/0.
+  APK penuh kini 11,9 MB (arm64, sama seperti distribusi HC) dan lite
+  1,8 MB. **Uji ujung-ke-ujung lulus di emulator x86_64**: AAR baru kini
+  memuat arm64+x86_64 sehingga SlowDNS bisa diuji di emulator —
+  `dnstt-server` asli (bamsoftware) dijalankan di host
+  (`10.0.2.2:5399`, upstream SSH 127.0.0.1:22), aplikasi menyambung dengan
+  tipe TXT: sesi DNS terbentuk (`begin session`), banner
+  `SSH-2.0-OpenSSH_10.2p1` diterima lewat terowongan DNS, VPN aktif,
+  `Internet OK • trafik aplikasi lewat tunnel`, ping stabil 3–6 ms.
+  Catatan: server dnstt upstream hanya mendukung QTYPE TXT; tipe
+  NULL/FT/ST/RX/VX membutuhkan server setara HTTP Custom.
 - v2.9.19 (permintaan pengguna: bersihkan kartu SSH): teks bantuan
   "Port dan akun boleh menyusul di baris ini." dan baris status di bawah
   tombol dihapus. Status kini tampil pada label tombol itu sendiri —
