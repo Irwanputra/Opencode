@@ -1,0 +1,51 @@
+--- adb starting (pid 17655) ---
+11-24 17:53:11.774 17655 17655 I adb     : main.cpp:65 Android Debug Bridge version 1.0.41
+11-24 17:53:11.774 17655 17655 I adb     : main.cpp:65 Version 37.0.3-16887417
+11-24 17:53:11.774 17655 17655 I adb     : main.cpp:65 Installed as /usr/local/lib/android/sdk/platform-tools/adb
+11-24 17:53:11.774 17655 17655 I adb     : main.cpp:65 Running on Linux 7.0.0-1020-azure (x86_64)
+11-24 17:53:11.774 17655 17655 I adb     : main.cpp:65 
+11-24 19:24:53.017 17655 17663 I adb     : transport.cpp:1226 emulator-5554: connection terminated: read failed
+11-24 19:24:54.012 17655 17655 W adb     : sockets.cpp:324 timeout expired while flushing socket, closing
+11-24 19:52:50.164 17655 37172 I adb     : transport.cpp:1226 127.0.0.1:5570: connection terminated: read failed
+11-24 19:52:50.414 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:50.414 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:53.414 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:53.415 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:56.415 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:56.415 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:59.415 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:52:59.415 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:02.415 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:02.415 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:05.415 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:05.415 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:08.416 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:08.416 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:11.416 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:11.416 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:14.416 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:14.416 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:17.416 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:17.416 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:20.417 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:20.417 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:23.417 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:23.417 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:26.417 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:26.417 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:29.417 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:29.417 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:32.417 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:32.418 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:35.418 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:35.418 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:38.418 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:38.418 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:41.418 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:41.418 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:44.418 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:44.418 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:47.419 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:47.419 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:50.419 17655 17656 W adb     : network.cpp:149 failed to connect to '127.0.0.1:5570': Connection refused
+11-24 19:53:50.419 17655 17656 I adb     : transport_emulator.cpp:122 reconnect 127.0.0.1:5570 failed: failed to connect to '127.0.0.1:5570': Connection refused

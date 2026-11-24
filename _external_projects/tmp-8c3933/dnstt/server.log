@@ -1,0 +1,38 @@
+2026/11/24 17:54:47 pubkey eb18016bd23f5e38abd22636953a942bc525cac8795963e4679ac2c69e2ac110
+2026/11/24 17:54:47 effective MTU 932
+2026/11/24 18:00:58 begin session d51b9e4f
+2026/11/24 18:00:58 begin stream d51b9e4f:3
+2026/11/24 18:18:10 begin session 9cc5e376
+2026/11/24 18:18:10 begin stream 9cc5e376:3
+2026/11/24 18:20:58 end session d51b9e4f
+2026/11/24 18:20:58 end stream d51b9e4f:3
+2026/11/24 18:55:09 begin session 494a843e
+2026/11/24 18:55:13 begin stream 494a843e:3
+2026/11/24 18:55:13 end stream 494a843e:3
+2026/11/24 18:55:58 begin session f30d3fd7
+2026/11/24 18:56:02 begin stream f30d3fd7:3
+2026/11/24 18:56:02 end stream f30d3fd7:3
+2026/11/24 18:56:37 begin stream f30d3fd7:5
+2026/11/24 18:56:37 end stream f30d3fd7:5
+2026/11/24 18:58:35 begin session 3f9085de
+2026/11/24 18:58:39 begin stream 3f9085de:3
+2026/11/24 18:58:39 end stream 3f9085de:3
+2026/11/24 18:59:09 end session 494a843e
+2026/11/24 19:00:39 begin session d48caecb
+2026/11/24 19:00:39 session d48caecb acceptStreams: chacha20poly1305: message authentication failed
+2026/11/24 19:00:39 end session d48caecb
+2026/11/24 19:02:39 end stream 9cc5e376:3
+2026/11/24 19:02:39 begin session 6a5a7ba0
+2026/11/24 19:02:39 begin stream 6a5a7ba0:3
+2026/11/24 19:06:10 end session 9cc5e376
+2026/11/24 19:06:35 end session 3f9085de
+2026/11/24 19:56:54 begin session 3d88feb9
+2026/11/24 19:56:54 session 3d88feb9 acceptStreams: chacha20poly1305: message authentication failed
+2026/11/24 19:56:54 end session 3d88feb9
+2026/11/24 19:57:20 begin session 1ea97e86
+2026/11/24 19:57:20 session 1ea97e86 acceptStreams: chacha20poly1305: message authentication failed
+2026/11/24 19:57:20 end session 1ea97e86
+2026/11/24 19:57:48 begin session eed13661
+2026/11/24 19:57:54 begin stream eed13661:3
+2026/11/24 19:57:54 end stream eed13661:3
+2026/11/24 20:01:48 end session eed13661

@@ -1,0 +1,65 @@
+1c3efa0  ldp	x3, x4, [x27]
+1c3efa4  add	x27, sp, #0x57
+1c3efa8  ldp	x5, x6, [x27]
+1c3efac  ldr	x7, [sp, #0x60]
+1c3efb0  stp	x3, x4, [sp, #0x98]
+1c3efb4  stp	x5, x6, [sp, #0xa8]
+1c3efb8  stur	x7, [sp, #0xb1]
+1c3efbc  ldur	x29, [sp, #-0x8]
+1c3efc0  ldr	x30, [sp], #0x90
+1c3efc4  ret
+1c3efc8  stp	x0, x1, [sp, #0x30]
+1c3efcc  str	x2, [sp, #0x40]
+1c3efd0  mov	x3, x30
+1c3efd4  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c3efd8  ldp	x0, x1, [sp, #0x30]
+1c3efdc  ldr	x2, [sp, #0x40]
+1c3efe0  b	0x1c3ef30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776a50>   ; <noise/hcauth.acceptance>
+1c3eff0  ldr	x16, [x28, #0x10]
+1c3eff4  sub	x17, sp, #0x50
+1c3eff8  cmp	x17, x16
+1c3effc  b.ls	0x1c3f0d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776bf0>
+1c3f000  str	x30, [sp, #-0xd0]!
+1c3f004  stur	x29, [sp, #-0x8]
+1c3f008  sub	x29, sp, #0x8
+1c3f00c  str	x0, [sp, #0x120]
+1c3f010  str	w4, [sp, #0x13c]
+1c3f014  add	x4, sp, #0xf8
+1c3f018  stp	xzr, xzr, [x4]
+1c3f01c  stp	xzr, xzr, [x4, #0x10]
+1c3f020  str	xzr, [x4, #0x20]
+1c3f024  ldp	x4, x5, [sp, #0xd8]
+1c3f028  ldp	x6, x7, [sp, #0xe8]
+1c3f02c  stp	x4, x5, [sp, #0x8]
+1c3f030  stp	x6, x7, [sp, #0x18]
+1c3f034  bl	0x1c3f3a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776ec0>   ; <noise/hcauth.decodeCertificate>
+1c3f038  ldp	x4, x5, [sp, #0x28]
+1c3f03c  ldp	x6, x7, [sp, #0x38]
+1c3f040  ldr	x8, [sp, #0x48]
+1c3f044  stp	x4, x5, [sp, #0xa0]
+1c3f048  stp	x6, x7, [sp, #0xb0]
+1c3f04c  str	x8, [sp, #0xc0]
+1c3f050  ldp	x4, x5, [sp, #0xa0]
+1c3f054  ldp	x6, x7, [sp, #0xb0]
+1c3f058  ldr	x8, [sp, #0xc0]
+1c3f05c  stp	x4, x5, [sp, #0x78]
+1c3f060  stp	x6, x7, [sp, #0x88]
+1c3f064  str	x8, [sp, #0x98]
+1c3f068  cbnz	x0, 0x1c3f07c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776b9c>
+1c3f06c  ldr	w2, [sp, #0x7c]
+1c3f070  ldr	w3, [sp, #0x13c]
+1c3f074  cmp	w3, w2
+1c3f078  b.eq	0x1c3f0a4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776bc4>
+1c3f07c  add	x2, sp, #0xf8
+1c3f080  stp	xzr, xzr, [x2]
+1c3f084  stp	xzr, xzr, [x2, #0x10]
+1c3f088  str	xzr, [x2, #0x20]
+1c3f08c  adrp x27, page
+1c3f090  add	x27, x27, #0x80   ; =0x28a7080
+1c3f094  ldp	x0, x1, [x27]
+1c3f098  ldur	x29, [sp, #-0x8]
+1c3f09c  ldr	x30, [sp], #0xd0
+1c3f0a0  ret
+1c3f0a4  ldp	x2, x3, [sp, #0xa0]
+1c3f0a8  ldp	x4, x5, [sp, #0xb0]
+1c3f0ac  ldr	x6, [sp, #0xc0]

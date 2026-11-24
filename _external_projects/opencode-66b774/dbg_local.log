@@ -1,0 +1,550 @@
+2026/11/24 18:58:35 uTLS fingerprint iOS 14
+2026/11/24 18:58:35 effective MTU 134
+2026/11/24 18:58:35 begin session 3f9085de
+2026/11/24 18:58:35 DBG send qlen=106 name=freqwq6ywub7ryygw4orvxufsa7vcacaaaaqaaaaaaaaaaaaaaaaaaqaaaaaama.t.example.com
+2026/11/24 18:58:35 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400001000000000000000100000000000000
+2026/11/24 18:58:35 DBG send qlen=181 name=freqwq6ywub7ry7rlwiurxufsa7vcacaaaaqaaaaaeaaaaaaaaaaamaaaaac4l2.tgxtxj63t73dj75xwqldigoq5lfi3jrpc6j2vylt33agw2ldbr6mkpaffl7xpbw.qdrbrq7jq3.t.example.com
+2026/11/24 18:58:35 DBG recv rcode=0 nans=1 payload=126 bytes: 0032de85903f5200400001000000010000000200000000000000de85903f5100400070683a0000000000020000000200000000300048de85903f5100400070683a0001000000020000003000000095fc9e2c8ba7037f4b845db704dccc1a16f3
+2026/11/24 18:58:35 DBG send qlen=103 name=freqwq6ywub7ry5eqarbrxufsa7veab7abygqoqaaaaaaaabaaaaaaaaaaaa.t.example.com
+2026/11/24 18:58:35 DBG send qlen=103 name=freqwq6ywub7ry5rheqbrxufsa7veacaabygqoqaaeaaaaacaaaaaaaaaaaa.t.example.com
+2026/11/24 18:58:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:35 DBG send qlen=71 name=freqwq6ywub7r2aykcpmncs2ra2q.t.example.com
+2026/11/24 18:58:36 DBG send qlen=71 name=freqwq6ywub7r2h7slvaif4mdv4a.t.example.com
+2026/11/24 18:58:36 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:37 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:38 DBG send qlen=71 name=freqwq6ywub7r2edwxpzuquarfnq.t.example.com
+2026/11/24 18:58:39 begin stream 3f9085de:3
+2026/11/24 18:58:39 DBG send qlen=106 name=freqwq6ywub7ry7rwx7rvxufsa7vcacaadoa6aaaaiaaaaacaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:58:39 DBG send qlen=142 name=freqwq6ywub7ry7smjvdbxufsa7vcacaadoa6aaaamaaaaacaaaaagaaaaabh2x.wqipljw3uv37qhqcoxolrc3z6szhxkc3sb4.t.example.com
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000dc0f0000030000000400000000000000
+2026/11/24 18:58:39 DBG send qlen=71 name=freqwq6ywub7r2cbjzhcx5bzqzzq.t.example.com
+2026/11/24 18:58:39 DBG recv rcode=0 nans=1 payload=120 bytes: 001ade85903f5100400059783a000200000004000000020000000042005ade85903f5100400059783a0003000000040000004200000099b5b7c8ae3fb40eca48d7db4498df627ba571c9230127fbb77883d1ddd4a495258257f927363ef77934
+2026/11/24 18:58:39 DBG send qlen=71 name=freqwq6ywub7r2b4n3kahcwli7la.t.example.com
+2026/11/24 18:58:39 DBG send qlen=145 name=freqwq6ywub7ryyv7ntdfxufsa7veacaabmxqoqaamaaaaaeaaaaaaaaaaan5bm.qh5iqaqaa5qhqaaaeaaaaabaaaaaaeaaaaaaca.t.example.com
+2026/11/24 18:58:39 DBG send qlen=155 name=freqwq6ywub7ry6qpw6trxufsa7vcacaadwa6aaaauaaaaaeaaaaaiaaaaadi46.hsz2j7f6rczhzllqhxsqbm4a5dbhxuhovvutpjigfq7cdafi.t.example.com
+2026/11/24 18:58:39 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52003f00ec0f0000040000000500000000000000
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG send qlen=71 name=freqwq6ywub7r2hd4dgskkl7snha.t.example.com
+2026/11/24 18:58:39 end stream 3f9085de:3
+2026/11/24 18:58:39 DBG send qlen=106 name=freqwq6ywub7ry3fpinbvxufsa7vcacaadxq6aaaayaaaaaeaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:58:39 DBG send qlen=142 name=freqwq6ywub7ryzpq37dbxufsa7vcacaadxq6aaaa4aaaaaeaaaaagaaaaacekl.57zqd7z3min6mtesoc2cy33wtbkv6v4rwxq.t.example.com
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000ef0f0000070000000800000000000000
+2026/11/24 18:58:39 DBG send qlen=71 name=freqwq6ywub7r2fefbch3wfycwyq.t.example.com
+2026/11/24 18:58:39 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f510040005e783a0004000000080000000200000000180030de85903f510040005e783a000500000008000000180000002d3f0ee9c6ab426e96b98ab5812a36cf63e685295e61d11e
+2026/11/24 18:58:39 DBG send qlen=71 name=freqwq6ywub7r2bqrfg3czg6a4xq.t.example.com
+2026/11/24 18:58:39 DBG send qlen=103 name=freqwq6ywub7ry37nxqrrxufsa7veacaabphqoqaauaaaaagaaaaaaaaaaaa.t.example.com
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:39 DBG send qlen=71 name=freqwq6ywub7r2ddxgwmrpjkpjma.t.example.com
+2026/11/24 18:58:40 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:40 DBG send qlen=71 name=freqwq6ywub7r2aiel7qappe3tzq.t.example.com
+2026/11/24 18:58:41 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:42 DBG send qlen=71 name=freqwq6ywub7r2cplhhc2lwxyexq.t.example.com
+2026/11/24 18:58:43 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:45 DBG send qlen=106 name=freqwq6ywub7ry3apbxbvxufsa7vcacaaakcoaaabaaaaaagaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:58:45 DBG send qlen=142 name=freqwq6ywub7ryzyokudbxufsa7vcacaaakcoaaabeaaaaagaaaaagaaaaaljho.p232efcgrdn7p6bbpdgqannvaaqaxjlvzzq.t.example.com
+2026/11/24 18:58:45 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000818f3a0006000000080000000200000000180030de85903f51004000818f3a0007000000080000001800000042819fae013c1879a47f768c1bf4acb3fa0613a1694eb64d
+2026/11/24 18:58:45 DBG send qlen=71 name=freqwq6ywub7r2hk3etzaonxvbzq.t.example.com
+2026/11/24 18:58:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:45 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400014270000090000000a00000000000000
+2026/11/24 18:58:45 DBG send qlen=71 name=freqwq6ywub7r2ggggax6rv5ixra.t.example.com
+2026/11/24 18:58:45 DBG send qlen=103 name=freqwq6ywub7ry3etokbrxufsa7veacaacay6oqaa4aaaaaiaaaaaaaaaaaa.t.example.com
+2026/11/24 18:58:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:45 DBG send qlen=71 name=freqwq6ywub7r2f2xinuduo2e2ia.t.example.com
+2026/11/24 18:58:46 DBG send qlen=71 name=freqwq6ywub7r2chz26sdy2og7xa.t.example.com
+2026/11/24 18:58:46 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:47 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:48 DBG send qlen=71 name=freqwq6ywub7r2a4fwprtzz6clsa.t.example.com
+2026/11/24 18:58:49 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:52 DBG send qlen=71 name=freqwq6ywub7r2bz4tspprq6ppxq.t.example.com
+2026/11/24 18:58:53 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:55 DBG send qlen=106 name=freqwq6ywub7ry2evc4bvxufsa7vcacaaasu4aaabiaaaaaiaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:58:55 DBG send qlen=142 name=freqwq6ywub7ryyfmm3dbxufsa7vcacaaasu4aaabmaaaaaiaaaaagaaaaan25r.5ezc45acign3xoofunm5cyvx5ovfarvvngm.t.example.com
+2026/11/24 18:58:55 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400091b63a00080000000a0000000200000000180030de85903f5100400091b63a00090000000a00000018000000506114b5852bc96d7bd7d7e09fdbe2bc4005d25b75f7879c
+2026/11/24 18:58:55 DBG send qlen=71 name=freqwq6ywub7r2fse3anbgpaqzwa.t.example.com
+2026/11/24 18:58:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:55 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000254e00000b0000000c00000000000000
+2026/11/24 18:58:55 DBG send qlen=71 name=freqwq6ywub7r2cwnd2uvclnoyjq.t.example.com
+2026/11/24 18:58:55 DBG send qlen=103 name=freqwq6ywub7ryys2hbrrxufsa7veacaaci3moqabeaaaaakaaaaaaaaaaaa.t.example.com
+2026/11/24 18:58:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:55 DBG send qlen=71 name=freqwq6ywub7r2d6vrbb4viylscq.t.example.com
+2026/11/24 18:58:56 DBG send qlen=71 name=freqwq6ywub7r2go4gsh2vv2xcua.t.example.com
+2026/11/24 18:58:56 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:57 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:58:58 DBG send qlen=71 name=freqwq6ywub7r2cyw2gyctahs6gq.t.example.com
+2026/11/24 18:58:59 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:02 DBG send qlen=71 name=freqwq6ywub7r2eesp7moa4n2cla.t.example.com
+2026/11/24 18:59:03 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:05 DBG send qlen=106 name=freqwq6ywub7ry5fendrvxufsa7vcacaaa2xkaaabqaaaaakaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:59:05 DBG send qlen=142 name=freqwq6ywub7ry5t27tdbxufsa7vcacaaa2xkaaabuaaaaakaaaaagaaaaahnpo.nebruo46wbir6tqqrwgnuqpe57bw3nn3m6i.t.example.com
+2026/11/24 18:59:05 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000a0dd3a000a0000000c0000000200000000180030de85903f51004000a0dd3a000b0000000c0000001800000049b64365d8f79dfa19fda9f662bf3cd5676267fb023714dd
+2026/11/24 18:59:05 DBG send qlen=71 name=freqwq6ywub7r2gfn3twirozwyxa.t.example.com
+2026/11/24 18:59:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:05 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000357500000d0000000e00000000000000
+2026/11/24 18:59:05 DBG send qlen=71 name=freqwq6ywub7r2fw6ihrisj4gkta.t.example.com
+2026/11/24 18:59:05 DBG send qlen=103 name=freqwq6ywub7ry7avobbrxufsa7veacaacqn2oqabmaaaaamaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:05 DBG send qlen=71 name=freqwq6ywub7r2bfr34co5dkbifa.t.example.com
+2026/11/24 18:59:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:06 DBG send qlen=71 name=freqwq6ywub7r2chsewdb4ufkyeq.t.example.com
+2026/11/24 18:59:07 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:08 DBG send qlen=71 name=freqwq6ywub7r2eqcdontyprruwq.t.example.com
+2026/11/24 18:59:09 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:12 DBG send qlen=71 name=freqwq6ywub7r2cufbsbpwhe7bvq.t.example.com
+2026/11/24 18:59:13 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:15 DBG send qlen=106 name=freqwq6ywub7ry4lm5nbvxufsa7vcacaabcjyaaabyaaaaamaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:59:15 DBG send qlen=142 name=freqwq6ywub7ry7oigltbxufsa7vcacaabcjyaaab4aaaaamaaaaagaaaaafexe.3tprmuacicbw7ebs6sbkpm7ty7mx5hfwwei.t.example.com
+2026/11/24 18:59:15 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000b1043b000c0000000e0000000200000000180030de85903f51004000b1043b000d0000000e000000180000009e8c087412469384e59311954400dc1bd13635ecd322d3b6
+2026/11/24 18:59:15 DBG send qlen=71 name=freqwq6ywub7r2bjccmyulbahu7q.t.example.com
+2026/11/24 18:59:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:15 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000449c00000f0000001000000000000000
+2026/11/24 18:59:15 DBG send qlen=71 name=freqwq6ywub7r2dxf4ujek3hbzga.t.example.com
+2026/11/24 18:59:15 DBG send qlen=103 name=freqwq6ywub7ryzyzngrrxufsa7veacaacyqioyabuaaaaaoaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:15 DBG send qlen=71 name=freqwq6ywub7r2aw4muqcf5jc6xa.t.example.com
+2026/11/24 18:59:16 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:16 DBG send qlen=71 name=freqwq6ywub7r2d3d35tkid5p3tq.t.example.com
+2026/11/24 18:59:17 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:18 DBG send qlen=71 name=freqwq6ywub7r2hs3eucucl42g5a.t.example.com
+2026/11/24 18:59:19 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:22 DBG send qlen=71 name=freqwq6ywub7r2eektxgmus4tnzq.t.example.com
+2026/11/24 18:59:23 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:25 DBG send qlen=106 name=freqwq6ywub7ry36pfhbvxufsa7vcacaabk4gaaacaaaaaaoaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:59:25 DBG send qlen=142 name=freqwq6ywub7ry7rkhstbxufsa7vcacaabk4gaaaceaaaaaoaaaaagaaaaaibvf.336h6xsqkpncabnj7t2ucgqxfofk6hvh4p4.t.example.com
+2026/11/24 18:59:25 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000c02b3b000e000000100000000200000000180030de85903f51004000c02b3b000f00000010000000180000000b1c17ac8b2fa34602bd24de73c3f78554960e81c21147de
+2026/11/24 18:59:25 DBG send qlen=71 name=freqwq6ywub7r2e45lab5nuhhrva.t.example.com
+2026/11/24 18:59:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400055c30000110000001200000000000000
+2026/11/24 18:59:25 DBG send qlen=71 name=freqwq6ywub7r2dyl6aadzivpu5q.t.example.com
+2026/11/24 18:59:25 DBG send qlen=103 name=freqwq6ywub7ry674twrrxufsa7veacaadacwoyab4aaaaaqaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:25 DBG send qlen=71 name=freqwq6ywub7r2hgpnldvcxmq3pa.t.example.com
+2026/11/24 18:59:26 DBG send qlen=71 name=freqwq6ywub7r2bypvprlvrd3ukq.t.example.com
+2026/11/24 18:59:26 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:27 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:28 DBG send qlen=71 name=freqwq6ywub7r2e4zywiuf57wmkq.t.example.com
+2026/11/24 18:59:29 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:32 DBG send qlen=71 name=freqwq6ywub7r2cqvdccariey4sq.t.example.com
+2026/11/24 18:59:33 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:35 DBG send qlen=106 name=freqwq6ywub7ry6jaiervxufsa7vcacaabsouaaaciaaaaaqaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:59:35 DBG send qlen=142 name=freqwq6ywub7ry43crqdbxufsa7vcacaabsouaaacmaaaaaqaaaaagaaaaaiod3.df7wkgvistpv5hoawt4bbp6py4i4p6eruwq.t.example.com
+2026/11/24 18:59:35 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000d1523b0010000000120000000200000000180030de85903f51004000d1523b00110000001200000018000000a9186569d4109409509f132f1631ad67db0b5f8b2b902b49
+2026/11/24 18:59:35 DBG send qlen=71 name=freqwq6ywub7r2hbdoye2qwcpnxa.t.example.com
+2026/11/24 18:59:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:35 DBG send qlen=103 name=freqwq6ywub7ryy3kzabrxufsa7veacaadiveoyaceaaaaasaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:35 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400064ea0000130000001400000000000000
+2026/11/24 18:59:35 DBG send qlen=71 name=freqwq6ywub7r2edcemvit6lk4ua.t.example.com
+2026/11/24 18:59:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:35 DBG send qlen=71 name=freqwq6ywub7r2ajimxr4ppzcerq.t.example.com
+2026/11/24 18:59:36 DBG send qlen=71 name=freqwq6ywub7r2dlmhccxk4nyjlq.t.example.com
+2026/11/24 18:59:36 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:37 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:38 DBG send qlen=71 name=freqwq6ywub7r2fvummjipttelsa.t.example.com
+2026/11/24 18:59:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:42 DBG send qlen=71 name=freqwq6ywub7r2dythblpxopymnq.t.example.com
+2026/11/24 18:59:43 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:45 DBG send qlen=106 name=freqwq6ywub7ryyx52zbvxufsa7vcacaab2bcaiacqaaaaasaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:59:45 DBG send qlen=142 name=freqwq6ywub7ry3tsgetbxufsa7vcacaab2bcaiacuaaaaasaaaaagaaaaaict2.s3vec6kpsmdwbu3xfcepzyhmkfxmoljcrhi.t.example.com
+2026/11/24 18:59:45 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000e1793b0012000000140000000200000000180030de85903f51004000e1793b001300000014000000180000001795edcdeb2968fd81b8ca11878835cbcdac3e5c74ca692d
+2026/11/24 18:59:45 DBG send qlen=71 name=freqwq6ywub7r2hf7fqsqvjyxfvq.t.example.com
+2026/11/24 18:59:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:45 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400074110100150000001600000000000000
+2026/11/24 18:59:45 DBG send qlen=71 name=freqwq6ywub7r2h2vur5wbgnquva.t.example.com
+2026/11/24 18:59:45 DBG send qlen=103 name=freqwq6ywub7ry7kx3ebrxufsa7veacaadqxsoyacmaaaaauaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:45 DBG send qlen=71 name=freqwq6ywub7r2fycbypzhzw4kra.t.example.com
+2026/11/24 18:59:46 DBG send qlen=71 name=freqwq6ywub7r2aa37diajgoteda.t.example.com
+2026/11/24 18:59:46 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:47 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:48 DBG send qlen=71 name=freqwq6ywub7r2crrfyhy6b3q3aa.t.example.com
+2026/11/24 18:59:49 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:52 DBG send qlen=71 name=freqwq6ywub7r2fyuupkif53n7dq.t.example.com
+2026/11/24 18:59:53 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:55 DBG send qlen=106 name=freqwq6ywub7ry3ulf6bvxufsa7vcacaaccdqaiacyaaaaauaaaaaaqaaaaaaga.t.example.com
+2026/11/24 18:59:55 DBG send qlen=142 name=freqwq6ywub7ryydyj7dbxufsa7vcacaaccdqaiac4aaaaauaaaaagaaaaafgzb.jonrllzc2hpeijsvkgeo7zvhqk5wn34fr5y.t.example.com
+2026/11/24 18:59:55 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000f1a03b0014000000160000000200000000180030de85903f51004000f1a03b0015000000160000001800000083ca0277e78a9eef774f9ae94f37b4efff970c4033c124ab
+2026/11/24 18:59:55 DBG send qlen=103 name=freqwq6ywub7ryyavekbrxufsa7veacaady2aoyacqaaaaavaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:55 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400084380100170000001800000000000000
+2026/11/24 18:59:55 DBG send qlen=71 name=freqwq6ywub7r2b26zzpk2utozra.t.example.com
+2026/11/24 18:59:55 DBG send qlen=103 name=freqwq6ywub7ry3o4ltrrxufsa7veab7ady2aoyacuaaaaawaaaaaaaaaaaa.t.example.com
+2026/11/24 18:59:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:55 DBG send qlen=71 name=freqwq6ywub7r2bb66oz3flrwswq.t.example.com
+2026/11/24 18:59:56 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:56 DBG send qlen=71 name=freqwq6ywub7r2ch4c2mhayn4jua.t.example.com
+2026/11/24 18:59:57 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 18:59:58 DBG send qlen=71 name=freqwq6ywub7r2gd2vyjtvckdudq.t.example.com
+2026/11/24 18:59:59 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:02 DBG send qlen=71 name=freqwq6ywub7r2elvp6zmucvovaq.t.example.com
+2026/11/24 19:00:03 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:05 DBG send qlen=106 name=freqwq6ywub7ry6a2srbvxufsa7vcacaackv6aiadaaaaaawaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:00:05 DBG send qlen=142 name=freqwq6ywub7ry2o6mktbxufsa7vcacaackv6aiadeaaaaawaaaaagaaaaalptz.lx32s7whj4vnxmsxeyc66i4ftg2dr3z55km.t.example.com
+2026/11/24 19:00:05 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400001c83b0016000000180000000200000000180030de85903f5100400001c83b00170000001800000018000000800d005b083006a2d86f49c7b14600ca458283812f5fed9d
+2026/11/24 19:00:05 DBG send qlen=71 name=freqwq6ywub7r2chcxhyekmn25ja.t.example.com
+2026/11/24 19:00:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:05 DBG send qlen=103 name=freqwq6ywub7ry46ii4brxufsa7veacaaaa4qoyac4aaaaayaaaaaaaaaaaa.t.example.com
+2026/11/24 19:00:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:05 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000955f0100190000001a00000000000000
+2026/11/24 19:00:05 DBG send qlen=71 name=freqwq6ywub7r2a34lz5rgb6hmyq.t.example.com
+2026/11/24 19:00:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:05 DBG send qlen=71 name=freqwq6ywub7r2fvhfttzbapjleq.t.example.com
+2026/11/24 19:00:06 DBG send qlen=71 name=freqwq6ywub7r2bwco5hbxunezqa.t.example.com
+2026/11/24 19:00:06 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:07 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:08 DBG send qlen=71 name=freqwq6ywub7r2dmaglepvxjnd4q.t.example.com
+2026/11/24 19:00:09 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:12 DBG send qlen=71 name=freqwq6ywub7r2gdyv7yjta54knq.t.example.com
+2026/11/24 19:00:13 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:15 DBG send qlen=106 name=freqwq6ywub7ry2zqaubvxufsa7vcacaacsimaiadiaaaaayaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:00:15 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400010ef3b00180000001a0000000200000000180030de85903f5100400010ef3b00190000001a00000018000000b04d57da92f082d62b34c39d742a68524f8630d326afddce
+2026/11/24 19:00:15 DBG send qlen=142 name=freqwq6ywub7ry5fijgdbxufsa7vcacaacsimaiadmaaaaayaaaaagaaaaahpjj.kon46hjz4xrrwzbrixvofaztnx6fi6lp3wq.t.example.com
+2026/11/24 19:00:15 DBG send qlen=71 name=freqwq6ywub7r2fj3lmapxyydzma.t.example.com
+2026/11/24 19:00:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:15 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000a48601001b0000001c00000000000000
+2026/11/24 19:00:15 DBG send qlen=71 name=freqwq6ywub7r2a3t7mwcsskbgjq.t.example.com
+2026/11/24 19:00:15 DBG send qlen=103 name=freqwq6ywub7ry4mp5xbrxufsa7veacaaaio6oyadeaaaaa2aaaaaaaaaaaa.t.example.com
+2026/11/24 19:00:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:15 DBG send qlen=71 name=freqwq6ywub7r2gpvkuqsxyilwdq.t.example.com
+2026/11/24 19:00:16 DBG send qlen=71 name=freqwq6ywub7r2dvve5wyagotamq.t.example.com
+2026/11/24 19:00:16 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:17 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:18 DBG send qlen=71 name=freqwq6ywub7r2hgewz7morhg2cq.t.example.com
+2026/11/24 19:00:19 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:22 DBG send qlen=71 name=freqwq6ywub7r2bdt25kaoz6vb4a.t.example.com
+2026/11/24 19:00:23 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:25 DBG send qlen=106 name=freqwq6ywub7ryyeqporvxufsa7vcacaac2k2aiadqaaaaa2aaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:00:25 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400020163c001a0000001c0000000200000000180030de85903f5100400020163c001b0000001c0000001800000036bc7fbba1a23f2a802c51cdbbd6f03e96f7d5ea57511078
+2026/11/24 19:00:25 DBG send qlen=142 name=freqwq6ywub7ry6or2tdbxufsa7vcacaac2k2aiaduaaaaa2aaaaagaaaaag6rr.i4icw4q2lz265lojzjv2urzuqo6ltkea3mi.t.example.com
+2026/11/24 19:00:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000b4ad01001d0000001e00000000000000
+2026/11/24 19:00:25 DBG send qlen=71 name=freqwq6ywub7r2angnvchj5jm6qa.t.example.com
+2026/11/24 19:00:25 DBG send qlen=103 name=freqwq6ywub7ry7zkmobrxufsa7veacaaaqbmpaadmaaaaa4aaaaaaaaaaaa.t.example.com
+2026/11/24 19:00:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:25 DBG send qlen=71 name=freqwq6ywub7r2ggtspsclsoj2rq.t.example.com
+2026/11/24 19:00:26 DBG send qlen=71 name=freqwq6ywub7r2bgga5pg4esb7ha.t.example.com
+2026/11/24 19:00:26 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:27 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:28 DBG send qlen=71 name=freqwq6ywub7r2hbdizzqr2nacha.t.example.com
+2026/11/24 19:00:29 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:32 DBG send qlen=71 name=freqwq6ywub7r2dkrt4sd4xe2zca.t.example.com
+2026/11/24 19:00:33 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:35 DBG send qlen=106 name=freqwq6ywub7ry66mmirvxufsa7vcacaadc5iaiadyaaaaa4aaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:00:35 DBG send qlen=142 name=freqwq6ywub7ry4l7fcdbxufsa7vcacaadc5iaiad4aaaaa4aaaaagaaaaahxcu.qt7pdua5mgcoq3jit4ef2mz4isyamw6wvla.t.example.com
+2026/11/24 19:00:35 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000313d3c001c0000001e0000000200000000180030de85903f51004000313d3c001d0000001e00000018000000c25b2573c01db788c5787942da534b6faf18e82d99f7ed00
+2026/11/24 19:00:35 DBG send qlen=71 name=freqwq6ywub7r2ecuun562cgc5pa.t.example.com
+2026/11/24 19:00:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:35 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000c5d401001f0000002000000000000000
+2026/11/24 19:00:35 DBG send qlen=71 name=freqwq6ywub7r2f7dahnbrgawrcq.t.example.com
+2026/11/24 19:00:35 DBG send qlen=103 name=freqwq6ywub7ryyzxavrrxufsa7veacaaayt2paaduaaaaa6aaaaaaaaaaaa.t.example.com
+2026/11/24 19:00:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:35 DBG send qlen=71 name=freqwq6ywub7r2fiwl3ppboau2pa.t.example.com
+2026/11/24 19:00:36 DBG send qlen=71 name=freqwq6ywub7r2cqyvdnily4a4mq.t.example.com
+2026/11/24 19:00:36 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:37 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:38 DBG send qlen=71 name=freqwq6ywub7r2aiy7pucel2yxba.t.example.com
+2026/11/24 19:00:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:42 DBG send qlen=71 name=freqwq6ywub7r2hnyisyvvf2ji4q.t.example.com
+2026/11/24 19:00:43 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:45 DBG send qlen=106 name=freqwq6ywub7ry4ke2crvxufsa7vcacaadkpwaiaeaaaaaa6aaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:00:45 DBG send qlen=142 name=freqwq6ywub7ry3zahldbxufsa7vcacaadkpwaiaeeaaaaa6aaaaagaaaaad4e3.7dugilg4dtftkq2ltbzfmtgb7lxx7va7che.t.example.com
+2026/11/24 19:00:45 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400040643c001e000000200000000200000000180030de85903f5100400040643c001f0000002000000018000000f2a7d74192d028a28c21b73b503a62225d3201c0cafb4b9e
+2026/11/24 19:00:45 DBG send qlen=71 name=freqwq6ywub7r2buthn7jet6teva.t.example.com
+2026/11/24 19:00:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:45 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000d4fb0100210000002200000000000000
+2026/11/24 19:00:45 DBG send qlen=71 name=freqwq6ywub7r2hjmal5pie3lrkq.t.example.com
+2026/11/24 19:00:45 DBG send qlen=103 name=freqwq6ywub7ryzfaszbrxufsa7veacaabagipaad4aaaabaaaaaaaaaaaaa.t.example.com
+2026/11/24 19:00:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:45 DBG send qlen=71 name=freqwq6ywub7r2dgx3xzxzwz5iia.t.example.com
+2026/11/24 19:00:46 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:46 DBG send qlen=71 name=freqwq6ywub7r2fn4hq7xeoqpvsa.t.example.com
+2026/11/24 19:00:47 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:48 DBG send qlen=71 name=freqwq6ywub7r2d6sk62t6gty3ba.t.example.com
+2026/11/24 19:00:49 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:52 DBG send qlen=71 name=freqwq6ywub7r2dt6l333f6tzn3q.t.example.com
+2026/11/24 19:00:53 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:55 DBG send qlen=106 name=freqwq6ywub7ry4ds4jbvxufsa7vcacaadsseaqaeiaaaabaaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:00:55 DBG send qlen=142 name=freqwq6ywub7ry2752idbxufsa7vcacaadsseaqaemaaaabaaaaaagaaaaapx7u.ihwsx37fv4ruffyyl4cgvwgdmv4mx46d6za.t.example.com
+2026/11/24 19:00:55 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000518b3c0020000000220000000200000000180030de85903f51004000518b3c00210000002200000018000000bba5f4a01df47b5778c93d86d1012b9b31aa81210549e826
+2026/11/24 19:00:55 DBG send qlen=71 name=freqwq6ywub7r2g7jbwhwhkhqqlq.t.example.com
+2026/11/24 19:00:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:55 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000e5220200230000002400000000000000
+2026/11/24 19:00:55 DBG send qlen=71 name=freqwq6ywub7r2ddotmy6wxjlo7q.t.example.com
+2026/11/24 19:00:55 DBG send qlen=103 name=freqwq6ywub7ryz5kgzrrxufsa7veacaabiywpaaeeaaaabcaaaaaaaaaaaa.t.example.com
+2026/11/24 19:00:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:55 DBG send qlen=71 name=freqwq6ywub7r2eovs4vc5nv3blq.t.example.com
+2026/11/24 19:00:56 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:56 DBG send qlen=71 name=freqwq6ywub7r2dwmmes2bl3lvqq.t.example.com
+2026/11/24 19:00:57 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:00:58 DBG send qlen=71 name=freqwq6ywub7r2gtmnjxkp3f3bja.t.example.com
+2026/11/24 19:00:59 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:02 DBG send qlen=71 name=freqwq6ywub7r2bt55nc5bxs3a4a.t.example.com
+2026/11/24 19:01:03 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:05 DBG send qlen=106 name=freqwq6ywub7ryzh2ojbvxufsa7vcacaad2esaqaeqaaaabcaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:01:05 DBG send qlen=142 name=freqwq6ywub7ry5vzi6tbxufsa7vcacaad2usaqaeuaaaabcaaaaagaaaaabvpy.43i3nltuce3rudbtm5vwcbbwaib6phge7jq.t.example.com
+2026/11/24 19:01:05 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400060b23c0022000000240000000200000000180030de85903f5100400060b23c00230000002400000018000000f312f305de9a8b7cf98375f20d848106c8232e97e82e6849
+2026/11/24 19:01:05 DBG send qlen=71 name=freqwq6ywub7r2gtn7junsufau6a.t.example.com
+2026/11/24 19:01:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:05 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000f5490200250000002600000000000000
+2026/11/24 19:01:05 DBG send qlen=71 name=freqwq6ywub7r2ddmurvgzzmqs5a.t.example.com
+2026/11/24 19:01:05 DBG send qlen=103 name=freqwq6ywub7ry4mjvwrrxufsa7veacaabqlepaaemaaaabeaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:05 DBG send qlen=71 name=freqwq6ywub7r2ggbbqj23gypyya.t.example.com
+2026/11/24 19:01:06 DBG send qlen=71 name=freqwq6ywub7r2dil53chqkhfbyq.t.example.com
+2026/11/24 19:01:06 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:07 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:08 DBG send qlen=71 name=freqwq6ywub7r2gjegkwbkdsrfuq.t.example.com
+2026/11/24 19:01:09 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:12 DBG send qlen=71 name=freqwq6ywub7r2fu4d7fx7uuirkq.t.example.com
+2026/11/24 19:01:13 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:15 DBG send qlen=106 name=freqwq6ywub7ryzzxwhrvxufsa7vcacaaachcaqaeyaaaabeaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:01:15 DBG send qlen=142 name=freqwq6ywub7ryzfmjztbxufsa7vcacaaachcaqae4aaaabeaaaaagaaaaaohdm.lanff2us5n67yipr6bpzuqdq6nebn6ekufq.t.example.com
+2026/11/24 19:01:15 DBG recv rcode=0 nans=1 payload=102 bytes: 0032de85903f5200400004710200270000002800000000000000de85903f5100400071d93c0024000000280000000200000000180030de85903f5100400071d93c002500000028000000180000007a2479d82ca1bbd1af67af1b4d1837470995
+2026/11/24 19:01:15 DBG send qlen=71 name=freqwq6ywub7r2aga35z77leekja.t.example.com
+2026/11/24 19:01:15 DBG send qlen=103 name=freqwq6ywub7ryz7pxpbrxufsa7veab7aby5spaaeqaaaabfaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:15 DBG send qlen=103 name=freqwq6ywub7ryzezairrxufsa7veacaaby5spaaeuaaaabgaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:15 DBG send qlen=71 name=freqwq6ywub7r2bfadjy2jg6dckq.t.example.com
+2026/11/24 19:01:16 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:16 DBG send qlen=71 name=freqwq6ywub7r2e5j23ek6am74pa.t.example.com
+2026/11/24 19:01:17 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:18 DBG send qlen=71 name=freqwq6ywub7r2dmxonkl3s33llq.t.example.com
+2026/11/24 19:01:19 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:22 DBG send qlen=71 name=freqwq6ywub7r2gobboqhxrcyflq.t.example.com
+2026/11/24 19:01:23 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:25 DBG send qlen=106 name=freqwq6ywub7ryzltycbvxufsa7vcacaaakjqaqafaaaaabgaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:01:25 DBG send qlen=142 name=freqwq6ywub7ry6uqzfdbxufsa7vcacaaakjqaqafeaaaabgaaaaagaaaaaangd.ew533mur2ogyypgmiyc44rd75nnektymz44.t.example.com
+2026/11/24 19:01:25 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400080003d0026000000280000000200000000180030de85903f5100400080003d00270000002800000018000000bc75728553af46b44a9e5831e3638db6547e2e6e37aacf46
+2026/11/24 19:01:25 DBG send qlen=71 name=freqwq6ywub7r2empfvo4p5nq3uq.t.example.com
+2026/11/24 19:01:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400014980200290000002a00000000000000
+2026/11/24 19:01:25 DBG send qlen=71 name=freqwq6ywub7r2g72mm5rhgrvoxq.t.example.com
+2026/11/24 19:01:25 DBG send qlen=103 name=freqwq6ywub7ry555ajrrxufsa7veacaacaaapiae4aaaabiaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:25 DBG send qlen=71 name=freqwq6ywub7r2ej76f3c2bup4dq.t.example.com
+2026/11/24 19:01:26 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:26 DBG send qlen=71 name=freqwq6ywub7r2b2xradyk5dtbtq.t.example.com
+2026/11/24 19:01:27 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:28 DBG send qlen=71 name=freqwq6ywub7r2dfjcyyk5ju6lsq.t.example.com
+2026/11/24 19:01:29 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:32 DBG send qlen=71 name=freqwq6ywub7r2fidxgj4n56djeq.t.example.com
+2026/11/24 19:01:33 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:35 DBG send qlen=106 name=freqwq6ywub7ry7kbvvrvxufsa7vcacaaasl6aqafiaaaabiaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:01:35 DBG send qlen=142 name=freqwq6ywub7ryzei3atbxufsa7vcacaaasl6aqafmaaaabiaaaaagaaaaak7ux.rwoumzjdg7h6mlcieraumwvw66izwzferzi.t.example.com
+2026/11/24 19:01:35 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400090273d00280000002a0000000200000000180030de85903f5100400090273d00290000002a00000018000000f8ff1a6d522dab0bceb26c395f413d3eb081865e9b290196
+2026/11/24 19:01:35 DBG send qlen=71 name=freqwq6ywub7r2b2abociufas77a.t.example.com
+2026/11/24 19:01:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:35 DBG send qlen=103 name=freqwq6ywub7ry45ufubrxufsa7veacaacicopiafeaaaabkaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:35 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400024bf02002b0000002c00000000000000
+2026/11/24 19:01:35 DBG send qlen=71 name=freqwq6ywub7r2ggj6aax37ovtuq.t.example.com
+2026/11/24 19:01:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:35 DBG send qlen=71 name=freqwq6ywub7r2d54bvff7ps7teq.t.example.com
+2026/11/24 19:01:36 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:36 DBG send qlen=71 name=freqwq6ywub7r2ggpaigaw7a5gxa.t.example.com
+2026/11/24 19:01:37 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:38 DBG send qlen=71 name=freqwq6ywub7r2aek2j2dz2ol5ca.t.example.com
+2026/11/24 19:01:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:42 DBG send qlen=71 name=freqwq6ywub7r2as6n4kxbagv5mq.t.example.com
+2026/11/24 19:01:43 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:45 DBG send qlen=106 name=freqwq6ywub7ry5mzeobvxufsa7vcacaaa2omaqafqaaaabkaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:01:45 DBG send qlen=142 name=freqwq6ywub7ryzqdcydbxufsa7vcacaaa2omaqafuaaaabkaaaaagaaaaamlmp.5o6es4nxp5m6draaidijgs7i7qsidgizzj4.t.example.com
+2026/11/24 19:01:45 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000a14e3d002a0000002c0000000200000000180030de85903f51004000a14e3d002b0000002c00000018000000de56a87266fb1a1489332136d2da1aae47b5093b6522f3d7
+2026/11/24 19:01:45 DBG send qlen=71 name=freqwq6ywub7r2clsdvqufrzby5q.t.example.com
+2026/11/24 19:01:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:45 DBG send qlen=103 name=freqwq6ywub7ry6fayobrxufsa7veacaacqu4piafmaaaabmaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:45 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400034e602002d0000002e00000000000000
+2026/11/24 19:01:45 DBG send qlen=71 name=freqwq6ywub7r2gorl67uecgeniq.t.example.com
+2026/11/24 19:01:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:45 DBG send qlen=71 name=freqwq6ywub7r2d3fwxjwygkkp6a.t.example.com
+2026/11/24 19:01:46 DBG send qlen=71 name=freqwq6ywub7r2g3ezan2v37l2ta.t.example.com
+2026/11/24 19:01:46 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:47 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:48 DBG send qlen=71 name=freqwq6ywub7r2gvrkusyw76i5oa.t.example.com
+2026/11/24 19:01:49 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:52 DBG send qlen=71 name=freqwq6ywub7r2ernob6befixyuq.t.example.com
+2026/11/24 19:01:52 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:55 DBG send qlen=106 name=freqwq6ywub7ry5aivkrvxufsa7vcacaabcq2ayafyaaaabmaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:01:55 DBG send qlen=142 name=freqwq6ywub7ryynxgetbxufsa7vcacaabcq2ayaf4aaaabmaaaaagaaaaabvro.tvfemkqxmijkizsizkgvifjdqjs7j5h2hiy.t.example.com
+2026/11/24 19:01:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:55 DBG send qlen=185 name=freqwq6ywub7ryyvwanuvxufsa7vcacaacuq2ayafyaaaabmaaaaaaqaaaaaagg.6qwid6uiaiaaksdidaaxqaaaafqaaaaayaaaaagwf2ouurrkc5rbfjdgjdfi2va.veobgl5hu7i5da.t.example.com
+2026/11/24 19:01:55 DBG recv rcode=0 nans=1 payload=104 bytes: 0018de85903f52004000450d03002f0000003000000000000000001ade85903f51004000b4753d002c000000300000000200000000180030de85903f51004000b4753d002d0000003000000018000000aa2fb7a2927694f97a1df4fe6ec5261a
+2026/11/24 19:01:55 DBG send qlen=71 name=freqwq6ywub7r2hjzqpcjoaabmsa.t.example.com
+2026/11/24 19:01:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:55 DBG send qlen=103 name=freqwq6ywub7ryy6u6wrrxufsa7veacaac2hkpiafuaaaaboaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:55 DBG recv rcode=0 nans=1 payload=100 bytes: 0062de85903f52004000a90d03002f0000003000000000000000de85903f5100400018763d002c00000030000000020000000018de85903f5100400018763d002d0000003000000018000000aa2fb7a2927694f97a1df4fe6ec5261a1a416ea2
+2026/11/24 19:01:55 DBG send qlen=71 name=freqwq6ywub7r2emvbdcad24wxna.t.example.com
+2026/11/24 19:01:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:55 DBG send qlen=103 name=freqwq6ywub7ry3dda6rrxufsa7veacaaamhmpiafuaaaaboaaaaaaaaaaaa.t.example.com
+2026/11/24 19:01:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:56 DBG send qlen=71 name=freqwq6ywub7r2cb2gasod7qy77q.t.example.com
+2026/11/24 19:01:56 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:57 DBG send qlen=71 name=freqwq6ywub7r2e3oy4othgukhtq.t.example.com
+2026/11/24 19:01:57 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:01:59 DBG send qlen=71 name=freqwq6ywub7r2dak26bexrn4u6a.t.example.com
+2026/11/24 19:01:59 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:03 DBG send qlen=71 name=freqwq6ywub7r2affzvvr4lllaxa.t.example.com
+2026/11/24 19:02:03 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:05 DBG send qlen=106 name=freqwq6ywub7ry6og7crvxufsa7vcacaabkdiayagaaaaaboaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:02:05 DBG send qlen=142 name=freqwq6ywub7ry47myotbxufsa7vcacaabkdiayageaaaaboaaaaagaaaaabwjw.om3sc7vhdhgcewh7atwedp5jsboqnfyvzpa.t.example.com
+2026/11/24 19:02:05 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000c19c3d002e000000300000000200000000180030de85903f51004000c19c3d002f0000003000000018000000d252c43f923d5ad072489e012f328fd9fd66c5e5ce0fc2fe
+2026/11/24 19:02:05 DBG send qlen=71 name=freqwq6ywub7r2bzexxv5fmg4f3a.t.example.com
+2026/11/24 19:02:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:05 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400054340300310000003200000000000000
+2026/11/24 19:02:05 DBG send qlen=71 name=freqwq6ywub7r2dx5aial44g6awa.t.example.com
+2026/11/24 19:02:05 DBG send qlen=103 name=freqwq6ywub7ry2dp47rrxufsa7veacaadazypiaf4aaaabqaaaaaaaaaaaa.t.example.com
+2026/11/24 19:02:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:05 DBG send qlen=71 name=freqwq6ywub7r2aqzo6qpsbqicsq.t.example.com
+2026/11/24 19:02:06 DBG send qlen=71 name=freqwq6ywub7r2hnvnw7lf2px2fq.t.example.com
+2026/11/24 19:02:06 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:07 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:08 DBG send qlen=71 name=freqwq6ywub7r2a7feovtbsmzbsq.t.example.com
+2026/11/24 19:02:09 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:12 DBG send qlen=71 name=freqwq6ywub7r2ahh2xi4rie6mua.t.example.com
+2026/11/24 19:02:13 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:15 DBG send qlen=106 name=freqwq6ywub7ry3x6odrvxufsa7vcacaabsvwayagiaaaabqaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:02:15 DBG send qlen=142 name=freqwq6ywub7ry5wxowtbxufsa7vcacaabsvwayagmaaaabqaaaaagaaaaad3q7.2zawxrjd2d6qfmrcrf37hpqztehuksxvmwm.t.example.com
+2026/11/24 19:02:15 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000d1c33d0030000000320000000200000000180030de85903f51004000d1c33d0031000000320000001800000092b16c58cc1002a8b9794a17fe743214be8d7338effceae3
+2026/11/24 19:02:15 DBG send qlen=71 name=freqwq6ywub7r2duvuwz5jfmdsfq.t.example.com
+2026/11/24 19:02:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:15 DBG send qlen=103 name=freqwq6ywub7ry53da7rrxufsa7veacaadi4gpiageaaaabsaaaaaaaaaaaa.t.example.com
+2026/11/24 19:02:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:15 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000655b0300330000003400000000000000
+2026/11/24 19:02:15 DBG send qlen=71 name=freqwq6ywub7r2brnnsd4xyyb5lq.t.example.com
+2026/11/24 19:02:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:15 DBG send qlen=71 name=freqwq6ywub7r2gvjzr7yjoky5lq.t.example.com
+2026/11/24 19:02:16 DBG send qlen=71 name=freqwq6ywub7r2bjpqrlw5e4ttxa.t.example.com
+2026/11/24 19:02:16 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:17 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:18 DBG send qlen=71 name=freqwq6ywub7r2ashq6yk476qfbq.t.example.com
+2026/11/24 19:02:19 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:22 DBG send qlen=71 name=freqwq6ywub7r2b3svgyzaip4cua.t.example.com
+2026/11/24 19:02:23 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:25 DBG send qlen=106 name=freqwq6ywub7ryyi4c7rvxufsa7vcacaab2ieayagqaaaabsaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:02:25 DBG send qlen=142 name=freqwq6ywub7ry23xgndbxufsa7vcacaab2ieayaguaaaabsaaaaagaaaaal3bv.5ylcq37ana534ehrpwutbbj5v75sk26knta.t.example.com
+2026/11/24 19:02:25 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000e0ea3d0032000000340000000200000000180030de85903f51004000e0ea3d00330000003400000018000000d93dab78f3fa3262efeb4c5a7c807342075efd0a88160a33
+2026/11/24 19:02:25 DBG send qlen=71 name=freqwq6ywub7r2dzpykkvnlcxnga.t.example.com
+2026/11/24 19:02:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400074820300350000003600000000000000
+2026/11/24 19:02:25 DBG send qlen=71 name=freqwq6ywub7r2enh66r347ugpjq.t.example.com
+2026/11/24 19:02:25 DBG send qlen=103 name=freqwq6ywub7ryywsgcbrxufsa7veacaadqoupiagmaaaabuaaaaaaaaaaaa.t.example.com
+2026/11/24 19:02:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:25 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:25 DBG send qlen=71 name=freqwq6ywub7r2eyqa4frovoyp5a.t.example.com
+2026/11/24 19:02:26 DBG send qlen=71 name=freqwq6ywub7r2b3ypzrorbu2kla.t.example.com
+2026/11/24 19:02:26 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:27 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:28 DBG send qlen=71 name=freqwq6ywub7r2dwbanawbntwakq.t.example.com
+2026/11/24 19:02:29 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:32 DBG send qlen=71 name=freqwq6ywub7r2hzus6lwn7yknca.t.example.com
+2026/11/24 19:02:33 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:35 DBG send qlen=106 name=freqwq6ywub7ry6byj4rvxufsa7vcacaacc2sayagyaaaabuaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:02:35 DBG send qlen=142 name=freqwq6ywub7ry3uawetbxufsa7vcacaacc2sayag4aaaabuaaaaagaaaaajnup.fqzbtq5b3ajwyxvcy5zpkruikajvbxyrdnq.t.example.com
+2026/11/24 19:02:35 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f51004000f1113e0034000000360000000200000000180030de85903f51004000f1113e0035000000360000001800000056138c96bfed0600b927de0ea266220180179fcb963411b2
+2026/11/24 19:02:35 DBG send qlen=71 name=freqwq6ywub7r2dyi56pbxifud3a.t.example.com
+2026/11/24 19:02:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:35 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400085a90300370000003800000000000000
+2026/11/24 19:02:35 DBG send qlen=71 name=freqwq6ywub7r2b3ejrafmbpgzkq.t.example.com
+2026/11/24 19:02:35 DBG send qlen=103 name=freqwq6ywub7ry4mkp7rrxufsa7veacaadyrcpqaguaaaabwaaaaaaaaaaaa.t.example.com
+2026/11/24 19:02:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:35 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:35 DBG send qlen=71 name=freqwq6ywub7r2a5ha35llnv2s2a.t.example.com
+2026/11/24 19:02:36 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:36 DBG send qlen=71 name=freqwq6ywub7r2fyrm2hzqerfonq.t.example.com
+2026/11/24 19:02:37 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:38 DBG send qlen=71 name=freqwq6ywub7r2bcjlz34goz6jja.t.example.com
+2026/11/24 19:02:39 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:42 DBG send qlen=71 name=freqwq6ywub7r2ffrh2vjz5mnyoq.t.example.com
+2026/11/24 19:02:43 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:45 DBG send qlen=106 name=freqwq6ywub7ry6ae6xbvxufsa7vcacaacknaayahaaaaabwaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:02:45 DBG send qlen=142 name=freqwq6ywub7ry35gagtbxufsa7vcacaacknaayaheaaaabwaaaaagaaaaaizfl.isvbd2zyttmt6nxjourhlif74c5kos2iwo4.t.example.com
+2026/11/24 19:02:45 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400001393e0036000000380000000200000000180030de85903f5100400001393e0037000000380000001800000068a5ea30718112a62988df31cd20040a6e02823195226d17
+2026/11/24 19:02:45 DBG send qlen=71 name=freqwq6ywub7r2dhpjnqf3n5kpkq.t.example.com
+2026/11/24 19:02:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:45 DBG send qlen=103 name=freqwq6ywub7ry2fb2vbrxufsa7veacaaaatspqag4aaaabyaaaaaaaaaaaa.t.example.com
+2026/11/24 19:02:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:45 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f5200400094d00300390000003a00000000000000
+2026/11/24 19:02:45 DBG send qlen=71 name=freqwq6ywub7r2etysfxti3cgpxa.t.example.com
+2026/11/24 19:02:45 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:45 DBG send qlen=71 name=freqwq6ywub7r2hmpyigeb6ca3cq.t.example.com
+2026/11/24 19:02:46 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:46 DBG send qlen=71 name=freqwq6ywub7r2bfkhd3tyc5rima.t.example.com
+2026/11/24 19:02:47 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:48 DBG send qlen=71 name=freqwq6ywub7r2bi3pq4ko3otjgq.t.example.com
+2026/11/24 19:02:49 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:52 DBG send qlen=71 name=freqwq6ywub7r2aytkkyae673pza.t.example.com
+2026/11/24 19:02:53 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:55 DBG send qlen=106 name=freqwq6ywub7ry6vlgorvxufsa7vcacaacspoayahiaaaabyaaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:02:55 DBG send qlen=142 name=freqwq6ywub7ry52xaudbxufsa7vcacaacspoayahmaaaabyaaaaagaaaaacbue.n56sutgzlthrfobbyhtc63ks6uiu3zpavd4.t.example.com
+2026/11/24 19:02:55 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400010603e00380000003a0000000200000000180030de85903f5100400010603e00390000003a00000018000000eeb414df66d4f7feeefa615deb37a18d99729e9974edb996
+2026/11/24 19:02:55 DBG send qlen=71 name=freqwq6ywub7r2cdgcwmfrvfr42a.t.example.com
+2026/11/24 19:02:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:55 DBG send qlen=103 name=freqwq6ywub7ry4jvinbrxufsa7veacaaaigapqaheaaaab2aaaaaaaaaaaa.t.example.com
+2026/11/24 19:02:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:55 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000a4f703003b0000003c00000000000000
+2026/11/24 19:02:55 DBG send qlen=71 name=freqwq6ywub7r2hzzvg7v2efkqoq.t.example.com
+2026/11/24 19:02:55 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:55 DBG send qlen=71 name=freqwq6ywub7r2hr3hp5xgpllfxa.t.example.com
+2026/11/24 19:02:56 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:56 DBG send qlen=71 name=freqwq6ywub7r2a4u6ws2b3lf6ea.t.example.com
+2026/11/24 19:02:57 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:02:58 DBG send qlen=71 name=freqwq6ywub7r2henrhsfwtsl3qq.t.example.com
+2026/11/24 19:02:59 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:02 DBG send qlen=71 name=freqwq6ywub7r2bs5mfjsuneuhiq.t.example.com
+2026/11/24 19:03:03 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:05 DBG send qlen=106 name=freqwq6ywub7ry2u2gibvxufsa7vcacaac2b4baahqaaaab2aaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:03:05 DBG send qlen=142 name=freqwq6ywub7ry5qwqvdbxufsa7vcacaac2b4baahuaaaab2aaaaagaaaaagoy2.o6b3aur3szydupgtyzerxmo5rdvluhwtbea.t.example.com
+2026/11/24 19:03:05 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400021873e003a0000003c0000000200000000180030de85903f5100400021873e003b0000003c00000018000000668969caf766f73f05fcbc2c815afecd86f141efebe3fd08
+2026/11/24 19:03:05 DBG send qlen=71 name=freqwq6ywub7r2grcpycgsqtpkrq.t.example.com
+2026/11/24 19:03:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:05 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000b41e04003d0000003e00000000000000
+2026/11/24 19:03:05 DBG send qlen=71 name=freqwq6ywub7r2c5hjj4d4b74wgq.t.example.com
+2026/11/24 19:03:05 DBG send qlen=103 name=freqwq6ywub7ry3g6hybrxufsa7veacaaaqyopqahmaaaab4aaaaaaaaaaaa.t.example.com
+2026/11/24 19:03:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:05 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:05 DBG send qlen=71 name=freqwq6ywub7r2gfspjwcl5cftcq.t.example.com
+2026/11/24 19:03:06 DBG send qlen=71 name=freqwq6ywub7r2cif3mw7z6r62qq.t.example.com
+2026/11/24 19:03:06 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:06 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:08 DBG send qlen=71 name=freqwq6ywub7r2cvf5r3pwbthv7q.t.example.com
+2026/11/24 19:03:09 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:12 DBG send qlen=71 name=freqwq6ywub7r2ehxwpker7cs7ba.t.example.com
+2026/11/24 19:03:13 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:15 DBG send qlen=106 name=freqwq6ywub7ryz4gmervxufsa7vcacaadcukbaahyaaaab4aaaaaaqaaaaaaga.t.example.com
+2026/11/24 19:03:15 DBG send qlen=142 name=freqwq6ywub7ry33whddbxufsa7vcacaadcukbaah4aaaab4aaaaagaaaaaolse.y2bxpyuxexhxicgcjgmphxqupvma447edau.t.example.com
+2026/11/24 19:03:15 DBG recv rcode=0 nans=1 payload=78 bytes: 001ade85903f5100400031ae3e003c0000003e0000000200000000180030de85903f5100400031ae3e003d0000003e000000180000008c0b203aad43eac70e5d020f2b12ad2d89b1228bc203b9fe
+2026/11/24 19:03:15 DBG send qlen=71 name=freqwq6ywub7r2e32g3abiszedoa.t.example.com
+2026/11/24 19:03:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:15 DBG send qlen=103 name=freqwq6ywub7ry56pbkbrxufsa7veacaaay24pqahuaaaab6aaaaaaaaaaaa.t.example.com
+2026/11/24 19:03:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:15 DBG recv rcode=0 nans=1 payload=26 bytes: 0018de85903f52004000c54504003f0000004000000000000000
+2026/11/24 19:03:15 DBG send qlen=71 name=freqwq6ywub7r2bmxx7tbabxe5ma.t.example.com
+2026/11/24 19:03:15 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:15 DBG send qlen=71 name=freqwq6ywub7r2guoe6ndia6t4la.t.example.com
+2026/11/24 19:03:16 DBG recv DROPPED rcode=0 nans=1 flags=8400
+2026/11/24 19:03:16 DBG send qlen=71 name=freqwq6ywub7r2av47ti3yxnuopa.t.example.com

@@ -1,0 +1,19 @@
+2026/11/24 19:56:54 uTLS fingerprint Firefox 120
+2026/11/24 19:56:54 effective MTU 134
+2026/11/24 19:56:54 begin session 3d88feb9
+2026/11/24 19:56:54 DBG send qlen=106 name=sqfcyar7gpkbzy4qhuwbvop6ra6vcacaaaaaaaaaaaaaaaaaaaaaaaqaaaaaasi.t.example.com
+2026/11/24 19:56:54 DBG send qlen=221 name=sqfcyar7gpkbzyztjd3gdop6ra6vcacaaaaaaaaaaeaaaaaaaaaaasiaaaagqyz.nojswyzlbonss6mr2mrxhg5dufvrg63tef4y5t7tnhnpaszyi74fxgap2d4264e.c5ibzhbbuiwxmpd45qt6ch45snlfwfbduclkkex23mcffc2r4d.t.example.com
+2026/11/24 19:56:54 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbzy4qhuwbvop6ra6vcacaaaaaaaaaaaaaaaaaaaaaaaqaaaaaasi.t.example.com atype=16 adata=00
+2026/11/24 19:56:54 DBG recv rcode=0 nans=1 payload=26 bytes: 0018b9fe883d52003e0000000000010000000200000000000000
+2026/11/24 19:56:54 DBG send qlen=71 name=sqfcyar7gpkbz2fpbzwyb7pidewq.t.example.com
+2026/11/24 19:56:54 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbz2fpbzwyb7pidewq.t.example.com atype=16 adata=00
+2026/11/24 19:56:55 DBG send qlen=71 name=sqfcyar7gpkbz2g36s26kddkimoa.t.example.com
+2026/11/24 19:56:55 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbz2g36s26kddkimoa.t.example.com atype=16 adata=00
+2026/11/24 19:56:56 DBG send qlen=71 name=sqfcyar7gpkbz2akdthquzdk7ihq.t.example.com
+2026/11/24 19:56:56 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbz2akdthquzdk7ihq.t.example.com atype=16 adata=00
+2026/11/24 19:56:58 DBG send qlen=71 name=sqfcyar7gpkbz2f46tqxdvwr7d4a.t.example.com
+2026/11/24 19:56:58 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbz2f46tqxdvwr7d4a.t.example.com atype=16 adata=00
+2026/11/24 19:57:02 DBG send qlen=71 name=sqfcyar7gpkbz2bdd5dwdczc7hca.t.example.com
+2026/11/24 19:57:03 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbz2bdd5dwdczc7hca.t.example.com atype=16 adata=00
+2026/11/24 19:57:10 DBG send qlen=71 name=sqfcyar7gpkbz2enhxfhtrqjzz6a.t.example.com
+2026/11/24 19:57:10 DBG recv DROPPED rcode=0 flags=8400 aname=sqfcyar7gpkbz2enhxfhtrqjzz6a.t.example.com atype=16 adata=00

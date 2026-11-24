@@ -1,0 +1,742 @@
+2026-11-24 20:10:25.595 [daemon] INFO: Kotlin compiler daemon version <unknown>
+2026-11-24 20:10:25.693 [daemon] INFO: daemon JVM args: -Djava.awt.headless=true -D$java.rmi.server.hostname=127.0.0.1 -Xmx512m -XX:MaxMetaspaceSize=384m -Dkotlin.environment.keepalive -ea --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+2026-11-24 20:10:25.751 [daemon] INFO: daemon args: --daemon-runFilesPath /home/runner/.local/share/kotlin/daemon --daemon-autoshutdownIdleSeconds=7200 --daemon-compilerClasspath /home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.9.24/78dab849090e6c5e2eadb6e59a11cdc28fb67a08/kotlin-compiler-embeddable-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.9.24/96771497da90fbc5af1c90fce148db2595a62502/kotlin-script-runtime-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.10/1cbe9c92c12a94eea200d23c2bbaedaf3daf5132/kotlin-reflect-1.6.10.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.9.24/86685b9c5e8d170925bd9ddbdc263374a6a73281/kotlin-daemon-embeddable-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20200330/3afb14d5f9ceb459d724e907a21145e8ff394f02/trove4j-1.0.20200330.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar
+2026-11-24 20:10:25.849 [daemon] INFO: starting daemon
+2026-11-24 20:10:25.949 [daemon] INFO: daemon is listening on port: 17271
+2026-11-24 20:10:25.966 [compiler] INFO: initiate elections
+2026-11-24 20:10:26.057 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:10:26.074 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:10:26.081 [compiler] INFO: leased a new session 1, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:10:26.127 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:10:26.140 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:10:26.147 [compiler] INFO: leased a new session 2, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:10:26.320 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/fullRelease/processFullReleaseResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease -jvm-target 17 -module-name app_fullRelease -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/generated/source/buildConfig/full/release/id/wanz/tunnel/BuildConfig.java /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Anim.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Compact.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Transport.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/SlowDns.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Touch.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Face.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Icons.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Profile.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelLog.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/ServerBanner.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/VpnConfig.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelService.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/LogFormat.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Theme.kt
+2026-11-24 20:10:26.320 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/fullDebug/processFullDebugResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug -jvm-target 17 -module-name app_fullDebug -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/generated/source/buildConfig/full/debug/id/wanz/tunnel/BuildConfig.java /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Anim.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Compact.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Transport.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/SlowDns.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Touch.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Face.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Icons.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Profile.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelLog.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/ServerBanner.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/VpnConfig.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelService.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/LogFormat.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Theme.kt
+2026-11-24 20:10:26.651 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:10:26.656 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:10:26.658 [compiler] INFO: leased a new session 3, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:10:26.685 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/liteDebug/processLiteDebugResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug -jvm-target 17 -module-name app_liteDebug -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/generated/source/buildConfig/lite/debug/id/wanz/tunnel/BuildConfig.java /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Anim.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Compact.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Transport.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/SlowDns.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Touch.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Face.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Icons.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Profile.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelLog.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/ServerBanner.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/VpnConfig.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelService.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/LogFormat.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Theme.kt
+2026-11-24 20:10:27.040 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:10:27.043 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:10:27.045 [compiler] INFO: leased a new session 4, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:10:27.057 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/liteRelease/processLiteReleaseResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease -jvm-target 17 -module-name app_liteRelease -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/generated/source/buildConfig/lite/release/id/wanz/tunnel/BuildConfig.java /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Anim.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Compact.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Transport.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/SlowDns.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Touch.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Face.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Icons.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Profile.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelLog.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/ServerBanner.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/VpnConfig.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/TunnelService.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/LogFormat.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/Theme.kt
+2026-11-24 20:10:50.511 [daemon] INFO: Message: logging: using Kotlin home directory <no_path>
+2026-11-24 20:10:50.512 [daemon] INFO: Message: logging: exception on loading scripting plugin: java.lang.ClassNotFoundException: org.jetbrains.kotlin.scripting.compiler.plugin.ScriptingCompilerConfigurationComponentRegistrar
+2026-11-24 20:10:50.513 [daemon] INFO: Message: logging: scripting plugin will not be loaded: not all required jars are present in the classpath (missing files: [./kotlin-scripting-compiler.jar, ./kotlin-scripting-compiler-impl.jar, ./kotlin-scripting-common.jar, ./kotlin-scripting-jvm.jar])
+2026-11-24 20:10:50.513 [daemon] INFO: Message: logging: using JVM IR backend
+2026-11-24 20:10:50.513 [daemon] INFO: Message: logging: configuring the compilation environment
+2026-11-24 20:10:50.514 [daemon] INFO: Message: logging: using Kotlin home directory <no_path>
+2026-11-24 20:10:50.514 [daemon] INFO: Message: logging: exception on loading scripting plugin: java.lang.ClassNotFoundException: org.jetbrains.kotlin.scripting.compiler.plugin.ScriptingCompilerConfigurationComponentRegistrar
+2026-11-24 20:10:50.514 [daemon] INFO: Message: logging: scripting plugin will not be loaded: not all required jars are present in the classpath (missing files: [./kotlin-scripting-compiler.jar, ./kotlin-scripting-compiler-impl.jar, ./kotlin-scripting-common.jar, ./kotlin-scripting-jvm.jar])
+2026-11-24 20:10:50.515 [daemon] INFO: Message: logging: using JVM IR backend
+2026-11-24 20:10:50.515 [daemon] INFO: Message: logging: configuring the compilation environment
+2026-11-24 20:10:50.516 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.517 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.518 [daemon] INFO: Message: logging: using Kotlin home directory <no_path>
+2026-11-24 20:10:50.518 [daemon] INFO: Message: logging: exception on loading scripting plugin: java.lang.ClassNotFoundException: org.jetbrains.kotlin.scripting.compiler.plugin.ScriptingCompilerConfigurationComponentRegistrar
+2026-11-24 20:10:50.519 [daemon] INFO: Message: logging: scripting plugin will not be loaded: not all required jars are present in the classpath (missing files: [./kotlin-scripting-compiler.jar, ./kotlin-scripting-compiler-impl.jar, ./kotlin-scripting-common.jar, ./kotlin-scripting-jvm.jar])
+2026-11-24 20:10:50.519 [daemon] INFO: Message: logging: using JVM IR backend
+2026-11-24 20:10:50.519 [daemon] INFO: Message: logging: configuring the compilation environment
+2026-11-24 20:10:50.519 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.524 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$appBar$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.524 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$appBar$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.525 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.525 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.526 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.527 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.528 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.528 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.530 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$appBar$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.530 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.531 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.533 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.533 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.534 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.535 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.536 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.537 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.539 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.536 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.537 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.540 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.540 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.541 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.539 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.546 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.546 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$11.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.547 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$12.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.547 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$13.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.548 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$14.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.541 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.541 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.549 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$15.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.549 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.552 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.552 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.553 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.553 [daemon] INFO: Message: logging: using Kotlin home directory <no_path>
+2026-11-24 20:10:50.556 [daemon] INFO: Message: logging: exception on loading scripting plugin: java.lang.ClassNotFoundException: org.jetbrains.kotlin.scripting.compiler.plugin.ScriptingCompilerConfigurationComponentRegistrar
+2026-11-24 20:10:50.556 [daemon] INFO: Message: logging: scripting plugin will not be loaded: not all required jars are present in the classpath (missing files: [./kotlin-scripting-compiler.jar, ./kotlin-scripting-compiler-impl.jar, ./kotlin-scripting-common.jar, ./kotlin-scripting-jvm.jar])
+2026-11-24 20:10:50.556 [daemon] INFO: Message: logging: using JVM IR backend
+2026-11-24 20:10:50.557 [daemon] INFO: Message: logging: configuring the compilation environment
+2026-11-24 20:10:50.557 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.550 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.558 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$appBar$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.558 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$11.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.551 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$16.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.559 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.559 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$17.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.554 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.560 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.563 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.560 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$12.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.564 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$13.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.565 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.565 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$14.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.560 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$18.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.564 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$11.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.567 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildLogPanel$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.567 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildLogPanel$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.567 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$15.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.568 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildLogPanel$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.568 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$16.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.569 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$12.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.570 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildDrawer$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.570 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$13.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.571 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildDrawer$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.571 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.571 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$14.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.572 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.573 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$15.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.572 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildDrawer$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.574 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildDrawer$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.574 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.574 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildDrawer$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.575 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.574 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$17.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.575 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$buildDrawer$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.575 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$16.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.575 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$18.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.576 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildLogPanel$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.577 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildLogPanel$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.577 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildLogPanel$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.577 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.578 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$17.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.579 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$profileDialog$1$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.580 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$profileDialog$1$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.580 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$checkGrid$cells$18.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.578 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildDrawer$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.578 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.581 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildDrawer$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.582 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$11.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.583 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$12.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.581 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$deleteProfile$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.582 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildLogPanel$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.589 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$onResume$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.589 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$onResume$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.590 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$CheckCell.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.582 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildDrawer$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.588 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$13.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.589 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildLogPanel$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.594 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$14.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.595 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$15.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.591 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$Conn.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.596 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$Companion.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.593 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildDrawer$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.597 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$WhenMappings.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.597 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildDrawer$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.598 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$buildDrawer$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.598 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$profileDialog$1$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.594 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildLogPanel$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.599 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$16.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.599 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildDrawer$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.600 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$17.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.600 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$checkGrid$cells$18.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.600 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/id/wanz/tunnel/MainActivity$ticker$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.601 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildDrawer$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.601 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease/META-INF/app_fullRelease.kotlin_module
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.602 [daemon] INFO: Message: warning: name shadowed: head
+            val head = horizontal().apply {
+                ^
+2026-11-24 20:10:50.601 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$profileDialog$1$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.605 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$deleteProfile$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.602 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildDrawer$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.602 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildLogPanel$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.607 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$onResume$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.607 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildLogPanel$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.607 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$onResume$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.607 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildDrawer$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.608 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildLogPanel$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.608 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildDrawer$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.607 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$CheckCell.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.609 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$buildDrawer$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.608 [daemon] INFO: Message: warning: 'SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+                                                           ^
+2026-11-24 20:10:50.610 [daemon] INFO: Message: warning: 'onBackPressed(): Unit' is deprecated. Deprecated in Java
+        super.onBackPressed()
+              ^
+2026-11-24 20:10:50.611 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildDrawer$5.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.611 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildDrawer$6.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.613 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$Conn.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.614 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildDrawer$7.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.614 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$Companion.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.614 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildDrawer$8.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.614 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$WhenMappings.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.615 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$profileDialog$1$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.615 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/id/wanz/tunnel/MainActivity$ticker$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.615 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildDrawer$9.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.615 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug/META-INF/app_liteDebug.kotlin_module
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.616 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$buildDrawer$10.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.616 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$profileDialog$1$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.616 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$deleteProfile$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.617 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$profileDialog$1$3.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.618 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$onResume$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.618 [daemon] INFO: Message: warning: name shadowed: head
+            val head = horizontal().apply {
+                ^
+2026-11-24 20:10:50.618 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$profileDialog$1$4.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.619 [daemon] INFO: Message: warning: 'SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+                                                           ^
+2026-11-24 20:10:50.619 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$deleteProfile$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.619 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$onResume$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.620 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$CheckCell.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.621 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$onResume$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.621 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$Conn.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.620 [daemon] INFO: Message: warning: 'onBackPressed(): Unit' is deprecated. Deprecated in Java
+        super.onBackPressed()
+              ^
+2026-11-24 20:10:50.622 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$Companion.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.622 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$onResume$2.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.623 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$CheckCell.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.623 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$WhenMappings.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.624 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$Conn.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.624 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/id/wanz/tunnel/MainActivity$ticker$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.627 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$Companion.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.627 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$WhenMappings.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.628 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug/META-INF/app_fullDebug.kotlin_module
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.628 [daemon] INFO: Message: warning: name shadowed: head
+            val head = horizontal().apply {
+                ^
+2026-11-24 20:10:50.629 [daemon] INFO: Message: warning: 'SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+                                                           ^
+2026-11-24 20:10:50.629 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/id/wanz/tunnel/MainActivity$ticker$1.class
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.630 [daemon] INFO: Message: output: output:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease/META-INF/app_liteRelease.kotlin_module
+Sources:
+/home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/main/java/id/wanz/tunnel/MainActivity.kt
+2026-11-24 20:10:50.630 [daemon] INFO: Message: warning: 'onBackPressed(): Unit' is deprecated. Deprecated in Java
+        super.onBackPressed()
+              ^
+2026-11-24 20:10:50.631 [daemon] INFO: Message: warning: name shadowed: head
+            val head = horizontal().apply {
+                ^
+2026-11-24 20:10:50.635 [daemon] INFO: Message: warning: 'SOFT_INPUT_ADJUST_RESIZE: Int' is deprecated. Deprecated in Java
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+                                                           ^
+2026-11-24 20:10:50.637 [daemon] INFO: Message: warning: 'onBackPressed(): Unit' is deprecated. Deprecated in Java
+        super.onBackPressed()
+              ^
+2026-11-24 20:10:51.258 [compiler] INFO: Done with result 0
+2026-11-24 20:10:51.266 [compiler] INFO: Done with result 0
+2026-11-24 20:10:51.342 [compiler] INFO: Done with result 0
+2026-11-24 20:10:51.426 [compiler] INFO: Done with result 0
+2026-11-24 20:10:52.344 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:10:52.347 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:10:52.349 [compiler] INFO: leased a new session 5, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:10:52.388 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/fullDebug/processFullDebugResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/fullDebug/bundleFullDebugClassesToCompileJar/classes.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebugUnitTest -Xfriend-paths=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullDebug,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/javac/fullDebug/compileFullDebugJavaWithJavac/classes,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/fullDebug/bundleFullDebugClassesToCompileJar/classes.jar -jvm-target 17 -module-name app_fullDebugUnitTest -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/SlowDnsTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/CompactTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/LogAndPingTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/HtmlBannerTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSlowDnsJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TransportSocketFactoryTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSupervisorJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/VpnConfigTest.kt
+2026-11-24 20:10:52.662 [compiler] INFO: Done with result 0
+2026-11-24 20:10:52.705 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:10:52.708 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:10:52.709 [compiler] INFO: leased a new session 6, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:10:52.731 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/fullRelease/processFullReleaseResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/fullRelease/bundleFullReleaseClassesToCompileJar/classes.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullReleaseUnitTest -Xfriend-paths=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/fullRelease,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/javac/fullRelease/compileFullReleaseJavaWithJavac/classes,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/fullRelease/bundleFullReleaseClassesToCompileJar/classes.jar -jvm-target 17 -module-name app_fullReleaseUnitTest -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/SlowDnsTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/CompactTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/LogAndPingTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/HtmlBannerTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSlowDnsJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TransportSocketFactoryTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSupervisorJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/VpnConfigTest.kt
+2026-11-24 20:10:52.857 [compiler] INFO: Done with result 0
+2026-11-24 20:11:00.855 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:11:00.864 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:11:00.866 [compiler] INFO: leased a new session 7, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:11:00.885 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/liteDebug/processLiteDebugResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/liteDebug/bundleLiteDebugClassesToCompileJar/classes.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebugUnitTest -Xfriend-paths=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteDebug,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/javac/liteDebug/compileLiteDebugJavaWithJavac/classes,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/liteDebug/bundleLiteDebugClassesToCompileJar/classes.jar -jvm-target 17 -module-name app_liteDebugUnitTest -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/SlowDnsTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/CompactTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/LogAndPingTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/HtmlBannerTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSlowDnsJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TransportSocketFactoryTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSupervisorJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/VpnConfigTest.kt
+2026-11-24 20:11:00.962 [compiler] INFO: Done with result 0
+2026-11-24 20:11:01.055 [compiler] INFO: getDaemonJVMOptions: DaemonJVMOptions(maxMemory=512m, maxMetaspaceSize=384m, reservedCodeCacheSize=, jvmParams=[-Djava.awt.headless=true, -D$java.rmi.server.hostname=127.0.0.1, -Dkotlin.environment.keepalive, -ea, --add-exports=java.base/sun.nio.ch=ALL-UNNAMED, Dkotlin.environment.keepalive, ea])
+2026-11-24 20:11:01.056 [compiler] INFO: Registered a client alive file: /tmp/kotlin-compiler-in-anzunnel-768457131051347185.alive
+2026-11-24 20:11:01.058 [compiler] INFO: leased a new session 8, session alive file: /home/runner/work/Opencode/Opencode/wanz-tunnel/.gradle/kotlin/sessions/kotlin-compiler-14497210082413168550.salive
+2026-11-24 20:11:01.080 [compiler] INFO: Starting compilation with args: -Xallow-no-source-files -classpath /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/liteRelease/processLiteReleaseResources/R.jar:/home/runner/.gradle/caches/transforms-4/8e81972c5ad175ed58bc746f770d32a7/transformed/hev-socks5-tunnel-api.jar:/home/runner/.gradle/caches/transforms-4/87de8d60574c57d65c7ff7d4834ccd5f/transformed/slowdns-api.jar:/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/liteRelease/bundleLiteReleaseClassesToCompileJar/classes.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.24/9928532f12c66ad816a625b3f9984f8368ca6d2b/kotlin-stdlib-1.9.24.jar:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.mwiede/jsch/0.2.21/ac5a98df1a17226fb8fc53cd71287f89df73d7e0/jsch-0.2.21.jar:/home/runner/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.json/json/20240303/ebb88e8fb5122b7506d5cf1d69f1ccdb790d22a/json-20240303.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/usr/local/lib/android/sdk/platforms/android-34/android.jar:/usr/local/lib/android/sdk/build-tools/34.0.0/core-lambda-stubs.jar -d /home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteReleaseUnitTest -Xfriend-paths=/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/tmp/kotlin-classes/liteRelease,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/javac/liteRelease/compileLiteReleaseJavaWithJavac/classes,/home/runner/work/Opencode/Opencode/wanz-tunnel/app/build/intermediates/compile_app_classes_jar/liteRelease/bundleLiteReleaseClassesToCompileJar/classes.jar -jvm-target 17 -module-name app_liteReleaseUnitTest -no-jdk -no-reflect -no-stdlib /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/SlowDnsTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/CompactTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/LogAndPingTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/HtmlBannerTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSlowDnsJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/TransportSocketFactoryTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/ProfileSupervisorJsonTest.kt /home/runner/work/Opencode/Opencode/wanz-tunnel/app/src/test/java/id/wanz/tunnel/VpnConfigTest.kt
+2026-11-24 20:11:01.149 [compiler] INFO: Done with result 0

@@ -1,0 +1,5 @@
+2026/11/24 18:59:53 uTLS fingerprint Firefox 105
+2026/11/24 18:59:53 effective MTU 134
+2026/11/24 18:59:53 begin session 629f8822
+2026/11/24 18:59:53 end session 629f8822
+2026/11/24 18:59:53 crypto/ecdh: bad X25519 remote ECDH input: low order point

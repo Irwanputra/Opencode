@@ -1,0 +1,1 @@
+qemu-system-aarch64: -monitor tcp:127.0.0.1:4555,server: info: QEMU waiting for connection on: disconnected:tcp:127.0.0.1:4555,server=on

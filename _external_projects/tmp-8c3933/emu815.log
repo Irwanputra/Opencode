@@ -1,0 +1,10 @@
+INFO         | Android emulator version 37.3.10.0 (build_id 16970787) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+DEBUG   | Current emulator version 37.3.10 is the same as the required version 37.3.10.
+INFO         | Found AVD name 'hc815'
+INFO         | Found AVD target architecture: arm64
+INFO         | argv[0]: '/usr/local/lib/android/sdk/emulator/emulator'; program directory: '/usr/local/lib/android/sdk/emulator'
+INFO         | Found systemPath /usr/local/lib/android/sdk/system-images/android-34/google_apis/arm64-v8a/
+INFO         | emuDirName: '/usr/local/lib/android/sdk/emulator'
+FATAL        | Avd's CPU Architecture 'arm64' is not supported by the QEMU2 emulator on x86_64 host. System image must match the host architecture.
+

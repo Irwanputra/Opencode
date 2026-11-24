@@ -1,0 +1,6 @@
+2026/11/24 18:55:09 uTLS fingerprint Chrome 120
+2026/11/24 18:55:09 effective MTU 134
+2026/11/24 18:55:09 begin session 494a843e
+2026/11/24 18:55:13 begin stream 494a843e:3
+2026/11/24 18:55:13 stream 494a843e:3 copy stream←local: writeto tcp 127.0.0.1:1082->127.0.0.1:55630: read tcp 127.0.0.1:1082->127.0.0.1:55630: read: connection reset by peer
+2026/11/24 18:55:13 end stream 494a843e:3

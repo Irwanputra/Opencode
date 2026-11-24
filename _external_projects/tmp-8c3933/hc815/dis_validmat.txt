@@ -1,0 +1,152 @@
+1c3f0b0  stp	x2, x3, [sp, #0xf8]
+1c3f0b4  stp	x4, x5, [sp, #0x108]
+1c3f0b8  str	x6, [sp, #0x118]
+1c3f0bc  mov	x0, xzr
+1c3f0c0  mov	x1, xzr
+1c3f0c4  ldur	x29, [sp, #-0x8]
+1c3f0c8  ldr	x30, [sp], #0xd0
+1c3f0cc  ret
+1c3f0d0  stp	x0, x1, [sp, #0x50]
+1c3f0d4  str	x2, [sp, #0x60]
+1c3f0d8  strb	w3, [sp, #0x68]
+1c3f0dc  str	w4, [sp, #0x6c]
+1c3f0e0  mov	x3, x30
+1c3f0e4  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c3f0e8  ldp	x0, x1, [sp, #0x50]
+1c3f0ec  ldr	x2, [sp, #0x60]
+1c3f0f0  ldrb	w3, [sp, #0x68]
+1c3f0f4  ldr	w4, [sp, #0x6c]
+1c3f0f8  b	0x1c3eff0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776b10>   ; <noise/hcauth.ParseCertificate>
+1c3f0fc  udf	#0x0
+1c3f100  ldr	x16, [x28, #0x10]
+1c3f104  sub	x17, sp, #0xd0
+1c3f108  cmp	x17, x16
+1c3f10c  b.ls	0x1c3f340 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776e60>
+1c3f110  sub	x20, sp, #0x150
+1c3f114  stp	x29, x30, [x20, #-0x8]
+1c3f118  mov	sp, x20
+1c3f11c  sub	x29, sp, #0x8
+1c3f120  str	xzr, [sp, #0x140]
+1c3f124  strb	wzr, [sp, #0x77]
+1c3f128  add	x4, sp, #0x158
+1c3f12c  stp	xzr, xzr, [x4]
+1c3f130  stp	xzr, xzr, [x4, #0x10]
+1c3f134  str	xzr, [x4, #0x20]
+1c3f138  stp	xzr, xzr, [sp, #0x108]
+1c3f13c  cbz	x0, 0x1c3f248 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776d68>
+1c3f140  str	x0, [sp, #0x180]
+1c3f144  ldp	x4, x5, [x0, #0x20]
+1c3f148  ldr	x2, [x0, #0x30]
+1c3f14c  ldp	x6, x7, [x0]
+1c3f150  ldp	x8, x9, [x0, #0x10]
+1c3f154  stp	x6, x7, [sp, #0xe0]
+1c3f158  stp	x8, x9, [sp, #0xf0]
+1c3f15c  ldp	x6, x7, [sp, #0xe0]
+1c3f160  ldp	x8, x9, [sp, #0xf0]
+1c3f164  stp	x6, x7, [sp, #0x8]
+1c3f168  stp	x8, x9, [sp, #0x18]
+1c3f16c  mov	x0, x4
+1c3f170  mov	x3, x1
+1c3f174  mov	x1, x5
+1c3f178  bl	0x1c3f3a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776ec0>   ; <noise/hcauth.decodeCertificate>
+1c3f17c  ldp	x4, x5, [sp, #0x28]
+1c3f180  ldp	x6, x7, [sp, #0x38]
+1c3f184  ldr	x8, [sp, #0x48]
+1c3f188  stp	x4, x5, [sp, #0xe0]
+1c3f18c  stp	x6, x7, [sp, #0xf0]
+1c3f190  str	x8, [sp, #0x100]
+1c3f194  ldp	x4, x5, [sp, #0xe0]
+1c3f198  ldp	x6, x7, [sp, #0xf0]
+1c3f19c  ldr	x8, [sp, #0x100]
+1c3f1a0  stp	x4, x5, [sp, #0xb8]
+1c3f1a4  stp	x6, x7, [sp, #0xc8]
+1c3f1a8  str	x8, [sp, #0xd8]
+1c3f1ac  cbnz	x0, 0x1c3f228 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776d48>
+1c3f1b0  ldr	x6, [sp, #0x180]
+1c3f1b4  add	x3, x6, #0x38
+1c3f1b8  str	x3, [sp, #0x118]
+1c3f1bc  add	x0, sp, #0x78
+1c3f1c0  stp	xzr, xzr, [x0]
+1c3f1c4  stp	xzr, xzr, [x0, #0x10]
+1c3f1c8  stp	xzr, xzr, [x0, #0x20]
+1c3f1cc  stp	xzr, xzr, [x0, #0x30]
+1c3f1d0  orr	x1, xzr, #0x40
+1c3f1d4  mov	x2, x1
+1c3f1d8  orr	x4, xzr, #0x20
+1c3f1dc  mov	x5, x1
+1c3f1e0  bl	0x156d790 <_cgoexp_f6c40ca2f9f3_onLowMemory+0xa52b0>   ; <crypto/ed25519.newKeyFromSeed>
+1c3f1e4  nop
+1c3f1e8  adr	x6, 0x1c3f360 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776e80>   ; <noise/hcauth.decodeCertificate>
+1c3f1ec  str	x6, [sp, #0x120]
+1c3f1f0  orr	x6, xzr, #0x40
+1c3f1f4  str	x6, [sp, #0x130]
+1c3f1f8  str	x6, [sp, #0x138]
+1c3f1fc  add	x6, sp, #0x78
+1c3f200  str	x6, [sp, #0x128]
+1c3f204  add	x7, sp, #0x120
+1c3f208  str	x7, [sp, #0x140]
+1c3f20c  orr	x7, xzr, #0x1
+1c3f210  strb	w7, [sp, #0x77]
+1c3f214  nop
+1c3f218  ldr	x7, [sp, #0x118]
+1c3f21c  mov	x0, xzr
+1c3f220  mov	x1, xzr
+1c3f224  b	0x1c3f284 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776da4>   ; <noise/hcauth.ValidateMaterial>
+1c3f228  add	x2, sp, #0x158
+1c3f22c  stp	xzr, xzr, [x2]
+1c3f230  stp	xzr, xzr, [x2, #0x10]
+1c3f234  str	xzr, [x2, #0x20]
+1c3f238  stp	x0, x1, [sp, #0x108]
+1c3f23c  ldp	x29, x30, [sp, #-0x8]
+1c3f240  add	sp, sp, #0x150
+1c3f244  ret
+1c3f248  stp	xzr, xzr, [x4]
+1c3f24c  stp	xzr, xzr, [x4, #0x10]
+1c3f250  str	xzr, [x4, #0x20]
+1c3f254  adrp x27, page
+1c3f258  add	x27, x27, #0x80   ; =0x28a7080
+1c3f25c  ldp	x0, x1, [x27]
+1c3f260  stp	x0, x1, [sp, #0x108]
+1c3f264  ldp	x29, x30, [sp, #-0x8]
+1c3f268  add	sp, sp, #0x150
+1c3f26c  ret
+1c3f270  ldrb	w3, [x6, x0]
+1c3f274  ldrb	w4, [x7, x0]
+1c3f278  eor	x3, x3, x4
+1c3f27c  orr	x1, x1, x3
+1c3f280  add	x0, x0, #0x1
+1c3f284  cmp	x0, #0x40
+1c3f288  b.lt	0x1c3f270 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776d90>
+1c3f28c  nop
+1c3f290  ubfx	x3, x1, #0, #8
+1c3f294  cbnz	w3, 0x1c3f2ac <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776dcc>
+1c3f298  add	x0, sp, #0xc0
+1c3f29c  add	x1, sp, #0x98
+1c3f2a0  orr	x2, xzr, #0x20
+1c3f2a4  bl	0x1391d80 <.text+0x3e60>   ; <runtime.memequal>
+1c3f2a8  tbnz	w0, #0x0, 0x1c3f2ec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776e0c>
+1c3f2ac  adrp x27, page
+1c3f2b0  add	x27, x27, #0x80   ; =0x28a7080
+1c3f2b4  ldp	x0, x1, [x27]
+1c3f2b8  add	x2, sp, #0x158
+1c3f2bc  stp	xzr, xzr, [x2]
+1c3f2c0  stp	xzr, xzr, [x2, #0x10]
+1c3f2c4  str	xzr, [x2, #0x20]
+1c3f2c8  stp	x0, x1, [sp, #0x108]
+1c3f2cc  strb	wzr, [sp, #0x77]
+1c3f2d0  ldr	x26, [sp, #0x140]
+1c3f2d4  ldr	x0, [x26]
+1c3f2d8  blr	x0
+1c3f2dc  ldp	x0, x1, [sp, #0x108]
+1c3f2e0  ldp	x29, x30, [sp, #-0x8]
+1c3f2e4  add	sp, sp, #0x150
+1c3f2e8  ret
+1c3f2ec  ldp	x0, x1, [sp, #0xb8]
+1c3f2f0  ldp	x2, x3, [sp, #0xc8]
+1c3f2f4  ldr	x4, [sp, #0xd8]
+1c3f2f8  stp	x0, x1, [sp, #0x158]
+1c3f2fc  stp	x2, x3, [sp, #0x168]
+1c3f300  str	x4, [sp, #0x178]
+1c3f304  stp	xzr, xzr, [sp, #0x108]
+1c3f308  strb	wzr, [sp, #0x77]
+1c3f30c  ldr	x26, [sp, #0x140]

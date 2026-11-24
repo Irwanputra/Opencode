@@ -1,0 +1,462 @@
+[bridge] 0   1c75ac4:      	ldp	x2, x3, [sp, #0x18]
+[bridge] 1   1c75ac8:      	b	0x1c757a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad2c0>
+[bridge] 2   1c75acc:      	udf	#0x0
+[bridge] 3   1c75ad0:      	ldr	x16, [x28, #0x10]
+[bridge] 4   1c75ad4:      	cmp	sp, x16
+[bridge] 5   1c75ad8:      	b.ls	0x1c75b00 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad620>
+[bridge] 6   1c75adc:      	str	x30, [sp, #-0x20]!
+[bridge] 7   1c75ae0:      	stur	x29, [sp, #-0x8]
+[bridge] 8   1c75ae4:      	sub	x29, sp, #0x8
+[bridge] 9   1c75ae8:      	ldp	x0, x1, [x26, #0x8]
+[bridge] a   1c75aec:      	cbz	x1, 0x1c75af4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad614>
+[bridge] b   1c75af0:      	bl	0x141cb30 <_cgo_topofstack+0x3d0>
+[bridge] c   1c75af4:      	ldur	x29, [sp, #-0x8]
+[bridge] d   1c75af8:      	ldr	x30, [sp], #0x20
+[bridge] e   1c75afc:      	ret
+[bridge] f   1c75b00:      	mov	x3, x30
+[bridge] 10   1c75b04:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 11   1c75b08:      	b	0x1c75ad0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad5f0>
+[bridge] 12   1c75b0c:      	udf	#0x0
+[bridge] 13   1c75b10:      	ldr	x16, [x28, #0x10]
+[bridge] 14   1c75b14:      	sub	x17, sp, #0x60
+[bridge] 15   1c75b18:      	cmp	x17, x16
+[bridge] 16   1c75b1c:      	b.ls	0x1c75e4c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad96c>
+[bridge] 17   1c75b20:      	str	x30, [sp, #-0xe0]!
+[bridge] 18   1c75b24:      	stur	x29, [sp, #-0x8]
+[bridge] 19   1c75b28:      	sub	x29, sp, #0x8
+[bridge] 1a   1c75b2c:      	str	x0, [sp, #0xe8]
+[bridge] 1b   1c75b30:      	str	x1, [sp, #0xf0]
+[bridge] 1c   1c75b34:      	stp	xzr, xzr, [sp, #0xc0]
+[bridge] 1d   1c75b38:      	str	xzr, [sp, #0xd0]
+[bridge] 1e   1c75b3c:      	str	x2, [sp, #0xf8]
+[bridge] 1f   1c75b40:      	str	x3, [sp, #0x100]
+[bridge] 20   1c75b44:      	str	x5, [sp, #0x110]
+[bridge] 21   1c75b48:      	str	x4, [sp, #0x108]
+[bridge] 22   1c75b4c:      	strb	wzr, [sp, #0x27]
+[bridge] 23   1c75b50:      	stp	xzr, xzr, [sp, #0x38]
+[bridge] 24   1c75b54:      	bl	0x14a44e0 <crosscall2+0x71800>
+[bridge] 25   1c75b58:      	str	x2, [sp, #0x68]
+[bridge] 26   1c75b5c:      	str	x0, [sp, #0x30]
+[bridge] 27   1c75b60:      	str	x1, [sp, #0x60]
+[bridge] 28   1c75b64:      	str	x2, [sp, #0xc0]
+[bridge] 29   1c75b68:      	orr	x2, xzr, #0x1
+[bridge] 2a   1c75b6c:      	strb	w2, [sp, #0x27]
+[bridge] 2b   1c75b70:      	adrp	x0, 0x25af000
+[bridge] 2c   1c75b74:      	add	x0, x0, #0x6a0
+[bridge] 2d   1c75b78:      	bl	0x13af780 <.text+0x21860>
+[bridge] 2e   1c75b7c:      	str	x0, [sp, #0x50]
+[bridge] 2f   1c75b80:      	adrp	x0, 0x25e7000
+[bridge] 30   1c75b84:      	add	x0, x0, #0x2a0
+[bridge] 31   1c75b88:      	bl	0x13af780 <.text+0x21860>
+[bridge] 32   1c75b8c:      	nop
+[bridge] 33   1c75b90:      	adr	x2, 0x1c75fd0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adaf0>
+[bridge] 34   1c75b94:      	str	x2, [x0]
+[bridge] 35   1c75b98:      	adrp	x27, 0x2919000
+[bridge] 36   1c75b9c:      	ldr	w2, [x27, #0x8b0]
+[bridge] 37   1c75ba0:      	cbnz	w2, 0x1c75bb4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad6d4>
+[bridge] 38   1c75ba4:      	ldr	x3, [sp, #0x50]
+[bridge] 39   1c75ba8:      	ldr	x4, [sp, #0xf8]
+[bridge] 3a   1c75bac:      	ldr	x5, [sp, #0x100]
+[bridge] 3b   1c75bb0:      	b	0x1c75bcc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad6ec>
+[bridge] 3c   1c75bb4:      	bl	0x141c810 <_cgo_topofstack+0xb0>
+[bridge] 3d   1c75bb8:      	ldr	x3, [sp, #0x50]
+[bridge] 3e   1c75bbc:      	str	x3, [x25]
+[bridge] 3f   1c75bc0:      	ldr	x4, [sp, #0xf8]
+[bridge] 40   1c75bc4:      	ldr	x5, [sp, #0x100]
+[bridge] 41   1c75bc8:      	stp	x4, x5, [x25, #0x8]
+[bridge] 42   1c75bcc:      	str	x0, [sp, #0x70]
+[bridge] 43   1c75bd0:      	stp	x3, x4, [x0, #0x8]
+[bridge] 44   1c75bd4:      	ldr	x3, [sp, #0x110]
+[bridge] 45   1c75bd8:      	str	x3, [x0, #0x28]
+[bridge] 46   1c75bdc:      	ldr	x3, [sp, #0x108]
+[bridge] 47   1c75be0:      	stp	x5, x3, [x0, #0x18]
+[bridge] 48   1c75be4:      	ldr	x1, [sp, #0x60]
+[bridge] 49   1c75be8:      	mov	x2, x0
+[bridge] 4a   1c75bec:      	ldr	x0, [sp, #0x30]
+[bridge] 4b   1c75bf0:      	bl	0x14a48f0 <crosscall2+0x71c10>
+[bridge] 4c   1c75bf4:      	nop
+[bridge] 4d   1c75bf8:      	adr	x3, 0x1c75f90 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adab0>
+[bridge] 4e   1c75bfc:      	stp	x3, x0, [sp, #0xa0]
+[bridge] 4f   1c75c00:      	add	x3, sp, #0xa0
+[bridge] 50   1c75c04:      	str	x3, [sp, #0xc8]
+[bridge] 51   1c75c08:      	ldr	x3, [sp, #0x70]
+[bridge] 52   1c75c0c:      	str	x3, [sp, #0xd0]
+[bridge] 53   1c75c10:      	orr	x3, xzr, #0x7
+[bridge] 54   1c75c14:      	strb	w3, [sp, #0x27]
+[bridge] 55   1c75c18:      	adrp	x0, 0x23c9000
+[bridge] 56   1c75c1c:      	add	x0, x0, #0xac0
+[bridge] 57   1c75c20:      	orr	x1, xzr, #0x2
+[bridge] 58   1c75c24:      	bl	0x13a5570 <.text+0x17650>
+[bridge] 59   1c75c28:      	str	x0, [sp, #0x48]
+[bridge] 5a   1c75c2c:      	adrp	x0, 0x265b000
+[bridge] 5b   1c75c30:      	add	x0, x0, #0xd60
+[bridge] 5c   1c75c34:      	bl	0x13af780 <.text+0x21860>
+[bridge] 5d   1c75c38:      	nop
+[bridge] 5e   1c75c3c:      	adr	x3, 0x1c75f30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ada50>
+[bridge] 5f   1c75c40:      	str	x3, [x0]
+[bridge] 60   1c75c44:      	adrp	x27, 0x2919000
+[bridge] 61   1c75c48:      	ldr	w3, [x27, #0x8b0]
+[bridge] 62   1c75c4c:      	cbnz	w3, 0x1c75c68 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad788>
+[bridge] 63   1c75c50:      	ldr	x1, [sp, #0x48]
+[bridge] 64   1c75c54:      	ldr	x2, [sp, #0x60]
+[bridge] 65   1c75c58:      	ldr	x3, [sp, #0x68]
+[bridge] 66   1c75c5c:      	ldr	x4, [sp, #0xf8]
+[bridge] 67   1c75c60:      	ldr	x5, [sp, #0x100]
+[bridge] 68   1c75c64:      	b	0x1c75c8c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad7ac>
+[bridge] 69   1c75c68:      	bl	0x141c830 <_cgo_topofstack+0xd0>
+[bridge] 6a   1c75c6c:      	ldr	x1, [sp, #0x48]
+[bridge] 6b   1c75c70:      	str	x1, [x25]
+[bridge] 6c   1c75c74:      	ldr	x2, [sp, #0x60]
+[bridge] 6d   1c75c78:      	ldr	x3, [sp, #0x68]
+[bridge] 6e   1c75c7c:      	stp	x2, x3, [x25, #0x8]
+[bridge] 6f   1c75c80:      	ldr	x4, [sp, #0xf8]
+[bridge] 70   1c75c84:      	ldr	x5, [sp, #0x100]
+[bridge] 71   1c75c88:      	stp	x4, x5, [x25, #0x18]
+[bridge] 72   1c75c8c:      	str	x1, [x0, #0x8]
+[bridge] 73   1c75c90:      	ldr	x1, [sp, #0x30]
+[bridge] 74   1c75c94:      	stp	x1, x2, [x0, #0x10]
+[bridge] 75   1c75c98:      	stp	x3, x4, [x0, #0x20]
+[bridge] 76   1c75c9c:      	ldr	x1, [sp, #0x110]
+[bridge] 77   1c75ca0:      	str	x1, [x0, #0x40]
+[bridge] 78   1c75ca4:      	ldr	x1, [sp, #0x108]
+[bridge] 79   1c75ca8:      	stp	x5, x1, [x0, #0x30]
+[bridge] 7a   1c75cac:      	bl	0x13e8f80 <.text+0x5b060>
+[bridge] 7b   1c75cb0:      	adrp	x0, 0x25e7000
+[bridge] 7c   1c75cb4:      	add	x0, x0, #0x360
+[bridge] 7d   1c75cb8:      	bl	0x13af780 <.text+0x21860>
+[bridge] 7e   1c75cbc:      	nop
+[bridge] 7f   1c75cc0:      	adr	x1, 0x1c75ed0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad9f0>
+[bridge] 80   1c75cc4:      	str	x1, [x0]
+[bridge] 81   1c75cc8:      	adrp	x27, 0x2919000
+[bridge] 82   1c75ccc:      	ldr	w1, [x27, #0x8b0]
+[bridge] 83   1c75cd0:      	cbnz	w1, 0x1c75ce4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad804>
+[bridge] 84   1c75cd4:      	ldr	x1, [sp, #0x48]
+[bridge] 85   1c75cd8:      	ldr	x2, [sp, #0xf8]
+[bridge] 86   1c75cdc:      	ldr	x3, [sp, #0x100]
+[bridge] 87   1c75ce0:      	b	0x1c75cfc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad81c>
+[bridge] 88   1c75ce4:      	bl	0x141c810 <_cgo_topofstack+0xb0>
+[bridge] 89   1c75ce8:      	ldr	x1, [sp, #0x48]
+[bridge] 8a   1c75cec:      	str	x1, [x25]
+[bridge] 8b   1c75cf0:      	ldr	x2, [sp, #0xf8]
+[bridge] 8c   1c75cf4:      	ldr	x3, [sp, #0x100]
+[bridge] 8d   1c75cf8:      	stp	x2, x3, [x25, #0x8]
+[bridge] 8e   1c75cfc:      	stp	x1, x2, [x0, #0x8]
+[bridge] 8f   1c75d00:      	ldr	x1, [sp, #0x110]
+[bridge] 90   1c75d04:      	str	x1, [x0, #0x28]
+[bridge] 91   1c75d08:      	ldr	x1, [sp, #0x108]
+[bridge] 92   1c75d0c:      	stp	x3, x1, [x0, #0x18]
+[bridge] 93   1c75d10:      	bl	0x13e8f80 <.text+0x5b060>
+[bridge] 94   1c75d14:      	stp	xzr, xzr, [sp, #0xb0]
+[bridge] 95   1c75d18:      	ldr	x0, [sp, #0x48]
+[bridge] 96   1c75d1c:      	add	x1, sp, #0xb0
+[bridge] 97   1c75d20:      	bl	0x13a6630 <.text+0x18710>
+[bridge] 98   1c75d24:      	ldp	x1, x2, [sp, #0xb0]
+[bridge] 99   1c75d28:      	str	x1, [sp, #0x28]
+[bridge] 9a   1c75d2c:      	str	x2, [sp, #0x58]
+[bridge] 9b   1c75d30:      	cbz	x1, 0x1c75d7c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad89c>
+[bridge] 9c   1c75d34:      	ldr	x26, [sp, #0x68]
+[bridge] 9d   1c75d38:      	ldr	x0, [x26]
+[bridge] 9e   1c75d3c:      	blr	x0
+[bridge] 9f   1c75d40:      	nop
+[bridge] a0   1c75d44:      	nop
+[bridge] a1   1c75d48:      	adr	x0, 0x1c75e70 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad990>
+[bridge] a2   1c75d4c:      	ldr	x1, [sp, #0xf8]
+[bridge] a3   1c75d50:      	stp	x0, x1, [sp, #0x78]
+[bridge] a4   1c75d54:      	ldr	x0, [sp, #0x110]
+[bridge] a5   1c75d58:      	str	x0, [sp, #0x98]
+[bridge] a6   1c75d5c:      	ldr	x0, [sp, #0x100]
+[bridge] a7   1c75d60:      	ldr	x1, [sp, #0x108]
+[bridge] a8   1c75d64:      	stp	x0, x1, [sp, #0x88]
+[bridge] a9   1c75d68:      	ldr	x0, [sp, #0x50]
+[bridge] aa   1c75d6c:      	ldar	w1, [x0]
+[bridge] ab   1c75d70:      	cbnz	w1, 0x1c75d7c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad89c>
+[bridge] ac   1c75d74:      	add	x1, sp, #0x78
+[bridge] ad   1c75d78:      	bl	0x1421b40 <_cgo_topofstack+0x53e0>
+[bridge] ae   1c75d7c:      	stp	xzr, xzr, [sp, #0xb0]
+[bridge] af   1c75d80:      	ldr	x0, [sp, #0x48]
+[bridge] b0   1c75d84:      	add	x1, sp, #0xb0
+[bridge] b1   1c75d88:      	bl	0x13a6630 <.text+0x18710>
+[bridge] b2   1c75d8c:      	ldp	x2, x3, [sp, #0xb0]
+[bridge] b3   1c75d90:      	ldr	x0, [sp, #0x28]
+[bridge] b4   1c75d94:      	cbz	x0, 0x1c75de8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad908>
+[bridge] b5   1c75d98:      	ldr	x1, [sp, #0x58]
+[bridge] b6   1c75d9c:      	stp	x0, x1, [sp, #0x38]
+[bridge] b7   1c75da0:      	orr	x0, xzr, #0x3
+[bridge] b8   1c75da4:      	strb	w0, [sp, #0x27]
+[bridge] b9   1c75da8:      	ldr	x26, [sp, #0xd0]
+[bridge] ba   1c75dac:      	ldr	x0, [x26]
+[bridge] bb   1c75db0:      	blr	x0
+[bridge] bc   1c75db4:      	orr	x0, xzr, #0x1
+[bridge] bd   1c75db8:      	strb	w0, [sp, #0x27]
+[bridge] be   1c75dbc:      	ldr	x26, [sp, #0xc8]
+[bridge] bf   1c75dc0:      	ldr	x0, [x26]
+[bridge] c0   1c75dc4:      	blr	x0
+[bridge] c1   1c75dc8:      	strb	wzr, [sp, #0x27]
+[bridge] c2   1c75dcc:      	ldr	x26, [sp, #0xc0]
+[bridge] c3   1c75dd0:      	ldr	x0, [x26]
+[bridge] c4   1c75dd4:      	blr	x0
+[bridge] c5   1c75dd8:      	ldp	x0, x1, [sp, #0x38]
+[bridge] c6   1c75ddc:      	ldur	x29, [sp, #-0x8]
+[bridge] c7   1c75de0:      	ldr	x30, [sp], #0xe0
+[bridge] c8   1c75de4:      	ret
+[bridge] c9   1c75de8:      	stp	x2, x3, [sp, #0x38]
+[bridge] ca   1c75dec:      	orr	x0, xzr, #0x3
+[bridge] cb   1c75df0:      	strb	w0, [sp, #0x27]
+[bridge] cc   1c75df4:      	ldr	x26, [sp, #0xd0]
+[bridge] cd   1c75df8:      	ldr	x0, [x26]
+[bridge] ce   1c75dfc:      	blr	x0
+[bridge] cf   1c75e00:      	orr	x0, xzr, #0x1
+[bridge] d0   1c75e04:      	strb	w0, [sp, #0x27]
+[bridge] d1   1c75e08:      	ldr	x26, [sp, #0xc8]
+[bridge] d2   1c75e0c:      	ldr	x0, [x26]
+[bridge] d3   1c75e10:      	blr	x0
+[bridge] d4   1c75e14:      	strb	wzr, [sp, #0x27]
+[bridge] d5   1c75e18:      	ldr	x26, [sp, #0xc0]
+[bridge] d6   1c75e1c:      	ldr	x0, [x26]
+[bridge] d7   1c75e20:      	blr	x0
+[bridge] d8   1c75e24:      	ldp	x0, x1, [sp, #0x38]
+[bridge] d9   1c75e28:      	ldur	x29, [sp, #-0x8]
+[bridge] da   1c75e2c:      	ldr	x30, [sp], #0xe0
+[bridge] db   1c75e30:      	ret
+[bridge] dc   1c75e34:      	bl	0x13da690 <.text+0x4c770>
+[bridge] dd   1c75e38:      	ldr	x0, [sp, #0x38]
+[bridge] de   1c75e3c:      	ldr	x1, [sp, #0x40]
+[bridge] df   1c75e40:      	ldur	x29, [sp, #-0x8]
+[bridge] e0   1c75e44:      	ldr	x30, [sp], #0xe0
+[bridge] e1   1c75e48:      	ret
+[bridge] e2   1c75e4c:      	stp	x0, x1, [sp, #0x8]
+[bridge] e3   1c75e50:      	stp	x2, x3, [sp, #0x18]
+[bridge] e4   1c75e54:      	stp	x4, x5, [sp, #0x28]
+[bridge] e5   1c75e58:      	mov	x3, x30
+[bridge] e6   1c75e5c:      	bl	0x141a7a0 <.text+0x8c880>
+[bridge] e7   1c75e60:      	ldp	x0, x1, [sp, #0x8]
+[bridge] e8   1c75e64:      	ldp	x2, x3, [sp, #0x18]
+[bridge] e9   1c75e68:      	ldp	x4, x5, [sp, #0x28]
+[bridge] ea   1c75e6c:      	b	0x1c75b10 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad630>
+[bridge] eb   1c75e70:      	ldr	x16, [x28, #0x10]
+[bridge] ec   1c75e74:      	cmp	sp, x16
+[bridge] ed   1c75e78:      	b.ls	0x1c75ec0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad9e0>
+[bridge] ee   1c75e7c:      	str	x30, [sp, #-0x40]!
+[bridge] ef   1c75e80:      	stur	x29, [sp, #-0x8]
+[bridge] f0   1c75e84:      	sub	x29, sp, #0x8
+[bridge] f1   1c75e88:      	ldp	x1, x2, [x26, #0x18]
+[bridge] f2   1c75e8c:      	str	x1, [sp, #0x20]
+[bridge] f3   1c75e90:      	str	x2, [sp, #0x28]
+[bridge] f4   1c75e94:      	ldp	x0, x1, [x26, #0x8]
+[bridge] f5   1c75e98:      	str	x1, [sp, #0x30]
+[bridge] f6   1c75e9c:      	ldrsb	x27, [x0]
+[bridge] f7   1c75ea0:      	bl	0x150b540 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x43060>
+[bridge] f8   1c75ea4:      	ldr	x0, [sp, #0x30]
+[bridge] f9   1c75ea8:      	ldr	x1, [sp, #0x20]
+[bridge] fa   1c75eac:      	ldr	x2, [sp, #0x28]
+[bridge] fb   1c75eb0:      	bl	0x1c761d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adcf0>
+[bridge] fc   1c75eb4:      	ldur	x29, [sp, #-0x8]
+[bridge] fd   1c75eb8:      	ldr	x30, [sp], #0x40
+[bridge] fe   1c75ebc:      	ret
+[bridge] ff   1c75ec0:      	mov	x3, x30
+[bridge] 100   1c75ec4:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 101   1c75ec8:      	b	0x1c75e70 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad990>
+[bridge] 102   1c75ecc:      	udf	#0x0
+[bridge] 103   1c75ed0:      	ldr	x16, [x28, #0x10]
+[bridge] 104   1c75ed4:      	cmp	sp, x16
+[bridge] 105   1c75ed8:      	b.ls	0x1c75f18 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ada38>
+[bridge] 106   1c75edc:      	str	x30, [sp, #-0x50]!
+[bridge] 107   1c75ee0:      	stur	x29, [sp, #-0x8]
+[bridge] 108   1c75ee4:      	sub	x29, sp, #0x8
+[bridge] 109   1c75ee8:      	ldp	x1, x2, [x26, #0x18]
+[bridge] 10a   1c75eec:      	ldr	x3, [x26, #0x28]
+[bridge] 10b   1c75ef0:      	ldp	x4, x0, [x26, #0x8]
+[bridge] 10c   1c75ef4:      	str	x4, [sp, #0x30]
+[bridge] 10d   1c75ef8:      	bl	0x1c757a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad2c0>
+[bridge] 10e   1c75efc:      	stp	x0, x1, [sp, #0x38]
+[bridge] 10f   1c75f00:      	ldr	x0, [sp, #0x30]
+[bridge] 110   1c75f04:      	add	x1, sp, #0x38
+[bridge] 111   1c75f08:      	bl	0x13a5750 <.text+0x17830>
+[bridge] 112   1c75f0c:      	ldur	x29, [sp, #-0x8]
+[bridge] 113   1c75f10:      	ldr	x30, [sp], #0x50
+[bridge] 114   1c75f14:      	ret
+[bridge] 115   1c75f18:      	mov	x3, x30
+[bridge] 116   1c75f1c:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 117   1c75f20:      	b	0x1c75ed0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad9f0>
+[bridge] 118  		...
+[bridge] 119   1c75f30:      	ldr	x16, [x28, #0x10]
+[bridge] 11a   1c75f34:      	cmp	sp, x16
+[bridge] 11b   1c75f38:      	b.ls	0x1c75f84 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adaa4>
+[bridge] 11c   1c75f3c:      	str	x30, [sp, #-0x70]!
+[bridge] 11d   1c75f40:      	stur	x29, [sp, #-0x8]
+[bridge] 11e   1c75f44:      	sub	x29, sp, #0x8
+[bridge] 11f   1c75f48:      	ldp	x1, x2, [x26, #0x18]
+[bridge] 120   1c75f4c:      	ldp	x4, x5, [x26, #0x28]
+[bridge] 121   1c75f50:      	ldp	x6, x7, [x26, #0x38]
+[bridge] 122   1c75f54:      	ldp	x8, x0, [x26, #0x8]
+[bridge] 123   1c75f58:      	str	x8, [sp, #0x50]
+[bridge] 124   1c75f5c:      	adrp	x3, 0x275f000
+[bridge] 125   1c75f60:      	add	x3, x3, #0xc60
+[bridge] 126   1c75f64:      	bl	0x1c75370 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace90>
+[bridge] 127   1c75f68:      	stp	x0, x1, [sp, #0x58]
+[bridge] 128   1c75f6c:      	ldr	x0, [sp, #0x50]
+[bridge] 129   1c75f70:      	add	x1, sp, #0x58
+[bridge] 12a   1c75f74:      	bl	0x13a5750 <.text+0x17830>
+[bridge] 12b   1c75f78:      	ldur	x29, [sp, #-0x8]
+[bridge] 12c   1c75f7c:      	ldr	x30, [sp], #0x70
+[bridge] 12d   1c75f80:      	ret
+[bridge] 12e   1c75f84:      	mov	x3, x30
+[bridge] 12f   1c75f88:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 130   1c75f8c:      	b	0x1c75f30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ada50>
+[bridge] 131   1c75f90:      	ldr	x16, [x28, #0x10]
+[bridge] 132   1c75f94:      	cmp	sp, x16
+[bridge] 133   1c75f98:      	b.ls	0x1c75fc0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adae0>
+[bridge] 134   1c75f9c:      	str	x30, [sp, #-0x10]!
+[bridge] 135   1c75fa0:      	stur	x29, [sp, #-0x8]
+[bridge] 136   1c75fa4:      	sub	x29, sp, #0x8
+[bridge] 137   1c75fa8:      	ldr	x26, [x26, #0x8]
+[bridge] 138   1c75fac:      	ldr	x0, [x26]
+[bridge] 139   1c75fb0:      	blr	x0
+[bridge] 13a   1c75fb4:      	ldur	x29, [sp, #-0x8]
+[bridge] 13b   1c75fb8:      	ldr	x30, [sp], #0x10
+[bridge] 13c   1c75fbc:      	ret
+[bridge] 13d   1c75fc0:      	mov	x3, x30
+[bridge] 13e   1c75fc4:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 13f   1c75fc8:      	b	0x1c75f90 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adab0>
+[bridge] 140   1c75fcc:      	udf	#0x0
+[bridge] 141   1c75fd0:      	ldr	x16, [x28, #0x10]
+[bridge] 142   1c75fd4:      	cmp	sp, x16
+[bridge] 143   1c75fd8:      	b.ls	0x1c76024 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb44>
+[bridge] 144   1c75fdc:      	str	x30, [sp, #-0x50]!
+[bridge] 145   1c75fe0:      	stur	x29, [sp, #-0x8]
+[bridge] 146   1c75fe4:      	sub	x29, sp, #0x8
+[bridge] 147   1c75fe8:      	ldp	x2, x3, [x26, #0x18]
+[bridge] 148   1c75fec:      	ldr	x4, [x26, #0x28]
+[bridge] 149   1c75ff0:      	ldp	x0, x5, [x26, #0x8]
+[bridge] 14a   1c75ff4:      	nop
+[bridge] 14b   1c75ff8:      	adr	x6, 0x1c76030 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb50>
+[bridge] 14c   1c75ffc:      	stp	x6, x5, [sp, #0x20]
+[bridge] 14d   1c76000:      	str	x4, [sp, #0x40]
+[bridge] 14e   1c76004:      	stp	x2, x3, [sp, #0x30]
+[bridge] 14f   1c76008:      	ldar	w2, [x0]
+[bridge] 150   1c7600c:      	cbnz	w2, 0x1c76018 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb38>
+[bridge] 151   1c76010:      	add	x1, sp, #0x20
+[bridge] 152   1c76014:      	bl	0x1421b40 <_cgo_topofstack+0x53e0>
+[bridge] 153   1c76018:      	ldur	x29, [sp, #-0x8]
+[bridge] 154   1c7601c:      	ldr	x30, [sp], #0x50
+[bridge] 155   1c76020:      	ret
+[bridge] 156   1c76024:      	mov	x3, x30
+[bridge] 157   1c76028:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 158   1c7602c:      	b	0x1c75fd0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adaf0>
+[bridge] 159   1c76030:      	ldr	x16, [x28, #0x10]
+[bridge] 15a   1c76034:      	cmp	sp, x16
+[bridge] 15b   1c76038:      	b.ls	0x1c760b8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adbd8>
+[bridge] 15c   1c7603c:      	str	x30, [sp, #-0x40]!
+[bridge] 15d   1c76040:      	stur	x29, [sp, #-0x8]
+[bridge] 15e   1c76044:      	sub	x29, sp, #0x8
+[bridge] 15f   1c76048:      	ldp	x0, x1, [x26, #0x8]
+[bridge] 160   1c7604c:      	str	x1, [sp, #0x28]
+[bridge] 161   1c76050:      	ldrsb	x27, [x0]
+[bridge] 162   1c76054:      	ldr	x1, [x26, #0x18]
+[bridge] 163   1c76058:      	str	x1, [sp, #0x18]
+[bridge] 164   1c7605c:      	bl	0x150b540 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x43060>
+[bridge] 165   1c76060:      	ldr	x1, [sp, #0x28]
+[bridge] 166   1c76064:      	ldr	x2, [sp, #0x18]
+[bridge] 167   1c76068:      	mov	x0, xzr
+[bridge] 168   1c7606c:      	b	0x1c76078 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb98>
+[bridge] 169   1c76070:      	add	x1, x1, #0x10
+[bridge] 16a   1c76074:      	add	x0, x0, #0x1
+[bridge] 16b   1c76078:      	cmp	x0, x2
+[bridge] 16c   1c7607c:      	b.ge	0x1c760ac <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adbcc>
+[bridge] 16d   1c76080:      	ldp	x3, x4, [x1]
+[bridge] 16e   1c76084:      	cbz	x3, 0x1c76070 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb90>
+[bridge] 16f   1c76088:      	str	x0, [sp, #0x20]
+[bridge] 170   1c7608c:      	str	x1, [sp, #0x30]
+[bridge] 171   1c76090:      	ldr	x1, [x3, #0x18]
+[bridge] 172   1c76094:      	mov	x0, x4
+[bridge] 173   1c76098:      	blr	x1
+[bridge] 174   1c7609c:      	ldr	x0, [sp, #0x20]
+[bridge] 175   1c760a0:      	ldr	x1, [sp, #0x30]
+[bridge] 176   1c760a4:      	ldr	x2, [sp, #0x18]
+[bridge] 177   1c760a8:      	b	0x1c76070 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb90>
+[bridge] 178   1c760ac:      	ldur	x29, [sp, #-0x8]
+[bridge] 179   1c760b0:      	ldr	x30, [sp], #0x40
+[bridge] 17a   1c760b4:      	ret
+[bridge] 17b   1c760b8:      	mov	x3, x30
+[bridge] 17c   1c760bc:      	bl	0x141a720 <.text+0x8c800>
+[bridge] 17d   1c760c0:      	b	0x1c76030 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adb50>
+[bridge] 17e  		...
+[bridge] 17f   1c760d0:      	ldr	x16, [x28, #0x10]
+[bridge] 180   1c760d4:      	cmp	sp, x16
+[bridge] 181   1c760d8:      	b.ls	0x1c761a4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adcc4>
+[bridge] 182   1c760dc:      	str	x30, [sp, #-0x50]!
+[bridge] 183   1c760e0:      	stur	x29, [sp, #-0x8]
+[bridge] 184   1c760e4:      	sub	x29, sp, #0x8
+[bridge] 185   1c760e8:      	str	x2, [sp, #0x68]
+[bridge] 186   1c760ec:      	str	x0, [sp, #0x58]
+[bridge] 187   1c760f0:      	str	x1, [sp, #0x60]
+[bridge] 188   1c760f4:      	b	0x1c7611c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adc3c>
+[bridge] 189   1c760f8:      	ldr	x5, [sp, #0x30]
+[bridge] 18a   1c760fc:      	sub	x6, x0, x5
+[bridge] 18b   1c76100:      	and	x6, x0, x6, asr #63
+[bridge] 18c   1c76104:      	sub	x3, x4, x0
+[bridge] 18d   1c76108:      	sub	x4, x5, x0
+[bridge] 18e   1c7610c:      	ldr	x5, [sp, #0x40]
+[bridge] 18f   1c76110:      	add	x2, x5, x6
+[bridge] 190   1c76114:      	ldr	x0, [sp, #0x58]
+[bridge] 191   1c76118:      	ldr	x1, [sp, #0x60]
+[bridge] 192   1c7611c:      	cbz	x3, 0x1c76188 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adca8>
+[bridge] 193   1c76120:      	str	x2, [sp, #0x40]
+[bridge] 194   1c76124:      	str	x3, [sp, #0x38]
+[bridge] 195   1c76128:      	str	x4, [sp, #0x30]
+[bridge] 196   1c7612c:      	ldr	x5, [x0, #0x18]
+[bridge] 197   1c76130:      	mov	x0, x1
+[bridge] 198   1c76134:      	mov	x1, x2
+[bridge] 199   1c76138:      	mov	x2, x3
+[bridge] 19a   1c7613c:      	mov	x3, x4
+[bridge] 19b   1c76140:      	blr	x5
+[bridge] 19c   1c76144:      	cbnz	x1, 0x1c76174 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adc94>
+[bridge] 19d   1c76148:      	cbz	x0, 0x1c7615c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adc7c>
+[bridge] 19e   1c7614c:      	ldr	x4, [sp, #0x38]
+[bridge] 19f   1c76150:      	cmp	x0, x4
+[bridge] 1a0   1c76154:      	b.ls	0x1c760f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adc18>
+[bridge] 1a1   1c76158:      	b	0x1c7619c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adcbc>
+[bridge] 1a2   1c7615c:      	adrp	x27, 0x28a7000
+[bridge] 1a3   1c76160:      	add	x27, x27, #0x260
+[bridge] 1a4   1c76164:      	ldp	x0, x1, [x27]
+[bridge] 1a5   1c76168:      	ldur	x29, [sp, #-0x8]
+[bridge] 1a6   1c7616c:      	ldr	x30, [sp], #0x50
+[bridge] 1a7   1c76170:      	ret
+[bridge] 1a8   1c76174:      	mov	x0, x1
+[bridge] 1a9   1c76178:      	mov	x1, x2
+[bridge] 1aa   1c7617c:      	ldur	x29, [sp, #-0x8]
+[bridge] 1ab   1c76180:      	ldr	x30, [sp], #0x50
+[bridge] 1ac   1c76184:      	ret
+[bridge] 1ad   1c76188:      	mov	x0, xzr
+[bridge] 1ae   1c7618c:      	mov	x1, xzr
+[bridge] 1af   1c76190:      	ldur	x29, [sp, #-0x8]
+[bridge] 1b0   1c76194:      	ldr	x30, [sp], #0x50
+[bridge] 1b1   1c76198:      	ret
+[bridge] 1b2   1c7619c:      	bl	0x141cad0 <_cgo_topofstack+0x370>
+[bridge] 1b3   1c761a0:      	nop
+[bridge] 1b4   1c761a4:      	stp	x0, x1, [sp, #0x8]
+[bridge] 1b5   1c761a8:      	stp	x2, x3, [sp, #0x18]
+[bridge] 1b6   1c761ac:      	str	x4, [sp, #0x28]
+[bridge] 1b7   1c761b0:      	mov	x3, x30
+[bridge] 1b8   1c761b4:      	bl	0x141a7a0 <.text+0x8c880>
+[bridge] 1b9   1c761b8:      	ldp	x0, x1, [sp, #0x8]
+[bridge] 1ba   1c761bc:      	ldp	x2, x3, [sp, #0x18]
+[bridge] 1bb   1c761c0:      	ldr	x4, [sp, #0x28]
+[bridge] 1bc   1c761c4:      	b	0x1c760d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adbf0>
+[bridge] 1bd  		...
+[bridge] 1be   1c761d0:      	ldr	x16, [x28, #0x10]
+[bridge] 1bf   1c761d4:      	cmp	sp, x16
+[bridge] 1c0   1c761d8:      	b.ls	0x1c76240 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7add60>
+[bridge] 1c1   1c761dc:      	str	x30, [sp, #-0x30]!
+[bridge] 1c2   1c761e0:      	stur	x29, [sp, #-0x8]
+[bridge] 1c3   1c761e4:      	sub	x29, sp, #0x8
+[bridge] 1c4   1c761e8:      	str	x0, [sp, #0x38]
+[bridge] 1c5   1c761ec:      	str	x1, [sp, #0x40]
+[bridge] 1c6   1c761f0:      	mov	x2, xzr
+[bridge] 1c7   1c761f4:      	b	0x1c76200 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7add20>
+[bridge] 1c8   1c761f8:      	add	x0, x0, #0x10
+[bridge] 1c9   1c761fc:      	add	x2, x2, #0x1
+[bridge] 1ca   1c76200:      	cmp	x1, x2
+[bridge] 1cb   1c76204:      	b.le	0x1c76234 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7add54>
+[bridge] 1cc   1c76208:      	ldp	x3, x4, [x0]
+[bridge] 1cd   1c7620c:      	cbz	x3, 0x1c761f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7add18>

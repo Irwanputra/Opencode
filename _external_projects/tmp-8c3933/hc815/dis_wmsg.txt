@@ -1,0 +1,48 @@
+1c714d0  ldr	x16, [x28, #0x10]
+1c714d4  cmp	sp, x16
+1c714d8  b.ls	0x1c715b8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a90d8>
+1c714dc  str	x30, [sp, #-0x30]!
+1c714e0  stur	x29, [sp, #-0x8]
+1c714e4  sub	x29, sp, #0x8
+1c714e8  str	x0, [sp, #0x38]
+1c714ec  str	x1, [sp, #0x40]
+1c714f0  str	x2, [sp, #0x48]
+1c714f4  ubfx	x5, x3, #0, #16
+1c714f8  cmp	x3, x5
+1c714fc  b.ne	0x1c7159c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a90bc>
+1c71500  str	x4, [sp, #0x58]
+1c71504  str	x3, [sp, #0x50]
+1c71508  str	x2, [sp, #0x48]
+1c7150c  str	x1, [sp, #0x40]
+1c71510  str	x0, [sp, #0x38]
+1c71514  adrp x0, page
+1c71518  add	x0, x0, #0xc00   ; =0x23efc00
+1c7151c  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c71520  ldr	x1, [sp, #0x50]
+1c71524  rev16	w1, w1
+1c71528  nop
+1c7152c  strh	w1, [x0]
+1c71530  ldr	x1, [sp, #0x38]
+1c71534  ldr	x1, [x1, #0x18]
+1c71538  orr	x2, xzr, #0x2
+1c7153c  mov	x3, x2
+1c71540  mov	x4, x0
+1c71544  ldr	x0, [sp, #0x40]
+1c71548  mov	x5, x1
+1c7154c  mov	x1, x4
+1c71550  blr	x5
+1c71554  cbz	x1, 0x1c7156c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a908c>
+1c71558  mov	x0, x1
+1c7155c  mov	x1, x2
+1c71560  ldur	x29, [sp, #-0x8]
+1c71564  ldr	x30, [sp], #0x30
+1c71568  ret
+1c7156c  ldr	x4, [sp, #0x38]
+1c71570  ldr	x4, [x4, #0x18]
+1c71574  ldr	x0, [sp, #0x40]
+1c71578  ldr	x1, [sp, #0x48]
+1c7157c  ldr	x2, [sp, #0x50]
+1c71580  ldr	x3, [sp, #0x58]
+1c71584  blr	x4
+1c71588  mov	x0, x1
+1c7158c  mov	x1, x2

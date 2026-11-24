@@ -1,0 +1,101 @@
+1c70910  add	x9, x9, #0x1
+1c70914  cbnz	x12, 0x1c708f4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8414>
+1c70918  str	x3, [sp, #0x70]
+1c7091c  mov	x0, x7
+1c70920  mov	x1, x6
+1c70924  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c70928  ldr	x3, [sp, #0x70]
+1c7092c  mov	x2, x0
+1c70930  ldr	x0, [sp, #0x80]
+1c70934  b	0x1c70768 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8288>   ; <noise.(*hcAuthRecordChannel).ReadRecord>
+1c70938  ldr	x2, [x11, #0x8]
+1c7093c  b	0x1c70768 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8288>   ; <noise.(*hcAuthRecordChannel).ReadRecord>
+1c70940  str	x0, [sp, #0x8]
+1c70944  mov	x3, x30
+1c70948  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c7094c  ldr	x0, [sp, #0x8]
+1c70950  b	0x1c70710 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8230>   ; <noise.(*hcAuthRecordChannel).ReadRecord>
+1c70960  ldr	x16, [x28, #0x10]
+1c70964  cmp	sp, x16
+1c70968  b.ls	0x1c70a74 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8594>
+1c7096c  str	x30, [sp, #-0x70]!
+1c70970  stur	x29, [sp, #-0x8]
+1c70974  sub	x29, sp, #0x8
+1c70978  str	x1, [sp, #0x80]
+1c7097c  cmp	x2, #0xab
+1c70980  b.gt	0x1c70a5c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a857c>
+1c70984  str	x0, [sp, #0x78]
+1c70988  str	x2, [sp, #0x88]
+1c7098c  str	x3, [sp, #0x90]
+1c70990  str	x1, [sp, #0x80]
+1c70994  adrp x0, page
+1c70998  add	x0, x0, #0x7c0   ; =0x23f87c0
+1c7099c  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c709a0  ldr	x8, [sp, #0x88]
+1c709a4  add	x1, x8, #0x10
+1c709a8  strb	wzr, [x0]
+1c709ac  strb	w1, [x0, #0x1]
+1c709b0  ldr	x1, [sp, #0x78]
+1c709b4  ldr	x1, [x1, #0x18]
+1c709b8  orr	x2, xzr, #0x2
+1c709bc  mov	x3, #0xbd               // =189
+1c709c0  mov	x4, xzr
+1c709c4  mov	x5, xzr
+1c709c8  mov	x6, xzr
+1c709cc  ldr	x7, [sp, #0x80]
+1c709d0  ldr	x9, [sp, #0x90]
+1c709d4  mov	x10, x0
+1c709d8  mov	x0, x1
+1c709dc  mov	x1, x10
+1c709e0  bl	0x19cd6b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x5051d0>   ; <github.com/flynn/noise.(*CipherState).Encrypt>
+1c709e4  cbnz	x3, 0x1c70a48 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8568>
+1c709e8  str	x1, [sp, #0x60]
+1c709ec  ldr	x4, [sp, #0x78]
+1c709f0  ldp	x4, x5, [x4]
+1c709f4  ldr	x4, [x4, #0x20]
+1c709f8  mov	x3, x2
+1c709fc  mov	x2, x1
+1c70a00  mov	x1, x0
+1c70a04  mov	x0, x5
+1c70a08  blr	x4
+1c70a0c  cbnz	x1, 0x1c70a1c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a853c>
+1c70a10  ldr	x3, [sp, #0x60]
+1c70a14  cmp	x0, x3
+1c70a18  b.ne	0x1c70a30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8550>
+1c70a1c  mov	x0, x1
+1c70a20  mov	x1, x2
+1c70a24  ldur	x29, [sp, #-0x8]
+1c70a28  ldr	x30, [sp], #0x70
+1c70a2c  ret
+1c70a30  adrp x27, page
+1c70a34  add	x27, x27, #0x260   ; =0x28a7260
+1c70a38  ldp	x0, x1, [x27]
+1c70a3c  ldur	x29, [sp, #-0x8]
+1c70a40  ldr	x30, [sp], #0x70
+1c70a44  ret
+1c70a48  mov	x0, x3
+1c70a4c  mov	x1, x4
+1c70a50  ldur	x29, [sp, #-0x8]
+1c70a54  ldr	x30, [sp], #0x70
+1c70a58  ret
+1c70a5c  adrp x27, page
+1c70a60  add	x27, x27, #0x80   ; =0x28a7080
+1c70a64  ldp	x0, x1, [x27]
+1c70a68  ldur	x29, [sp, #-0x8]
+1c70a6c  ldr	x30, [sp], #0x70
+1c70a70  ret
+1c70a74  stp	x0, x1, [sp, #0x8]
+1c70a78  stp	x2, x3, [sp, #0x18]
+1c70a7c  mov	x3, x30
+1c70a80  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c70a84  ldp	x0, x1, [sp, #0x8]
+1c70a88  ldp	x2, x3, [sp, #0x18]
+1c70a8c  b	0x1c70960 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8480>   ; <noise.(*hcAuthRecordChannel).WriteRecord>
+1c70a90  ldr	x16, [x28, #0x10]
+1c70a94  sub	x17, sp, #0x240
+1c70a98  cmp	x17, x16
+1c70a9c  b.ls	0x1c70ee8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8a08>
+1c70aa0  sub	x20, sp, #0x2c0
+1c70aa4  stp	x29, x30, [x20, #-0x8]
+1c70aa8  mov	sp, x20
+1c70aac  sub	x29, sp, #0x8

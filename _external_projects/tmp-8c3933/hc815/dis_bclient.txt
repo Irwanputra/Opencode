@@ -1,0 +1,427 @@
+1c76210  str	x2, [sp, #0x18]
+1c76214  str	x0, [sp, #0x20]
+1c76218  ldr	x1, [x3, #0x18]
+1c7621c  mov	x0, x4
+1c76220  blr	x1
+1c76224  ldr	x0, [sp, #0x20]
+1c76228  ldr	x1, [sp, #0x40]
+1c7622c  ldr	x2, [sp, #0x18]
+1c76230  b	0x1c761f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7add18>   ; <bond.closeLanes>
+1c76234  ldur	x29, [sp, #-0x8]
+1c76238  ldr	x30, [sp], #0x30
+1c7623c  ret
+1c76240  stp	x0, x1, [sp, #0x8]
+1c76244  str	x2, [sp, #0x18]
+1c76248  mov	x3, x30
+1c7624c  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c76250  ldp	x0, x1, [sp, #0x8]
+1c76254  ldr	x2, [sp, #0x18]
+1c76258  b	0x1c761d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adcf0>   ; <bond.closeLanes>
+1c7625c  udf	#0x0
+1c76260  ldr	x16, [x28, #0x10]
+1c76264  sub	x17, sp, #0x160
+1c76268  cmp	x17, x16
+1c7626c  b.ls	0x1c76714 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae234>
+1c76270  sub	x20, sp, #0x1e0
+1c76274  stp	x29, x30, [x20, #-0x8]
+1c76278  mov	sp, x20
+1c7627c  sub	x29, sp, #0x8
+1c76280  str	x2, [sp, #0x1f8]
+1c76284  str	x5, [sp, #0x210]
+1c76288  str	x4, [sp, #0x208]
+1c7628c  str	x3, [sp, #0x200]
+1c76290  str	x0, [sp, #0x1e8]
+1c76294  str	x1, [sp, #0x1f0]
+1c76298  stp	xzr, xzr, [sp, #0x130]
+1c7629c  ldrsb	x27, [x2]
+1c762a0  nop
+1c762a4  adr	x1, 0x1c768e0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae400>   ; <type:.eq.bond.frame>
+1c762a8  stp	x1, x2, [sp, #0x1b0]
+1c762ac  add	x1, sp, #0x1b0
+1c762b0  str	x1, [sp, #0x108]
+1c762b4  add	x0, sp, #0xf0
+1c762b8  bl	0x13da170 <.text+0x4c250>   ; <runtime.deferprocStack>
+1c762bc  nop
+1c762c0  adr	x1, 0x1c76860 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae380>   ; <bond.Client.deferwrap2>
+1c762c4  str	x1, [sp, #0x190]
+1c762c8  ldr	x1, [sp, #0x208]
+1c762cc  str	x1, [sp, #0x1a0]
+1c762d0  ldr	x1, [sp, #0x210]
+1c762d4  str	x1, [sp, #0x1a8]
+1c762d8  ldr	x1, [sp, #0x200]
+1c762dc  str	x1, [sp, #0x198]
+1c762e0  add	x1, sp, #0x190
+1c762e4  str	x1, [sp, #0xd8]
+1c762e8  add	x0, sp, #0xc0
+1c762ec  bl	0x13da170 <.text+0x4c250>   ; <runtime.deferprocStack>
+1c762f0  ldr	x1, [sp, #0x208]
+1c762f4  sub	x2, x1, #0x2
+1c762f8  cmp	x2, #0x6
+1c762fc  b.hi	0x1c76424 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adf44>
+1c76300  adrp x0, page
+1c76304  add	x0, x0, #0xee0   ; =0x2597ee0
+1c76308  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7630c  nop
+1c76310  adr	x1, 0x1c767c0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae2e0>   ; <bond.Client.func1>
+1c76314  str	x1, [x0]
+1c76318  adrp x27, page
+1c7631c  ldr	w1, [x27, #0x8b0]
+1c76320  cbnz	w1, 0x1c76330 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ade50>
+1c76324  ldr	x3, [sp, #0x1f8]
+1c76328  ldr	x4, [sp, #0x200]
+1c7632c  b	0x1c76340 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ade60>   ; <bond.Client>
+1c76330  bl	0x141c800 <_cgo_topofstack+0xa0>   ; <runtime.gcWriteBarrier7>
+1c76334  ldr	x3, [sp, #0x1f8]
+1c76338  ldr	x4, [sp, #0x200]
+1c7633c  stp	x3, x4, [x25]
+1c76340  str	x3, [x0, #0x8]
+1c76344  ldr	x3, [sp, #0x210]
+1c76348  str	x3, [x0, #0x20]
+1c7634c  ldr	x3, [sp, #0x208]
+1c76350  stp	x4, x3, [x0, #0x10]
+1c76354  ldr	x1, [sp, #0x1f0]
+1c76358  mov	x2, x0
+1c7635c  ldr	x0, [sp, #0x1e8]
+1c76360  bl	0x14a48f0 <crosscall2+0x71c10>   ; <context.AfterFunc>
+1c76364  nop
+1c76368  adr	x3, 0x1c76780 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae2a0>   ; <bond.Client.func1>
+1c7636c  stp	x3, x0, [sp, #0x180]
+1c76370  add	x3, sp, #0x180
+1c76374  str	x3, [sp, #0xa8]
+1c76378  add	x0, sp, #0x90
+1c7637c  bl	0x13da170 <.text+0x4c250>   ; <runtime.deferprocStack>
+1c76380  adrp x0, page
+1c76384  add	x0, x0, #0x1c0   ; =0x23fd1c0
+1c76388  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7638c  str	x0, [sp, #0x1c8]
+1c76390  nop
+1c76394  adr	x1, 0x1c76740 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae260>   ; <bond.Client.deferwrap3>
+1c76398  str	x1, [sp, #0x160]
+1c7639c  mov	x1, #0x22               // =34
+1c763a0  str	x1, [sp, #0x170]
+1c763a4  str	x1, [sp, #0x178]
+1c763a8  str	x0, [sp, #0x168]
+1c763ac  add	x1, sp, #0x160
+1c763b0  str	x1, [sp, #0x78]
+1c763b4  add	x0, sp, #0x60
+1c763b8  bl	0x13da170 <.text+0x4c250>   ; <runtime.deferprocStack>
+1c763bc  ldr	x0, [sp, #0x1c8]
+1c763c0  orr	x1, xzr, #0x20
+1c763c4  mov	x2, #0x22               // =34
+1c763c8  bl	0x153b160 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x72c80>   ; <crypto/rand.Read>
+1c763cc  cbnz	x1, 0x1c7640c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adf2c>
+1c763d0  ldr	x0, [sp, #0x208]
+1c763d4  ldr	x1, [sp, #0x1c8]
+1c763d8  strb	w0, [x1, #0x20]
+1c763dc  bl	0x14763f0 <crosscall2+0x43710>   ; <time.Now>
+1c763e0  mov	x3, #0xac00             // =44032
+1c763e4  movk	x3, #0xfc23, lsl #16
+1c763e8  movk	x3, #0x6, lsl #32
+1c763ec  bl	0x146eaa0 <crosscall2+0x3bdc0>   ; <time.Time.Add>
+1c763f0  str	x0, [sp, #0x58]
+1c763f4  str	x1, [sp, #0x50]
+1c763f8  str	x2, [sp, #0x158]
+1c763fc  ldr	x3, [sp, #0x200]
+1c76400  mov	x4, x3
+1c76404  mov	x5, xzr
+1c76408  b	0x1c76494 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adfb4>   ; <bond.Client>
+1c7640c  stp	x1, x2, [sp, #0x130]
+1c76410  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c76414  ldp	x0, x1, [sp, #0x130]
+1c76418  ldp	x29, x30, [sp, #-0x8]
+1c7641c  add	sp, sp, #0x1e0
+1c76420  ret
+1c76424  adrp x0, page
+1c76428  add	x0, x0, #0xae0   ; =0x24ddae0
+1c7642c  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c76430  adrp x1, page
+1c76434  add	x1, x1, #0xa31   ; =0x4cea31 "invalid bond lane countbond upstream not readymi"
+1c76438  mov	x2, #0x17               // =23
+1c7643c  stp	x1, x2, [x0]
+1c76440  adrp x1, page
+1c76444  add	x1, x1, #0xa08   ; =0x275fa08
+1c76448  stp	x1, x0, [sp, #0x130]
+1c7644c  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c76450  ldp	x0, x1, [sp, #0x130]
+1c76454  ldp	x29, x30, [sp, #-0x8]
+1c76458  add	sp, sp, #0x1e0
+1c7645c  ret
+1c76460  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c76464  ldp	x0, x1, [sp, #0x130]
+1c76468  ldp	x29, x30, [sp, #-0x8]
+1c7646c  add	sp, sp, #0x1e0
+1c76470  ret
+1c76474  ldr	x6, [sp, #0x150]
+1c76478  add	x4, x6, #0x10
+1c7647c  ldr	x6, [sp, #0x48]
+1c76480  add	x5, x6, #0x1
+1c76484  ldr	x0, [sp, #0x58]
+1c76488  ldr	x1, [sp, #0x50]
+1c7648c  ldr	x2, [sp, #0x158]
+1c76490  ldr	x3, [sp, #0x200]
+1c76494  ldr	x6, [sp, #0x208]
+1c76498  cmp	x6, x5
+1c7649c  b.le	0x1c76514 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae034>
+1c764a0  str	x5, [sp, #0x48]
+1c764a4  str	x4, [sp, #0x150]
+1c764a8  ldp	x4, x5, [x4]
+1c764ac  str	x4, [sp, #0x40]
+1c764b0  str	x5, [sp, #0x148]
+1c764b4  ldr	x4, [x4, #0x38]
+1c764b8  mov	x3, x2
+1c764bc  mov	x2, x1
+1c764c0  mov	x1, x0
+1c764c4  mov	x0, x5
+1c764c8  blr	x4
+1c764cc  ldr	x4, [sp, #0x48]
+1c764d0  ldr	x2, [sp, #0x1c8]
+1c764d4  strb	w4, [x2, #0x21]
+1c764d8  ldr	x0, [sp, #0x40]
+1c764dc  cbz	x0, 0x1c764fc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae01c>
+1c764e0  ldr	x1, [x0, #0x8]
+1c764e4  adrp x5, page
+1c764e8  add	x5, x5, #0xeb0   ; =0x28b5eb0
+1c764ec  ldar	x6, [x5]
+1c764f0  ldr	w7, [x0, #0x10]
+1c764f4  ldr	x8, [x6]
+1c764f8  b	0x1c766d8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae1f8>   ; <bond.Client>
+1c764fc  ldr	x1, [sp, #0x148]
+1c76500  mov	x3, #0x22               // =34
+1c76504  mov	x4, x3
+1c76508  bl	0x1c760d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adbf0>   ; <bond.writeAll>
+1c7650c  cbz	x0, 0x1c76474 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adf94>
+1c76510  b	0x1c766c0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae1e0>   ; <bond.Client>
+1c76514  ldr	x7, [sp, #0x1c8]
+1c76518  stp	xzr, xzr, [x7]
+1c7651c  stp	xzr, xzr, [x7, #0x10]
+1c76520  stur	xzr, [x7, #0x1a]
+1c76524  mov	x7, x3
+1c76528  mov	x0, xzr
+1c7652c  b	0x1c76564 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae084>   ; <bond.Client>
+1c76530  ldr	x4, [sp, #0x120]
+1c76534  ldr	x4, [x4, #0x38]
+1c76538  ldr	x0, [sp, #0x1c0]
+1c7653c  mov	x1, xzr
+1c76540  mov	x2, xzr
+1c76544  mov	x3, xzr
+1c76548  blr	x4
+1c7654c  ldr	x4, [sp, #0x150]
+1c76550  add	x7, x4, #0x10
+1c76554  ldr	x4, [sp, #0x128]
+1c76558  add	x0, x4, #0x1
+1c7655c  ldr	x3, [sp, #0x200]
+1c76560  ldr	x6, [sp, #0x208]
+1c76564  cmp	x6, x0
+1c76568  b.le	0x1c765f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae118>
+1c7656c  str	x0, [sp, #0x128]
+1c76570  str	x7, [sp, #0x150]
+1c76574  ldr	x1, [x7, #0x8]
+1c76578  str	x1, [sp, #0x140]
+1c7657c  ldr	x1, [x7]
+1c76580  str	x1, [sp, #0x120]
+1c76584  ldp	x1, x2, [x7]
+1c76588  str	x1, [sp, #0x38]
+1c7658c  str	x2, [sp, #0x1c0]
+1c76590  adrp x0, page
+1c76594  add	x0, x0, #0x7e0   ; =0x23f17e0
+1c76598  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7659c  str	x0, [sp, #0x1d0]
+1c765a0  ldr	x1, [sp, #0x38]
+1c765a4  cbz	x1, 0x1c765c4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae0e4>
+1c765a8  ldr	x6, [x1, #0x8]
+1c765ac  adrp x7, page
+1c765b0  add	x7, x7, #0xed0   ; =0x28b5ed0
+1c765b4  ldar	x8, [x7]
+1c765b8  ldr	w9, [x1, #0x10]
+1c765bc  ldr	x10, [x8]
+1c765c0  b	0x1c7667c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae19c>   ; <bond.Client>
+1c765c4  mov	x2, x0
+1c765c8  orr	x3, xzr, #0x1
+1c765cc  mov	x4, x3
+1c765d0  mov	x5, x3
+1c765d4  mov	x0, x1
+1c765d8  ldr	x1, [sp, #0x140]
+1c765dc  bl	0x145f3d0 <crosscall2+0x2c6f0>   ; <io.ReadAtLeast>
+1c765e0  cbnz	x1, 0x1c76664 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae184>
+1c765e4  ldr	x4, [sp, #0x1d0]
+1c765e8  ldrb	w4, [x4]
+1c765ec  cmp	w4, #0x1
+1c765f0  b.eq	0x1c76530 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae050>
+1c765f4  b	0x1c76628 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae148>   ; <bond.Client>
+1c765f8  ldr	x0, [sp, #0x1e8]
+1c765fc  ldr	x1, [sp, #0x1f0]
+1c76600  ldr	x2, [sp, #0x1f8]
+1c76604  mov	x4, x6
+1c76608  ldr	x5, [sp, #0x210]
+1c7660c  bl	0x1c75b10 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ad630>   ; <bond.Bridge>
+1c76610  stp	x0, x1, [sp, #0x130]
+1c76614  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c76618  ldp	x0, x1, [sp, #0x130]
+1c7661c  ldp	x29, x30, [sp, #-0x8]
+1c76620  add	sp, sp, #0x1e0
+1c76624  ret
+1c76628  adrp x0, page
+1c7662c  add	x0, x0, #0xae0   ; =0x24ddae0
+1c76630  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c76634  adrp x1, page
+1c76638  add	x1, x1, #0xa48   ; =0x4cea48 "bond upstream not readymissing protocol schemein"
+1c7663c  mov	x2, #0x17               // =23
+1c76640  stp	x1, x2, [x0]
+1c76644  adrp x1, page
+1c76648  add	x1, x1, #0xa08   ; =0x275fa08
+1c7664c  stp	x1, x0, [sp, #0x130]
+1c76650  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c76654  ldp	x0, x1, [sp, #0x130]
+1c76658  ldp	x29, x30, [sp, #-0x8]
+1c7665c  add	sp, sp, #0x1e0
+1c76660  ret
+1c76664  stp	x1, x2, [sp, #0x130]
+1c76668  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c7666c  ldp	x0, x1, [sp, #0x130]
+1c76670  ldp	x29, x30, [sp, #-0x8]
+1c76674  add	sp, sp, #0x1e0
+1c76678  ret
+1c7667c  and	x11, x9, x10
+1c76680  lsl	x11, x11, #4
+1c76684  add	x11, x11, #0x8
+1c76688  ldr	x12, [x8, x11]
+1c7668c  add	x11, x8, x11
+1c76690  cmp	x12, x6
+1c76694  b.eq	0x1c766b8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae1d8>
+1c76698  add	x9, x9, #0x1
+1c7669c  cbnz	x12, 0x1c7667c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae19c>
+1c766a0  mov	x0, x7
+1c766a4  mov	x1, x6
+1c766a8  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c766ac  mov	x1, x0
+1c766b0  ldr	x0, [sp, #0x1d0]
+1c766b4  b	0x1c765c4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae0e4>   ; <bond.Client>
+1c766b8  ldr	x1, [x11, #0x8]
+1c766bc  b	0x1c765c4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae0e4>   ; <bond.Client>
+1c766c0  stp	x0, x1, [sp, #0x130]
+1c766c4  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c766c8  ldp	x0, x1, [sp, #0x130]
+1c766cc  ldp	x29, x30, [sp, #-0x8]
+1c766d0  add	sp, sp, #0x1e0
+1c766d4  ret
+1c766d8  and	x9, x7, x8
+1c766dc  lsl	x9, x9, #4
+1c766e0  add	x9, x9, #0x8
+1c766e4  ldr	x10, [x6, x9]
+1c766e8  add	x9, x6, x9
+1c766ec  cmp	x10, x1
+1c766f0  b.eq	0x1c7670c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae22c>
+1c766f4  add	x7, x7, #0x1   ; =0x28b5001
+1c766f8  cbnz	x10, 0x1c766d8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae1f8>
+1c766fc  mov	x0, x5
+1c76700  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c76704  ldr	x2, [sp, #0x1c8]
+1c76708  b	0x1c764fc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae01c>   ; <bond.Client>
+1c7670c  ldr	x0, [x9, #0x8]
+1c76710  b	0x1c764fc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae01c>   ; <bond.Client>
+1c76714  stp	x0, x1, [sp, #0x8]
+1c76718  stp	x2, x3, [sp, #0x18]
+1c7671c  stp	x4, x5, [sp, #0x28]
+1c76720  mov	x3, x30
+1c76724  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c76728  ldp	x0, x1, [sp, #0x8]
+1c7672c  ldp	x2, x3, [sp, #0x18]
+1c76730  ldp	x4, x5, [sp, #0x28]
+1c76734  b	0x1c76260 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7add80>   ; <bond.Client>
+1c76740  ldr	x16, [x28, #0x10]
+1c76744  cmp	sp, x16
+1c76748  b.ls	0x1c76770 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae290>
+1c7674c  str	x30, [sp, #-0x20]!
+1c76750  stur	x29, [sp, #-0x8]
+1c76754  sub	x29, sp, #0x8
+1c76758  ldp	x0, x1, [x26, #0x8]
+1c7675c  cbz	x1, 0x1c76764 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae284>
+1c76760  bl	0x141cb30 <_cgo_topofstack+0x3d0>   ; <runtime.memclrNoHeapPointers>
+1c76764  ldur	x29, [sp, #-0x8]
+1c76768  ldr	x30, [sp], #0x20
+1c7676c  ret
+1c76770  mov	x3, x30
+1c76774  bl	0x141a720 <.text+0x8c800>   ; <runtime.morestack>
+1c76778  b	0x1c76740 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae260>   ; <bond.Client.deferwrap3>
+1c7677c  udf	#0x0
+1c76780  ldr	x16, [x28, #0x10]
+1c76784  cmp	sp, x16
+1c76788  b.ls	0x1c767b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae2d0>
+1c7678c  str	x30, [sp, #-0x10]!
+1c76790  stur	x29, [sp, #-0x8]
+1c76794  sub	x29, sp, #0x8
+1c76798  ldr	x26, [x26, #0x8]
+1c7679c  ldr	x0, [x26]
+1c767a0  blr	x0
+1c767a4  ldur	x29, [sp, #-0x8]
+1c767a8  ldr	x30, [sp], #0x10
+1c767ac  ret
+1c767b0  mov	x3, x30
+1c767b4  bl	0x141a720 <.text+0x8c800>   ; <runtime.morestack>
+1c767b8  b	0x1c76780 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae2a0>   ; <bond.Client.func1>
+1c767bc  udf	#0x0
+1c767c0  ldr	x16, [x28, #0x10]
+1c767c4  cmp	sp, x16
+1c767c8  b.ls	0x1c76848 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae368>
+1c767cc  str	x30, [sp, #-0x40]!
+1c767d0  stur	x29, [sp, #-0x8]
+1c767d4  sub	x29, sp, #0x8
+1c767d8  ldp	x0, x1, [x26, #0x8]
+1c767dc  str	x1, [sp, #0x28]
+1c767e0  ldrsb	x27, [x0]
+1c767e4  ldr	x1, [x26, #0x18]
+1c767e8  str	x1, [sp, #0x18]
+1c767ec  bl	0x150b540 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x43060>   ; <net.(*conn).Close>
+1c767f0  ldr	x1, [sp, #0x28]
+1c767f4  ldr	x2, [sp, #0x18]
+1c767f8  mov	x0, xzr
+1c767fc  b	0x1c76808 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae328>   ; <bond.Client.func1>
+1c76800  add	x1, x1, #0x10   ; =0x275f010
+1c76804  add	x0, x0, #0x1   ; =0x24dd001
+1c76808  cmp	x0, x2
+1c7680c  b.ge	0x1c7683c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae35c>
+1c76810  ldp	x3, x4, [x1]
+1c76814  cbz	x3, 0x1c76800 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae320>
+1c76818  str	x0, [sp, #0x20]
+1c7681c  str	x1, [sp, #0x30]
+1c76820  ldr	x1, [x3, #0x18]
+1c76824  mov	x0, x4
+1c76828  blr	x1
+1c7682c  ldr	x0, [sp, #0x20]
+1c76830  ldr	x1, [sp, #0x30]
+1c76834  ldr	x2, [sp, #0x18]
+1c76838  b	0x1c76800 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae320>   ; <bond.Client.func1>
+1c7683c  ldur	x29, [sp, #-0x8]
+1c76840  ldr	x30, [sp], #0x40
+1c76844  ret
+1c76848  mov	x3, x30
+1c7684c  bl	0x141a720 <.text+0x8c800>   ; <runtime.morestack>
+1c76850  b	0x1c767c0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae2e0>   ; <bond.Client.func1>
+1c76860  ldr	x16, [x28, #0x10]
+1c76864  cmp	sp, x16
+1c76868  b.ls	0x1c768d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae3f0>
+1c7686c  str	x30, [sp, #-0x30]!
+1c76870  stur	x29, [sp, #-0x8]
+1c76874  sub	x29, sp, #0x8
+1c76878  ldp	x1, x2, [x26, #0x8]
+1c7687c  str	x2, [sp, #0x10]
+1c76880  mov	x0, xzr
+1c76884  b	0x1c76890 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae3b0>   ; <bond.Client.deferwrap1>
+1c76888  add	x1, x1, #0x10   ; =0x275f010
+1c7688c  add	x0, x0, #0x1   ; =0x24dd001
+1c76890  cmp	x0, x2
+1c76894  b.ge	0x1c768c4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae3e4>
+1c76898  ldp	x3, x4, [x1]
+1c7689c  cbz	x3, 0x1c76888 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae3a8>
+1c768a0  str	x0, [sp, #0x18]
+1c768a4  str	x1, [sp, #0x20]
+1c768a8  ldr	x1, [x3, #0x18]
+1c768ac  mov	x0, x4
+1c768b0  blr	x1
+1c768b4  ldr	x0, [sp, #0x18]
+1c768b8  ldr	x1, [sp, #0x20]
+1c768bc  ldr	x2, [sp, #0x10]
+1c768c0  b	0x1c76888 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ae3a8>   ; <bond.Client.deferwrap2>
+1c768c4  ldur	x29, [sp, #-0x8]
+1c768c8  ldr	x30, [sp], #0x30
+1c768cc  ret

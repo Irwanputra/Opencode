@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HC Decryptor</string>
+    <string name="select_file">Select .h.c File</string>
+    <string name="decrypting">Decrypting...</string>
+    <string name="success">Decryption Successful!</string>
+    <string name="error">Decryption Failed</string>
+</resources>

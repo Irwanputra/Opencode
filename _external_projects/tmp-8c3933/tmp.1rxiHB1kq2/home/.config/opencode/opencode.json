@@ -1,0 +1,304 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "tes": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Tes",
+      "options": {
+        "baseURL": "https://ai.wanz4bigel.dpdns.org/v1",
+        "apiKey": "sk-strata-d71951f458683d6a913c18fb1e31e4b3"
+      },
+      "models": {
+        "swift-1.5-iq3_s": {
+          "name": "swift-1.5-iq3_s"
+        }
+      }
+    },
+    "harbor": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Harbor",
+      "options": {
+        "baseURL": "https://tokenharbor.ai/v1",
+        "apiKey": "thk_live_qA8-tbNopIbrL2-tKXco_1d2WVrak1fxkeWNT3fELCmKvqx1m9P91qsnf2vaapZn"
+      },
+      "models": {
+        "deepseek-v4.1-flash:free": {
+          "name": "deepseek-v4.1-flash:free"
+        }
+      }
+    },
+    "mercury": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Mercury",
+      "options": {
+        "baseURL": "https://api.inceptionlabs.ai/v1",
+        "apiKey": "sk_8d5ca88635d1b399cf9b1c07d8eb784cd29e00251f9a85c699ae1bf29583a16e"
+      },
+      "models": {
+        "mercury-3": {
+          "name": "mercury-3"
+        }
+      }
+    },
+    "dahl": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Dahl",
+      "options": {
+        "baseURL": "https://inference.dahl.global/v1",
+        "apiKey": "dahl_ZW6bVL1qaDFRKFgzhYkEMfeGB7JG66mt"
+      },
+      "models": {
+        "zai-org/GLM-5.3-Flash": {
+          "name": "zai-org/GLM-5.3-Flash"
+        }
+      }
+    },
+    "nex": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Nex",
+      "options": {
+        "baseURL": "https://api.mosi.cn/v1",
+        "apiKey": "sk-9a2aa26ec84a700b2fe9a588321861da90cccc1e77f1813b"
+      },
+      "models": {
+        "nex-n2.6-2026-11-05": {
+          "name": "nex-n2.6-2026-11-05"
+        }
+      }
+    }
+  },
+  "providers": {
+    "crowllm": {
+      "name": "CrowLLM",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://crowllm.com/v1",
+        "apiKey": "zoT9LsZy2WL6JGG6lKoeeQ1q4Gi403TiusCZ4lXwgdFtYgTv"
+      },
+      "models": {
+        "MiniCPM-V-4.7-1B:free": {
+          "name": "MiniCPM-V-4.7-1B"
+        },
+        "MiniCPM5-2B:free": {
+          "name": "MiniCPM5-2B"
+        },
+        "agnes-2.5-flash:free": {
+          "name": "agnes-2.5-flash"
+        },
+        "agnes-3.0-flash:free": {
+          "name": "agnes-3.0-flash"
+        },
+        "beam-1.0:free": {
+          "name": "beam-1.0"
+        },
+        "caw/glm-5.3-flash-thinking:free": {
+          "name": "caw/glm-5.3-flash-thinking"
+        },
+        "caw/glm-5.3-flash:free": {
+          "name": "caw/glm-5.3-flash"
+        },
+        "crouton-alpha:free": {
+          "name": "crouton-alpha"
+        },
+        "crow-code-limitless:free": {
+          "name": "crow-code-limitless"
+        },
+        "crow-limitless:free": {
+          "name": "crow-limitless"
+        },
+        "crow-uncensored:free": {
+          "name": "crow-uncensored"
+        },
+        "deepseek-v4-flash-0731-thinking:free": {
+          "name": "deepseek-v4-flash-0731-thinking"
+        },
+        "deepseek-v4-flash-0731:free": {
+          "name": "deepseek-v4-flash-0731"
+        },
+        "deepseek-v4-flash-uncensored:free": {
+          "name": "deepseek-v4-flash-uncensored"
+        },
+        "deepseek-v4-flash:free": {
+          "name": "deepseek-v4-flash"
+        },
+        "deepseek-v4.1-flash:free": {
+          "name": "deepseek-v4.1-flash"
+        },
+        "dots-3-note-preview:free": {
+          "name": "dots-3-note-preview"
+        },
+        "flint-v1.0:free": {
+          "name": "flint-v1.0"
+        },
+        "gemini-2.0-flash:free": {
+          "name": "gemini-2.0-flash"
+        },
+        "gemini-2.5-pro:free": {
+          "name": "gemini-2.5-pro"
+        },
+        "gemini-3-flash:free": {
+          "name": "gemini-3-flash"
+        },
+        "gemini-3-pro:free": {
+          "name": "gemini-3-pro"
+        },
+        "gemini-3.1-pro:free": {
+          "name": "gemini-3.1-pro"
+        },
+        "gemini-3.5-flash:free": {
+          "name": "gemini-3.5-flash"
+        },
+        "gemini-3.7-flash:free": {
+          "name": "gemini-3.7-flash"
+        },
+        "gemini-3.8-flash:free": {
+          "name": "gemini-3.8-flash"
+        },
+        "gemma-4-31b-it:free": {
+          "name": "gemma-4-31b-it"
+        },
+        "glm-4.6v-flash:free": {
+          "name": "glm-4.6v-flash"
+        },
+        "glm-4.7-flash:free": {
+          "name": "glm-4.7-flash"
+        },
+        "glm-5.3-flash:free": {
+          "name": "glm-5.3-flash"
+        },
+        "gpt-4.1-mini:free": {
+          "name": "gpt-4.1-mini"
+        },
+        "gpt-4o-mini:free": {
+          "name": "gpt-4o-mini"
+        },
+        "gpt-4o:free": {
+          "name": "gpt-4o"
+        },
+        "gpt-5.6-sol:free": {
+          "name": "gpt-5.6-sol"
+        },
+        "grok-4.7-fast:free": {
+          "name": "grok-4.7-fast"
+        },
+        "grok-4.7:free": {
+          "name": "grok-4.7"
+        },
+        "hy3:free": {
+          "name": "hy3"
+        },
+        "hy4:free": {
+          "name": "hy4"
+        },
+        "jais-3-mova-36b-a4b:free": {
+          "name": "jais-3-mova-36b-a4b"
+        },
+        "k2-horizon-375b-a23b:free": {
+          "name": "k2-horizon-375b-a23b"
+        },
+        "laguna-s-2.1:free": {
+          "name": "laguna-s-2.1"
+        },
+        "laguna-xs-2.1:free": {
+          "name": "laguna-xs-2.1"
+        },
+        "liquid/lfm-2.5-2.6b-thinking:free": {
+          "name": "liquid/lfm-2.5-2.6b-thinking"
+        },
+        "liquid/lfm-2.5-2.6b:free": {
+          "name": "liquid/lfm-2.5-2.6b"
+        },
+        "llama-3.3-70b-instruct:free": {
+          "name": "llama-3.3-70b-instruct"
+        },
+        "llama-3.3-70b:free": {
+          "name": "llama-3.3-70b"
+        },
+        "longcat-2.5:free": {
+          "name": "longcat-2.5"
+        },
+        "mimo-v2.6-flash:free": {
+          "name": "mimo-v2.6-flash"
+        },
+        "minimax-m2.5:free": {
+          "name": "minimax-m2.5"
+        },
+        "mistral-medium-3.5:free": {
+          "name": "mistral-medium-3.5"
+        },
+        "muse-spark-1.1:free": {
+          "name": "muse-spark-1.1"
+        },
+        "nemotron-3-ultra-550b-a55b:free": {
+          "name": "nemotron-3-ultra-550b-a55b"
+        },
+        "nemotron-3.5-super-vl:free": {
+          "name": "nemotron-3.5-super-vl"
+        },
+        "nvidia/laguna-xs-2.1:free": {
+          "name": "nvidia/laguna-xs-2.1"
+        },
+        "nvidia/minimax-m3.1-flash:free": {
+          "name": "nvidia/minimax-m3.1-flash"
+        },
+        "nvidia/mistral-large-4-1t-a52b:free": {
+          "name": "nvidia/mistral-large-4-1t-a52b"
+        },
+        "nvidia/nemotron-3-ultra-550b-a55b:free": {
+          "name": "nvidia/nemotron-3-ultra-550b-a55b"
+        },
+        "nvidia/nemotron-3.5-bolt-e4b:free": {
+          "name": "nvidia/nemotron-3.5-bolt-e4b"
+        },
+        "nvidia/nemotron-3.5-super-vl-120b-a12b:free": {
+          "name": "nvidia/nemotron-3.5-super-vl-120b-a12b"
+        },
+        "o3:free": {
+          "name": "o3"
+        },
+        "o4-mini:free": {
+          "name": "o4-mini"
+        },
+        "openai/gpt-oss-20b:free": {
+          "name": "openai/gpt-oss-20b"
+        },
+        "openai/gpt-oss-safeguard-20b:free": {
+          "name": "openai/gpt-oss-safeguard-20b"
+        },
+        "openbmb/MiniCPM-V-4.7-35B-A3B-thinking:free": {
+          "name": "openbmb/MiniCPM-V-4.7-35B-A3B-thinking"
+        },
+        "openbmb/MiniCPM-V-4.7-35B-A3B:free": {
+          "name": "openbmb/MiniCPM-V-4.7-35B-A3B"
+        },
+        "qwen-3.5-397b-a17b:free": {
+          "name": "qwen-3.5-397b-a17b"
+        },
+        "qwen-3.6-27b:free": {
+          "name": "qwen-3.6-27b"
+        },
+        "qwen-3.6-plus:free": {
+          "name": "qwen-3.6-plus"
+        },
+        "qwen-3.8-27b:free": {
+          "name": "qwen-3.8-27b"
+        },
+        "qwen-3.8-max:free": {
+          "name": "qwen-3.8-max"
+        },
+        "qwen3-8-omni-flash:free": {
+          "name": "qwen3-8-omni-flash"
+        },
+        "qwen3.8-27b-uncensored:free": {
+          "name": "qwen3.8-27b-uncensored"
+        },
+        "solar-mini4:free": {
+          "name": "solar-mini4"
+        },
+        "xing4.0-29b-a4b:free": {
+          "name": "xing4.0-29b-a4b"
+        }
+      }
+    }
+  }
+}

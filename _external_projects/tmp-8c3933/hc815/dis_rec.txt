@@ -1,0 +1,221 @@
+[rec] 0   1c706c4:      	b	0x1c70520 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8040>
+[rec] 1   1c706c8:      	stp	x0, x1, [sp, #0x8]
+[rec] 2   1c706cc:      	stp	x2, x3, [sp, #0x18]
+[rec] 3   1c706d0:      	stp	x4, x5, [sp, #0x28]
+[rec] 4   1c706d4:      	stp	x6, x7, [sp, #0x38]
+[rec] 5   1c706d8:      	stp	x8, x9, [sp, #0x48]
+[rec] 6   1c706dc:      	stp	x10, x11, [sp, #0x58]
+[rec] 7   1c706e0:      	strb	w12, [sp, #0x68]
+[rec] 8   1c706e4:      	mov	x3, x30
+[rec] 9   1c706e8:      	bl	0x141a7a0 <.text+0x8c880>
+[rec] a   1c706ec:      	ldp	x0, x1, [sp, #0x8]
+[rec] b   1c706f0:      	ldp	x2, x3, [sp, #0x18]
+[rec] c   1c706f4:      	ldp	x4, x5, [sp, #0x28]
+[rec] d   1c706f8:      	ldp	x6, x7, [sp, #0x38]
+[rec] e   1c706fc:      	ldp	x8, x9, [sp, #0x48]
+[rec] f   1c70700:      	ldp	x10, x11, [sp, #0x58]
+[rec] 10   1c70704:      	ldrb	w12, [sp, #0x68]
+[rec] 11   1c70708:      	b	0x1c70440 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a7f60>
+[rec] 12   1c7070c:      	udf	#0x0
+[rec] 13   1c70710:      	ldr	x16, [x28, #0x10]
+[rec] 14   1c70714:      	sub	x17, sp, #0x10
+[rec] 15   1c70718:      	cmp	x17, x16
+[rec] 16   1c7071c:      	b.ls	0x1c70940 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8460>
+[rec] 17   1c70720:      	str	x30, [sp, #-0x90]!
+[rec] 18   1c70724:      	stur	x29, [sp, #-0x8]
+[rec] 19   1c70728:      	sub	x29, sp, #0x8
+[rec] 1a   1c7072c:      	str	x0, [sp, #0x98]
+[rec] 1b   1c70730:      	adrp	x0, 0x23ef000
+[rec] 1c   1c70734:      	add	x0, x0, #0xc00
+[rec] 1d   1c70738:      	bl	0x13af780 <.text+0x21860>
+[rec] 1e   1c7073c:      	str	x0, [sp, #0x80]
+[rec] 1f   1c70740:      	ldr	x1, [sp, #0x98]
+[rec] 20   1c70744:      	ldp	x2, x3, [x1]
+[rec] 21   1c70748:      	cbz	x2, 0x1c70768 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8288>
+[rec] 22   1c7074c:      	ldr	x6, [x2, #0x8]
+[rec] 23   1c70750:      	adrp	x7, 0x28b2000
+[rec] 24   1c70754:      	add	x7, x7, #0xe70
+[rec] 25   1c70758:      	ldar	x8, [x7]
+[rec] 26   1c7075c:      	ldr	w9, [x2, #0x10]
+[rec] 27   1c70760:      	ldr	x10, [x8]
+[rec] 28   1c70764:      	b	0x1c708f4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8414>
+[rec] 29   1c70768:      	mov	x1, x3
+[rec] 2a   1c7076c:      	orr	x3, xzr, #0x2
+[rec] 2b   1c70770:      	mov	x4, x3
+[rec] 2c   1c70774:      	mov	x5, x3
+[rec] 2d   1c70778:      	mov	x6, x0
+[rec] 2e   1c7077c:      	mov	x0, x2
+[rec] 2f   1c70780:      	mov	x2, x6
+[rec] 30   1c70784:      	bl	0x145f3d0 <crosscall2+0x2c6f0>
+[rec] 31   1c70788:      	cbnz	x1, 0x1c70810 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8330>
+[rec] 32   1c7078c:      	ldr	x1, [sp, #0x80]
+[rec] 33   1c70790:      	ldrh	w1, [x1]
+[rec] 34   1c70794:      	rev16	w1, w1
+[rec] 35   1c70798:      	ubfx	x1, x1, #0, #16
+[rec] 36   1c7079c:      	str	x1, [sp, #0x58]
+[rec] 37   1c707a0:      	sub	x1, x1, #0x10
+[rec] 38   1c707a4:      	str	x1, [sp, #0x60]
+[rec] 39   1c707a8:      	adrp	x0, 0x23f8000
+[rec] 3a   1c707ac:      	add	x0, x0, #0x760
+[rec] 3b   1c707b0:      	bl	0x13af780 <.text+0x21860>
+[rec] 3c   1c707b4:      	ldr	x1, [sp, #0x60]
+[rec] 3d   1c707b8:      	cmp	x1, #0xab
+[rec] 3e   1c707bc:      	b.hi	0x1c707ec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a830c>
+[rec] 3f   1c707c0:      	str	x0, [sp, #0x78]
+[rec] 40   1c707c4:      	ldr	x6, [sp, #0x98]
+[rec] 41   1c707c8:      	ldp	x7, x1, [x6]
+[rec] 42   1c707cc:      	cbz	x7, 0x1c70830 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8350>
+[rec] 43   1c707d0:      	ldr	x8, [x7, #0x8]
+[rec] 44   1c707d4:      	adrp	x9, 0x28b2000
+[rec] 45   1c707d8:      	add	x9, x9, #0xe90
+[rec] 46   1c707dc:      	ldar	x10, [x9]
+[rec] 47   1c707e0:      	ldr	w7, [x7, #0x10]
+[rec] 48   1c707e4:      	ldr	x11, [x10]
+[rec] 49   1c707e8:      	b	0x1c708a8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a83c8>
+[rec] 4a   1c707ec:      	adrp	x27, 0x28a7000
+[rec] 4b   1c707f0:      	add	x27, x27, #0x80
+[rec] 4c   1c707f4:      	ldp	x3, x4, [x27]
+[rec] 4d   1c707f8:      	mov	x0, xzr
+[rec] 4e   1c707fc:      	mov	x1, xzr
+[rec] 4f   1c70800:      	mov	x2, xzr
+[rec] 50   1c70804:      	ldur	x29, [sp, #-0x8]
+[rec] 51   1c70808:      	ldr	x30, [sp], #0x90
+[rec] 52   1c7080c:      	ret
+[rec] 53   1c70810:      	mov	x0, xzr
+[rec] 54   1c70814:      	mov	x3, x1
+[rec] 55   1c70818:      	mov	x4, x2
+[rec] 56   1c7081c:      	mov	x1, xzr
+[rec] 57   1c70820:      	mov	x2, xzr
+[rec] 58   1c70824:      	ldur	x29, [sp, #-0x8]
+[rec] 59   1c70828:      	ldr	x30, [sp], #0x90
+[rec] 5a   1c7082c:      	ret
+[rec] 5b   1c70830:      	mov	x2, x0
+[rec] 5c   1c70834:      	ldr	x3, [sp, #0x58]
+[rec] 5d   1c70838:      	mov	x4, #0xbb               // =187
+[rec] 5e   1c7083c:      	mov	x5, x3
+[rec] 5f   1c70840:      	mov	x0, x7
+[rec] 60   1c70844:      	bl	0x145f3d0 <crosscall2+0x2c6f0>
+[rec] 61   1c70848:      	cbz	x1, 0x1c7086c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a838c>
+[rec] 62   1c7084c:      	mov	x0, xzr
+[rec] 63   1c70850:      	mov	x3, x1
+[rec] 64   1c70854:      	mov	x4, x2
+[rec] 65   1c70858:      	mov	x1, xzr
+[rec] 66   1c7085c:      	mov	x2, xzr
+[rec] 67   1c70860:      	ldur	x29, [sp, #-0x8]
+[rec] 68   1c70864:      	ldr	x30, [sp], #0x90
+[rec] 69   1c70868:      	ret
+[rec] 6a   1c7086c:      	ldr	x10, [sp, #0x98]
+[rec] 6b   1c70870:      	ldr	x0, [x10, #0x10]
+[rec] 6c   1c70874:      	mov	x1, xzr
+[rec] 6d   1c70878:      	mov	x2, xzr
+[rec] 6e   1c7087c:      	mov	x3, xzr
+[rec] 6f   1c70880:      	mov	x4, xzr
+[rec] 70   1c70884:      	mov	x5, xzr
+[rec] 71   1c70888:      	mov	x6, xzr
+[rec] 72   1c7088c:      	ldr	x7, [sp, #0x78]
+[rec] 73   1c70890:      	ldr	x8, [sp, #0x58]
+[rec] 74   1c70894:      	mov	x9, #0xbb               // =187
+[rec] 75   1c70898:      	bl	0x19cd7c0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x5052e0>
+[rec] 76   1c7089c:      	ldur	x29, [sp, #-0x8]
+[rec] 77   1c708a0:      	ldr	x30, [sp], #0x90
+[rec] 78   1c708a4:      	ret
+[rec] 79   1c708a8:      	and	x12, x7, x11
+[rec] 7a   1c708ac:      	lsl	x12, x12, #4
+[rec] 7b   1c708b0:      	add	x12, x12, #0x8
+[rec] 7c   1c708b4:      	ldr	x13, [x10, x12]
+[rec] 7d   1c708b8:      	add	x12, x10, x12
+[rec] 7e   1c708bc:      	cmp	x13, x8
+[rec] 7f   1c708c0:      	b.eq	0x1c708ec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a840c>
+[rec] 80   1c708c4:      	add	x7, x7, #0x1
+[rec] 81   1c708c8:      	cbnz	x13, 0x1c708a8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a83c8>
+[rec] 82   1c708cc:      	str	x1, [sp, #0x68]
+[rec] 83   1c708d0:      	mov	x0, x9
+[rec] 84   1c708d4:      	mov	x1, x8
+[rec] 85   1c708d8:      	bl	0x13abb50 <.text+0x1dc30>
+[rec] 86   1c708dc:      	ldr	x1, [sp, #0x68]
+[rec] 87   1c708e0:      	mov	x7, x0
+[rec] 88   1c708e4:      	ldr	x0, [sp, #0x78]
+[rec] 89   1c708e8:      	b	0x1c70830 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8350>
+[rec] 8a   1c708ec:      	ldr	x7, [x12, #0x8]
+[rec] 8b   1c708f0:      	b	0x1c70830 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8350>
+[rec] 8c   1c708f4:      	and	x11, x9, x10
+[rec] 8d   1c708f8:      	lsl	x11, x11, #4
+[rec] 8e   1c708fc:      	add	x11, x11, #0x8
+[rec] 8f   1c70900:      	ldr	x12, [x8, x11]
+[rec] 90   1c70904:      	add	x11, x8, x11
+[rec] 91   1c70908:      	cmp	x12, x6
+[rec] 92   1c7090c:      	b.eq	0x1c70938 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8458>
+[rec] 93   1c70910:      	add	x9, x9, #0x1
+[rec] 94   1c70914:      	cbnz	x12, 0x1c708f4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8414>
+[rec] 95   1c70918:      	str	x3, [sp, #0x70]
+[rec] 96   1c7091c:      	mov	x0, x7
+[rec] 97   1c70920:      	mov	x1, x6
+[rec] 98   1c70924:      	bl	0x13abb50 <.text+0x1dc30>
+[rec] 99   1c70928:      	ldr	x3, [sp, #0x70]
+[rec] 9a   1c7092c:      	mov	x2, x0
+[rec] 9b   1c70930:      	ldr	x0, [sp, #0x80]
+[rec] 9c   1c70934:      	b	0x1c70768 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8288>
+[rec] 9d   1c70938:      	ldr	x2, [x11, #0x8]
+[rec] 9e   1c7093c:      	b	0x1c70768 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8288>
+[rec] 9f   1c70940:      	str	x0, [sp, #0x8]
+[rec] a0   1c70944:      	mov	x3, x30
+[rec] a1   1c70948:      	bl	0x141a7a0 <.text+0x8c880>
+[rec] a2   1c7094c:      	ldr	x0, [sp, #0x8]
+[rec] a3   1c70950:      	b	0x1c70710 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8230>
+[rec] a4  		...
+[rec] a5   1c70960:      	ldr	x16, [x28, #0x10]
+[rec] a6   1c70964:      	cmp	sp, x16
+[rec] a7   1c70968:      	b.ls	0x1c70a74 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8594>
+[rec] a8   1c7096c:      	str	x30, [sp, #-0x70]!
+[rec] a9   1c70970:      	stur	x29, [sp, #-0x8]
+[rec] aa   1c70974:      	sub	x29, sp, #0x8
+[rec] ab   1c70978:      	str	x1, [sp, #0x80]
+[rec] ac   1c7097c:      	cmp	x2, #0xab
+[rec] ad   1c70980:      	b.gt	0x1c70a5c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a857c>
+[rec] ae   1c70984:      	str	x0, [sp, #0x78]
+[rec] af   1c70988:      	str	x2, [sp, #0x88]
+[rec] b0   1c7098c:      	str	x3, [sp, #0x90]
+[rec] b1   1c70990:      	str	x1, [sp, #0x80]
+[rec] b2   1c70994:      	adrp	x0, 0x23f8000
+[rec] b3   1c70998:      	add	x0, x0, #0x7c0
+[rec] b4   1c7099c:      	bl	0x13af780 <.text+0x21860>
+[rec] b5   1c709a0:      	ldr	x8, [sp, #0x88]
+[rec] b6   1c709a4:      	add	x1, x8, #0x10
+[rec] b7   1c709a8:      	strb	wzr, [x0]
+[rec] b8   1c709ac:      	strb	w1, [x0, #0x1]
+[rec] b9   1c709b0:      	ldr	x1, [sp, #0x78]
+[rec] ba   1c709b4:      	ldr	x1, [x1, #0x18]
+[rec] bb   1c709b8:      	orr	x2, xzr, #0x2
+[rec] bc   1c709bc:      	mov	x3, #0xbd               // =189
+[rec] bd   1c709c0:      	mov	x4, xzr
+[rec] be   1c709c4:      	mov	x5, xzr
+[rec] bf   1c709c8:      	mov	x6, xzr
+[rec] c0   1c709cc:      	ldr	x7, [sp, #0x80]
+[rec] c1   1c709d0:      	ldr	x9, [sp, #0x90]
+[rec] c2   1c709d4:      	mov	x10, x0
+[rec] c3   1c709d8:      	mov	x0, x1
+[rec] c4   1c709dc:      	mov	x1, x10
+[rec] c5   1c709e0:      	bl	0x19cd6b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x5051d0>
+[rec] c6   1c709e4:      	cbnz	x3, 0x1c70a48 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8568>
+[rec] c7   1c709e8:      	str	x1, [sp, #0x60]
+[rec] c8   1c709ec:      	ldr	x4, [sp, #0x78]
+[rec] c9   1c709f0:      	ldp	x4, x5, [x4]
+[rec] ca   1c709f4:      	ldr	x4, [x4, #0x20]
+[rec] cb   1c709f8:      	mov	x3, x2
+[rec] cc   1c709fc:      	mov	x2, x1
+[rec] cd   1c70a00:      	mov	x1, x0
+[rec] ce   1c70a04:      	mov	x0, x5
+[rec] cf   1c70a08:      	blr	x4
+[rec] d0   1c70a0c:      	cbnz	x1, 0x1c70a1c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a853c>
+[rec] d1   1c70a10:      	ldr	x3, [sp, #0x60]
+[rec] d2   1c70a14:      	cmp	x0, x3
+[rec] d3   1c70a18:      	b.ne	0x1c70a30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8550>
+[rec] d4   1c70a1c:      	mov	x0, x1
+[rec] d5   1c70a20:      	mov	x1, x2
+[rec] d6   1c70a24:      	ldur	x29, [sp, #-0x8]
+[rec] d7   1c70a28:      	ldr	x30, [sp], #0x70
+[rec] d8   1c70a2c:      	ret
+[rec] d9   1c70a30:      	adrp	x27, 0x28a7000
+[rec] da   1c70a34:      	add	x27, x27, #0x260
+[rec] db   1c70a38:      	ldp	x0, x1, [x27]
+[rec] dc   1c70a3c:      	ldur	x29, [sp, #-0x8]

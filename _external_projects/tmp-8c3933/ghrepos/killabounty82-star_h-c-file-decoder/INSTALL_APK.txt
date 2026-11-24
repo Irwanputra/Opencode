@@ -1,0 +1,30 @@
+HC DECRYPTOR v1.0 - ANDROID APK
+================================
+
+DOWNLOAD: HC-Decryptor-v1.0.apk (~7 MB)
+
+SPECS:
+- Android Q (API 29) or higher
+- Architecture: armeabi-v7a (32-bit ARM)
+- Tested on: Xiaomi M2006C3LG
+- Free & Open Source (GPL-3.0)
+
+INSTALLATION:
+1. Download APK
+2. Transfer to phone (USB/Email/Cloud)
+3. Open File Manager
+4. Go to Downloads
+5. Tap APK → Install
+6. Open app
+7. Select .h.c file
+8. Done!
+
+FEATURES:
+✓ 30+ built-in encryption keys
+✓ Automatic decryption
+✓ AES-128 ECB support
+✓ JSON output
+✓ No internet needed
+✓ ~7 MB size
+
+TEST IT YOURSELF!

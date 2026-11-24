@@ -1,0 +1,85 @@
+1c3f560  ldr	x30, [sp], #0xf0
+1c3f564  ret
+1c3f568  adrp x27, page
+1c3f56c  add	x27, x27, #0x80   ; =0x28a7080
+1c3f570  ldp	x0, x1, [x27]
+1c3f574  ldur	x29, [sp, #-0x8]
+1c3f578  ldr	x30, [sp], #0xf0
+1c3f57c  ret
+1c3f580  stp	x0, x1, [sp, #0x50]
+1c3f584  str	x2, [sp, #0x60]
+1c3f588  strb	w3, [sp, #0x68]
+1c3f58c  mov	x3, x30
+1c3f590  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c3f594  ldp	x0, x1, [sp, #0x50]
+1c3f598  ldr	x2, [sp, #0x60]
+1c3f59c  ldrb	w3, [sp, #0x68]
+1c3f5a0  b	0x1c3f3a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776ec0>   ; <noise/hcauth.decodeCertificate>
+1c3f5b0  ldr	x16, [x28, #0x10]
+1c3f5b4  sub	x17, sp, #0x50
+1c3f5b8  cmp	x17, x16
+1c3f5bc  b.ls	0x1c3f6d4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7771f4>
+1c3f5c0  str	x30, [sp, #-0xd0]!
+1c3f5c4  stur	x29, [sp, #-0x8]
+1c3f5c8  sub	x29, sp, #0x8
+1c3f5cc  str	x0, [sp, #0x138]
+1c3f5d0  str	x3, [sp, #0x150]
+1c3f5d4  str	x6, [sp, #0x168]
+1c3f5d8  add	x5, sp, #0xd8
+1c3f5dc  stp	xzr, xzr, [x5]
+1c3f5e0  stp	xzr, xzr, [x5, #0x10]
+1c3f5e4  stp	xzr, xzr, [x5, #0x20]
+1c3f5e8  stp	xzr, xzr, [x5, #0x30]
+1c3f5ec  stp	xzr, xzr, [x5, #0x40]
+1c3f5f0  stp	xzr, xzr, [x5, #0x50]
+1c3f5f4  cmp	x1, #0x20
+1c3f5f8  b.ne	0x1c3f604 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777124>
+1c3f5fc  cmp	x4, #0x20
+1c3f600  b.eq	0x1c3f61c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x77713c>
+1c3f604  adrp x27, page
+1c3f608  add	x27, x27, #0x80   ; =0x28a7080
+1c3f60c  ldp	x0, x1, [x27]
+1c3f610  ldur	x29, [sp, #-0x8]
+1c3f614  ldr	x30, [sp], #0xd0
+1c3f618  ret
+1c3f61c  add	x4, sp, #0x48
+1c3f620  stp	xzr, xzr, [x4]
+1c3f624  stp	xzr, xzr, [x4, #0x10]
+1c3f628  stp	xzr, xzr, [x4, #0x20]
+1c3f62c  stp	xzr, xzr, [x4, #0x30]
+1c3f630  stp	xzr, xzr, [x4, #0x40]
+1c3f634  stp	xzr, xzr, [x4, #0x50]
+1c3f638  add	x4, sp, #0x48
+1c3f63c  cmp	x0, x4
+1c3f640  b.eq	0x1c3f654 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777174>
+1c3f644  ldp	x4, x5, [x0]
+1c3f648  ldp	x9, x10, [x0, #0x10]
+1c3f64c  stp	x4, x5, [sp, #0x48]
+1c3f650  stp	x9, x10, [sp, #0x58]
+1c3f654  add	x4, sp, #0x68
+1c3f658  cmp	x3, x4
+1c3f65c  b.eq	0x1c3f670 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777190>
+1c3f660  ldp	x4, x5, [x3]
+1c3f664  ldp	x3, x9, [x3, #0x10]
+1c3f668  stp	x4, x5, [sp, #0x68]
+1c3f66c  stp	x3, x9, [sp, #0x78]
+1c3f670  mov	x0, x6
+1c3f674  mov	x1, x7
+1c3f678  mov	x2, x8
+1c3f67c  bl	0x14b9250 <crosscall2+0x86570>   ; <crypto/sha256.Sum256>
+1c3f680  ldp	x3, x4, [sp, #0x8]
+1c3f684  ldp	x5, x6, [sp, #0x18]
+1c3f688  stp	x3, x4, [sp, #0xa8]
+1c3f68c  stp	x5, x6, [sp, #0xb8]
+1c3f690  ldp	x3, x4, [sp, #0xa8]
+1c3f694  ldp	x5, x6, [sp, #0xb8]
+1c3f698  stp	x3, x4, [sp, #0x88]
+1c3f69c  stp	x5, x6, [sp, #0x98]
+1c3f6a0  add	x3, sp, #0xd8
+1c3f6a4  add	x4, sp, #0x48
+1c3f6a8  ldp	q16, q17, [x4]
+1c3f6ac  stp	q16, q17, [x3]
+1c3f6b0  ldp	q16, q17, [x4, #0x20]
+1c3f6b4  stp	q16, q17, [x3, #0x20]
+1c3f6b8  ldp	q16, q17, [x4, #0x40]
+1c3f6bc  stp	q16, q17, [x3, #0x40]

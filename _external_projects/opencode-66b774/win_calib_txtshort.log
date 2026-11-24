@@ -1,0 +1,29 @@
+2026/11/24 19:50:24 uTLS fingerprint Firefox 105
+2026/11/24 19:50:24 effective MTU 127
+2026/11/24 19:50:24 begin session bd5080ca
+2026/11/24 19:50:24 DBG send qlen=118 name=ws7qx7nv6m6mjy7ofbervsuakc6vcacaaaaqaaaaaaaaaaaaaaaaaaqaaaaaayq.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:24 DBG send qlen=274 name=ws7qx7nv6m6mjyyj7juxvsuakc6vcacaaaaqaaaaaeaaaaaaaaaaayqaaaagqyz.nojswyzlbonss6mr2mrxhg5dufvrwc3djmjzgc5djn5xc6mj2mrxhg5dufv2hq5.bnonug64tuf4y73u4pkf4557sf3jcu3wdhslp6nuhptzvjkrghg7ad3yv3aow22.mzlmphdku2t7w24vee7hzs4ldbn.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG send qlen=118 name=ws7qx7nv6m6mjy4jq3krvsuakc6vcacaadeqaaaaaaaaaaaaaaaaaaqaaaaaayq.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG send qlen=274 name=ws7qx7nv6m6mjy3iqyihvsuakc6vcacaadeqaaaaaeaaaaaaaaaaayqaaaagqyz.nojswyzlbonss6mr2mrxhg5dufvrwc3djmjzgc5djn5xc6mj2mrxhg5dufv2hq5.bnonug64tuf4y73u4pkf4557sf3jcu3wdhslp6nuhptzvjkrghg7ad3yv3aow22.mzlmphdku2t7w24vee7hzs4ldbn.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018ca8050bd52001f0001000000000000000100000000000000
+2026/11/24 19:50:25 DBG send qlen=83 name=ws7qx7nv6m6mj2enwq5kiqrog7jq.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018ca8050bd5200ff0101000000010000000200000000000000
+2026/11/24 19:50:25 DBG send qlen=83 name=ws7qx7nv6m6mj2c3bzkyzmtf2teq.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018ca8050bd52000002c9000000000000000100000000000000
+2026/11/24 19:50:25 DBG send qlen=83 name=ws7qx7nv6m6mj2gs3rwlyeu2giea.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG recv rcode=0 nans=1 payload=26 bytes: 0018ca8050bd5200ff01c9000000010000000200000000000000
+2026/11/24 19:50:25 DBG send qlen=83 name=ws7qx7nv6m6mj2hvfy2dvb4njx7q.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:25 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2enwq5kiqrog7jq.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:25 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2c3bzkyzmtf2teq.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:25 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2gs3rwlyeu2giea.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:25 DBG send qlen=83 name=ws7qx7nv6m6mj2e7kfd3gqwgdqrq.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:26 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2hvfy2dvb4njx7q.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:26 DBG send qlen=83 name=ws7qx7nv6m6mj2g35fgjndjdrtfa.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:27 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2e7kfd3gqwgdqrq.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:28 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2g35fgjndjdrtfa.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:28 DBG send qlen=83 name=ws7qx7nv6m6mj2ddevhbasasprga.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:29 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2ddevhbasasprga.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:32 DBG send qlen=83 name=ws7qx7nv6m6mj2cyxakbburqlwlq.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:34 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2cyxakbburqlwlq.ns-freeserver.nevpn.my.id atype=16 adata=00
+2026/11/24 19:50:40 DBG send qlen=83 name=ws7qx7nv6m6mj2hlgdz3sf4kta2a.ns-freeserver.nevpn.my.id
+2026/11/24 19:50:42 DBG recv DROPPED rcode=0 flags=8400 aname=ws7qx7nv6m6mj2hlgdz3sf4kta2a.ns-freeserver.nevpn.my.id atype=16 adata=00

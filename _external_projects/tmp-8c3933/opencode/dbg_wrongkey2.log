@@ -1,0 +1,47 @@
+2026/11/24 19:00:39 uTLS fingerprint Randomized-ALPN 0
+2026/11/24 19:00:39 effective MTU 134
+2026/11/24 19:00:39 begin session d48caecb
+2026/11/24 19:00:39 DBG send qlen=106 name=sgeaxwzjf4ychy62hcarvs5ortkfcacaaaaqaaaaaaaaaaaaaaaaaaqaaaaaama.t.example.com
+2026/11/24 19:00:39 DBG send qlen=181 name=sgeaxwzjf4ychy6viefers5ortkfcacaaaaqaaaaaeaaaaaaaaaaamaaaaaomba.vcxgbptppqib26cgqykujqrs5zs4kaknd2xme3p3hlejkghydikflmg3adfglkl.dbkt5sc2gw.t.example.com
+2026/11/24 19:00:39 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ychy62hcarvs5ortkfcacaaaaqaaaaaaaaaaaaaaaaaaqaaaaaama.t.example.com atype=16 adata=00
+2026/11/24 19:00:39 DBG recv rcode=0 nans=1 payload=26 bytes: 0018cbae8cd45200400001000000010000000200000000000000
+2026/11/24 19:00:39 DBG send qlen=71 name=sgeaxwzjf4ych2hj7lxnrhkz4wda.t.example.com
+2026/11/24 19:00:39 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2hj7lxnrhkz4wda.t.example.com atype=16 adata=00
+2026/11/24 19:00:39 DBG send qlen=71 name=sgeaxwzjf4ych2ffjzge2yhblgxq.t.example.com
+2026/11/24 19:00:40 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2ffjzge2yhblgxq.t.example.com atype=16 adata=00
+2026/11/24 19:00:40 DBG send qlen=71 name=sgeaxwzjf4ych2brgr76yjcjilrq.t.example.com
+2026/11/24 19:00:40 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2brgr76yjcjilrq.t.example.com atype=16 adata=00
+2026/11/24 19:00:42 DBG send qlen=71 name=sgeaxwzjf4ych2hwlpjn64vba2ba.t.example.com
+2026/11/24 19:00:42 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2hwlpjn64vba2ba.t.example.com atype=16 adata=00
+2026/11/24 19:00:46 DBG send qlen=71 name=sgeaxwzjf4ych2gkhnsu5r2rk5ra.t.example.com
+2026/11/24 19:00:46 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2gkhnsu5r2rk5ra.t.example.com atype=16 adata=00
+2026/11/24 19:00:54 DBG send qlen=71 name=sgeaxwzjf4ych2gqtvgck6g52tga.t.example.com
+2026/11/24 19:00:55 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2gqtvgck6g52tga.t.example.com atype=16 adata=00
+2026/11/24 19:01:04 DBG send qlen=71 name=sgeaxwzjf4ych2hjy2tfq4bj4z5a.t.example.com
+2026/11/24 19:01:05 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2hjy2tfq4bj4z5a.t.example.com atype=16 adata=00
+2026/11/24 19:01:14 DBG send qlen=71 name=sgeaxwzjf4ych2dvpnxfwhpf7qjq.t.example.com
+2026/11/24 19:01:15 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2dvpnxfwhpf7qjq.t.example.com atype=16 adata=00
+2026/11/24 19:01:24 DBG send qlen=71 name=sgeaxwzjf4ych2fr67nj72yaaiaq.t.example.com
+2026/11/24 19:01:25 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2fr67nj72yaaiaq.t.example.com atype=16 adata=00
+2026/11/24 19:01:34 DBG send qlen=71 name=sgeaxwzjf4ych2bgmqnyx4qrdw2q.t.example.com
+2026/11/24 19:01:35 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2bgmqnyx4qrdw2q.t.example.com atype=16 adata=00
+2026/11/24 19:01:44 DBG send qlen=71 name=sgeaxwzjf4ych2fw4p4xez4clr2q.t.example.com
+2026/11/24 19:01:45 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2fw4p4xez4clr2q.t.example.com atype=16 adata=00
+2026/11/24 19:01:54 DBG send qlen=71 name=sgeaxwzjf4ych2awu452ozc5dspa.t.example.com
+2026/11/24 19:01:54 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2awu452ozc5dspa.t.example.com atype=16 adata=00
+2026/11/24 19:02:04 DBG send qlen=71 name=sgeaxwzjf4ych2b2vzetkjqwvxlq.t.example.com
+2026/11/24 19:02:05 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2b2vzetkjqwvxlq.t.example.com atype=16 adata=00
+2026/11/24 19:02:14 DBG send qlen=71 name=sgeaxwzjf4ych2d3a2zgiirwb52a.t.example.com
+2026/11/24 19:02:15 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2d3a2zgiirwb52a.t.example.com atype=16 adata=00
+2026/11/24 19:02:24 DBG send qlen=71 name=sgeaxwzjf4ych2dqxizslenrar6q.t.example.com
+2026/11/24 19:02:25 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2dqxizslenrar6q.t.example.com atype=16 adata=00
+2026/11/24 19:02:34 DBG send qlen=71 name=sgeaxwzjf4ych2g6fis6rfa7w7fa.t.example.com
+2026/11/24 19:02:35 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2g6fis6rfa7w7fa.t.example.com atype=16 adata=00
+2026/11/24 19:02:44 DBG send qlen=71 name=sgeaxwzjf4ych2faisdky4qevifa.t.example.com
+2026/11/24 19:02:45 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2faisdky4qevifa.t.example.com atype=16 adata=00
+2026/11/24 19:02:54 DBG send qlen=71 name=sgeaxwzjf4ych2e2bkdgwqmbdq7q.t.example.com
+2026/11/24 19:02:55 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2e2bkdgwqmbdq7q.t.example.com atype=16 adata=00
+2026/11/24 19:03:04 DBG send qlen=71 name=sgeaxwzjf4ych2amcgn3gxbefdsa.t.example.com
+2026/11/24 19:03:04 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2amcgn3gxbefdsa.t.example.com atype=16 adata=00
+2026/11/24 19:03:14 DBG send qlen=71 name=sgeaxwzjf4ych2hiinwrpprncsjq.t.example.com
+2026/11/24 19:03:15 DBG recv DROPPED rcode=0 flags=8400 aname=sgeaxwzjf4ych2hiinwrpprncsjq.t.example.com atype=16 adata=00

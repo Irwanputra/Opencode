@@ -1,0 +1,241 @@
+1c74f50  ldr	x3, [sp, #0x50]
+1c74f54  b	0x1c74e84 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac9a4>   ; <bond.writeLane>
+1c74f58  ldr	x5, [x9, #0x8]
+1c74f5c  mov	x0, x5
+1c74f60  b	0x1c74e84 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac9a4>   ; <bond.writeLane>
+1c74f64  mov	x0, #0x2002             // =8194
+1c74f68  bl	0x141cad0 <_cgo_topofstack+0x370>   ; <runtime.getfp>
+1c74f6c  nop
+1c74f70  stp	x0, x1, [sp, #0x8]
+1c74f74  stp	x2, x3, [sp, #0x18]
+1c74f78  stp	x4, x5, [sp, #0x28]
+1c74f7c  mov	x3, x30
+1c74f80  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c74f84  ldp	x0, x1, [sp, #0x8]
+1c74f88  ldp	x2, x3, [sp, #0x18]
+1c74f8c  ldp	x4, x5, [sp, #0x28]
+1c74f90  b	0x1c74da0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac8c0>   ; <bond.writeLane>
+1c74fa0  ldr	x16, [x28, #0x10]
+1c74fa4  sub	x17, sp, #0xb0
+1c74fa8  cmp	x17, x16
+1c74fac  b.ls	0x1c75338 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace58>
+1c74fb0  sub	x20, sp, #0x130
+1c74fb4  stp	x29, x30, [x20, #-0x8]
+1c74fb8  mov	sp, x20
+1c74fbc  sub	x29, sp, #0x8
+1c74fc0  str	x5, [sp, #0x160]
+1c74fc4  str	x3, [sp, #0x150]
+1c74fc8  str	x2, [sp, #0x148]
+1c74fcc  str	x4, [sp, #0x158]
+1c74fd0  str	x1, [sp, #0x140]
+1c74fd4  str	x0, [sp, #0x138]
+1c74fd8  mov	x6, xzr
+1c74fdc  b	0x1c74ff4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acb14>   ; <bond.distribute>
+1c74fe0  ldr	x0, [sp, #0x138]
+1c74fe4  ldr	x1, [sp, #0x140]
+1c74fe8  ldr	x2, [sp, #0x148]
+1c74fec  ldr	x3, [sp, #0x150]
+1c74ff0  ldr	x4, [sp, #0x158]
+1c74ff4  cmp	x5, x6
+1c74ff8  b.ls	0x1c75330 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace50>
+1c74ffc  str	x6, [sp, #0x60]
+1c75000  add	x2, x4, x6, lsl #4
+1c75004  ldp	x2, x3, [x2]
+1c75008  str	x3, [sp, #0x98]
+1c7500c  str	x2, [sp, #0x90]
+1c75010  str	xzr, [sp, #0x120]
+1c75014  ldr	x2, [x0, #0x20]
+1c75018  mov	x0, x1
+1c7501c  blr	x2
+1c75020  add	x1, sp, #0x100
+1c75024  stp	xzr, xzr, [x1]
+1c75028  stp	xzr, xzr, [x1, #0x10]
+1c7502c  ldr	x1, [sp, #0x98]
+1c75030  add	x2, sp, #0x120
+1c75034  stp	x1, x2, [sp, #0x110]
+1c75038  str	x0, [sp, #0x100]
+1c7503c  add	x0, sp, #0x100
+1c75040  add	x1, sp, #0x58
+1c75044  mov	x2, xzr
+1c75048  mov	x3, xzr
+1c7504c  orr	x4, xzr, #0x2
+1c75050  orr	x5, xzr, #0x1
+1c75054  bl	0x13f20a0 <.text+0x64180>   ; <runtime.selectgo>
+1c75058  cbz	x0, 0x1c75310 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace30>
+1c7505c  ldr	x4, [sp, #0x120]
+1c75060  str	x4, [sp, #0x80]
+1c75064  ldrsb	x27, [x4]
+1c75068  ldr	x5, [sp, #0x148]
+1c7506c  ldr	x5, [x5, #0x18]
+1c75070  add	x1, x4, #0x2
+1c75074  ldr	x0, [sp, #0x150]
+1c75078  orr	x2, xzr, #0x2000
+1c7507c  mov	x3, x2
+1c75080  blr	x5
+1c75084  str	x0, [sp, #0x68]
+1c75088  str	x1, [sp, #0x70]
+1c7508c  str	x2, [sp, #0x88]
+1c75090  ldr	x4, [sp, #0x80]
+1c75094  str	x0, [x4, #0x2008]
+1c75098  cmp	x0, #0x0
+1c7509c  b.le	0x1c750a8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acbc8>
+1c750a0  orr	x3, xzr, #0x1
+1c750a4  b	0x1c750d8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acbf8>   ; <bond.distribute>
+1c750a8  adrp x27, page
+1c750ac  add	x27, x27, #0x290   ; =0x28a7290
+1c750b0  ldp	x4, x3, [x27]
+1c750b4  mov	x0, x1
+1c750b8  mov	x1, x2
+1c750bc  mov	x2, x4
+1c750c0  bl	0x142b020 <_cgo_topofstack+0xe8c0>   ; <errors.Is>
+1c750c4  ldr	x1, [sp, #0x70]
+1c750c8  ldr	x2, [sp, #0x88]
+1c750cc  ldr	x4, [sp, #0x80]
+1c750d0  mov	x3, x0
+1c750d4  ldr	x0, [sp, #0x68]
+1c750d8  tbz	w3, #0x0, 0x1c75144 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acc64>
+1c750dc  str	x4, [sp, #0x120]
+1c750e0  ldr	x1, [sp, #0x138]
+1c750e4  ldr	x1, [x1, #0x20]
+1c750e8  ldr	x0, [sp, #0x140]
+1c750ec  blr	x1
+1c750f0  add	x1, sp, #0xe0
+1c750f4  stp	xzr, xzr, [x1]
+1c750f8  stp	xzr, xzr, [x1, #0x10]
+1c750fc  ldr	x1, [sp, #0x90]
+1c75100  str	x1, [sp, #0xe0]
+1c75104  add	x1, sp, #0x120
+1c75108  stp	x1, x0, [sp, #0xe8]
+1c7510c  add	x0, sp, #0xe0
+1c75110  add	x1, sp, #0x50
+1c75114  mov	x2, xzr
+1c75118  orr	x3, xzr, #0x1
+1c7511c  mov	x4, x3
+1c75120  orr	x5, xzr, #0x1
+1c75124  bl	0x13f20a0 <.text+0x64180>   ; <runtime.selectgo>
+1c75128  cbnz	x0, 0x1c75168 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acc88>
+1c7512c  ldr	x4, [sp, #0x60]
+1c75130  add	x4, x4, #0x1
+1c75134  ldr	x5, [sp, #0x160]
+1c75138  udiv	x27, x4, x5
+1c7513c  msub	x6, x27, x5, x4
+1c75140  b	0x1c7515c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acc7c>   ; <bond.distribute>
+1c75144  str	x4, [sp, #0x120]
+1c75148  ldr	x0, [sp, #0x98]
+1c7514c  add	x1, sp, #0x120
+1c75150  bl	0x13a5750 <.text+0x17830>   ; <runtime.chansend>
+1c75154  ldr	x5, [sp, #0x160]
+1c75158  ldr	x6, [sp, #0x60]
+1c7515c  ldr	x0, [sp, #0x70]
+1c75160  cbz	x0, 0x1c74fe0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acb00>
+1c75164  b	0x1c751a8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7accc8>   ; <bond.distribute>
+1c75168  ldr	x1, [sp, #0x80]
+1c7516c  orr	x2, xzr, #0x80
+1c75170  stp	xzr, xzr, [x1], #0x10
+1c75174  stp	xzr, xzr, [x1], #0x10
+1c75178  stp	xzr, xzr, [x1], #0x10
+1c7517c  stp	xzr, xzr, [x1], #0x10
+1c75180  sub	x2, x2, #0x1
+1c75184  cbnz	x2, 0x1c75170 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acc90>
+1c75188  stur	xzr, [x1, #-0x6]
+1c7518c  ldr	x1, [sp, #0x138]
+1c75190  ldr	x1, [x1, #0x28]
+1c75194  ldr	x0, [sp, #0x140]
+1c75198  blr	x1
+1c7519c  ldp	x29, x30, [sp, #-0x8]
+1c751a0  add	sp, sp, #0x130
+1c751a4  ret
+1c751a8  str	x6, [sp, #0x78]
+1c751ac  adrp x27, page
+1c751b0  add	x27, x27, #0x290   ; =0x28a7290
+1c751b4  ldp	x2, x3, [x27]
+1c751b8  ldr	x1, [sp, #0x88]
+1c751bc  bl	0x142b020 <_cgo_topofstack+0xe8c0>   ; <errors.Is>
+1c751c0  tbz	w0, #0x0, 0x1c752fc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace1c>
+1c751c4  ldr	x0, [sp, #0x68]
+1c751c8  cbz	x0, 0x1c752e8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace08>
+1c751cc  ldr	x1, [sp, #0x160]
+1c751d0  ldr	x2, [sp, #0x78]
+1c751d4  cmp	x1, x2
+1c751d8  b.ls	0x1c7532c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ace4c>
+1c751dc  ldr	x1, [sp, #0x158]
+1c751e0  add	x1, x1, x2, lsl #4
+1c751e4  ldp	x1, x2, [x1]
+1c751e8  str	x2, [sp, #0x98]
+1c751ec  str	x1, [sp, #0x90]
+1c751f0  str	xzr, [sp, #0x120]
+1c751f4  ldr	x1, [sp, #0x138]
+1c751f8  ldr	x1, [x1, #0x20]
+1c751fc  ldr	x0, [sp, #0x140]
+1c75200  blr	x1
+1c75204  add	x1, sp, #0xc0
+1c75208  stp	xzr, xzr, [x1]
+1c7520c  stp	xzr, xzr, [x1, #0x10]
+1c75210  ldr	x1, [sp, #0x98]
+1c75214  add	x2, sp, #0x120
+1c75218  stp	x1, x2, [sp, #0xd0]
+1c7521c  str	x0, [sp, #0xc0]
+1c75220  add	x0, sp, #0xc0
+1c75224  add	x1, sp, #0x48
+1c75228  mov	x2, xzr
+1c7522c  mov	x3, xzr
+1c75230  orr	x4, xzr, #0x2
+1c75234  orr	x5, xzr, #0x1
+1c75238  bl	0x13f20a0 <.text+0x64180>   ; <runtime.selectgo>
+1c7523c  cbz	x0, 0x1c752cc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acdec>
+1c75240  ldr	x1, [sp, #0x120]
+1c75244  ldrsb	x27, [x1]
+1c75248  str	xzr, [x1, #0x2008]
+1c7524c  str	x1, [sp, #0x120]
+1c75250  ldr	x1, [sp, #0x138]
+1c75254  ldr	x1, [x1, #0x20]
+1c75258  ldr	x0, [sp, #0x140]
+1c7525c  blr	x1
+1c75260  add	x1, sp, #0xa0
+1c75264  stp	xzr, xzr, [x1]
+1c75268  stp	xzr, xzr, [x1, #0x10]
+1c7526c  ldr	x1, [sp, #0x90]
+1c75270  str	x1, [sp, #0xa0]
+1c75274  add	x1, sp, #0x120
+1c75278  stp	x1, x0, [sp, #0xa8]
+1c7527c  add	x0, sp, #0xa0
+1c75280  add	x1, sp, #0x40
+1c75284  mov	x2, xzr
+1c75288  orr	x3, xzr, #0x1
+1c7528c  mov	x4, x3
+1c75290  orr	x5, xzr, #0x1
+1c75294  bl	0x13f20a0 <.text+0x64180>   ; <runtime.selectgo>
+1c75298  cbnz	x0, 0x1c752b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7acdd0>
+1c7529c  mov	x0, xzr
+1c752a0  mov	x1, xzr
+1c752a4  ldp	x29, x30, [sp, #-0x8]
+1c752a8  add	sp, sp, #0x130
+1c752ac  ret
+1c752b0  ldr	x1, [sp, #0x138]
+1c752b4  ldr	x1, [x1, #0x28]
+1c752b8  ldr	x0, [sp, #0x140]
+1c752bc  blr	x1
+1c752c0  ldp	x29, x30, [sp, #-0x8]
+1c752c4  add	sp, sp, #0x130
+1c752c8  ret
+1c752cc  ldr	x1, [sp, #0x138]
+1c752d0  ldr	x1, [x1, #0x28]
+1c752d4  ldr	x0, [sp, #0x140]
+1c752d8  blr	x1
+1c752dc  ldp	x29, x30, [sp, #-0x8]
+1c752e0  add	sp, sp, #0x130
+1c752e4  ret
+1c752e8  mov	x0, xzr
+1c752ec  mov	x1, xzr
+1c752f0  ldp	x29, x30, [sp, #-0x8]
+1c752f4  add	sp, sp, #0x130
+1c752f8  ret
+1c752fc  ldr	x0, [sp, #0x70]
+1c75300  ldr	x1, [sp, #0x88]
+1c75304  ldp	x29, x30, [sp, #-0x8]
+1c75308  add	sp, sp, #0x130
+1c7530c  ret
+1c75310  ldr	x1, [sp, #0x138]
+1c75314  ldr	x1, [x1, #0x28]
+1c75318  ldr	x0, [sp, #0x140]
+1c7531c  blr	x1

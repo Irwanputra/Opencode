@@ -1,0 +1,219 @@
+package impl
+
+import (
+	"Pantegnos/internal/modules"
+	"crypto/aes"
+	"crypto/cipher"
+	"encoding/base64"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"regexp"
+	"strings"
+
+	"github.com/vmihailenco/msgpack/v5"
+)
+
+var DTConstants = struct {
+	KEY_256 []byte
+	KEY_192 []byte
+	IV      []byte
+}{
+	KEY_256: []byte("$B&E)H@McQfThWmZq4t7w!z%C*F-JaNd"),
+	KEY_192: []byte("F)J@NcRfUjXn2r4u7x!A%D*G"),
+	IV:      mustHexDecode("232e39185523184a5723586242200e05"),
+}
+
+func init() {
+	modules.Register(modules.Module{
+		Name:      "DarkTunnel - SSH DNSTT V2Ray",
+		ApkAuthor: "https://play.google.com/store/apps/details?id=net.darktunnel.app",
+		Proto:     []string{"darktunnel"},
+		Extension: ".dark",
+		Decrypt: func(req modules.Request) (modules.Result, error) {
+			text, err := DecryptDark(strings.TrimSpace(req.Payload))
+			if err != nil {
+				return modules.Result{}, err
+			}
+			return modules.Result{
+				Text:     text,
+				FileName: modules.OutputName(req.FileName, ".dark"),
+			}, nil
+		},
+	})
+}
+
+func DecryptDark(payload string) (string, error) {
+	outerBytes, err := base64DecodeSafe(payload)
+	if err != nil {
+		return "", err
+	}
+
+	var outer map[string]any
+	if err := json.Unmarshal(outerBytes, &outer); err != nil {
+		return "", err
+	}
+
+	encLockedConfigStr, ok := outer["encryptedLockedConfig"].(string)
+	if !ok {
+		return "", fmt.Errorf("missing or invalid encryptedLockedConfig key")
+	}
+
+	encryptedLockedConfig, err := base64DecodeSafe(encLockedConfigStr)
+	if err != nil {
+		return "", err
+	}
+
+	decryptedOuter, err := aesCFBDecrypt(encryptedLockedConfig, DTConstants.KEY_256, DTConstants.IV)
+	if err != nil {
+		return "", err
+	}
+
+	var unpackedOuter map[string]any
+	if err := msgpack.Unmarshal(decryptedOuter, &unpackedOuter); err != nil {
+		return "", err
+	}
+
+	if encInnerVal, found := unpackedOuter["EncryptedLockedConfig"]; found {
+		if encInnerBytes, ok := encInnerVal.([]byte); ok {
+			decryptedInner, err := aesCFBDecrypt(encInnerBytes, DTConstants.KEY_192, DTConstants.IV)
+			if err == nil {
+				var unpackedInner any
+				if err := msgpack.Unmarshal(decryptedInner, &unpackedInner); err == nil {
+					unpackedOuter["EncryptedLockedConfig"] = cleanEncrypted(unpackedInner, DTConstants.KEY_192, DTConstants.IV)
+				}
+			}
+		}
+	}
+
+	outer["encryptedLockedConfig"] = unpackedOuter
+	normalized := normalizeForJSON(outer)
+
+	jsonOut, err := json.MarshalIndent(normalized, "", "    ")
+	if err != nil {
+		return "", err
+	}
+
+	return string(jsonOut), nil
+}
+
+func cleanEncrypted(value any, key, iv []byte) any {
+	switch v := value.(type) {
+	case map[string]any:
+		cleaned := make(map[string]any)
+		for k, val := range v {
+			if strings.HasPrefix(k, "Encrypted") {
+				if byteData, ok := val.([]byte); ok && len(byteData) > 0 {
+					if dec, err := aesCFBDecrypt(byteData, key, iv); err == nil {
+						cleaned[k] = dec
+						continue
+					}
+				}
+			}
+			cleaned[k] = cleanEncrypted(val, key, iv)
+		}
+		return cleaned
+
+	case []any:
+		cleaned := make([]any, len(v))
+		for i, val := range v {
+			cleaned[i] = cleanEncrypted(val, key, iv)
+		}
+		return cleaned
+	}
+
+	return value
+}
+
+func mustHexDecode(h string) []byte {
+	b, err := hex.DecodeString(h)
+	if err != nil {
+		panic(err)
+	}
+	return b
+}
+
+func base64DecodeSafe(data string) ([]byte, error) {
+	cleanData := strings.ReplaceAll(data, "-", "+")
+	cleanData = strings.ReplaceAll(cleanData, "_", "/")
+	if pad := len(cleanData) % 4; pad != 0 {
+		cleanData += strings.Repeat("=", 4-pad)
+	}
+	return base64.StdEncoding.DecodeString(cleanData)
+}
+
+func aesCFBDecrypt(data, key, iv []byte) ([]byte, error) {
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		return nil, err
+	}
+	decrypted := make([]byte, len(data))
+	stream := cipher.NewCFBDecrypter(block, iv)
+	stream.XORKeyStream(decrypted, data)
+	return decrypted, nil
+}
+
+// utf8PrintableRe and bareJsonKeyRe are package-level so they are compiled once
+// instead of on every call.
+var (
+	utf8PrintableRe = regexp.MustCompile(`^[^\x00-\x08\x0B\x0C\x0E-\x1F\x7F]*$`)
+	bareJsonKeyRe   = regexp.MustCompile(`(:\s*)(\$[A-Za-z0-9_]+)`)
+)
+
+func isUTF8Printable(value []byte) bool {
+	if len(value) == 0 {
+		return false
+	}
+	return utf8PrintableRe.Match(value)
+}
+
+func tryParseJSONString(value string) any {
+	trimmed := strings.TrimSpace(value)
+	if !((strings.HasPrefix(trimmed, "{") && strings.HasSuffix(trimmed, "}")) ||
+		(strings.HasPrefix(trimmed, "[") && strings.HasSuffix(trimmed, "]"))) {
+		return value
+	}
+
+	fixedJSON := bareJsonKeyRe.ReplaceAllString(trimmed, `${1}"${2}"`)
+
+	var parsed any
+	if err := json.Unmarshal([]byte(fixedJSON), &parsed); err == nil {
+		return normalizeForJSON(parsed)
+	}
+	return value
+}
+
+func normalizeForJSON(value any) any {
+	switch v := value.(type) {
+	case map[string]any:
+		cleaned := make(map[string]any)
+		for key, val := range v {
+			if key != "Password" {
+				cleaned[key] = normalizeForJSON(val)
+			}
+		}
+		return cleaned
+
+	case []any:
+		cleaned := make([]any, len(v))
+		for i, val := range v {
+			cleaned[i] = normalizeForJSON(val)
+		}
+		return cleaned
+
+	case []byte:
+		if isUTF8Printable(v) {
+			return tryParseJSONString(string(v))
+		}
+		ints := make([]int, len(v))
+		for i, b := range v {
+			ints[i] = int(b)
+		}
+		return ints
+
+	case string:
+		return tryParseJSONString(v)
+	}
+
+	return value
+}

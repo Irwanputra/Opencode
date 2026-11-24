@@ -1,0 +1,106 @@
+netsim I 11-24 17:52:52.441 netsimd.rs:634 - netsim artifacts path: "/tmp/android-runner/netsimd"
+netsim I 11-24 17:52:52.441 netsimd.rs:635 - Args {
+    fd_startup_str: None,
+    connector_instance: None,
+    instance: None,
+    logtostderr: false,
+    dev: false,
+    no_cli_ui: true,
+    no_web_ui: false,
+    http_proxy: None,
+    no_shutdown: false,
+    idle_shutdown_timeout: None,
+    startup_timeout: None,
+    pcap: false,
+    disable_address_reuse: false,
+    verbose: false,
+    version: false,
+    grpc_port: None,
+    grpc_uds_path: None,
+    http_port: None,
+    hci_port: None,
+    tcp_port: None,
+    ws_port: None,
+    host_dns: Some(
+        "127.0.0.53",
+    ),
+    forward_host_mdns: false,
+    test_beacons: false,
+    no_test_beacons: false,
+    slirp_native: false,
+    no_slirp_native: false,
+    wifi: WifiConfig {
+        wifi_ssid: None,
+        wifi_password: None,
+        wifi_channel: None,
+        wifi_beacon_interval: None,
+        wifi_mode: None,
+        wifi_tap: None,
+        wifi_cvd_tap: false,
+    },
+}
+netsim I 11-24 17:52:52.441 netsimd.rs:647 - Acquired lock (Owner)
+netsim I 11-24 17:52:52.441 netsimd.rs:648 - INI file path: /run/user/1001/netsim.ini
+netsim I 11-24 17:52:52.451 nfc_actor.rs:151 - In-process Casimir scene started
+netsim I 11-24 17:52:52.472 server.rs:134 - Rust gRPC listening on localhost:0
+netsim I 11-24 17:52:52.472 streams.rs:137 - Adding netsim_grpc listener on GRPC:127.0.0.1:36873
+netsim I 11-24 17:52:52.474 netsimd.rs:397 - gRPC port: 36873
+netsim I 11-24 17:52:52.474 server.rs:40 - Hci socket server is listening on: 6402
+netsim I 11-24 17:52:52.477 lifecycle.rs:34 - WifiActor started
+netsim I 11-24 17:52:52.477 lifecycle.rs:23 - EthernetActor starting
+netsim I 11-24 17:52:52.477 lifecycle.rs:25 - ApActor started
+netsim I 11-24 17:52:52.477 service.rs:192 - Registering AP singleton stream/sink with interval: 100ms
+netsim I 11-24 17:52:52.477 lifecycle.rs:31 - NfcActor started
+netsim I 11-24 17:52:52.477 lifecycle.rs:28 - UwbActor starting Pica run loop
+netsim I 11-24 17:52:52.477 lifecycle.rs:45 - DeviceActor: Scheduling startup timeout for 15s
+netsim I 11-24 17:52:52.478 lifecycle.rs:22 - SlirpActor starting
+netsim I 11-24 17:52:52.478 service.rs:71 - Created AP with ID: 0
+netsim I 11-24 17:52:52.478 netsimd.rs:1024 - Wrote to INI file /run/user/1001/netsim.ini
+netsim I 11-24 17:52:52.478 server.rs:56 - REST API server is listening on: 127.0.0.1:34843
+netsim I 11-24 17:52:52.478 service.rs:264 - SlirpActor: Registering client 4294967294
+netsim I 11-24 17:52:52.478 netsimd.rs:1175 - Netsimd started 
+netsim I 11-24 17:52:52.479 libslirp.rs:955 - libslirp: initialization completed.
+netsim I 11-24 17:52:53.411 netsimd.rs:1186 - Accepted connection on netsim_grpc:
+netsim I 11-24 17:52:53.411 netsimd.rs:127 - Handling new connection for WIFI on device wt34
+netsim I 11-24 17:52:53.411 service.rs:661 - DeviceActor: Create device wt34
+netsim I 11-24 17:52:53.411 service.rs:610 - DeviceActor: AddChip 0 (kind WIFI) to device 1 (wt34)
+netsim I 11-24 17:52:53.411 netsimd.rs:1186 - Accepted connection on netsim_grpc:
+netsim I 11-24 17:52:53.411 netsimd.rs:127 - Handling new connection for BLUETOOTH on device wt34
+netsim I 11-24 17:52:53.411 avd_config.rs:218 - Generated and assigned new MAC BB:BB:BB:00:00:01 to AVD /home/runner/.config/.android/avd/wt34.ini
+netsim I 11-24 17:52:53.411 avd_config.rs:257 - Assigned persistent MAC BB:BB:BB:00:00:01 to AVD /home/runner/.config/.android/avd/wt34.ini
+netsim I 11-24 17:52:53.412 core.rs:80 - Insert client 0
+netsim I 11-24 17:52:53.415 service.rs:610 - DeviceActor: AddChip 1 (kind BLUETOOTH) to device 1 (wt34)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - DELETE_STORED_LINK_KEY command validation failed (c121,excluded)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_ISO_READ_TEST_COUNTERS command validation failed (excluded,c46)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_ISO_RECEIVE_TEST command validation failed (excluded,c46)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_ISO_TEST_END command validation failed (excluded,c47)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_ISO_TRANSMIT_TEST command validation failed (excluded,c45)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_READ_ISO_LINK_QUALITY command validation failed (excluded,c50)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_READ_ISO_TX_SYNC command validation failed (excluded,c45)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_RECEIVER_TEST_V2 command validation failed (excluded,c13)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_REQUEST_PEER_SCA command validation failed (excluded,c44)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_SET_DATA_RELATED_ADDRESS_CHANGES command validation failed (excluded,c10)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_SET_PERIODIC_ADVERTISING_RECEIVE_ENABLE command validation failed (excluded,c32)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - LE_TRANSMITTER_TEST_V2 command validation failed (excluded,c12)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - REMOTE_NAME_REQUEST_CANCEL command validation failed (c106,excluded)
+netsim I 11-24 17:52:53.416 rootcanal.rs:129 - WRITE_DEFAULT_ERRONEOUS_DATA_REPORTING command validation failed (c135,excluded)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - DELETE_STORED_LINK_KEY command validation failed (c121,excluded)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_ISO_READ_TEST_COUNTERS command validation failed (excluded,c46)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_ISO_RECEIVE_TEST command validation failed (excluded,c46)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_ISO_TEST_END command validation failed (excluded,c47)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_ISO_TRANSMIT_TEST command validation failed (excluded,c45)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_READ_ISO_LINK_QUALITY command validation failed (excluded,c50)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_READ_ISO_TX_SYNC command validation failed (excluded,c45)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_RECEIVER_TEST_V2 command validation failed (excluded,c13)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_REQUEST_PEER_SCA command validation failed (excluded,c44)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_SET_DATA_RELATED_ADDRESS_CHANGES command validation failed (excluded,c10)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_SET_PERIODIC_ADVERTISING_RECEIVE_ENABLE command validation failed (excluded,c32)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - LE_TRANSMITTER_TEST_V2 command validation failed (excluded,c12)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - REMOTE_NAME_REQUEST_CANCEL command validation failed (c106,excluded)
+netsim I 11-24 17:52:53.418 rootcanal.rs:129 - WRITE_DEFAULT_ERRONEOUS_DATA_REPORTING command validation failed (c135,excluded)
+netsim I 11-24 17:52:53.419 rootcanal.rs:129 - [0] updating the invalid packet handler
+netsim I 11-24 17:53:36.208 core.rs:131 - Insert station with client id 0, hwsimaddr: 02:15:B2:00:00:00, Ieee80211 addr: DE:8F:18:9F:07:BE
+netsim I 11-24 17:53:39.663 core.rs:131 - Insert station with client id 0, hwsimaddr: 02:15:B2:00:00:00, Ieee80211 addr: 02:15:B2:00:00:00
+netsim I 11-24 17:53:39.663 ieee802_11.rs:294 - ApActor: Received Auth from 02:15:B2:00:00:00 Alg=0 Seq=1 Status=0
+netsim I 11-24 17:53:39.675 ieee802_11.rs:495 - ApActor: Received Assoc Req from 02:15:B2:00:00:00
+netsim I 11-24 17:53:39.675 ieee802_11.rs:556 - ApActor: Associated 02:15:B2:00:00:00

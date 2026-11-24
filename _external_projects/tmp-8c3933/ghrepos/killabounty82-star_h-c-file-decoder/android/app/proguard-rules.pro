@@ -1,0 +1,5 @@
+-keep class org.bouncycastle.** { *; }
+-dontwarn org.bouncycastle.**
+-keep class com.hctools.hcdecryptor.** { *; }
+-keep class androidx.** { *; }
+-dontwarn androidx.**

@@ -1,0 +1,132 @@
+1c3f350  ldr	x0, [sp, #0x30]
+1c3f354  ldrb	w1, [sp, #0x38]
+1c3f358  b	0x1c3f100 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776c20>   ; <noise/hcauth.ValidateMaterial>
+1c3f35c  udf	#0x0
+1c3f360  ldr	x16, [x28, #0x10]
+1c3f364  cmp	sp, x16
+1c3f368  b.ls	0x1c3f390 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776eb0>
+1c3f36c  str	x30, [sp, #-0x20]!
+1c3f370  stur	x29, [sp, #-0x8]
+1c3f374  sub	x29, sp, #0x8
+1c3f378  ldp	x0, x1, [x26, #0x8]
+1c3f37c  cbz	x1, 0x1c3f384 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776ea4>
+1c3f380  bl	0x141cb30 <_cgo_topofstack+0x3d0>   ; <runtime.memclrNoHeapPointers>
+1c3f384  ldur	x29, [sp, #-0x8]
+1c3f388  ldr	x30, [sp], #0x20
+1c3f38c  ret
+1c3f390  mov	x3, x30
+1c3f394  bl	0x141a720 <.text+0x8c800>   ; <runtime.morestack>
+1c3f398  b	0x1c3f360 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776e80>   ; <noise/hcauth.decodeCertificate>
+1c3f39c  udf	#0x0
+1c3f3a0  ldr	x16, [x28, #0x10]
+1c3f3a4  sub	x17, sp, #0x70
+1c3f3a8  cmp	x17, x16
+1c3f3ac  b.ls	0x1c3f580 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7770a0>
+1c3f3b0  str	x30, [sp, #-0xf0]!
+1c3f3b4  stur	x29, [sp, #-0x8]
+1c3f3b8  sub	x29, sp, #0x8
+1c3f3bc  str	x0, [sp, #0x140]
+1c3f3c0  add	x10, sp, #0x118
+1c3f3c4  stp	xzr, xzr, [x10]
+1c3f3c8  stp	xzr, xzr, [x10, #0x10]
+1c3f3cc  str	xzr, [x10, #0x20]
+1c3f3d0  ubfx	x11, x3, #0, #8
+1c3f3d4  cmp	w11, #0x1
+1c3f3d8  b.eq	0x1c3f3e4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776f04>
+1c3f3dc  cmp	w11, #0x2
+1c3f3e0  b.ne	0x1c3f568 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777088>
+1c3f3e4  cmp	x1, #0x6a
+1c3f3e8  b.ne	0x1c3f568 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777088>
+1c3f3ec  ldr	w12, [x0]
+1c3f3f0  mov	x13, #0x4348            // =17224
+1c3f3f4  movk	x13, #0x3141, lsl #16
+1c3f3f8  cmp	w12, w13
+1c3f3fc  b.ne	0x1c3f568 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777088>
+1c3f400  ldrb	w12, [x0, #0x4]
+1c3f404  cmp	w12, #0x1
+1c3f408  b.ne	0x1c3f568 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777088>
+1c3f40c  ldrb	w12, [x0, #0x5]
+1c3f410  cmp	w11, w12
+1c3f414  b.ne	0x1c3f568 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777088>
+1c3f418  ldur	w11, [x0, #0x6]
+1c3f41c  add	x12, sp, #0xa8
+1c3f420  stp	xzr, xzr, [x12]
+1c3f424  stp	xzr, xzr, [x12, #0x10]
+1c3f428  str	xzr, [x12, #0x20]
+1c3f42c  strb	w3, [sp, #0xa8]
+1c3f430  rev	w11, w11
+1c3f434  str	w11, [sp, #0xac]
+1c3f438  cbz	w11, 0x1c3f4ec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x77700c>
+1c3f43c  add	x3, sp, #0x64
+1c3f440  stp	xzr, xzr, [x3]
+1c3f444  stp	xzr, xzr, [x3, #0x10]
+1c3f448  stp	xzr, xzr, [x3, #0x20]
+1c3f44c  stp	xzr, xzr, [x3, #0x30]
+1c3f450  stur	xzr, [x3, #0x3c]
+1c3f454  adrp x27, page
+1c3f458  add	x27, x27, #0x585   ; =0x4d5585 "hc-slowdns-certificate/v1"
+1c3f45c  ldp	x10, x11, [x27]
+1c3f460  adrp x27, page
+1c3f464  add	x27, x27, #0x58f   ; =0x4d558f "-certificate/v1"
+1c3f468  ldp	x12, x13, [x27]
+1c3f46c  add	x27, sp, #0x64
+1c3f470  stp	x10, x11, [x27]
+1c3f474  add	x27, sp, #0x6e
+1c3f478  stp	x12, x13, [x27]
+1c3f47c  add	x10, sp, #0x7e
+1c3f480  cmp	x0, x10
+1c3f484  b.eq	0x1c3f4ac <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776fcc>
+1c3f488  ldp	x10, x11, [x0]
+1c3f48c  ldp	x12, x13, [x0, #0x10]
+1c3f490  add	x27, x0, #0x1a
+1c3f494  ldp	x14, x15, [x27]
+1c3f498  add	x27, sp, #0x7e
+1c3f49c  stp	x10, x11, [x27]
+1c3f4a0  add	x27, sp, #0x8e
+1c3f4a4  stp	x12, x13, [x27]
+1c3f4a8  stp	x14, x15, [sp, #0x98]
+1c3f4ac  str	x0, [sp, #0x140]
+1c3f4b0  add	x6, x0, #0x2a
+1c3f4b4  sub	x8, x2, #0x2a
+1c3f4b8  str	xzr, [sp, #0xe0]
+1c3f4bc  str	xzr, [sp, #0xd8]
+1c3f4c0  str	xzr, [sp, #0xd0]
+1c3f4c4  add	x0, sp, #0xf8
+1c3f4c8  orr	x1, xzr, #0x20
+1c3f4cc  mov	x2, x1
+1c3f4d0  mov	x4, #0x44               // =68
+1c3f4d4  mov	x5, x4
+1c3f4d8  orr	x7, xzr, #0x40
+1c3f4dc  add	x9, sp, #0xd0
+1c3f4e0  bl	0x156db50 <_cgoexp_f6c40ca2f9f3_onLowMemory+0xa5670>   ; <crypto/ed25519.VerifyWithOptions>
+1c3f4e4  cbz	x0, 0x1c3f510 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777030>
+1c3f4e8  add	x10, sp, #0x118
+1c3f4ec  stp	xzr, xzr, [x10]
+1c3f4f0  stp	xzr, xzr, [x10, #0x10]
+1c3f4f4  str	xzr, [x10, #0x20]
+1c3f4f8  adrp x27, page
+1c3f4fc  add	x27, x27, #0x80   ; =0x28a7080
+1c3f500  ldp	x0, x1, [x27]
+1c3f504  ldur	x29, [sp, #-0x8]
+1c3f508  ldr	x30, [sp], #0xf0
+1c3f50c  ret
+1c3f510  ldr	x2, [sp, #0x140]
+1c3f514  add	x3, x2, #0xa
+1c3f518  add	x4, sp, #0xb0
+1c3f51c  cmp	x4, x3
+1c3f520  b.eq	0x1c3f53c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x77705c>
+1c3f524  add	x27, x2, #0xa
+1c3f528  ldp	x3, x4, [x27]
+1c3f52c  add	x27, x2, #0x1a
+1c3f530  ldp	x2, x5, [x27]
+1c3f534  stp	x3, x4, [sp, #0xb0]
+1c3f538  stp	x2, x5, [sp, #0xc0]
+1c3f53c  ldp	x2, x3, [sp, #0xa8]
+1c3f540  ldp	x4, x5, [sp, #0xb8]
+1c3f544  ldr	x6, [sp, #0xc8]
+1c3f548  stp	x2, x3, [sp, #0x118]
+1c3f54c  stp	x4, x5, [sp, #0x128]
+1c3f550  str	x6, [sp, #0x138]
+1c3f554  mov	x0, xzr
+1c3f558  mov	x1, xzr
+1c3f55c  ldur	x29, [sp, #-0x8]

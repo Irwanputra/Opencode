@@ -1,0 +1,65 @@
+14c88e0  stur	x29, [sp, #-0x8]
+14c88e4  sub	x29, sp, #0x8
+14c88e8  bl	0x14c85d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0xf0>   ; <dev.epro/aio/mobile/session.Open>
+14c88ec  cbz	x0, 0x14c8908 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x428>
+14c88f0  nop
+14c88f4  bl	0x14c8cb0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7d0>   ; <dev.epro/aio/mobile/session._Cfunc_free>
+14c88f8  mov	x0, xzr
+14c88fc  ldur	x29, [sp, #-0x8]
+14c8900  ldr	x30, [sp], #0x10
+14c8904  ret
+14c8908  orr	x0, xzr, #0x1
+14c890c  ldur	x29, [sp, #-0x8]
+14c8910  ldr	x30, [sp], #0x10
+14c8914  ret
+14c8918  mov	x3, x30
+14c891c  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+14c8920  b	0x14c88d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x3f0>   ; <dev.epro/aio/mobile/session.Ready>
+14c8930  ldr	x16, [x28, #0x10]
+14c8934  sub	x17, sp, #0x30
+14c8938  cmp	x17, x16
+14c893c  b.ls	0x14c8a34 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x554>
+14c8940  str	x30, [sp, #-0xb0]!
+14c8944  stur	x29, [sp, #-0x8]
+14c8948  sub	x29, sp, #0x8
+14c894c  mov	x3, #0x5962             // =22882
+14c8950  movk	x3, #0xea19, lsl #16
+14c8954  movk	x3, #0x83ab, lsl #32
+14c8958  movk	x3, #0xb6f2, lsl #48
+14c895c  mov	x4, #0x91d4             // =37332
+14c8960  movk	x4, #0x7731, lsl #16
+14c8964  movk	x4, #0x5a17, lsl #32
+14c8968  movk	x4, #0x6a2c, lsl #48
+14c896c  stp	x3, x4, [sp, #0x68]
+14c8970  mov	x3, #0x1859             // =6233
+14c8974  movk	x3, #0xabb8, lsl #16
+14c8978  movk	x3, #0xa3cc, lsl #32
+14c897c  movk	x3, #0xd0e7, lsl #48
+14c8980  mov	x4, #0x31c6             // =12742
+14c8984  movk	x4, #0x4326, lsl #16
+14c8988  movk	x4, #0x2b53, lsl #32
+14c898c  movk	x4, #0x93f, lsl #48
+14c8990  stp	x3, x4, [sp, #0x78]
+14c8994  mov	x3, #0xea43             // =59971
+14c8998  movk	x3, #0x99ad, lsl #16
+14c899c  movk	x3, #0xb688, lsl #32
+14c89a0  movk	x3, #0xc584, lsl #48
+14c89a4  mov	x4, #0x243b             // =9275
+14c89a8  movk	x4, #0x5347, lsl #16
+14c89ac  movk	x4, #0x3972, lsl #32
+14c89b0  movk	x4, #0x1e5e, lsl #48
+14c89b4  stp	x3, x4, [sp, #0x88]
+14c89b8  mov	x3, #0xabea             // =44010
+14c89bc  movk	x3, #0x86cb, lsl #16
+14c89c0  movk	x3, #0xd1f9, lsl #32
+14c89c4  movk	x3, #0x3092, lsl #48
+14c89c8  mov	x4, #0x1126             // =4390
+14c89cc  movk	x4, #0x220d, lsl #16
+14c89d0  movk	x4, #0x5934, lsl #32
+14c89d4  movk	x4, #0xbb41, lsl #48
+14c89d8  stp	x3, x4, [sp, #0x98]
+14c89dc  add	x1, sp, #0x28
+14c89e0  stp	xzr, xzr, [x1]
+14c89e4  stp	xzr, xzr, [x1, #0x10]
+14c89e8  stp	xzr, xzr, [x1, #0x20]
+14c89ec  stp	xzr, xzr, [x1, #0x30]

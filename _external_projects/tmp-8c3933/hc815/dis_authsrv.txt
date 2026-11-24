@@ -1,0 +1,134 @@
+1c3ecc0  ldp	x29, x30, [sp, #-0x8]
+1c3ecc4  add	sp, sp, #0x190
+1c3ecc8  ret
+1c3eccc  mov	x0, x3
+1c3ecd0  mov	x1, x4
+1c3ecd4  ldp	x29, x30, [sp, #-0x8]
+1c3ecd8  add	sp, sp, #0x190
+1c3ecdc  ret
+1c3ece0  ldp	x29, x30, [sp, #-0x8]
+1c3ece4  add	sp, sp, #0x190
+1c3ece8  ret
+1c3ecec  stp	x0, x1, [sp, #0x68]
+1c3ecf0  str	x2, [sp, #0x78]
+1c3ecf4  mov	x3, x30
+1c3ecf8  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c3ecfc  ldp	x0, x1, [sp, #0x68]
+1c3ed00  ldr	x2, [sp, #0x78]
+1c3ed04  b	0x1c3eab0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7765d0>   ; <noise/hcauth.AuthenticateClient>
+1c3ed10  ldr	x16, [x28, #0x10]
+1c3ed14  sub	x17, sp, #0xe0
+1c3ed18  cmp	x17, x16
+1c3ed1c  b.ls	0x1c3ef08 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776a28>
+1c3ed20  sub	x20, sp, #0x160
+1c3ed24  stp	x29, x30, [x20, #-0x8]
+1c3ed28  mov	sp, x20
+1c3ed2c  sub	x29, sp, #0x8
+1c3ed30  str	x2, [sp, #0x1d8]
+1c3ed34  str	x1, [sp, #0x1d0]
+1c3ed38  str	x0, [sp, #0x1c8]
+1c3ed3c  mov	x0, x2
+1c3ed40  orr	x1, xzr, #0x2
+1c3ed44  bl	0x1c3f100 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776c20>   ; <noise/hcauth.ValidateMaterial>
+1c3ed48  ldp	x2, x3, [sp, #0x8]
+1c3ed4c  ldp	x4, x5, [sp, #0x18]
+1c3ed50  ldr	x6, [sp, #0x28]
+1c3ed54  stp	x2, x3, [sp, #0xf8]
+1c3ed58  stp	x4, x5, [sp, #0x108]
+1c3ed5c  str	x6, [sp, #0x118]
+1c3ed60  ldp	x2, x3, [sp, #0xf8]
+1c3ed64  ldp	x4, x5, [sp, #0x108]
+1c3ed68  ldr	x6, [sp, #0x118]
+1c3ed6c  stp	x2, x3, [sp, #0xd0]
+1c3ed70  stp	x4, x5, [sp, #0xe0]
+1c3ed74  str	x6, [sp, #0xf0]
+1c3ed78  cbnz	x0, 0x1c3eefc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776a1c>
+1c3ed7c  ldp	x4, x5, [sp, #0xf8]
+1c3ed80  ldp	x6, x7, [sp, #0x108]
+1c3ed84  ldr	x8, [sp, #0x118]
+1c3ed88  stp	x4, x5, [sp, #0x8]
+1c3ed8c  stp	x6, x7, [sp, #0x18]
+1c3ed90  str	x8, [sp, #0x28]
+1c3ed94  add	x4, sp, #0x30
+1c3ed98  add	x5, sp, #0x168
+1c3ed9c  ldp	q16, q17, [x5]
+1c3eda0  stp	q16, q17, [x4]
+1c3eda4  ldp	q16, q17, [x5, #0x20]
+1c3eda8  stp	q16, q17, [x4, #0x20]
+1c3edac  ldp	q16, q17, [x5, #0x40]
+1c3edb0  stp	q16, q17, [x4, #0x40]
+1c3edb4  ldr	x0, [sp, #0x1d8]
+1c3edb8  mov	x1, xzr
+1c3edbc  mov	x2, xzr
+1c3edc0  mov	x3, xzr
+1c3edc4  bl	0x1c3f710 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x777230>   ; <noise/hcauth.signOffer>
+1c3edc8  str	x0, [sp, #0x140]
+1c3edcc  str	x1, [sp, #0x120]
+1c3edd0  str	x2, [sp, #0x128]
+1c3edd4  ldr	x4, [sp, #0x1c8]
+1c3edd8  ldr	x4, [x4, #0x20]
+1c3eddc  mov	x3, x2
+1c3ede0  mov	x2, x1
+1c3ede4  mov	x1, x0
+1c3ede8  ldr	x0, [sp, #0x1d0]
+1c3edec  blr	x4
+1c3edf0  cbnz	x0, 0x1c3eef0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776a10>
+1c3edf4  ldr	x1, [sp, #0x1c8]
+1c3edf8  ldr	x1, [x1, #0x18]
+1c3edfc  ldr	x0, [sp, #0x1d0]
+1c3ee00  blr	x1
+1c3ee04  cbnz	x3, 0x1c3eedc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7769fc>
+1c3ee08  str	x0, [sp, #0x148]
+1c3ee0c  str	x1, [sp, #0x130]
+1c3ee10  str	x2, [sp, #0x138]
+1c3ee14  ldp	x8, x9, [sp, #0xd0]
+1c3ee18  ldp	x10, x11, [sp, #0xe0]
+1c3ee1c  ldr	x12, [sp, #0xf0]
+1c3ee20  stp	x8, x9, [sp, #0x8]
+1c3ee24  stp	x10, x11, [sp, #0x18]
+1c3ee28  str	x12, [sp, #0x28]
+1c3ee2c  add	x8, sp, #0x30
+1c3ee30  add	x9, sp, #0x168
+1c3ee34  ldp	q16, q17, [x9]
+1c3ee38  stp	q16, q17, [x8]
+1c3ee3c  ldp	q16, q17, [x9, #0x20]
+1c3ee40  stp	q16, q17, [x8, #0x20]
+1c3ee44  ldp	q16, q17, [x9, #0x40]
+1c3ee48  stp	q16, q17, [x8, #0x40]
+1c3ee4c  ldr	x3, [sp, #0x1d8]
+1c3ee50  orr	x4, xzr, #0x1
+1c3ee54  ldr	x5, [sp, #0x140]
+1c3ee58  ldr	x6, [sp, #0x120]
+1c3ee5c  ldr	x7, [sp, #0x128]
+1c3ee60  bl	0x1c3f8d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7773f0>   ; <noise/hcauth.verifyOffer>
+1c3ee64  cbz	x0, 0x1c3ee74 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776994>
+1c3ee68  ldp	x29, x30, [sp, #-0x8]
+1c3ee6c  add	sp, sp, #0x160
+1c3ee70  ret
+1c3ee74  adrp x0, page
+1c3ee78  add	x0, x0, #0x420   ; =0x23f4420
+1c3ee7c  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c3ee80  str	x0, [sp, #0x150]
+1c3ee84  ldr	x0, [sp, #0x148]
+1c3ee88  ldr	x1, [sp, #0x130]
+1c3ee8c  ldr	x2, [sp, #0x138]
+1c3ee90  bl	0x1c3ef30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776a50>   ; <noise/hcauth.acceptance>
+1c3ee94  ldp	x1, x2, [sp, #0x8]
+1c3ee98  ldp	x3, x4, [sp, #0x18]
+1c3ee9c  ldur	x5, [sp, #0x21]
+1c3eea0  ldr	x6, [sp, #0x150]
+1c3eea4  stp	x1, x2, [x6]
+1c3eea8  stp	x3, x4, [x6, #0x10]
+1c3eeac  stur	x5, [x6, #0x19]
+1c3eeb0  ldr	x1, [sp, #0x1c8]
+1c3eeb4  ldr	x1, [x1, #0x20]
+1c3eeb8  ldr	x0, [sp, #0x1d0]
+1c3eebc  mov	x2, #0x21               // =33
+1c3eec0  mov	x3, x2
+1c3eec4  mov	x4, x1
+1c3eec8  mov	x1, x6
+1c3eecc  blr	x4
+1c3eed0  ldp	x29, x30, [sp, #-0x8]
+1c3eed4  add	sp, sp, #0x160
+1c3eed8  ret
+1c3eedc  mov	x0, x3

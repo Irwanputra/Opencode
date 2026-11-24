@@ -1,0 +1,109 @@
+1c711a0  ldr	x16, [x28, #0x10]
+1c711a4  cmp	sp, x16
+1c711a8  b.ls	0x1c71294 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8db4>
+1c711ac  str	x30, [sp, #-0x70]!
+1c711b0  stur	x29, [sp, #-0x8]
+1c711b4  sub	x29, sp, #0x8
+1c711b8  str	x2, [sp, #0x88]
+1c711bc  str	x0, [sp, #0x78]
+1c711c0  str	x1, [sp, #0x80]
+1c711c4  adrp x0, page
+1c711c8  add	x0, x0, #0x380   ; =0x23f0380
+1c711cc  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c711d0  str	x0, [sp, #0x60]
+1c711d4  nop
+1c711d8  mov	x1, #0x1100             // =4352
+1c711dc  strh	w1, [x0]
+1c711e0  adrp x0, page
+1c711e4  add	x0, x0, #0x7e0   ; =0x23f17e0
+1c711e8  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c711ec  orr	x1, xzr, #0x1
+1c711f0  strb	w1, [x0]
+1c711f4  ldr	x1, [sp, #0x60]
+1c711f8  orr	x2, xzr, #0x2
+1c711fc  mov	x3, #0x13               // =19
+1c71200  mov	x4, xzr
+1c71204  mov	x5, xzr
+1c71208  mov	x6, xzr
+1c7120c  mov	x7, x0
+1c71210  orr	x8, xzr, #0x1
+1c71214  mov	x9, x8
+1c71218  ldr	x0, [sp, #0x88]
+1c7121c  bl	0x19cd6b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x5051d0>   ; <github.com/flynn/noise.(*CipherState).Encrypt>
+1c71220  cbnz	x3, 0x1c71280 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8da0>
+1c71224  str	x1, [sp, #0x58]
+1c71228  ldr	x4, [sp, #0x78]
+1c7122c  ldr	x4, [x4, #0x18]
+1c71230  mov	x3, x2
+1c71234  mov	x2, x1
+1c71238  mov	x1, x0
+1c7123c  ldr	x0, [sp, #0x80]
+1c71240  blr	x4
+1c71244  cbnz	x1, 0x1c71254 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8d74>
+1c71248  ldr	x3, [sp, #0x58]
+1c7124c  cmp	x0, x3
+1c71250  b.ne	0x1c71268 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8d88>
+1c71254  mov	x0, x1
+1c71258  mov	x1, x2
+1c7125c  ldur	x29, [sp, #-0x8]
+1c71260  ldr	x30, [sp], #0x70
+1c71264  ret
+1c71268  adrp x27, page
+1c7126c  add	x27, x27, #0x260   ; =0x28a7260
+1c71270  ldp	x0, x1, [x27]
+1c71274  ldur	x29, [sp, #-0x8]
+1c71278  ldr	x30, [sp], #0x70
+1c7127c  ret
+1c71280  mov	x0, x3
+1c71284  mov	x1, x4
+1c71288  ldur	x29, [sp, #-0x8]
+1c7128c  ldr	x30, [sp], #0x70
+1c71290  ret
+1c71294  stp	x0, x1, [sp, #0x8]
+1c71298  str	x2, [sp, #0x18]
+1c7129c  mov	x3, x30
+1c712a0  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c712a4  ldp	x0, x1, [sp, #0x8]
+1c712a8  ldr	x2, [sp, #0x18]
+1c712ac  b	0x1c711a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8cc0>   ; <noise.writeHCOnlyConfirmation>
+1c712b0  ldr	x16, [x28, #0x10]
+1c712b4  cmp	sp, x16
+1c712b8  b.ls	0x1c71374 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8e94>
+1c712bc  str	x30, [sp, #-0x60]!
+1c712c0  stur	x29, [sp, #-0x8]
+1c712c4  sub	x29, sp, #0x8
+1c712c8  str	x5, [sp, #0x90]
+1c712cc  str	x0, [sp, #0x68]
+1c712d0  str	x1, [sp, #0x70]
+1c712d4  str	x4, [sp, #0x88]
+1c712d8  str	x3, [sp, #0x80]
+1c712dc  str	x2, [sp, #0x78]
+1c712e0  nop
+1c712e4  nop
+1c712e8  tst	w7, #0x1
+1c712ec  orr	x9, xzr, #0x4
+1c712f0  mov	x10, #0x5               // =5
+1c712f4  csel	x8, x9, x10, ne
+1c712f8  adrp x9, page
+1c712fc  add	x9, x9, #0xe06   ; =0x4afe06
+1c71300  adrp x10, page
+1c71304  add	x10, x10, #0x96c   ; =0x4b096c "false<nil>ErrorsvqxXchdirwritemkdirchmodlstatcho"
+1c71308  csel	x7, x9, x10, ne
+1c7130c  mov	x0, xzr
+1c71310  adrp x1, page
+1c71314  add	x1, x1, #0xa7b   ; =0x4bea7b "dnstt-limits/1:x509keypairleafrecord overflowbad"
+1c71318  orr	x2, xzr, #0xf
+1c7131c  mov	x3, x5
+1c71320  mov	x4, x6
+1c71324  adrp x5, page
+1c71328  add	x5, x5, #0xcd8   ; =0x544cd8
+1c7132c  orr	x6, xzr, #0x1
+1c71330  bl	0x13fb0f0 <.text+0x6d1d0>   ; <runtime.concatbyte4>
+1c71334  nop
+1c71338  ldr	x3, [sp, #0x80]
+1c7133c  ldr	x4, [sp, #0x88]
+1c71340  mov	x5, x0
+1c71344  mov	x6, x1
+1c71348  mov	x7, x2
+1c7134c  orr	x8, xzr, #0x1
+1c71350  adrp x9, page

@@ -1,0 +1,72 @@
+1c713b0  ldr	x16, [x28, #0x10]
+1c713b4  cmp	sp, x16
+1c713b8  b.ls	0x1c714bc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8fdc>
+1c713bc  str	x30, [sp, #-0x70]!
+1c713c0  stur	x29, [sp, #-0x8]
+1c713c4  sub	x29, sp, #0x8
+1c713c8  str	x1, [sp, #0x80]
+1c713cc  str	x0, [sp, #0x78]
+1c713d0  strh	wzr, [sp, #0x46]
+1c713d4  adrp x2, page
+1c713d8  add	x2, x2, #0x110   ; =0x2782110
+1c713dc  adrp x3, page
+1c713e0  add	x3, x3, #0x720   ; =0x2918720
+1c713e4  adrp x4, page
+1c713e8  add	x4, x4, #0x820   ; =0x236c820
+1c713ec  add	x5, sp, #0x46
+1c713f0  bl	0x14c9cf0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x1810>   ; <encoding/binary.Read>
+1c713f4  cbnz	x0, 0x1c7149c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8fbc>
+1c713f8  ldrh	w2, [sp, #0x46]
+1c713fc  str	x2, [sp, #0x48]
+1c71400  adrp x0, page
+1c71404  add	x0, x0, #0x500   ; =0x23c1500
+1c71408  mov	x1, x2
+1c7140c  bl	0x14172d0 <.text+0x893b0>   ; <runtime.makeslice>
+1c71410  str	x0, [sp, #0x60]
+1c71414  nop
+1c71418  ldr	x1, [sp, #0x80]
+1c7141c  mov	x2, x0
+1c71420  ldr	x3, [sp, #0x48]
+1c71424  mov	x4, x3
+1c71428  mov	x5, x3
+1c7142c  ldr	x0, [sp, #0x78]
+1c71430  bl	0x145f3d0 <crosscall2+0x2c6f0>   ; <io.ReadAtLeast>
+1c71434  adrp x27, page
+1c71438  add	x27, x27, #0x290   ; =0x28a7290
+1c7143c  ldp	x3, x4, [x27]
+1c71440  cmp	x1, x3
+1c71444  b.ne	0x1c7147c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8f9c>
+1c71448  str	x1, [sp, #0x50]
+1c7144c  str	x2, [sp, #0x58]
+1c71450  mov	x0, x1
+1c71454  mov	x1, x2
+1c71458  mov	x2, x4
+1c7145c  bl	0x13a3940 <.text+0x15a20>   ; <runtime.ifaceeq>
+1c71460  tbz	w0, #0x0, 0x1c71474 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8f94>
+1c71464  adrp x27, page
+1c71468  add	x27, x27, #0x2a0   ; =0x28a72a0
+1c7146c  ldp	x1, x2, [x27]
+1c71470  b	0x1c7147c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8f9c>   ; <noise.readMessage>
+1c71474  ldr	x1, [sp, #0x50]
+1c71478  ldr	x2, [sp, #0x58]
+1c7147c  ldr	x0, [sp, #0x60]
+1c71480  mov	x3, x1
+1c71484  mov	x4, x2
+1c71488  ldr	x1, [sp, #0x48]
+1c7148c  mov	x2, x1
+1c71490  ldur	x29, [sp, #-0x8]
+1c71494  ldr	x30, [sp], #0x70
+1c71498  ret
+1c7149c  mov	x2, xzr
+1c714a0  mov	x3, x0
+1c714a4  mov	x4, x1
+1c714a8  mov	x0, xzr
+1c714ac  mov	x1, xzr
+1c714b0  ldur	x29, [sp, #-0x8]
+1c714b4  ldr	x30, [sp], #0x70
+1c714b8  ret
+1c714bc  stp	x0, x1, [sp, #0x8]
+1c714c0  mov	x3, x30
+1c714c4  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c714c8  ldp	x0, x1, [sp, #0x8]
+1c714cc  b	0x1c713b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8ed0>   ; <noise.readMessage>

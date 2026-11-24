@@ -1,0 +1,160 @@
+1c70440  ldr	x16, [x28, #0x10]
+1c70444  sub	x17, sp, #0x120
+1c70448  cmp	x17, x16
+1c7044c  b.ls	0x1c706c8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a81e8>
+1c70450  sub	x20, sp, #0x1a0
+1c70454  stp	x29, x30, [x20, #-0x8]
+1c70458  mov	sp, x20
+1c7045c  sub	x29, sp, #0x8
+1c70460  str	x5, [sp, #0x1d0]
+1c70464  str	x8, [sp, #0x1e8]
+1c70468  str	x2, [sp, #0x1b8]
+1c7046c  str	x3, [sp, #0x1c0]
+1c70470  str	x11, [sp, #0x200]
+1c70474  strb	w12, [sp, #0x208]
+1c70478  str	x1, [sp, #0x1b0]
+1c7047c  str	x0, [sp, #0x1a8]
+1c70480  ldp	x0, x1, [x4, #0x70]
+1c70484  ldr	x2, [x4, #0x80]
+1c70488  mov	x3, x5
+1c7048c  mov	x4, x6
+1c70490  mov	x5, x7
+1c70494  mov	x6, x8
+1c70498  mov	x7, x9
+1c7049c  mov	x8, x10
+1c704a0  bl	0x1c3f5b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7770d0>   ; <noise/hcauth.NewBinding>
+1c704a4  add	x9, sp, #0x110
+1c704a8  add	x10, sp, #0x8
+1c704ac  ldp	q16, q17, [x10]
+1c704b0  stp	q16, q17, [x9]
+1c704b4  ldp	q16, q17, [x10, #0x20]
+1c704b8  stp	q16, q17, [x9, #0x20]
+1c704bc  ldp	q16, q17, [x10, #0x40]
+1c704c0  stp	q16, q17, [x9, #0x40]
+1c704c4  add	x10, sp, #0xb0
+1c704c8  ldp	q16, q17, [x9]
+1c704cc  stp	q16, q17, [x10]
+1c704d0  ldp	q16, q17, [x9, #0x20]
+1c704d4  stp	q16, q17, [x10, #0x20]
+1c704d8  ldp	q16, q17, [x9, #0x40]
+1c704dc  stp	q16, q17, [x10, #0x40]
+1c704e0  cbnz	x0, 0x1c70514 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8034>
+1c704e4  adrp x0, page
+1c704e8  add	x0, x0, #0xae0   ; =0x25b0ae0
+1c704ec  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c704f0  ldr	x1, [sp, #0x1a8]
+1c704f4  cbz	x1, 0x1c70520 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8040>
+1c704f8  ldr	x3, [x1, #0x8]
+1c704fc  adrp x4, page
+1c70500  add	x4, x4, #0xe50   ; =0x28b2e50
+1c70504  ldar	x5, [x4]
+1c70508  ldr	w6, [x1, #0x10]
+1c7050c  ldr	x7, [x5]
+1c70510  b	0x1c70680 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a81a0>   ; <noise.authenticateHCRelease>
+1c70514  ldp	x29, x30, [sp, #-0x8]
+1c70518  add	sp, sp, #0x1a0
+1c7051c  ret
+1c70520  str	x1, [x0]
+1c70524  adrp x27, page
+1c70528  ldr	w3, [x27, #0x8b0]
+1c7052c  cbnz	w3, 0x1c70540 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8060>
+1c70530  ldr	x4, [sp, #0x1b8]
+1c70534  ldr	x5, [sp, #0x1c0]
+1c70538  ldr	x6, [sp, #0x1b0]
+1c7053c  b	0x1c70564 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8084>   ; <noise.authenticateHCRelease>
+1c70540  ldr	x3, [x0, #0x18]
+1c70544  ldp	x4, x5, [x0, #0x8]
+1c70548  bl	0x141c840 <_cgo_topofstack+0xe0>   ; <runtime.debugCallV2>
+1c7054c  ldr	x6, [sp, #0x1b0]
+1c70550  stp	x6, x4, [x25]
+1c70554  ldr	x4, [sp, #0x1b8]
+1c70558  stp	x4, x5, [x25, #0x10]
+1c7055c  ldr	x5, [sp, #0x1c0]
+1c70560  stp	x5, x3, [x25, #0x20]
+1c70564  str	x6, [x0, #0x8]
+1c70568  stp	x4, x5, [x0, #0x10]
+1c7056c  ldrb	w3, [sp, #0x208]
+1c70570  cmp	w3, #0x1
+1c70574  b.ne	0x1c705b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a80d0>
+1c70578  add	x3, sp, #0x8
+1c7057c  add	x4, sp, #0xb0
+1c70580  ldp	q16, q17, [x4]
+1c70584  stp	q16, q17, [x3]
+1c70588  ldp	q16, q17, [x4, #0x20]
+1c7058c  stp	q16, q17, [x3, #0x20]
+1c70590  ldp	q16, q17, [x4, #0x40]
+1c70594  stp	q16, q17, [x3, #0x40]
+1c70598  mov	x1, x0
+1c7059c  ldr	x2, [sp, #0x200]
+1c705a0  adrp x0, page
+1c705a4  add	x0, x0, #0x958   ; =0x276a958
+1c705a8  bl	0x1c3eab0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7765d0>   ; <noise/hcauth.AuthenticateClient>
+1c705ac  b	0x1c705e4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8104>   ; <noise.authenticateHCRelease>
+1c705b0  add	x3, sp, #0x8
+1c705b4  add	x4, sp, #0xb0
+1c705b8  ldp	q16, q17, [x4]
+1c705bc  stp	q16, q17, [x3]
+1c705c0  ldp	q16, q17, [x4, #0x20]
+1c705c4  stp	q16, q17, [x3, #0x20]
+1c705c8  ldp	q16, q17, [x4, #0x40]
+1c705cc  stp	q16, q17, [x3, #0x40]
+1c705d0  mov	x1, x0
+1c705d4  ldr	x2, [sp, #0x200]
+1c705d8  adrp x0, page
+1c705dc  add	x0, x0, #0x958   ; =0x276a958
+1c705e0  bl	0x1c3ed10 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776830>   ; <noise/hcauth.AuthenticateServer>
+1c705e4  cbz	x0, 0x1c7066c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a818c>
+1c705e8  add	x2, sp, #0x170
+1c705ec  stp	xzr, xzr, [x2]
+1c705f0  stp	xzr, xzr, [x2, #0x10]
+1c705f4  adrp x27, page
+1c705f8  add	x27, x27, #0x80   ; =0x28a7080
+1c705fc  ldp	x5, x6, [x27]
+1c70600  cbz	x5, 0x1c70608 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8128>
+1c70604  ldr	x5, [x5, #0x8]
+1c70608  stp	x5, x6, [sp, #0x170]
+1c7060c  cbz	x0, 0x1c70614 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8134>
+1c70610  ldr	x0, [x0, #0x8]
+1c70614  stp	x0, x1, [sp, #0x180]
+1c70618  adrp x0, page
+1c7061c  add	x0, x0, #0xc36   ; =0x4b1c36
+1c70620  orr	x1, xzr, #0x6
+1c70624  orr	x3, xzr, #0x2
+1c70628  mov	x4, x3
+1c7062c  bl	0x1491d80 <crosscall2+0x5f0a0>   ; <fmt.errorf>
+1c70630  cbnz	x0, 0x1c70660 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8180>
+1c70634  nop
+1c70638  adrp x0, page
+1c7063c  add	x0, x0, #0xae0   ; =0x24ddae0
+1c70640  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c70644  adrp x1, page
+1c70648  add	x1, x1, #0xc36   ; =0x4b1c36
+1c7064c  orr	x2, xzr, #0x6
+1c70650  stp	x1, x2, [x0]
+1c70654  mov	x1, x0
+1c70658  adrp x0, page
+1c7065c  add	x0, x0, #0xa08   ; =0x275fa08
+1c70660  ldp	x29, x30, [sp, #-0x8]
+1c70664  add	sp, sp, #0x1a0
+1c70668  ret
+1c7066c  mov	x0, xzr
+1c70670  mov	x1, xzr
+1c70674  ldp	x29, x30, [sp, #-0x8]
+1c70678  add	sp, sp, #0x1a0
+1c7067c  ret
+1c70680  and	x8, x6, x7
+1c70684  lsl	x8, x8, #4
+1c70688  add	x8, x8, #0x8
+1c7068c  ldr	x9, [x5, x8]
+1c70690  add	x8, x5, x8
+1c70694  cmp	x9, x3
+1c70698  b.eq	0x1c706c0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a81e0>
+1c7069c  add	x6, x6, #0x1
+1c706a0  cbnz	x9, 0x1c70680 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a81a0>
+1c706a4  str	x0, [sp, #0x190]
+1c706a8  mov	x0, x4
+1c706ac  mov	x1, x3
+1c706b0  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c706b4  mov	x1, x0
+1c706b8  ldr	x0, [sp, #0x190]
+1c706bc  b	0x1c70520 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8040>   ; <noise.authenticateHCRelease>

@@ -1,0 +1,125 @@
+1c74d50  ldr	x0, [sp, #0x28]
+1c74d54  ldrsb	x27, [x0]
+1c74d58  orr	x1, xzr, #0x80000
+1c74d5c  bl	0x150ba60 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x43580>   ; <net.(*conn).SetReadBuffer>
+1c74d60  ldur	x29, [sp, #-0x8]
+1c74d64  ldr	x30, [sp], #0x20
+1c74d68  ret
+1c74d6c  mov	x0, x1
+1c74d70  mov	x1, x2
+1c74d74  ldur	x29, [sp, #-0x8]
+1c74d78  ldr	x30, [sp], #0x20
+1c74d7c  ret
+1c74d80  str	x0, [sp, #0x8]
+1c74d84  mov	x3, x30
+1c74d88  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c74d8c  ldr	x0, [sp, #0x8]
+1c74d90  b	0x1c74d10 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac830>   ; <internal/udpbuffer.Grow>
+1c74da0  ldr	x16, [x28, #0x10]
+1c74da4  sub	x17, sp, #0x30
+1c74da8  cmp	x17, x16
+1c74dac  b.ls	0x1c74f70 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca90>
+1c74db0  str	x30, [sp, #-0xb0]!
+1c74db4  stur	x29, [sp, #-0x8]
+1c74db8  sub	x29, sp, #0x8
+1c74dbc  str	x4, [sp, #0xd8]
+1c74dc0  str	x5, [sp, #0xe0]
+1c74dc4  str	x3, [sp, #0xd0]
+1c74dc8  str	x2, [sp, #0xc8]
+1c74dcc  str	x1, [sp, #0xc0]
+1c74dd0  str	x0, [sp, #0xb8]
+1c74dd4  str	x5, [sp, #0x70]
+1c74dd8  str	x4, [sp, #0x68]
+1c74ddc  b	0x1c74de8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac908>   ; <bond.writeLane>
+1c74de0  ldr	x0, [sp, #0xb8]
+1c74de4  ldr	x1, [sp, #0xc0]
+1c74de8  ldr	x2, [x0, #0x20]
+1c74dec  mov	x0, x1
+1c74df0  blr	x2
+1c74df4  str	xzr, [sp, #0xa0]
+1c74df8  add	x1, sp, #0x78
+1c74dfc  stp	xzr, xzr, [x1]
+1c74e00  stp	xzr, xzr, [x1, #0x10]
+1c74e04  str	x0, [sp, #0x88]
+1c74e08  ldr	x1, [sp, #0x68]
+1c74e0c  add	x2, sp, #0xa0
+1c74e10  stp	x1, x2, [sp, #0x78]
+1c74e14  add	x0, sp, #0x78
+1c74e18  add	x1, sp, #0x40
+1c74e1c  mov	x2, xzr
+1c74e20  mov	x3, xzr
+1c74e24  orr	x4, xzr, #0x2
+1c74e28  orr	x5, xzr, #0x1
+1c74e2c  bl	0x13f20a0 <.text+0x64180>   ; <runtime.selectgo>
+1c74e30  cbnz	x0, 0x1c74ef0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca10>
+1c74e34  tbz	w1, #0x0, 0x1c74edc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac9fc>
+1c74e38  ldr	x2, [sp, #0xa0]
+1c74e3c  ldr	x5, [x2, #0x2008]
+1c74e40  rev16	w5, w5
+1c74e44  strh	w5, [x2]
+1c74e48  ldr	x5, [x2, #0x2008]
+1c74e4c  add	x3, x5, #0x2
+1c74e50  mov	x5, #0x2002             // =8194
+1c74e54  cmp	x3, x5
+1c74e58  b.hi	0x1c74f64 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca84>
+1c74e5c  str	x2, [sp, #0x58]
+1c74e60  ldr	x0, [sp, #0xc8]
+1c74e64  cbz	x0, 0x1c74e84 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac9a4>
+1c74e68  ldr	x1, [x0, #0x8]
+1c74e6c  adrp x5, page
+1c74e70  add	x5, x5, #0xe50   ; =0x28b5e50
+1c74e74  ldar	x6, [x5]
+1c74e78  ldr	w7, [x0, #0x10]
+1c74e7c  ldr	x8, [x6]
+1c74e80  b	0x1c74f1c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca3c>   ; <bond.writeLane>
+1c74e84  ldr	x1, [sp, #0xd0]
+1c74e88  mov	x4, #0x2002             // =8194
+1c74e8c  bl	0x1c760d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7adbf0>   ; <bond.writeAll>
+1c74e90  str	x0, [sp, #0x48]
+1c74e94  str	x1, [sp, #0x60]
+1c74e98  ldr	x5, [sp, #0x58]
+1c74e9c  mov	x0, x5
+1c74ea0  orr	x6, xzr, #0x80
+1c74ea4  stp	xzr, xzr, [x5], #0x10
+1c74ea8  stp	xzr, xzr, [x5], #0x10
+1c74eac  stp	xzr, xzr, [x5], #0x10
+1c74eb0  stp	xzr, xzr, [x5], #0x10
+1c74eb4  sub	x6, x6, #0x1
+1c74eb8  cbnz	x6, 0x1c74ea4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac9c4>
+1c74ebc  stur	xzr, [x5, #-0x6]
+1c74ec0  str	x0, [sp, #0x98]
+1c74ec4  ldr	x0, [sp, #0x70]
+1c74ec8  add	x1, sp, #0x98
+1c74ecc  bl	0x13a5750 <.text+0x17830>   ; <runtime.chansend>
+1c74ed0  ldr	x0, [sp, #0x48]
+1c74ed4  cbz	x0, 0x1c74de0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7ac900>
+1c74ed8  b	0x1c74f0c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca2c>   ; <bond.writeLane>
+1c74edc  mov	x0, xzr
+1c74ee0  mov	x1, xzr
+1c74ee4  ldur	x29, [sp, #-0x8]
+1c74ee8  ldr	x30, [sp], #0xb0
+1c74eec  ret
+1c74ef0  ldr	x1, [sp, #0xb8]
+1c74ef4  ldr	x1, [x1, #0x28]
+1c74ef8  ldr	x0, [sp, #0xc0]
+1c74efc  blr	x1
+1c74f00  ldur	x29, [sp, #-0x8]
+1c74f04  ldr	x30, [sp], #0xb0
+1c74f08  ret
+1c74f0c  ldr	x1, [sp, #0x60]
+1c74f10  ldur	x29, [sp, #-0x8]
+1c74f14  ldr	x30, [sp], #0xb0
+1c74f18  ret
+1c74f1c  and	x9, x7, x8
+1c74f20  lsl	x9, x9, #4
+1c74f24  add	x9, x9, #0x8
+1c74f28  ldr	x10, [x6, x9]
+1c74f2c  add	x9, x6, x9
+1c74f30  cmp	x10, x1
+1c74f34  b.eq	0x1c74f58 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca78>
+1c74f38  add	x7, x7, #0x1
+1c74f3c  cbnz	x10, 0x1c74f1c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aca3c>
+1c74f40  str	x3, [sp, #0x50]
+1c74f44  mov	x0, x5
+1c74f48  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c74f4c  ldr	x2, [sp, #0x58]

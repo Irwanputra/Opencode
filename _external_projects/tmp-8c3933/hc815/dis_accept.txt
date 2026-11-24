@@ -1,0 +1,45 @@
+1c3eee0  mov	x1, x4
+1c3eee4  ldp	x29, x30, [sp, #-0x8]
+1c3eee8  add	sp, sp, #0x160
+1c3eeec  ret
+1c3eef0  ldp	x29, x30, [sp, #-0x8]
+1c3eef4  add	sp, sp, #0x160
+1c3eef8  ret
+1c3eefc  ldp	x29, x30, [sp, #-0x8]
+1c3ef00  add	sp, sp, #0x160
+1c3ef04  ret
+1c3ef08  stp	x0, x1, [sp, #0x68]
+1c3ef0c  str	x2, [sp, #0x78]
+1c3ef10  mov	x3, x30
+1c3ef14  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c3ef18  ldp	x0, x1, [sp, #0x68]
+1c3ef1c  ldr	x2, [sp, #0x78]
+1c3ef20  b	0x1c3ed10 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776830>   ; <noise/hcauth.AuthenticateServer>
+1c3ef30  ldr	x16, [x28, #0x10]
+1c3ef34  sub	x17, sp, #0x10
+1c3ef38  cmp	x17, x16
+1c3ef3c  b.ls	0x1c3efc8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x776ae8>
+1c3ef40  str	x30, [sp, #-0x90]!
+1c3ef44  stur	x29, [sp, #-0x8]
+1c3ef48  sub	x29, sp, #0x8
+1c3ef4c  str	x0, [sp, #0xc0]
+1c3ef50  add	x3, sp, #0x98
+1c3ef54  stp	xzr, xzr, [x3]
+1c3ef58  stp	xzr, xzr, [x3, #0x10]
+1c3ef5c  stur	xzr, [x3, #0x19]
+1c3ef60  add	x3, sp, #0x47
+1c3ef64  stp	xzr, xzr, [x3]
+1c3ef68  stp	xzr, xzr, [x3, #0x10]
+1c3ef6c  stur	xzr, [x3, #0x19]
+1c3ef70  orr	x3, xzr, #0x3
+1c3ef74  strb	w3, [sp, #0x47]
+1c3ef78  bl	0x14b9250 <crosscall2+0x86570>   ; <crypto/sha256.Sum256>
+1c3ef7c  ldp	x3, x4, [sp, #0x8]
+1c3ef80  ldp	x5, x6, [sp, #0x18]
+1c3ef84  stp	x3, x4, [sp, #0x68]
+1c3ef88  stp	x5, x6, [sp, #0x78]
+1c3ef8c  ldp	x3, x4, [sp, #0x68]
+1c3ef90  ldp	x5, x6, [sp, #0x78]
+1c3ef94  stp	x3, x4, [sp, #0x48]
+1c3ef98  stp	x5, x6, [sp, #0x58]
+1c3ef9c  add	x27, sp, #0x47

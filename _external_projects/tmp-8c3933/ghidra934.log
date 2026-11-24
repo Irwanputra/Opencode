@@ -1,0 +1,140 @@
+openjdk version "25.0.5" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode)
+INFO  Using log config file: jar:file:/tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/runner/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/runner/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (2227 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 120 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 120 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 120 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (4903 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /tmp/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Swift/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_proj/codec934 (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_proj/codec934 (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /tmp/ghidra_proj/codec934 (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/hc/libs/libcodec.so (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: AARCH64:LE:64:v8A:default (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f420 (External Location = lrand48+0xf11b4100) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f428 (External Location = lrand48+0x89041100) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f430 (External Location = lrand48+0x8f993b00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f438 (External Location = lrand48+0x4747b400) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f440 (External Location = lrand48+0x60a52e00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f448 (External Location = lrand48+0xc5624300) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f450 (External Location = lrand48+0x90a9aa00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f458 (External Location = lrand48+0x98d0ef00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f460 (External Location = lrand48+0x3c2d8400) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f468 (External Location = lrand48+0x9e04f700) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f470 (External Location = lrand48+0x45fe9800) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f478 (External Location = lrand48+0x7480b400) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011f480 (External Location = lrand48+0x9b09b200) (ElfRelocationHandler)  
+INFO  Additional info:
+Loading file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/hc/libs/libcodec.so?MD5=6a8094f1b0773f02b67b63c97777b369...
+Setting block .data.rel.ro to read-only
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'libcodec.so' to imported libraries...
+  [libm.so] -> not found in project
+  [libdl.so] -> not found in project
+  [libc.so] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/libcodec.so] - 10 unresolved symbols, no external libraries configured - skipping
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/hc/libs/libcodec.so (HeadlessAnalyzer)  
+INFO  Unable to find DWARF information, skipping DWARF analysis (DWARFAnalyzer)  
+INFO  Packed database cache: /var/tmp/runner-ghidra/packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib_64 (ApplyDataArchiveAnalyzer)  
+INFO  No functions detected that make variadic function calls with format strings containing format specifiers (FormatStringAnalyzer)  
+INFO  -----------------------------------------------------
+    AARCH64 ELF PLT Thunks                     0.075 secs
+    ASCII Strings                              0.465 secs
+    Apply Data Archives                        1.359 secs
+    Basic Constant Reference Analyzer          3.016 secs
+    Call Convention ID                         0.003 secs
+    Call-Fixup Installer                       0.008 secs
+    Create Address Tables                      0.118 secs
+    Create Address Tables - One Time           0.793 secs
+    Create Function                            0.042 secs
+    DWARF                                      0.004 secs
+    Data Reference                             0.741 secs
+    Decompiler Switch Analysis                 1.003 secs
+    Demangler GNU                              0.044 secs
+    Disassemble                                0.481 secs
+    Disassemble Entry Points                   0.120 secs
+    Embedded Media                             0.019 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.044 secs
+    Function Start Search                      0.089 secs
+    Function Start Search After Code           0.024 secs
+    Function Start Search After Data           0.009 secs
+    Function Start Search delayed - One Time   0.032 secs
+    GCC Exception Handlers                     0.114 secs
+    Non-Returning Functions - Discovered       0.052 secs
+    Non-Returning Functions - Known            0.005 secs
+    Reference                                  0.775 secs
+    Shared Return Calls                        0.037 secs
+    Source Language Support                    0.004 secs
+    Stack                                      0.229 secs
+    Subroutine References                      0.845 secs
+    Subroutine References - One Time           0.000 secs
+    Variadic Function Signature Override       0.018 secs
+-----------------------------------------------------
+     Total Time   10 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/hc/libs/libcodec.so (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: ExportC.java  (HeadlessAnalyzer)  
+INFO  SCRIPT: /tmp/ghidra_scripts/ExportC.java (HeadlessAnalyzer)  
+WARN  Decompiling 00124000, pcode error at 00124000: Unable to disassemble EXTERNAL block location: 00124000 (DecompileCallback)  
+WARN  Decompiling 00124008, pcode error at 00124008: Unable to disassemble EXTERNAL block location: 00124008 (DecompileCallback)  
+WARN  Decompiling 00124010, pcode error at 00124010: Unable to disassemble EXTERNAL block location: 00124010 (DecompileCallback)  
+WARN  Decompiling 00124018, pcode error at 00124018: Unable to disassemble EXTERNAL block location: 00124018 (DecompileCallback)  
+WARN  Decompiling 00124020, pcode error at 00124020: Unable to disassemble EXTERNAL block location: 00124020 (DecompileCallback)  
+WARN  Decompiling 00124028, pcode error at 00124028: Unable to disassemble EXTERNAL block location: 00124028 (DecompileCallback)  
+WARN  Decompiling 00124030, pcode error at 00124030: Unable to disassemble EXTERNAL block location: 00124030 (DecompileCallback)  
+WARN  Decompiling 00124038, pcode error at 00124038: Unable to disassemble EXTERNAL block location: 00124038 (DecompileCallback)  
+WARN  Decompiling 00124040, pcode error at 00124040: Unable to disassemble EXTERNAL block location: 00124040 (DecompileCallback)  
+WARN  Decompiling 00124048, pcode error at 00124048: Unable to disassemble EXTERNAL block location: 00124048 (DecompileCallback)  
+INFO  ExportC.java> exported 42 functions (GhidraScript)  
+INFO  ANALYZING changes made by post scripts: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/hc/libs/libcodec.so (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/hc/libs/libcodec.so (HeadlessAnalyzer)  
+INFO  /libcodec.so: file created (runner) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /libcodec.so (codec934:/libcodec.so) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

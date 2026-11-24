@@ -1,0 +1,159 @@
+openjdk version "25.0.5" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode)
+INFO  Using log config file: jar:file:/tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: /home/runner/.config/ghidra/ghidra_12.2_PUBLIC/application.log (LoggingInitialization)  
+INFO  Loading user preferences: /home/runner/.config/ghidra/ghidra_12.2_PUBLIC/preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1401 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: NativePRNGNonBlocking (SecureRandomFactory)  
+INFO  Loaded 120 trusted CA certificate(s) from /etc/ssl/certs/ca-certificates.crt (UnixSystemTrustKeyStoreUtil)  
+INFO  Loaded 120 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 120 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Starting cache cleanup: /var/tmp/runner-ghidra/fscache2 (FileCacheMaintenanceDaemon)  
+INFO  Finished cache cleanup, estimated storage used: 0 (FileCacheMaintenanceDaemon)  
+INFO  Headless startup complete (3825 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 60 extension points (19 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger-rmi-trace/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Base/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/MicrosoftCodeAnalyzer/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/WildcardAssembler/ghidra_scripts
+    /tmp/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/SystemEmulation/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/BSim/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Swift/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/Decompiler/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/PyGhidra/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/VersionTracking/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/PIC/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Debug/Debugger/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/JVM/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/FunctionID/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/8051/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/FileFormats/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/Atmel/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/BytePatterns/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/PDB/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/DecompilerDependent/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Processors/DATA/ghidra_scripts
+    /tmp/ghidra/ghidra_12.2_PUBLIC/Ghidra/Features/GnuDemangler/ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_proj/codec942 (HeadlessAnalyzer)  
+INFO  Creating project: /tmp/ghidra_proj/codec942 (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: /tmp/ghidra_proj/codec942 (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/w815lib/lib/arm64-v8a/libcodec.so (HeadlessAnalyzer)  
+INFO  Using Loader: Executable and Linking Format (ELF) (ProgramLoader)  
+INFO  Using Language/Compiler: AARCH64:LE:64:v8A:default (ProgramLoader)  
+INFO  Using Library Search Path: [., /bin, /lib, /lib64, /lib/x86_64-linux-gnu, /lib/aarch64-linux-gnu, /usr/bin, /usr/lib, /usr/X11R6/bin, /usr/X11R6/lib, /usr/java/packages/lib, /usr/lib64] (ProgramLoader)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e220 (External Location = lrand48+0x9b0bbe00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e228 (External Location = lrand48+0x32e25400) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e230 (External Location = lrand48+0xcf403400) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e238 (External Location = lrand48+0xd8a50100) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e240 (External Location = lrand48+0xb7c45f00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e248 (External Location = lrand48+0x1c1d5100) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e250 (External Location = lrand48+0x79a69000) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e258 (External Location = lrand48+0xcdb3af00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e260 (External Location = lrand48+0x1c1d9f00) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e268 (External Location = lrand48+0xe4b97500) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e270 (External Location = lrand48+0xa3911400) (ElfRelocationHandler)  
+WARN  EXTERNAL Data ELF Relocation with offset: at 0011e278 (External Location = lrand48+0x3a07da00) (ElfRelocationHandler)  
+INFO  Additional info:
+Loading file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/w815lib/lib/arm64-v8a/libcodec.so?MD5=ce9c3c815be7204fbc260ae15d163100...
+Setting block .data.rel.ro to read-only
+Setting block .fini_array to read-only
+Setting block .init_array to read-only
+Setting block .dynamic to read-only
+------------------------------------------------
+
+Linking the External Programs of 'libcodec.so' to imported libraries...
+  [libm.so] -> not found in project
+  [libdl.so] -> not found in project
+  [libc.so] -> not found in project
+------------------------------------------------
+
+Resolving External Symbols of [/libcodec.so] - 10 unresolved symbols, no external libraries configured - skipping
+ (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/w815lib/lib/arm64-v8a/libcodec.so (HeadlessAnalyzer)  
+INFO  Unable to find DWARF information, skipping DWARF analysis (DWARFAnalyzer)  
+INFO  Packed database cache: /var/tmp/runner-ghidra/packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib_64 (ApplyDataArchiveAnalyzer)  
+INFO  No functions detected that make variadic function calls with format strings containing format specifiers (FormatStringAnalyzer)  
+INFO  -----------------------------------------------------
+    AARCH64 ELF PLT Thunks                     0.070 secs
+    ASCII Strings                              0.454 secs
+    Apply Data Archives                        1.126 secs
+    Basic Constant Reference Analyzer          2.057 secs
+    Call Convention ID                         0.003 secs
+    Call-Fixup Installer                       0.003 secs
+    Create Address Tables                      0.165 secs
+    Create Address Tables - One Time           0.631 secs
+    Create Function                            0.026 secs
+    DWARF                                      0.004 secs
+    Data Reference                             0.512 secs
+    Decompiler Switch Analysis                 0.696 secs
+    Demangler GNU                              0.039 secs
+    Disassemble                                0.257 secs
+    Disassemble Entry Points                   0.089 secs
+    Embedded Media                             0.012 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.027 secs
+    Function Start Search                      0.035 secs
+    Function Start Search After Code           0.029 secs
+    Function Start Search After Data           0.022 secs
+    Function Start Search delayed - One Time   0.005 secs
+    GCC Exception Handlers                     0.079 secs
+    Non-Returning Functions - Discovered       0.024 secs
+    Non-Returning Functions - Known            0.006 secs
+    Reference                                  0.575 secs
+    Shared Return Calls                        0.021 secs
+    Source Language Support                    0.003 secs
+    Stack                                      0.120 secs
+    Subroutine References                      0.662 secs
+    Subroutine References - One Time           0.000 secs
+    Variadic Function Signature Override       0.018 secs
+-----------------------------------------------------
+     Total Time   7 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/w815lib/lib/arm64-v8a/libcodec.so (HeadlessAnalyzer)  
+INFO  REPORT: Execute script: ExportC.java  (HeadlessAnalyzer)  
+ERROR ExportC.java:17: error: cannot find symbol
+        DecompResults r = di.decompileFunction(f, 60, new ConsoleTaskMonitor());
+        ^
+  symbol:   class DecompResults
+  location: class ExportC
+skipping /tmp/ghidra_scripts/ExportC.java
+ (HeadlessAnalyzer)  
+ERROR REPORT SCRIPT ERROR: ExportC.java : The class could not be found. It must be the public class of the .java file: ExportC not found by 687f4c1b [1] (HeadlessAnalyzer) ghidra.app.script.GhidraScriptLoadException: The class could not be found. It must be the public class of the .java file: ExportC not found by 687f4c1b [1]
+	at ghidra.app.script.JavaScriptProvider.getScriptInstance(JavaScriptProvider.java:114)
+	at ghidra.app.util.headless.HeadlessAnalyzer.runScriptsList(HeadlessAnalyzer.java:929)
+	at ghidra.app.util.headless.HeadlessAnalyzer.analyzeProgram(HeadlessAnalyzer.java:1107)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processFileWithImport(HeadlessAnalyzer.java:1606)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithLoader(HeadlessAnalyzer.java:1770)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithImport(HeadlessAnalyzer.java:1705)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithImport(HeadlessAnalyzer.java:1795)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processLocal(HeadlessAnalyzer.java:464)
+	at ghidra.app.util.headless.AnalyzeHeadless.launch(AnalyzeHeadless.java:211)
+	at ghidra.GhidraLauncher.launch(GhidraLauncher.java:78)
+	at ghidra.Ghidra.main(Ghidra.java:41)
+Caused by: java.lang.ClassNotFoundException: ExportC not found by 687f4c1b [1]
+	at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1591)
+	at org.apache.felix.framework.BundleWiringImpl.access$300(BundleWiringImpl.java:79)
+	at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:1976)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490)
+	at org.apache.felix.framework.Felix.loadBundleClass(Felix.java:2116)
+	at org.apache.felix.framework.BundleImpl.loadClass(BundleImpl.java:986)
+	at ghidra.app.script.JavaScriptProvider.loadClass(JavaScriptProvider.java:166)
+	at ghidra.app.script.JavaScriptProvider.getScriptInstance(JavaScriptProvider.java:97)
+	... 10 more
+ 
+INFO  ANALYZING changes made by post scripts: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/w815lib/lib/arm64-v8a/libcodec.so (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///home/runner/work/Opencode/Opencode/_external_projects/opencode-66b774/w815lib/lib/arm64-v8a/libcodec.so (HeadlessAnalyzer)  
+INFO  /libcodec.so: file created (runner) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /libcodec.so (codec942:/libcodec.so) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  

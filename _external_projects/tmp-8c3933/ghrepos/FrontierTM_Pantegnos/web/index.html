@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantegnos — Web Decryptor</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="favicon-192.png">
+<link rel="stylesheet" href="vendor/vazirmatn.css">
+<script src="vendor/tailwind.js"></script>
+<style type="text/tailwindcss">
+  @theme {
+    --color-bg: #120c08;
+    --color-surface: #1d140c;
+    --color-border: #3d2a1a;
+    --color-text: #ede4d8;
+    --color-muted: #a89483;
+    --color-accent: #ff9e3d;
+    --color-accent-hot: #ff6b1a;
+    --color-error: #ff5353;
+    --color-ok: #7adf72;
+    --font-sans: "Vazirmatn", system-ui, -apple-system, "Segoe UI", Tahoma, Roboto, sans-serif;
+  }
+
+  [data-theme="light"] {
+    --color-bg: #faf6f0;
+    --color-surface: #ffffff;
+    --color-border: #e0d5c8;
+    --color-text: #2a2118;
+    --color-muted: #7a6a58;
+    --color-error: #d33;
+    --color-ok: #2e9e44;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) var(--color-bg);
+  }
+
+  .version-badge {
+    display: inline-block; margin-top: 6px; padding: 2px 9px;
+    border: 1px solid var(--color-border); border-radius: 999px;
+    font-size: .7rem; letter-spacing: .4px; color: var(--color-muted);
+  }
+  #dropzone.dragover {
+    border-color: var(--color-accent);
+  }
+
+  [dir="rtl"] #fileinfo,
+  [dir="rtl"] #output,
+  [dir="rtl"] .badge {
+    direction: ltr;
+    text-align: left;
+  }
+
+  #status.ok { color: var(--color-ok); }
+  #status.err { color: var(--color-error); }
+  #status.busy { color: var(--color-muted); }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .anim-fade-in { animation: fadeIn 0.4s ease-out; }
+  .anim-fade-in-up { animation: fadeInUp 0.35s ease-out; }
+  .anim-scale-in { animation: scaleIn 0.25s ease-out; }
+</style>
+</head>
+<body class="m-0 bg-bg text-text font-sans leading-[1.55]">
+<div class="max-w-[880px] mx-auto px-6 pt-12 pb-16 anim-fade-in">
+  <header>
+    <div class="flex items-start justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <!-- internal/brand/logo.svg, copied to web/; the brand test fails if
+             the two ever drift apart. -->
+        <div>
+          <h1 class="mb-1 text-[2.2rem] font-extrabold tracking-[0.02em] bg-linear-to-r from-accent to-accent-hot bg-clip-text text-transparent">PANTEGNOS</h1>
+          <p class="mb-0 text-muted" data-i18n="tagline">In-browser decryptor for VPN / proxy app config files. Everything runs locally — your files are never uploaded.</p>
+          <!-- Filled from version.txt, which the Pages workflow writes from the
+               tag or the commit. Stays "dev" when the file is missing, empty,
+               or not generated yet, so nothing is hard-coded here. -->
+          <span class="version-badge" id="version">dev</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="themetoggle" class="bg-transparent border border-border text-text font-semibold text-xs px-3 py-1.5 rounded-full cursor-pointer transition-all hover:border-accent hover:text-accent active:scale-90" type="button" data-i18n-aria="themeSwitch" aria-label="Toggle theme">🌙 Dark</button>
+        <button id="langtoggle" class="bg-transparent border border-border text-text font-semibold text-xs px-3 py-1.5 rounded-full cursor-pointer transition-all hover:border-accent hover:text-accent active:scale-90" type="button" data-i18n-aria="switchLang" aria-label="Switch language">🇮🇷 فارسی</button>
+      </div>
+    </div>
+    <nav class="flex items-center gap-4 text-sm mt-3">
+      <a class="text-accent inline-flex items-center gap-1.5 transition-colors hover:text-accent-hot" href="https://github.com/FrontierTM/Pantegnos">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        GitHub
+      </a>
+      <a class="text-accent inline-flex items-center gap-1.5 transition-colors hover:text-accent-hot" href="https://github.com/FrontierTM/Pantegnos/releases">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25ZM7.25 8.5a.75.75 0 0 1-.22.53l-2.25 2.25a.75.75 0 0 1-1.06-1.06L5.44 8 3.72 6.28a.75.75 0 1 1 1.06-1.06l2.25 2.25c.141.14.22.331.22.53Zm1.5 2.25a.75.75 0 0 1 0-1.5h3a.75.75 0 0 1 0 1.5Z"/></svg>
+        <span data-i18n="cli">CLI Releases</span>
+      </a>
+    </nav>
+    <div class="flex flex-wrap gap-1.5 mt-3.5">
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.slip</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.ehi</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.dark</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.hat</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.npvt</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.npvs</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.nm</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.happ</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.bpf</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.tls</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.v2box</span>
+      <span class="badge border border-border rounded-full px-2.5 py-0.5 text-xs text-muted transition-colors hover:border-accent hover:text-text">.zsx</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="bg-surface border border-border rounded-[14px] p-6 mt-7">
+      <input type="file" id="file" class="sr-only"
+             accept=".slip,.ehi,.dark,.hat,.npvt,.npvs,.nm,.happ,.bpf,.tls,.v2box,.zsx">
+      <div id="dropzone" tabindex="0" role="button" aria-label="Choose or drop a config file" data-i18n-aria="ariaDrop"
+           class="border-2 border-dashed border-border rounded-xl px-6 py-12 text-center cursor-pointer transition-all duration-150 hover:border-accent active:scale-[0.99]">
+        <strong data-i18n="drop">Drop a config file here</strong>
+        <div class="text-muted text-sm" data-i18n="hint">or click to browse (.slip, .ehi, .dark, .hat, .npvt, .npvs, .nm, .happ, .bpf, .tls, .v2box, .zsx)</div>
+        <div id="fileinfo" class="mt-4 font-mono text-sm"></div>
+      </div>
+
+      <div class="flex gap-3 items-center flex-wrap mt-4 hidden" id="pwrow">
+        <label for="password" class="text-sm text-muted" data-i18n="password">Password</label>
+        <input type="password" id="password" autocomplete="off" placeholder="Required for this file" data-i18n-placeholder="passwordPlaceholder"
+               class="bg-bg border border-border text-text px-3 py-2.5 rounded-lg min-w-[240px] font-sans focus:outline-none focus:border-accent">
+      </div>
+
+      <div id="status" role="status" class="min-h-[1.4em] mt-3.5 text-sm"></div>
+    </div>
+
+    <div class="flex gap-3 items-center flex-wrap mt-4">
+      <button id="decrypt" disabled data-i18n="decrypt"
+              class="bg-linear-to-r from-accent to-accent-hot text-[#1a0f05] font-bold text-base px-5 py-2.5 rounded-lg cursor-pointer transition-all hover:opacity-90 active:scale-95 disabled:opacity-45 disabled:cursor-not-allowed">Decrypt</button>
+    </div>
+
+    <div class="bg-surface border border-border rounded-[14px] p-6 mt-7 hidden" id="outputcard">
+      <div class="flex gap-3 items-center flex-wrap">
+        <button class="bg-transparent border border-border text-text font-semibold text-base px-5 py-2.5 rounded-lg cursor-pointer transition-all hover:border-accent hover:text-accent active:scale-95" id="copy" data-i18n="copy">Copy</button>
+        <button class="bg-transparent border border-border text-text font-semibold text-base px-5 py-2.5 rounded-lg cursor-pointer transition-all hover:border-accent hover:text-accent active:scale-95" id="download" data-i18n="download">Download</button>
+      </div>
+      <pre id="output" class="bg-bg border border-border rounded-[10px] p-4 overflow-auto max-h-[480px] whitespace-pre-wrap break-all font-mono text-[0.85rem] my-4"></pre>
+    </div>
+  </main>
+
+  <footer class="mt-10 text-muted text-xs">
+    <span data-i18n="footer">Pantegnos is provided as-is for security research purposes. Ensure your use complies with applicable laws.</span>
+  </footer>
+</div>
+
+<script src="vendor/jquery.min.js"></script>
+<script src="wasm_exec.js"></script>
+<script>
+  "use strict";
+
+  const I18N = {
+    en: {
+      tagline: "In-browser decryptor for VPN / proxy app config files. Everything runs locally — your files are never uploaded.",
+      cli: "CLI Releases",
+      switchLang: "Switch language",
+      themeSwitch: "Toggle theme",
+      ariaDrop: "Choose or drop a config file",
+      drop: "Drop a config file here",
+      hint: "or click to browse (.slip, .ehi, .dark, .hat, .npvt, .npvs, .nm, .happ, .bpf, .tls, .v2box, .zsx)",
+      password: "Password",
+      passwordPlaceholder: "Required for this file",
+      decrypt: "Decrypt",
+      copy: "Copy",
+      download: "Download",
+      footer: "Pantegnos is provided as-is for security research purposes. Ensure your use complies with applicable laws.",
+      loading: "Loading engine…",
+      ready: "Engine ready.",
+      loadFail: "Failed to load the WASM engine: ",
+      decrypting: "Decrypting…",
+      decryptFail: "Decryption failed: ",
+      decrypted: "Decrypted: ",
+      copied: "Copied to clipboard.",
+      bytes: "bytes",
+    },
+    fa: {
+      tagline: "رمزگشای درون‌مرورگری برای فایل‌های پیکربندی اپلیکیشن‌های VPN / پروکسی. همه‌چیز به‌صورت محلی اجرا می‌شود — فایل‌های شما هرگز آپلود نمی‌شوند.",
+      cli: "نسخه‌های CLI",
+      switchLang: "تغییر زبان",
+      themeSwitch: "تغییر پوسته",
+      ariaDrop: "انتخاب یا رها کردن فایل پیکربندی",
+      drop: "فایل پیکربندی را اینجا رها کنید",
+      hint: "یا برای مرور کلیک کنید (.slip, .ehi, .dark, .hat, .npvt, .npvs, .nm, .happ, .bpf, .tls, .v2box, .zsx)",
+      password: "رمز عبور",
+      passwordPlaceholder: "برای این فایل لازم است",
+      decrypt: "رمزگشایی",
+      copy: "کپی",
+      download: "دانلود",
+      footer: "Pantegnos صرفاً برای اهداف پژوهش امنیتی ارائه شده است. اطمینان حاصل کنید که استفادهٔ شما با قوانین قابل‌اجرا مطابقت دارد.",
+      loading: "در حال بارگذاری موتور…",
+      ready: "موتور آماده است.",
+      loadFail: "بارگذاری موتور WASM ناموفق بود: ",
+      decrypting: "در حال رمزگشایی…",
+      decryptFail: "رمزگشایی ناموفق بود: ",
+      decrypted: "رمزگشایی شد: ",
+      copied: "در کلیپ‌بورد کپی شد.",
+      bytes: "بایت",
+    },
+  };
+
+  const $dropzone = $("#dropzone");
+  const $file = $("#file");
+  const $fileinfo = $("#fileinfo");
+  const $pwrow = $("#pwrow");
+  const $password = $("#password");
+  const $decrypt = $("#decrypt");
+  const $status = $("#status");
+  const $outputcard = $("#outputcard");
+  const $output = $("#output");
+  const $copy = $("#copy");
+  const $download = $("#download");
+  const $langtoggle = $("#langtoggle");
+  const $themetoggle = $("#themetoggle");
+
+  let wasmReady = false;
+  let currentFile = null;   // { name, bytes }
+  let currentResult = null; // { text, fileName }
+
+  function readPref(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  function writePref(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) {}
+  }
+
+  function detectLang() {
+    const stored = readPref("pantegnos-lang");
+    if (stored === "fa" || stored === "en") return stored;
+
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz === "Asia/Tehran") return "fa";
+    } catch (e) {}
+
+    if ((navigator.language || "").toLowerCase().startsWith("fa")) return "fa";
+    return "en";
+  }
+
+  function detectTheme() {
+    const stored = readPref("pantegnos-theme");
+    if (stored === "light" || stored === "dark") return stored;
+
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
+    return "dark";
+  }
+
+  let currentLang = detectLang();
+  let currentTheme = detectTheme();
+
+  function t(key) {
+    return I18N[currentLang][key];
+  }
+
+  function applyLang(lang) {
+    currentLang = lang;
+    const dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+
+    $("[data-i18n]").each(function () {
+      $(this).text(dict[this.dataset.i18n]);
+    });
+    $("[data-i18n-placeholder]").each(function () {
+      $(this).attr("placeholder", dict[this.dataset.i18nPlaceholder]);
+    });
+    $("[data-i18n-aria]").each(function () {
+      $(this).attr("aria-label", dict[this.dataset.i18nAria]);
+    });
+
+    $langtoggle.text(lang === "fa" ? "🇬🇧 English" : "🇮🇷 فارسی");
+  }
+
+  function applyTheme(theme) {
+    currentTheme = theme;
+    document.documentElement.dataset.theme = theme;
+    $themetoggle.text(theme === "light" ? "🌙 Dark" : "☀️ Light");
+  }
+
+  function setStatus(text, cls) {
+    $status.text(text).removeClass("ok err busy");
+    if (cls) $status.addClass(cls);
+  }
+
+  async function bootWASM() {
+    setStatus(t("loading"), "busy");
+
+    try {
+      const go = new Go();
+      const response = WebAssembly.instantiateStreaming(fetch("pantegnos.wasm"), go.importObject);
+      const { instance } = await response;
+      go.run(instance);
+
+      wasmReady = true;
+      updateDecryptState();
+      setStatus(t("ready"));
+    } catch (err) {
+      setStatus(t("loadFail") + err, "err");
+    }
+  }
+
+  function updateDecryptState() {
+    $decrypt.prop("disabled", !(wasmReady && currentFile));
+  }
+
+  async function selectFile(file) {
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    currentFile = { name: file.name, bytes };
+    $fileinfo.text(file.name + " — " + file.size + " " + t("bytes"));
+    $outputcard.hide();
+    currentResult = null;
+
+    if (wasmReady && pantegnosNeedsPassword(file.name, bytes)) {
+      $pwrow.show().addClass("anim-fade-in-up");
+      $password.trigger("focus");
+    } else {
+      $pwrow.hide();
+      $password.val("");
+    }
+
+    updateDecryptState();
+    setStatus("");
+  }
+
+  function decrypt() {
+    if (!currentFile) return;
+
+    setStatus(t("decrypting"), "busy");
+
+    // Defer one frame so the busy status paints before heavy crypto runs.
+    setTimeout(() => {
+      const result = pantegnosDecrypt(currentFile.name, currentFile.bytes, $password.val());
+
+      if (!result.ok) {
+        setStatus(t("decryptFail") + result.error, "err");
+        return;
+      }
+
+      currentResult = result;
+      $output.text(result.text);
+      $outputcard.show().addClass("anim-scale-in");
+      setStatus(t("decrypted") + result.fileName, "ok");
+    }, 0);
+  }
+
+  $dropzone.on("click", () => $file.trigger("click"));
+  $dropzone.on("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") $file.trigger("click");
+  });
+
+  $file.on("change", function () {
+    if (this.files.length) selectFile(this.files[0]);
+    this.value = "";
+  });
+
+  let dragDepth = 0;
+
+  $dropzone
+    .on("dragenter", (e) => {
+      e.preventDefault();
+      dragDepth++;
+      $dropzone.addClass("dragover");
+    })
+    .on("dragover", (e) => {
+      e.preventDefault();
+    })
+    .on("dragleave", (e) => {
+      e.preventDefault();
+      dragDepth--;
+      if (dragDepth <= 0) {
+        dragDepth = 0;
+        $dropzone.removeClass("dragover");
+      }
+    })
+    .on("drop", (e) => {
+      e.preventDefault();
+      dragDepth = 0;
+      $dropzone.removeClass("dragover");
+      const file = e.originalEvent.dataTransfer.files[0];
+      if (file) selectFile(file);
+    });
+
+  $decrypt.on("click", decrypt);
+
+  $copy.on("click", async () => {
+    if (!currentResult) return;
+    await navigator.clipboard.writeText(currentResult.text);
+    setStatus(t("copied"), "ok");
+  });
+
+  $download.on("click", () => {
+    if (!currentResult) return;
+
+    const blob = new Blob([currentResult.text], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = currentResult.fileName || (currentFile ? currentFile.name + ".txt" : "pantegnos.txt");
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  $langtoggle.on("click", () => {
+    const next = currentLang === "fa" ? "en" : "fa";
+    writePref("pantegnos-lang", next);
+    applyLang(next);
+  });
+
+  $themetoggle.on("click", () => {
+    const next = currentTheme === "light" ? "dark" : "light";
+    writePref("pantegnos-theme", next);
+    applyTheme(next);
+  });
+
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
+      if (readPref("pantegnos-theme")) return;
+      applyTheme(e.matches ? "light" : "dark");
+    });
+  }
+
+  applyLang(currentLang);
+  applyTheme(currentTheme);
+  loadVersion();
+  bootWASM();
+
+  // The version is a build artefact, not something written into this file: the
+  // Pages workflow drops version.txt next to the page, built from the tag or the
+  // commit. Anything unusable - a 404, an empty file, the word "null" - leaves
+  // the badge on its "dev" default.
+  function loadVersion() {
+    var badge = document.getElementById("version");
+    fetch("version.txt", { cache: "no-store" })
+      .then(function (response) { return response.ok ? response.text() : ""; })
+      .then(function (text) {
+        var value = (text || "").trim();
+        var low = value.toLowerCase();
+        if (value && low !== "null" && low !== "dev") {
+          badge.textContent = value;
+        }
+      })
+      .catch(function () { /* keep the dev default */ });
+  }
+</script>
+</body>
+</html>

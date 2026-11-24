@@ -1,0 +1,661 @@
+1c72050  ldr	x16, [x28, #0x10]
+1c72054  sub	x17, sp, #0x490
+1c72058  cmp	x17, x16
+1c7205c  b.ls	0x1c729a8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa4c8>
+1c72060  sub	x20, sp, #0x510
+1c72064  stp	x29, x30, [x20, #-0x8]
+1c72068  mov	sp, x20
+1c7206c  sub	x29, sp, #0x8
+1c72070  str	xzr, [sp, #0x500]
+1c72074  str	x6, [sp, #0x548]
+1c72078  str	x5, [sp, #0x540]
+1c7207c  str	x4, [sp, #0x538]
+1c72080  str	x3, [sp, #0x530]
+1c72084  str	x2, [sp, #0x528]
+1c72088  str	x1, [sp, #0x520]
+1c7208c  str	x0, [sp, #0x518]
+1c72090  str	x7, [sp, #0x550]
+1c72094  strb	wzr, [sp, #0x157]
+1c72098  add	x27, sp, #0x2f8
+1c7209c  stp	xzr, xzr, [x27]
+1c720a0  stp	xzr, xzr, [sp, #0x190]
+1c720a4  ubfx	x8, x8, #0, #8
+1c720a8  cbnz	w8, 0x1c720bc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9bdc>
+1c720ac  mov	x10, xzr
+1c720b0  mov	x8, xzr
+1c720b4  mov	x9, xzr
+1c720b8  b	0x1c72250 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9d70>   ; <noise.newClientWithAuth>
+1c720bc  cmp	w8, #0x1
+1c720c0  b.ne	0x1c720c8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9be8>
+1c720c4  cbnz	x9, 0x1c720dc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9bfc>
+1c720c8  adrp x27, page
+1c720cc  add	x27, x27, #0x80   ; =0x28a7080
+1c720d0  ldp	x8, x9, [x27]
+1c720d4  mov	x10, xzr
+1c720d8  b	0x1c72250 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9d70>   ; <noise.newClientWithAuth>
+1c720dc  str	x9, [sp, #0x560]
+1c720e0  adrp x0, page
+1c720e4  add	x0, x0, #0x5a0   ; =0x25b05a0
+1c720e8  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c720ec  str	x0, [sp, #0x2f0]
+1c720f0  add	x1, sp, #0x330
+1c720f4  stp	xzr, xzr, [x1]
+1c720f8  stp	xzr, xzr, [x1, #0x10]
+1c720fc  stp	xzr, xzr, [x1, #0x20]
+1c72100  stp	xzr, xzr, [x1, #0x30]
+1c72104  stp	xzr, xzr, [x1, #0x40]
+1c72108  stp	xzr, xzr, [x1, #0x50]
+1c7210c  stp	xzr, xzr, [x1, #0x60]
+1c72110  str	xzr, [x1, #0x70]
+1c72114  ldr	x26, [sp, #0x560]
+1c72118  ldr	x1, [x26]
+1c7211c  blr	x1
+1c72120  add	x1, sp, #0x330
+1c72124  add	x2, sp, #0x8
+1c72128  ldp	q16, q17, [x2]
+1c7212c  stp	q16, q17, [x1]
+1c72130  ldp	q16, q17, [x2, #0x20]
+1c72134  stp	q16, q17, [x1, #0x20]
+1c72138  ldp	q16, q17, [x2, #0x40]
+1c7213c  stp	q16, q17, [x1, #0x40]
+1c72140  ldr	q16, [x2, #0x60]
+1c72144  str	q16, [x1, #0x60]
+1c72148  ldr	x25, [x2, #0x70]
+1c7214c  str	x25, [x1, #0x70]
+1c72150  add	x2, sp, #0x488
+1c72154  ldp	q16, q17, [x1]
+1c72158  stp	q16, q17, [x2]
+1c7215c  ldp	q16, q17, [x1, #0x20]
+1c72160  stp	q16, q17, [x2, #0x20]
+1c72164  ldp	q16, q17, [x1, #0x40]
+1c72168  stp	q16, q17, [x2, #0x40]
+1c7216c  ldr	q16, [x1, #0x60]
+1c72170  str	q16, [x2, #0x60]
+1c72174  ldr	x25, [x1, #0x70]
+1c72178  str	x25, [x2, #0x70]
+1c7217c  adrp x27, page
+1c72180  ldr	w1, [x27, #0x8b0]
+1c72184  cbz	w1, 0x1c721a4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9cc4>
+1c72188  str	x0, [sp, #0x188]
+1c7218c  adrp x0, page
+1c72190  add	x0, x0, #0x5a0   ; =0x25b05a0
+1c72194  ldr	x1, [sp, #0x2f0]
+1c72198  bl	0x13affc0 <.text+0x220a0>   ; <runtime.reflectcallmove>
+1c7219c  ldr	x0, [sp, #0x188]
+1c721a0  add	x2, sp, #0x488
+1c721a4  ldr	x4, [sp, #0x2f0]
+1c721a8  ldp	q16, q17, [x2]
+1c721ac  stp	q16, q17, [x4]
+1c721b0  ldp	q16, q17, [x2, #0x20]
+1c721b4  stp	q16, q17, [x4, #0x20]
+1c721b8  ldp	q16, q17, [x2, #0x40]
+1c721bc  stp	q16, q17, [x4, #0x40]
+1c721c0  ldr	q16, [x2, #0x60]
+1c721c4  str	q16, [x4, #0x60]
+1c721c8  ldr	x25, [x2, #0x70]
+1c721cc  str	x25, [x4, #0x70]
+1c721d0  cbz	x0, 0x1c72224 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9d44>
+1c721d4  add	x4, x4, #0x38
+1c721d8  stp	xzr, xzr, [x4]
+1c721dc  stp	xzr, xzr, [x4, #0x10]
+1c721e0  stp	xzr, xzr, [x4, #0x20]
+1c721e4  stp	xzr, xzr, [x4, #0x30]
+1c721e8  adrp x27, page
+1c721ec  add	x27, x27, #0x80   ; =0x28a7080
+1c721f0  ldp	x4, x5, [x27]
+1c721f4  ldr	x0, [sp, #0x518]
+1c721f8  ldr	x1, [sp, #0x520]
+1c721fc  ldr	x2, [sp, #0x528]
+1c72200  ldr	x3, [sp, #0x530]
+1c72204  ldr	x6, [sp, #0x548]
+1c72208  ldr	x7, [sp, #0x550]
+1c7220c  mov	x10, xzr
+1c72210  mov	x8, x4
+1c72214  mov	x9, x5
+1c72218  ldr	x4, [sp, #0x538]
+1c7221c  ldr	x5, [sp, #0x540]
+1c72220  b	0x1c72250 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9d70>   ; <noise.newClientWithAuth>
+1c72224  ldr	x0, [sp, #0x518]
+1c72228  ldr	x1, [sp, #0x520]
+1c7222c  ldr	x2, [sp, #0x528]
+1c72230  ldr	x3, [sp, #0x530]
+1c72234  ldr	x4, [sp, #0x538]
+1c72238  ldr	x5, [sp, #0x540]
+1c7223c  ldr	x6, [sp, #0x548]
+1c72240  ldr	x7, [sp, #0x550]
+1c72244  ldr	x10, [sp, #0x2f0]
+1c72248  mov	x8, xzr
+1c7224c  mov	x9, xzr
+1c72250  cbnz	x8, 0x1c724d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9ff0>
+1c72254  str	x10, [sp, #0x2f0]
+1c72258  nop
+1c7225c  adr	x8, 0x1c729f0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa510>   ; <noise.DecodeKey>
+1c72260  add	x27, sp, #0x478
+1c72264  stp	x8, x10, [x27]
+1c72268  add	x8, sp, #0x478
+1c7226c  str	x8, [sp, #0x500]
+1c72270  orr	x8, xzr, #0x1
+1c72274  strb	w8, [sp, #0x157]
+1c72278  cbz	x10, 0x1c72308 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9e28>
+1c7227c  adrp x0, page
+1c72280  add	x0, x0, #0xf40   ; =0x23f0f40
+1c72284  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c72288  ldr	x3, [sp, #0x548]
+1c7228c  add	x1, x3, #0xd
+1c72290  mov	x2, #0x6368             // =25448
+1c72294  movk	x2, #0x722d, lsl #16
+1c72298  movk	x2, #0x6c65, lsl #32
+1c7229c  movk	x2, #0x6165, lsl #48
+1c722a0  str	x2, [x0]
+1c722a4  mov	x2, #0x656c             // =25964
+1c722a8  movk	x2, #0x7361, lsl #16
+1c722ac  movk	x2, #0x2f65, lsl #32
+1c722b0  movk	x2, #0x3a32, lsl #48
+1c722b4  stur	x2, [x0, #0x5]
+1c722b8  cmp	x1, #0xd
+1c722bc  b.hi	0x1c722cc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9dec>
+1c722c0  mov	x1, #0xd                // =13
+1c722c4  mov	x2, #0xd                // =13
+1c722c8  b	0x1c722e0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9e00>   ; <noise.newClientWithAuth>
+1c722cc  mov	x2, #0xd                // =13
+1c722d0  adrp x4, page
+1c722d4  add	x4, x4, #0x500   ; =0x23c1500
+1c722d8  bl	0x14173a0 <.text+0x89480>   ; <runtime.growslice>
+1c722dc  ldr	x3, [sp, #0x548]
+1c722e0  str	x1, [sp, #0x158]
+1c722e4  str	x2, [sp, #0x160]
+1c722e8  str	x0, [sp, #0x1a0]
+1c722ec  add	x0, x0, #0xd   ; =0x23f000d
+1c722f0  ldr	x1, [sp, #0x540]
+1c722f4  mov	x2, x3
+1c722f8  bl	0x141cce0 <_cgo_topofstack+0x580>   ; <runtime.memmove>
+1c722fc  ldr	x6, [sp, #0x158]
+1c72300  ldr	x5, [sp, #0x1a0]
+1c72304  ldr	x7, [sp, #0x160]
+1c72308  str	x7, [sp, #0x160]
+1c7230c  str	x6, [sp, #0x158]
+1c72310  str	x5, [sp, #0x1a0]
+1c72314  adrp x0, page
+1c72318  add	x0, x0, #0xae0   ; =0x23efae0
+1c7231c  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c72320  adrp x27, page
+1c72324  add	x27, x27, #0x549   ; =0x4c0549 "dnstt 2020-04-13no renegotiationSignatureScheme("
+1c72328  ldp	x1, x2, [x27]
+1c7232c  stp	x1, x2, [x0]
+1c72330  add	x1, sp, #0x1a8
+1c72334  mov	x2, #0x5                // =5
+1c72338  stp	xzr, xzr, [x1], #0x10
+1c7233c  stp	xzr, xzr, [x1], #0x10
+1c72340  stp	xzr, xzr, [x1], #0x10
+1c72344  stp	xzr, xzr, [x1], #0x10
+1c72348  sub	x2, x2, #0x1
+1c7234c  cbnz	x2, 0x1c72338 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9e58>
+1c72350  str	xzr, [x1]
+1c72354  adrp x27, page
+1c72358  add	x27, x27, #0x4f0   ; =0x28e74f0
+1c7235c  ldp	x1, x2, [x27]
+1c72360  stp	x1, x2, [sp, #0x1a8]
+1c72364  add	x1, sp, #0x1c8
+1c72368  adrp x2, page
+1c7236c  add	x2, x2, #0xea0   ; =0x28d3ea0
+1c72370  ldp	q16, q17, [x2]
+1c72374  stp	q16, q17, [x1]
+1c72378  ldp	q16, q17, [x2, #0x20]
+1c7237c  stp	q16, q17, [x1, #0x20]
+1c72380  ldr	q16, [x2, #0x40]
+1c72384  str	q16, [x1, #0x40]
+1c72388  ldr	x25, [x2, #0x50]
+1c7238c  str	x25, [x1, #0x50]
+1c72390  str	x0, [sp, #0x228]
+1c72394  orr	x1, xzr, #0x10
+1c72398  add	x27, sp, #0x230
+1c7239c  stp	x1, x1, [x27]
+1c723a0  add	x1, sp, #0x330
+1c723a4  add	x2, sp, #0x1a8
+1c723a8  mov	x24, #0x5               // =5
+1c723ac  ldp	q16, q17, [x2], #0x20
+1c723b0  stp	q16, q17, [x1], #0x20
+1c723b4  ldp	q16, q17, [x2], #0x20
+1c723b8  stp	q16, q17, [x1], #0x20
+1c723bc  sub	x24, x24, #0x1
+1c723c0  cbnz	x24, 0x1c723ac <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9ecc>
+1c723c4  ldr	x25, [x2]
+1c723c8  str	x25, [x1]
+1c723cc  orr	x1, xzr, #0x1
+1c723d0  strb	w1, [sp, #0x3a8]
+1c723d4  ldr	x1, [sp, #0x528]
+1c723d8  str	x1, [sp, #0x448]
+1c723dc  ldr	x1, [sp, #0x530]
+1c723e0  ldr	x2, [sp, #0x538]
+1c723e4  add	x27, sp, #0x450
+1c723e8  stp	x1, x2, [x27]
+1c723ec  add	x1, sp, #0x8
+1c723f0  add	x2, sp, #0x330
+1c723f4  mov	x24, #0x5               // =5
+1c723f8  ldp	q16, q17, [x2], #0x20
+1c723fc  stp	q16, q17, [x1], #0x20
+1c72400  ldp	q16, q17, [x2], #0x20
+1c72404  stp	q16, q17, [x1], #0x20
+1c72408  sub	x24, x24, #0x1
+1c7240c  cbnz	x24, 0x1c723f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9f18>
+1c72410  ldr	x25, [x2]
+1c72414  str	x25, [x1]
+1c72418  bl	0x19ce4e0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x506000>   ; <github.com/flynn/noise.NewHandshakeState>
+1c7241c  cbnz	x1, 0x1c7249c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9fbc>
+1c72420  str	x0, [sp, #0x328]
+1c72424  mov	x1, xzr
+1c72428  mov	x2, xzr
+1c7242c  mov	x3, xzr
+1c72430  ldr	x4, [sp, #0x1a0]
+1c72434  ldr	x5, [sp, #0x158]
+1c72438  ldr	x6, [sp, #0x160]
+1c7243c  bl	0x19cebe0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x506700>   ; <github.com/flynn/noise.(*HandshakeState).Writ…>
+1c72440  cbnz	x5, 0x1c72468 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9f88>
+1c72444  ldr	x3, [sp, #0x518]
+1c72448  cbz	x3, 0x1c724f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa018>
+1c7244c  ldr	x5, [x3, #0x8]
+1c72450  adrp x6, page
+1c72454  add	x6, x6, #0xef0   ; =0x28b2ef0
+1c72458  ldar	x7, [x6]
+1c7245c  ldr	w8, [x3, #0x10]
+1c72460  ldr	x9, [x7]
+1c72464  b	0x1c7292c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa44c>   ; <noise.newClientWithAuth>
+1c72468  add	x27, sp, #0x2f8
+1c7246c  stp	xzr, xzr, [x27]
+1c72470  stp	x5, x6, [sp, #0x190]
+1c72474  strb	wzr, [sp, #0x157]
+1c72478  ldr	x26, [sp, #0x500]
+1c7247c  ldr	x0, [x26]
+1c72480  blr	x0
+1c72484  ldp	x2, x3, [sp, #0x190]
+1c72488  add	x27, sp, #0x2f8
+1c7248c  ldp	x0, x1, [x27]
+1c72490  ldp	x29, x30, [sp, #-0x8]
+1c72494  add	sp, sp, #0x510
+1c72498  ret
+1c7249c  add	x27, sp, #0x2f8
+1c724a0  stp	xzr, xzr, [x27]
+1c724a4  stp	x1, x2, [sp, #0x190]
+1c724a8  strb	wzr, [sp, #0x157]
+1c724ac  ldr	x26, [sp, #0x500]
+1c724b0  ldr	x0, [x26]
+1c724b4  blr	x0
+1c724b8  ldp	x2, x3, [sp, #0x190]
+1c724bc  add	x27, sp, #0x2f8
+1c724c0  ldp	x0, x1, [x27]
+1c724c4  ldp	x29, x30, [sp, #-0x8]
+1c724c8  add	sp, sp, #0x510
+1c724cc  ret
+1c724d0  add	x27, sp, #0x2f8
+1c724d4  stp	xzr, xzr, [x27]
+1c724d8  stp	x8, x9, [sp, #0x190]
+1c724dc  add	x27, sp, #0x2f8
+1c724e0  ldp	x0, x1, [x27]
+1c724e4  mov	x2, x8
+1c724e8  mov	x3, x9
+1c724ec  ldp	x29, x30, [sp, #-0x8]
+1c724f0  add	sp, sp, #0x510
+1c724f4  ret
+1c724f8  mov	x4, x2
+1c724fc  mov	x2, x0
+1c72500  mov	x0, x3
+1c72504  mov	x3, x1
+1c72508  ldr	x1, [sp, #0x520]
+1c7250c  bl	0x1c714d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8ff0>   ; <noise.writeMessage>
+1c72510  cbnz	x0, 0x1c72538 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa058>
+1c72514  ldr	x0, [sp, #0x518]
+1c72518  cbz	x0, 0x1c7256c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa08c>
+1c7251c  ldr	x1, [x0, #0x8]
+1c72520  adrp x2, page
+1c72524  add	x2, x2, #0xf10   ; =0x28b2f10
+1c72528  ldar	x3, [x2]
+1c7252c  ldr	w4, [x0, #0x10]
+1c72530  ldr	x5, [x3]
+1c72534  b	0x1c728f0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa410>   ; <noise.newClientWithAuth>
+1c72538  add	x27, sp, #0x2f8
+1c7253c  stp	xzr, xzr, [x27]
+1c72540  stp	x0, x1, [sp, #0x190]
+1c72544  strb	wzr, [sp, #0x157]
+1c72548  ldr	x26, [sp, #0x500]
+1c7254c  ldr	x0, [x26]
+1c72550  blr	x0
+1c72554  ldp	x2, x3, [sp, #0x190]
+1c72558  add	x27, sp, #0x2f8
+1c7255c  ldp	x0, x1, [x27]
+1c72560  ldp	x29, x30, [sp, #-0x8]
+1c72564  add	sp, sp, #0x510
+1c72568  ret
+1c7256c  ldr	x1, [sp, #0x520]
+1c72570  bl	0x1c713b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8ed0>   ; <noise.readMessage>
+1c72574  cbnz	x3, 0x1c727e8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa308>
+1c72578  mov	x3, xzr
+1c7257c  mov	x4, x0
+1c72580  mov	x5, x1
+1c72584  mov	x6, x2
+1c72588  ldr	x0, [sp, #0x328]
+1c7258c  mov	x1, xzr
+1c72590  mov	x2, xzr
+1c72594  bl	0x19cf3c0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x506ee0>   ; <github.com/flynn/noise.(*HandshakeState).Read…>
+1c72598  cbnz	x5, 0x1c727b4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa2d4>
+1c7259c  str	x3, [sp, #0x308]
+1c725a0  str	x4, [sp, #0x310]
+1c725a4  ldr	x5, [sp, #0x2f0]
+1c725a8  cbnz	x5, 0x1c726e4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa204>
+1c725ac  str	x2, [sp, #0x170]
+1c725b0  str	x1, [sp, #0x168]
+1c725b4  str	x0, [sp, #0x318]
+1c725b8  ldr	x5, [sp, #0x548]
+1c725bc  cmp	x1, x5
+1c725c0  b.ne	0x1c725ec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa10c>
+1c725c4  mov	x2, x1
+1c725c8  ldr	x1, [sp, #0x540]
+1c725cc  bl	0x1391d80 <.text+0x3e60>   ; <runtime.memequal>
+1c725d0  tbnz	w0, #0x0, 0x1c7281c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa33c>
+1c725d4  ldr	x0, [sp, #0x318]
+1c725d8  ldr	x1, [sp, #0x168]
+1c725dc  ldr	x2, [sp, #0x170]
+1c725e0  ldr	x3, [sp, #0x308]
+1c725e4  ldr	x4, [sp, #0x310]
+1c725e8  ldr	x5, [sp, #0x548]
+1c725ec  nop
+1c725f0  cmp	x1, #0x10
+1c725f4  b.lt	0x1c72660 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa180>
+1c725f8  adrp x1, page
+1c725fc  add	x1, x1, #0x539   ; =0x4c0539 "dnstt-hc-only/1:dnstt 2020-04-13no renegotiation"
+1c72600  orr	x2, xzr, #0x10
+1c72604  bl	0x1391d80 <.text+0x3e60>   ; <runtime.memequal>
+1c72608  tbz	w0, #0x0, 0x1c72658 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa178>
+1c7260c  ldr	x3, [sp, #0x170]
+1c72610  sub	x3, x3, #0x10
+1c72614  neg	x3, x3
+1c72618  asr	x3, x3, #63
+1c7261c  and	x3, x3, #0x10
+1c72620  ldr	x4, [sp, #0x168]
+1c72624  sub	x2, x4, #0x10
+1c72628  ldr	x4, [sp, #0x318]
+1c7262c  add	x0, x4, x3
+1c72630  ldr	x3, [sp, #0x548]
+1c72634  cmp	x3, x2
+1c72638  b.eq	0x1c72644 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa164>
+1c7263c  mov	x0, xzr
+1c72640  b	0x1c7264c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa16c>   ; <noise.newClientWithAuth>
+1c72644  ldr	x1, [sp, #0x540]
+1c72648  bl	0x1391d80 <.text+0x3e60>   ; <runtime.memequal>
+1c7264c  ldr	x3, [sp, #0x308]
+1c72650  ldr	x4, [sp, #0x310]
+1c72654  b	0x1c72664 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa184>   ; <noise.newClientWithAuth>
+1c72658  ldr	x3, [sp, #0x308]
+1c7265c  ldr	x4, [sp, #0x310]
+1c72660  mov	x0, xzr
+1c72664  tbz	w0, #0x0, 0x1c7268c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa1ac>
+1c72668  ldr	x0, [sp, #0x518]
+1c7266c  cbz	x0, 0x1c7286c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa38c>
+1c72670  ldr	x1, [x0, #0x8]
+1c72674  adrp x5, page
+1c72678  add	x5, x5, #0xf30   ; =0x28b2f30
+1c7267c  ldar	x6, [x5]
+1c72680  ldr	w7, [x0, #0x10]
+1c72684  ldr	x8, [x6]
+1c72688  b	0x1c728b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa3d0>   ; <noise.newClientWithAuth>
+1c7268c  adrp x0, page
+1c72690  add	x0, x0, #0xae0   ; =0x24ddae0
+1c72694  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c72698  adrp x1, page
+1c7269c  add	x1, x1, #0xad   ; =0x4d30ad "unexpected server payloadlength is %d, expected "
+1c726a0  mov	x2, #0x19               // =25
+1c726a4  stp	x1, x2, [x0]
+1c726a8  add	x27, sp, #0x2f8
+1c726ac  stp	xzr, xzr, [x27]
+1c726b0  adrp x1, page
+1c726b4  add	x1, x1, #0xa08   ; =0x275fa08
+1c726b8  stp	x1, x0, [sp, #0x190]
+1c726bc  strb	wzr, [sp, #0x157]
+1c726c0  ldr	x26, [sp, #0x500]
+1c726c4  ldr	x1, [x26]
+1c726c8  blr	x1
+1c726cc  ldp	x2, x3, [sp, #0x190]
+1c726d0  add	x27, sp, #0x2f8
+1c726d4  ldp	x0, x1, [x27]
+1c726d8  ldp	x29, x30, [sp, #-0x8]
+1c726dc  add	sp, sp, #0x510
+1c726e0  ret
+1c726e4  ldr	x6, [sp, #0x158]
+1c726e8  cmp	x1, x6
+1c726ec  b.ne	0x1c72704 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa224>
+1c726f0  mov	x2, x1
+1c726f4  mov	x1, x0
+1c726f8  ldr	x0, [sp, #0x1a0]
+1c726fc  bl	0x1391d80 <.text+0x3e60>   ; <runtime.memequal>
+1c72700  tbnz	w0, #0x0, 0x1c72744 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa264>
+1c72704  adrp x27, page
+1c72708  add	x27, x27, #0x80   ; =0x28a7080
+1c7270c  ldp	x0, x1, [x27]
+1c72710  add	x27, sp, #0x2f8
+1c72714  stp	xzr, xzr, [x27]
+1c72718  stp	x0, x1, [sp, #0x190]
+1c7271c  strb	wzr, [sp, #0x157]
+1c72720  ldr	x26, [sp, #0x500]
+1c72724  ldr	x0, [x26]
+1c72728  blr	x0
+1c7272c  ldp	x2, x3, [sp, #0x190]
+1c72730  add	x27, sp, #0x2f8
+1c72734  ldp	x0, x1, [x27]
+1c72738  ldp	x29, x30, [sp, #-0x8]
+1c7273c  add	sp, sp, #0x510
+1c72740  ret
+1c72744  ldr	x0, [sp, #0x518]
+1c72748  ldr	x1, [sp, #0x520]
+1c7274c  ldr	x2, [sp, #0x310]
+1c72750  ldr	x3, [sp, #0x308]
+1c72754  ldr	x4, [sp, #0x328]
+1c72758  ldr	x5, [sp, #0x528]
+1c7275c  ldr	x6, [sp, #0x530]
+1c72760  ldr	x7, [sp, #0x538]
+1c72764  ldr	x8, [sp, #0x540]
+1c72768  ldr	x9, [sp, #0x548]
+1c7276c  ldr	x10, [sp, #0x550]
+1c72770  ldr	x11, [sp, #0x2f0]
+1c72774  orr	x12, xzr, #0x1
+1c72778  bl	0x1c70440 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a7f60>   ; <noise.authenticateHCRelease>
+1c7277c  cbz	x0, 0x1c7281c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa33c>
+1c72780  add	x27, sp, #0x2f8
+1c72784  stp	xzr, xzr, [x27]
+1c72788  stp	x0, x1, [sp, #0x190]
+1c7278c  strb	wzr, [sp, #0x157]
+1c72790  ldr	x26, [sp, #0x500]
+1c72794  ldr	x0, [x26]
+1c72798  blr	x0
+1c7279c  ldp	x2, x3, [sp, #0x190]
+1c727a0  add	x27, sp, #0x2f8
+1c727a4  ldp	x0, x1, [x27]
+1c727a8  ldp	x29, x30, [sp, #-0x8]
+1c727ac  add	sp, sp, #0x510
+1c727b0  ret
+1c727b4  add	x27, sp, #0x2f8
+1c727b8  stp	xzr, xzr, [x27]
+1c727bc  stp	x5, x6, [sp, #0x190]
+1c727c0  strb	wzr, [sp, #0x157]
+1c727c4  ldr	x26, [sp, #0x500]
+1c727c8  ldr	x0, [x26]
+1c727cc  blr	x0
+1c727d0  ldp	x2, x3, [sp, #0x190]
+1c727d4  add	x27, sp, #0x2f8
+1c727d8  ldp	x0, x1, [x27]
+1c727dc  ldp	x29, x30, [sp, #-0x8]
+1c727e0  add	sp, sp, #0x510
+1c727e4  ret
+1c727e8  add	x27, sp, #0x2f8
+1c727ec  stp	xzr, xzr, [x27]
+1c727f0  stp	x3, x4, [sp, #0x190]
+1c727f4  strb	wzr, [sp, #0x157]
+1c727f8  ldr	x26, [sp, #0x500]
+1c727fc  ldr	x0, [x26]
+1c72800  blr	x0
+1c72804  ldp	x2, x3, [sp, #0x190]
+1c72808  add	x27, sp, #0x2f8
+1c7280c  ldp	x0, x1, [x27]
+1c72810  ldp	x29, x30, [sp, #-0x8]
+1c72814  add	sp, sp, #0x510
+1c72818  ret
+1c7281c  ldr	x0, [sp, #0x518]
+1c72820  ldr	x1, [sp, #0x520]
+1c72824  ldr	x2, [sp, #0x310]
+1c72828  ldr	x3, [sp, #0x308]
+1c7282c  bl	0x1c715e0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9100>   ; <noise.newSocket>
+1c72830  adrp x4, page
+1c72834  add	x4, x4, #0x7a0   ; =0x27747a0
+1c72838  add	x27, sp, #0x2f8
+1c7283c  stp	x4, x0, [x27]
+1c72840  stp	xzr, xzr, [sp, #0x190]
+1c72844  strb	wzr, [sp, #0x157]
+1c72848  ldr	x26, [sp, #0x500]
+1c7284c  ldr	x4, [x26]
+1c72850  blr	x4
+1c72854  ldp	x2, x3, [sp, #0x190]
+1c72858  add	x27, sp, #0x2f8
+1c7285c  ldp	x0, x1, [x27]
+1c72860  ldp	x29, x30, [sp, #-0x8]
+1c72864  add	sp, sp, #0x510
+1c72868  ret
+1c7286c  ldr	x1, [sp, #0x520]
+1c72870  mov	x2, x3
+1c72874  bl	0x1c711a0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a8cc0>   ; <noise.writeHCOnlyConfirmation>
+1c72878  cbz	x0, 0x1c7281c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa33c>
+1c7287c  add	x27, sp, #0x2f8
+1c72880  stp	xzr, xzr, [x27]
+1c72884  stp	x0, x1, [sp, #0x190]
+1c72888  strb	wzr, [sp, #0x157]
+1c7288c  ldr	x26, [sp, #0x500]
+1c72890  ldr	x0, [x26]
+1c72894  blr	x0
+1c72898  ldp	x2, x3, [sp, #0x190]
+1c7289c  add	x27, sp, #0x2f8
+1c728a0  ldp	x0, x1, [x27]
+1c728a4  ldp	x29, x30, [sp, #-0x8]
+1c728a8  add	sp, sp, #0x510
+1c728ac  ret
+1c728b0  and	x9, x7, x8
+1c728b4  lsl	x9, x9, #4
+1c728b8  add	x9, x9, #0x8
+1c728bc  ldr	x10, [x6, x9]
+1c728c0  add	x9, x6, x9
+1c728c4  cmp	x10, x1
+1c728c8  b.eq	0x1c728e4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa404>
+1c728cc  add	x7, x7, #0x1
+1c728d0  cbnz	x10, 0x1c728b0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa3d0>
+1c728d4  mov	x0, x5
+1c728d8  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c728dc  ldr	x3, [sp, #0x308]
+1c728e0  b	0x1c7286c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa38c>   ; <noise.newClientWithAuth>
+1c728e4  ldr	x5, [x9, #0x8]
+1c728e8  mov	x0, x5
+1c728ec  b	0x1c7286c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa38c>   ; <noise.newClientWithAuth>
+1c728f0  and	x6, x4, x5
+1c728f4  lsl	x6, x6, #4
+1c728f8  add	x6, x6, #0x8   ; =0x28b2008
+1c728fc  ldr	x7, [x3, x6]
+1c72900  add	x6, x3, x6
+1c72904  cmp	x7, x1
+1c72908  b.eq	0x1c72920 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa440>
+1c7290c  add	x4, x4, #0x1   ; =0x2774001
+1c72910  cbnz	x7, 0x1c728f0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa410>
+1c72914  mov	x0, x2
+1c72918  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c7291c  b	0x1c7256c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa08c>   ; <noise.newClientWithAuth>
+1c72920  ldr	x2, [x6, #0x8]
+1c72924  mov	x0, x2
+1c72928  b	0x1c7256c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa08c>   ; <noise.newClientWithAuth>
+1c7292c  and	x10, x8, x9
+1c72930  lsl	x10, x10, #4
+1c72934  add	x10, x10, #0x8
+1c72938  ldr	x11, [x7, x10]
+1c7293c  add	x10, x7, x10
+1c72940  cmp	x11, x5
+1c72944  b.eq	0x1c7297c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa49c>
+1c72948  add	x8, x8, #0x1
+1c7294c  cbnz	x11, 0x1c7292c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa44c>
+1c72950  str	x2, [sp, #0x180]
+1c72954  str	x1, [sp, #0x178]
+1c72958  str	x0, [sp, #0x320]
+1c7295c  mov	x0, x6
+1c72960  mov	x1, x5
+1c72964  bl	0x13abb50 <.text+0x1dc30>   ; <runtime.typeAssert>
+1c72968  ldr	x1, [sp, #0x178]
+1c7296c  ldr	x2, [sp, #0x180]
+1c72970  mov	x3, x0
+1c72974  ldr	x0, [sp, #0x320]
+1c72978  b	0x1c724f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa018>   ; <noise.newClientWithAuth>
+1c7297c  ldr	x5, [x10, #0x8]
+1c72980  mov	x3, x5
+1c72984  b	0x1c724f8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa018>   ; <noise.newClientWithAuth>
+1c72988  bl	0x13da690 <.text+0x4c770>   ; <runtime.deferreturn>
+1c7298c  ldr	x0, [sp, #0x2f8]
+1c72990  ldr	x1, [sp, #0x300]
+1c72994  ldr	x2, [sp, #0x190]
+1c72998  ldr	x3, [sp, #0x198]
+1c7299c  ldp	x29, x30, [sp, #-0x8]
+1c729a0  add	sp, sp, #0x510
+1c729a4  ret
+1c729a8  stp	x0, x1, [sp, #0x8]
+1c729ac  stp	x2, x3, [sp, #0x18]
+1c729b0  stp	x4, x5, [sp, #0x28]
+1c729b4  stp	x6, x7, [sp, #0x38]
+1c729b8  strb	w8, [sp, #0x48]
+1c729bc  str	x9, [sp, #0x50]
+1c729c0  mov	x3, x30
+1c729c4  bl	0x141a7a0 <.text+0x8c880>   ; <runtime.spillArgs>
+1c729c8  ldp	x0, x1, [sp, #0x8]
+1c729cc  ldp	x2, x3, [sp, #0x18]
+1c729d0  ldp	x4, x5, [sp, #0x28]
+1c729d4  ldp	x6, x7, [sp, #0x38]
+1c729d8  ldrb	w8, [sp, #0x48]
+1c729dc  ldr	x9, [sp, #0x50]
+1c729e0  b	0x1c72050 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7a9b70>   ; <noise.newClientWithAuth>
+1c729f0  ldr	x0, [x26, #0x8]
+1c729f4  cbz	x0, 0x1c72a0c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa52c>
+1c729f8  add	x0, x0, #0x38   ; =0x24dd038
+1c729fc  stp	xzr, xzr, [x0]
+1c72a00  stp	xzr, xzr, [x0, #0x10]
+1c72a04  stp	xzr, xzr, [x0, #0x20]
+1c72a08  stp	xzr, xzr, [x0, #0x30]
+1c72a0c  ret
+1c72a10  ldr	x16, [x28, #0x10]
+1c72a14  cmp	sp, x16
+1c72a18  b.ls	0x1c72ae0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa600>
+1c72a1c  str	x30, [sp, #-0x70]!
+1c72a20  stur	x29, [sp, #-0x8]
+1c72a24  sub	x29, sp, #0x8
+1c72a28  str	x0, [sp, #0x78]
+1c72a2c  bl	0x14b9610 <crosscall2+0x86930>   ; <encoding/hex.DecodeString>
+1c72a30  cbnz	x3, 0x1c72ad4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa5f4>
+1c72a34  cmp	x1, #0x20
+1c72a38  b.eq	0x1c72ad4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa5f4>
+1c72a3c  str	x0, [sp, #0x40]
+1c72a40  str	x1, [sp, #0x30]
+1c72a44  str	x2, [sp, #0x38]
+1c72a48  add	x2, sp, #0x48
+1c72a4c  stp	xzr, xzr, [x2]
+1c72a50  stp	xzr, xzr, [x2, #0x10]
+1c72a54  mov	x0, x1
+1c72a58  bl	0x1411f80 <.text+0x84060>   ; <runtime.convT64>
+1c72a5c  adrp x1, page
+1c72a60  add	x1, x1, #0x6c0   ; =0x23c16c0
+1c72a64  stp	x1, x0, [sp, #0x48]
+1c72a68  adrp x2, page
+1c72a6c  add	x2, x2, #0x830   ; =0x549830
+1c72a70  stp	x1, x2, [sp, #0x58]
+1c72a74  adrp x0, page
+1c72a78  add	x0, x0, #0xc6   ; =0x4d30c6 "length is %d, expected %dtls: protocol is shutdo"
+1c72a7c  mov	x1, #0x19               // =25
+1c72a80  add	x2, sp, #0x48
+1c72a84  orr	x3, xzr, #0x2
+1c72a88  mov	x4, x3
+1c72a8c  bl	0x1491d80 <crosscall2+0x5f0a0>   ; <fmt.errorf>
+1c72a90  cbnz	x0, 0x1c72ac0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7aa5e0>
+1c72a94  nop
+1c72a98  adrp x0, page
+1c72a9c  add	x0, x0, #0xae0   ; =0x24ddae0
+1c72aa0  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c72aa4  adrp x1, page
+1c72aa8  add	x1, x1, #0xc6   ; =0x4d30c6 "length is %d, expected %dtls: protocol is shutdo"
+1c72aac  mov	x2, #0x19               // =25

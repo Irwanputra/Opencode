@@ -1,0 +1,467 @@
+1c7cb20  b	0x1c7cae0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4600>   ; <slowdns.authenticateAutomatic.func1>
+1c7cb30  ldr	x16, [x28, #0x10]
+1c7cb34  cmp	sp, x16
+1c7cb38  b.ls	0x1c7cb5c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b467c>
+1c7cb3c  str	x30, [sp, #-0x20]!
+1c7cb40  stur	x29, [sp, #-0x8]
+1c7cb44  sub	x29, sp, #0x8
+1c7cb48  ldr	x0, [x26, #0x8]
+1c7cb4c  bl	0x1c63b00 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x79b620>   ; <github.com/xtaci/kcp-go/v5.(*UDPSession).Close>
+1c7cb50  ldur	x29, [sp, #-0x8]
+1c7cb54  ldr	x30, [sp], #0x20
+1c7cb58  ret
+1c7cb5c  mov	x3, x30
+1c7cb60  bl	0x141a720 <.text+0x8c800>   ; <runtime.morestack>
+1c7cb64  b	0x1c7cb30 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4650>   ; <slowdns.attemptRecord>
+1c7cb70  ldr	x16, [x28, #0x10]
+1c7cb74  sub	x17, sp, #0x260
+1c7cb78  cmp	x17, x16
+1c7cb7c  b.ls	0x1c7d2ac <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4dcc>
+1c7cb80  sub	x20, sp, #0x2e0
+1c7cb84  stp	x29, x30, [x20, #-0x8]
+1c7cb88  mov	sp, x20
+1c7cb8c  sub	x29, sp, #0x8
+1c7cb90  str	x2, [sp, #0x3f8]
+1c7cb94  strh	w3, [sp, #0x400]
+1c7cb98  str	x1, [sp, #0x3f0]
+1c7cb9c  str	x0, [sp, #0x3e8]
+1c7cba0  add	x27, sp, #0x338
+1c7cba4  ldp	x0, x1, [x27]
+1c7cba8  bl	0x1c42e70 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x77a990>   ; <dns.Limits.Validate>
+1c7cbac  cbnz	x0, 0x1c7d268 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4d88>
+1c7cbb0  add	x27, sp, #0x2e8
+1c7cbb4  ldp	x0, x1, [x27]
+1c7cbb8  ldr	x2, [sp, #0x2f8]
+1c7cbbc  add	x27, sp, #0x338
+1c7cbc0  ldp	x4, x5, [x27]
+1c7cbc4  ldrh	w3, [sp, #0x400]
+1c7cbc8  bl	0x1c93b10 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7cb630>   ; <slowdns.recordTransport>
+1c7cbcc  cmp	x4, #0x50
+1c7cbd0  b.lt	0x1c7cc00 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4720>
+1c7cbd4  strh	w3, [sp, #0x11e]
+1c7cbd8  str	x4, [sp, #0x130]
+1c7cbdc  str	x0, [sp, #0x2a0]
+1c7cbe0  str	x1, [sp, #0x140]
+1c7cbe4  str	x2, [sp, #0x148]
+1c7cbe8  ldrb	w5, [sp, #0x34a]
+1c7cbec  tbz	w5, #0x0, 0x1c7cc1c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b473c>
+1c7cbf0  ldrh	w5, [sp, #0x400]
+1c7cbf4  ubfx	x6, x3, #0, #16
+1c7cbf8  cmp	w6, w5
+1c7cbfc  b.eq	0x1c7cc1c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b473c>
+1c7cc00  adrp x27, page
+1c7cc04  add	x27, x27, #0x7d0   ; =0x28a67d0
+1c7cc08  ldp	x1, x2, [x27]
+1c7cc0c  mov	x0, xzr
+1c7cc10  ldp	x29, x30, [sp, #-0x8]
+1c7cc14  add	sp, sp, #0x2e0
+1c7cc18  ret
+1c7cc1c  ldr	x0, [sp, #0x3e8]
+1c7cc20  ldr	x1, [sp, #0x3f0]
+1c7cc24  bl	0x14a44e0 <crosscall2+0x71800>   ; <context.WithCancel>
+1c7cc28  str	x2, [sp, #0x2b8]
+1c7cc2c  str	x0, [sp, #0x150]
+1c7cc30  str	x1, [sp, #0x2c0]
+1c7cc34  add	x3, sp, #0x198
+1c7cc38  add	x4, sp, #0x2e8
+1c7cc3c  orr	x24, xzr, #0x4
+1c7cc40  ldp	q16, q17, [x4], #0x20
+1c7cc44  stp	q16, q17, [x3], #0x20
+1c7cc48  ldp	q16, q17, [x4], #0x20
+1c7cc4c  stp	q16, q17, [x3], #0x20
+1c7cc50  sub	x24, x24, #0x1
+1c7cc54  cbnz	x24, 0x1c7cc40 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4760>
+1c7cc58  ldr	x3, [sp, #0x260]
+1c7cc5c  cmp	x3, #0x0
+1c7cc60  mov	x4, #0xbc00             // =48128
+1c7cc64  movk	x4, #0x65a0, lsl #16
+1c7cc68  movk	x4, #0x1, lsl #32
+1c7cc6c  csel	x0, x3, x4, gt
+1c7cc70  mov	x1, x2
+1c7cc74  bl	0x146cd40 <crosscall2+0x3a060>   ; <time.AfterFunc>
+1c7cc78  str	x0, [sp, #0x160]
+1c7cc7c  ldr	x26, [sp, #0x3f8]
+1c7cc80  ldr	x2, [x26]
+1c7cc84  ldr	x0, [sp, #0x150]
+1c7cc88  ldr	x1, [sp, #0x2c0]
+1c7cc8c  blr	x2
+1c7cc90  str	x4, [sp, #0x138]
+1c7cc94  str	x5, [sp, #0x298]
+1c7cc98  cbz	x4, 0x1c7ccec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b480c>
+1c7cc9c  cbz	x0, 0x1c7ccb4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b47d4>
+1c7cca0  ldr	x2, [x0, #0x18]
+1c7cca4  mov	x0, x1
+1c7cca8  blr	x2
+1c7ccac  ldr	x4, [sp, #0x138]
+1c7ccb0  ldr	x5, [sp, #0x298]
+1c7ccb4  nop
+1c7ccb8  ldr	x0, [sp, #0x160]
+1c7ccbc  ldrb	w2, [x0, #0x8]
+1c7ccc0  tbz	w2, #0x0, 0x1c7d294 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4db4>
+1c7ccc4  bl	0x1418e90 <.text+0x8af70>   ; <time.stopTimer>
+1c7ccc8  ldr	x26, [sp, #0x2b8]
+1c7cccc  ldr	x1, [x26]
+1c7ccd0  blr	x1
+1c7ccd4  mov	x0, xzr
+1c7ccd8  ldr	x1, [sp, #0x138]
+1c7ccdc  ldr	x2, [sp, #0x298]
+1c7cce0  ldp	x29, x30, [sp, #-0x8]
+1c7cce4  add	sp, sp, #0x2e0
+1c7cce8  ret
+1c7ccec  str	x3, [sp, #0x180]
+1c7ccf0  str	x2, [sp, #0x120]
+1c7ccf4  str	x0, [sp, #0x128]
+1c7ccf8  str	x1, [sp, #0x188]
+1c7ccfc  add	x16, sp, #0x198
+1c7cd00  add	x17, sp, #0x2e8
+1c7cd04  orr	x24, xzr, #0x4
+1c7cd08  ldp	q16, q17, [x17], #0x20
+1c7cd0c  stp	q16, q17, [x16], #0x20
+1c7cd10  ldp	q16, q17, [x17], #0x20
+1c7cd14  stp	q16, q17, [x16], #0x20
+1c7cd18  sub	x24, x24, #0x1
+1c7cd1c  cbnz	x24, 0x1c7cd08 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4828>
+1c7cd20  ldrh	w7, [sp, #0x11e]
+1c7cd24  orr	x16, x7, #0x2
+1c7cd28  ubfx	x16, x16, #0, #16
+1c7cd2c  mov	x17, #0xff12            // =65298
+1c7cd30  cmp	w16, w17
+1c7cd34  b.ne	0x1c7cdd4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b48f4>
+1c7cd38  ldrb	w16, [sp, #0x1f9]
+1c7cd3c  tbnz	w16, #0x0, 0x1c7cd48 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4868>
+1c7cd40  mov	x6, xzr
+1c7cd44  b	0x1c7cdd8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b48f8>   ; <slowdns.attemptRecord>
+1c7cd48  adrp x0, page
+1c7cd4c  add	x0, x0, #0x860   ; =0x2637860
+1c7cd50  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7cd54  ldr	x1, [sp, #0x1f0]
+1c7cd58  cmp	x1, #0x0
+1c7cd5c  orr	x2, xzr, #0x1000
+1c7cd60  csel	x1, x2, x1, eq
+1c7cd64  cmp	x1, #0x200
+1c7cd68  b.le	0x1c7cdb0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b48d0>
+1c7cd6c  str	x0, [sp, #0x2a8]
+1c7cd70  adrp x0, page
+1c7cd74  add	x0, x0, #0x640   ; =0x23c8640
+1c7cd78  mov	x1, xzr
+1c7cd7c  bl	0x13a5570 <.text+0x17650>   ; <runtime.makechan>
+1c7cd80  adrp x27, page
+1c7cd84  ldr	w2, [x27, #0x8b0]
+1c7cd88  cbz	w2, 0x1c7cda4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b48c4>
+1c7cd8c  ldr	x16, [sp, #0x2a8]
+1c7cd90  ldr	x17, [x16]
+1c7cd94  str	x17, [sp, #0x158]
+1c7cd98  bl	0x141c800 <_cgo_topofstack+0xa0>   ; <runtime.gcWriteBarrier7>
+1c7cd9c  ldr	x16, [sp, #0x158]
+1c7cda0  stp	x0, x16, [x25]
+1c7cda4  ldr	x16, [sp, #0x2a8]
+1c7cda8  str	x0, [x16]
+1c7cdac  mov	x0, x16
+1c7cdb0  ldr	x1, [sp, #0x188]
+1c7cdb4  ldr	x2, [sp, #0x120]
+1c7cdb8  ldr	x3, [sp, #0x180]
+1c7cdbc  ldr	x4, [sp, #0x138]
+1c7cdc0  ldr	x5, [sp, #0x298]
+1c7cdc4  ldrh	w7, [sp, #0x11e]
+1c7cdc8  mov	x6, x0
+1c7cdcc  ldr	x0, [sp, #0x128]
+1c7cdd0  b	0x1c7cdd8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b48f8>   ; <slowdns.attemptRecord>
+1c7cdd4  mov	x6, xzr
+1c7cdd8  ldrb	w16, [sp, #0x1fb]
+1c7cddc  tbnz	w16, #0x0, 0x1c7cde8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4908>
+1c7cde0  mov	x8, xzr
+1c7cde4  b	0x1c7ce20 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4940>   ; <slowdns.attemptRecord>
+1c7cde8  str	x6, [sp, #0x2a8]
+1c7cdec  adrp x0, page
+1c7cdf0  add	x0, x0, #0x640   ; =0x23c8640
+1c7cdf4  mov	x1, xzr
+1c7cdf8  bl	0x13a5570 <.text+0x17650>   ; <runtime.makechan>
+1c7cdfc  ldr	x1, [sp, #0x188]
+1c7ce00  ldr	x2, [sp, #0x120]
+1c7ce04  ldr	x3, [sp, #0x180]
+1c7ce08  ldr	x4, [sp, #0x138]
+1c7ce0c  ldr	x5, [sp, #0x298]
+1c7ce10  ldr	x6, [sp, #0x2a8]
+1c7ce14  ldrh	w7, [sp, #0x11e]
+1c7ce18  mov	x8, x0
+1c7ce1c  ldr	x0, [sp, #0x128]
+1c7ce20  add	x27, sp, #0x2e8
+1c7ce24  ldp	x12, x13, [x27]
+1c7ce28  ldrb	w16, [sp, #0x349]
+1c7ce2c  tbz	w16, #0x0, 0x1c7ce38 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4958>
+1c7ce30  mov	x17, xzr
+1c7ce34  b	0x1c7ce3c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b495c>   ; <slowdns.attemptRecord>
+1c7ce38  ldr	x17, [sp, #0x3c8]
+1c7ce3c  str	x8, [sp, #0x2b0]
+1c7ce40  ldr	x14, [sp, #0x2f8]
+1c7ce44  add	x27, sp, #0x338
+1c7ce48  ldp	x19, x9, [x27]
+1c7ce4c  strb	w16, [sp, #0x8]
+1c7ce50  ldr	x4, [sp, #0x2a0]
+1c7ce54  ldr	x5, [sp, #0x140]
+1c7ce58  mov	x10, x8
+1c7ce5c  mov	x11, x6
+1c7ce60  mov	x15, x17
+1c7ce64  ldr	x6, [sp, #0x148]
+1c7ce68  mov	x8, x19
+1c7ce6c  bl	0x1c8ce80 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7c49a0>   ; <slowdns.newLimitedDNSPacketConn>
+1c7ce70  str	x0, [sp, #0x190]
+1c7ce74  ldr	x16, [sp, #0x328]
+1c7ce78  cmp	x16, #0x1
+1c7ce7c  b.le	0x1c7ce88 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b49a8>
+1c7ce80  orr	x1, xzr, #0x1
+1c7ce84  b	0x1c7ce8c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b49ac>   ; <slowdns.attemptRecord>
+1c7ce88  ldrb	w1, [sp, #0x349]
+1c7ce8c  strb	w1, [sp, #0x11d]
+1c7ce90  adrp x0, page
+1c7ce94  add	x0, x0, #0xe40   ; =0x26d1e40
+1c7ce98  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7ce9c  adrp x27, page
+1c7cea0  ldr	w1, [x27, #0x8b0]
+1c7cea4  cbnz	w1, 0x1c7ceb8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b49d8>
+1c7cea8  ldr	x1, [sp, #0x190]
+1c7ceac  ldr	x2, [sp, #0x188]
+1c7ceb0  ldr	x3, [sp, #0x2b8]
+1c7ceb4  b	0x1c7ced0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b49f0>   ; <slowdns.attemptRecord>
+1c7ceb8  bl	0x141c810 <_cgo_topofstack+0xb0>   ; <runtime.gcWriteBarrier8>
+1c7cebc  ldr	x1, [sp, #0x190]
+1c7cec0  str	x1, [x25]
+1c7cec4  ldr	x2, [sp, #0x188]
+1c7cec8  ldr	x3, [sp, #0x2b8]
+1c7cecc  stp	x2, x3, [x25, #0x8]
+1c7ced0  str	x0, [sp, #0x178]
+1c7ced4  ldr	x4, [sp, #0x128]
+1c7ced8  stp	x1, x4, [x0, #0x10]
+1c7cedc  stp	x2, x3, [x0, #0x20]
+1c7cee0  ldrb	w5, [sp, #0x11d]
+1c7cee4  strb	w5, [x0, #0x3c]
+1c7cee8  ldrb	w5, [sp, #0x349]
+1c7ceec  strb	w5, [x0, #0x50]
+1c7cef0  ldrb	w5, [sp, #0x349]
+1c7cef4  tbz	w5, #0x0, 0x1c7cf48 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4a68>
+1c7cef8  adrp x0, page
+1c7cefc  add	x0, x0, #0x60   ; =0x2510060
+1c7cf00  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7cf04  nop
+1c7cf08  adr	x1, 0x1c7d330 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4e50>   ; <slowdns.Start>
+1c7cf0c  str	x1, [x0]
+1c7cf10  adrp x27, page
+1c7cf14  ldr	w1, [x27, #0x8b0]
+1c7cf18  cbnz	w1, 0x1c7cf28 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4a48>
+1c7cf1c  ldr	x1, [sp, #0x178]
+1c7cf20  ldr	x3, [sp, #0x160]
+1c7cf24  b	0x1c7cf40 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4a60>   ; <slowdns.attemptRecord>
+1c7cf28  ldr	x1, [sp, #0x178]
+1c7cf2c  ldr	x2, [x1, #0x80]
+1c7cf30  bl	0x141c810 <_cgo_topofstack+0xb0>   ; <runtime.gcWriteBarrier8>
+1c7cf34  ldr	x3, [sp, #0x160]
+1c7cf38  str	x3, [x25]
+1c7cf3c  stp	x0, x2, [x25, #0x8]
+1c7cf40  str	x3, [x0, #0x8]
+1c7cf44  str	x0, [x1, #0x80]
+1c7cf48  adrp x0, page
+1c7cf4c  add	x0, x0, #0x960   ; =0x2595960
+1c7cf50  bl	0x13af780 <.text+0x21860>   ; <runtime.profilealloc>
+1c7cf54  nop
+1c7cf58  adr	x1, 0x1c7d2d0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4df0>   ; <slowdns.attemptRecord.func2>
+1c7cf5c  str	x1, [x0]
+1c7cf60  adrp x27, page
+1c7cf64  ldr	w1, [x27, #0x8b0]
+1c7cf68  cbnz	w1, 0x1c7cf78 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4a98>
+1c7cf6c  ldr	x3, [sp, #0x190]
+1c7cf70  ldr	x4, [sp, #0x188]
+1c7cf74  b	0x1c7cf88 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4aa8>   ; <slowdns.attemptRecord>
+1c7cf78  bl	0x141c800 <_cgo_topofstack+0xa0>   ; <runtime.gcWriteBarrier7>
+1c7cf7c  ldr	x3, [sp, #0x190]
+1c7cf80  ldr	x4, [sp, #0x188]
+1c7cf84  stp	x3, x4, [x25]
+1c7cf88  str	x3, [x0, #0x8]
+1c7cf8c  ldr	x3, [sp, #0x128]
+1c7cf90  stp	x3, x4, [x0, #0x10]
+1c7cf94  ldr	x1, [sp, #0x2c0]
+1c7cf98  mov	x2, x0
+1c7cf9c  ldr	x0, [sp, #0x150]
+1c7cfa0  bl	0x14a48f0 <crosscall2+0x71c10>   ; <context.AfterFunc>
+1c7cfa4  str	x0, [sp, #0x170]
+1c7cfa8  ldr	x26, [sp, #0x3d0]
+1c7cfac  cbnz	x26, 0x1c7cfbc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4adc>
+1c7cfb0  ldr	x0, [sp, #0x138]
+1c7cfb4  ldr	x1, [sp, #0x298]
+1c7cfb8  b	0x1c7cfd0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4af0>   ; <slowdns.attemptRecord>
+1c7cfbc  ldr	x3, [x26]
+1c7cfc0  ldr	x0, [sp, #0x128]
+1c7cfc4  ldr	x1, [sp, #0x188]
+1c7cfc8  ldr	x2, [sp, #0x190]
+1c7cfcc  blr	x3
+1c7cfd0  str	x0, [sp, #0x138]
+1c7cfd4  cbz	x0, 0x1c7cfe0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4b00>
+1c7cfd8  mov	x2, x0
+1c7cfdc  b	0x1c7d080 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4ba0>   ; <slowdns.attemptRecord>
+1c7cfe0  add	x2, sp, #0x8
+1c7cfe4  add	x3, sp, #0x2e8
+1c7cfe8  orr	x24, xzr, #0x4
+1c7cfec  ldp	q16, q17, [x3], #0x20
+1c7cff0  stp	q16, q17, [x2], #0x20
+1c7cff4  ldp	q16, q17, [x3], #0x20
+1c7cff8  stp	q16, q17, [x2], #0x20
+1c7cffc  sub	x24, x24, #0x1
+1c7d000  cbnz	x24, 0x1c7cfec <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4b0c>
+1c7d004  ldr	x0, [sp, #0x2b8]
+1c7d008  ldr	x1, [sp, #0x2b0]
+1c7d00c  bl	0x1c9a220 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7d1d40>   ; <slowdns.stopUnansweredExtendedST>
+1c7d010  str	x0, [sp, #0x168]
+1c7d014  ldrb	w2, [sp, #0x330]
+1c7d018  tbz	w2, #0x0, 0x1c7d02c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4b4c>
+1c7d01c  ldr	x11, [sp, #0x328]
+1c7d020  cmp	x11, #0x1
+1c7d024  cset	x11, gt
+1c7d028  b	0x1c7d030 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4b50>   ; <slowdns.attemptRecord>
+1c7d02c  mov	x11, xzr
+1c7d030  add	x27, sp, #0x300
+1c7d034  ldp	x2, x3, [x27]
+1c7d038  ldr	x4, [sp, #0x310]
+1c7d03c  ldr	x8, [sp, #0x320]
+1c7d040  ldr	x0, [sp, #0x150]
+1c7d044  ldr	x1, [sp, #0x2c0]
+1c7d048  ldr	x5, [sp, #0x120]
+1c7d04c  ldr	x6, [sp, #0x180]
+1c7d050  ldr	x7, [sp, #0x178]
+1c7d054  ldr	x9, [sp, #0x130]
+1c7d058  mov	x10, x11
+1c7d05c  bl	0x1c7c480 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b3fa0>   ; <slowdns.authenticateAutomatic>
+1c7d060  str	x0, [sp, #0x158]
+1c7d064  str	x1, [sp, #0x298]
+1c7d068  ldr	x26, [sp, #0x168]
+1c7d06c  ldr	x11, [x26]
+1c7d070  blr	x11
+1c7d074  ldr	x2, [sp, #0x138]
+1c7d078  ldr	x0, [sp, #0x158]
+1c7d07c  ldr	x1, [sp, #0x298]
+1c7d080  ldr	x3, [sp, #0x160]
+1c7d084  ldrb	w4, [x3, #0x8]
+1c7d088  tbz	w4, #0x0, 0x1c7d280 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4da0>
+1c7d08c  str	x0, [sp, #0x158]
+1c7d090  str	x1, [sp, #0x298]
+1c7d094  mov	x0, x3
+1c7d098  bl	0x1418e90 <.text+0x8af70>   ; <time.stopTimer>
+1c7d09c  strb	w0, [sp, #0x11c]
+1c7d0a0  tbnz	w0, #0x0, 0x1c7d0ac <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4bcc>
+1c7d0a4  orr	x1, xzr, #0x1
+1c7d0a8  b	0x1c7d0c8 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4be8>   ; <slowdns.attemptRecord>
+1c7d0ac  ldr	x1, [sp, #0x150]
+1c7d0b0  ldr	x1, [x1, #0x28]
+1c7d0b4  ldr	x0, [sp, #0x2c0]
+1c7d0b8  blr	x1
+1c7d0bc  cmp	x0, #0x0
+1c7d0c0  cset	x1, ne
+1c7d0c4  ldrb	w0, [sp, #0x11c]
+1c7d0c8  tbnz	w1, #0x0, 0x1c7d0e0 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4c00>
+1c7d0cc  ldr	x0, [sp, #0x138]
+1c7d0d0  ldr	x4, [sp, #0x178]
+1c7d0d4  ldr	x1, [sp, #0x158]
+1c7d0d8  ldr	x2, [sp, #0x298]
+1c7d0dc  b	0x1c7d190 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cb0>   ; <slowdns.attemptRecord>
+1c7d0e0  adrp x27, page
+1c7d0e4  add	x27, x27, #0xb40   ; =0x28a6b40
+1c7d0e8  ldp	x1, x2, [x27]
+1c7d0ec  str	x1, [sp, #0x158]
+1c7d0f0  str	x2, [sp, #0x298]
+1c7d0f4  ldr	x1, [sp, #0x3e8]
+1c7d0f8  ldr	x1, [x1, #0x28]
+1c7d0fc  ldr	x0, [sp, #0x3f0]
+1c7d100  blr	x1
+1c7d104  cbz	x0, 0x1c7d11c <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4c3c>
+1c7d108  ldr	x4, [sp, #0x178]
+1c7d10c  mov	x2, x1
+1c7d110  mov	x1, x0
+1c7d114  ldr	x0, [sp, #0x138]
+1c7d118  b	0x1c7d190 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cb0>   ; <slowdns.attemptRecord>
+1c7d11c  ldrb	w0, [sp, #0x11c]
+1c7d120  tbz	w0, #0x0, 0x1c7d138 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4c58>
+1c7d124  ldr	x0, [sp, #0x138]
+1c7d128  ldr	x4, [sp, #0x178]
+1c7d12c  ldr	x1, [sp, #0x158]
+1c7d130  ldr	x2, [sp, #0x298]
+1c7d134  b	0x1c7d190 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cb0>   ; <slowdns.attemptRecord>
+1c7d138  ldr	x0, [sp, #0x138]
+1c7d13c  cbz	x0, 0x1c7d150 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4c70>
+1c7d140  ldr	x4, [sp, #0x178]
+1c7d144  ldr	x1, [sp, #0x158]
+1c7d148  ldr	x2, [sp, #0x298]
+1c7d14c  b	0x1c7d190 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cb0>   ; <slowdns.attemptRecord>
+1c7d150  ldrb	w4, [sp, #0x349]
+1c7d154  tbz	w4, #0x0, 0x1c7d168 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4c88>
+1c7d158  ldr	x4, [sp, #0x178]
+1c7d15c  ldr	x1, [sp, #0x158]
+1c7d160  ldr	x2, [sp, #0x298]
+1c7d164  b	0x1c7d190 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cb0>   ; <slowdns.attemptRecord>
+1c7d168  ldr	x4, [sp, #0x178]
+1c7d16c  ldr	x5, [x4, #0x40]
+1c7d170  cbz	x5, 0x1c7d180 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4ca0>
+1c7d174  ldr	x1, [sp, #0x158]
+1c7d178  ldr	x2, [sp, #0x298]
+1c7d17c  b	0x1c7d190 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cb0>   ; <slowdns.attemptRecord>
+1c7d180  adrp x1, page
+1c7d184  add	x1, x1, #0xd20   ; =0x275fd20
+1c7d188  adrp x2, page
+1c7d18c  add	x2, x2, #0x720   ; =0x2918720
+1c7d190  cbnz	x1, 0x1c7d1dc <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4cfc>
+1c7d194  ldr	x5, [sp, #0x190]
+1c7d198  ldr	x5, [x5, #0x48]
+1c7d19c  cbz	x5, 0x1c7d1c4 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4ce4>
+1c7d1a0  add	x4, x5, #0x30
+1c7d1a4  nop
+1c7d1a8  nop
+1c7d1ac  orr	x6, xzr, #0x1
+1c7d1b0  stlr	w6, [x4]
+1c7d1b4  ldp	x2, x3, [x5, #0x88]
+1c7d1b8  ldp	x0, x1, [x5, #0x78]
+1c7d1bc  bl	0x1c90970 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7c8490>   ; <slowdns.forgetFTRecoveryStartup>
+1c7d1c0  ldr	x4, [sp, #0x178]
+1c7d1c4  mov	x0, x4
+1c7d1c8  mov	x1, xzr
+1c7d1cc  mov	x2, xzr
+1c7d1d0  ldp	x29, x30, [sp, #-0x8]
+1c7d1d4  add	sp, sp, #0x2e0
+1c7d1d8  ret
+1c7d1dc  str	x2, [sp, #0x298]
+1c7d1e0  str	x1, [sp, #0x158]
+1c7d1e4  ldr	x26, [sp, #0x170]
+1c7d1e8  ldr	x0, [x26]
+1c7d1ec  blr	x0
+1c7d1f0  ldr	x0, [sp, #0x178]
+1c7d1f4  bl	0x1c7c350 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b3e70>   ; <slowdns.(*automaticSession).close>
+1c7d1f8  ldr	x0, [sp, #0x138]
+1c7d1fc  cbnz	x0, 0x1c7d250 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4d70>
+1c7d200  ldr	x0, [sp, #0x2b0]
+1c7d204  cbz	x0, 0x1c7d250 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4d70>
+1c7d208  ldr	x3, [sp, #0x178]
+1c7d20c  ldr	x3, [x3, #0x40]
+1c7d210  cbnz	x3, 0x1c7d250 <_cgoexp_f6c40ca2f9f3_onLowMemory+0x7b4d70>
+1c7d214  ldr	x2, [sp, #0x158]
+1c7d218  ldr	x3, [sp, #0x298]
+1c7d21c  add	x27, sp, #0x2c8
+1c7d220  stp	x2, x3, [x27]
+1c7d224  adrp x0, page
+1c7d228  add	x0, x0, #0xb40   ; =0x2586b40
+1c7d22c  add	x1, sp, #0x2c8
+1c7d230  bl	0x13ab880 <.text+0x1d960>   ; <runtime.convT>
+1c7d234  adrp x1, page
+1c7d238  add	x1, x1, #0xc00   ; =0x275fc00
+1c7d23c  mov	x2, x0
+1c7d240  mov	x0, xzr
+1c7d244  ldp	x29, x30, [sp, #-0x8]
+1c7d248  add	sp, sp, #0x2e0
+1c7d24c  ret
+1c7d250  mov	x0, xzr
+1c7d254  ldr	x1, [sp, #0x158]
+1c7d258  ldr	x2, [sp, #0x298]
+1c7d25c  ldp	x29, x30, [sp, #-0x8]
+1c7d260  add	sp, sp, #0x2e0
+1c7d264  ret
+1c7d268  mov	x2, x1
+1c7d26c  mov	x1, x0
+1c7d270  mov	x0, xzr
+1c7d274  ldp	x29, x30, [sp, #-0x8]
+1c7d278  add	sp, sp, #0x2e0
+1c7d27c  ret

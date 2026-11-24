@@ -1,0 +1,24 @@
+HTTP/2 302 
+date: Tue, 24 Nov 2026 17:32:52 GMT
+content-length: 0
+location: https://static.apk20.com/xq4qCo2Nfwae-BgFUXigkCiWG7wKxAiP
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+strict-transport-security: max-age=31536000; includeSubDomains
+x-frame-options: DENY
+access-control-allow-origin: *
+access-control-allow-credentials: true
+access-control-allow-methods: GET, POST, PUT, DELETE, OPTIONS
+access-control-allow-headers: DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization
+access-control-max-age: 1728000
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=IG7NdORTTQyTkGFVRStvmF0AIbVF0UWkgbRDtajxMyphrXhQHQRy9oCM8rZj8byLQRbN1H%2FCw8yaDsX%2FZPxu7FtqBcUVqob4JH6K94E3d%2FgxxOetj9WsAiwRsW5j0t8o"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a5fa27cd7baef46e-SJC
+alt-svc: h3=":443"; ma=86400
+

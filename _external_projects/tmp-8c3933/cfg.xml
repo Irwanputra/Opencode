@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="profiles">[{"id":1,"name":"Uji SlowDNS","host":"10.0.2.2","port":22,"user":"runner","pass":"wanz123","transport":"plain","slowdns":true,"slowdnsResolver":"10.0.2.2:5399","slowdnsDomain":"t.example.com","slowdnsPubkey":"eb18016bd23f5e38abd22636953a942bc525cac8795963e4679ac2c69e2ac110","slowdnsType":"NULL","slowdnsMode":"STANDARD","slowdnsQname":0,"slowdnsEdns":0,"slowdnsWindow":0,"slowdnsSessions":1,"slowdnsMultiLogin":false,"slowdnsCalibrate":false}]</string>
+    <long name="activeProfile" value="1" />
+</map>

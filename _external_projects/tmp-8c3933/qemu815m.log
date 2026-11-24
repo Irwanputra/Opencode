@@ -1,0 +1,2 @@
+qemu-system-aarch64: -monitor tcp:127.0.0.1:4556,server=on: info: QEMU waiting for connection on: disconnected:tcp:127.0.0.1:4556,server=on
+qemu-system-aarch64: -serial telnet:127.0.0.1:4445,server: info: QEMU waiting for connection on: disconnected:telnet:127.0.0.1:4445,server=on
